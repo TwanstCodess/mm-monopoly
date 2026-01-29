@@ -121,6 +121,12 @@ class GameEngine {
         actionType: TileActionType.nothing,
         message: 'Welcome home to ${property.name}!',
       );
+    } else if (property.isMortgaged) {
+      // No rent on mortgaged properties
+      return TileResolutionResult(
+        actionType: TileActionType.nothing,
+        message: '${property.name} is mortgaged - no rent due!',
+      );
     } else {
       // Pay rent (with Phase 3 modifiers)
       int rent = property.currentRent;
@@ -156,6 +162,12 @@ class GameEngine {
         actionType: TileActionType.nothing,
         message: 'Welcome to your railroad!',
       );
+    } else if (railroad.isMortgaged) {
+      // No rent on mortgaged properties
+      return TileResolutionResult(
+        actionType: TileActionType.nothing,
+        message: '${railroad.name} is mortgaged - no rent due!',
+      );
     } else {
       final ownedCount = _countOwnedRailroads(railroad.ownerId!);
       int rent = railroad.getRent(ownedCount);
@@ -190,6 +202,12 @@ class GameEngine {
       return TileResolutionResult(
         actionType: TileActionType.nothing,
         message: 'Welcome to your utility!',
+      );
+    } else if (utility.isMortgaged) {
+      // No rent on mortgaged properties
+      return TileResolutionResult(
+        actionType: TileActionType.nothing,
+        message: '${utility.name} is mortgaged - no rent due!',
       );
     } else {
       final ownedCount = _countOwnedUtilities(utility.ownerId!);
@@ -346,6 +364,87 @@ class GameEngine {
     player.cash -= cost;
     property.upgradeLevel++;
     return true;
+  }
+
+  /// Mortgage a property to receive cash
+  bool mortgageProperty(Player player, TileData tile) {
+    int mortgageValue = 0;
+
+    if (tile is PropertyTileData) {
+      if (tile.ownerId != player.id || !tile.canMortgage) return false;
+      mortgageValue = tile.mortgageValue;
+      tile.isMortgaged = true;
+    } else if (tile is RailroadTileData) {
+      if (tile.ownerId != player.id || !tile.canMortgage) return false;
+      mortgageValue = tile.mortgageValue;
+      tile.isMortgaged = true;
+    } else if (tile is UtilityTileData) {
+      if (tile.ownerId != player.id || !tile.canMortgage) return false;
+      mortgageValue = tile.mortgageValue;
+      tile.isMortgaged = true;
+    } else {
+      return false;
+    }
+
+    player.cash += mortgageValue;
+    return true;
+  }
+
+  /// Unmortgage a property by paying the mortgage cost + 10% interest
+  bool unmortgageProperty(Player player, TileData tile) {
+    int unmortgageCost = 0;
+
+    if (tile is PropertyTileData) {
+      if (tile.ownerId != player.id || !tile.canUnmortgage) return false;
+      unmortgageCost = tile.unmortgageCost;
+      if (player.cash < unmortgageCost) return false;
+      tile.isMortgaged = false;
+    } else if (tile is RailroadTileData) {
+      if (tile.ownerId != player.id || !tile.canUnmortgage) return false;
+      unmortgageCost = tile.unmortgageCost;
+      if (player.cash < unmortgageCost) return false;
+      tile.isMortgaged = false;
+    } else if (tile is UtilityTileData) {
+      if (tile.ownerId != player.id || !tile.canUnmortgage) return false;
+      unmortgageCost = tile.unmortgageCost;
+      if (player.cash < unmortgageCost) return false;
+      tile.isMortgaged = false;
+    } else {
+      return false;
+    }
+
+    player.cash -= unmortgageCost;
+    return true;
+  }
+
+  /// Get all properties owned by a player that can be mortgaged
+  List<TileData> getMortgageableProperties(Player player) {
+    final result = <TileData>[];
+    for (final tile in state.tiles) {
+      if (tile is PropertyTileData && tile.ownerId == player.id && tile.canMortgage) {
+        result.add(tile);
+      } else if (tile is RailroadTileData && tile.ownerId == player.id && tile.canMortgage) {
+        result.add(tile);
+      } else if (tile is UtilityTileData && tile.ownerId == player.id && tile.canMortgage) {
+        result.add(tile);
+      }
+    }
+    return result;
+  }
+
+  /// Get all mortgaged properties owned by a player
+  List<TileData> getMortgagedProperties(Player player) {
+    final result = <TileData>[];
+    for (final tile in state.tiles) {
+      if (tile is PropertyTileData && tile.ownerId == player.id && tile.isMortgaged) {
+        result.add(tile);
+      } else if (tile is RailroadTileData && tile.ownerId == player.id && tile.isMortgaged) {
+        result.add(tile);
+      } else if (tile is UtilityTileData && tile.ownerId == player.id && tile.isMortgaged) {
+        result.add(tile);
+      }
+    }
+    return result;
   }
 
   /// Process passing GO (collect $200)
