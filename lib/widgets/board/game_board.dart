@@ -16,6 +16,11 @@ class GameBoard extends StatelessWidget {
   final Widget? centerControls;
   final List<TileData>? tiles;
   final VoidCallback? onMenuTap;
+  final void Function(TileData)? onTileTap;
+  final bool isChanceHighlighted;
+  final bool isChestHighlighted;
+  final VoidCallback? onChanceTap;
+  final VoidCallback? onChestTap;
 
   const GameBoard({
     super.key,
@@ -27,6 +32,11 @@ class GameBoard extends StatelessWidget {
     this.centerControls,
     this.tiles,
     this.onMenuTap,
+    this.onTileTap,
+    this.isChanceHighlighted = false,
+    this.isChestHighlighted = false,
+    this.onChanceTap,
+    this.onChestTap,
   });
 
   @override
@@ -47,23 +57,12 @@ class GameBoard extends StatelessWidget {
             color: const Color(0xFFCCE5CC),
             border: Border.all(color: Colors.black, width: 3),
             borderRadius: BorderRadius.circular(6),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.5),
-                blurRadius: 20,
-                offset: const Offset(5, 5),
-              ),
-            ],
+            boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.5), blurRadius: 20, offset: const Offset(5, 5))],
           ),
           child: Stack(
             children: [
               // Center area
-              _CenterArea(
-                boardSize: boardSize,
-                cornerSize: cornerSize,
-                centerControls: centerControls,
-                onMenuTap: onMenuTap,
-              ),
+              _CenterArea(boardSize: boardSize, cornerSize: cornerSize, centerControls: centerControls, onMenuTap: onMenuTap, isChanceHighlighted: isChanceHighlighted, isChestHighlighted: isChestHighlighted, onChanceTap: onChanceTap, onChestTap: onChestTap),
               // All tiles
               ..._buildAllTiles(boardTiles, boardSize, cornerSize, tileWidth, tileHeight),
               // All player tokens
@@ -75,21 +74,9 @@ class GameBoard extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildAllTiles(
-    List<TileData> tileData,
-    double boardSize,
-    double cornerSize,
-    double tileWidth,
-    double tileHeight,
-  ) {
+  List<Widget> _buildAllTiles(List<TileData> tileData, double boardSize, double cornerSize, double tileWidth, double tileHeight) {
     return tileData.map((data) {
-      final position = _calculateTilePosition(
-        data.index,
-        boardSize,
-        cornerSize,
-        tileWidth,
-        tileHeight,
-      );
+      final position = _calculateTilePosition(data.index, boardSize, cornerSize, tileWidth, tileHeight);
 
       // Find owner color if property is owned
       Color? ownerColor;
@@ -104,23 +91,11 @@ class GameBoard extends StatelessWidget {
         ownerColor = owner?.color;
       }
 
-      return PositionedTileWidget(
-        data: data,
-        position: position,
-        isHighlighted: highlightedTile == data.index,
-        glowController: glowController,
-        ownerColor: ownerColor,
-      );
+      return PositionedTileWidget(data: data, position: position, isHighlighted: highlightedTile == data.index, glowController: glowController, ownerColor: ownerColor, onTap: onTileTap);
     }).toList();
   }
 
-  TilePosition _calculateTilePosition(
-    int index,
-    double boardSize,
-    double cornerSize,
-    double tileWidth,
-    double tileHeight,
-  ) {
+  TilePosition _calculateTilePosition(int index, double boardSize, double cornerSize, double tileWidth, double tileHeight) {
     double left, top, width, height;
     int rotation = 0;
 
@@ -177,28 +152,11 @@ class GameBoard extends StatelessWidget {
       rotation = 3;
     }
 
-    return TilePosition(
-      index: index,
-      left: left,
-      top: top,
-      width: width,
-      height: height,
-      rotation: rotation,
-    );
+    return TilePosition(index: index, left: left, top: top, width: width, height: height, rotation: rotation);
   }
 
-  List<Widget> _buildAllPlayerTokens(
-    double boardSize,
-    double cornerSize,
-    double tileWidth,
-    double tileHeight,
-  ) {
-    final calculator = TokenPositionCalculator(
-      boardSize: boardSize,
-      cornerSize: cornerSize,
-      tileWidth: tileWidth,
-      tileHeight: tileHeight,
-    );
+  List<Widget> _buildAllPlayerTokens(double boardSize, double cornerSize, double tileWidth, double tileHeight) {
+    final calculator = TokenPositionCalculator(boardSize: boardSize, cornerSize: cornerSize, tileWidth: tileWidth, tileHeight: tileHeight);
 
     final tokenSize = tileWidth * 0.35;
 
@@ -210,13 +168,7 @@ class GameBoard extends StatelessWidget {
       // Get position with stacking offset
       final pos = calculator.getPlayerPosition(player, players, index);
 
-      return AnimatedPlayerToken(
-        player: player,
-        position: pos,
-        size: tokenSize,
-        isCurrentPlayer: isCurrentPlayer,
-        bounceAnimation: bounceAnimation,
-      );
+      return AnimatedPlayerToken(player: player, position: pos, size: tokenSize, isCurrentPlayer: isCurrentPlayer, bounceAnimation: bounceAnimation);
     }).toList();
   }
 }
@@ -227,13 +179,12 @@ class _CenterArea extends StatelessWidget {
   final double cornerSize;
   final Widget? centerControls;
   final VoidCallback? onMenuTap;
+  final bool isChanceHighlighted;
+  final bool isChestHighlighted;
+  final VoidCallback? onChanceTap;
+  final VoidCallback? onChestTap;
 
-  const _CenterArea({
-    required this.boardSize,
-    required this.cornerSize,
-    this.centerControls,
-    this.onMenuTap,
-  });
+  const _CenterArea({required this.boardSize, required this.cornerSize, this.centerControls, this.onMenuTap, this.isChanceHighlighted = false, this.isChestHighlighted = false, this.onChanceTap, this.onChestTap});
 
   @override
   Widget build(BuildContext context) {
@@ -247,48 +198,53 @@ class _CenterArea extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(color: Color(0xFFCCE5CC)),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Logo
-                _buildLogo(),
-                const SizedBox(height: 20),
-                // Controls (dice + roll button)
-                if (centerControls != null) centerControls!,
-                if (centerControls != null) const SizedBox(height: 20),
-                // Card decks
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    CardDeck(
-                      label: 'CHANCE',
-                      color: Colors.orange,
-                      icon: Icons.help_outline,
+                const SizedBox(height: 60),
+                // Logo at top (with more spacing from tiles)
+                Center(child: _buildVegasLogo()),
+                const Spacer(),
+                // Controls (dice only, no button)
+                if (centerControls != null) Center(child: centerControls!),
+                const Spacer(),
+                // Card decks at bottom - centered and moved up
+                Center(
+                  child: Transform.translate(
+                    offset: const Offset(0, -30), // Move up 30px
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CardDeck(label: 'CHANCE', color: Colors.orange, icon: Icons.help_outline, isHighlighted: isChanceHighlighted, onTap: onChanceTap),
+                        const SizedBox(width: 16), // Reduced gap for better centering
+                        CardDeck(label: 'CHEST', color: Colors.blue, icon: Icons.inventory_2, isHighlighted: isChestHighlighted, onTap: onChestTap),
+                      ],
                     ),
-                    SizedBox(width: 16),
-                    CardDeck(
-                      label: 'CHEST',
-                      color: Colors.blue,
-                      icon: Icons.inventory_2,
-                    ),
-                  ],
+                  ),
                 ),
+                const SizedBox(height: 12),
               ],
             ),
           ),
           // Menu button inside board (top-right of center area)
           if (onMenuTap != null)
             Positioned(
-              top: 4,
-              right: 4,
+              top: 8,
+              right: 8,
               child: Material(
-                color: Colors.black54,
-                borderRadius: BorderRadius.circular(8),
+                color: Colors.transparent,
                 child: InkWell(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(10),
                   onTap: onMenuTap,
-                  child: const Padding(
-                    padding: EdgeInsets.all(8),
-                    child: Icon(Icons.menu, color: Colors.white, size: 22),
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Colors.grey.shade700, Colors.grey.shade800]),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.white24, width: 1),
+                      boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 4, offset: const Offset(0, 2))],
+                    ),
+                    child: const Icon(Icons.menu_rounded, color: Colors.white, size: 20),
                   ),
                 ),
               ),
@@ -298,63 +254,158 @@ class _CenterArea extends StatelessWidget {
     );
   }
 
-  Widget _buildLogo() {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      decoration: BoxDecoration(
-        color: Colors.red.shade700,
-        borderRadius: BorderRadius.circular(6),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.3),
-            blurRadius: 6,
-            offset: const Offset(2, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'M',
-                style: TextStyle(
-                  color: Colors.yellow.shade300,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const Text(
-                '&',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                'M',
-                style: TextStyle(
-                  color: Colors.green.shade300,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-          const Text(
-            'MONOPOLY',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 3,
+  /// Vegas-style welcome sign shaped logo
+  Widget _buildVegasLogo() {
+    return CustomPaint(
+      painter: _VegasSignPainter(),
+      child: Container(
+        width: 320,
+        height: 110,
+        padding: const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 14),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // "M&M" at top
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [_buildOutlinedText('M', Colors.red.shade400, 28, strokeWidth: 3), _buildOutlinedText('&', Colors.amber, 20, strokeWidth: 2), _buildOutlinedText('M', Colors.green.shade400, 28, strokeWidth: 3)],
             ),
-          ),
-        ],
+            const SizedBox(height: 2),
+            // "PROPERTY TYCOON" on one line
+            Stack(
+              children: [
+                Text(
+                  'PROPERTY TYCOON',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w900,
+                    letterSpacing: 2,
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 3
+                      ..color = Colors.white,
+                  ),
+                ),
+                ShaderMask(
+                  shaderCallback: (bounds) => const LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Colors.white, Colors.amber]).createShader(bounds),
+                  child: const Text(
+                    'PROPERTY TYCOON',
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.w900, letterSpacing: 2, color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 6),
+            // Light bulbs row
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(17, (i) {
+                final colors = [Colors.red, Colors.yellow, Colors.green, Colors.blue, Colors.orange];
+                final color = colors[i % colors.length];
+                return Container(
+                  width: 6,
+                  height: 6,
+                  margin: const EdgeInsets.symmetric(horizontal: 2),
+                  decoration: BoxDecoration(
+                    color: color,
+                    shape: BoxShape.circle,
+                    boxShadow: [BoxShadow(color: color, blurRadius: 4, spreadRadius: 1)],
+                  ),
+                );
+              }),
+            ),
+          ],
+        ),
       ),
     );
   }
+
+  Widget _buildOutlinedText(String text, Color fillColor, double fontSize, {double strokeWidth = 2}) {
+    return Stack(
+      children: [
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: fontSize,
+            fontWeight: FontWeight.w900,
+            letterSpacing: 1,
+            foreground: Paint()
+              ..style = PaintingStyle.stroke
+              ..strokeWidth = strokeWidth
+              ..color = Colors.white,
+          ),
+        ),
+        Text(
+          text,
+          style: TextStyle(color: fillColor, fontSize: fontSize, fontWeight: FontWeight.w900, letterSpacing: 1),
+        ),
+      ],
+    );
+  }
+}
+
+class _VegasSignPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final width = size.width;
+    final height = size.height;
+
+    final path = Path();
+    const topRadius = 14.0;
+    const bottomPointHeight = 12.0;
+
+    path.moveTo(topRadius, 0);
+    path.lineTo(width - topRadius, 0);
+    path.arcToPoint(Offset(width, topRadius), radius: const Radius.circular(topRadius));
+    path.lineTo(width, height - bottomPointHeight);
+    path.lineTo(width / 2, height);
+    path.lineTo(0, height - bottomPointHeight);
+    path.lineTo(0, topRadius);
+    path.arcToPoint(Offset(topRadius, 0), radius: const Radius.circular(topRadius));
+    path.close();
+
+    canvas.save();
+    canvas.translate(3, 3);
+    final shadowPaint = Paint()
+      ..color = Colors.black.withOpacity(0.35)
+      ..style = PaintingStyle.fill;
+    canvas.drawPath(path, shadowPaint);
+    canvas.restore();
+
+    final bgPaint = Paint()
+      ..shader = LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Colors.red.shade500, Colors.red.shade700, Colors.red.shade900]).createShader(Rect.fromLTWH(0, 0, width, height))
+      ..style = PaintingStyle.fill;
+    canvas.drawPath(path, bgPaint);
+
+    final borderPaint = Paint()
+      ..shader = LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Colors.amber.shade400, Colors.amber.shade700, Colors.amber.shade500]).createShader(Rect.fromLTWH(0, 0, width, height))
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 4;
+    canvas.drawPath(path, borderPaint);
+
+    final innerPath = Path();
+    const inset = 6.0;
+    const innerTopRadius = 10.0;
+
+    innerPath.moveTo(inset + innerTopRadius, inset);
+    innerPath.lineTo(width - inset - innerTopRadius, inset);
+    innerPath.arcToPoint(Offset(width - inset, inset + innerTopRadius), radius: const Radius.circular(innerTopRadius));
+    innerPath.lineTo(width - inset, height - bottomPointHeight - 3);
+    innerPath.lineTo(width / 2, height - inset);
+    innerPath.lineTo(inset, height - bottomPointHeight - 3);
+    innerPath.lineTo(inset, inset + innerTopRadius);
+    innerPath.arcToPoint(Offset(inset + innerTopRadius, inset), radius: const Radius.circular(innerTopRadius));
+    innerPath.close();
+
+    final innerBorderPaint = Paint()
+      ..color = Colors.amber.shade200.withOpacity(0.4)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.5;
+    canvas.drawPath(innerPath, innerBorderPaint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

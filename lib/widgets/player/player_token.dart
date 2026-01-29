@@ -2,13 +2,19 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import '../../models/player.dart';
 import '../../config/constants.dart' as constants;
+import 'player_token_3d.dart';
 
-/// Widget for rendering a player token on the board
+// Re-export 3D token components for easy access
+export 'player_token_3d.dart'
+    show PlayerToken3D, ArcAnimatedPlayerToken3D, HoppingPlayerToken3D;
+
+/// Widget for rendering a player token on the board - now uses 3D by default
 class PlayerToken extends StatelessWidget {
   final Player player;
   final double size;
   final bool isCurrentPlayer;
   final double bounceOffset;
+  final bool use3D;
 
   const PlayerToken({
     super.key,
@@ -16,10 +22,20 @@ class PlayerToken extends StatelessWidget {
     required this.size,
     this.isCurrentPlayer = false,
     this.bounceOffset = 0,
+    this.use3D = true, // 3D by default
   });
 
   @override
   Widget build(BuildContext context) {
+    if (use3D) {
+      return PlayerToken3D(
+        player: player,
+        size: size,
+        isCurrentPlayer: isCurrentPlayer,
+      );
+    }
+
+    // Legacy 2D token
     return Container(
       width: size,
       height: size,
@@ -32,13 +48,13 @@ class PlayerToken extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.4),
+            color: Colors.black.withValues(alpha: 0.4),
             blurRadius: 4,
             offset: Offset(1, 1 + bounceOffset / 4),
           ),
           if (isCurrentPlayer)
             BoxShadow(
-              color: player.color.withOpacity(0.6),
+              color: player.color.withValues(alpha: 0.6),
               blurRadius: 10,
               spreadRadius: 2,
             ),
@@ -78,11 +94,13 @@ class AnimatedPlayerToken extends StatelessWidget {
       builder: (context, child) {
         final bounce = isCurrentPlayer ? sin(bounceAnimation.value * pi) * 10 : 0.0;
 
+        // 3D pawn is 1.5x height, offset to place base at position
+        final pawnHeight = size * 1.5;
         return AnimatedPositioned(
           duration: const Duration(milliseconds: 150),
           curve: Curves.easeOut,
           left: position.dx - size / 2,
-          top: position.dy - size / 2 - bounce,
+          top: position.dy - pawnHeight + size * 0.35 - bounce,
           child: PlayerToken(
             player: player,
             size: size,
@@ -95,14 +113,15 @@ class AnimatedPlayerToken extends StatelessWidget {
   }
 }
 
-/// Enhanced token with arc movement and landing bounce animation
-class ArcAnimatedPlayerToken extends StatefulWidget {
+/// Enhanced token with arc movement and landing bounce animation - now uses 3D by default
+class ArcAnimatedPlayerToken extends StatelessWidget {
   final Player player;
   final Offset targetPosition;
   final double size;
   final bool isCurrentPlayer;
   final bool isMoving;
   final VoidCallback? onMoveComplete;
+  final bool use3D;
 
   const ArcAnimatedPlayerToken({
     super.key,
@@ -112,13 +131,56 @@ class ArcAnimatedPlayerToken extends StatefulWidget {
     required this.isCurrentPlayer,
     this.isMoving = false,
     this.onMoveComplete,
+    this.use3D = true, // 3D by default
   });
 
   @override
-  State<ArcAnimatedPlayerToken> createState() => _ArcAnimatedPlayerTokenState();
+  Widget build(BuildContext context) {
+    if (use3D) {
+      return ArcAnimatedPlayerToken3D(
+        player: player,
+        targetPosition: targetPosition,
+        size: size,
+        isCurrentPlayer: isCurrentPlayer,
+        isMoving: isMoving,
+        onMoveComplete: onMoveComplete,
+      );
+    }
+
+    return _ArcAnimatedPlayerToken2D(
+      player: player,
+      targetPosition: targetPosition,
+      size: size,
+      isCurrentPlayer: isCurrentPlayer,
+      isMoving: isMoving,
+      onMoveComplete: onMoveComplete,
+    );
+  }
 }
 
-class _ArcAnimatedPlayerTokenState extends State<ArcAnimatedPlayerToken>
+/// Legacy 2D arc animated token
+class _ArcAnimatedPlayerToken2D extends StatefulWidget {
+  final Player player;
+  final Offset targetPosition;
+  final double size;
+  final bool isCurrentPlayer;
+  final bool isMoving;
+  final VoidCallback? onMoveComplete;
+
+  const _ArcAnimatedPlayerToken2D({
+    required this.player,
+    required this.targetPosition,
+    required this.size,
+    required this.isCurrentPlayer,
+    this.isMoving = false,
+    this.onMoveComplete,
+  });
+
+  @override
+  State<_ArcAnimatedPlayerToken2D> createState() => _ArcAnimatedPlayerToken2DState();
+}
+
+class _ArcAnimatedPlayerToken2DState extends State<_ArcAnimatedPlayerToken2D>
     with TickerProviderStateMixin {
   late AnimationController _moveController;
   late AnimationController _bounceController;
@@ -249,7 +311,7 @@ class _ArcAnimatedPlayerTokenState extends State<ArcAnimatedPlayerToken>
   }
 
   @override
-  void didUpdateWidget(ArcAnimatedPlayerToken oldWidget) {
+  void didUpdateWidget(_ArcAnimatedPlayerToken2D oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     // Handle movement
@@ -327,6 +389,7 @@ class _ArcAnimatedPlayerTokenState extends State<ArcAnimatedPlayerToken>
               size: widget.size,
               isCurrentPlayer: widget.isCurrentPlayer,
               bounceOffset: _hasLanded ? _landingBounceAnimation.value : 0,
+              use3D: false, // Use 2D for legacy animated token
             ),
           ),
         );
@@ -335,13 +398,14 @@ class _ArcAnimatedPlayerTokenState extends State<ArcAnimatedPlayerToken>
   }
 }
 
-/// Simple token that hops between positions with a small arc
-class HoppingPlayerToken extends StatefulWidget {
+/// Simple token that hops between positions with a small arc - now uses 3D by default
+class HoppingPlayerToken extends StatelessWidget {
   final Player player;
   final Offset position;
   final double size;
   final bool isCurrentPlayer;
   final bool shouldAnimate;
+  final bool use3D;
 
   const HoppingPlayerToken({
     super.key,
@@ -350,13 +414,52 @@ class HoppingPlayerToken extends StatefulWidget {
     required this.size,
     required this.isCurrentPlayer,
     this.shouldAnimate = true,
+    this.use3D = true, // 3D by default
   });
 
   @override
-  State<HoppingPlayerToken> createState() => _HoppingPlayerTokenState();
+  Widget build(BuildContext context) {
+    if (use3D) {
+      return HoppingPlayerToken3D(
+        player: player,
+        position: position,
+        size: size,
+        isCurrentPlayer: isCurrentPlayer,
+        shouldAnimate: shouldAnimate,
+      );
+    }
+
+    return _HoppingPlayerToken2D(
+      player: player,
+      position: position,
+      size: size,
+      isCurrentPlayer: isCurrentPlayer,
+      shouldAnimate: shouldAnimate,
+    );
+  }
 }
 
-class _HoppingPlayerTokenState extends State<HoppingPlayerToken>
+/// Legacy 2D hopping token
+class _HoppingPlayerToken2D extends StatefulWidget {
+  final Player player;
+  final Offset position;
+  final double size;
+  final bool isCurrentPlayer;
+  final bool shouldAnimate;
+
+  const _HoppingPlayerToken2D({
+    required this.player,
+    required this.position,
+    required this.size,
+    required this.isCurrentPlayer,
+    this.shouldAnimate = true,
+  });
+
+  @override
+  State<_HoppingPlayerToken2D> createState() => _HoppingPlayerToken2DState();
+}
+
+class _HoppingPlayerToken2DState extends State<_HoppingPlayerToken2D>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _hopAnimation;
@@ -417,7 +520,7 @@ class _HoppingPlayerTokenState extends State<HoppingPlayerToken>
   }
 
   @override
-  void didUpdateWidget(HoppingPlayerToken oldWidget) {
+  void didUpdateWidget(_HoppingPlayerToken2D oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (widget.position != _currentPosition && widget.shouldAnimate) {
@@ -476,6 +579,7 @@ class _HoppingPlayerTokenState extends State<HoppingPlayerToken>
               player: widget.player,
               size: widget.size,
               isCurrentPlayer: widget.isCurrentPlayer,
+              use3D: false, // Use 2D for legacy animated token
             ),
           ),
         );

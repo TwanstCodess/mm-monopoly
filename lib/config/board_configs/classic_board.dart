@@ -55,7 +55,7 @@ class ClassicBoard {
       _card(17, 'Community Chest', false),
       _property(18, 'Tennessee Ave', 'orange', PropertyGroups.orange, 180, [14, 70, 200, 550, 750, 950]),
       _property(19, 'New York Ave', 'orange', PropertyGroups.orange, 200, [16, 80, 220, 600, 800, 1000]),
-      _corner(20, 'FREE PARKING', TileType.freeParking),
+      _corner(20, 'LUCKY SPIN', TileType.freeParking),
 
       // Top row (left to right: 21-30)
       _property(21, 'Kentucky Ave', 'red', PropertyGroups.red, 220, [18, 90, 250, 700, 875, 1050]),
