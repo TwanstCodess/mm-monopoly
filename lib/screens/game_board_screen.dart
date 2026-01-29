@@ -11,19 +11,23 @@ import '../widgets/dialogs/buy_property_dialog.dart';
 import '../widgets/dialogs/rent_payment_dialog.dart';
 import '../widgets/dialogs/tax_payment_dialog.dart';
 import '../widgets/dialogs/game_menu_dialog.dart';
-// import '../widgets/dialogs/game_over_dialog.dart'; // Replaced by VictoryScreen
 import '../widgets/dialogs/jail_dialog.dart';
 import '../widgets/dialogs/card_dialog.dart';
 import '../widgets/dialogs/property_upgrade_dialog.dart';
 import '../widgets/dialogs/spin_wheel_dialog.dart';
 import '../widgets/dialogs/event_dialog.dart';
 import '../widgets/dialogs/ai_action_dialog.dart';
+import '../widgets/dialogs/auction_dialog.dart';
+import '../widgets/dialogs/trade_dialog.dart';
+import '../widgets/dialogs/property_management_dialog.dart';
 import '../widgets/cards/power_up_card_widget.dart';
 import '../engine/game_engine.dart';
 import '../models/tile.dart';
 import '../models/spin_prize.dart';
 import '../models/event_card.dart';
 import '../models/power_up_card.dart';
+import '../models/trade.dart';
+import '../models/ai_player.dart';
 import 'mini_games/memory_match_game.dart';
 import 'mini_games/quick_tap_game.dart';
 import 'victory_screen.dart';
@@ -60,12 +64,32 @@ class _GameBoardScreenState extends State<GameBoardScreen>
   int _totalRounds = 1;
   bool _isPaused = false; // Track if game menu is open
 
+  // Phase 4: AI Decision Engines per AI player
+  final Map<String, AIDecisionEngine> _aiEngines = {};
+
   @override
   void initState() {
     super.initState();
     gameState = widget.gameState;
     engine = GameEngine(gameState);
     _initializeAnimations();
+    _initializeAIEngines();
+  }
+
+  void _initializeAIEngines() {
+    for (final player in gameState.players) {
+      if (player.isAI) {
+        // Create AI engine with random personality for variety
+        final personalities = AIPersonality.values;
+        final personality = personalities[_random.nextInt(personalities.length)];
+        _aiEngines[player.id] = AIDecisionEngine(
+          config: AIConfig(
+            difficulty: AIDifficulty.medium,
+            personality: personality,
+          ),
+        );
+      }
+    }
   }
 
   void _initializeAnimations() {
@@ -140,36 +164,38 @@ class _GameBoardScreenState extends State<GameBoardScreen>
                       : _buildLandscapeLayout();
                 },
               ),
-              // Phase 3: Power-up cards button
-              if (!gameState.currentPlayer.isAI &&
-                  gameState.getPowerUps(gameState.currentPlayer.id).isNotEmpty)
+              // Phase 4: Action buttons (Trade, Mortgage, Power-ups)
+              if (!gameState.currentPlayer.isAI)
                 Positioned(
                   top: 8,
                   left: 8,
-                  child: Material(
-                    color: Colors.amber.withOpacity(0.9),
-                    borderRadius: BorderRadius.circular(8),
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(8),
-                      onTap: _showPowerUpHand,
-                      child: Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Icon(Icons.style, color: Colors.white, size: 20),
-                            const SizedBox(width: 4),
-                            Text(
-                              '${gameState.getPowerUps(gameState.currentPlayer.id).length}',
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
+                  child: Row(
+                    children: [
+                      // Trade button
+                      _buildActionButton(
+                        icon: Icons.swap_horiz,
+                        label: 'Trade',
+                        color: Colors.teal,
+                        onTap: _showTradeDialog,
                       ),
-                    ),
+                      const SizedBox(width: 8),
+                      // Mortgage button
+                      _buildActionButton(
+                        icon: Icons.account_balance,
+                        label: 'Bank',
+                        color: Colors.deepPurple,
+                        onTap: _showMortgageDialog,
+                      ),
+                      const SizedBox(width: 8),
+                      // Power-up cards button (if has cards)
+                      if (gameState.getPowerUps(gameState.currentPlayer.id).isNotEmpty)
+                        _buildActionButton(
+                          icon: Icons.style,
+                          label: '${gameState.getPowerUps(gameState.currentPlayer.id).length}',
+                          color: Colors.amber,
+                          onTap: _showPowerUpHand,
+                        ),
+                    ],
                   ),
                 ),
               // Phase 3: Active event indicators
@@ -485,22 +511,20 @@ class _GameBoardScreenState extends State<GameBoardScreen>
   }
 
   Future<void> _handleBuyOption(Player player, TileData tile) async {
-    // AI automatically decides whether to buy
+    // AI automatically decides whether to buy using enhanced AI engine
     if (player.isAI) {
       await Future.delayed(const Duration(milliseconds: 300));
 
-      // Get property price
-      int? price;
-      if (tile is PropertyTileData) {
-        price = tile.price;
-      } else if (tile is RailroadTileData) {
-        price = tile.price;
-      } else if (tile is UtilityTileData) {
-        price = tile.price;
-      }
+      final aiEngine = _aiEngines[player.id];
+      final shouldBuy = aiEngine?.shouldBuyProperty(player, tile, gameState) ??
+          _defaultAIShouldBuy(player, tile);
 
-      // AI buys if they can afford it and have enough cash left over
-      if (price != null && player.cash >= price + 100) {
+      if (shouldBuy) {
+        int? price;
+        if (tile is PropertyTileData) price = tile.price;
+        else if (tile is RailroadTileData) price = tile.price;
+        else if (tile is UtilityTileData) price = tile.price;
+
         await _showAIActionNotification(
           player.name,
           'Bought ${tile.name} for \$$price!',
@@ -510,6 +534,9 @@ class _GameBoardScreenState extends State<GameBoardScreen>
         if (engine.buyProperty(player, tile)) {
           setState(() {});
         }
+      } else {
+        // AI declined - start auction for all players
+        await _startAuction(tile);
       }
       return;
     }
@@ -524,19 +551,65 @@ class _GameBoardScreenState extends State<GameBoardScreen>
           setState(() {});
         }
       },
-      onSkip: () {
-        // Player chose not to buy
+      onSkip: () async {
+        // Player chose not to buy - start auction
+        await _startAuction(tile);
+      },
+    );
+  }
+
+  bool _defaultAIShouldBuy(Player player, TileData tile) {
+    int? price;
+    if (tile is PropertyTileData) price = tile.price;
+    else if (tile is RailroadTileData) price = tile.price;
+    else if (tile is UtilityTileData) price = tile.price;
+    return price != null && player.cash >= price + 100;
+  }
+
+  Future<void> _startAuction(TileData tile) async {
+    if (!mounted) return;
+
+    final activePlayers = gameState.players
+        .where((p) => p.status == PlayerStatus.active)
+        .toList();
+
+    if (activePlayers.length < 2) return;
+
+    await showAuctionDialog(
+      context: context,
+      property: tile,
+      participants: activePlayers,
+      onAuctionComplete: (winner, amount) {
+        // Winner pays and gets property
+        winner.cash -= amount;
+        if (tile is PropertyTileData) {
+          tile.ownerId = winner.id;
+          winner.propertyIds.add(tile.index.toString());
+        } else if (tile is RailroadTileData) {
+          tile.ownerId = winner.id;
+          winner.propertyIds.add(tile.index.toString());
+        } else if (tile is UtilityTileData) {
+          tile.ownerId = winner.id;
+          winner.propertyIds.add(tile.index.toString());
+        }
+        setState(() {});
+      },
+      onNoWinner: () {
+        // Property goes back to bank (no change needed)
       },
     );
   }
 
   Future<void> _handleUpgradeOption(Player player, PropertyTileData property) async {
-    // AI automatically decides whether to upgrade
+    // AI automatically decides whether to upgrade using enhanced AI engine
     if (player.isAI) {
       await Future.delayed(const Duration(milliseconds: 300));
 
-      // AI upgrades if they can afford it and have $200 buffer remaining
-      if (player.cash >= property.upgradeCost + 200) {
+      final aiEngine = _aiEngines[player.id];
+      final shouldUpgrade = aiEngine?.shouldUpgradeProperty(player, property, gameState) ??
+          (player.cash >= property.upgradeCost + 200);
+
+      if (shouldUpgrade) {
         final levelName = property.upgradeLevel < 4 ? 'house' : 'hotel';
         await _showAIActionNotification(
           player.name,
@@ -1102,6 +1175,153 @@ class _GameBoardScreenState extends State<GameBoardScreen>
             _endTurn();
           }
         });
+      },
+    );
+  }
+
+  // ==========================================================================
+  // Phase 4: Action Button Widget Builder
+  // ==========================================================================
+  Widget _buildActionButton({
+    required IconData icon,
+    required String label,
+    required Color color,
+    required VoidCallback onTap,
+  }) {
+    return Material(
+      color: color.withOpacity(0.9),
+      borderRadius: BorderRadius.circular(8),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(8),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(icon, color: Colors.white, size: 18),
+              const SizedBox(width: 4),
+              Text(
+                label,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // ==========================================================================
+  // Phase 4: Trade Dialog
+  // ==========================================================================
+  void _showTradeDialog() {
+    final currentPlayer = gameState.currentPlayer;
+    final otherPlayers = gameState.players
+        .where((p) => p.id != currentPlayer.id && p.status == PlayerStatus.active)
+        .toList();
+
+    if (otherPlayers.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('No other players to trade with!'),
+          duration: Duration(seconds: 2),
+        ),
+      );
+      return;
+    }
+
+    showTradeDialog(
+      context: context,
+      currentPlayer: currentPlayer,
+      otherPlayers: otherPlayers,
+      tiles: gameState.tiles,
+      onTradeProposed: _handleTradeProposal,
+    );
+  }
+
+  Future<void> _handleTradeProposal(TradeOffer offer) async {
+    final recipient = offer.recipient;
+
+    // AI evaluates trade
+    if (recipient.isAI) {
+      await Future.delayed(const Duration(milliseconds: 500));
+
+      final aiEngine = _aiEngines[recipient.id];
+      final shouldAccept = aiEngine?.shouldAcceptTrade(offer, recipient, gameState) ??
+          AITradeStrategy.shouldAcceptTrade(offer, recipient);
+
+      if (shouldAccept) {
+        await _showAIActionNotification(
+          recipient.name,
+          'Accepted the trade!',
+          Icons.handshake,
+          Colors.green,
+        );
+        offer.execute();
+        setState(() {});
+      } else {
+        await _showAIActionNotification(
+          recipient.name,
+          'Rejected the trade.',
+          Icons.cancel,
+          Colors.red,
+        );
+      }
+      return;
+    }
+
+    // Human recipient sees trade response dialog
+    if (!mounted) return;
+    await showTradeResponseDialog(
+      context: context,
+      offer: offer,
+      onAccept: () {
+        offer.execute();
+        setState(() {});
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Trade completed!'),
+            backgroundColor: Colors.green,
+            duration: Duration(seconds: 2),
+          ),
+        );
+      },
+      onReject: () {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Trade rejected.'),
+            backgroundColor: Colors.red,
+            duration: Duration(seconds: 2),
+          ),
+        );
+      },
+    );
+  }
+
+  // ==========================================================================
+  // Phase 4: Mortgage Dialog
+  // ==========================================================================
+  void _showMortgageDialog() {
+    final currentPlayer = gameState.currentPlayer;
+
+    showPropertyManagementDialog(
+      context: context,
+      player: currentPlayer,
+      tiles: gameState.tiles,
+      onMortgage: (tile) {
+        if (engine.mortgageProperty(currentPlayer, tile)) {
+          setState(() {});
+        }
+      },
+      onUnmortgage: (tile) {
+        if (engine.unmortgageProperty(currentPlayer, tile)) {
+          setState(() {});
+        }
       },
     );
   }

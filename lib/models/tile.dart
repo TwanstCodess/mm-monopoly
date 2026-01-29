@@ -88,6 +88,18 @@ class PropertyTileData extends TileData {
   bool get isOwned => ownerId != null;
   bool get canUpgrade => upgradeLevel < 5 && !isMortgaged;
 
+  /// Mortgage value is 50% of the property price
+  int get mortgageValue => (price * 0.5).round();
+
+  /// Cost to unmortgage is mortgage value + 10% interest
+  int get unmortgageCost => (mortgageValue * 1.1).round();
+
+  /// Can only mortgage if owned and not already mortgaged
+  bool get canMortgage => isOwned && !isMortgaged && upgradeLevel == 0;
+
+  /// Can unmortgage if currently mortgaged
+  bool get canUnmortgage => isOwned && isMortgaged;
+
   /// Cost to upgrade (buy one house or hotel) - 50% of property price
   int get upgradeCost => (price * 0.5).round();
 
@@ -140,12 +152,14 @@ class PropertyTileData extends TileData {
 class RailroadTileData extends TileData {
   final int price;
   String? ownerId;
+  bool isMortgaged;
 
   RailroadTileData({
     required super.index,
     required super.name,
     this.price = 200,
     this.ownerId,
+    this.isMortgaged = false,
   }) : super(
           type: TileType.railroad,
           color: Colors.white,
@@ -153,9 +167,24 @@ class RailroadTileData extends TileData {
 
   /// Rent depends on how many railroads owned (25, 50, 100, 200)
   int getRent(int railroadsOwned) {
+    if (isMortgaged) return 0;
     const rents = [25, 50, 100, 200];
     return rents[(railroadsOwned - 1).clamp(0, 3)];
   }
+
+  bool get isOwned => ownerId != null;
+
+  /// Mortgage value is 50% of the property price
+  int get mortgageValue => (price * 0.5).round();
+
+  /// Cost to unmortgage is mortgage value + 10% interest
+  int get unmortgageCost => (mortgageValue * 1.1).round();
+
+  /// Can only mortgage if owned and not already mortgaged
+  bool get canMortgage => isOwned && !isMortgaged;
+
+  /// Can unmortgage if currently mortgaged
+  bool get canUnmortgage => isOwned && isMortgaged;
 }
 
 /// Utility tile data
@@ -163,6 +192,7 @@ class UtilityTileData extends TileData {
   final int price;
   final bool isElectric;
   String? ownerId;
+  bool isMortgaged;
 
   UtilityTileData({
     required super.index,
@@ -170,6 +200,7 @@ class UtilityTileData extends TileData {
     required this.isElectric,
     this.price = 150,
     this.ownerId,
+    this.isMortgaged = false,
   }) : super(
           type: TileType.utility,
           color: Colors.white,
@@ -177,8 +208,23 @@ class UtilityTileData extends TileData {
 
   /// Rent is dice roll * 4 (one utility) or * 10 (both utilities)
   int getRent(int diceRoll, int utilitiesOwned) {
+    if (isMortgaged) return 0;
     return diceRoll * (utilitiesOwned == 2 ? 10 : 4);
   }
+
+  bool get isOwned => ownerId != null;
+
+  /// Mortgage value is 50% of the property price
+  int get mortgageValue => (price * 0.5).round();
+
+  /// Cost to unmortgage is mortgage value + 10% interest
+  int get unmortgageCost => (mortgageValue * 1.1).round();
+
+  /// Can only mortgage if owned and not already mortgaged
+  bool get canMortgage => isOwned && !isMortgaged;
+
+  /// Can unmortgage if currently mortgaged
+  bool get canUnmortgage => isOwned && isMortgaged;
 }
 
 /// Tax tile data
