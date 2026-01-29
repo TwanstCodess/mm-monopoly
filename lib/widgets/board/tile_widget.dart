@@ -9,14 +9,7 @@ class TileWidget extends StatelessWidget {
   final bool isHighlighted;
   final Color? ownerColor; // Color of the player who owns this property
 
-  const TileWidget({
-    super.key,
-    required this.data,
-    required this.isCorner,
-    this.rotation = 0,
-    this.isHighlighted = false,
-    this.ownerColor,
-  });
+  const TileWidget({super.key, required this.data, required this.isCorner, this.rotation = 0, this.isHighlighted = false, this.ownerColor});
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +18,7 @@ class TileWidget extends StatelessWidget {
       return Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          border: Border.all(
-            color: isHighlighted ? Colors.amber : Colors.black,
-            width: isHighlighted ? 2 : 1,
-          ),
+          border: Border.all(color: isHighlighted ? Colors.amber : Colors.black, width: isHighlighted ? 2 : 1),
         ),
         child: _buildCornerTile(),
       );
@@ -38,89 +28,251 @@ class TileWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(
-          color: isHighlighted ? Colors.amber : Colors.black,
-          width: isHighlighted ? 2 : 1,
-        ),
+        border: Border.all(color: isHighlighted ? Colors.amber : Colors.black, width: isHighlighted ? 2 : 1),
       ),
       child: Stack(
         children: [
           _buildPropertyTile(),
-          // Owner indicator (only for owned properties)
-          if (ownerColor != null) _buildOwnerIndicator(),
-          // House/hotel indicator (only for upgraded properties)
-          if (data is PropertyTileData &&
-              (data as PropertyTileData).upgradeLevel > 0)
-            _buildHouseIndicator(),
+          // Show ownership indicator:
+          // - Small dot when owned but no upgrades
+          // - Houses when upgraded (1-4 houses, or hotel at level 5)
+          if (ownerColor != null) _buildOwnershipIndicator(),
         ],
       ),
     );
   }
 
-  /// Build owner color dot indicator
-  Widget _buildOwnerIndicator() {
-    return Positioned(
-      top: 2,
-      right: 2,
-      child: Container(
-        width: 10,
-        height: 10,
+  /// Build ownership indicator
+  /// - Small dot when owned but no upgrades
+  /// - Houses when upgraded (1-4 houses)
+  /// - Hotel at level 5
+  Widget _buildOwnershipIndicator() {
+    int upgradeLevel = 0;
+    if (data is PropertyTileData) {
+      upgradeLevel = (data as PropertyTileData).upgradeLevel;
+    }
+
+    // Position indicator facing toward center of board (near color band)
+    double? top, bottom, left, right;
+    bool isVertical = rotation == 1 || rotation == 3;
+
+    // Position near the color band
+    switch (rotation) {
+      case 0: // Bottom row - at TOP, near color band
+        top = 2;
+        right = 2;
+        break;
+      case 1: // Left column - at RIGHT, near color band
+        top = 2;
+        right = 2;
+        break;
+      case 2: // Top row - at BOTTOM, near color band
+        bottom = 2;
+        left = 2;
+        break;
+      case 3: // Right column - at LEFT, near color band
+        bottom = 2;
+        left = 2;
+        break;
+    }
+
+    Widget indicator;
+
+    if (upgradeLevel == 0) {
+      // No upgrades - show ownership dot in player color (larger & more visible)
+      indicator = Container(
+        width: 14,
+        height: 14,
         decoration: BoxDecoration(
-          color: ownerColor,
+          gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [ownerColor!.withOpacity(0.9), ownerColor!]),
           shape: BoxShape.circle,
-          border: Border.all(color: Colors.white, width: 1),
+          border: Border.all(color: Colors.white, width: 2),
           boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.3),
-              blurRadius: 2,
-            ),
+            BoxShadow(color: ownerColor!.withOpacity(0.6), blurRadius: 4, spreadRadius: 1),
+            BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 2, offset: const Offset(1, 1)),
           ],
         ),
+      );
+    } else if (upgradeLevel == 5) {
+      // Hotel at level 5
+      indicator = _build3DHotel();
+    } else {
+      // Houses (1-4) in player color
+      final houseCount = upgradeLevel.clamp(1, 4);
+      indicator = isVertical
+          ? Column(
+              mainAxisSize: MainAxisSize.min,
+              children: List.generate(houseCount, (_) => Padding(padding: const EdgeInsets.only(bottom: 2), child: _build3DHouse(ownerColor!))),
+            )
+          : Row(
+              mainAxisSize: MainAxisSize.min,
+              children: List.generate(houseCount, (_) => Padding(padding: const EdgeInsets.only(right: 2), child: _build3DHouse(ownerColor!))),
+            );
+    }
+
+    return Positioned(top: top, bottom: bottom, left: left, right: right, child: indicator);
+  }
+
+  /// Build a 3D house widget in player's color
+  Widget _build3DHouse(Color playerColor) {
+    const houseWidth = 14.0;
+    const houseHeight = 16.0;
+    const bodyHeight = 9.0;
+    const roofHeight = 8.0;
+
+    // Create color variants from the player color
+    final HSLColor hsl = HSLColor.fromColor(playerColor);
+    final Color darkColor = hsl.withLightness((hsl.lightness - 0.3).clamp(0.0, 1.0)).toColor();
+    final Color lightColor = hsl.withLightness((hsl.lightness + 0.1).clamp(0.0, 1.0)).toColor();
+    final Color roofColor = hsl.withLightness((hsl.lightness - 0.15).clamp(0.0, 1.0)).toColor();
+    final Color roofDarkColor = hsl.withLightness((hsl.lightness - 0.25).clamp(0.0, 1.0)).toColor();
+
+    return SizedBox(
+      width: houseWidth,
+      height: houseHeight,
+      child: Stack(
+        children: [
+          // 3D shadow layer (offset bottom-right)
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: Container(
+              width: houseWidth - 1,
+              height: bodyHeight,
+              decoration: BoxDecoration(color: darkColor, borderRadius: BorderRadius.circular(1)),
+            ),
+          ),
+          // House body (main layer)
+          Positioned(
+            bottom: 1,
+            left: 0,
+            child: Container(
+              width: houseWidth - 1,
+              height: bodyHeight,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [lightColor, playerColor]),
+                borderRadius: BorderRadius.circular(1),
+                border: Border.all(color: darkColor, width: 0.5),
+              ),
+            ),
+          ),
+          // Roof (triangle) - shadow
+          Positioned(
+            top: 1,
+            left: 1,
+            child: CustomPaint(
+              size: Size(houseWidth - 1, roofHeight),
+              painter: _RoofPainter(color: roofDarkColor, shadowColor: roofDarkColor),
+            ),
+          ),
+          // Roof (triangle) - main
+          Positioned(
+            top: 0,
+            left: 0,
+            child: CustomPaint(
+              size: Size(houseWidth - 1, roofHeight),
+              painter: _RoofPainter(color: roofColor, shadowColor: roofDarkColor),
+            ),
+          ),
+        ],
       ),
     );
   }
 
-  /// Build house/hotel indicator
-  Widget _buildHouseIndicator() {
-    final property = data as PropertyTileData;
-    final level = property.upgradeLevel;
+  /// Build a 3D hotel widget - larger and more visible
+  Widget _build3DHotel() {
+    const hotelWidth = 20.0;
+    const hotelHeight = 18.0;
+    const bodyHeight = 12.0;
 
-    if (level == 5) {
-      // Hotel - red rectangle
-      return Positioned(
-        bottom: 2,
-        left: 2,
-        child: Container(
-          width: 10,
-          height: 6,
-          decoration: BoxDecoration(
-            color: Colors.red,
-            borderRadius: BorderRadius.circular(1),
-            border: Border.all(color: Colors.red.shade900, width: 0.5),
+    return SizedBox(
+      width: hotelWidth,
+      height: hotelHeight,
+      child: Stack(
+        children: [
+          // 3D shadow layer (offset bottom-right)
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: Container(
+              width: hotelWidth - 2,
+              height: bodyHeight,
+              decoration: BoxDecoration(color: Colors.red.shade900, borderRadius: BorderRadius.circular(1)),
+            ),
           ),
-        ),
-      );
-    } else {
-      // Houses - green squares
-      return Positioned(
-        bottom: 2,
-        left: 2,
-        child: Row(
-          children: List.generate(
-            level,
-            (_) => Container(
-              width: 4,
-              height: 5,
-              margin: const EdgeInsets.only(right: 1),
+          // Hotel body - main layer
+          Positioned(
+            bottom: 2,
+            left: 0,
+            child: Container(
+              width: hotelWidth - 2,
+              height: bodyHeight,
               decoration: BoxDecoration(
-                color: Colors.green,
+                gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Colors.red.shade400, Colors.red.shade600]),
                 borderRadius: BorderRadius.circular(1),
+                border: Border.all(color: Colors.red.shade800, width: 0.5),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Windows row
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [_buildWindow(), const SizedBox(width: 2), _buildWindow(), const SizedBox(width: 2), _buildWindow()]),
+                ],
               ),
             ),
           ),
-        ),
-      );
-    }
+          // Roof top with 3D effect
+          Positioned(
+            top: 1,
+            left: 2,
+            child: Container(
+              width: hotelWidth - 4,
+              height: 3,
+              decoration: BoxDecoration(
+                color: Colors.red.shade800,
+                borderRadius: const BorderRadius.only(topLeft: Radius.circular(2), topRight: Radius.circular(2)),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 0,
+            left: 1,
+            child: Container(
+              width: hotelWidth - 4,
+              height: 3,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Colors.red.shade300, Colors.red.shade500]),
+                borderRadius: const BorderRadius.only(topLeft: Radius.circular(2), topRight: Radius.circular(2)),
+              ),
+            ),
+          ),
+          // "H" letter indicator
+          Positioned(
+            bottom: 4,
+            left: 0,
+            right: 2,
+            child: Center(
+              child: Text(
+                'H',
+                style: TextStyle(fontSize: 6, fontWeight: FontWeight.bold, color: Colors.white.withOpacity(0.9)),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildWindow() {
+    return Container(
+      width: 3,
+      height: 3,
+      decoration: BoxDecoration(
+        color: Colors.yellow.shade200,
+        borderRadius: BorderRadius.circular(0.5),
+        border: Border.all(color: Colors.yellow.shade600, width: 0.5),
+      ),
+    );
   }
 
   Widget _buildCornerTile() {
@@ -137,8 +289,8 @@ class TileWidget extends StatelessWidget {
         icon = Icons.gavel;
         break;
       case TileType.freeParking:
-        icon = Icons.local_parking;
-        iconColor = Colors.red;
+        icon = Icons.casino;
+        iconColor = Colors.amber;
         break;
       case TileType.goToJail:
         icon = Icons.warning;
@@ -162,11 +314,7 @@ class TileWidget extends StatelessWidget {
               child: Text(
                 data.name,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.black,
-                ),
+                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w900, color: Colors.black),
               ),
             ),
           ),
@@ -177,11 +325,7 @@ class TileWidget extends StatelessWidget {
                 fit: BoxFit.scaleDown,
                 child: Text(
                   data.subtext!,
-                  style: const TextStyle(
-                    fontSize: 9,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: const TextStyle(fontSize: 9, color: Colors.black87, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -213,9 +357,7 @@ class TileWidget extends StatelessWidget {
     final content = _buildTileContent();
 
     return Column(
-      children: colorBandOnTop
-          ? [colorBand, Expanded(child: content)]
-          : [Expanded(child: content), colorBand],
+      children: colorBandOnTop ? [colorBand, Expanded(child: content)] : [Expanded(child: content), colorBand],
     );
   }
 
@@ -226,9 +368,7 @@ class TileWidget extends StatelessWidget {
     final content = _buildTileContent();
 
     return Row(
-      children: colorBandOnRight
-          ? [Expanded(child: content), colorBand]
-          : [colorBand, Expanded(child: content)],
+      children: colorBandOnRight ? [Expanded(child: content), colorBand] : [colorBand, Expanded(child: content)],
     );
   }
 
@@ -244,9 +384,7 @@ class TileWidget extends StatelessWidget {
         decoration: hasColorBand
             ? BoxDecoration(
                 color: data.color,
-                border: const Border(
-                  bottom: BorderSide(color: Colors.black, width: 0.5),
-                ),
+                border: const Border(bottom: BorderSide(color: Colors.black, width: 0.5)),
               )
             : null,
       );
@@ -258,12 +396,8 @@ class TileWidget extends StatelessWidget {
             ? BoxDecoration(
                 color: data.color,
                 border: Border(
-                  left: rotation == 3
-                      ? const BorderSide(color: Colors.black, width: 0.5)
-                      : BorderSide.none,
-                  right: rotation == 1
-                      ? const BorderSide(color: Colors.black, width: 0.5)
-                      : BorderSide.none,
+                  left: rotation == 3 ? const BorderSide(color: Colors.black, width: 0.5) : BorderSide.none,
+                  right: rotation == 1 ? const BorderSide(color: Colors.black, width: 0.5) : BorderSide.none,
                 ),
               )
             : null,
@@ -286,48 +420,27 @@ class TileWidget extends StatelessWidget {
         textAlign: TextAlign.center,
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
-        style: const TextStyle(
-          fontSize: 10,
-          fontWeight: FontWeight.w800,
-          height: 1.1,
-          color: Colors.black,
-        ),
+        style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w800, height: 1.1, color: Colors.black),
       ),
     );
 
     final priceWidget = price != null
         ? Container(
             padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-            decoration: BoxDecoration(
-              color: Colors.green.shade100,
-              borderRadius: BorderRadius.circular(3),
-            ),
+            decoration: BoxDecoration(color: Colors.green.shade100, borderRadius: BorderRadius.circular(3)),
             child: Text(
               '\$$price',
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.w900,
-                color: Colors.green.shade800,
-              ),
+              style: TextStyle(fontSize: 11, fontWeight: FontWeight.w900, color: Colors.green.shade800),
             ),
           )
         : const SizedBox(height: 16);
 
-    final iconWidget = Expanded(
-      child: Center(
-        child: _buildTileIcon(),
-      ),
-    );
+    final iconWidget = Expanded(child: Center(child: _buildTileIcon()));
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 4),
       color: Colors.white,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: nameAtBottom
-            ? [priceWidget, iconWidget, nameWidget]
-            : [nameWidget, iconWidget, priceWidget],
-      ),
+      child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: nameAtBottom ? [priceWidget, iconWidget, nameWidget] : [nameWidget, iconWidget, priceWidget]),
     );
   }
 
@@ -362,27 +475,15 @@ class TileWidget extends StatelessWidget {
       case TileType.railroad:
         return const Icon(Icons.train, size: 16, color: Colors.black87);
       case TileType.utility:
-        final isElectric =
-            data is UtilityTileData && (data as UtilityTileData).isElectric;
-        return Icon(
-          isElectric ? Icons.bolt : Icons.water_drop,
-          size: 16,
-          color: isElectric ? Colors.amber.shade700 : Colors.blue,
-        );
+        final isElectric = data is UtilityTileData && (data as UtilityTileData).isElectric;
+        return Icon(isElectric ? Icons.bolt : Icons.water_drop, size: 16, color: isElectric ? Colors.amber.shade700 : Colors.blue);
       case TileType.chance:
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-          decoration: BoxDecoration(
-            color: Colors.orange,
-            borderRadius: BorderRadius.circular(3),
-          ),
+          decoration: BoxDecoration(color: Colors.orange, borderRadius: BorderRadius.circular(3)),
           child: const Text(
             '?',
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),
           ),
         );
       case TileType.communityChest:
@@ -405,25 +506,13 @@ class PositionedTileWidget extends StatelessWidget {
   final bool isHighlighted;
   final AnimationController? glowController;
   final Color? ownerColor;
+  final void Function(TileData)? onTap;
 
-  const PositionedTileWidget({
-    super.key,
-    required this.data,
-    required this.position,
-    this.isHighlighted = false,
-    this.glowController,
-    this.ownerColor,
-  });
+  const PositionedTileWidget({super.key, required this.data, required this.position, this.isHighlighted = false, this.glowController, this.ownerColor, this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    Widget tile = TileWidget(
-      data: data,
-      isCorner: position.isCorner,
-      rotation: position.rotation,
-      isHighlighted: isHighlighted,
-      ownerColor: ownerColor,
-    );
+    Widget tile = TileWidget(data: data, isCorner: position.isCorner, rotation: position.rotation, isHighlighted: isHighlighted, ownerColor: ownerColor);
 
     // Add glow effect when highlighted
     if (isHighlighted && glowController != null) {
@@ -431,33 +520,53 @@ class PositionedTileWidget extends StatelessWidget {
         animation: glowController!,
         builder: (context, child) {
           return Container(
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.amber
-                      .withAlpha((128 + glowController!.value * 127).toInt()),
-                  blurRadius: 15,
-                  spreadRadius: 3,
-                ),
-              ],
-            ),
-            child: AnimatedScale(
-              scale: 1.03,
-              duration: const Duration(milliseconds: 200),
-              child: child,
-            ),
+            decoration: BoxDecoration(boxShadow: [BoxShadow(color: Colors.amber.withAlpha((128 + glowController!.value * 127).toInt()), blurRadius: 15, spreadRadius: 3)]),
+            child: AnimatedScale(scale: 1.03, duration: const Duration(milliseconds: 200), child: child),
           );
         },
         child: tile,
       );
     }
 
-    return Positioned(
-      left: position.left,
-      top: position.top,
-      width: position.width,
-      height: position.height,
-      child: tile,
-    );
+    // Wrap with GestureDetector for tap handling
+    if (onTap != null) {
+      tile = GestureDetector(onTap: () => onTap!(data), child: tile);
+    }
+
+    return Positioned(left: position.left, top: position.top, width: position.width, height: position.height, child: tile);
   }
+}
+
+/// Custom painter for 3D house roof
+class _RoofPainter extends CustomPainter {
+  final Color color;
+  final Color shadowColor;
+
+  _RoofPainter({required this.color, required this.shadowColor});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()..style = PaintingStyle.fill;
+
+    // Draw shadow (offset to right)
+    paint.color = shadowColor;
+    final shadowPath = Path()
+      ..moveTo(size.width / 2 + 1, 0)
+      ..lineTo(size.width + 1, size.height + 1)
+      ..lineTo(1, size.height + 1)
+      ..close();
+    canvas.drawPath(shadowPath, paint);
+
+    // Draw main roof
+    paint.color = color;
+    final path = Path()
+      ..moveTo(size.width / 2, 0)
+      ..lineTo(size.width, size.height)
+      ..lineTo(0, size.height)
+      ..close();
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

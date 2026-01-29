@@ -1,46 +1,30 @@
 import 'package:flutter/material.dart';
-import '../../config/theme.dart';
 
-/// In-game menu dialog
+/// In-game menu dialog with fun colorful styling
 class GameMenuDialog extends StatelessWidget {
   final VoidCallback onClose;
   final VoidCallback onRestart;
   final VoidCallback onQuit;
   final VoidCallback? onRules;
 
-  const GameMenuDialog({
-    super.key,
-    required this.onClose,
-    required this.onRestart,
-    required this.onQuit,
-    this.onRules,
-  });
+  const GameMenuDialog({super.key, required this.onClose, required this.onRestart, required this.onQuit, this.onRules});
 
   @override
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.transparent,
       child: Container(
-        constraints: const BoxConstraints(maxWidth: 320),
+        constraints: const BoxConstraints(maxWidth: 340),
         decoration: BoxDecoration(
-          color: AppTheme.surface,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.white24, width: 2),
+          gradient: const LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFF667eea), Color(0xFF764ba2)]),
+          borderRadius: BorderRadius.circular(24),
+          border: Border.all(color: Colors.white.withOpacity(0.3), width: 2),
           boxShadow: [
-            BoxShadow(
-              color: Colors.black.withAlpha(128),
-              blurRadius: 20,
-              spreadRadius: 5,
-            ),
+            BoxShadow(color: const Color(0xFF764ba2).withOpacity(0.5), blurRadius: 20, spreadRadius: 2),
+            BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 15, offset: const Offset(0, 8)),
           ],
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _buildHeader(),
-            _buildMenuItems(context),
-          ],
-        ),
+        child: Column(mainAxisSize: MainAxisSize.min, children: [_buildHeader(), _buildMenuItems(context)]),
       ),
     );
   }
@@ -48,21 +32,28 @@ class GameMenuDialog extends StatelessWidget {
   Widget _buildHeader() {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(20),
-      decoration: const BoxDecoration(
-        color: AppTheme.primary,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
+      padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFFFF6B6B), Color(0xFFFF8E53)]),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(22)),
+        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.2), blurRadius: 8, offset: const Offset(0, 4))],
       ),
-      child: const Column(
+      child: Column(
         children: [
-          Icon(Icons.settings, color: Colors.white, size: 40),
-          SizedBox(height: 8),
-          Text(
+          Container(
+            width: 56,
+            height: 56,
+            decoration: BoxDecoration(color: Colors.white.withOpacity(0.2), shape: BoxShape.circle),
+            child: const Icon(Icons.sports_esports_rounded, color: Colors.white, size: 32),
+          ),
+          const SizedBox(height: 12),
+          const Text(
             'Game Menu',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 22,
+              fontSize: 24,
               fontWeight: FontWeight.bold,
+              shadows: [Shadow(color: Colors.black26, blurRadius: 4, offset: Offset(0, 2))],
             ),
           ),
         ],
@@ -76,20 +67,19 @@ class GameMenuDialog extends StatelessWidget {
       child: Column(
         children: [
           _buildMenuItem(
-            icon: Icons.arrow_back,
+            icon: Icons.play_arrow_rounded,
             label: 'Back to Game',
-            color: AppTheme.cashGreen,
+            gradient: const [Color(0xFF4ECDC4), Color(0xFF44A08D)],
             onTap: () {
               Navigator.of(context).pop();
-              // onClose is called by the .then() callback
             },
           ),
           const SizedBox(height: 12),
           if (onRules != null) ...[
             _buildMenuItem(
-              icon: Icons.help_outline,
+              icon: Icons.help_outline_rounded,
               label: 'How to Play',
-              color: Colors.blue,
+              gradient: const [Color(0xFF667eea), Color(0xFF5567d5)],
               onTap: () {
                 Navigator.of(context).pop();
                 onRules!();
@@ -98,32 +88,22 @@ class GameMenuDialog extends StatelessWidget {
             const SizedBox(height: 12),
           ],
           _buildMenuItem(
-            icon: Icons.refresh,
+            icon: Icons.refresh_rounded,
             label: 'Restart Game',
-            color: AppTheme.warning,
+            gradient: const [Color(0xFFFFE66D), Color(0xFFFFB347)],
             onTap: () {
               Navigator.of(context).pop();
-              _showConfirmDialog(
-                context,
-                'Restart Game?',
-                'All progress will be lost.',
-                onRestart,
-              );
+              _showConfirmDialog(context, 'Restart Game?', 'All progress will be lost.', onRestart);
             },
           ),
           const SizedBox(height: 12),
           _buildMenuItem(
-            icon: Icons.exit_to_app,
+            icon: Icons.exit_to_app_rounded,
             label: 'Quit to Menu',
-            color: AppTheme.error,
+            gradient: const [Color(0xFFFF6B6B), Color(0xFFEE5A5A)],
             onTap: () {
               Navigator.of(context).pop();
-              _showConfirmDialog(
-                context,
-                'Quit Game?',
-                'All progress will be lost.',
-                onQuit,
-              );
+              _showConfirmDialog(context, 'Quit Game?', 'All progress will be lost.', onQuit);
             },
           ),
         ],
@@ -131,42 +111,44 @@ class GameMenuDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuItem({
-    required IconData icon,
-    required String label,
-    required Color color,
-    required VoidCallback onTap,
-  }) {
+  Widget _buildMenuItem({required IconData icon, required String label, required List<Color> gradient, required VoidCallback onTap}) {
     return Material(
-      color: Colors.black26,
-      borderRadius: BorderRadius.circular(12),
+      color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(16),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          decoration: BoxDecoration(
+            color: const Color(0xFF2D1B4E).withOpacity(0.6),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: Colors.white.withOpacity(0.1)),
+          ),
           child: Row(
             children: [
               Container(
-                width: 40,
-                height: 40,
+                width: 44,
+                height: 44,
                 decoration: BoxDecoration(
-                  color: color.withAlpha(51),
-                  borderRadius: BorderRadius.circular(10),
+                  gradient: LinearGradient(colors: gradient),
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [BoxShadow(color: gradient[0].withOpacity(0.4), blurRadius: 8, offset: const Offset(0, 2))],
                 ),
-                child: Icon(icon, color: color, size: 24),
+                child: Icon(icon, color: Colors.white, size: 24),
               ),
               const SizedBox(width: 16),
-              Text(
-                label,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
+              Expanded(
+                child: Text(
+                  label,
+                  style: const TextStyle(color: Colors.white, fontSize: 17, fontWeight: FontWeight.w600),
                 ),
               ),
-              const Spacer(),
-              const Icon(Icons.chevron_right, color: Colors.white38),
+              Container(
+                width: 28,
+                height: 28,
+                decoration: BoxDecoration(color: Colors.white.withOpacity(0.1), borderRadius: BorderRadius.circular(8)),
+                child: const Icon(Icons.chevron_right_rounded, color: Colors.white54, size: 20),
+              ),
             ],
           ),
         ),
@@ -174,57 +156,92 @@ class GameMenuDialog extends StatelessWidget {
     );
   }
 
-  void _showConfirmDialog(
-    BuildContext context,
-    String title,
-    String message,
-    VoidCallback onConfirm,
-  ) {
+  void _showConfirmDialog(BuildContext context, String title, String message, VoidCallback onConfirm) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: AppTheme.surface,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: Text(title, style: const TextStyle(color: Colors.white)),
-        content: Text(message, style: const TextStyle(color: Colors.white70)),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancel'),
+      builder: (context) => Dialog(
+        backgroundColor: Colors.transparent,
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 320),
+          padding: const EdgeInsets.all(24),
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFF667eea), Color(0xFF764ba2)]),
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: Colors.white.withOpacity(0.2)),
+            boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 20)],
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-              onConfirm();
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppTheme.error,
-            ),
-            child: const Text('Confirm'),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 56,
+                height: 56,
+                decoration: BoxDecoration(color: const Color(0xFFFF6B6B).withOpacity(0.2), shape: BoxShape.circle),
+                child: const Icon(Icons.warning_amber_rounded, color: Color(0xFFFF6B6B), size: 32),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                title,
+                style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                message,
+                style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 15),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 24),
+              Row(
+                children: [
+                  Expanded(
+                    child: TextButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      style: TextButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          side: BorderSide(color: Colors.white.withOpacity(0.3)),
+                        ),
+                      ),
+                      child: const Text(
+                        'Cancel',
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        onConfirm();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFFF6B6B),
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        elevation: 0,
+                      ),
+                      child: const Text('Confirm', style: TextStyle(fontWeight: FontWeight.w600)),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
 }
 
 /// Show the game menu dialog
-Future<void> showGameMenuDialog({
-  required BuildContext context,
-  required VoidCallback onClose,
-  required VoidCallback onRestart,
-  required VoidCallback onQuit,
-  VoidCallback? onRules,
-}) {
+Future<void> showGameMenuDialog({required BuildContext context, required VoidCallback onClose, required VoidCallback onRestart, required VoidCallback onQuit, VoidCallback? onRules}) {
   return showDialog(
     context: context,
     barrierDismissible: true,
-    builder: (context) => GameMenuDialog(
-      onClose: onClose,
-      onRestart: onRestart,
-      onQuit: onQuit,
-      onRules: onRules,
-    ),
+    builder: (context) => GameMenuDialog(onClose: onClose, onRestart: onRestart, onQuit: onQuit, onRules: onRules),
   ).then((_) {
     // Call onClose when dialog is dismissed (by tapping outside or "Back to Game")
     onClose();

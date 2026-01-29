@@ -113,6 +113,9 @@ class GameState {
   int totalDiceSum;
   int doublesRolledTotal;
 
+  // Number of dice to use (1 or 2)
+  int diceCount;
+
   GameState({
     required this.id,
     required this.createdAt,
@@ -128,8 +131,8 @@ class GameState {
     this.logicPhase = TurnLogicPhase.preRoll,
     this.animationState = TurnAnimationState.idle,
     this.lastDiceRoll = 0,
-    this.die1Value = 0,
-    this.die2Value = 0,
+    this.die1Value = 6,
+    this.die2Value = 6,
     this.doublesCount = 0,
     this.status = GameStatus.inProgress,
     this.winnerId,
@@ -146,6 +149,7 @@ class GameState {
     this.totalDiceRolls = 0,
     this.totalDiceSum = 0,
     this.doublesRolledTotal = 0,
+    this.diceCount = 2,
   })  : boardTheme = boardTheme ?? BoardThemes.classic,
         playerPowerUps = playerPowerUps ?? {},
         activePowerUps = activePowerUps ?? [],
@@ -240,6 +244,7 @@ class GameState {
     GameMode mode = GameMode.passAndPlay,
     WinCondition winCondition = WinCondition.lastStanding,
     int startingCash = 1500,
+    int diceCount = 2,
   }) {
     // Set starting cash for all players
     for (final player in players) {
@@ -254,6 +259,7 @@ class GameState {
       winCondition: winCondition,
       players: players,
       tiles: tiles,
+      diceCount: diceCount,
     );
   }
 
@@ -291,6 +297,7 @@ class GameState {
     int? totalDiceRolls,
     int? totalDiceSum,
     int? doublesRolledTotal,
+    int? diceCount,
   }) {
     return GameState(
       id: id ?? this.id,
@@ -325,6 +332,7 @@ class GameState {
       totalDiceRolls: totalDiceRolls ?? this.totalDiceRolls,
       totalDiceSum: totalDiceSum ?? this.totalDiceSum,
       doublesRolledTotal: doublesRolledTotal ?? this.doublesRolledTotal,
+      diceCount: diceCount ?? this.diceCount,
     );
   }
 

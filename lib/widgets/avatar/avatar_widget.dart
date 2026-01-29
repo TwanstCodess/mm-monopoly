@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../../models/avatar.dart';
@@ -23,6 +24,50 @@ class AvatarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Handle custom photo avatars
+    if (avatar.isCustom && avatar.customImagePath != null) {
+      return Container(
+        width: size,
+        height: size,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: showBorder
+              ? Border.all(
+                  color: borderColor ?? (isSelected ? Colors.amber : Colors.white),
+                  width: isSelected ? 3 : 2,
+                )
+              : null,
+          boxShadow: [
+            BoxShadow(
+              color: avatar.primaryColor.withOpacity(0.4),
+              blurRadius: isSelected ? 12 : 6,
+              spreadRadius: isSelected ? 2 : 0,
+            ),
+          ],
+        ),
+        child: ClipOval(
+          child: Image.file(
+            File(avatar.customImagePath!),
+            width: size,
+            height: size,
+            fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) {
+              // Fallback if image can't be loaded
+              return Container(
+                color: avatar.primaryColor,
+                child: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: size * 0.5,
+                ),
+              );
+            },
+          ),
+        ),
+      );
+    }
+
+    // Standard emoji avatar
     return Container(
       width: size,
       height: size,
@@ -159,6 +204,53 @@ class AvatarToken extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Handle custom photo avatars on the game board
+    if (avatar.isCustom && avatar.customImagePath != null) {
+      return Container(
+        width: size,
+        height: size,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: playerColor,
+            width: 3,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.4),
+              blurRadius: 4,
+              offset: const Offset(1, 1),
+            ),
+            if (isCurrentPlayer)
+              BoxShadow(
+                color: playerColor.withOpacity(0.6),
+                blurRadius: 10,
+                spreadRadius: 2,
+              ),
+          ],
+        ),
+        child: ClipOval(
+          child: Image.file(
+            File(avatar.customImagePath!),
+            width: size,
+            height: size,
+            fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) {
+              return Container(
+                color: playerColor,
+                child: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: size * 0.5,
+                ),
+              );
+            },
+          ),
+        ),
+      );
+    }
+
+    // Standard emoji token
     return Container(
       width: size,
       height: size,
@@ -317,36 +409,78 @@ class _VictoryAvatarWidgetState extends State<VictoryAvatarWidget>
             angle: _rotateAnimation.value,
             child: Transform.scale(
               scale: _scaleAnimation.value,
-              child: Container(
-                width: widget.size,
-                height: widget.size,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: widget.avatar.gradientColors,
-                  ),
-                  border: Border.all(color: Colors.amber, width: 4),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.amber.withOpacity(0.6),
-                      blurRadius: 20,
-                      spreadRadius: 5,
-                    ),
-                  ],
-                ),
-                child: Center(
-                  child: Text(
-                    widget.avatar.emoji,
-                    style: TextStyle(fontSize: widget.size * 0.55),
-                  ),
-                ),
-              ),
+              child: _buildAvatarContent(),
             ),
           ),
         );
       },
+    );
+  }
+
+  Widget _buildAvatarContent() {
+    // Handle custom photo avatars
+    if (widget.avatar.isCustom && widget.avatar.customImagePath != null) {
+      return Container(
+        width: widget.size,
+        height: widget.size,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(color: Colors.amber, width: 4),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.amber.withOpacity(0.6),
+              blurRadius: 20,
+              spreadRadius: 5,
+            ),
+          ],
+        ),
+        child: ClipOval(
+          child: Image.file(
+            File(widget.avatar.customImagePath!),
+            width: widget.size,
+            height: widget.size,
+            fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) {
+              return Container(
+                color: widget.avatar.primaryColor,
+                child: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: widget.size * 0.5,
+                ),
+              );
+            },
+          ),
+        ),
+      );
+    }
+
+    // Standard emoji avatar
+    return Container(
+      width: widget.size,
+      height: widget.size,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: widget.avatar.gradientColors,
+        ),
+        border: Border.all(color: Colors.amber, width: 4),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.amber.withOpacity(0.6),
+            blurRadius: 20,
+            spreadRadius: 5,
+          ),
+        ],
+      ),
+      child: Center(
+        child: Text(
+          widget.avatar.emoji,
+          style: TextStyle(fontSize: widget.size * 0.55),
+        ),
+      ),
     );
   }
 }

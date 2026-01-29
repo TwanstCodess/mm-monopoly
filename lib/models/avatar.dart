@@ -6,6 +6,7 @@ enum AvatarCategory {
   food,
   objects,
   characters,
+  custom, // For camera-captured photos
 }
 
 /// Avatar data model with visual properties and animations
@@ -17,6 +18,7 @@ class Avatar {
   final Color primaryColor;
   final Color secondaryColor;
   final IconData iconData;
+  final String? customImagePath; // For photo avatars
 
   const Avatar({
     required this.id,
@@ -26,13 +28,35 @@ class Avatar {
     required this.primaryColor,
     required this.secondaryColor,
     required this.iconData,
+    this.customImagePath,
   });
+
+  /// Check if this is a custom photo avatar
+  bool get isCustom => customImagePath != null;
 
   /// Get gradient colors for avatar background
   List<Color> get gradientColors => [
         primaryColor.withOpacity(0.8),
         secondaryColor.withOpacity(0.9),
       ];
+
+  /// Create a custom photo avatar
+  factory Avatar.custom({
+    required String id,
+    required String name,
+    required String imagePath,
+  }) {
+    return Avatar(
+      id: id,
+      name: name,
+      emoji: '', // Not used for custom avatars
+      category: AvatarCategory.custom,
+      primaryColor: const Color(0xFF9C27B0),
+      secondaryColor: const Color(0xFFE040FB),
+      iconData: Icons.person,
+      customImagePath: imagePath,
+    );
+  }
 }
 
 /// Built-in avatars configuration
@@ -78,6 +102,76 @@ class Avatars {
     iconData: Icons.cruelty_free,
   );
 
+  static const lion = Avatar(
+    id: 'lion',
+    name: 'Roary',
+    emoji: '🦁',
+    category: AvatarCategory.animals,
+    primaryColor: Color(0xFFFF9800),
+    secondaryColor: Color(0xFFFFE0B2),
+    iconData: Icons.pets,
+  );
+
+  static const unicorn = Avatar(
+    id: 'unicorn',
+    name: 'Sparkle',
+    emoji: '🦄',
+    category: AvatarCategory.animals,
+    primaryColor: Color(0xFFE040FB),
+    secondaryColor: Color(0xFFEA80FC),
+    iconData: Icons.auto_awesome,
+  );
+
+  static const panda = Avatar(
+    id: 'panda',
+    name: 'Bamboo',
+    emoji: '🐼',
+    category: AvatarCategory.animals,
+    primaryColor: Color(0xFF424242),
+    secondaryColor: Color(0xFFEEEEEE),
+    iconData: Icons.forest,
+  );
+
+  static const fox = Avatar(
+    id: 'fox',
+    name: 'Foxy',
+    emoji: '🦊',
+    category: AvatarCategory.animals,
+    primaryColor: Color(0xFFFF5722),
+    secondaryColor: Color(0xFFFFCCBC),
+    iconData: Icons.nature,
+  );
+
+  static const owl = Avatar(
+    id: 'owl',
+    name: 'Hooty',
+    emoji: '🦉',
+    category: AvatarCategory.animals,
+    primaryColor: Color(0xFF795548),
+    secondaryColor: Color(0xFFBCAAA4),
+    iconData: Icons.nightlight,
+  );
+
+  static const dragon = Avatar(
+    id: 'dragon',
+    name: 'Blaze',
+    emoji: '🐉',
+    category: AvatarCategory.animals,
+    primaryColor: Color(0xFF4CAF50),
+    secondaryColor: Color(0xFFFF5722),
+    iconData: Icons.whatshot,
+  );
+
+  static const butterfly = Avatar(
+    id: 'butterfly',
+    name: 'Flutter',
+    emoji: '🦋',
+    category: AvatarCategory.animals,
+    primaryColor: Color(0xFF2196F3),
+    secondaryColor: Color(0xFFE040FB),
+    iconData: Icons.flutter_dash,
+  );
+
   // Food
   static const pizza = Avatar(
     id: 'pizza',
@@ -119,6 +213,76 @@ class Avatars {
     iconData: Icons.icecream,
   );
 
+  static const cupcake = Avatar(
+    id: 'cupcake',
+    name: 'Frosting',
+    emoji: '🧁',
+    category: AvatarCategory.food,
+    primaryColor: Color(0xFFFF4081),
+    secondaryColor: Color(0xFFFCE4EC),
+    iconData: Icons.cake,
+  );
+
+  static const cookie = Avatar(
+    id: 'cookie',
+    name: 'Chips',
+    emoji: '🍪',
+    category: AvatarCategory.food,
+    primaryColor: Color(0xFF8D6E63),
+    secondaryColor: Color(0xFFD7CCC8),
+    iconData: Icons.cookie,
+  );
+
+  static const watermelon = Avatar(
+    id: 'watermelon',
+    name: 'Melon',
+    emoji: '🍉',
+    category: AvatarCategory.food,
+    primaryColor: Color(0xFFE91E63),
+    secondaryColor: Color(0xFF4CAF50),
+    iconData: Icons.eco,
+  );
+
+  static const burger = Avatar(
+    id: 'burger',
+    name: 'Patty',
+    emoji: '🍔',
+    category: AvatarCategory.food,
+    primaryColor: Color(0xFF8D6E63),
+    secondaryColor: Color(0xFFFFC107),
+    iconData: Icons.lunch_dining,
+  );
+
+  static const hotdog = Avatar(
+    id: 'hotdog',
+    name: 'Frank',
+    emoji: '🌭',
+    category: AvatarCategory.food,
+    primaryColor: Color(0xFFFF5722),
+    secondaryColor: Color(0xFFFFEB3B),
+    iconData: Icons.fastfood,
+  );
+
+  static const candy = Avatar(
+    id: 'candy',
+    name: 'Sweetie',
+    emoji: '🍬',
+    category: AvatarCategory.food,
+    primaryColor: Color(0xFFFF1744),
+    secondaryColor: Color(0xFF76FF03),
+    iconData: Icons.celebration,
+  );
+
+  static const popcorn = Avatar(
+    id: 'popcorn',
+    name: 'Poppy',
+    emoji: '🍿',
+    category: AvatarCategory.food,
+    primaryColor: Color(0xFFFFEB3B),
+    secondaryColor: Color(0xFFF44336),
+    iconData: Icons.movie,
+  );
+
   // Objects
   static const rocket = Avatar(
     id: 'rocket',
@@ -152,12 +316,82 @@ class Avatars {
 
   static const diamond = Avatar(
     id: 'diamond',
-    name: 'Sparkle',
+    name: 'Gem',
     emoji: '💎',
     category: AvatarCategory.objects,
     primaryColor: Color(0xFF00BCD4),
     secondaryColor: Color(0xFF4DD0E1),
     iconData: Icons.diamond,
+  );
+
+  static const rainbow = Avatar(
+    id: 'rainbow',
+    name: 'Prisma',
+    emoji: '🌈',
+    category: AvatarCategory.objects,
+    primaryColor: Color(0xFFE91E63),
+    secondaryColor: Color(0xFF2196F3),
+    iconData: Icons.wb_sunny,
+  );
+
+  static const moon = Avatar(
+    id: 'moon',
+    name: 'Luna',
+    emoji: '🌙',
+    category: AvatarCategory.objects,
+    primaryColor: Color(0xFF7C4DFF),
+    secondaryColor: Color(0xFFB388FF),
+    iconData: Icons.nightlight_round,
+  );
+
+  static const heart = Avatar(
+    id: 'heart',
+    name: 'Lovey',
+    emoji: '❤️',
+    category: AvatarCategory.objects,
+    primaryColor: Color(0xFFE91E63),
+    secondaryColor: Color(0xFFF48FB1),
+    iconData: Icons.favorite,
+  );
+
+  static const fire = Avatar(
+    id: 'fire',
+    name: 'Blaze',
+    emoji: '🔥',
+    category: AvatarCategory.objects,
+    primaryColor: Color(0xFFFF5722),
+    secondaryColor: Color(0xFFFFEB3B),
+    iconData: Icons.local_fire_department,
+  );
+
+  static const bolt = Avatar(
+    id: 'bolt',
+    name: 'Sparky',
+    emoji: '⚡',
+    category: AvatarCategory.objects,
+    primaryColor: Color(0xFFFFEB3B),
+    secondaryColor: Color(0xFFFF9800),
+    iconData: Icons.bolt,
+  );
+
+  static const gameController = Avatar(
+    id: 'gamepad',
+    name: 'Player',
+    emoji: '🎮',
+    category: AvatarCategory.objects,
+    primaryColor: Color(0xFF673AB7),
+    secondaryColor: Color(0xFF9575CD),
+    iconData: Icons.sports_esports,
+  );
+
+  static const trophy = Avatar(
+    id: 'trophy',
+    name: 'Champ',
+    emoji: '🏆',
+    category: AvatarCategory.objects,
+    primaryColor: Color(0xFFFFD700),
+    secondaryColor: Color(0xFFFFC107),
+    iconData: Icons.emoji_events,
   );
 
   // Characters
@@ -201,28 +435,126 @@ class Avatars {
     iconData: Icons.flash_on,
   );
 
+  static const wizard = Avatar(
+    id: 'wizard',
+    name: 'Merlin',
+    emoji: '🧙',
+    category: AvatarCategory.characters,
+    primaryColor: Color(0xFF673AB7),
+    secondaryColor: Color(0xFF9C27B0),
+    iconData: Icons.auto_fix_high,
+  );
+
+  static const fairy = Avatar(
+    id: 'fairy',
+    name: 'Pixie',
+    emoji: '🧚',
+    category: AvatarCategory.characters,
+    primaryColor: Color(0xFFE91E63),
+    secondaryColor: Color(0xFFE040FB),
+    iconData: Icons.auto_awesome,
+  );
+
+  static const pirate = Avatar(
+    id: 'pirate',
+    name: 'Blackbeard',
+    emoji: '🏴‍☠️',
+    category: AvatarCategory.characters,
+    primaryColor: Color(0xFF212121),
+    secondaryColor: Color(0xFFFFD700),
+    iconData: Icons.anchor,
+  );
+
+  static const astronaut = Avatar(
+    id: 'astronaut',
+    name: 'Cosmo',
+    emoji: '👨‍🚀',
+    category: AvatarCategory.characters,
+    primaryColor: Color(0xFF1976D2),
+    secondaryColor: Color(0xFFFFFFFF),
+    iconData: Icons.rocket,
+  );
+
+  static const princess = Avatar(
+    id: 'princess',
+    name: 'Aurora',
+    emoji: '👸',
+    category: AvatarCategory.characters,
+    primaryColor: Color(0xFFE91E63),
+    secondaryColor: Color(0xFFFFD700),
+    iconData: Icons.auto_awesome,
+  );
+
+  static const vampire = Avatar(
+    id: 'vampire',
+    name: 'Drac',
+    emoji: '🧛',
+    category: AvatarCategory.characters,
+    primaryColor: Color(0xFF6A1B9A),
+    secondaryColor: Color(0xFFD32F2F),
+    iconData: Icons.nights_stay,
+  );
+
+  static const clown = Avatar(
+    id: 'clown',
+    name: 'Giggles',
+    emoji: '🤡',
+    category: AvatarCategory.characters,
+    primaryColor: Color(0xFFFF5722),
+    secondaryColor: Color(0xFFFFEB3B),
+    iconData: Icons.sentiment_very_satisfied,
+  );
+
   /// All available avatars
   static const List<Avatar> all = [
-    // Animals
+    // Animals (12)
     dog,
     cat,
     penguin,
     bunny,
-    // Food
+    lion,
+    unicorn,
+    panda,
+    fox,
+    owl,
+    dragon,
+    butterfly,
+    // Food (12)
     pizza,
     donut,
     taco,
     iceCream,
-    // Objects
+    cupcake,
+    cookie,
+    watermelon,
+    burger,
+    hotdog,
+    candy,
+    popcorn,
+    // Objects (12)
     rocket,
     star,
     crown,
     diamond,
-    // Characters
+    rainbow,
+    moon,
+    heart,
+    fire,
+    bolt,
+    gameController,
+    trophy,
+    // Characters (12)
     robot,
     alien,
     ninja,
     superhero,
+    wizard,
+    fairy,
+    pirate,
+    astronaut,
+    princess,
+    vampire,
+    clown,
   ];
 
   /// Get avatars by category
@@ -257,6 +589,8 @@ extension AvatarCategoryExt on AvatarCategory {
         return 'Objects';
       case AvatarCategory.characters:
         return 'Characters';
+      case AvatarCategory.custom:
+        return 'My Photos';
     }
   }
 
@@ -270,6 +604,8 @@ extension AvatarCategoryExt on AvatarCategory {
         return Icons.category;
       case AvatarCategory.characters:
         return Icons.face;
+      case AvatarCategory.custom:
+        return Icons.camera_alt;
     }
   }
 }

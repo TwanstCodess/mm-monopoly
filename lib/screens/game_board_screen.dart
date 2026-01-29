@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../models/player.dart';
@@ -12,7 +13,6 @@ import '../widgets/dialogs/rent_payment_dialog.dart';
 import '../widgets/dialogs/tax_payment_dialog.dart';
 import '../widgets/dialogs/game_menu_dialog.dart';
 import '../widgets/dialogs/jail_dialog.dart';
-import '../widgets/dialogs/card_dialog.dart';
 import '../widgets/dialogs/property_upgrade_dialog.dart';
 import '../widgets/dialogs/spin_wheel_dialog.dart';
 import '../widgets/dialogs/event_dialog.dart';
@@ -20,6 +20,10 @@ import '../widgets/dialogs/ai_action_dialog.dart';
 import '../widgets/dialogs/auction_dialog.dart';
 import '../widgets/dialogs/trade_dialog.dart';
 import '../widgets/dialogs/property_management_dialog.dart';
+import '../widgets/dialogs/tile_info_dialog.dart';
+import '../widgets/dialogs/card_pick_dialog.dart';
+import '../widgets/dialogs/free_house_dialog.dart';
+import '../widgets/dialogs/teleport_dialog.dart';
 import '../widgets/cards/power_up_card_widget.dart';
 import '../engine/game_engine.dart';
 import '../models/tile.dart';
@@ -39,20 +43,13 @@ class GameBoardScreen extends StatefulWidget {
   final VoidCallback onRestart;
   final VoidCallback? onHowToPlay;
 
-  const GameBoardScreen({
-    super.key,
-    required this.gameState,
-    required this.onQuit,
-    required this.onRestart,
-    this.onHowToPlay,
-  });
+  const GameBoardScreen({super.key, required this.gameState, required this.onQuit, required this.onRestart, this.onHowToPlay});
 
   @override
   State<GameBoardScreen> createState() => _GameBoardScreenState();
 }
 
-class _GameBoardScreenState extends State<GameBoardScreen>
-    with TickerProviderStateMixin {
+class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderStateMixin {
   late GameState gameState;
   late GameEngine engine;
   late AnimationController _diceController;
@@ -60,12 +57,18 @@ class _GameBoardScreenState extends State<GameBoardScreen>
   late AnimationController _glowController;
   late Animation<double> _bounceAnimation;
 
-  final Random _random = Random();
+  final Random _random = Random.secure();
   int _totalRounds = 1;
   bool _isPaused = false; // Track if game menu is open
 
   // Phase 4: AI Decision Engines per AI player
   final Map<String, AIDecisionEngine> _aiEngines = {};
+
+  // Card picking state
+  bool _waitingForCardPick = false;
+  bool _isChanceCard = false;
+  Player? _cardPickPlayer;
+  Completer<void>? _cardPickCompleter;
 
   @override
   void initState() {
@@ -83,34 +86,34 @@ class _GameBoardScreenState extends State<GameBoardScreen>
         final personalities = AIPersonality.values;
         final personality = personalities[_random.nextInt(personalities.length)];
         _aiEngines[player.id] = AIDecisionEngine(
-          config: AIConfig(
-            difficulty: AIDifficulty.medium,
-            personality: personality,
-          ),
+          config: AIConfig(difficulty: AIDifficulty.medium, personality: personality),
         );
       }
     }
   }
 
+  @override
+  void didUpdateWidget(GameBoardScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Detect when the game state has been reset (restart game)
+    if (widget.gameState != oldWidget.gameState) {
+      setState(() {
+        gameState = widget.gameState;
+        engine = GameEngine(gameState);
+        _totalRounds = 1;
+        _isPaused = false;
+      });
+    }
+  }
+
   void _initializeAnimations() {
-    _diceController = AnimationController(
-      duration: AnimationDurations.diceRoll,
-      vsync: this,
-    );
+    _diceController = AnimationController(duration: AnimationDurations.diceRoll, vsync: this);
 
-    _bounceController = AnimationController(
-      duration: AnimationDurations.bounce,
-      vsync: this,
-    );
+    _bounceController = AnimationController(duration: AnimationDurations.bounce, vsync: this);
 
-    _bounceAnimation = Tween<double>(begin: 0, end: 1).animate(
-      CurvedAnimation(parent: _bounceController, curve: Curves.elasticOut),
-    );
+    _bounceAnimation = Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(parent: _bounceController, curve: Curves.elasticOut));
 
-    _glowController = AnimationController(
-      duration: AnimationDurations.glow,
-      vsync: this,
-    )..repeat(reverse: true);
+    _glowController = AnimationController(duration: AnimationDurations.glow, vsync: this)..repeat(reverse: true);
   }
 
   @override
@@ -119,6 +122,10 @@ class _GameBoardScreenState extends State<GameBoardScreen>
     _bounceController.dispose();
     _glowController.dispose();
     super.dispose();
+  }
+
+  void _showTileInfo(TileData tile) {
+    showTileInfoDialog(context: context, tile: tile);
   }
 
   void _showGameMenu() {
@@ -159,9 +166,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
               OrientationBuilder(
                 builder: (context, orientation) {
                   final isPortrait = orientation == Orientation.portrait;
-                  return isPortrait
-                      ? _buildPortraitLayout()
-                      : _buildLandscapeLayout();
+                  return isPortrait ? _buildPortraitLayout() : _buildLandscapeLayout();
                 },
               ),
               // Phase 4: Action buttons (Trade, Mortgage, Power-ups)
@@ -172,29 +177,13 @@ class _GameBoardScreenState extends State<GameBoardScreen>
                   child: Row(
                     children: [
                       // Trade button
-                      _buildActionButton(
-                        icon: Icons.swap_horiz,
-                        label: 'Trade',
-                        color: Colors.teal,
-                        onTap: _showTradeDialog,
-                      ),
+                      _buildActionButton(icon: Icons.swap_horiz, label: 'Trade', color: Colors.teal, onTap: _showTradeDialog),
                       const SizedBox(width: 8),
                       // Mortgage button
-                      _buildActionButton(
-                        icon: Icons.account_balance,
-                        label: 'Bank',
-                        color: Colors.deepPurple,
-                        onTap: _showMortgageDialog,
-                      ),
+                      _buildActionButton(icon: Icons.account_balance, label: 'Bank', color: Colors.deepPurple, onTap: _showMortgageDialog),
                       const SizedBox(width: 8),
                       // Power-up cards button (if has cards)
-                      if (gameState.getPowerUps(gameState.currentPlayer.id).isNotEmpty)
-                        _buildActionButton(
-                          icon: Icons.style,
-                          label: '${gameState.getPowerUps(gameState.currentPlayer.id).length}',
-                          color: Colors.amber,
-                          onTap: _showPowerUpHand,
-                        ),
+                      if (gameState.getPowerUps(gameState.currentPlayer.id).isNotEmpty) _buildActionButton(icon: Icons.style, label: '${gameState.getPowerUps(gameState.currentPlayer.id).length}', color: Colors.amber, onTap: _showPowerUpHand),
                     ],
                   ),
                 ),
@@ -207,10 +196,12 @@ class _GameBoardScreenState extends State<GameBoardScreen>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: gameState.activeEvents
                         .where((e) => !e.isExpired)
-                        .map((event) => Padding(
-                              padding: const EdgeInsets.only(bottom: 4),
-                              child: ActiveEventIndicator(activeEvent: event),
-                            ))
+                        .map(
+                          (event) => Padding(
+                            padding: const EdgeInsets.only(bottom: 4),
+                            child: ActiveEventIndicator(activeEvent: event),
+                          ),
+                        )
                         .toList(),
                   ),
                 ),
@@ -222,8 +213,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
   }
 
   Widget _buildLandscapeLayout() {
-    final activePlayers =
-        gameState.players.where((p) => p.status == PlayerStatus.active).toList();
+    final activePlayers = gameState.players.where((p) => p.status == PlayerStatus.active).toList();
     final halfCount = (activePlayers.length / 2).ceil();
 
     return LayoutBuilder(
@@ -236,11 +226,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
         return Row(
           children: [
             // Left player panel - fixed width based on remaining space
-            if (activePlayers.isNotEmpty)
-              SizedBox(
-                width: playerPanelWidth,
-                child: _buildVerticalPlayerPanel(activePlayers.take(halfCount).toList()),
-              ),
+            if (activePlayers.isNotEmpty) SizedBox(width: playerPanelWidth, child: _buildVerticalPlayerPanel(activePlayers.take(halfCount).toList())),
             // Game board - maximized square
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
@@ -256,15 +242,16 @@ class _GameBoardScreenState extends State<GameBoardScreen>
                   tiles: gameState.tiles,
                   centerControls: _buildCenterControls(),
                   onMenuTap: _showGameMenu,
+                  onTileTap: _showTileInfo,
+                  isChanceHighlighted: _waitingForCardPick && _isChanceCard,
+                  isChestHighlighted: _waitingForCardPick && !_isChanceCard,
+                  onChanceTap: () => _onCardDeckTap(true),
+                  onChestTap: () => _onCardDeckTap(false),
                 ),
               ),
             ),
             // Right player panel - fixed width based on remaining space
-            if (activePlayers.length > halfCount)
-              SizedBox(
-                width: playerPanelWidth,
-                child: _buildVerticalPlayerPanel(activePlayers.skip(halfCount).toList()),
-              ),
+            if (activePlayers.length > halfCount) SizedBox(width: playerPanelWidth, child: _buildVerticalPlayerPanel(activePlayers.skip(halfCount).toList())),
           ],
         );
       },
@@ -272,8 +259,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
   }
 
   Widget _buildPortraitLayout() {
-    final activePlayers =
-        gameState.players.where((p) => p.status == PlayerStatus.active).toList();
+    final activePlayers = gameState.players.where((p) => p.status == PlayerStatus.active).toList();
     final halfCount = (activePlayers.length / 2).ceil();
 
     return LayoutBuilder(
@@ -286,11 +272,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
         return Column(
           children: [
             // Top player panel - fixed height based on remaining space
-            if (activePlayers.isNotEmpty)
-              SizedBox(
-                height: playerPanelHeight,
-                child: _buildHorizontalPlayerPanel(activePlayers.take(halfCount).toList()),
-              ),
+            if (activePlayers.isNotEmpty) SizedBox(height: playerPanelHeight, child: _buildHorizontalPlayerPanel(activePlayers.take(halfCount).toList())),
             // Game board - maximized square
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -306,15 +288,16 @@ class _GameBoardScreenState extends State<GameBoardScreen>
                   tiles: gameState.tiles,
                   centerControls: _buildCenterControls(),
                   onMenuTap: _showGameMenu,
+                  onTileTap: _showTileInfo,
+                  isChanceHighlighted: _waitingForCardPick && _isChanceCard,
+                  isChestHighlighted: _waitingForCardPick && !_isChanceCard,
+                  onChanceTap: () => _onCardDeckTap(true),
+                  onChestTap: () => _onCardDeckTap(false),
                 ),
               ),
             ),
             // Bottom player panel - fixed height based on remaining space
-            if (activePlayers.length > halfCount)
-              SizedBox(
-                height: playerPanelHeight,
-                child: _buildHorizontalPlayerPanel(activePlayers.skip(halfCount).toList()),
-              ),
+            if (activePlayers.length > halfCount) SizedBox(height: playerPanelHeight, child: _buildHorizontalPlayerPanel(activePlayers.skip(halfCount).toList())),
           ],
         );
       },
@@ -329,10 +312,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
           return Expanded(
             child: Padding(
               padding: const EdgeInsets.only(bottom: 8),
-              child: PlayerCard(
-                player: player,
-                isCurrentPlayer: player.id == gameState.currentPlayer.id,
-              ),
+              child: PlayerCard(player: player, isCurrentPlayer: player.id == gameState.currentPlayer.id),
             ),
           );
         }).toList(),
@@ -348,11 +328,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
           return Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: PlayerCardCompact(
-                player: player,
-                isCurrentPlayer: player.id == gameState.currentPlayer.id,
-                tiles: gameState.tiles,
-              ),
+              child: PlayerCardCompact(player: player, isCurrentPlayer: player.id == gameState.currentPlayer.id, tiles: gameState.tiles),
             ),
           );
         }).toList(),
@@ -369,15 +345,14 @@ class _GameBoardScreenState extends State<GameBoardScreen>
       onRoll: gameState.canRoll ? _rollDice : null,
       diceController: _diceController,
       glowController: _glowController,
+      diceCount: gameState.diceCount,
     );
   }
 
   Future<void> _rollDice() async {
     // Start rolling animation
     setState(() {
-      gameState = gameState.copyWith(
-        animationState: TurnAnimationState.rollingDice,
-      );
+      gameState = gameState.copyWith(animationState: TurnAnimationState.rollingDice);
     });
     _diceController.forward(from: 0);
 
@@ -396,16 +371,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
 
     // Update dice values and start moving
     setState(() {
-      gameState = gameState.copyWith(
-        die1Value: die1,
-        die2Value: die2,
-        lastDiceRoll: roll,
-        animationState: TurnAnimationState.movingToken,
-        logicPhase: TurnLogicPhase.rolled,
-        totalDiceRolls: newTotalRolls,
-        totalDiceSum: newTotalSum,
-        doublesRolledTotal: newDoublesTotal,
-      );
+      gameState = gameState.copyWith(die1Value: die1, die2Value: die2, lastDiceRoll: roll, animationState: TurnAnimationState.movingToken, logicPhase: TurnLogicPhase.rolled, totalDiceRolls: newTotalRolls, totalDiceSum: newTotalSum, doublesRolledTotal: newDoublesTotal);
     });
 
     // Move current player tile by tile
@@ -427,11 +393,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
 
     // Highlight landing tile
     setState(() {
-      gameState = gameState.copyWith(
-        highlightedTileIndex: endPosition,
-        animationState: TurnAnimationState.idle,
-        logicPhase: TurnLogicPhase.tileResolution,
-      );
+      gameState = gameState.copyWith(highlightedTileIndex: endPosition, animationState: TurnAnimationState.idle, logicPhase: TurnLogicPhase.tileResolution);
     });
 
     // Wait for the bounce animation to complete before showing dialogs
@@ -494,20 +456,9 @@ class _GameBoardScreenState extends State<GameBoardScreen>
   }
 
   // Show centered AI action notification popup (kid-friendly)
-  Future<void> _showAIActionNotification(
-    String playerName,
-    String message,
-    IconData icon,
-    Color color,
-  ) async {
+  Future<void> _showAIActionNotification(String playerName, String message, IconData icon, Color color) async {
     if (!mounted) return;
-    await showAIActionDialog(
-      context: context,
-      playerName: playerName,
-      message: message,
-      icon: icon,
-      color: color,
-    );
+    await showAIActionDialog(context: context, playerName: playerName, message: message, icon: icon, color: color);
   }
 
   Future<void> _handleBuyOption(Player player, TileData tile) async {
@@ -516,21 +467,18 @@ class _GameBoardScreenState extends State<GameBoardScreen>
       await Future.delayed(const Duration(milliseconds: 300));
 
       final aiEngine = _aiEngines[player.id];
-      final shouldBuy = aiEngine?.shouldBuyProperty(player, tile, gameState) ??
-          _defaultAIShouldBuy(player, tile);
+      final shouldBuy = aiEngine?.shouldBuyProperty(player, tile, gameState) ?? _defaultAIShouldBuy(player, tile);
 
       if (shouldBuy) {
         int? price;
-        if (tile is PropertyTileData) price = tile.price;
-        else if (tile is RailroadTileData) price = tile.price;
-        else if (tile is UtilityTileData) price = tile.price;
+        if (tile is PropertyTileData)
+          price = tile.price;
+        else if (tile is RailroadTileData)
+          price = tile.price;
+        else if (tile is UtilityTileData)
+          price = tile.price;
 
-        await _showAIActionNotification(
-          player.name,
-          'Bought ${tile.name} for \$$price!',
-          Icons.home,
-          Colors.green,
-        );
+        await _showAIActionNotification(player.name, 'Bought ${tile.name} for \$$price!', Icons.home, Colors.green);
         if (engine.buyProperty(player, tile)) {
           setState(() {});
         }
@@ -560,18 +508,19 @@ class _GameBoardScreenState extends State<GameBoardScreen>
 
   bool _defaultAIShouldBuy(Player player, TileData tile) {
     int? price;
-    if (tile is PropertyTileData) price = tile.price;
-    else if (tile is RailroadTileData) price = tile.price;
-    else if (tile is UtilityTileData) price = tile.price;
+    if (tile is PropertyTileData)
+      price = tile.price;
+    else if (tile is RailroadTileData)
+      price = tile.price;
+    else if (tile is UtilityTileData)
+      price = tile.price;
     return price != null && player.cash >= price + 100;
   }
 
   Future<void> _startAuction(TileData tile) async {
     if (!mounted) return;
 
-    final activePlayers = gameState.players
-        .where((p) => p.status == PlayerStatus.active)
-        .toList();
+    final activePlayers = gameState.players.where((p) => p.status == PlayerStatus.active).toList();
 
     if (activePlayers.length < 2) return;
 
@@ -606,17 +555,11 @@ class _GameBoardScreenState extends State<GameBoardScreen>
       await Future.delayed(const Duration(milliseconds: 300));
 
       final aiEngine = _aiEngines[player.id];
-      final shouldUpgrade = aiEngine?.shouldUpgradeProperty(player, property, gameState) ??
-          (player.cash >= property.upgradeCost + 200);
+      final shouldUpgrade = aiEngine?.shouldUpgradeProperty(player, property, gameState) ?? (player.cash >= property.upgradeCost + 200);
 
       if (shouldUpgrade) {
         final levelName = property.upgradeLevel < 4 ? 'house' : 'hotel';
-        await _showAIActionNotification(
-          player.name,
-          'Built a $levelName on ${property.name}!',
-          Icons.construction,
-          Colors.green,
-        );
+        await _showAIActionNotification(player.name, 'Built a $levelName on ${property.name}!', Icons.construction, Colors.green);
         if (engine.upgradeProperty(player, property)) {
           setState(() {});
         }
@@ -640,23 +583,13 @@ class _GameBoardScreenState extends State<GameBoardScreen>
     );
   }
 
-  Future<void> _handlePayRent(
-    Player player,
-    TileData tile,
-    int amount,
-    String ownerId,
-  ) async {
+  Future<void> _handlePayRent(Player player, TileData tile, int amount, String ownerId) async {
     final owner = gameState.players.firstWhere((p) => p.id == ownerId);
     final isBankruptcy = player.cash < amount;
 
     // AI automatically pays rent with notification
     if (player.isAI) {
-      await _showAIActionNotification(
-        player.name,
-        'Paid \$$amount rent to ${owner.name}',
-        Icons.payments,
-        Colors.red,
-      );
+      await _showAIActionNotification(player.name, 'Paid \$$amount rent to ${owner.name}', Icons.payments, Colors.red);
       final result = engine.payRent(player, ownerId, amount);
       setState(() {
         if (result.bankruptcy) {
@@ -700,12 +633,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
 
     // AI automatically pays tax with notification
     if (player.isAI) {
-      await _showAIActionNotification(
-        player.name,
-        'Paid \$$amount $taxName',
-        Icons.account_balance,
-        Colors.amber.shade700,
-      );
+      await _showAIActionNotification(player.name, 'Paid \$$amount $taxName', Icons.account_balance, Colors.amber.shade700);
       final result = engine.payTax(player, amount);
       setState(() {
         if (result.bankruptcy) {
@@ -737,12 +665,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
 
   Future<void> _handleGoToJail(Player player) async {
     if (player.isAI) {
-      await _showAIActionNotification(
-        player.name,
-        'Going to jail!',
-        Icons.gavel,
-        Colors.grey.shade700,
-      );
+      await _showAIActionNotification(player.name, 'Going to jail!', Icons.gavel, Colors.grey.shade700);
     }
     engine.sendToJail(player);
     setState(() {});
@@ -756,13 +679,8 @@ class _GameBoardScreenState extends State<GameBoardScreen>
     if (player.isAI) {
       final prize = SpinPrizes.getRandomPrize();
       final prizeText = prize.value != null ? '\$${prize.value}' : prize.name;
-      await _showAIActionNotification(
-        player.name,
-        'Spun the wheel and won $prizeText!',
-        Icons.casino,
-        Colors.purple,
-      );
-      applySpinPrize(player, prize, gameState);
+      await _showAIActionNotification(player.name, 'Spun the wheel and won $prizeText!', Icons.casino, Colors.purple);
+      await _applySpinPrizeWithUI(player, prize);
       setState(() {});
       return;
     }
@@ -773,11 +691,88 @@ class _GameBoardScreenState extends State<GameBoardScreen>
     await showSpinWheelDialog(
       context: context,
       playerName: player.name,
-      onPrizeWon: (prize) {
-        applySpinPrize(player, prize, gameState);
+      onPrizeWon: (prize) async {
+        await _applySpinPrizeWithUI(player, prize);
         setState(() {});
       },
     );
+  }
+
+  /// Apply spin prize with UI dialogs for interactive prizes (Free House, Teleport)
+  Future<void> _applySpinPrizeWithUI(Player player, SpinPrize prize) async {
+    switch (prize.type) {
+      case SpinPrizeType.cash:
+      case SpinPrizeType.jackpot:
+        player.cash += prize.value ?? 0;
+        break;
+
+      case SpinPrizeType.freeHouse:
+        // Show property selection dialog for human players
+        if (!player.isAI && mounted) {
+          // Get all upgradable properties owned by the player
+          final ownedProperties = gameState.tiles.whereType<PropertyTileData>().where((p) => p.ownerId == player.id && p.canUpgrade).toList();
+
+          if (ownedProperties.isNotEmpty) {
+            await showFreeHouseDialog(
+              context: context,
+              properties: ownedProperties,
+              onPropertySelected: (property) {
+                property.upgradeLevel++;
+                setState(() {});
+              },
+            );
+          } else {
+            // Store for later if no properties available
+            gameState.playerSpinPrizes[player.id] ??= [];
+            gameState.playerSpinPrizes[player.id]!.add(prize);
+          }
+        } else {
+          // AI: automatically upgrade first available property
+          final ownedProperties = gameState.tiles.whereType<PropertyTileData>().where((p) => p.ownerId == player.id && p.canUpgrade).toList();
+          if (ownedProperties.isNotEmpty) {
+            ownedProperties.first.upgradeLevel++;
+          }
+        }
+        break;
+
+      case SpinPrizeType.doubleRent:
+        gameState.playerDoubleRent[player.id] = true;
+        break;
+
+      case SpinPrizeType.shield:
+        gameState.playerShields[player.id] = true;
+        break;
+
+      case SpinPrizeType.teleport:
+        // Show teleport dialog for human players
+        if (!player.isAI && mounted) {
+          await showTeleportDialog(
+            context: context,
+            tiles: gameState.tiles,
+            currentPosition: player.position,
+            onTileSelected: (tileIndex) {
+              player.position = tileIndex;
+              setState(() {});
+            },
+          );
+        } else {
+          // AI: teleport to a random unowned property if available
+          final unownedProperties = gameState.tiles.whereType<PropertyTileData>().where((p) => p.ownerId == null).toList();
+          if (unownedProperties.isNotEmpty) {
+            final randomProperty = unownedProperties[_random.nextInt(unownedProperties.length)];
+            player.position = randomProperty.index;
+          }
+        }
+        break;
+
+      case SpinPrizeType.extraTurn:
+        gameState.hasExtraTurn = true;
+        break;
+
+      case SpinPrizeType.rentDiscount:
+        gameState.activePowerUps.add(ActivePowerUp(card: PowerUpCards.rentReducer.createInstance(), playerId: player.id, remainingTurns: 1));
+        break;
+    }
   }
 
   // ==========================================================================
@@ -848,8 +843,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
     gameState.turnsSinceLastEvent++;
 
     // 10% chance each round, guaranteed every 10 rounds
-    final shouldTrigger = EventCards.shouldTriggerEvent(_totalRounds) ||
-        gameState.turnsSinceLastEvent >= 10;
+    final shouldTrigger = EventCards.shouldTriggerEvent(_totalRounds) || gameState.turnsSinceLastEvent >= 10;
 
     if (shouldTrigger) {
       gameState.turnsSinceLastEvent = 0;
@@ -862,11 +856,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
       if (!gameState.currentPlayer.isAI && mounted) {
         Future.delayed(const Duration(milliseconds: 300), () {
           if (mounted) {
-            showEventDialog(
-              context: context,
-              event: event,
-              onDismiss: () {},
-            );
+            showEventDialog(context: context, event: event, onDismiss: () {});
           }
         });
       }
@@ -892,12 +882,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
     final cards = gameState.getPowerUps(player.id);
 
     if (cards.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('No power-up cards! Win mini-games to collect them.'),
-          duration: Duration(seconds: 2),
-        ),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('No power-up cards! Win mini-games to collect them.'), duration: Duration(seconds: 2)));
       return;
     }
 
@@ -916,11 +901,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
               padding: EdgeInsets.all(16),
               child: Text(
                 'Your Power-Up Cards',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
             Expanded(
@@ -938,96 +919,151 @@ class _GameBoardScreenState extends State<GameBoardScreen>
     );
   }
 
+  // Card definitions with text and effects - Fun kid-friendly wording!
+  static const List<Map<String, String>> _chanceCards = [
+    // Classic cards with fun twists
+    {'text': 'Bank says "Here\'s some extra cash!"', 'effect': '+\$50', 'action': 'collect50'},
+    {'text': 'Oops! Caught going too fast on your scooter!', 'effect': '-\$15', 'action': 'pay15'},
+    {'text': 'Race to GO! Zoom zoom!', 'effect': 'Collect \$200', 'action': 'advanceGo'},
+    {'text': 'Wrong turn! Go back 3 spaces. Oopsie!', 'effect': 'Move back', 'action': 'back3'},
+    {'text': 'Your piggy bank is overflowing!', 'effect': '+\$150', 'action': 'collect150'},
+    // Fun new cards
+    {'text': 'Found \$25 in your old jeans pocket!', 'effect': '+\$25', 'action': 'collect25'},
+    {'text': 'Won the school talent show! Star power!', 'effect': '+\$100', 'action': 'collect100'},
+    {'text': 'Your lemonade stand was a HUGE hit!', 'effect': '+\$50', 'action': 'collect50'},
+    {'text': 'Pizza party for everyone! Worth every penny!', 'effect': '-\$50', 'action': 'pay50'},
+    {'text': 'Dug up pirate treasure in the backyard!', 'effect': '+\$150', 'action': 'collect150'},
+    {'text': 'Your cat video went VIRAL! Fame and fortune!', 'effect': '+\$200', 'action': 'collect200'},
+    {'text': 'Garage sale champion! Sold all your old toys!', 'effect': '+\$25', 'action': 'collect25'},
+    {'text': 'Spelling bee winner! B-R-I-L-L-I-A-N-T!', 'effect': '+\$100', 'action': 'collect100'},
+    {'text': 'Baseball went through the neighbor\'s window...', 'effect': '-\$50', 'action': 'pay50'},
+    {'text': 'Grandma\'s surprise birthday money arrived!', 'effect': '+\$100', 'action': 'collect100'},
+    {'text': 'Your goldfish won "Best Pet" at the fair!', 'effect': '+\$150', 'action': 'collect150'},
+    {'text': 'Ice cream truck! You HAVE to get some!', 'effect': '-\$15', 'action': 'pay15'},
+    {'text': 'Found a four-leaf clover... and \$100!', 'effect': '+\$100', 'action': 'collect100'},
+    {'text': 'Your cookies sold out at the bake sale!', 'effect': '+\$50', 'action': 'collect50'},
+    {'text': 'Video game tournament CHAMPION!', 'effect': '+\$200', 'action': 'collect200'},
+  ];
+
+  static const List<Map<String, String>> _chestCards = [
+    // Classic cards with fun twists
+    {'text': 'Your savings account grew! Cha-ching!', 'effect': '+\$100', 'action': 'collect100'},
+    {'text': 'Uh oh, time for a check-up at the doctor.', 'effect': '-\$50', 'action': 'pay50'},
+    {'text': 'HAPPY BIRTHDAY TO YOU! Party time!', 'effect': '+\$25', 'action': 'collect25'},
+    {'text': 'The bank made a mistake... in YOUR favor!', 'effect': '+\$200', 'action': 'collect200'},
+    {'text': 'New school supplies needed!', 'effect': '-\$50', 'action': 'pay50'},
+    // Fun new cards
+    {'text': 'Great-aunt Mildred left you her fortune!', 'effect': '+\$100', 'action': 'collect100'},
+    {'text': 'Summer vacation fund is ready!', 'effect': '+\$100', 'action': 'collect100'},
+    {'text': 'Helped the neighbor rake leaves! Good job!', 'effect': '+\$25', 'action': 'collect25'},
+    {'text': 'Won "Best Smile" at picture day!', 'effect': '+\$50', 'action': 'collect50'},
+    {'text': 'Tax refund time! Money back!', 'effect': '+\$100', 'action': 'collect100'},
+    {'text': 'Your art project sold at the school auction!', 'effect': '+\$150', 'action': 'collect150'},
+    {'text': 'Dog walking business is booming!', 'effect': '+\$50', 'action': 'collect50'},
+    {'text': 'Mom found your report card... A+ means \$\$!', 'effect': '+\$100', 'action': 'collect100'},
+    {'text': 'Oops! Forgot to return library books!', 'effect': '-\$15', 'action': 'pay15'},
+    {'text': 'Anonymous donor sends you a gift!', 'effect': '+\$200', 'action': 'collect200'},
+    {'text': 'Your team won the science fair!', 'effect': '+\$100', 'action': 'collect100'},
+    {'text': 'Tooth fairy came... for ALL your baby teeth!', 'effect': '+\$50', 'action': 'collect50'},
+    {'text': 'Recycling paid off! Save the planet AND get \$!', 'effect': '+\$25', 'action': 'collect25'},
+    {'text': 'Your handmade bracelet sold on Etsy!', 'effect': '+\$50', 'action': 'collect50'},
+    {'text': 'Community hero award! You\'re awesome!', 'effect': '+\$150', 'action': 'collect150'},
+  ];
+
+  void _applyCardEffect(Player player, String action) {
+    setState(() {
+      switch (action) {
+        case 'collect25':
+          player.cash += 25;
+          break;
+        case 'collect50':
+          player.cash += 50;
+          break;
+        case 'collect100':
+          player.cash += 100;
+          break;
+        case 'collect150':
+          player.cash += 150;
+          break;
+        case 'collect200':
+          player.cash += 200;
+          break;
+        case 'pay15':
+          player.cash -= 15;
+          break;
+        case 'pay50':
+          player.cash -= 50;
+          break;
+        case 'advanceGo':
+          player.position = 0;
+          player.cash += 200;
+          break;
+        case 'back3':
+          player.position = (player.position - 3 + 40) % 40;
+          break;
+      }
+    });
+  }
+
+  void _onCardDeckTap(bool isChance) {
+    if (!_waitingForCardPick) return;
+    if (isChance != _isChanceCard) return; // Wrong deck tapped
+    if (_cardPickPlayer == null) return;
+
+    final cards = isChance ? _chanceCards : _chestCards;
+
+    // Shuffle and pick 5 random cards for the player to choose from
+    final shuffledCards = List<Map<String, String>>.from(cards)..shuffle(_random);
+    final pickableCards = shuffledCards.take(5).map((c) => PickableCard(text: c['text']!, effect: c['effect']!, action: c['action']!)).toList();
+
+    showCardPickDialog(
+      context: context,
+      isChance: isChance,
+      cards: pickableCards,
+      onCardPicked: (pickedCard) {
+        _applyCardEffect(_cardPickPlayer!, pickedCard.action);
+
+        // Reset card picking state
+        setState(() {
+          _waitingForCardPick = false;
+          _isChanceCard = false;
+          _cardPickPlayer = null;
+        });
+
+        // Complete the future to continue game flow
+        _cardPickCompleter?.complete();
+        _cardPickCompleter = null;
+      },
+    );
+  }
+
   Future<void> _handleDrawCard(Player player, TileData tile) async {
     final isChance = tile.type == TileType.chance;
 
-    // Card definitions with text and effects
-    final chanceCards = [
-      {'text': 'Bank pays you dividend!', 'effect': '+\$50', 'action': 'collect50'},
-      {'text': 'Speeding fine!', 'effect': '-\$15', 'action': 'pay15'},
-      {'text': 'Advance to GO!', 'effect': 'Collect \$200', 'action': 'advanceGo'},
-      {'text': 'Go back 3 spaces.', 'effect': 'Move back', 'action': 'back3'},
-      {'text': 'Your building loan matures.', 'effect': '+\$150', 'action': 'collect150'},
-      {'text': 'Pay poor tax.', 'effect': '-\$15', 'action': 'pay15'},
-      {'text': 'You won a crossword competition!', 'effect': '+\$100', 'action': 'collect100'},
-    ];
-
-    final chestCards = [
-      {'text': 'Life insurance matures.', 'effect': '+\$100', 'action': 'collect100'},
-      {'text': 'Doctor\'s fee.', 'effect': '-\$50', 'action': 'pay50'},
-      {'text': 'It\'s your birthday!', 'effect': '+\$25', 'action': 'collect25'},
-      {'text': 'Bank error in your favor!', 'effect': '+\$200', 'action': 'collect200'},
-      {'text': 'School fees due.', 'effect': '-\$50', 'action': 'pay50'},
-      {'text': 'You inherit \$100!', 'effect': '+\$100', 'action': 'collect100'},
-      {'text': 'Holiday fund matures!', 'effect': '+\$100', 'action': 'collect100'},
-    ];
-
-    final cards = isChance ? chanceCards : chestCards;
-    final card = cards[_random.nextInt(cards.length)];
-
-    // Apply the effect
-    void applyEffect() {
-      setState(() {
-        switch (card['action']) {
-          case 'collect25':
-            player.cash += 25;
-            break;
-          case 'collect50':
-            player.cash += 50;
-            break;
-          case 'collect100':
-            player.cash += 100;
-            break;
-          case 'collect150':
-            player.cash += 150;
-            break;
-          case 'collect200':
-            player.cash += 200;
-            break;
-          case 'pay15':
-            player.cash -= 15;
-            break;
-          case 'pay50':
-            player.cash -= 50;
-            break;
-          case 'advanceGo':
-            player.position = 0;
-            player.cash += 200;
-            break;
-          case 'back3':
-            player.position = (player.position - 3 + 40) % 40;
-            break;
-        }
-      });
-    }
+    final cards = isChance ? _chanceCards : _chestCards;
 
     // AI automatically handles card effect with notification
     if (player.isAI) {
-      await _showAIActionNotification(
-        player.name,
-        '${card['text']}\n${card['effect']}',
-        isChance ? Icons.help_outline : Icons.inventory_2,
-        isChance ? Colors.orange : Colors.blue,
-      );
-      applyEffect();
+      final card = cards[_random.nextInt(cards.length)];
+      await _showAIActionNotification(player.name, '${card['text']}\n${card['effect']}', isChance ? Icons.help_outline : Icons.inventory_2, isChance ? Colors.orange : Colors.blue);
+      _applyCardEffect(player, card['action']!);
       return;
     }
 
-    // Human player gets card dialog
-    if (mounted) {
-      await showCardDialog(
-        context: context,
-        isChance: isChance,
-        cardText: card['text']!,
-        effect: card['effect']!,
-        onDismiss: applyEffect,
-      );
-    }
+    // Human player - highlight the deck and wait for them to tap it
+    _cardPickCompleter = Completer<void>();
+    setState(() {
+      _waitingForCardPick = true;
+      _isChanceCard = isChance;
+      _cardPickPlayer = player;
+    });
+
+    // Wait for the card to be picked
+    await _cardPickCompleter!.future;
   }
 
   bool _checkWinCondition() {
-    final activePlayers =
-        gameState.players.where((p) => p.status == PlayerStatus.active).toList();
+    final activePlayers = gameState.players.where((p) => p.status == PlayerStatus.active).toList();
 
     if (activePlayers.length == 1) {
       _showGameOverDialog(activePlayers.first);
@@ -1041,13 +1077,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (_) => VictoryScreen(
-          winner: winner,
-          allPlayers: gameState.players,
-          gameTurns: _totalRounds,
-          onPlayAgain: widget.onRestart,
-          onGoHome: widget.onQuit,
-        ),
+        builder: (_) => VictoryScreen(winner: winner, allPlayers: gameState.players, gameTurns: _totalRounds, onPlayAgain: widget.onRestart, onGoHome: widget.onQuit),
       ),
     );
   }
@@ -1056,11 +1086,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
     // Phase 3: Check for extra turn
     if (gameState.hasExtraTurn) {
       setState(() {
-        gameState = gameState.copyWith(
-          hasExtraTurn: false,
-          highlightedTileIndex: null,
-          logicPhase: TurnLogicPhase.preRoll,
-        );
+        gameState = gameState.copyWith(hasExtraTurn: false, highlightedTileIndex: null, logicPhase: TurnLogicPhase.preRoll);
       });
 
       // Continue with same player
@@ -1091,11 +1117,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
       // Tick active power-ups
       gameState.tickActivePowerUps();
 
-      gameState = gameState.copyWith(
-        currentPlayerIndex: nextIndex,
-        highlightedTileIndex: null,
-        logicPhase: TurnLogicPhase.preRoll,
-      );
+      gameState = gameState.copyWith(currentPlayerIndex: nextIndex, highlightedTileIndex: null, logicPhase: TurnLogicPhase.preRoll);
 
       // Phase 3: Check for random event trigger at new round
       if (crossedRound) {
@@ -1182,12 +1204,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
   // ==========================================================================
   // Phase 4: Action Button Widget Builder
   // ==========================================================================
-  Widget _buildActionButton({
-    required IconData icon,
-    required String label,
-    required Color color,
-    required VoidCallback onTap,
-  }) {
+  Widget _buildActionButton({required IconData icon, required String label, required Color color, required VoidCallback onTap}) {
     return Material(
       color: color.withOpacity(0.9),
       borderRadius: BorderRadius.circular(8),
@@ -1203,11 +1220,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
               const SizedBox(width: 4),
               Text(
                 label,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12,
-                ),
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
               ),
             ],
           ),
@@ -1221,27 +1234,14 @@ class _GameBoardScreenState extends State<GameBoardScreen>
   // ==========================================================================
   void _showTradeDialog() {
     final currentPlayer = gameState.currentPlayer;
-    final otherPlayers = gameState.players
-        .where((p) => p.id != currentPlayer.id && p.status == PlayerStatus.active)
-        .toList();
+    final otherPlayers = gameState.players.where((p) => p.id != currentPlayer.id && p.status == PlayerStatus.active).toList();
 
     if (otherPlayers.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('No other players to trade with!'),
-          duration: Duration(seconds: 2),
-        ),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('No other players to trade with!'), duration: Duration(seconds: 2)));
       return;
     }
 
-    showTradeDialog(
-      context: context,
-      currentPlayer: currentPlayer,
-      otherPlayers: otherPlayers,
-      tiles: gameState.tiles,
-      onTradeProposed: _handleTradeProposal,
-    );
+    showTradeDialog(context: context, currentPlayer: currentPlayer, otherPlayers: otherPlayers, tiles: gameState.tiles, onTradeProposed: _handleTradeProposal);
   }
 
   Future<void> _handleTradeProposal(TradeOffer offer) async {
@@ -1252,25 +1252,14 @@ class _GameBoardScreenState extends State<GameBoardScreen>
       await Future.delayed(const Duration(milliseconds: 500));
 
       final aiEngine = _aiEngines[recipient.id];
-      final shouldAccept = aiEngine?.shouldAcceptTrade(offer, recipient, gameState) ??
-          AITradeStrategy.shouldAcceptTrade(offer, recipient);
+      final shouldAccept = aiEngine?.shouldAcceptTrade(offer, recipient, gameState) ?? AITradeStrategy.shouldAcceptTrade(offer, recipient);
 
       if (shouldAccept) {
-        await _showAIActionNotification(
-          recipient.name,
-          'Accepted the trade!',
-          Icons.handshake,
-          Colors.green,
-        );
+        await _showAIActionNotification(recipient.name, 'Accepted the trade!', Icons.handshake, Colors.green);
         offer.execute();
         setState(() {});
       } else {
-        await _showAIActionNotification(
-          recipient.name,
-          'Rejected the trade.',
-          Icons.cancel,
-          Colors.red,
-        );
+        await _showAIActionNotification(recipient.name, 'Rejected the trade.', Icons.cancel, Colors.red);
       }
       return;
     }
@@ -1283,22 +1272,10 @@ class _GameBoardScreenState extends State<GameBoardScreen>
       onAccept: () {
         offer.execute();
         setState(() {});
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Trade completed!'),
-            backgroundColor: Colors.green,
-            duration: Duration(seconds: 2),
-          ),
-        );
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Trade completed!'), backgroundColor: Colors.green, duration: Duration(seconds: 2)));
       },
       onReject: () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Trade rejected.'),
-            backgroundColor: Colors.red,
-            duration: Duration(seconds: 2),
-          ),
-        );
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Trade rejected.'), backgroundColor: Colors.red, duration: Duration(seconds: 2)));
       },
     );
   }

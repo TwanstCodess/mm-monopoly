@@ -6,7 +6,7 @@ import '../effects/floating_cash_indicator.dart';
 import '../avatar/avatar_widget.dart';
 
 /// Full player card for landscape mode
-class PlayerCard extends StatelessWidget {
+class PlayerCard extends StatefulWidget {
   final Player player;
   final bool isCurrentPlayer;
 
@@ -17,47 +17,106 @@ class PlayerCard extends StatelessWidget {
   });
 
   @override
+  State<PlayerCard> createState() => _PlayerCardState();
+}
+
+class _PlayerCardState extends State<PlayerCard>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _glowController;
+  late Animation<double> _glowAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _glowController = AnimationController(
+      duration: const Duration(milliseconds: 1500),
+      vsync: this,
+    );
+    _glowAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _glowController, curve: Curves.easeInOut),
+    );
+    if (widget.isCurrentPlayer) {
+      _glowController.repeat(reverse: true);
+    }
+  }
+
+  @override
+  void didUpdateWidget(PlayerCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.isCurrentPlayer && !oldWidget.isCurrentPlayer) {
+      _glowController.repeat(reverse: true);
+    } else if (!widget.isCurrentPlayer && oldWidget.isCurrentPlayer) {
+      _glowController.stop();
+      _glowController.reset();
+    }
+  }
+
+  @override
+  void dispose() {
+    _glowController.dispose();
+    super.dispose();
+  }
+
+  Player get player => widget.player;
+  bool get isCurrentPlayer => widget.isCurrentPlayer;
+
+  @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: isCurrentPlayer
-              ? [player.color.withOpacity(0.5), player.color.withOpacity(0.3)]
-              : [Colors.grey.shade800.withOpacity(0.8), Colors.grey.shade900.withOpacity(0.8)],
-        ),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: isCurrentPlayer ? player.color : Colors.grey.shade700,
-          width: isCurrentPlayer ? 4 : 1,
-        ),
-        boxShadow: isCurrentPlayer
-            ? [
-                BoxShadow(color: player.color.withOpacity(0.6), blurRadius: 20, spreadRadius: 4),
-                BoxShadow(color: Colors.amber.withOpacity(0.3), blurRadius: 30, spreadRadius: 2),
-              ]
-            : [],
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildHeader(),
-            const SizedBox(height: 8),
-            _buildCashDisplay(),
-            // AI indicator under cash
-            if (player.isAI) ...[
-              const SizedBox(height: 6),
-              const _AIBadge(),
-            ],
-            const SizedBox(height: 8),
-            Expanded(child: _buildPropertiesSection()),
-          ],
-        ),
-      ),
+    return AnimatedBuilder(
+      animation: _glowAnimation,
+      builder: (context, child) {
+        final glowIntensity = isCurrentPlayer ? 0.4 + _glowAnimation.value * 0.4 : 0.0;
+        final borderWidth = isCurrentPlayer ? 3.0 + _glowAnimation.value * 2 : 1.0;
+
+        return Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: isCurrentPlayer
+                  ? [player.color.withOpacity(0.5), player.color.withOpacity(0.3)]
+                  : [Colors.grey.shade800.withOpacity(0.8), Colors.grey.shade900.withOpacity(0.8)],
+            ),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: isCurrentPlayer ? Colors.amber : Colors.grey.shade700,
+              width: borderWidth,
+            ),
+            boxShadow: isCurrentPlayer
+                ? [
+                    BoxShadow(
+                      color: Colors.amber.withOpacity(glowIntensity),
+                      blurRadius: 15 + _glowAnimation.value * 10,
+                      spreadRadius: 2 + _glowAnimation.value * 4,
+                    ),
+                    BoxShadow(
+                      color: player.color.withOpacity(glowIntensity * 0.5),
+                      blurRadius: 25,
+                      spreadRadius: 5,
+                    ),
+                  ]
+                : [],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildHeader(),
+                const SizedBox(height: 8),
+                _buildCashDisplay(),
+                // AI indicator under cash
+                if (player.isAI) ...[
+                  const SizedBox(height: 6),
+                  const _AIBadge(),
+                ],
+                const SizedBox(height: 8),
+                Expanded(child: _buildPropertiesSection()),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -70,20 +129,59 @@ class PlayerCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                player.name,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                ),
+              Row(
+                children: [
+                  Flexible(
+                    child: Text(
+                      player.name,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
               ),
-              if (isCurrentPlayer) const _TurnIndicator(),
+              const SizedBox(height: 2),
+              // Show current location
+              Row(
+                children: [
+                  Icon(Icons.location_on, size: 12, color: Colors.grey.shade400),
+                  const SizedBox(width: 2),
+                  Flexible(
+                    child: Text(
+                      _getTileNameForPosition(player.position),
+                      style: TextStyle(color: Colors.grey.shade400, fontSize: 11),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
       ],
     );
+  }
+
+  String _getTileNameForPosition(int position) {
+    // Simple tile name mapping
+    const tileNames = [
+      'GO', 'Mediterranean Ave', 'Community Chest', 'Baltic Ave', 'Income Tax',
+      'Reading RR', 'Oriental Ave', 'Chance', 'Vermont Ave', 'Connecticut Ave',
+      'Jail', 'St. Charles Pl', 'Electric Co', 'States Ave', 'Virginia Ave',
+      'Pennsylvania RR', 'St. James Pl', 'Community Chest', 'Tennessee Ave', 'New York Ave',
+      'Free Parking', 'Kentucky Ave', 'Chance', 'Indiana Ave', 'Illinois Ave',
+      'B&O RR', 'Atlantic Ave', 'Ventnor Ave', 'Water Works', 'Marvin Gardens',
+      'Go To Jail', 'Pacific Ave', 'North Carolina Ave', 'Community Chest', 'Pennsylvania Ave',
+      'Short Line', 'Chance', 'Park Place', 'Luxury Tax', 'Boardwalk',
+    ];
+    if (position >= 0 && position < tileNames.length) {
+      return tileNames[position];
+    }
+    return 'Unknown';
   }
 
   Widget _buildCashDisplay() {
@@ -152,7 +250,7 @@ class PlayerCard extends StatelessWidget {
 }
 
 /// Compact player card for portrait mode - shows properties like landscape
-class PlayerCardCompact extends StatelessWidget {
+class PlayerCardCompact extends StatefulWidget {
   final Player player;
   final bool isCurrentPlayer;
   final List<TileData>? tiles;
@@ -163,6 +261,51 @@ class PlayerCardCompact extends StatelessWidget {
     required this.isCurrentPlayer,
     this.tiles,
   });
+
+  @override
+  State<PlayerCardCompact> createState() => _PlayerCardCompactState();
+}
+
+class _PlayerCardCompactState extends State<PlayerCardCompact>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _glowController;
+  late Animation<double> _glowAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _glowController = AnimationController(
+      duration: const Duration(milliseconds: 1500),
+      vsync: this,
+    );
+    _glowAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _glowController, curve: Curves.easeInOut),
+    );
+    if (widget.isCurrentPlayer) {
+      _glowController.repeat(reverse: true);
+    }
+  }
+
+  @override
+  void didUpdateWidget(PlayerCardCompact oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.isCurrentPlayer && !oldWidget.isCurrentPlayer) {
+      _glowController.repeat(reverse: true);
+    } else if (!widget.isCurrentPlayer && oldWidget.isCurrentPlayer) {
+      _glowController.stop();
+      _glowController.reset();
+    }
+  }
+
+  @override
+  void dispose() {
+    _glowController.dispose();
+    super.dispose();
+  }
+
+  Player get player => widget.player;
+  bool get isCurrentPlayer => widget.isCurrentPlayer;
+  List<TileData>? get tiles => widget.tiles;
 
   /// Get tile name for current position
   String _getTileName() {
@@ -183,140 +326,151 @@ class PlayerCardCompact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: isCurrentPlayer
-              ? [player.color.withOpacity(0.5), player.color.withOpacity(0.3)]
-              : [Colors.grey.shade800.withOpacity(0.8), Colors.grey.shade900.withOpacity(0.8)],
-        ),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: isCurrentPlayer ? player.color : Colors.grey.shade700,
-          width: isCurrentPlayer ? 3 : 1,
-        ),
-        boxShadow: isCurrentPlayer
-            ? [
-                BoxShadow(color: player.color.withOpacity(0.5), blurRadius: 15, spreadRadius: 2),
-              ]
-            : [],
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // Single row: Avatar | Name | Cash (all vertically centered)
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+    return AnimatedBuilder(
+      animation: _glowAnimation,
+      builder: (context, child) {
+        final glowIntensity = isCurrentPlayer ? 0.4 + _glowAnimation.value * 0.4 : 0.0;
+        final borderWidth = isCurrentPlayer ? 2.0 + _glowAnimation.value * 2 : 1.0;
+
+        return Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: isCurrentPlayer
+                  ? [player.color.withOpacity(0.5), player.color.withOpacity(0.3)]
+                  : [Colors.grey.shade800.withOpacity(0.8), Colors.grey.shade900.withOpacity(0.8)],
+            ),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: isCurrentPlayer ? Colors.amber : Colors.grey.shade700,
+              width: borderWidth,
+            ),
+            boxShadow: isCurrentPlayer
+                ? [
+                    BoxShadow(
+                      color: Colors.amber.withOpacity(glowIntensity),
+                      blurRadius: 12 + _glowAnimation.value * 8,
+                      spreadRadius: 1 + _glowAnimation.value * 3,
+                    ),
+                    BoxShadow(
+                      color: player.color.withOpacity(glowIntensity * 0.5),
+                      blurRadius: 20,
+                      spreadRadius: 3,
+                    ),
+                  ]
+                : [],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                _PlayerAvatar(player: player, size: 36),
-                const SizedBox(width: 8),
-                // Name and status
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Row(
+                // Single row: Avatar | Name | Cash (all vertically centered)
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    _PlayerAvatar(player: player, size: 36),
+                    const SizedBox(width: 8),
+                    // Name and status
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
-                          Flexible(
-                            child: Text(
-                              player.name,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
-                              ),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          if (player.isAI) ...[
-                            const SizedBox(width: 6),
-                            const _AIBadgeSmall(),
-                          ],
-                        ],
-                      ),
-                      if (isCurrentPlayer)
-                        const Padding(
-                          padding: EdgeInsets.only(top: 2),
-                          child: _TurnIndicator(),
-                        )
-                      else
-                        Padding(
-                          padding: const EdgeInsets.only(top: 2),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
+                          Row(
                             children: [
-                              Icon(Icons.location_on, size: 10, color: Colors.grey.shade400),
-                              const SizedBox(width: 2),
                               Flexible(
                                 child: Text(
-                                  _getTileName(),
-                                  style: TextStyle(color: Colors.grey.shade400, fontSize: 10),
+                                  player.name,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14,
+                                  ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
+                              if (player.isAI) ...[
+                                const SizedBox(width: 6),
+                                const _AIBadgeSmall(),
+                              ],
                             ],
                           ),
-                        ),
-                    ],
-                  ),
+                          // Show location for all players
+                          Padding(
+                            padding: const EdgeInsets.only(top: 2),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(Icons.location_on, size: 10, color: Colors.grey.shade400),
+                                const SizedBox(width: 2),
+                                Flexible(
+                                  child: Text(
+                                    _getTileName(),
+                                    style: TextStyle(color: Colors.grey.shade400, fontSize: 10),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // Cash amount
+                    AnimatedCashDisplay(
+                      cash: player.cash,
+                      style: const TextStyle(
+                        color: AppTheme.cashGreen,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
-                // Cash amount
-                AnimatedCashDisplay(
-                  cash: player.cash,
-                  style: const TextStyle(
-                    color: AppTheme.cashGreen,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                const SizedBox(height: 6),
+                // Properties section - compact
+                Expanded(
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(6),
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(Icons.home, size: 14, color: Colors.grey.shade400),
+                        const SizedBox(width: 4),
+                        Expanded(
+                          child: player.propertyIds.isEmpty
+                              ? Text(
+                                  'No properties',
+                                  style: TextStyle(
+                                    color: Colors.grey.shade500,
+                                    fontSize: 10,
+                                    fontStyle: FontStyle.italic,
+                                  ),
+                                )
+                              : Wrap(
+                                  spacing: 3,
+                                  runSpacing: 3,
+                                  children: player.propertyIds
+                                      .map((p) => _PropertyChip(propertyId: p))
+                                      .toList(),
+                                ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 6),
-            // Properties section - compact
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(6),
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Icon(Icons.home, size: 14, color: Colors.grey.shade400),
-                    const SizedBox(width: 4),
-                    Expanded(
-                      child: player.propertyIds.isEmpty
-                          ? Text(
-                              'No properties',
-                              style: TextStyle(
-                                color: Colors.grey.shade500,
-                                fontSize: 10,
-                                fontStyle: FontStyle.italic,
-                              ),
-                            )
-                          : Wrap(
-                              spacing: 3,
-                              runSpacing: 3,
-                              children: player.propertyIds
-                                  .map((p) => _PropertyChip(propertyId: p))
-                                  .toList(),
-                            ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
@@ -441,43 +595,46 @@ class _TurnIndicatorState extends State<_TurnIndicator>
     return AnimatedBuilder(
       animation: _glowAnimation,
       builder: (context, child) {
-        return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-          decoration: BoxDecoration(
-            color: Colors.amber,
-            borderRadius: BorderRadius.circular(6),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.amber.withOpacity(0.3 + _glowAnimation.value * 0.5),
-                blurRadius: 6 + _glowAnimation.value * 10,
-                spreadRadius: _glowAnimation.value * 3,
-              ),
-            ],
-          ),
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Animated arrow icon
-                Transform.translate(
-                  offset: Offset(_glowAnimation.value * 3 - 1.5, 0),
-                  child: const Icon(
-                    Icons.play_arrow,
-                    size: 12,
-                    color: Colors.black,
-                  ),
-                ),
-                const SizedBox(width: 2),
-                const Text(
-                  'YOUR TURN',
-                  style: TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
+        return ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 100),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+            decoration: BoxDecoration(
+              color: Colors.amber,
+              borderRadius: BorderRadius.circular(6),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.amber.withOpacity(0.3 + _glowAnimation.value * 0.5),
+                  blurRadius: 6 + _glowAnimation.value * 10,
+                  spreadRadius: _glowAnimation.value * 3,
                 ),
               ],
+            ),
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // Animated arrow icon
+                  Transform.translate(
+                    offset: Offset(_glowAnimation.value * 3 - 1.5, 0),
+                    child: const Icon(
+                      Icons.play_arrow,
+                      size: 12,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(width: 2),
+                  const Text(
+                    'YOUR TURN',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         );
