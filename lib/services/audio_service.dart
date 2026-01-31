@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -139,8 +140,21 @@ class AudioService {
   /// Play the main menu music
   Future<void> playMenuMusic() => playBgm('menu_theme.mp3');
 
-  /// Play the in-game music
-  Future<void> playGameMusic() => playBgm('game_theme.mp3');
+  /// Available game music tracks
+  static const List<String> _gameThemes = [
+    'game_theme.mp3',
+    'game_theme_2.mp3',
+    'game_theme_3.mp3',
+    'game_theme_4.mp3',
+  ];
+  
+  static final Random _random = Random();
+
+  /// Play the in-game music (randomly selected)
+  Future<void> playGameMusic() {
+    final randomTheme = _gameThemes[_random.nextInt(_gameThemes.length)];
+    return playBgm(randomTheme);
+  }
 
   /// Play victory music (one-shot, not looped)
   Future<void> playVictoryMusic() async {
