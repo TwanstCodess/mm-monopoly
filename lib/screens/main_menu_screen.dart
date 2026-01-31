@@ -86,9 +86,6 @@ class _MainMenuScreenState extends State<MainMenuScreen> with TickerProviderStat
                         child: _buildMenuButtons(),
                       ),
                     ),
-                    const Spacer(),
-                    // Version info
-                    Text('v1.0.0 - Demo', style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: 12)),
                   ],
                 ),
               ),
