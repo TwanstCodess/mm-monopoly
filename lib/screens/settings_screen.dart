@@ -72,26 +72,26 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
                     ),
                   ),
                   // Content - single column layout
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        children: [
-                          // All settings in one card
-                          Expanded(
-                            child: Container(
-                              padding: const EdgeInsets.all(16),
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.05)],
-                                ),
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(color: Colors.white.withOpacity(0.2)),
-                              ),
-                              child: Column(
-                                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        // All settings in one card
+                        Container(
+                          padding: const EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.05)],
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Colors.white.withOpacity(0.2)),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
                                   // Starting Cash row
                                   Row(
                                     children: [
@@ -140,25 +140,22 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
                                     _updateSettings(_settings.copyWith(sfxEnabled: v));
                                     AudioService.instance.setSfxEnabled(v);
                                   }),
-                                  const Spacer(),
+                                  const Divider(color: Colors.white24),
                                   // Support row
                                   _buildSupportRow(),
                                 ],
                               ),
                             ),
-                          ),
-                          const SizedBox(height: 12),
-                          // Buttons row
-                          Row(
-                            children: [
-                              Expanded(child: _buildCompactResetButton()),
-                              const SizedBox(width: 12),
-                              Expanded(flex: 2, child: _buildCompactBackButton()),
-                            ],
-                          ),
-                          const SizedBox(height: 16),
-                        ],
-                      ),
+                        const SizedBox(height: 16),
+                        // Buttons row
+                        Row(
+                          children: [
+                            Expanded(child: _buildCompactResetButton()),
+                            const SizedBox(width: 12),
+                            Expanded(flex: 2, child: _buildCompactBackButton()),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ],
