@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../services/audio_service.dart';
 
 /// Settings screen for game options
@@ -86,6 +87,8 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
                         _buildAudioSection(),
                         const SizedBox(height: 30),
                         _buildComingSoonSection(),
+                        const SizedBox(height: 30),
+                        _buildSupportSection(),
                         const SizedBox(height: 30),
                         _buildBackToMenuButton(),
                         const SizedBox(height: 12),
@@ -540,6 +543,94 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
           ),
         ],
       ],
+    );
+  }
+
+  Widget _buildSupportSection() {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            const Color(0xFFFFDD00).withOpacity(0.2),
+            const Color(0xFFFF8C00).withOpacity(0.15),
+          ],
+        ),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: const Color(0xFFFFDD00).withOpacity(0.3)),
+      ),
+      child: Column(
+        children: [
+          const Text(
+            '☕',
+            style: TextStyle(fontSize: 40),
+          ),
+          const SizedBox(height: 12),
+          const Text(
+            'Enjoying the game?',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Your support helps keep this game free and updated!',
+            style: TextStyle(
+              color: Colors.white.withOpacity(0.8),
+              fontSize: 13,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 16),
+          Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: () async {
+                final uri = Uri.parse('https://buymeacoffee.com/hao_yu');
+                if (await canLaunchUrl(uri)) {
+                  await launchUrl(uri, mode: LaunchMode.externalApplication);
+                }
+              },
+              borderRadius: BorderRadius.circular(16),
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFFFFDD00), Color(0xFFFF8C00)],
+                  ),
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFFFFDD00).withOpacity(0.4),
+                      blurRadius: 12,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text('☕', style: TextStyle(fontSize: 20)),
+                    SizedBox(width: 8),
+                    Text(
+                      'Buy me a coffee',
+                      style: TextStyle(
+                        color: Colors.black87,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
