@@ -4,7 +4,9 @@ import '../services/unlock_service.dart';
 
 /// Shop screen for browsing and unlocking cosmetics
 class ShopScreen extends StatefulWidget {
-  const ShopScreen({super.key});
+  final VoidCallback onBack;
+  
+  const ShopScreen({super.key, required this.onBack});
 
   @override
   State<ShopScreen> createState() => _ShopScreenState();
@@ -76,7 +78,7 @@ class _ShopScreenState extends State<ShopScreen> with TickerProviderStateMixin {
         children: [
           // Back button
           IconButton(
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: widget.onBack,
             icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           ),
           const SizedBox(width: 8),

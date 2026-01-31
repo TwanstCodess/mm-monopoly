@@ -153,7 +153,7 @@ class _AppNavigatorState extends State<AppNavigator> {
         );
 
       case AppScreen.shop:
-        return const ShopScreen(key: ValueKey('shop'));
+        return ShopScreen(key: const ValueKey('shop'), onBack: () => _navigateTo(AppScreen.mainMenu));
 
       case AppScreen.game:
         return GameBoardScreen(key: ValueKey('game_${_gameState!.id}'), gameState: _gameState!, onQuit: _quitGame, onRestart: _restartGame, onHowToPlay: () => _navigateTo(AppScreen.howToPlay), tradingEnabled: _settings.tradingEnabled, bankEnabled: _settings.bankEnabled, auctionEnabled: _settings.auctionEnabled);
