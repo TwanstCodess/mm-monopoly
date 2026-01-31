@@ -7,8 +7,9 @@ class MainMenuScreen extends StatefulWidget {
   final VoidCallback? onContinue;
   final VoidCallback onHowToPlay;
   final VoidCallback onSettings;
+  final VoidCallback? onShop;
 
-  const MainMenuScreen({super.key, required this.onNewGame, this.onContinue, required this.onHowToPlay, required this.onSettings});
+  const MainMenuScreen({super.key, required this.onNewGame, this.onContinue, required this.onHowToPlay, required this.onSettings, this.onShop});
 
   @override
   State<MainMenuScreen> createState() => _MainMenuScreenState();
@@ -213,6 +214,10 @@ class _MainMenuScreenState extends State<MainMenuScreen> with TickerProviderStat
         ],
         _buildFunButton(icon: Icons.lightbulb_outline_rounded, label: 'How to Play', onTap: widget.onHowToPlay, gradient: const [Color(0xFFFFE66D), Color(0xFFFFA502)], textColor: Colors.brown.shade800),
         const SizedBox(height: 14),
+        if (widget.onShop != null) ...[
+          _buildFunButton(icon: Icons.shopping_bag_rounded, label: 'Shop', onTap: widget.onShop!, gradient: const [Color(0xFFE040FB), Color(0xFF9C27B0)]),
+          const SizedBox(height: 14),
+        ],
         _buildFunButton(icon: Icons.settings_rounded, label: 'Settings', onTap: widget.onSettings, gradient: const [Color(0xFF667eea), Color(0xFF764ba2)]),
       ],
     );

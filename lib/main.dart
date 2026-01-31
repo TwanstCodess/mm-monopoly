@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'app.dart';
 import 'services/audio_service.dart';
+import 'services/unlock_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,8 +11,9 @@ void main() async {
   await SystemChrome.setPreferredOrientations(DeviceOrientation.values);
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
-  // Initialize audio service
+  // Initialize services
   await AudioService.instance.init();
+  await UnlockService().init();
 
   runApp(const MonopolyApp());
 }

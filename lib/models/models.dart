@@ -2,3 +2,4 @@
 export 'player.dart';
 export 'tile.dart';
 export 'game_state.dart';
+export 'unlockable.dart';

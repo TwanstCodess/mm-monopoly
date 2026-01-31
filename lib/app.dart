@@ -6,10 +6,12 @@ import 'screens/game_setup_screen.dart';
 import 'screens/how_to_play_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/game_board_screen.dart';
+import 'screens/shop_screen.dart';
 import 'models/player.dart';
 import 'models/game_state.dart';
 import 'config/board_configs/classic_board.dart';
 import 'services/audio_service.dart';
+import 'services/unlock_service.dart';
 
 /// Main app widget with navigation
 class MonopolyApp extends StatelessWidget {
@@ -22,7 +24,7 @@ class MonopolyApp extends StatelessWidget {
 }
 
 /// Navigation state for the app
-enum AppScreen { splash, mainMenu, gameSetup, howToPlay, settings, game }
+enum AppScreen { splash, mainMenu, gameSetup, howToPlay, settings, shop, game }
 
 /// Main app navigator managing screen transitions
 class AppNavigator extends StatefulWidget {
@@ -54,6 +56,7 @@ class _AppNavigatorState extends State<AppNavigator> {
       case AppScreen.gameSetup:
       case AppScreen.howToPlay:
       case AppScreen.settings:
+      case AppScreen.shop:
         // Play menu music for all menu screens
         audio.playMenuMusic();
         break;
@@ -126,6 +129,7 @@ class _AppNavigatorState extends State<AppNavigator> {
           onContinue: _gameState != null ? () => _navigateTo(AppScreen.game) : null,
           onHowToPlay: () => _navigateTo(AppScreen.howToPlay),
           onSettings: () => _navigateTo(AppScreen.settings),
+          onShop: () => _navigateTo(AppScreen.shop),
         );
 
       case AppScreen.gameSetup:
@@ -147,6 +151,9 @@ class _AppNavigatorState extends State<AppNavigator> {
             });
           },
         );
+
+      case AppScreen.shop:
+        return const ShopScreen(key: ValueKey('shop'));
 
       case AppScreen.game:
         return GameBoardScreen(key: ValueKey('game_${_gameState!.id}'), gameState: _gameState!, onQuit: _quitGame, onRestart: _restartGame, onHowToPlay: () => _navigateTo(AppScreen.howToPlay), tradingEnabled: _settings.tradingEnabled, bankEnabled: _settings.bankEnabled);
