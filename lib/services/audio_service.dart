@@ -137,16 +137,16 @@ class AudioService {
   }
 
   /// Play the main menu music
-  Future<void> playMenuMusic() => playBgm('menu_theme.ogg');
+  Future<void> playMenuMusic() => playBgm('menu_theme.mp3');
 
   /// Play the in-game music
-  Future<void> playGameMusic() => playBgm('game_theme.ogg');
+  Future<void> playGameMusic() => playBgm('game_theme.mp3');
 
   /// Play victory music (one-shot, not looped)
   Future<void> playVictoryMusic() async {
     if (!_musicEnabled) return;
     await _bgmPlayer.setReleaseMode(ReleaseMode.stop);
-    await playBgm('victory_theme.ogg');
+    await playBgm('victory_theme.mp3');
     await _bgmPlayer.setReleaseMode(ReleaseMode.loop);
   }
 
@@ -191,47 +191,47 @@ class AudioService {
   String? _getSfxFilename(SfxType type) {
     switch (type) {
       case SfxType.diceRoll:
-        return 'dice_roll.ogg';
+        return 'dice_roll.mp3';
       case SfxType.diceHit:
-        return 'dice_hit.ogg';
+        return 'dice_hit.mp3';
       case SfxType.tokenMove:
-        return 'token_move.ogg';
+        return 'token_move.mp3';
       case SfxType.tokenLand:
-        return 'token_land.ogg';
+        return 'token_land.mp3';
       case SfxType.buyProperty:
-        return 'buy_property.ogg';
+        return 'buy_property.mp3';
       case SfxType.payMoney:
-        return 'pay_money.ogg';
+        return 'pay_money.mp3';
       case SfxType.collectMoney:
-        return 'collect_money.ogg';
+        return 'collect_money.mp3';
       case SfxType.cardDraw:
-        return 'card_draw.ogg';
+        return 'card_draw.mp3';
       case SfxType.cardFlip:
-        return 'card_flip.ogg';
+        return 'card_flip.mp3';
       case SfxType.jailDoor:
-        return 'jail_door.ogg';
+        return 'jail_door.mp3';
       case SfxType.passGo:
-        return 'pass_go.ogg';
+        return 'pass_go.mp3';
       case SfxType.victory:
-        return 'victory.ogg';
+        return 'victory.mp3';
       case SfxType.defeat:
-        return 'defeat.ogg';
+        return 'defeat.mp3';
       case SfxType.powerUp:
-        return 'power_up.ogg';
+        return 'power_up.mp3';
       case SfxType.spinWheel:
-        return 'spin_wheel.ogg';
+        return 'spin_wheel.mp3';
       case SfxType.spinResult:
-        return 'spin_result.ogg';
+        return 'spin_result.mp3';
       case SfxType.buttonTap:
-        return 'button_tap.ogg';
+        return 'button_tap.mp3';
       case SfxType.upgrade:
-        return 'upgrade.ogg';
+        return 'upgrade.mp3';
       case SfxType.auction:
-        return 'auction.ogg';
+        return 'auction.mp3';
       case SfxType.trade:
-        return 'trade.ogg';
+        return 'trade.mp3';
       case SfxType.notification:
-        return 'notification.ogg';
+        return 'notification.mp3';
     }
   }
 
