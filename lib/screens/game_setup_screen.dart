@@ -392,197 +392,248 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
   }
 
   Widget _buildPlayerConfigStep() {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        // Calculate available height for player cards
-        final availableHeight = constraints.maxHeight;
-        final cardCount = _playerConfigs.length;
-        // Distribute space evenly with small gaps
-        final cardHeight = (availableHeight - (cardCount - 1) * 8 - 16) / cardCount;
-
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Column(
-            children: _playerConfigs.asMap().entries.map((entry) {
-              final index = entry.key;
-              return Padding(
-                padding: EdgeInsets.only(bottom: index < cardCount - 1 ? 8 : 0),
-                child: SizedBox(
-                  height: cardHeight.clamp(100.0, 180.0),
-                  child: _buildPlayerConfigCard(index),
+    final count = _playerConfigs.length;
+    
+    return Padding(
+      padding: const EdgeInsets.all(12),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          // 2x2 grid for 4 players, 2 columns for 2-3 players
+          if (count == 4) {
+            return Column(
+              children: [
+                Expanded(
+                  child: Row(
+                    children: [
+                      Expanded(child: _buildPlayerCard(0)),
+                      const SizedBox(width: 10),
+                      Expanded(child: _buildPlayerCard(1)),
+                    ],
+                  ),
                 ),
-              );
-            }).toList(),
-          ),
-        );
-      },
+                const SizedBox(height: 10),
+                Expanded(
+                  child: Row(
+                    children: [
+                      Expanded(child: _buildPlayerCard(2)),
+                      const SizedBox(width: 10),
+                      Expanded(child: _buildPlayerCard(3)),
+                    ],
+                  ),
+                ),
+              ],
+            );
+          } else if (count == 3) {
+            return Column(
+              children: [
+                Expanded(
+                  child: Row(
+                    children: [
+                      Expanded(child: _buildPlayerCard(0)),
+                      const SizedBox(width: 10),
+                      Expanded(child: _buildPlayerCard(1)),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Expanded(
+                  child: Row(
+                    children: [
+                      const Expanded(child: SizedBox()),
+                      Expanded(flex: 2, child: _buildPlayerCard(2)),
+                      const Expanded(child: SizedBox()),
+                    ],
+                  ),
+                ),
+              ],
+            );
+          } else {
+            // 2 players - side by side
+            return Row(
+              children: [
+                Expanded(child: _buildPlayerCard(0)),
+                const SizedBox(width: 10),
+                Expanded(child: _buildPlayerCard(1)),
+              ],
+            );
+          }
+        },
+      ),
     );
   }
 
-  Widget _buildPlayerConfigCard(int index) {
+  Widget _buildPlayerCard(int index) {
     final config = _playerConfigs[index];
+    
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: const Color(0xFF2D1B4E).withOpacity(0.85),
-        borderRadius: BorderRadius.circular(16),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            config.color.withOpacity(0.3),
+            const Color(0xFF2D1B4E).withOpacity(0.9),
+          ],
+        ),
+        borderRadius: BorderRadius.circular(20),
         border: Border.all(color: config.color.withOpacity(0.6), width: 2),
-        boxShadow: [BoxShadow(color: config.color.withOpacity(0.3), blurRadius: 8, offset: const Offset(0, 2))],
+        boxShadow: [BoxShadow(color: config.color.withOpacity(0.3), blurRadius: 12, offset: const Offset(0, 4))],
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // Avatar
-          GestureDetector(
-            onTap: () => _showAvatarSelector(index),
-            child: Stack(
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          children: [
+            // Header row: Player number + AI toggle
+            Row(
               children: [
                 Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    boxShadow: [BoxShadow(color: config.color.withOpacity(0.5), blurRadius: 6, spreadRadius: 1)],
+                    gradient: LinearGradient(colors: [config.color, config.color.withOpacity(0.7)]),
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                  child: AvatarWidget(avatar: config.avatar ?? Avatars.forPlayerIndex(index), size: 44, borderColor: config.color),
+                  child: Text(
+                    'P${index + 1}',
+                    style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
                 ),
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: Container(
-                    padding: const EdgeInsets.all(2),
+                const Spacer(),
+                if (index == 0)
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(colors: [config.color, config.color.withOpacity(0.7)]),
-                      shape: BoxShape.circle,
+                      gradient: const LinearGradient(colors: [Color(0xFF4ECDC4), Color(0xFF44A08D)]),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Icon(Icons.edit_rounded, color: Colors.white, size: 10),
+                    child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.person, color: Colors.white, size: 14),
+                        SizedBox(width: 4),
+                        Text('You', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+                      ],
+                    ),
+                  )
+                else
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text('AI', style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 12)),
+                      SizedBox(
+                        height: 28,
+                        child: Transform.scale(
+                          scale: 0.7,
+                          child: Switch(
+                            value: config.isAI,
+                            onChanged: (value) => setState(() => _playerConfigs[index] = config.copyWith(isAI: value)),
+                            activeColor: const Color(0xFF4ECDC4),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
               ],
             ),
-          ),
-          const SizedBox(width: 12),
-          // Name and Color in a column
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Player header row with name input
-                Row(
-                  children: [
-                    Text(
-                      'Player ${index + 1}',
-                      style: TextStyle(
-                        color: config.color,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Spacer(),
-                    if (index > 0)
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'AI',
-                            style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 12, fontWeight: FontWeight.w600),
-                          ),
-                          SizedBox(
-                            height: 24,
-                            child: Transform.scale(
-                              scale: 0.7,
-                              child: Switch(
-                                value: config.isAI,
-                                onChanged: (value) => setState(() => _playerConfigs[index] = config.copyWith(isAI: value)),
-                                activeColor: const Color(0xFF4ECDC4),
-                                activeTrackColor: const Color(0xFF4ECDC4).withOpacity(0.3),
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
-                    else
+            
+            const SizedBox(height: 8),
+            
+            // Avatar - centered and tappable
+            Expanded(
+              child: GestureDetector(
+                onTap: () => _showAvatarSelector(index),
+                child: Center(
+                  child: Stack(
+                    children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                         decoration: BoxDecoration(
-                          gradient: const LinearGradient(colors: [Color(0xFF4ECDC4), Color(0xFF44A08D)]),
-                          borderRadius: BorderRadius.circular(8),
+                          shape: BoxShape.circle,
+                          boxShadow: [BoxShadow(color: config.color.withOpacity(0.6), blurRadius: 16, spreadRadius: 4)],
                         ),
-                        child: const Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.person_rounded, color: Colors.white, size: 12),
-                            SizedBox(width: 2),
-                            Text('You', style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
-                          ],
+                        child: AvatarWidget(
+                          avatar: config.avatar ?? Avatars.forPlayerIndex(index),
+                          size: 70,
+                          borderColor: config.color,
                         ),
                       ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                // Name input - compact
-                SizedBox(
-                  height: 40,
-                  child: TextField(
-                    controller: _nameControllers[index],
-                    onChanged: (value) => _playerConfigs[index] = config.copyWith(name: value),
-                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 14),
-                    decoration: InputDecoration(
-                      labelText: 'Name',
-                      labelStyle: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 12),
-                      filled: true,
-                      fillColor: Colors.white.withOpacity(0.1),
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(color: Colors.white.withOpacity(0.2)),
+                      Positioned(
+                        right: 0,
+                        bottom: 0,
+                        child: Container(
+                          padding: const EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(colors: [config.color, config.color.withOpacity(0.7)]),
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white, width: 2),
+                          ),
+                          child: const Icon(Icons.edit, color: Colors.white, size: 12),
+                        ),
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(color: config.color, width: 2),
-                      ),
-                    ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 8),
-                // Color selector - compact horizontal row
-                Row(
-                  children: [
-                    Text(
-                      'Color',
-                      style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 11, fontWeight: FontWeight.w600),
-                    ),
-                    const SizedBox(width: 8),
-                    ..._availableColors.map((color) {
-                      final isSelected = config.color == color;
-                      final isUsed = _playerConfigs.where((c) => c != config).any((c) => c.color == color);
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 6),
-                        child: GestureDetector(
-                          onTap: isUsed ? null : () => setState(() => _playerConfigs[index] = config.copyWith(color: color)),
-                          child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 200),
-                            width: 28,
-                            height: 28,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(colors: [color, color.withOpacity(0.7)]),
-                              shape: BoxShape.circle,
-                              border: isSelected ? Border.all(color: Colors.white, width: 2) : null,
-                            ),
-                            child: isUsed && !isSelected
-                                ? Icon(Icons.close_rounded, color: Colors.white.withOpacity(0.5), size: 14)
-                                : isSelected
-                                ? const Icon(Icons.check_rounded, color: Colors.white, size: 16)
-                                : null,
-                          ),
-                        ),
-                      );
-                    }),
-                  ],
-                ),
-              ],
+              ),
             ),
-          ),
-        ],
+            
+            const SizedBox(height: 8),
+            
+            // Name input
+            SizedBox(
+              height: 44,
+              child: TextField(
+                controller: _nameControllers[index],
+                onChanged: (value) => _playerConfigs[index] = config.copyWith(name: value),
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                decoration: InputDecoration(
+                  hintText: 'Name',
+                  hintStyle: TextStyle(color: Colors.white.withOpacity(0.4)),
+                  filled: true,
+                  fillColor: Colors.white.withOpacity(0.1),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: Colors.white.withOpacity(0.2)),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: config.color, width: 2),
+                  ),
+                ),
+              ),
+            ),
+            
+            const SizedBox(height: 10),
+            
+            // Color selector row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: _availableColors.map((color) {
+                final isSelected = config.color == color;
+                final isUsed = _playerConfigs.where((c) => c != config).any((c) => c.color == color);
+                return GestureDetector(
+                  onTap: isUsed ? null : () => setState(() => _playerConfigs[index] = config.copyWith(color: color)),
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
+                    width: 28,
+                    height: 28,
+                    margin: const EdgeInsets.symmetric(horizontal: 3),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(colors: [color, color.withOpacity(0.7)]),
+                      shape: BoxShape.circle,
+                      border: isSelected ? Border.all(color: Colors.white, width: 3) : null,
+                      boxShadow: isSelected ? [BoxShadow(color: color.withOpacity(0.6), blurRadius: 8)] : null,
+                    ),
+                    child: isUsed && !isSelected
+                        ? Icon(Icons.close, color: Colors.white.withOpacity(0.5), size: 14)
+                        : isSelected
+                            ? const Icon(Icons.check, color: Colors.white, size: 16)
+                            : null,
+                  ),
+                );
+              }).toList(),
+            ),
+          ],
+        ),
       ),
     );
   }
