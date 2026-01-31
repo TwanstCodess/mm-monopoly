@@ -650,46 +650,52 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
               ],
             ),
             
-            const SizedBox(height: 8),
+            const SizedBox(height: 4),
             
-            // Avatar - centered and tappable
+            // Avatar - centered and tappable, fills available space
             Expanded(
               child: GestureDetector(
                 onTap: () => _showAvatarSelector(index),
-                child: Center(
-                  child: Stack(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          boxShadow: [BoxShadow(color: config.color.withOpacity(0.6), blurRadius: 16, spreadRadius: 4)],
-                        ),
-                        child: AvatarWidget(
-                          avatar: config.avatar ?? Avatars.forPlayerIndex(index),
-                          size: 70,
-                          borderColor: config.color,
-                        ),
-                      ),
-                      Positioned(
-                        right: 0,
-                        bottom: 0,
-                        child: Container(
-                          padding: const EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(colors: [config.color, config.color.withOpacity(0.7)]),
-                            shape: BoxShape.circle,
-                            border: Border.all(color: Colors.white, width: 2),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    // Use most of the available space for the avatar
+                    final avatarSize = (constraints.maxHeight * 0.85).clamp(60.0, 140.0);
+                    return Center(
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              boxShadow: [BoxShadow(color: config.color.withOpacity(0.6), blurRadius: 20, spreadRadius: 6)],
+                            ),
+                            child: AvatarWidget(
+                              avatar: config.avatar ?? Avatars.forPlayerIndex(index),
+                              size: avatarSize,
+                              borderColor: config.color,
+                            ),
                           ),
-                          child: const Icon(Icons.edit, color: Colors.white, size: 12),
-                        ),
+                          Positioned(
+                            right: 0,
+                            bottom: 0,
+                            child: Container(
+                              padding: const EdgeInsets.all(6),
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(colors: [config.color, config.color.withOpacity(0.7)]),
+                                shape: BoxShape.circle,
+                                border: Border.all(color: Colors.white, width: 2),
+                              ),
+                              child: const Icon(Icons.edit, color: Colors.white, size: 14),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    );
+                  },
                 ),
               ),
             ),
             
-            const SizedBox(height: 8),
+            const SizedBox(height: 4),
             
             // Name input
             SizedBox(
