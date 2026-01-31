@@ -73,20 +73,20 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
                   ),
                   // Content - single column layout
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 32),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         // All settings in one card
                         Container(
-                          padding: const EdgeInsets.all(16),
+                          padding: const EdgeInsets.all(24),
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                               colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.05)],
                             ),
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(24),
                             border: Border.all(color: Colors.white.withOpacity(0.2)),
                           ),
                           child: Column(
@@ -95,27 +95,28 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
                                   // Starting Cash row
                                   Row(
                                     children: [
-                                      const Icon(Icons.attach_money, color: Color(0xFFFFE66D), size: 20),
-                                      const SizedBox(width: 8),
-                                      const Text('Starting Cash', style: TextStyle(color: Colors.white, fontSize: 14)),
+                                      const Icon(Icons.attach_money, color: Color(0xFFFFE66D), size: 28),
+                                      const SizedBox(width: 12),
+                                      const Text('Starting Cash', style: TextStyle(color: Colors.white, fontSize: 18)),
                                       const Spacer(),
                                       Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                                         decoration: BoxDecoration(
                                           color: const Color(0xFFFFE66D).withOpacity(0.2),
-                                          borderRadius: BorderRadius.circular(8),
+                                          borderRadius: BorderRadius.circular(12),
                                         ),
-                                        child: Text('\$${_settings.startingCash}', style: const TextStyle(color: Color(0xFFFFE66D), fontSize: 14, fontWeight: FontWeight.bold)),
+                                        child: Text('\$${_settings.startingCash}', style: const TextStyle(color: Color(0xFFFFE66D), fontSize: 20, fontWeight: FontWeight.bold)),
                                       ),
                                     ],
                                   ),
+                                  const SizedBox(height: 8),
                                   SliderTheme(
                                     data: SliderThemeData(
                                       activeTrackColor: const Color(0xFFFFE66D),
                                       inactiveTrackColor: Colors.white.withOpacity(0.2),
                                       thumbColor: const Color(0xFFFFE66D),
-                                      trackHeight: 4,
-                                      thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8),
+                                      trackHeight: 8,
+                                      thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 14),
                                     ),
                                     child: Slider(
                                       value: _settings.startingCash.toDouble(),
@@ -125,33 +126,39 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
                                       onChanged: (v) => _updateSettings(_settings.copyWith(startingCash: v.toInt())),
                                     ),
                                   ),
-                                  const Divider(color: Colors.white24),
+                                  const SizedBox(height: 8),
+                                  const Divider(color: Colors.white24, thickness: 1),
+                                  const SizedBox(height: 8),
                                   // Game toggles
-                                  _buildSettingsRow(Icons.swap_horiz, 'Trading', _settings.tradingEnabled, (v) => _updateSettings(_settings.copyWith(tradingEnabled: v))),
-                                  _buildSettingsRow(Icons.account_balance, 'Bank', _settings.bankEnabled, (v) => _updateSettings(_settings.copyWith(bankEnabled: v))),
-                                  _buildSettingsRow(Icons.gavel, 'Auctions', _settings.auctionEnabled, (v) => _updateSettings(_settings.copyWith(auctionEnabled: v))),
-                                  const Divider(color: Colors.white24),
+                                  _buildSettingsRow(Icons.swap_horiz, 'Player Trading', _settings.tradingEnabled, (v) => _updateSettings(_settings.copyWith(tradingEnabled: v))),
+                                  _buildSettingsRow(Icons.account_balance, 'Bank Features', _settings.bankEnabled, (v) => _updateSettings(_settings.copyWith(bankEnabled: v))),
+                                  _buildSettingsRow(Icons.gavel, 'Property Auctions', _settings.auctionEnabled, (v) => _updateSettings(_settings.copyWith(auctionEnabled: v))),
+                                  const SizedBox(height: 8),
+                                  const Divider(color: Colors.white24, thickness: 1),
+                                  const SizedBox(height: 8),
                                   // Audio
-                                  _buildSettingsRow(Icons.music_note, 'Music', _settings.musicEnabled, (v) {
+                                  _buildSettingsRow(Icons.music_note, 'Background Music', _settings.musicEnabled, (v) {
                                     _updateSettings(_settings.copyWith(musicEnabled: v));
                                     AudioService.instance.setMusicEnabled(v);
                                   }),
-                                  _buildSettingsRow(Icons.volume_up, 'Sound FX', _settings.sfxEnabled, (v) {
+                                  _buildSettingsRow(Icons.volume_up, 'Sound Effects', _settings.sfxEnabled, (v) {
                                     _updateSettings(_settings.copyWith(sfxEnabled: v));
                                     AudioService.instance.setSfxEnabled(v);
                                   }),
-                                  const Divider(color: Colors.white24),
+                                  const SizedBox(height: 8),
+                                  const Divider(color: Colors.white24, thickness: 1),
+                                  const SizedBox(height: 12),
                                   // Support row
                                   _buildSupportRow(),
                                 ],
                               ),
                             ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 24),
                         // Buttons row
                         Row(
                           children: [
                             Expanded(child: _buildCompactResetButton()),
-                            const SizedBox(width: 12),
+                            const SizedBox(width: 16),
                             Expanded(flex: 2, child: _buildCompactBackButton()),
                           ],
                         ),
@@ -189,22 +196,19 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
 
   Widget _buildSettingsRow(IconData icon, String label, bool value, Function(bool) onChanged) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
         children: [
-          Icon(icon, color: Colors.white54, size: 20),
-          const SizedBox(width: 12),
-          Text(label, style: const TextStyle(color: Colors.white, fontSize: 14)),
+          Icon(icon, color: Colors.white54, size: 26),
+          const SizedBox(width: 16),
+          Text(label, style: const TextStyle(color: Colors.white, fontSize: 18)),
           const Spacer(),
-          SizedBox(
-            height: 28,
-            child: Transform.scale(
-              scale: 0.85,
-              child: Switch(
-                value: value,
-                onChanged: onChanged,
-                activeColor: const Color(0xFF4ECDC4),
-              ),
+          Transform.scale(
+            scale: 1.2,
+            child: Switch(
+              value: value,
+              onChanged: onChanged,
+              activeColor: const Color(0xFF4ECDC4),
             ),
           ),
         ],
@@ -222,35 +226,35 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
             await launchUrl(uri, mode: LaunchMode.externalApplication);
           }
         },
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(16),
         child: Container(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [const Color(0xFFFFDD00).withOpacity(0.15), const Color(0xFFFF8C00).withOpacity(0.1)],
             ),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(16),
             border: Border.all(color: const Color(0xFFFFDD00).withOpacity(0.3)),
           ),
           child: Row(
             children: [
-              const Text('☕', style: TextStyle(fontSize: 28)),
-              const SizedBox(width: 12),
+              const Text('☕', style: TextStyle(fontSize: 36)),
+              const SizedBox(width: 16),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Buy me a coffee', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
-                    const SizedBox(height: 2),
+                    const Text('Buy me a coffee', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                    const SizedBox(height: 4),
                     Text(
                       'Your support helps keep the game free and updated. Every coffee means a lot!',
-                      style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 11),
+                      style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 14),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(width: 8),
-              Icon(Icons.open_in_new, color: Colors.white.withOpacity(0.5), size: 16),
+              const SizedBox(width: 12),
+              Icon(Icons.open_in_new, color: Colors.white.withOpacity(0.5), size: 22),
             ],
           ),
         ),
@@ -463,23 +467,23 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
           _updateSettings(const GameSettings());
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: const Text('Settings reset'),
+              content: const Text('Settings reset', style: TextStyle(fontSize: 16)),
               backgroundColor: const Color(0xFF4ECDC4),
               behavior: SnackBarBehavior.floating,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
           );
         },
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(16),
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 14),
+          padding: const EdgeInsets.symmetric(vertical: 18),
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(16),
             border: Border.all(color: Colors.white.withOpacity(0.2)),
           ),
           child: const Center(
-            child: Text('Reset', style: TextStyle(color: Colors.white70, fontSize: 14, fontWeight: FontWeight.w600)),
+            child: Text('Reset', style: TextStyle(color: Colors.white70, fontSize: 18, fontWeight: FontWeight.w600)),
           ),
         ),
       ),
@@ -491,20 +495,20 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
       color: Colors.transparent,
       child: InkWell(
         onTap: widget.onBack,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(16),
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 14),
+          padding: const EdgeInsets.symmetric(vertical: 18),
           decoration: BoxDecoration(
             gradient: const LinearGradient(colors: [Color(0xFFFF6B6B), Color(0xFFFF8E53)]),
-            borderRadius: BorderRadius.circular(12),
-            boxShadow: [BoxShadow(color: const Color(0xFFFF6B6B).withOpacity(0.3), blurRadius: 8, offset: const Offset(0, 4))],
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [BoxShadow(color: const Color(0xFFFF6B6B).withOpacity(0.3), blurRadius: 12, offset: const Offset(0, 6))],
           ),
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.arrow_back_rounded, color: Colors.white, size: 20),
-              SizedBox(width: 8),
-              Text('Back to Menu', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
+              Icon(Icons.arrow_back_rounded, color: Colors.white, size: 24),
+              SizedBox(width: 10),
+              Text('Back to Menu', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
             ],
           ),
         ),
