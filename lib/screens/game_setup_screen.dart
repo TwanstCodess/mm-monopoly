@@ -307,58 +307,63 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                   
                   const SizedBox(height: 24),
                   
-                  // Player count buttons - larger
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(GameConstants.maxPlayers - 1, (index) {
-                      final count = index + 2;
-                      final isSelected = _playerCount == count;
-                      final colors = [const Color(0xFFFF6B6B), const Color(0xFF4ECDC4), const Color(0xFFFFE66D)];
-                      final color = colors[index % colors.length];
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: GestureDetector(
-                          onTap: () => _updatePlayerCount(count),
-                          child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 200),
-                            width: 85,
-                            height: 85,
-                            decoration: BoxDecoration(
-                              gradient: isSelected ? LinearGradient(colors: [color, color.withOpacity(0.7)]) : null,
-                              color: isSelected ? null : Colors.white.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(color: isSelected ? color : Colors.white24, width: isSelected ? 3 : 2),
-                              boxShadow: isSelected ? [BoxShadow(color: color.withOpacity(0.5), blurRadius: 16, offset: const Offset(0, 6))] : null,
+                  // Player count buttons - fill available width
+                  Expanded(
+                    child: Row(
+                      children: List.generate(GameConstants.maxPlayers - 1, (index) {
+                        final count = index + 2;
+                        final isSelected = _playerCount == count;
+                        final colors = [const Color(0xFFFF6B6B), const Color(0xFF4ECDC4), const Color(0xFFFFE66D)];
+                        final color = colors[index % colors.length];
+                        return Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: index == 0 ? 0 : 6,
+                              right: index == 2 ? 0 : 6,
                             ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  '$count',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 36,
-                                    fontWeight: FontWeight.bold,
-                                    shadows: isSelected ? [const Shadow(color: Colors.black26, blurRadius: 4, offset: Offset(1, 1))] : null,
-                                  ),
+                            child: GestureDetector(
+                              onTap: () => _updatePlayerCount(count),
+                              child: AnimatedContainer(
+                                duration: const Duration(milliseconds: 200),
+                                decoration: BoxDecoration(
+                                  gradient: isSelected ? LinearGradient(colors: [color, color.withOpacity(0.7)]) : null,
+                                  color: isSelected ? null : Colors.white.withOpacity(0.1),
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(color: isSelected ? color : Colors.white24, width: isSelected ? 3 : 2),
+                                  boxShadow: isSelected ? [BoxShadow(color: color.withOpacity(0.5), blurRadius: 16, offset: const Offset(0, 6))] : null,
                                 ),
-                                Text(
-                                  'players',
-                                  style: TextStyle(
-                                    color: Colors.white.withOpacity(0.7),
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      '$count',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 48,
+                                        fontWeight: FontWeight.bold,
+                                        shadows: isSelected ? [const Shadow(color: Colors.black26, blurRadius: 4, offset: Offset(1, 1))] : null,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      'players',
+                                      style: TextStyle(
+                                        color: Colors.white.withOpacity(0.7),
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    }),
+                        );
+                      }),
+                    ),
                   ),
                   
-                  const Spacer(),
+                  const SizedBox(height: 16),
                   
                   // Player avatars preview - larger and animated
                   Container(
