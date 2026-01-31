@@ -86,6 +86,7 @@ class _MainMenuScreenState extends State<MainMenuScreen> with TickerProviderStat
                         child: _buildMenuButtons(),
                       ),
                     ),
+                    const Spacer(flex: 3),
                   ],
                 ),
               ),

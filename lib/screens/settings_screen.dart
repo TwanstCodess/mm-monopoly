@@ -141,7 +141,7 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
                                     _updateSettings(_settings.copyWith(musicEnabled: v));
                                     AudioService.instance.setMusicEnabled(v);
                                   }),
-                                  _buildSettingsRow(Icons.volume_up, 'Sound Effects', _settings.sfxEnabled, (v) {
+                                  _buildSettingsRow(Icons.volume_up, 'Game Sounds', _settings.sfxEnabled, (v) {
                                     _updateSettings(_settings.copyWith(sfxEnabled: v));
                                     AudioService.instance.setSfxEnabled(v);
                                   }),
@@ -388,7 +388,7 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
           ],
           const SizedBox(height: 12),
           // SFX
-          _buildCompactToggle('Sound FX', _settings.sfxEnabled, (v) {
+          _buildCompactToggle('Game Sounds', _settings.sfxEnabled, (v) {
             _updateSettings(_settings.copyWith(sfxEnabled: v));
             AudioService.instance.setSfxEnabled(v);
           }),
@@ -814,7 +814,7 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
           // SFX toggle and volume
           _buildAudioControl(
             icon: Icons.volume_up_rounded,
-            title: 'Sound Effects',
+            title: 'Game Sounds',
             subtitle: 'Dice, coins, cards, and more',
             color: sfxColor,
             enabled: _settings.sfxEnabled,
