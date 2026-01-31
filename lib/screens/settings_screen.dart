@@ -224,7 +224,7 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
         },
         borderRadius: BorderRadius.circular(12),
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+          padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [const Color(0xFFFFDD00).withOpacity(0.15), const Color(0xFFFF8C00).withOpacity(0.1)],
@@ -234,10 +234,22 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
           ),
           child: Row(
             children: [
-              const Text('☕', style: TextStyle(fontSize: 20)),
-              const SizedBox(width: 10),
-              const Text('Buy me a coffee', style: TextStyle(color: Colors.white, fontSize: 14)),
-              const Spacer(),
+              const Text('☕', style: TextStyle(fontSize: 28)),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Buy me a coffee', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
+                    const SizedBox(height: 2),
+                    Text(
+                      'Your support helps keep the game free and updated. Every coffee means a lot!',
+                      style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 11),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 8),
               Icon(Icons.open_in_new, color: Colors.white.withOpacity(0.5), size: 16),
             ],
           ),
