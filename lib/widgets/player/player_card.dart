@@ -121,48 +121,54 @@ class _PlayerCardState extends State<PlayerCard>
   }
 
   Widget _buildHeader() {
-    return Row(
-      children: [
-        _PlayerAvatar(player: player, size: 40),
-        const SizedBox(width: 10),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // Scale avatar based on available width
+        final avatarSize = (constraints.maxWidth * 0.25).clamp(40.0, 70.0);
+        return Row(
+          children: [
+            _PlayerAvatar(player: player, size: avatarSize),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Flexible(
-                    child: Text(
-                      player.name,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
+                  Row(
+                    children: [
+                      Flexible(
+                        child: Text(
+                          player.name,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                    ],
+                  ),
+                  const SizedBox(height: 2),
+                  // Show current location
+                  Row(
+                    children: [
+                      Icon(Icons.location_on, size: 12, color: Colors.grey.shade400),
+                      const SizedBox(width: 2),
+                      Flexible(
+                        child: Text(
+                          _getTileNameForPosition(player.position),
+                          style: TextStyle(color: Colors.grey.shade400, fontSize: 11),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-              const SizedBox(height: 2),
-              // Show current location
-              Row(
-                children: [
-                  Icon(Icons.location_on, size: 12, color: Colors.grey.shade400),
-                  const SizedBox(width: 2),
-                  Flexible(
-                    child: Text(
-                      _getTileNameForPosition(player.position),
-                      style: TextStyle(color: Colors.grey.shade400, fontSize: 11),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ],
+            ),
+          ],
+        );
+      },
     );
   }
 
@@ -361,75 +367,79 @@ class _PlayerCardCompactState extends State<PlayerCardCompact>
                   ]
                 : [],
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Single row: Avatar | Name | Cash (all vertically centered)
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              // Scale avatar based on available height
+              final avatarSize = (constraints.maxHeight * 0.35).clamp(40.0, 80.0);
+              return Padding(
+                padding: const EdgeInsets.all(8),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    _PlayerAvatar(player: player, size: 36),
-                    const SizedBox(width: 8),
-                    // Name and status
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Row(
+                    // Single row: Avatar | Name | Cash (all vertically centered)
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        _PlayerAvatar(player: player, size: avatarSize),
+                        const SizedBox(width: 10),
+                        // Name and status
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
                             children: [
-                              Flexible(
-                                child: Text(
-                                  player.name,
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 14,
+                              Row(
+                                children: [
+                                  Flexible(
+                                    child: Text(
+                                      player.name,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14,
+                                      ),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
-                                  overflow: TextOverflow.ellipsis,
+                                  if (player.isAI) ...[
+                                    const SizedBox(width: 6),
+                                    const _AIBadgeSmall(),
+                                  ],
+                                ],
+                              ),
+                              // Show location for all players
+                              Padding(
+                                padding: const EdgeInsets.only(top: 2),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(Icons.location_on, size: 10, color: Colors.grey.shade400),
+                                    const SizedBox(width: 2),
+                                    Flexible(
+                                      child: Text(
+                                        _getTileName(),
+                                        style: TextStyle(color: Colors.grey.shade400, fontSize: 10),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              if (player.isAI) ...[
-                                const SizedBox(width: 6),
-                                const _AIBadgeSmall(),
-                              ],
                             ],
                           ),
-                          // Show location for all players
-                          Padding(
-                            padding: const EdgeInsets.only(top: 2),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(Icons.location_on, size: 10, color: Colors.grey.shade400),
-                                const SizedBox(width: 2),
-                                Flexible(
-                                  child: Text(
-                                    _getTileName(),
-                                    style: TextStyle(color: Colors.grey.shade400, fontSize: 10),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ],
-                            ),
+                        ),
+                        // Cash amount
+                        AnimatedCashDisplay(
+                          cash: player.cash,
+                          style: const TextStyle(
+                            color: AppTheme.cashGreen,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    // Cash amount
-                    AnimatedCashDisplay(
-                      cash: player.cash,
-                      style: const TextStyle(
-                        color: AppTheme.cashGreen,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 6),
+                    const SizedBox(height: 6),
                 // Properties section - compact
                 Expanded(
                   child: Container(
@@ -462,17 +472,19 @@ class _PlayerCardCompactState extends State<PlayerCardCompact>
                                       .toList(),
                                 ),
                         ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
+                ],
+              ),
+            );
+          },
+        ),
+      );
+    },
+  );
+}
 }
 
 /// Player avatar widget - uses the new avatar system
