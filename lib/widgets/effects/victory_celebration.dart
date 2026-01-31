@@ -1,9 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import '../../models/avatar.dart';
 import '../../models/player.dart';
 import '../avatar/avatar_widget.dart';
-import 'confetti.dart';
 import 'fireworks.dart';
 import 'trophy_animation.dart';
 
@@ -14,20 +12,13 @@ class VictoryCelebration extends StatefulWidget {
   final int propertiesOwned;
   final VoidCallback? onComplete;
 
-  const VictoryCelebration({
-    super.key,
-    required this.winner,
-    required this.finalCash,
-    required this.propertiesOwned,
-    this.onComplete,
-  });
+  const VictoryCelebration({super.key, required this.winner, required this.finalCash, required this.propertiesOwned, this.onComplete});
 
   @override
   State<VictoryCelebration> createState() => _VictoryCelebrationState();
 }
 
-class _VictoryCelebrationState extends State<VictoryCelebration>
-    with TickerProviderStateMixin {
+class _VictoryCelebrationState extends State<VictoryCelebration> with TickerProviderStateMixin {
   late AnimationController _sequenceController;
   late AnimationController _statsController;
 
@@ -42,15 +33,9 @@ class _VictoryCelebrationState extends State<VictoryCelebration>
   @override
   void initState() {
     super.initState();
-    _sequenceController = AnimationController(
-      duration: const Duration(seconds: 8),
-      vsync: this,
-    );
+    _sequenceController = AnimationController(duration: const Duration(seconds: 8), vsync: this);
 
-    _statsController = AnimationController(
-      duration: const Duration(milliseconds: 500),
-      vsync: this,
-    );
+    _statsController = AnimationController(duration: const Duration(milliseconds: 500), vsync: this);
 
     _startSequence();
   }
@@ -99,19 +84,10 @@ class _VictoryCelebrationState extends State<VictoryCelebration>
         ),
 
         // Fireworks (phase 2+)
-        if (_phase >= 2)
-          Positioned.fill(
-            child: FireworksWidget(
-              duration: const Duration(seconds: 5),
-              burstCount: 10,
-            ),
-          ),
+        if (_phase >= 2) Positioned.fill(child: FireworksWidget(duration: const Duration(seconds: 5), burstCount: 10)),
 
         // Confetti (phase 2+)
-        if (_phase >= 2)
-          Positioned.fill(
-            child: _ContinuousConfetti(),
-          ),
+        if (_phase >= 2) Positioned.fill(child: _ContinuousConfetti()),
 
         // Center content
         Center(
@@ -132,13 +108,7 @@ class _VictoryCelebrationState extends State<VictoryCelebration>
                       color: Colors.amber,
                       fontSize: 48,
                       fontWeight: FontWeight.bold,
-                      shadows: [
-                        Shadow(
-                          color: Colors.black,
-                          offset: Offset(2, 2),
-                          blurRadius: 4,
-                        ),
-                      ],
+                      shadows: [Shadow(color: Colors.black, offset: Offset(2, 2), blurRadius: 4)],
                     ),
                   ),
                 ),
@@ -153,12 +123,7 @@ class _VictoryCelebrationState extends State<VictoryCelebration>
                   duration: const Duration(milliseconds: 700),
                   scale: _phase >= 1 ? 1 : 0,
                   curve: Curves.bounceOut,
-                  child: _phase >= 1
-                      ? VictoryAvatarWidget(
-                          avatar: widget.winner.effectiveAvatar,
-                          size: 120,
-                        )
-                      : const SizedBox.shrink(),
+                  child: _phase >= 1 ? VictoryAvatarWidget(avatar: widget.winner.effectiveAvatar, size: 120) : const SizedBox.shrink(),
                 ),
               ),
               const SizedBox(height: 16),
@@ -169,21 +134,13 @@ class _VictoryCelebrationState extends State<VictoryCelebration>
                 opacity: _phase >= 1 ? 1 : 0,
                 child: Text(
                   widget.winner.name,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: const TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
                 ),
               ),
               const SizedBox(height: 32),
 
               // Trophy (phase 3+)
-              if (_phase >= 3)
-                TrophyAnimation(
-                  winnerName: 'Champion',
-                  delay: Duration.zero,
-                ),
+              if (_phase >= 3) TrophyAnimation(winnerName: 'Champion', delay: Duration.zero),
 
               const SizedBox(height: 24),
 
@@ -191,21 +148,14 @@ class _VictoryCelebrationState extends State<VictoryCelebration>
               AnimatedOpacity(
                 duration: const Duration(milliseconds: 500),
                 opacity: _phase >= 4 ? 1 : 0,
-                child: AnimatedSlide(
-                  duration: const Duration(milliseconds: 500),
-                  offset: _phase >= 4 ? Offset.zero : const Offset(0, 0.5),
-                  child: _buildStats(),
-                ),
+                child: AnimatedSlide(duration: const Duration(milliseconds: 500), offset: _phase >= 4 ? Offset.zero : const Offset(0, 0.5), child: _buildStats()),
               ),
             ],
           ),
         ),
 
         // Sparkles around trophy (phase 3+)
-        if (_phase >= 3)
-          const Center(
-            child: TrophySparkles(size: 300),
-          ),
+        if (_phase >= 3) const Center(child: TrophySparkles(size: 300)),
       ],
     );
   }
@@ -220,19 +170,9 @@ class _VictoryCelebrationState extends State<VictoryCelebration>
       ),
       child: Column(
         children: [
-          _StatRow(
-            icon: Icons.attach_money,
-            label: 'Final Cash',
-            value: '\$${widget.finalCash}',
-            color: Colors.green,
-          ),
+          _StatRow(icon: Icons.attach_money, label: 'Final Cash', value: '\$${widget.finalCash}', color: Colors.green),
           const SizedBox(height: 12),
-          _StatRow(
-            icon: Icons.home,
-            label: 'Properties',
-            value: '${widget.propertiesOwned}',
-            color: Colors.blue,
-          ),
+          _StatRow(icon: Icons.home, label: 'Properties', value: '${widget.propertiesOwned}', color: Colors.blue),
         ],
       ),
     );
@@ -245,12 +185,7 @@ class _StatRow extends StatelessWidget {
   final String value;
   final Color color;
 
-  const _StatRow({
-    required this.icon,
-    required this.label,
-    required this.value,
-    required this.color,
-  });
+  const _StatRow({required this.icon, required this.label, required this.value, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -259,18 +194,11 @@ class _StatRow extends StatelessWidget {
       children: [
         Icon(icon, color: color, size: 24),
         const SizedBox(width: 12),
-        Text(
-          label,
-          style: const TextStyle(color: Colors.white70, fontSize: 16),
-        ),
+        Text(label, style: const TextStyle(color: Colors.white70, fontSize: 16)),
         const SizedBox(width: 16),
         Text(
           value,
-          style: TextStyle(
-            color: color,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(color: color, fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ],
     );
@@ -283,31 +211,17 @@ class _ContinuousConfetti extends StatefulWidget {
   State<_ContinuousConfetti> createState() => _ContinuousConfettiState();
 }
 
-class _ContinuousConfettiState extends State<_ContinuousConfetti>
-    with SingleTickerProviderStateMixin {
+class _ContinuousConfettiState extends State<_ContinuousConfetti> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   final List<_ConfettiPiece> _pieces = [];
   final Random _random = Random();
 
-  static const List<Color> _colors = [
-    Colors.red,
-    Colors.blue,
-    Colors.green,
-    Colors.yellow,
-    Colors.purple,
-    Colors.orange,
-    Colors.pink,
-    Colors.cyan,
-    Colors.amber,
-  ];
+  static const List<Color> _colors = [Colors.red, Colors.blue, Colors.green, Colors.yellow, Colors.purple, Colors.orange, Colors.pink, Colors.cyan, Colors.amber];
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: const Duration(seconds: 10),
-      vsync: this,
-    );
+    _controller = AnimationController(duration: const Duration(seconds: 10), vsync: this);
 
     _controller.addListener(() {
       setState(() {
@@ -329,17 +243,19 @@ class _ContinuousConfettiState extends State<_ContinuousConfetti>
 
   void _addPiece() {
     final screenWidth = MediaQuery.of(context).size.width;
-    _pieces.add(_ConfettiPiece(
-      x: _random.nextDouble() * screenWidth,
-      y: -20,
-      velocityX: (_random.nextDouble() - 0.5) * 100,
-      velocityY: 100 + _random.nextDouble() * 150,
-      rotation: _random.nextDouble() * 2 * pi,
-      rotationSpeed: (_random.nextDouble() - 0.5) * 10,
-      color: _colors[_random.nextInt(_colors.length)],
-      width: 8 + _random.nextDouble() * 8,
-      height: 6 + _random.nextDouble() * 6,
-    ));
+    _pieces.add(
+      _ConfettiPiece(
+        x: _random.nextDouble() * screenWidth,
+        y: -20,
+        velocityX: (_random.nextDouble() - 0.5) * 100,
+        velocityY: 100 + _random.nextDouble() * 150,
+        rotation: _random.nextDouble() * 2 * pi,
+        rotationSpeed: (_random.nextDouble() - 0.5) * 10,
+        color: _colors[_random.nextInt(_colors.length)],
+        width: 8 + _random.nextDouble() * 8,
+        height: 6 + _random.nextDouble() * 6,
+      ),
+    );
   }
 
   @override
@@ -364,17 +280,7 @@ class _ConfettiPiece {
   Color color;
   double width, height;
 
-  _ConfettiPiece({
-    required this.x,
-    required this.y,
-    required this.velocityX,
-    required this.velocityY,
-    required this.rotation,
-    required this.rotationSpeed,
-    required this.color,
-    required this.width,
-    required this.height,
-  });
+  _ConfettiPiece({required this.x, required this.y, required this.velocityX, required this.velocityY, required this.rotation, required this.rotationSpeed, required this.color, required this.width, required this.height});
 
   void update(double dt) {
     // Sway
@@ -403,11 +309,7 @@ class _ContinuousConfettiPainter extends CustomPainter {
       canvas.translate(piece.x, piece.y);
       canvas.rotate(piece.rotation);
 
-      final rect = Rect.fromCenter(
-        center: Offset.zero,
-        width: piece.width,
-        height: piece.height,
-      );
+      final rect = Rect.fromCenter(center: Offset.zero, width: piece.width, height: piece.height);
       canvas.drawRect(rect, paint);
 
       canvas.restore();
@@ -422,13 +324,7 @@ class _ContinuousConfettiPainter extends CustomPainter {
 class VictoryCelebrationManager {
   static OverlayEntry? _currentEntry;
 
-  static void show(
-    BuildContext context, {
-    required Player winner,
-    required int finalCash,
-    required int propertiesOwned,
-    VoidCallback? onComplete,
-  }) {
+  static void show(BuildContext context, {required Player winner, required int finalCash, required int propertiesOwned, VoidCallback? onComplete}) {
     _currentEntry?.remove();
 
     late OverlayEntry entry;

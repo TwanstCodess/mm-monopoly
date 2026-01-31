@@ -12,40 +12,24 @@ class Button3D extends StatefulWidget {
   final EdgeInsetsGeometry padding;
   final bool enabled;
 
-  const Button3D({
-    super.key,
-    required this.child,
-    this.onPressed,
-    this.color = Colors.red,
-    this.shadowColor,
-    this.depth = 6.0,
-    this.borderRadius = 16.0,
-    this.padding = const EdgeInsets.symmetric(horizontal: 48, vertical: 18),
-    this.enabled = true,
-  });
+  const Button3D({super.key, required this.child, this.onPressed, this.color = Colors.red, this.shadowColor, this.depth = 6.0, this.borderRadius = 16.0, this.padding = const EdgeInsets.symmetric(horizontal: 48, vertical: 18), this.enabled = true});
 
   @override
   State<Button3D> createState() => _Button3DState();
 }
 
-class _Button3DState extends State<Button3D>
-    with SingleTickerProviderStateMixin {
+class _Button3DState extends State<Button3D> with SingleTickerProviderStateMixin {
   late AnimationController _pressController;
   late Animation<double> _pressAnimation;
+  // ignore: unused_field - used for setState triggers
   bool _isPressed = false;
 
   @override
   void initState() {
     super.initState();
-    _pressController = AnimationController(
-      duration: const Duration(milliseconds: 100),
-      vsync: this,
-    );
+    _pressController = AnimationController(duration: const Duration(milliseconds: 100), vsync: this);
 
-    _pressAnimation = CurvedAnimation(
-      parent: _pressController,
-      curve: Curves.easeOut,
-    );
+    _pressAnimation = CurvedAnimation(parent: _pressController, curve: Curves.easeOut);
   }
 
   @override
@@ -100,40 +84,17 @@ class _Button3DState extends State<Button3D>
                 borderRadius: BorderRadius.circular(widget.borderRadius),
                 boxShadow: [
                   // Bottom shadow (3D depth effect)
-                  BoxShadow(
-                    color: shadowColor,
-                    offset: Offset(0, remainingDepth),
-                    blurRadius: 0,
-                    spreadRadius: 0,
-                  ),
+                  BoxShadow(color: shadowColor, offset: Offset(0, remainingDepth), blurRadius: 0, spreadRadius: 0),
                   // Soft ambient shadow
-                  if (!isDisabled)
-                    BoxShadow(
-                      color: shadowColor.withValues(alpha: 0.4),
-                      offset: Offset(0, remainingDepth + 4),
-                      blurRadius: 8,
-                      spreadRadius: 0,
-                    ),
+                  if (!isDisabled) BoxShadow(color: shadowColor.withValues(alpha: 0.4), offset: Offset(0, remainingDepth + 4), blurRadius: 8, spreadRadius: 0),
                 ],
               ),
               child: Container(
                 padding: widget.padding,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(widget.borderRadius),
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      Color.lerp(baseColor, Colors.white, 0.1)!,
-                      baseColor,
-                      Color.lerp(baseColor, Colors.black, 0.1)!,
-                    ],
-                    stops: const [0.0, 0.5, 1.0],
-                  ),
-                  border: Border.all(
-                    color: Color.lerp(baseColor, Colors.white, 0.2)!,
-                    width: 1,
-                  ),
+                  gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color.lerp(baseColor, Colors.white, 0.1)!, baseColor, Color.lerp(baseColor, Colors.black, 0.1)!], stops: const [0.0, 0.5, 1.0]),
+                  border: Border.all(color: Color.lerp(baseColor, Colors.white, 0.2)!, width: 1),
                 ),
                 child: child,
               ),
@@ -153,36 +114,24 @@ class RollButton3D extends StatefulWidget {
   final bool isMoving;
   final AnimationController glowController;
 
-  const RollButton3D({
-    super.key,
-    required this.onPressed,
-    required this.isRolling,
-    required this.isMoving,
-    required this.glowController,
-  });
+  const RollButton3D({super.key, required this.onPressed, required this.isRolling, required this.isMoving, required this.glowController});
 
   @override
   State<RollButton3D> createState() => _RollButton3DState();
 }
 
-class _RollButton3DState extends State<RollButton3D>
-    with SingleTickerProviderStateMixin {
+class _RollButton3DState extends State<RollButton3D> with SingleTickerProviderStateMixin {
   late AnimationController _pressController;
   late Animation<double> _pressAnimation;
+  // ignore: unused_field - used for setState triggers
   bool _isPressed = false;
 
   @override
   void initState() {
     super.initState();
-    _pressController = AnimationController(
-      duration: const Duration(milliseconds: 80),
-      vsync: this,
-    );
+    _pressController = AnimationController(duration: const Duration(milliseconds: 80), vsync: this);
 
-    _pressAnimation = CurvedAnimation(
-      parent: _pressController,
-      curve: Curves.easeOut,
-    );
+    _pressAnimation = CurvedAnimation(parent: _pressController, curve: Curves.easeOut);
   }
 
   @override
@@ -236,11 +185,7 @@ class _RollButton3DState extends State<RollButton3D>
                   ? []
                   : [
                       // Glow effect
-                      BoxShadow(
-                        color: Colors.amber.withValues(alpha: glow),
-                        blurRadius: 20,
-                        spreadRadius: 2,
-                      ),
+                      BoxShadow(color: Colors.amber.withValues(alpha: glow), blurRadius: 20, spreadRadius: 2),
                     ],
             ),
             child: Transform(
@@ -253,60 +198,30 @@ class _RollButton3DState extends State<RollButton3D>
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     // 3D depth shadow
-                    BoxShadow(
-                      color: darkColor,
-                      offset: Offset(0, remainingDepth),
-                      blurRadius: 0,
-                      spreadRadius: 0,
-                    ),
+                    BoxShadow(color: darkColor, offset: Offset(0, remainingDepth), blurRadius: 0, spreadRadius: 0),
                     // Soft shadow
-                    if (!_isDisabled)
-                      BoxShadow(
-                        color: darkColor.withValues(alpha: 0.5),
-                        offset: Offset(0, remainingDepth + 4),
-                        blurRadius: 8,
-                        spreadRadius: 0,
-                      ),
+                    if (!_isDisabled) BoxShadow(color: darkColor.withValues(alpha: 0.5), offset: Offset(0, remainingDepth + 4), blurRadius: 8, spreadRadius: 0),
                   ],
                 ),
                 child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 48, vertical: 18),
+                  padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 18),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Color.lerp(baseColor, Colors.white, 0.15)!,
-                        baseColor,
-                        Color.lerp(baseColor, Colors.black, 0.1)!,
-                      ],
-                      stops: const [0.0, 0.5, 1.0],
-                    ),
-                    border: Border.all(
-                      color: Color.lerp(baseColor, Colors.white, 0.2)!,
-                      width: 1,
-                    ),
+                    gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color.lerp(baseColor, Colors.white, 0.15)!, baseColor, Color.lerp(baseColor, Colors.black, 0.1)!], stops: const [0.0, 0.5, 1.0]),
+                    border: Border.all(color: Color.lerp(baseColor, Colors.white, 0.2)!, width: 1),
                   ),
                   child: Text(
                     widget.isRolling
                         ? 'ROLLING...'
                         : widget.isMoving
-                            ? 'MOVING...'
-                            : 'ROLL DICE',
+                        ? 'MOVING...'
+                        : 'ROLL DICE',
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 2,
                       color: Colors.white,
-                      shadows: [
-                        Shadow(
-                          color: Colors.black26,
-                          offset: Offset(1, 1),
-                          blurRadius: 2,
-                        ),
-                      ],
+                      shadows: [Shadow(color: Colors.black26, offset: Offset(1, 1), blurRadius: 2)],
                     ),
                   ),
                 ),

@@ -8,19 +8,14 @@ class MemoryMatchGame extends StatefulWidget {
   final VoidCallback onComplete;
   final Function(int) onScoreEarned;
 
-  const MemoryMatchGame({
-    super.key,
-    required this.onComplete,
-    required this.onScoreEarned,
-  });
+  const MemoryMatchGame({super.key, required this.onComplete, required this.onScoreEarned});
 
   @override
   State<MemoryMatchGame> createState() => _MemoryMatchGameState();
 }
 
 class _MemoryMatchGameState extends State<MemoryMatchGame> {
-  static const int _gridSize = 12; // 4x3 grid = 6 pairs
-  static const int _timeLimit = 30;
+  static const int _timeLimit = 30; // 4x3 grid = 6 pairs
 
   final List<_MemoryCard> _cards = [];
   int? _firstFlippedIndex;
@@ -32,14 +27,7 @@ class _MemoryMatchGameState extends State<MemoryMatchGame> {
   bool _gameOver = false;
 
   // Card icons (6 pairs)
-  static const List<IconData> _cardIcons = [
-    Icons.home,
-    Icons.attach_money,
-    Icons.directions_car,
-    Icons.train,
-    Icons.casino,
-    Icons.star,
-  ];
+  static const List<IconData> _cardIcons = [Icons.home, Icons.attach_money, Icons.directions_car, Icons.train, Icons.casino, Icons.star];
 
   @override
   void initState() {
@@ -92,8 +80,7 @@ class _MemoryMatchGameState extends State<MemoryMatchGame> {
         _canFlip = false;
 
         // Check for match
-        if (_cards[_firstFlippedIndex!].icon ==
-            _cards[_secondFlippedIndex!].icon) {
+        if (_cards[_firstFlippedIndex!].icon == _cards[_secondFlippedIndex!].icon) {
           // Match found!
           _cards[_firstFlippedIndex!].isMatched = true;
           _cards[_secondFlippedIndex!].isMatched = true;
@@ -156,33 +143,19 @@ class _MemoryMatchGameState extends State<MemoryMatchGame> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              isWin ? Icons.emoji_events : Icons.timer_off,
-              color: isWin ? Colors.amber : Colors.orange,
-              size: 32,
-            ),
+            Icon(isWin ? Icons.emoji_events : Icons.timer_off, color: isWin ? Colors.amber : Colors.orange, size: 32),
             const SizedBox(width: 12),
-            Text(
-              isWin ? 'Great Job!' : 'Time\'s Up!',
-              style: const TextStyle(color: Colors.white),
-            ),
+            Text(isWin ? 'Great Job!' : 'Time\'s Up!', style: const TextStyle(color: Colors.white)),
           ],
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              'Pairs Found: $_pairsFound / ${_cardIcons.length}',
-              style: const TextStyle(color: Colors.white70, fontSize: 16),
-            ),
+            Text('Pairs Found: $_pairsFound / ${_cardIcons.length}', style: const TextStyle(color: Colors.white70, fontSize: 16)),
             const SizedBox(height: 12),
             Text(
               'Score: \$$score',
-              style: TextStyle(
-                color: AppTheme.cashGreen,
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(color: AppTheme.cashGreen, fontSize: 28, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -193,11 +166,7 @@ class _MemoryMatchGameState extends State<MemoryMatchGame> {
                 Navigator.pop(context);
                 widget.onComplete();
               },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppTheme.primary,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-              ),
+              style: ElevatedButton.styleFrom(backgroundColor: AppTheme.primary, padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12)),
               child: const Text('Continue'),
             ),
           ),
@@ -216,12 +185,7 @@ class _MemoryMatchGameState extends State<MemoryMatchGame> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.background,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: const Text('Memory Match'),
-        automaticallyImplyLeading: false,
-      ),
+      appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0, title: const Text('Memory Match'), automaticallyImplyLeading: false),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -231,9 +195,7 @@ class _MemoryMatchGameState extends State<MemoryMatchGame> {
               _buildStatsBar(),
               const SizedBox(height: 24),
               // Game grid
-              Expanded(
-                child: _buildGameGrid(),
-              ),
+              Expanded(child: _buildGameGrid()),
             ],
           ),
         ),
@@ -246,36 +208,19 @@ class _MemoryMatchGameState extends State<MemoryMatchGame> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         // Pairs found
-        _StatChip(
-          icon: Icons.check_circle,
-          label: 'Pairs',
-          value: '$_pairsFound/${_cardIcons.length}',
-          color: Colors.green,
-        ),
+        _StatChip(icon: Icons.check_circle, label: 'Pairs', value: '$_pairsFound/${_cardIcons.length}', color: Colors.green),
         // Timer
-        _StatChip(
-          icon: Icons.timer,
-          label: 'Time',
-          value: '$_timeRemaining s',
-          color: _timeRemaining <= 10 ? Colors.red : Colors.blue,
-        ),
+        _StatChip(icon: Icons.timer, label: 'Time', value: '$_timeRemaining s', color: _timeRemaining <= 10 ? Colors.red : Colors.blue),
       ],
     );
   }
 
   Widget _buildGameGrid() {
     return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4,
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
-      ),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4, mainAxisSpacing: 10, crossAxisSpacing: 10),
       itemCount: _cards.length,
       itemBuilder: (context, index) {
-        return _MemoryCardWidget(
-          card: _cards[index],
-          onTap: () => _onCardTap(index),
-        );
+        return _MemoryCardWidget(card: _cards[index], onTap: () => _onCardTap(index));
       },
     );
   }
@@ -286,41 +231,28 @@ class _MemoryCard {
   bool isFlipped;
   bool isMatched;
 
-  _MemoryCard({
-    required this.icon,
-    this.isFlipped = false,
-    this.isMatched = false,
-  });
+  _MemoryCard({required this.icon, this.isFlipped = false, this.isMatched = false});
 }
 
 class _MemoryCardWidget extends StatefulWidget {
   final _MemoryCard card;
   final VoidCallback onTap;
 
-  const _MemoryCardWidget({
-    required this.card,
-    required this.onTap,
-  });
+  const _MemoryCardWidget({required this.card, required this.onTap});
 
   @override
   State<_MemoryCardWidget> createState() => _MemoryCardWidgetState();
 }
 
-class _MemoryCardWidgetState extends State<_MemoryCardWidget>
-    with SingleTickerProviderStateMixin {
+class _MemoryCardWidgetState extends State<_MemoryCardWidget> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _flipAnimation;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 300),
-      vsync: this,
-    );
-    _flipAnimation = Tween<double>(begin: 0, end: 1).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
-    );
+    _controller = AnimationController(duration: const Duration(milliseconds: 300), vsync: this);
+    _flipAnimation = Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
   }
 
   @override
@@ -366,31 +298,12 @@ class _MemoryCardWidgetState extends State<_MemoryCardWidget>
   Widget _buildBack() {
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            AppTheme.primary,
-            AppTheme.primary.withOpacity(0.7),
-          ],
-        ),
+        gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [AppTheme.primary, AppTheme.primary.withOpacity(0.7)]),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: Colors.white24, width: 2),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.3),
-            blurRadius: 6,
-            offset: const Offset(0, 3),
-          ),
-        ],
+        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 6, offset: const Offset(0, 3))],
       ),
-      child: const Center(
-        child: Icon(
-          Icons.question_mark,
-          color: Colors.white54,
-          size: 32,
-        ),
-      ),
+      child: const Center(child: Icon(Icons.question_mark, color: Colors.white54, size: 32)),
     );
   }
 
@@ -400,32 +313,12 @@ class _MemoryCardWidgetState extends State<_MemoryCardWidget>
       transform: Matrix4.identity()..rotateY(pi),
       child: Container(
         decoration: BoxDecoration(
-          color: widget.card.isMatched
-              ? Colors.green.withOpacity(0.3)
-              : Colors.white,
+          color: widget.card.isMatched ? Colors.green.withOpacity(0.3) : Colors.white,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: widget.card.isMatched ? Colors.green : Colors.grey.shade300,
-            width: 2,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: widget.card.isMatched
-                  ? Colors.green.withOpacity(0.3)
-                  : Colors.black.withOpacity(0.2),
-              blurRadius: 6,
-              offset: const Offset(0, 3),
-            ),
-          ],
+          border: Border.all(color: widget.card.isMatched ? Colors.green : Colors.grey.shade300, width: 2),
+          boxShadow: [BoxShadow(color: widget.card.isMatched ? Colors.green.withOpacity(0.3) : Colors.black.withOpacity(0.2), blurRadius: 6, offset: const Offset(0, 3))],
         ),
-        child: Center(
-          child: Icon(
-            widget.card.icon,
-            color:
-                widget.card.isMatched ? Colors.green : AppTheme.primary,
-            size: 36,
-          ),
-        ),
+        child: Center(child: Icon(widget.card.icon, color: widget.card.isMatched ? Colors.green : AppTheme.primary, size: 36)),
       ),
     );
   }
@@ -437,12 +330,7 @@ class _StatChip extends StatelessWidget {
   final String value;
   final Color color;
 
-  const _StatChip({
-    required this.icon,
-    required this.label,
-    required this.value,
-    required this.color,
-  });
+  const _StatChip({required this.icon, required this.label, required this.value, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -461,20 +349,10 @@ class _StatChip extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                label,
-                style: TextStyle(
-                  color: color.withOpacity(0.8),
-                  fontSize: 12,
-                ),
-              ),
+              Text(label, style: TextStyle(color: color.withOpacity(0.8), fontSize: 12)),
               Text(
                 value,
-                style: TextStyle(
-                  color: color,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(color: color, fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ],
           ),

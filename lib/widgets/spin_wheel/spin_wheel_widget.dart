@@ -8,19 +8,13 @@ class SpinWheelWidget extends StatefulWidget {
   final Function(SpinPrize) onPrizeWon;
   final double size;
 
-  const SpinWheelWidget({
-    super.key,
-    required this.prizes,
-    required this.onPrizeWon,
-    this.size = 300,
-  });
+  const SpinWheelWidget({super.key, required this.prizes, required this.onPrizeWon, this.size = 300});
 
   @override
   State<SpinWheelWidget> createState() => SpinWheelWidgetState();
 }
 
-class SpinWheelWidgetState extends State<SpinWheelWidget>
-    with SingleTickerProviderStateMixin {
+class SpinWheelWidgetState extends State<SpinWheelWidget> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _rotationAnimation;
 
@@ -31,10 +25,7 @@ class SpinWheelWidgetState extends State<SpinWheelWidget>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: const Duration(seconds: 5),
-      vsync: this,
-    );
+    _controller = AnimationController(duration: const Duration(seconds: 5), vsync: this);
 
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
@@ -60,16 +51,9 @@ class SpinWheelWidgetState extends State<SpinWheelWidget>
     final prizeAngle = prizeIndex * sliceAngle + sliceAngle / 2;
 
     // Spin multiple rotations plus land on prize
-    final targetRotation =
-        _currentRotation + (5 * 2 * pi) + (2 * pi - prizeAngle) - (_currentRotation % (2 * pi));
+    final targetRotation = _currentRotation + (5 * 2 * pi) + (2 * pi - prizeAngle) - (_currentRotation % (2 * pi));
 
-    _rotationAnimation = Tween<double>(
-      begin: _currentRotation,
-      end: targetRotation,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeOutCubic,
-    ));
+    _rotationAnimation = Tween<double>(begin: _currentRotation, end: targetRotation).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
 
     _currentRotation = targetRotation;
     _controller.forward(from: 0);
@@ -77,8 +61,7 @@ class SpinWheelWidgetState extends State<SpinWheelWidget>
 
   SpinPrize _selectRandomPrize() {
     final random = Random();
-    final totalWeight =
-        widget.prizes.fold<double>(0, (sum, p) => sum + p.weight);
+    final totalWeight = widget.prizes.fold<double>(0, (sum, p) => sum + p.weight);
     final randomValue = random.nextDouble() * totalWeight;
 
     double cumulative = 0;
@@ -113,13 +96,7 @@ class SpinWheelWidgetState extends State<SpinWheelWidget>
               height: widget.size - 10,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.4),
-                    blurRadius: 20,
-                    spreadRadius: 5,
-                  ),
-                ],
+                boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.4), blurRadius: 20, spreadRadius: 5)],
               ),
             ),
           ),
@@ -130,22 +107,8 @@ class SpinWheelWidgetState extends State<SpinWheelWidget>
             height: widget.size,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Colors.amber.shade900,
-                  Colors.amber.shade800,
-                  Colors.brown.shade700,
-                ],
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.5),
-                  blurRadius: 15,
-                  offset: const Offset(0, 8),
-                ),
-              ],
+              gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Colors.amber.shade900, Colors.amber.shade800, Colors.brown.shade700]),
+              boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.5), blurRadius: 15, offset: const Offset(0, 8))],
             ),
           ),
 
@@ -155,19 +118,8 @@ class SpinWheelWidgetState extends State<SpinWheelWidget>
             height: widget.size - 8,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Colors.amber.shade300,
-                  Colors.amber.shade500,
-                  Colors.amber.shade700,
-                ],
-              ),
-              border: Border.all(
-                color: Colors.amber.shade200,
-                width: 2,
-              ),
+              gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Colors.amber.shade300, Colors.amber.shade500, Colors.amber.shade700]),
+              border: Border.all(color: Colors.amber.shade200, width: 2),
             ),
           ),
 
@@ -175,9 +127,7 @@ class SpinWheelWidgetState extends State<SpinWheelWidget>
           AnimatedBuilder(
             animation: _controller,
             builder: (context, child) {
-              final rotation = _isSpinning
-                  ? _rotationAnimation.value
-                  : _currentRotation;
+              final rotation = _isSpinning ? _rotationAnimation.value : _currentRotation;
               return Transform.rotate(
                 angle: rotation,
                 child: CustomPaint(
@@ -194,13 +144,7 @@ class SpinWheelWidgetState extends State<SpinWheelWidget>
             height: widget.size * 0.3,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.3),
-                  blurRadius: 10,
-                  spreadRadius: 2,
-                ),
-              ],
+              boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 10, spreadRadius: 2)],
             ),
           ),
 
@@ -210,14 +154,7 @@ class SpinWheelWidgetState extends State<SpinWheelWidget>
             height: widget.size * 0.28,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Colors.amber.shade800,
-                  Colors.brown.shade800,
-                ],
-              ),
+              gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Colors.amber.shade800, Colors.brown.shade800]),
             ),
           ),
 
@@ -229,50 +166,23 @@ class SpinWheelWidgetState extends State<SpinWheelWidget>
               height: widget.size * 0.25,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    Colors.amber.shade200,
-                    Colors.amber.shade400,
-                    Colors.amber.shade600,
-                  ],
-                  stops: const [0.0, 0.5, 1.0],
-                ),
-                border: Border.all(
-                  color: Colors.amber.shade100,
-                  width: 3,
-                ),
+                gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Colors.amber.shade200, Colors.amber.shade400, Colors.amber.shade600], stops: const [0.0, 0.5, 1.0]),
+                border: Border.all(color: Colors.amber.shade100, width: 3),
                 boxShadow: [
-                  BoxShadow(
-                    color: Colors.amber.shade300.withOpacity(0.5),
-                    blurRadius: 8,
-                    offset: const Offset(-2, -2),
-                  ),
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.3),
-                    blurRadius: 8,
-                    offset: const Offset(3, 3),
-                  ),
+                  BoxShadow(color: Colors.amber.shade300.withOpacity(0.5), blurRadius: 8, offset: const Offset(-2, -2)),
+                  BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 8, offset: const Offset(3, 3)),
                 ],
               ),
               child: Center(
                 child: _isSpinning
-                    ? const CircularProgressIndicator(
-                        color: Colors.white,
-                        strokeWidth: 3,
-                      )
+                    ? const CircularProgressIndicator(color: Colors.white, strokeWidth: 3)
                     : Stack(
                         alignment: Alignment.center,
                         children: [
                           // Text shadow
                           Text(
                             'SPIN',
-                            style: TextStyle(
-                              color: Colors.brown.shade800,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w900,
-                            ),
+                            style: TextStyle(color: Colors.brown.shade800, fontSize: 18, fontWeight: FontWeight.w900),
                           ),
                           // Main text with offset for 3D effect
                           Transform.translate(
@@ -283,13 +193,7 @@ class SpinWheelWidgetState extends State<SpinWheelWidget>
                                 color: Colors.white,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w900,
-                                shadows: [
-                                  Shadow(
-                                    color: Colors.black38,
-                                    offset: Offset(1, 1),
-                                    blurRadius: 2,
-                                  ),
-                                ],
+                                shadows: [Shadow(color: Colors.black38, offset: Offset(1, 1), blurRadius: 2)],
                               ),
                             ),
                           ),
@@ -300,10 +204,7 @@ class SpinWheelWidgetState extends State<SpinWheelWidget>
           ),
 
           // 3D Pointer
-          Positioned(
-            top: 0,
-            child: _build3DPointer(),
-          ),
+          Positioned(top: 0, child: _build3DPointer()),
         ],
       ),
     );
@@ -319,25 +220,16 @@ class SpinWheelWidgetState extends State<SpinWheelWidget>
           Positioned(
             left: 4,
             top: 4,
-            child: CustomPaint(
-              size: const Size(32, 44),
-              painter: _PointerShadowPainter(),
-            ),
+            child: CustomPaint(size: const Size(32, 44), painter: _PointerShadowPainter()),
           ),
           // Base (darker)
           Positioned(
             left: 2,
             top: 2,
-            child: CustomPaint(
-              size: const Size(32, 44),
-              painter: _Pointer3DBasePainter(),
-            ),
+            child: CustomPaint(size: const Size(32, 44), painter: _Pointer3DBasePainter()),
           ),
           // Main pointer
-          CustomPaint(
-            size: const Size(32, 44),
-            painter: _Pointer3DPainter(),
-          ),
+          CustomPaint(size: const Size(32, 44), painter: _Pointer3DPainter()),
           // Highlight
           Positioned(
             left: 8,
@@ -347,14 +239,7 @@ class SpinWheelWidgetState extends State<SpinWheelWidget>
               height: 16,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.white.withOpacity(0.6),
-                    Colors.white.withOpacity(0.0),
-                  ],
-                ),
+                gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Colors.white.withOpacity(0.6), Colors.white.withOpacity(0.0)]),
               ),
             ),
           ),
@@ -376,15 +261,7 @@ class _Wheel3DPainter extends CustomPainter {
     final sliceAngle = 2 * pi / prizes.length;
 
     // Draw inner shadow circle for depth
-    final innerShadowPaint = Paint()
-      ..shader = RadialGradient(
-        colors: [
-          Colors.transparent,
-          Colors.black.withOpacity(0.1),
-          Colors.black.withOpacity(0.2),
-        ],
-        stops: const [0.6, 0.85, 1.0],
-      ).createShader(Rect.fromCircle(center: center, radius: radius));
+    final innerShadowPaint = Paint()..shader = RadialGradient(colors: [Colors.transparent, Colors.black.withOpacity(0.1), Colors.black.withOpacity(0.2)], stops: const [0.6, 0.85, 1.0]).createShader(Rect.fromCircle(center: center, radius: radius));
     canvas.drawCircle(center, radius, innerShadowPaint);
 
     // Draw slices with 3D gradient effect
@@ -392,22 +269,11 @@ class _Wheel3DPainter extends CustomPainter {
       final startAngle = i * sliceAngle - pi / 2;
       final prize = prizes[i];
 
-      // Create gradient colors for 3D effect
+      // Get base color for slice
       final baseColor = prize.color;
-      final lightColor = Color.lerp(baseColor, Colors.white, 0.3)!;
-      final darkColor = Color.lerp(baseColor, Colors.black, 0.2)!;
 
-      // Slice fill with gradient for 3D look
+      // Slice rect for gradient shaders
       final sliceRect = Rect.fromCircle(center: center, radius: radius);
-      final slicePaint = Paint()
-        ..shader = SweepGradient(
-          center: Alignment.center,
-          startAngle: startAngle,
-          endAngle: startAngle + sliceAngle,
-          colors: [lightColor, baseColor, darkColor],
-          stops: const [0.0, 0.5, 1.0],
-          transform: GradientRotation(startAngle),
-        ).createShader(sliceRect);
 
       // Actually draw with solid color but add inner edge gradient
       final solidPaint = Paint()
@@ -416,28 +282,13 @@ class _Wheel3DPainter extends CustomPainter {
 
       final path = Path()
         ..moveTo(center.dx, center.dy)
-        ..arcTo(
-          Rect.fromCircle(center: center, radius: radius),
-          startAngle,
-          sliceAngle,
-          false,
-        )
+        ..arcTo(Rect.fromCircle(center: center, radius: radius), startAngle, sliceAngle, false)
         ..close();
 
       canvas.drawPath(path, solidPaint);
 
       // Draw gradient overlay for 3D depth
-      final gradientPaint = Paint()
-        ..shader = RadialGradient(
-          center: const Alignment(0.3, -0.3),
-          radius: 1.2,
-          colors: [
-            Colors.white.withOpacity(0.25),
-            Colors.transparent,
-            Colors.black.withOpacity(0.15),
-          ],
-          stops: const [0.0, 0.5, 1.0],
-        ).createShader(sliceRect);
+      final gradientPaint = Paint()..shader = RadialGradient(center: const Alignment(0.3, -0.3), radius: 1.2, colors: [Colors.white.withOpacity(0.25), Colors.transparent, Colors.black.withOpacity(0.15)], stops: const [0.0, 0.5, 1.0]).createShader(sliceRect);
 
       canvas.drawPath(path, gradientPaint);
 
@@ -451,31 +302,18 @@ class _Wheel3DPainter extends CustomPainter {
       // Draw icon and text
       final iconAngle = startAngle + sliceAngle / 2;
       final iconRadius = radius * 0.6;
-      final iconCenter = Offset(
-        center.dx + cos(iconAngle) * iconRadius,
-        center.dy + sin(iconAngle) * iconRadius,
-      );
+      final iconCenter = Offset(center.dx + cos(iconAngle) * iconRadius, center.dy + sin(iconAngle) * iconRadius);
 
       // Draw icon shadow
       final iconShadowPainter = TextPainter(
         text: TextSpan(
           text: String.fromCharCode(prize.icon.codePoint),
-          style: TextStyle(
-            fontSize: 26,
-            fontFamily: prize.icon.fontFamily,
-            color: Colors.black38,
-          ),
+          style: TextStyle(fontSize: 26, fontFamily: prize.icon.fontFamily, color: Colors.black38),
         ),
         textDirection: TextDirection.ltr,
       );
       iconShadowPainter.layout();
-      iconShadowPainter.paint(
-        canvas,
-        Offset(
-          iconCenter.dx - iconShadowPainter.width / 2 + 2,
-          iconCenter.dy - iconShadowPainter.height / 2 + 2,
-        ),
-      );
+      iconShadowPainter.paint(canvas, Offset(iconCenter.dx - iconShadowPainter.width / 2 + 2, iconCenter.dy - iconShadowPainter.height / 2 + 2));
 
       // Draw icon
       final iconPainter = TextPainter(
@@ -485,28 +323,17 @@ class _Wheel3DPainter extends CustomPainter {
             fontSize: 26,
             fontFamily: prize.icon.fontFamily,
             color: Colors.white,
-            shadows: const [
-              Shadow(color: Colors.black26, offset: Offset(1, 1), blurRadius: 2),
-            ],
+            shadows: const [Shadow(color: Colors.black26, offset: Offset(1, 1), blurRadius: 2)],
           ),
         ),
         textDirection: TextDirection.ltr,
       );
       iconPainter.layout();
-      iconPainter.paint(
-        canvas,
-        Offset(
-          iconCenter.dx - iconPainter.width / 2,
-          iconCenter.dy - iconPainter.height / 2,
-        ),
-      );
+      iconPainter.paint(canvas, Offset(iconCenter.dx - iconPainter.width / 2, iconCenter.dy - iconPainter.height / 2));
 
       // Draw prize name (smaller, closer to edge)
       final textRadius = radius * 0.85;
-      final textCenter = Offset(
-        center.dx + cos(iconAngle) * textRadius,
-        center.dy + sin(iconAngle) * textRadius,
-      );
+      final textCenter = Offset(center.dx + cos(iconAngle) * textRadius, center.dy + sin(iconAngle) * textRadius);
 
       canvas.save();
       canvas.translate(textCenter.dx, textCenter.dy);
@@ -519,18 +346,13 @@ class _Wheel3DPainter extends CustomPainter {
             fontSize: 10,
             fontWeight: FontWeight.bold,
             color: Colors.white,
-            shadows: [
-              Shadow(color: Colors.black45, offset: Offset(1, 1), blurRadius: 2),
-            ],
+            shadows: [Shadow(color: Colors.black45, offset: Offset(1, 1), blurRadius: 2)],
           ),
         ),
         textDirection: TextDirection.ltr,
       );
       textPainter.layout();
-      textPainter.paint(
-        canvas,
-        Offset(-textPainter.width / 2, -textPainter.height / 2),
-      );
+      textPainter.paint(canvas, Offset(-textPainter.width / 2, -textPainter.height / 2));
 
       canvas.restore();
     }
@@ -539,45 +361,19 @@ class _Wheel3DPainter extends CustomPainter {
     final pegCount = prizes.length;
     for (int i = 0; i < pegCount; i++) {
       final angle = i * sliceAngle - pi / 2;
-      final pegCenter = Offset(
-        center.dx + cos(angle) * (radius - 2),
-        center.dy + sin(angle) * (radius - 2),
-      );
+      final pegCenter = Offset(center.dx + cos(angle) * (radius - 2), center.dy + sin(angle) * (radius - 2));
 
       // Peg shadow (offset)
-      canvas.drawCircle(
-        pegCenter + const Offset(2, 2),
-        6,
-        Paint()..color = Colors.black38,
-      );
+      canvas.drawCircle(pegCenter + const Offset(2, 2), 6, Paint()..color = Colors.black38);
 
       // Peg base (darker gold)
-      canvas.drawCircle(
-        pegCenter,
-        6,
-        Paint()
-          ..shader = RadialGradient(
-            center: const Alignment(-0.3, -0.3),
-            colors: [
-              Colors.amber.shade300,
-              Colors.amber.shade700,
-            ],
-          ).createShader(Rect.fromCircle(center: pegCenter, radius: 6)),
-      );
+      canvas.drawCircle(pegCenter, 6, Paint()..shader = RadialGradient(center: const Alignment(-0.3, -0.3), colors: [Colors.amber.shade300, Colors.amber.shade700]).createShader(Rect.fromCircle(center: pegCenter, radius: 6)));
 
       // Peg highlight
-      canvas.drawCircle(
-        pegCenter + const Offset(-1, -1),
-        3,
-        Paint()..color = Colors.amber.shade100,
-      );
+      canvas.drawCircle(pegCenter + const Offset(-1, -1), 3, Paint()..color = Colors.amber.shade100);
 
       // Peg center dot
-      canvas.drawCircle(
-        pegCenter,
-        2,
-        Paint()..color = Colors.white,
-      );
+      canvas.drawCircle(pegCenter, 2, Paint()..color = Colors.white);
     }
   }
 
@@ -594,10 +390,7 @@ class _PointerShadowPainter extends CustomPainter {
       ..lineTo(size.width, 0)
       ..close();
 
-    canvas.drawPath(
-      path,
-      Paint()..color = Colors.black.withOpacity(0.4),
-    );
+    canvas.drawPath(path, Paint()..color = Colors.black.withOpacity(0.4));
   }
 
   @override
@@ -613,10 +406,7 @@ class _Pointer3DBasePainter extends CustomPainter {
       ..lineTo(size.width, 0)
       ..close();
 
-    canvas.drawPath(
-      path,
-      Paint()..color = Colors.red.shade900,
-    );
+    canvas.drawPath(path, Paint()..color = Colors.red.shade900);
   }
 
   @override
@@ -633,16 +423,7 @@ class _Pointer3DPainter extends CustomPainter {
       ..close();
 
     // Main gradient fill
-    final paint = Paint()
-      ..shader = LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [
-          Colors.red.shade400,
-          Colors.red.shade600,
-          Colors.red.shade800,
-        ],
-      ).createShader(Rect.fromLTWH(0, 0, size.width, size.height));
+    final paint = Paint()..shader = LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Colors.red.shade400, Colors.red.shade600, Colors.red.shade800]).createShader(Rect.fromLTWH(0, 0, size.width, size.height));
 
     canvas.drawPath(path, paint);
 
@@ -654,10 +435,7 @@ class _Pointer3DPainter extends CustomPainter {
       ..lineTo(size.width / 2, size.height * 0.8)
       ..close();
 
-    canvas.drawPath(
-      leftEdge,
-      Paint()..color = Colors.red.shade300.withOpacity(0.5),
-    );
+    canvas.drawPath(leftEdge, Paint()..color = Colors.red.shade300.withOpacity(0.5));
 
     // Border
     canvas.drawPath(

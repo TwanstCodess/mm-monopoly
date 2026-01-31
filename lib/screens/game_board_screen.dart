@@ -42,8 +42,10 @@ class GameBoardScreen extends StatefulWidget {
   final VoidCallback onQuit;
   final VoidCallback onRestart;
   final VoidCallback? onHowToPlay;
+  final bool tradingEnabled;
+  final bool bankEnabled;
 
-  const GameBoardScreen({super.key, required this.gameState, required this.onQuit, required this.onRestart, this.onHowToPlay});
+  const GameBoardScreen({super.key, required this.gameState, required this.onQuit, required this.onRestart, this.onHowToPlay, this.tradingEnabled = false, this.bankEnabled = false});
 
   @override
   State<GameBoardScreen> createState() => _GameBoardScreenState();
@@ -169,23 +171,12 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
                   return isPortrait ? _buildPortraitLayout() : _buildLandscapeLayout();
                 },
               ),
-              // Phase 4: Action buttons (Trade, Mortgage, Power-ups)
-              if (!gameState.currentPlayer.isAI)
+              // Power-up cards button (if has cards) - top left overlay
+              if (!gameState.currentPlayer.isAI && gameState.getPowerUps(gameState.currentPlayer.id).isNotEmpty)
                 Positioned(
                   top: 8,
                   left: 8,
-                  child: Row(
-                    children: [
-                      // Trade button
-                      _buildActionButton(icon: Icons.swap_horiz, label: 'Trade', color: Colors.teal, onTap: _showTradeDialog),
-                      const SizedBox(width: 8),
-                      // Mortgage button
-                      _buildActionButton(icon: Icons.account_balance, label: 'Bank', color: Colors.deepPurple, onTap: _showMortgageDialog),
-                      const SizedBox(width: 8),
-                      // Power-up cards button (if has cards)
-                      if (gameState.getPowerUps(gameState.currentPlayer.id).isNotEmpty) _buildActionButton(icon: Icons.style, label: '${gameState.getPowerUps(gameState.currentPlayer.id).length}', color: Colors.amber, onTap: _showPowerUpHand),
-                    ],
-                  ),
+                  child: _buildActionButton(icon: Icons.style, label: '${gameState.getPowerUps(gameState.currentPlayer.id).length}', color: Colors.amber, onTap: _showPowerUpHand),
                 ),
               // Phase 3: Active event indicators
               if (gameState.activeEvents.isNotEmpty)
@@ -242,6 +233,9 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
                   tiles: gameState.tiles,
                   centerControls: _buildCenterControls(),
                   onMenuTap: _showGameMenu,
+                  onTradeTap: widget.tradingEnabled ? _showTradeDialog : null,
+                  onBankTap: widget.bankEnabled ? _showMortgageDialog : null,
+                  showActionButtons: !gameState.currentPlayer.isAI && (widget.tradingEnabled || widget.bankEnabled),
                   onTileTap: _showTileInfo,
                   isChanceHighlighted: _waitingForCardPick && _isChanceCard,
                   isChestHighlighted: _waitingForCardPick && !_isChanceCard,
@@ -288,6 +282,9 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
                   tiles: gameState.tiles,
                   centerControls: _buildCenterControls(),
                   onMenuTap: _showGameMenu,
+                  onTradeTap: widget.tradingEnabled ? _showTradeDialog : null,
+                  onBankTap: widget.bankEnabled ? _showMortgageDialog : null,
+                  showActionButtons: !gameState.currentPlayer.isAI && (widget.tradingEnabled || widget.bankEnabled),
                   onTileTap: _showTileInfo,
                   isChanceHighlighted: _waitingForCardPick && _isChanceCard,
                   isChestHighlighted: _waitingForCardPick && !_isChanceCard,

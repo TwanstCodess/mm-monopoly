@@ -77,6 +77,8 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
                         _buildSectionTitle('Game Setup', Icons.sports_esports_rounded, const Color(0xFF4ECDC4)),
                         const SizedBox(height: 8),
                         _buildStartingCashCard(),
+                        const SizedBox(height: 16),
+                        _buildAdvancedFeaturesSection(),
                         const SizedBox(height: 30),
                         _buildComingSoonSection(),
                         const SizedBox(height: 30),
@@ -260,6 +262,84 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
     );
   }
 
+  Widget _buildAdvancedFeaturesSection() {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.08)]),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.white.withOpacity(0.2)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Colors.teal, Color(0xFF00796B)]),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(Icons.tune_rounded, color: Colors.white, size: 22),
+              ),
+              const SizedBox(width: 12),
+              const Text(
+                'Advanced Features',
+                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          // Trading toggle
+          _buildToggleOption(
+            icon: Icons.swap_horiz_rounded,
+            title: 'Player Trading',
+            subtitle: 'Allow players to trade properties',
+            value: _settings.tradingEnabled,
+            onChanged: (value) {
+              _updateSettings(_settings.copyWith(tradingEnabled: value));
+            },
+          ),
+          const SizedBox(height: 12),
+          // Bank toggle
+          _buildToggleOption(
+            icon: Icons.account_balance_rounded,
+            title: 'Bank Features',
+            subtitle: 'Sell properties to bank for quick cash',
+            value: _settings.bankEnabled,
+            onChanged: (value) {
+              _updateSettings(_settings.copyWith(bankEnabled: value));
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildToggleOption({required IconData icon, required String title, required String subtitle, required bool value, required Function(bool) onChanged}) {
+    return Row(
+      children: [
+        Icon(icon, color: Colors.white.withOpacity(0.7), size: 24),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
+              ),
+              Text(subtitle, style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 12)),
+            ],
+          ),
+        ),
+        Switch(value: value, onChanged: onChanged, activeColor: Colors.teal, activeTrackColor: Colors.teal.withOpacity(0.5), inactiveThumbColor: Colors.white.withOpacity(0.5), inactiveTrackColor: Colors.white.withOpacity(0.2)),
+      ],
+    );
+  }
+
   Widget _buildComingSoonSection() {
     return Container(
       padding: const EdgeInsets.all(20),
@@ -386,10 +466,12 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
 /// Game settings model
 class GameSettings {
   final int startingCash;
+  final bool tradingEnabled;
+  final bool bankEnabled;
 
-  const GameSettings({this.startingCash = 2000});
+  const GameSettings({this.startingCash = 2000, this.tradingEnabled = false, this.bankEnabled = false});
 
-  GameSettings copyWith({int? startingCash}) {
-    return GameSettings(startingCash: startingCash ?? this.startingCash);
+  GameSettings copyWith({int? startingCash, bool? tradingEnabled, bool? bankEnabled}) {
+    return GameSettings(startingCash: startingCash ?? this.startingCash, tradingEnabled: tradingEnabled ?? this.tradingEnabled, bankEnabled: bankEnabled ?? this.bankEnabled);
   }
 }

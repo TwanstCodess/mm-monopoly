@@ -11,13 +11,7 @@ class PropertyManagementDialog extends StatefulWidget {
   final Function(TileData) onMortgage;
   final Function(TileData) onUnmortgage;
 
-  const PropertyManagementDialog({
-    super.key,
-    required this.player,
-    required this.tiles,
-    required this.onMortgage,
-    required this.onUnmortgage,
-  });
+  const PropertyManagementDialog({super.key, required this.player, required this.tiles, required this.onMortgage, required this.onUnmortgage});
 
   @override
   State<PropertyManagementDialog> createState() => _PropertyManagementDialogState();
@@ -90,20 +84,10 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
           const SizedBox(height: 8),
           const Text(
             'Property Management',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 4),
-          Text(
-            'Cash: \$${widget.player.cash}',
-            style: TextStyle(
-              color: Colors.white.withOpacity(0.8),
-              fontSize: 14,
-            ),
-          ),
+          Text('Cash: \$${widget.player.cash}', style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 14)),
         ],
       ),
     );
@@ -112,10 +96,7 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
   Widget _buildTabs() {
     return Container(
       margin: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.black26,
-        borderRadius: BorderRadius.circular(12),
-      ),
+      decoration: BoxDecoration(color: Colors.black26, borderRadius: BorderRadius.circular(12)),
       child: Row(
         children: [
           Expanded(
@@ -123,17 +104,11 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
               onTap: () => setState(() => _selectedTab = 0),
               child: Container(
                 padding: const EdgeInsets.symmetric(vertical: 12),
-                decoration: BoxDecoration(
-                  color: _selectedTab == 0 ? AppTheme.warning : Colors.transparent,
-                  borderRadius: BorderRadius.circular(12),
-                ),
+                decoration: BoxDecoration(color: _selectedTab == 0 ? AppTheme.warning : Colors.transparent, borderRadius: BorderRadius.circular(12)),
                 child: Text(
                   'Mortgage (${_mortgageableProperties.length})',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: _selectedTab == 0 ? Colors.black : Colors.white70,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(color: _selectedTab == 0 ? Colors.black : Colors.white70, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -143,17 +118,11 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
               onTap: () => setState(() => _selectedTab = 1),
               child: Container(
                 padding: const EdgeInsets.symmetric(vertical: 12),
-                decoration: BoxDecoration(
-                  color: _selectedTab == 1 ? AppTheme.cashGreen : Colors.transparent,
-                  borderRadius: BorderRadius.circular(12),
-                ),
+                decoration: BoxDecoration(color: _selectedTab == 1 ? AppTheme.cashGreen : Colors.transparent, borderRadius: BorderRadius.circular(12)),
                 child: Text(
                   'Unmortgage (${_mortgagedProperties.length})',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: _selectedTab == 1 ? Colors.black : Colors.white70,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(color: _selectedTab == 1 ? Colors.black : Colors.white70, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -171,9 +140,7 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
         child: Padding(
           padding: const EdgeInsets.all(32),
           child: Text(
-            _selectedTab == 0
-                ? 'No properties available to mortgage.\nProperties with houses must sell houses first.'
-                : 'No mortgaged properties.',
+            _selectedTab == 0 ? 'No properties available to mortgage.\nProperties with houses must sell houses first.' : 'No mortgaged properties.',
             textAlign: TextAlign.center,
             style: const TextStyle(color: Colors.white54),
           ),
@@ -222,35 +189,22 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
         leading: Container(
           width: 40,
           height: 40,
-          decoration: BoxDecoration(
-            color: color ?? Colors.grey,
-            borderRadius: BorderRadius.circular(8),
-          ),
+          decoration: BoxDecoration(color: color ?? Colors.grey, borderRadius: BorderRadius.circular(8)),
           child: Icon(
             tile is RailroadTileData
                 ? Icons.train
                 : tile is UtilityTileData
-                    ? Icons.bolt
-                    : Icons.home,
+                ? Icons.bolt
+                : Icons.home,
             color: Colors.white,
             size: 20,
           ),
         ),
         title: Text(
           name,
-          style: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 14,
-          ),
+          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14),
         ),
-        subtitle: Text(
-          _selectedTab == 0 ? 'Receive: \$$value' : 'Cost: \$$value',
-          style: TextStyle(
-            color: _selectedTab == 0 ? AppTheme.cashGreen : AppTheme.warning,
-            fontSize: 12,
-          ),
-        ),
+        subtitle: Text(_selectedTab == 0 ? 'Receive: \$$value' : 'Cost: \$$value', style: TextStyle(color: _selectedTab == 0 ? AppTheme.cashGreen : AppTheme.warning, fontSize: 12)),
         trailing: ElevatedButton(
           onPressed: canAfford
               ? () {
@@ -267,14 +221,9 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
             foregroundColor: Colors.black,
             disabledBackgroundColor: Colors.grey,
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           ),
-          child: Text(
-            _selectedTab == 0 ? 'Mortgage' : 'Pay',
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-          ),
+          child: Text(_selectedTab == 0 ? 'Mortgage' : 'Pay', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
         ),
       ),
     );
@@ -291,9 +240,7 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
             foregroundColor: Colors.white70,
             side: const BorderSide(color: Colors.white24),
             padding: const EdgeInsets.symmetric(vertical: 14),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
           child: const Text('Close', style: TextStyle(fontSize: 16)),
         ),
@@ -303,22 +250,11 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
 }
 
 /// Show the property management dialog
-Future<void> showPropertyManagementDialog({
-  required BuildContext context,
-  required Player player,
-  required List<TileData> tiles,
-  required Function(TileData) onMortgage,
-  required Function(TileData) onUnmortgage,
-}) {
+Future<void> showPropertyManagementDialog({required BuildContext context, required Player player, required List<TileData> tiles, required Function(TileData) onMortgage, required Function(TileData) onUnmortgage}) {
   return showAnimatedDialog(
     context: context,
     barrierDismissible: true,
-    animationType: DialogAnimationType.slide,
-    builder: (context) => PropertyManagementDialog(
-      player: player,
-      tiles: tiles,
-      onMortgage: onMortgage,
-      onUnmortgage: onUnmortgage,
-    ),
+    animationType: DialogAnimationType.slideUp,
+    builder: (context) => PropertyManagementDialog(player: player, tiles: tiles, onMortgage: onMortgage, onUnmortgage: onUnmortgage),
   );
 }

@@ -12,13 +12,7 @@ class TradeDialog extends StatefulWidget {
   final List<TileData> tiles;
   final Function(TradeOffer) onTradeProposed;
 
-  const TradeDialog({
-    super.key,
-    required this.currentPlayer,
-    required this.otherPlayers,
-    required this.tiles,
-    required this.onTradeProposed,
-  });
+  const TradeDialog({super.key, required this.currentPlayer, required this.otherPlayers, required this.tiles, required this.onTradeProposed});
 
   @override
   State<TradeDialog> createState() => _TradeDialogState();
@@ -52,8 +46,7 @@ class _TradeDialogState extends State<TradeDialog> {
 
   bool get _isValidTrade {
     if (_selectedPartner == null) return false;
-    if (_offeredPropertyIndices.isEmpty && _offeredCash == 0 &&
-        _requestedPropertyIndices.isEmpty && _requestedCash == 0) {
+    if (_offeredPropertyIndices.isEmpty && _offeredCash == 0 && _requestedPropertyIndices.isEmpty && _requestedCash == 0) {
       return false;
     }
     if (_offeredCash > widget.currentPlayer.cash) return false;
@@ -81,10 +74,7 @@ class _TradeDialogState extends State<TradeDialog> {
                 child: Column(
                   children: [
                     _buildPartnerSelection(),
-                    if (_selectedPartner != null) ...[
-                      _buildOfferSection(),
-                      _buildRequestSection(),
-                    ],
+                    if (_selectedPartner != null) ...[_buildOfferSection(), _buildRequestSection()],
                   ],
                 ),
               ),
@@ -110,11 +100,7 @@ class _TradeDialogState extends State<TradeDialog> {
           SizedBox(height: 8),
           Text(
             'Propose a Trade',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
           ),
         ],
       ),
@@ -127,17 +113,12 @@ class _TradeDialogState extends State<TradeDialog> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Trade with:',
-            style: TextStyle(color: Colors.white70, fontSize: 14),
-          ),
+          const Text('Trade with:', style: TextStyle(color: Colors.white70, fontSize: 14)),
           const SizedBox(height: 8),
           Wrap(
             spacing: 8,
             runSpacing: 8,
-            children: widget.otherPlayers
-                .where((p) => p.status == PlayerStatus.active)
-                .map((player) {
+            children: widget.otherPlayers.where((p) => p.status == PlayerStatus.active).map((player) {
               final isSelected = _selectedPartner?.id == player.id;
               return GestureDetector(
                 onTap: () {
@@ -159,16 +140,10 @@ class _TradeDialogState extends State<TradeDialog> {
                     children: [
                       Text(
                         player.name,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                        ),
+                        style: TextStyle(color: Colors.white, fontWeight: isSelected ? FontWeight.bold : FontWeight.normal),
                       ),
                       const SizedBox(width: 8),
-                      Text(
-                        '\$${player.cash}',
-                        style: const TextStyle(color: Colors.white60, fontSize: 12),
-                      ),
+                      Text('\$${player.cash}', style: const TextStyle(color: Colors.white60, fontSize: 12)),
                     ],
                   ),
                 ),
@@ -198,10 +173,7 @@ class _TradeDialogState extends State<TradeDialog> {
               const SizedBox(width: 8),
               Text(
                 'You Offer (${widget.currentPlayer.name})',
-                style: TextStyle(
-                  color: widget.currentPlayer.color,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(color: widget.currentPlayer.color, fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -254,11 +226,7 @@ class _TradeDialogState extends State<TradeDialog> {
               }).toList(),
             ),
           ],
-          if (_myProperties.isEmpty)
-            const Text(
-              'No properties to offer',
-              style: TextStyle(color: Colors.white38, fontSize: 12),
-            ),
+          if (_myProperties.isEmpty) const Text('No properties to offer', style: TextStyle(color: Colors.white38, fontSize: 12)),
         ],
       ),
     );
@@ -282,10 +250,7 @@ class _TradeDialogState extends State<TradeDialog> {
               const SizedBox(width: 8),
               Text(
                 'You Request (from ${_selectedPartner!.name})',
-                style: TextStyle(
-                  color: _selectedPartner!.color,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(color: _selectedPartner!.color, fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -338,11 +303,7 @@ class _TradeDialogState extends State<TradeDialog> {
               }).toList(),
             ),
           ],
-          if (_partnerProperties.isEmpty)
-            const Text(
-              'No properties available',
-              style: TextStyle(color: Colors.white38, fontSize: 12),
-            ),
+          if (_partnerProperties.isEmpty) const Text('No properties available', style: TextStyle(color: Colors.white38, fontSize: 12)),
         ],
       ),
     );
@@ -370,10 +331,7 @@ class _TradeDialogState extends State<TradeDialog> {
         decoration: BoxDecoration(
           color: isSelected ? (color ?? Colors.grey) : Colors.black26,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: isSelected ? Colors.white : (color ?? Colors.grey),
-            width: isSelected ? 2 : 1,
-          ),
+          border: Border.all(color: isSelected ? Colors.white : (color ?? Colors.grey), width: isSelected ? 2 : 1),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -382,11 +340,7 @@ class _TradeDialogState extends State<TradeDialog> {
             const SizedBox(width: 4),
             Text(
               name.length > 12 ? '${name.substring(0, 10)}...' : name,
-              style: TextStyle(
-                color: isSelected ? Colors.white : Colors.white70,
-                fontSize: 11,
-                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-              ),
+              style: TextStyle(color: isSelected ? Colors.white : Colors.white70, fontSize: 11, fontWeight: isSelected ? FontWeight.bold : FontWeight.normal),
             ),
           ],
         ),
@@ -406,9 +360,7 @@ class _TradeDialogState extends State<TradeDialog> {
                 foregroundColor: Colors.white70,
                 side: const BorderSide(color: Colors.white24),
                 padding: const EdgeInsets.symmetric(vertical: 14),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               ),
               child: const Text('Cancel'),
             ),
@@ -422,9 +374,7 @@ class _TradeDialogState extends State<TradeDialog> {
                 foregroundColor: Colors.white,
                 disabledBackgroundColor: Colors.grey,
                 padding: const EdgeInsets.symmetric(vertical: 14),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               ),
               child: const Text('Propose Trade', style: TextStyle(fontWeight: FontWeight.bold)),
             ),
@@ -435,22 +385,10 @@ class _TradeDialogState extends State<TradeDialog> {
   }
 
   void _proposeTrade() {
-    final offeredProps = _myProperties
-        .where((p) => _offeredPropertyIndices.contains(p.index))
-        .toList();
-    final requestedProps = _partnerProperties
-        .where((p) => _requestedPropertyIndices.contains(p.index))
-        .toList();
+    final offeredProps = _myProperties.where((p) => _offeredPropertyIndices.contains(p.index)).toList();
+    final requestedProps = _partnerProperties.where((p) => _requestedPropertyIndices.contains(p.index)).toList();
 
-    final offer = TradeOffer(
-      id: DateTime.now().millisecondsSinceEpoch.toString(),
-      offerer: widget.currentPlayer,
-      recipient: _selectedPartner!,
-      offeredProperties: offeredProps,
-      offeredCash: _offeredCash,
-      requestedProperties: requestedProps,
-      requestedCash: _requestedCash,
-    );
+    final offer = TradeOffer(id: DateTime.now().millisecondsSinceEpoch.toString(), offerer: widget.currentPlayer, recipient: _selectedPartner!, offeredProperties: offeredProps, offeredCash: _offeredCash, requestedProperties: requestedProps, requestedCash: _requestedCash);
 
     Navigator.of(context).pop();
     widget.onTradeProposed(offer);
@@ -464,13 +402,7 @@ class TradeResponseDialog extends StatelessWidget {
   final VoidCallback onReject;
   final Function(TradeOffer)? onCounter;
 
-  const TradeResponseDialog({
-    super.key,
-    required this.offer,
-    required this.onAccept,
-    required this.onReject,
-    this.onCounter,
-  });
+  const TradeResponseDialog({super.key, required this.offer, required this.onAccept, required this.onReject, this.onCounter});
 
   @override
   Widget build(BuildContext context) {
@@ -483,14 +415,7 @@ class TradeResponseDialog extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           border: Border.all(color: Colors.teal, width: 2),
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _buildHeader(),
-            _buildTradeDetails(),
-            _buildActions(context),
-          ],
-        ),
+        child: Column(mainAxisSize: MainAxisSize.min, children: [_buildHeader(), _buildTradeDetails(), _buildActions(context)]),
       ),
     );
   }
@@ -509,11 +434,7 @@ class TradeResponseDialog extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             '${offer.offerer.name} wants to trade!',
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
+            style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
           ),
         ],
       ),
@@ -529,10 +450,7 @@ class TradeResponseDialog extends StatelessWidget {
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: AppTheme.cashGreen.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(12),
-            ),
+            decoration: BoxDecoration(color: AppTheme.cashGreen.withOpacity(0.2), borderRadius: BorderRadius.circular(12)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -547,14 +465,9 @@ class TradeResponseDialog extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 8),
-                if (offer.offeredCash > 0)
-                  Text('\$${offer.offeredCash}', style: const TextStyle(color: Colors.white)),
-                ...offer.offeredProperties.map((p) => Text(
-                      '• ${p.name}',
-                      style: const TextStyle(color: Colors.white70),
-                    )),
-                if (offer.offeredCash == 0 && offer.offeredProperties.isEmpty)
-                  const Text('Nothing', style: TextStyle(color: Colors.white38)),
+                if (offer.offeredCash > 0) Text('\$${offer.offeredCash}', style: const TextStyle(color: Colors.white)),
+                ...offer.offeredProperties.map((p) => Text('• ${p.name}', style: const TextStyle(color: Colors.white70))),
+                if (offer.offeredCash == 0 && offer.offeredProperties.isEmpty) const Text('Nothing', style: TextStyle(color: Colors.white38)),
               ],
             ),
           ),
@@ -563,10 +476,7 @@ class TradeResponseDialog extends StatelessWidget {
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: AppTheme.warning.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(12),
-            ),
+            decoration: BoxDecoration(color: AppTheme.warning.withOpacity(0.2), borderRadius: BorderRadius.circular(12)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -581,14 +491,9 @@ class TradeResponseDialog extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 8),
-                if (offer.requestedCash > 0)
-                  Text('\$${offer.requestedCash}', style: const TextStyle(color: Colors.white)),
-                ...offer.requestedProperties.map((p) => Text(
-                      '• ${p.name}',
-                      style: const TextStyle(color: Colors.white70),
-                    )),
-                if (offer.requestedCash == 0 && offer.requestedProperties.isEmpty)
-                  const Text('Nothing', style: TextStyle(color: Colors.white38)),
+                if (offer.requestedCash > 0) Text('\$${offer.requestedCash}', style: const TextStyle(color: Colors.white)),
+                ...offer.requestedProperties.map((p) => Text('• ${p.name}', style: const TextStyle(color: Colors.white70))),
+                if (offer.requestedCash == 0 && offer.requestedProperties.isEmpty) const Text('Nothing', style: TextStyle(color: Colors.white38)),
               ],
             ),
           ),
@@ -614,9 +519,7 @@ class TradeResponseDialog extends StatelessWidget {
                     foregroundColor: AppTheme.error,
                     side: const BorderSide(color: AppTheme.error),
                     padding: const EdgeInsets.symmetric(vertical: 14),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   ),
                   child: const Text('Reject'),
                 ),
@@ -632,9 +535,7 @@ class TradeResponseDialog extends StatelessWidget {
                     backgroundColor: AppTheme.cashGreen,
                     foregroundColor: Colors.black,
                     padding: const EdgeInsets.symmetric(vertical: 14),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   ),
                   child: const Text('Accept', style: TextStyle(fontWeight: FontWeight.bold)),
                 ),
@@ -648,43 +549,21 @@ class TradeResponseDialog extends StatelessWidget {
 }
 
 /// Show the trade proposal dialog
-Future<void> showTradeDialog({
-  required BuildContext context,
-  required Player currentPlayer,
-  required List<Player> otherPlayers,
-  required List<TileData> tiles,
-  required Function(TradeOffer) onTradeProposed,
-}) {
+Future<void> showTradeDialog({required BuildContext context, required Player currentPlayer, required List<Player> otherPlayers, required List<TileData> tiles, required Function(TradeOffer) onTradeProposed}) {
   return showAnimatedDialog(
     context: context,
     barrierDismissible: true,
-    animationType: DialogAnimationType.slide,
-    builder: (context) => TradeDialog(
-      currentPlayer: currentPlayer,
-      otherPlayers: otherPlayers,
-      tiles: tiles,
-      onTradeProposed: onTradeProposed,
-    ),
+    animationType: DialogAnimationType.slideUp,
+    builder: (context) => TradeDialog(currentPlayer: currentPlayer, otherPlayers: otherPlayers, tiles: tiles, onTradeProposed: onTradeProposed),
   );
 }
 
 /// Show the trade response dialog
-Future<void> showTradeResponseDialog({
-  required BuildContext context,
-  required TradeOffer offer,
-  required VoidCallback onAccept,
-  required VoidCallback onReject,
-  Function(TradeOffer)? onCounter,
-}) {
+Future<void> showTradeResponseDialog({required BuildContext context, required TradeOffer offer, required VoidCallback onAccept, required VoidCallback onReject, Function(TradeOffer)? onCounter}) {
   return showAnimatedDialog(
     context: context,
     barrierDismissible: false,
     animationType: DialogAnimationType.scale,
-    builder: (context) => TradeResponseDialog(
-      offer: offer,
-      onAccept: onAccept,
-      onReject: onReject,
-      onCounter: onCounter,
-    ),
+    builder: (context) => TradeResponseDialog(offer: offer, onAccept: onAccept, onReject: onReject, onCounter: onCounter),
   );
 }

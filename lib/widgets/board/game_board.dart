@@ -16,11 +16,14 @@ class GameBoard extends StatelessWidget {
   final Widget? centerControls;
   final List<TileData>? tiles;
   final VoidCallback? onMenuTap;
+  final VoidCallback? onTradeTap;
+  final VoidCallback? onBankTap;
   final void Function(TileData)? onTileTap;
   final bool isChanceHighlighted;
   final bool isChestHighlighted;
   final VoidCallback? onChanceTap;
   final VoidCallback? onChestTap;
+  final bool showActionButtons;
 
   const GameBoard({
     super.key,
@@ -32,11 +35,14 @@ class GameBoard extends StatelessWidget {
     this.centerControls,
     this.tiles,
     this.onMenuTap,
+    this.onTradeTap,
+    this.onBankTap,
     this.onTileTap,
     this.isChanceHighlighted = false,
     this.isChestHighlighted = false,
     this.onChanceTap,
     this.onChestTap,
+    this.showActionButtons = false,
   });
 
   @override
@@ -62,7 +68,19 @@ class GameBoard extends StatelessWidget {
           child: Stack(
             children: [
               // Center area
-              _CenterArea(boardSize: boardSize, cornerSize: cornerSize, centerControls: centerControls, onMenuTap: onMenuTap, isChanceHighlighted: isChanceHighlighted, isChestHighlighted: isChestHighlighted, onChanceTap: onChanceTap, onChestTap: onChestTap),
+              _CenterArea(
+                boardSize: boardSize,
+                cornerSize: cornerSize,
+                centerControls: centerControls,
+                onMenuTap: onMenuTap,
+                onTradeTap: onTradeTap,
+                onBankTap: onBankTap,
+                showActionButtons: showActionButtons,
+                isChanceHighlighted: isChanceHighlighted,
+                isChestHighlighted: isChestHighlighted,
+                onChanceTap: onChanceTap,
+                onChestTap: onChestTap,
+              ),
               // All tiles
               ..._buildAllTiles(boardTiles, boardSize, cornerSize, tileWidth, tileHeight),
               // All player tokens
@@ -179,12 +197,15 @@ class _CenterArea extends StatelessWidget {
   final double cornerSize;
   final Widget? centerControls;
   final VoidCallback? onMenuTap;
+  final VoidCallback? onTradeTap;
+  final VoidCallback? onBankTap;
+  final bool showActionButtons;
   final bool isChanceHighlighted;
   final bool isChestHighlighted;
   final VoidCallback? onChanceTap;
   final VoidCallback? onChestTap;
 
-  const _CenterArea({required this.boardSize, required this.cornerSize, this.centerControls, this.onMenuTap, this.isChanceHighlighted = false, this.isChestHighlighted = false, this.onChanceTap, this.onChestTap});
+  const _CenterArea({required this.boardSize, required this.cornerSize, this.centerControls, this.onMenuTap, this.onTradeTap, this.onBankTap, this.showActionButtons = false, this.isChanceHighlighted = false, this.isChestHighlighted = false, this.onChanceTap, this.onChestTap});
 
   @override
   Widget build(BuildContext context) {
@@ -247,6 +268,20 @@ class _CenterArea extends StatelessWidget {
                     child: const Icon(Icons.menu_rounded, color: Colors.white, size: 20),
                   ),
                 ),
+              ),
+            ),
+          // Trade and Bank buttons (top-left of center area)
+          if (showActionButtons)
+            Positioned(
+              top: 8,
+              left: 8,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (onTradeTap != null) _ActionButton(icon: Icons.swap_horiz, label: 'Trade', color: Colors.teal, onTap: onTradeTap!),
+                  if (onTradeTap != null && onBankTap != null) const SizedBox(width: 6),
+                  if (onBankTap != null) _ActionButton(icon: Icons.account_balance, label: 'Bank', color: Colors.deepPurple, onTap: onBankTap!),
+                ],
               ),
             ),
         ],
@@ -408,4 +443,45 @@ class _VegasSignPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+/// Action button for Trade/Bank inside the board
+class _ActionButton extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final Color color;
+  final VoidCallback onTap;
+
+  const _ActionButton({required this.icon, required this.label, required this.color, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(8),
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [color, Color.lerp(color, Colors.black, 0.2)!]),
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: Colors.white24, width: 1),
+            boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 4, offset: const Offset(0, 2))],
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(icon, color: Colors.white, size: 16),
+              const SizedBox(width: 4),
+              Text(
+                label,
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 11),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }

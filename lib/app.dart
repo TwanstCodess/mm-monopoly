@@ -121,7 +121,7 @@ class _AppNavigatorState extends State<AppNavigator> {
         );
 
       case AppScreen.game:
-        return GameBoardScreen(key: ValueKey('game_${_gameState!.id}'), gameState: _gameState!, onQuit: _quitGame, onRestart: _restartGame, onHowToPlay: () => _navigateTo(AppScreen.howToPlay));
+        return GameBoardScreen(key: ValueKey('game_${_gameState!.id}'), gameState: _gameState!, onQuit: _quitGame, onRestart: _restartGame, onHowToPlay: () => _navigateTo(AppScreen.howToPlay), tradingEnabled: _settings.tradingEnabled, bankEnabled: _settings.bankEnabled);
     }
   }
 }

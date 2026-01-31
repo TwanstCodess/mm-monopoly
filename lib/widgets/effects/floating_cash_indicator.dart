@@ -6,18 +6,13 @@ class FloatingCashIndicator extends StatefulWidget {
   final int amount;
   final VoidCallback onComplete;
 
-  const FloatingCashIndicator({
-    super.key,
-    required this.amount,
-    required this.onComplete,
-  });
+  const FloatingCashIndicator({super.key, required this.amount, required this.onComplete});
 
   @override
   State<FloatingCashIndicator> createState() => _FloatingCashIndicatorState();
 }
 
-class _FloatingCashIndicatorState extends State<FloatingCashIndicator>
-    with SingleTickerProviderStateMixin {
+class _FloatingCashIndicatorState extends State<FloatingCashIndicator> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _floatAnimation;
   late Animation<double> _fadeAnimation;
@@ -26,18 +21,10 @@ class _FloatingCashIndicatorState extends State<FloatingCashIndicator>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 1500),
-      vsync: this,
-    );
+    _controller = AnimationController(duration: const Duration(milliseconds: 1500), vsync: this);
 
     // Float upward animation
-    _floatAnimation = Tween<double>(begin: 0, end: -80).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Curves.easeOut,
-      ),
-    );
+    _floatAnimation = Tween<double>(begin: 0, end: -80).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
     // Fade out animation (starts fading at 60% progress)
     _fadeAnimation = Tween<double>(begin: 1.0, end: 0.0).animate(
@@ -49,20 +36,9 @@ class _FloatingCashIndicatorState extends State<FloatingCashIndicator>
 
     // Scale animation - slight pop at start
     _scaleAnimation = TweenSequence<double>([
-      TweenSequenceItem(
-        tween: Tween<double>(begin: 0.5, end: 1.2)
-            .chain(CurveTween(curve: Curves.easeOut)),
-        weight: 20,
-      ),
-      TweenSequenceItem(
-        tween: Tween<double>(begin: 1.2, end: 1.0)
-            .chain(CurveTween(curve: Curves.easeInOut)),
-        weight: 20,
-      ),
-      TweenSequenceItem(
-        tween: ConstantTween<double>(1.0),
-        weight: 60,
-      ),
+      TweenSequenceItem(tween: Tween<double>(begin: 0.5, end: 1.2).chain(CurveTween(curve: Curves.easeOut)), weight: 20),
+      TweenSequenceItem(tween: Tween<double>(begin: 1.2, end: 1.0).chain(CurveTween(curve: Curves.easeInOut)), weight: 20),
+      TweenSequenceItem(tween: ConstantTween<double>(1.0), weight: 60),
     ]).animate(_controller);
 
     _controller.forward();
@@ -100,13 +76,7 @@ class _FloatingCashIndicatorState extends State<FloatingCashIndicator>
                 decoration: BoxDecoration(
                   color: color.withOpacity(0.9),
                   borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: color.withOpacity(0.4),
-                      blurRadius: 8,
-                      spreadRadius: 1,
-                    ),
-                  ],
+                  boxShadow: [BoxShadow(color: color.withOpacity(0.4), blurRadius: 8, spreadRadius: 1)],
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -115,11 +85,7 @@ class _FloatingCashIndicatorState extends State<FloatingCashIndicator>
                     const SizedBox(width: 4),
                     Text(
                       '$prefix\$${widget.amount.abs()}',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -137,11 +103,7 @@ class CashIndicatorManager {
   static OverlayEntry? _currentEntry;
 
   /// Show a floating cash indicator at the given position
-  static void show(
-    BuildContext context, {
-    required int amount,
-    required Offset position,
-  }) {
+  static void show(BuildContext context, {required int amount, required Offset position}) {
     // Remove any existing indicator
     _currentEntry?.remove();
 
@@ -182,18 +144,14 @@ class AnimatedCashDisplay extends StatefulWidget {
   final TextStyle? style;
   final bool showIndicator;
 
-  const AnimatedCashDisplay({
-    super.key,
-    required this.cash,
-    this.style,
-    this.showIndicator = true,
-  });
+  const AnimatedCashDisplay({super.key, required this.cash, this.style, this.showIndicator = true});
 
   @override
   State<AnimatedCashDisplay> createState() => _AnimatedCashDisplayState();
 }
 
 class _AnimatedCashDisplayState extends State<AnimatedCashDisplay> {
+  // ignore: unused_field - tracks state for didUpdateWidget
   int _previousCash = 0;
   final GlobalKey _key = GlobalKey();
 
@@ -222,11 +180,7 @@ class _AnimatedCashDisplayState extends State<AnimatedCashDisplay> {
         final position = renderBox.localToGlobal(Offset.zero);
         final size = renderBox.size;
         // Position the indicator above the cash display
-        CashIndicatorManager.show(
-          context,
-          amount: amount,
-          position: Offset(position.dx + size.width / 2, position.dy),
-        );
+        CashIndicatorManager.show(context, amount: amount, position: Offset(position.dx + size.width / 2, position.dy));
       }
     });
   }
@@ -236,11 +190,7 @@ class _AnimatedCashDisplayState extends State<AnimatedCashDisplay> {
     return Text(
       '\$${widget.cash}',
       key: _key,
-      style: widget.style ?? const TextStyle(
-        color: AppTheme.cashGreen,
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-      ),
+      style: widget.style ?? const TextStyle(color: AppTheme.cashGreen, fontSize: 18, fontWeight: FontWeight.bold),
     );
   }
 }
