@@ -71,32 +71,82 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
                       ],
                     ),
                   ),
-                  // Content - single screen layout
+                  // Content - single column layout
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Column(
                         children: [
-                          // Game & Audio sections side by side
+                          // All settings in one card
                           Expanded(
-                            flex: 3,
-                            child: Row(
-                              children: [
-                                // Left: Game Setup
-                                Expanded(
-                                  child: _buildCompactGameSection(),
+                            child: Container(
+                              padding: const EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.05)],
                                 ),
-                                const SizedBox(width: 12),
-                                // Right: Audio
-                                Expanded(
-                                  child: _buildCompactAudioSection(),
-                                ),
-                              ],
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(color: Colors.white.withOpacity(0.2)),
+                              ),
+                              child: Column(
+                                children: [
+                                  // Starting Cash row
+                                  Row(
+                                    children: [
+                                      const Icon(Icons.attach_money, color: Color(0xFFFFE66D), size: 20),
+                                      const SizedBox(width: 8),
+                                      const Text('Starting Cash', style: TextStyle(color: Colors.white, fontSize: 14)),
+                                      const Spacer(),
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFFFFE66D).withOpacity(0.2),
+                                          borderRadius: BorderRadius.circular(8),
+                                        ),
+                                        child: Text('\$${_settings.startingCash}', style: const TextStyle(color: Color(0xFFFFE66D), fontSize: 14, fontWeight: FontWeight.bold)),
+                                      ),
+                                    ],
+                                  ),
+                                  SliderTheme(
+                                    data: SliderThemeData(
+                                      activeTrackColor: const Color(0xFFFFE66D),
+                                      inactiveTrackColor: Colors.white.withOpacity(0.2),
+                                      thumbColor: const Color(0xFFFFE66D),
+                                      trackHeight: 4,
+                                      thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8),
+                                    ),
+                                    child: Slider(
+                                      value: _settings.startingCash.toDouble(),
+                                      min: 500,
+                                      max: 3000,
+                                      divisions: 10,
+                                      onChanged: (v) => _updateSettings(_settings.copyWith(startingCash: v.toInt())),
+                                    ),
+                                  ),
+                                  const Divider(color: Colors.white24),
+                                  // Game toggles
+                                  _buildSettingsRow(Icons.swap_horiz, 'Trading', _settings.tradingEnabled, (v) => _updateSettings(_settings.copyWith(tradingEnabled: v))),
+                                  _buildSettingsRow(Icons.account_balance, 'Bank', _settings.bankEnabled, (v) => _updateSettings(_settings.copyWith(bankEnabled: v))),
+                                  _buildSettingsRow(Icons.gavel, 'Auctions', _settings.auctionEnabled, (v) => _updateSettings(_settings.copyWith(auctionEnabled: v))),
+                                  const Divider(color: Colors.white24),
+                                  // Audio
+                                  _buildSettingsRow(Icons.music_note, 'Music', _settings.musicEnabled, (v) {
+                                    _updateSettings(_settings.copyWith(musicEnabled: v));
+                                    AudioService.instance.setMusicEnabled(v);
+                                  }),
+                                  _buildSettingsRow(Icons.volume_up, 'Sound FX', _settings.sfxEnabled, (v) {
+                                    _updateSettings(_settings.copyWith(sfxEnabled: v));
+                                    AudioService.instance.setSfxEnabled(v);
+                                  }),
+                                  const Spacer(),
+                                  // Support row
+                                  _buildSupportRow(),
+                                ],
+                              ),
                             ),
                           ),
-                          const SizedBox(height: 12),
-                          // Support section
-                          _buildCompactSupportSection(),
                           const SizedBox(height: 12),
                           // Buttons row
                           Row(
@@ -135,6 +185,65 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
             border: Border.all(color: Colors.white.withOpacity(0.3)),
           ),
           child: const Icon(Icons.arrow_back_rounded, color: Colors.white, size: 24),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSettingsRow(IconData icon, String label, bool value, Function(bool) onChanged) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Row(
+        children: [
+          Icon(icon, color: Colors.white54, size: 20),
+          const SizedBox(width: 12),
+          Text(label, style: const TextStyle(color: Colors.white, fontSize: 14)),
+          const Spacer(),
+          SizedBox(
+            height: 28,
+            child: Transform.scale(
+              scale: 0.85,
+              child: Switch(
+                value: value,
+                onChanged: onChanged,
+                activeColor: const Color(0xFF4ECDC4),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSupportRow() {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: () async {
+          final uri = Uri.parse('https://buymeacoffee.com/hao_yu');
+          if (await canLaunchUrl(uri)) {
+            await launchUrl(uri, mode: LaunchMode.externalApplication);
+          }
+        },
+        borderRadius: BorderRadius.circular(12),
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [const Color(0xFFFFDD00).withOpacity(0.15), const Color(0xFFFF8C00).withOpacity(0.1)],
+            ),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: const Color(0xFFFFDD00).withOpacity(0.3)),
+          ),
+          child: Row(
+            children: [
+              const Text('☕', style: TextStyle(fontSize: 20)),
+              const SizedBox(width: 10),
+              const Text('Buy me a coffee', style: TextStyle(color: Colors.white, fontSize: 14)),
+              const Spacer(),
+              Icon(Icons.open_in_new, color: Colors.white.withOpacity(0.5), size: 16),
+            ],
+          ),
         ),
       ),
     );
