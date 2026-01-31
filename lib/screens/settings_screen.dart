@@ -318,6 +318,17 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
               _updateSettings(_settings.copyWith(bankEnabled: value));
             },
           ),
+          const SizedBox(height: 12),
+          // Auction toggle
+          _buildToggleOption(
+            icon: Icons.gavel_rounded,
+            title: 'Property Auctions',
+            subtitle: 'Auction unclaimed properties (for older kids)',
+            value: _settings.auctionEnabled,
+            onChanged: (value) {
+              _updateSettings(_settings.copyWith(auctionEnabled: value));
+            },
+          ),
         ],
       ),
     );
@@ -663,6 +674,7 @@ class GameSettings {
   final int startingCash;
   final bool tradingEnabled;
   final bool bankEnabled;
+  final bool auctionEnabled;
   final bool musicEnabled;
   final bool sfxEnabled;
   final double musicVolume;
@@ -672,6 +684,7 @@ class GameSettings {
     this.startingCash = 2000,
     this.tradingEnabled = false,
     this.bankEnabled = false,
+    this.auctionEnabled = false,
     this.musicEnabled = true,
     this.sfxEnabled = true,
     this.musicVolume = 0.5,
@@ -682,6 +695,7 @@ class GameSettings {
     int? startingCash,
     bool? tradingEnabled,
     bool? bankEnabled,
+    bool? auctionEnabled,
     bool? musicEnabled,
     bool? sfxEnabled,
     double? musicVolume,
@@ -691,6 +705,7 @@ class GameSettings {
       startingCash: startingCash ?? this.startingCash,
       tradingEnabled: tradingEnabled ?? this.tradingEnabled,
       bankEnabled: bankEnabled ?? this.bankEnabled,
+      auctionEnabled: auctionEnabled ?? this.auctionEnabled,
       musicEnabled: musicEnabled ?? this.musicEnabled,
       sfxEnabled: sfxEnabled ?? this.sfxEnabled,
       musicVolume: musicVolume ?? this.musicVolume,

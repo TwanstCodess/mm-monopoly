@@ -413,15 +413,29 @@ class TileWidget extends StatelessWidget {
     // For left/right columns, name toward center as well
     final nameAtBottom = rotation == 2;
 
+    final shortName = _getShortName();
+    // Use two-line layout only if name has a natural break (space)
+    // Otherwise scale down to fit on one line to avoid orphan characters
+    final hasSpace = shortName.contains(' ');
+    
     final nameWidget = Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 2),
-      child: Text(
-        _getShortName(),
-        textAlign: TextAlign.center,
-        maxLines: 2,
-        overflow: TextOverflow.ellipsis,
-        style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w800, height: 1.1, color: Colors.black),
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 1),
+      child: hasSpace
+          ? Text(
+              shortName,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(fontSize: 9, fontWeight: FontWeight.w800, height: 1.1, color: Colors.black),
+            )
+          : FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                shortName,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w800, height: 1.1, color: Colors.black),
+              ),
+            ),
     );
 
     final priceWidget = price != null

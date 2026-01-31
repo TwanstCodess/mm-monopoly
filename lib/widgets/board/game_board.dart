@@ -178,13 +178,18 @@ class GameBoard extends StatelessWidget {
 
     final tokenSize = tileWidth * 0.35;
 
-    return players.asMap().entries.map((entry) {
+    // Filter out bankrupt players - they shouldn't show on the board
+    final activePlayers = players.where((p) => p.status == PlayerStatus.active).toList();
+
+    return players.asMap().entries
+        .where((entry) => entry.value.status == PlayerStatus.active)
+        .map((entry) {
       final index = entry.key;
       final player = entry.value;
       final isCurrentPlayer = index == currentPlayerIndex;
 
-      // Get position with stacking offset
-      final pos = calculator.getPlayerPosition(player, players, index);
+      // Get position with stacking offset (use activePlayers for stacking calculation)
+      final pos = calculator.getPlayerPosition(player, activePlayers, activePlayers.indexOf(player));
 
       return AnimatedPlayerToken(player: player, position: pos, size: tokenSize, isCurrentPlayer: isCurrentPlayer, bounceAnimation: bounceAnimation);
     }).toList();

@@ -45,8 +45,9 @@ class GameBoardScreen extends StatefulWidget {
   final VoidCallback? onHowToPlay;
   final bool tradingEnabled;
   final bool bankEnabled;
+  final bool auctionEnabled;
 
-  const GameBoardScreen({super.key, required this.gameState, required this.onQuit, required this.onRestart, this.onHowToPlay, this.tradingEnabled = false, this.bankEnabled = false});
+  const GameBoardScreen({super.key, required this.gameState, required this.onQuit, required this.onRestart, this.onHowToPlay, this.tradingEnabled = false, this.bankEnabled = false, this.auctionEnabled = false});
 
   @override
   State<GameBoardScreen> createState() => _GameBoardScreenState();
@@ -534,6 +535,9 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
 
   Future<void> _startAuction(TileData tile) async {
     if (!mounted) return;
+    
+    // Skip auction if disabled - property stays unowned
+    if (!widget.auctionEnabled) return;
 
     final activePlayers = gameState.players.where((p) => p.status == PlayerStatus.active).toList();
 
