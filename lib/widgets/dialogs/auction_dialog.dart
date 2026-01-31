@@ -387,38 +387,48 @@ class _AuctionDialogState extends State<AuctionDialog> with SingleTickerProvider
             ],
           ),
           const SizedBox(height: 12),
-          // Custom bid slider
-          Row(
-            children: [
-              Expanded(
-                child: Slider(
-                  value: _customBidAmount.toDouble(),
-                  min: minBid.toDouble(),
-                  max: player.cash.toDouble(),
-                  divisions: ((player.cash - minBid) / 10).ceil().clamp(1, 100),
-                  activeColor: Colors.amber,
-                  onChanged: canAffordMin
-                      ? (value) {
-                          setState(() {
-                            _customBidAmount = value.round();
-                          });
-                        }
-                      : null,
-                ),
-              ),
-              SizedBox(
-                width: 80,
-                child: Text(
-                  '\$$_customBidAmount',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+          // Custom bid slider (only show if player can afford to bid)
+          if (canAffordMin)
+            Row(
+              children: [
+                Expanded(
+                  child: Slider(
+                    value: _customBidAmount.toDouble().clamp(minBid.toDouble(), player.cash.toDouble()),
+                    min: minBid.toDouble(),
+                    max: player.cash.toDouble(),
+                    divisions: ((player.cash - minBid) / 10).ceil().clamp(1, 100),
+                    activeColor: Colors.amber,
+                    onChanged: (value) {
+                      setState(() {
+                        _customBidAmount = value.round();
+                      });
+                    },
                   ),
-                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  width: 80,
+                  child: Text(
+                    '\$$_customBidAmount',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            )
+          else
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Text(
+                "Not enough cash to bid",
+                style: TextStyle(
+                  color: Colors.red.shade300,
+                  fontStyle: FontStyle.italic,
                 ),
               ),
-            ],
-          ),
+            ),
           const SizedBox(height: 12),
           Row(
             children: [
