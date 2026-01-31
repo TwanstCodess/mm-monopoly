@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import '../services/audio_service.dart';
 
 /// Settings screen for game options
 class SettingsScreen extends StatefulWidget {
@@ -79,6 +80,10 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
                         _buildStartingCashCard(),
                         const SizedBox(height: 16),
                         _buildAdvancedFeaturesSection(),
+                        const SizedBox(height: 30),
+                        _buildSectionTitle('Audio', Icons.headphones_rounded, const Color(0xFFFF6B9D)),
+                        const SizedBox(height: 8),
+                        _buildAudioSection(),
                         const SizedBox(height: 30),
                         _buildComingSoonSection(),
                         const SizedBox(height: 30),
@@ -340,6 +345,193 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
     );
   }
 
+  Widget _buildAudioSection() {
+    const musicColor = Color(0xFFFF6B9D);
+    const sfxColor = Color(0xFF4ECDC4);
+    
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.08)],
+        ),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.white.withOpacity(0.2)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Color(0xFFFF6B9D), Color(0xFFFF8E53)],
+                  ),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(Icons.audiotrack_rounded, color: Colors.white, size: 22),
+              ),
+              const SizedBox(width: 12),
+              const Text(
+                'Audio Settings',
+                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          
+          // Music toggle and volume
+          _buildAudioControl(
+            icon: Icons.music_note_rounded,
+            title: 'Background Music',
+            subtitle: 'Menu and in-game music',
+            color: musicColor,
+            enabled: _settings.musicEnabled,
+            volume: _settings.musicVolume,
+            onToggle: (value) {
+              _updateSettings(_settings.copyWith(musicEnabled: value));
+              AudioService.instance.setMusicEnabled(value);
+            },
+            onVolumeChanged: (value) {
+              _updateSettings(_settings.copyWith(musicVolume: value));
+              AudioService.instance.setMusicVolume(value);
+            },
+          ),
+          
+          const SizedBox(height: 16),
+          
+          // SFX toggle and volume
+          _buildAudioControl(
+            icon: Icons.volume_up_rounded,
+            title: 'Sound Effects',
+            subtitle: 'Dice, coins, cards, and more',
+            color: sfxColor,
+            enabled: _settings.sfxEnabled,
+            volume: _settings.sfxVolume,
+            onToggle: (value) {
+              _updateSettings(_settings.copyWith(sfxEnabled: value));
+              AudioService.instance.setSfxEnabled(value);
+            },
+            onVolumeChanged: (value) {
+              _updateSettings(_settings.copyWith(sfxVolume: value));
+              AudioService.instance.setSfxVolume(value);
+              // Play a sample sound when adjusting
+              if (_settings.sfxEnabled) {
+                AudioService.instance.onButtonTap();
+              }
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAudioControl({
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    required Color color,
+    required bool enabled,
+    required double volume,
+    required Function(bool) onToggle,
+    required Function(double) onVolumeChanged,
+  }) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Container(
+              width: 36,
+              height: 36,
+              decoration: BoxDecoration(
+                color: color.withOpacity(enabled ? 0.2 : 0.1),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Icon(
+                icon,
+                color: enabled ? color : Colors.white.withOpacity(0.3),
+                size: 20,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      color: enabled ? Colors.white : Colors.white.withOpacity(0.5),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  Text(
+                    subtitle,
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(enabled ? 0.6 : 0.3),
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Switch(
+              value: enabled,
+              onChanged: onToggle,
+              activeColor: color,
+              activeTrackColor: color.withOpacity(0.5),
+              inactiveThumbColor: Colors.white.withOpacity(0.5),
+              inactiveTrackColor: Colors.white.withOpacity(0.2),
+            ),
+          ],
+        ),
+        if (enabled) ...[
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              Icon(
+                Icons.volume_mute_rounded,
+                color: Colors.white.withOpacity(0.4),
+                size: 16,
+              ),
+              Expanded(
+                child: SliderTheme(
+                  data: SliderThemeData(
+                    activeTrackColor: color,
+                    inactiveTrackColor: Colors.white.withOpacity(0.2),
+                    thumbColor: color,
+                    overlayColor: color.withOpacity(0.2),
+                    trackHeight: 4,
+                    thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8),
+                  ),
+                  child: Slider(
+                    value: volume,
+                    min: 0.0,
+                    max: 1.0,
+                    onChanged: onVolumeChanged,
+                  ),
+                ),
+              ),
+              Icon(
+                Icons.volume_up_rounded,
+                color: Colors.white.withOpacity(0.4),
+                size: 16,
+              ),
+            ],
+          ),
+        ],
+      ],
+    );
+  }
+
   Widget _buildComingSoonSection() {
     return Container(
       padding: const EdgeInsets.all(20),
@@ -366,7 +558,10 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
             spacing: 10,
             runSpacing: 10,
             alignment: WrapAlignment.center,
-            children: [_buildComingSoonChip(Icons.music_note_rounded, 'Music'), _buildComingSoonChip(Icons.volume_up_rounded, 'Sound FX'), _buildComingSoonChip(Icons.smart_toy_rounded, 'AI Speed'), _buildComingSoonChip(Icons.vibration_rounded, 'Haptics')],
+            children: [
+              _buildComingSoonChip(Icons.smart_toy_rounded, 'AI Speed'),
+              _buildComingSoonChip(Icons.vibration_rounded, 'Haptics'),
+            ],
           ),
         ],
       ),
@@ -468,10 +663,38 @@ class GameSettings {
   final int startingCash;
   final bool tradingEnabled;
   final bool bankEnabled;
+  final bool musicEnabled;
+  final bool sfxEnabled;
+  final double musicVolume;
+  final double sfxVolume;
 
-  const GameSettings({this.startingCash = 2000, this.tradingEnabled = false, this.bankEnabled = false});
+  const GameSettings({
+    this.startingCash = 2000,
+    this.tradingEnabled = false,
+    this.bankEnabled = false,
+    this.musicEnabled = true,
+    this.sfxEnabled = true,
+    this.musicVolume = 0.5,
+    this.sfxVolume = 0.7,
+  });
 
-  GameSettings copyWith({int? startingCash, bool? tradingEnabled, bool? bankEnabled}) {
-    return GameSettings(startingCash: startingCash ?? this.startingCash, tradingEnabled: tradingEnabled ?? this.tradingEnabled, bankEnabled: bankEnabled ?? this.bankEnabled);
+  GameSettings copyWith({
+    int? startingCash,
+    bool? tradingEnabled,
+    bool? bankEnabled,
+    bool? musicEnabled,
+    bool? sfxEnabled,
+    double? musicVolume,
+    double? sfxVolume,
+  }) {
+    return GameSettings(
+      startingCash: startingCash ?? this.startingCash,
+      tradingEnabled: tradingEnabled ?? this.tradingEnabled,
+      bankEnabled: bankEnabled ?? this.bankEnabled,
+      musicEnabled: musicEnabled ?? this.musicEnabled,
+      sfxEnabled: sfxEnabled ?? this.sfxEnabled,
+      musicVolume: musicVolume ?? this.musicVolume,
+      sfxVolume: sfxVolume ?? this.sfxVolume,
+    );
   }
 }
