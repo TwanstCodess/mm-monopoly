@@ -5,6 +5,7 @@ import '../models/player.dart';
 import '../models/game_state.dart';
 import '../config/theme.dart';
 import '../config/constants.dart';
+import '../services/audio_service.dart';
 import '../widgets/board/game_board.dart';
 import '../widgets/player/player_card.dart';
 import '../widgets/dice/dice_widget.dart';
@@ -352,6 +353,9 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       gameState = gameState.copyWith(animationState: TurnAnimationState.rollingDice);
     });
     _diceController.forward(from: 0);
+    
+    // Play dice roll sound
+    AudioService.instance.onDiceRoll();
 
     // Generate dice values
     final die1 = _random.nextInt(6) + 1;
@@ -360,6 +364,9 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     final isDoubles = die1 == die2;
 
     await Future.delayed(AnimationDurations.diceRoll);
+    
+    // Play dice land sound
+    AudioService.instance.onDiceLand();
 
     // Phase 3: Track dice stats
     final newTotalRolls = gameState.totalDiceRolls + 1;
@@ -378,15 +385,24 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
 
     for (int i = 0; i < roll; i++) {
       await Future.delayed(AnimationDurations.tokenHop);
+      
+      // Play token step sound
+      AudioService.instance.onTokenStep();
+      
       setState(() {
         player.position = (player.position + 1) % 40;
         // Check for passing GO (Phase 3: use event-modified bonus)
         if (player.position == 0 && i < roll - 1) {
           player.cash += gameState.getGoBonus();
+          // Play pass GO sound
+          AudioService.instance.onPassGo();
         }
       });
       _bounceController.forward(from: 0);
     }
+    
+    // Play token land sound
+    AudioService.instance.onTokenLand();
 
     // Highlight landing tile
     setState(() {
@@ -477,6 +493,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
 
         await _showAIActionNotification(player.name, 'Bought ${tile.name} for \$$price!', Icons.home, Colors.green);
         if (engine.buyProperty(player, tile)) {
+          AudioService.instance.onBuyProperty();
           setState(() {});
         }
       } else {
@@ -493,6 +510,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       playerCash: player.cash,
       onBuy: () {
         if (engine.buyProperty(player, tile)) {
+          AudioService.instance.onBuyProperty();
           setState(() {});
         }
       },
@@ -558,6 +576,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
         final levelName = property.upgradeLevel < 4 ? 'house' : 'hotel';
         await _showAIActionNotification(player.name, 'Built a $levelName on ${property.name}!', Icons.construction, Colors.green);
         if (engine.upgradeProperty(player, property)) {
+          AudioService.instance.onUpgrade();
           setState(() {});
         }
       }
@@ -571,6 +590,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       playerCash: player.cash,
       onUpgrade: () {
         if (engine.upgradeProperty(player, property)) {
+          AudioService.instance.onUpgrade();
           setState(() {});
         }
       },
@@ -587,9 +607,14 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     // AI automatically pays rent with notification
     if (player.isAI) {
       await _showAIActionNotification(player.name, 'Paid \$$amount rent to ${owner.name}', Icons.payments, Colors.red);
+      AudioService.instance.onPayMoney();
       final result = engine.payRent(player, ownerId, amount);
+      if (!result.bankruptcy) {
+        AudioService.instance.onCollectMoney(); // Owner collects
+      }
       setState(() {
         if (result.bankruptcy) {
+          AudioService.instance.onDefeat();
           player.status = PlayerStatus.bankrupt;
           // Transfer all properties to owner
           for (final propId in player.propertyIds) {
@@ -610,15 +635,19 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       payer: player,
       isBankruptcy: isBankruptcy,
       onConfirm: () {
+        AudioService.instance.onPayMoney();
         final result = engine.payRent(player, ownerId, amount);
         setState(() {
           if (result.bankruptcy) {
+            AudioService.instance.onDefeat();
             player.status = PlayerStatus.bankrupt;
             // Transfer all properties to owner
             for (final propId in player.propertyIds) {
               owner.propertyIds.add(propId);
             }
             player.propertyIds.clear();
+          } else {
+            AudioService.instance.onCollectMoney(); // Owner collects
           }
         });
       },
@@ -631,9 +660,11 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     // AI automatically pays tax with notification
     if (player.isAI) {
       await _showAIActionNotification(player.name, 'Paid \$$amount $taxName', Icons.account_balance, Colors.amber.shade700);
+      AudioService.instance.onPayMoney();
       final result = engine.payTax(player, amount);
       setState(() {
         if (result.bankruptcy) {
+          AudioService.instance.onDefeat();
           player.status = PlayerStatus.bankrupt;
           player.propertyIds.clear();
         }
@@ -649,9 +680,11 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       playerCash: player.cash,
       isBankruptcy: isBankruptcy,
       onConfirm: () {
+        AudioService.instance.onPayMoney();
         final result = engine.payTax(player, amount);
         setState(() {
           if (result.bankruptcy) {
+            AudioService.instance.onDefeat();
             player.status = PlayerStatus.bankrupt;
             player.propertyIds.clear();
           }
@@ -661,6 +694,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   }
 
   Future<void> _handleGoToJail(Player player) async {
+    AudioService.instance.onJail();
     if (player.isAI) {
       await _showAIActionNotification(player.name, 'Going to jail!', Icons.gavel, Colors.grey.shade700);
     }
@@ -674,8 +708,10 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   Future<void> _handleSpinWheel(Player player) async {
     // AI gets automatic random prize with notification
     if (player.isAI) {
+      AudioService.instance.onSpinWheel();
       final prize = SpinPrizes.getRandomPrize();
       final prizeText = prize.value != null ? '\$${prize.value}' : prize.name;
+      AudioService.instance.onSpinResult();
       await _showAIActionNotification(player.name, 'Spun the wheel and won $prizeText!', Icons.casino, Colors.purple);
       await _applySpinPrizeWithUI(player, prize);
       setState(() {});
@@ -1013,11 +1049,13 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     final shuffledCards = List<Map<String, String>>.from(cards)..shuffle(_random);
     final pickableCards = shuffledCards.take(5).map((c) => PickableCard(text: c['text']!, effect: c['effect']!, action: c['action']!)).toList();
 
+    AudioService.instance.onDrawCard();
     showCardPickDialog(
       context: context,
       isChance: isChance,
       cards: pickableCards,
       onCardPicked: (pickedCard) {
+        AudioService.instance.onFlipCard();
         _applyCardEffect(_cardPickPlayer!, pickedCard.action);
 
         // Reset card picking state
@@ -1041,7 +1079,9 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
 
     // AI automatically handles card effect with notification
     if (player.isAI) {
+      AudioService.instance.onDrawCard();
       final card = cards[_random.nextInt(cards.length)];
+      AudioService.instance.onFlipCard();
       await _showAIActionNotification(player.name, '${card['text']}\n${card['effect']}', isChance ? Icons.help_outline : Icons.inventory_2, isChance ? Colors.orange : Colors.blue);
       _applyCardEffect(player, card['action']!);
       return;

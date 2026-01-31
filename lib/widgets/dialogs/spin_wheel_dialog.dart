@@ -4,6 +4,7 @@ import '../../config/theme.dart';
 import '../spin_wheel/spin_wheel_widget.dart';
 import '../effects/confetti.dart';
 import 'animated_dialog.dart';
+import '../../services/audio_service.dart';
 
 /// Dialog containing the spin wheel
 class SpinWheelDialog extends StatefulWidget {
@@ -27,6 +28,7 @@ class _SpinWheelDialogState extends State<SpinWheelDialog> {
   bool _showResult = false;
 
   void _onPrizeWon(SpinPrize prize) {
+    AudioService.instance.onSpinResult();
     setState(() {
       _wonPrize = prize;
       _showResult = true;

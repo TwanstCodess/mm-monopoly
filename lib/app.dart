@@ -9,6 +9,7 @@ import 'screens/game_board_screen.dart';
 import 'models/player.dart';
 import 'models/game_state.dart';
 import 'config/board_configs/classic_board.dart';
+import 'services/audio_service.dart';
 
 /// Main app widget with navigation
 class MonopolyApp extends StatelessWidget {
@@ -43,6 +44,27 @@ class _AppNavigatorState extends State<AppNavigator> {
       _previousScreen = _currentScreen;
       _currentScreen = screen;
     });
+    _handleScreenAudio(screen);
+  }
+
+  void _handleScreenAudio(AppScreen screen) {
+    final audio = AudioService.instance;
+    switch (screen) {
+      case AppScreen.mainMenu:
+      case AppScreen.gameSetup:
+      case AppScreen.howToPlay:
+      case AppScreen.settings:
+        // Play menu music for all menu screens
+        audio.playMenuMusic();
+        break;
+      case AppScreen.game:
+        // Play game music when entering game
+        audio.playGameMusic();
+        break;
+      case AppScreen.splash:
+        // No music on splash
+        break;
+    }
   }
 
   void _startGame(List<PlayerConfig> configs, {int diceCount = 2}) {
@@ -59,6 +81,9 @@ class _AppNavigatorState extends State<AppNavigator> {
       _gameState = GameState.initial(players: players, tiles: ClassicBoard.generateTiles(), startingCash: _settings.startingCash, diceCount: diceCount);
       _currentScreen = AppScreen.game;
     });
+    
+    // Play game music
+    AudioService.instance.playGameMusic();
   }
 
   void _quitGame() {
@@ -66,6 +91,9 @@ class _AppNavigatorState extends State<AppNavigator> {
       _gameState = null;
       _currentScreen = AppScreen.mainMenu;
     });
+    
+    // Switch back to menu music
+    AudioService.instance.playMenuMusic();
   }
 
   void _restartGame() {

@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../../models/spin_prize.dart';
+import '../../services/audio_service.dart';
 
 /// 3D Animated spin wheel widget
 class SpinWheelWidget extends StatefulWidget {
@@ -39,6 +40,8 @@ class SpinWheelWidgetState extends State<SpinWheelWidget> with SingleTickerProvi
 
   void spin() {
     if (_isSpinning) return;
+    
+    AudioService.instance.onSpinWheel();
 
     setState(() {
       _isSpinning = true;

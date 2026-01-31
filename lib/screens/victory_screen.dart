@@ -4,6 +4,7 @@ import '../models/player.dart';
 import '../config/theme.dart';
 import '../widgets/avatar/avatar_widget.dart';
 import '../widgets/effects/fireworks.dart';
+import '../services/audio_service.dart';
 
 /// Full-screen victory celebration
 class VictoryScreen extends StatefulWidget {
@@ -67,6 +68,10 @@ class _VictoryScreenState extends State<VictoryScreen> with TickerProviderStateM
     );
 
     _entranceController.forward();
+    
+    // Play victory sound and music
+    AudioService.instance.onVictory();
+    AudioService.instance.playVictoryMusic();
 
     // Stop fireworks after a while
     Future.delayed(const Duration(seconds: 8), () {
