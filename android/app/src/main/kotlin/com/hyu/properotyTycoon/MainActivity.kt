@@ -1,4 +1,4 @@
-package com.example.board_demo
+package com.hyu.properotyTycoon
 
 import io.flutter.embedding.android.FlutterActivity
 

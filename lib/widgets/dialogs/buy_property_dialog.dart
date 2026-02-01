@@ -111,6 +111,37 @@ class BuyPropertyDialog extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
+
+          // Fun fact section
+          if (tile.funFact != null) ...[
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.blue.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: Colors.blue.withOpacity(0.3), width: 1),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text('💡', style: TextStyle(fontSize: 18)),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      tile.funFact!,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 16),
+          ],
+
           _buildInfoRow('Price', '\$$_price', AppTheme.warning),
           const SizedBox(height: 8),
           if (tile is! UtilityTileData)

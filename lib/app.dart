@@ -9,7 +9,8 @@ import 'screens/game_board_screen.dart';
 import 'screens/shop_screen.dart';
 import 'models/player.dart';
 import 'models/game_state.dart';
-import 'config/board_configs/classic_board.dart';
+import 'models/country.dart';
+import 'config/board_factory.dart';
 import 'services/audio_service.dart';
 import 'services/unlock_service.dart';
 
@@ -40,6 +41,7 @@ class _AppNavigatorState extends State<AppNavigator> {
   GameState? _gameState;
   GameSettings _settings = const GameSettings();
   int _diceCount = 2; // Track dice count for the game
+  Country _selectedCountry = Country.usa; // Track selected country for the board
 
   void _navigateTo(AppScreen screen) {
     setState(() {
@@ -70,7 +72,7 @@ class _AppNavigatorState extends State<AppNavigator> {
     }
   }
 
-  void _startGame(List<PlayerConfig> configs, {int diceCount = 2}) {
+  void _startGame(List<PlayerConfig> configs, {int diceCount = 2, Country country = Country.usa}) {
     // Create players from configs
     final players = configs.asMap().entries.map((entry) {
       final index = entry.key;
@@ -81,10 +83,11 @@ class _AppNavigatorState extends State<AppNavigator> {
     // Create game state using factory constructor
     setState(() {
       _diceCount = diceCount;
-      _gameState = GameState.initial(players: players, tiles: ClassicBoard.generateTiles(), startingCash: _settings.startingCash, diceCount: diceCount);
+      _selectedCountry = country;
+      _gameState = GameState.initial(players: players, tiles: BoardFactory.generateTiles(country), startingCash: _settings.startingCash, diceCount: diceCount);
       _currentScreen = AppScreen.game;
     });
-    
+
     // Play game music
     AudioService.instance.playGameMusic();
   }
@@ -107,7 +110,7 @@ class _AppNavigatorState extends State<AppNavigator> {
       }).toList();
 
       setState(() {
-        _gameState = GameState.initial(players: resetPlayers, tiles: ClassicBoard.generateTiles(), startingCash: _settings.startingCash, diceCount: _diceCount);
+        _gameState = GameState.initial(players: resetPlayers, tiles: BoardFactory.generateTiles(_selectedCountry), startingCash: _settings.startingCash, diceCount: _diceCount);
       });
     }
   }
@@ -156,7 +159,17 @@ class _AppNavigatorState extends State<AppNavigator> {
         return ShopScreen(key: const ValueKey('shop'), onBack: () => _navigateTo(AppScreen.mainMenu));
 
       case AppScreen.game:
-        return GameBoardScreen(key: ValueKey('game_${_gameState!.id}'), gameState: _gameState!, onQuit: _quitGame, onRestart: _restartGame, onHowToPlay: () => _navigateTo(AppScreen.howToPlay), tradingEnabled: _settings.tradingEnabled, bankEnabled: _settings.bankEnabled, auctionEnabled: _settings.auctionEnabled);
+        return GameBoardScreen(
+          key: ValueKey('game_${_gameState!.id}'),
+          gameState: _gameState!,
+          onQuit: _quitGame,
+          onRestart: _restartGame,
+          onHowToPlay: () => _navigateTo(AppScreen.howToPlay),
+          tradingEnabled: _settings.tradingEnabled,
+          bankEnabled: _settings.bankEnabled,
+          auctionEnabled: _settings.auctionEnabled,
+          boardTheme: BoardFactory.getTheme(_selectedCountry),
+        );
     }
   }
 }

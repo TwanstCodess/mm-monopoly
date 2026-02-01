@@ -490,6 +490,66 @@ class TileInfoDialog extends StatelessWidget {
   Color get _headerSubTextColor =>
       _isLightColor ? Colors.black54 : Colors.white.withOpacity(0.85);
 
+  /// Get location text from tile type
+  String _getLocationFromTile() {
+    if (tile is PropertyTileData || tile is RailroadTileData || tile is UtilityTileData) {
+      // Generic location - the tile name itself is the location
+      return 'Property Location';
+    }
+    switch (tile.type) {
+      case TileType.start:
+        return 'Starting Point';
+      case TileType.jail:
+        return 'Just Visiting / In Jail';
+      case TileType.freeParking:
+        return 'Spin to Win!';
+      case TileType.goToJail:
+        return 'Go To Jail';
+      case TileType.chance:
+        return 'Chance Card';
+      case TileType.communityChest:
+        return 'Community Chest';
+      case TileType.tax:
+        return tile.index == 4 ? 'Income Tax' : 'Luxury Tax';
+      default:
+        return 'Monopoly Board';
+    }
+  }
+
+  /// Convert fun fact to facts list
+  List<String> _getFactsFromFunFact(String funFact) {
+    // Simply return the fun fact as a single item list
+    return [funFact];
+  }
+
+  /// Get emoji from tile type
+  String _getEmojiFromTileType() {
+    switch (tile.type) {
+      case TileType.property:
+        return '🏠';
+      case TileType.railroad:
+        return '🚂';
+      case TileType.utility:
+        return (tile as UtilityTileData).isElectric ? '⚡' : '💧';
+      case TileType.chance:
+        return '❓';
+      case TileType.communityChest:
+        return '📦';
+      case TileType.tax:
+        return '💸';
+      case TileType.start:
+        return '🚀';
+      case TileType.jail:
+        return '🔒';
+      case TileType.freeParking:
+        return '🎡';
+      case TileType.goToJail:
+        return '🚨';
+      default:
+        return '🎲';
+    }
+  }
+
   IconData get _icon {
     switch (tile.type) {
       case TileType.property:
@@ -519,7 +579,15 @@ class TileInfoDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final info = TileFacts.getInfo(tile);
+    // Use tile's built-in fun fact if available, otherwise fall back to hardcoded facts
+    final info = tile.funFact != null
+      ? TileInfo(
+          location: _getLocationFromTile(),
+          facts: _getFactsFromFunFact(tile.funFact!),
+          funFact: tile.funFact!,
+          emoji: _getEmojiFromTileType(),
+        )
+      : TileFacts.getInfo(tile);
 
     return Dialog(
       backgroundColor: Colors.transparent,

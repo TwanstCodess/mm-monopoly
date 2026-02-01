@@ -42,6 +42,7 @@ class TileData {
   final TileType type;
   final Color color;
   final String? subtext;
+  final String? funFact;
 
   const TileData({
     required this.index,
@@ -49,6 +50,7 @@ class TileData {
     required this.type,
     required this.color,
     this.subtext,
+    this.funFact,
   });
 
   bool get isCorner => index % 10 == 0;
@@ -72,6 +74,8 @@ class PropertyTileData extends TileData {
     required this.groupColor,
     required this.price,
     required this.rentLevels,
+    super.funFact,
+    super.subtext,
     this.ownerId,
     this.upgradeLevel = 0,
     this.isMortgaged = false,
@@ -158,6 +162,8 @@ class RailroadTileData extends TileData {
     required super.index,
     required super.name,
     this.price = 200,
+    super.funFact,
+    super.subtext,
     this.ownerId,
     this.isMortgaged = false,
   }) : super(
@@ -199,6 +205,7 @@ class UtilityTileData extends TileData {
     required super.name,
     required this.isElectric,
     this.price = 150,
+    super.funFact,
     this.ownerId,
     this.isMortgaged = false,
   }) : super(

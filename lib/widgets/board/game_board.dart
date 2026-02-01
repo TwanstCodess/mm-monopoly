@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/player.dart';
 import '../../models/tile.dart';
+import '../../models/board_theme.dart';
 import '../../config/board_configs/classic_board.dart';
 import 'tile_widget.dart';
 import '../player/player_token.dart';
@@ -15,6 +16,7 @@ class GameBoard extends StatelessWidget {
   final AnimationController glowController;
   final Widget? centerControls;
   final List<TileData>? tiles;
+  final BoardTheme? boardTheme;
   final VoidCallback? onMenuTap;
   final VoidCallback? onTradeTap;
   final VoidCallback? onBankTap;
@@ -34,6 +36,7 @@ class GameBoard extends StatelessWidget {
     required this.glowController,
     this.centerControls,
     this.tiles,
+    this.boardTheme,
     this.onMenuTap,
     this.onTradeTap,
     this.onBankTap,
@@ -60,8 +63,11 @@ class GameBoard extends StatelessWidget {
           width: boardSize,
           height: boardSize,
           decoration: BoxDecoration(
-            color: const Color(0xFFCCE5CC),
-            border: Border.all(color: Colors.black, width: 3),
+            color: boardTheme?.boardColor ?? const Color(0xFFCCE5CC),
+            border: Border.all(
+              color: boardTheme?.tileBorder ?? Colors.black,
+              width: 3,
+            ),
             borderRadius: BorderRadius.circular(6),
             boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.5), blurRadius: 20, offset: const Offset(5, 5))],
           ),
@@ -80,6 +86,7 @@ class GameBoard extends StatelessWidget {
                 isChestHighlighted: isChestHighlighted,
                 onChanceTap: onChanceTap,
                 onChestTap: onChestTap,
+                boardTheme: boardTheme,
               ),
               // All tiles
               ..._buildAllTiles(boardTiles, boardSize, cornerSize, tileWidth, tileHeight),
@@ -201,6 +208,7 @@ class _CenterArea extends StatelessWidget {
   final double boardSize;
   final double cornerSize;
   final Widget? centerControls;
+  final BoardTheme? boardTheme;
   final VoidCallback? onMenuTap;
   final VoidCallback? onTradeTap;
   final VoidCallback? onBankTap;
@@ -210,7 +218,7 @@ class _CenterArea extends StatelessWidget {
   final VoidCallback? onChanceTap;
   final VoidCallback? onChestTap;
 
-  const _CenterArea({required this.boardSize, required this.cornerSize, this.centerControls, this.onMenuTap, this.onTradeTap, this.onBankTap, this.showActionButtons = false, this.isChanceHighlighted = false, this.isChestHighlighted = false, this.onChanceTap, this.onChestTap});
+  const _CenterArea({required this.boardSize, required this.cornerSize, this.centerControls, this.boardTheme, this.onMenuTap, this.onTradeTap, this.onBankTap, this.showActionButtons = false, this.isChanceHighlighted = false, this.isChestHighlighted = false, this.onChanceTap, this.onChestTap});
 
   @override
   Widget build(BuildContext context) {
@@ -222,7 +230,9 @@ class _CenterArea extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            decoration: const BoxDecoration(color: Color(0xFFCCE5CC)),
+            decoration: BoxDecoration(
+              color: boardTheme?.centerBackground ?? const Color(0xFFCCE5CC),
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [

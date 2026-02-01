@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import '../models/player.dart';
 import '../models/game_state.dart';
+import '../models/board_theme.dart';
 import '../config/theme.dart';
 import '../config/constants.dart';
 import '../services/audio_service.dart';
@@ -46,8 +47,9 @@ class GameBoardScreen extends StatefulWidget {
   final bool tradingEnabled;
   final bool bankEnabled;
   final bool auctionEnabled;
+  final BoardTheme? boardTheme;
 
-  const GameBoardScreen({super.key, required this.gameState, required this.onQuit, required this.onRestart, this.onHowToPlay, this.tradingEnabled = false, this.bankEnabled = false, this.auctionEnabled = false});
+  const GameBoardScreen({super.key, required this.gameState, required this.onQuit, required this.onRestart, this.onHowToPlay, this.tradingEnabled = false, this.bankEnabled = false, this.auctionEnabled = false, this.boardTheme});
 
   @override
   State<GameBoardScreen> createState() => _GameBoardScreenState();
@@ -161,9 +163,21 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
 
   @override
   Widget build(BuildContext context) {
+    final theme = widget.boardTheme;
+    final backgroundGradient = theme != null
+        ? LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              theme.boardColor,
+              theme.centerBackground,
+            ],
+          )
+        : AppTheme.backgroundGradient;
+
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
+        decoration: BoxDecoration(gradient: backgroundGradient),
         child: SafeArea(
           child: Stack(
             children: [
@@ -233,6 +247,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
                   bounceAnimation: _bounceAnimation,
                   glowController: _glowController,
                   tiles: gameState.tiles,
+                  boardTheme: widget.boardTheme,
                   centerControls: _buildCenterControls(),
                   onMenuTap: _showGameMenu,
                   onTradeTap: widget.tradingEnabled ? _showTradeDialog : null,
@@ -282,6 +297,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
                   bounceAnimation: _bounceAnimation,
                   glowController: _glowController,
                   tiles: gameState.tiles,
+                  boardTheme: widget.boardTheme,
                   centerControls: _buildCenterControls(),
                   onMenuTap: _showGameMenu,
                   onTradeTap: widget.tradingEnabled ? _showTradeDialog : null,

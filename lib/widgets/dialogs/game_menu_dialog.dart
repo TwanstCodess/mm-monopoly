@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /// In-game menu dialog with fun colorful styling
 class GameMenuDialog extends StatelessWidget {
@@ -94,6 +95,18 @@ class GameMenuDialog extends StatelessWidget {
             onTap: () {
               Navigator.of(context).pop();
               _showConfirmDialog(context, 'Restart Game?', 'All progress will be lost.', onRestart);
+            },
+          ),
+          const SizedBox(height: 12),
+          _buildMenuItem(
+            icon: Icons.coffee_rounded,
+            label: 'Buy me a coffee',
+            gradient: const [Color(0xFFFFA07A), Color(0xFFFF8C69)],
+            onTap: () async {
+              final uri = Uri.parse('https://buymeacoffee.com/hao_yu');
+              if (await canLaunchUrl(uri)) {
+                await launchUrl(uri, mode: LaunchMode.externalApplication);
+              }
             },
           ),
           const SizedBox(height: 12),

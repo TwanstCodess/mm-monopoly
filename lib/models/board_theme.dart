@@ -188,7 +188,159 @@ class BoardThemes {
     unlockWins: 10, // Or play in December
   );
 
-  /// All available themes
+  // === Country-Specific Themes ===
+
+  // USA Theme - Classic Atlantic City
+  static const usa = BoardTheme(
+    id: 'usa',
+    name: 'USA',
+    description: 'Classic Atlantic City vibes',
+    boardColor: Color(0xFF1a237e), // Deep Navy Blue
+    tileBackground: Color(0xFF2d3e50), // Dark Slate
+    tileBorder: Color(0xFFdc143c), // Crimson Red
+    centerBackground: Color(0xFF34495e), // Charcoal
+    textColor: Color(0xFFE8EAF6), // Light Blue Gray
+    accentColor: Color(0xFFffd700), // Gold
+    propertyColors: [
+      Color(0xFF795548), // Brown
+      Color(0xFF4FC3F7), // Light Blue
+      Color(0xFFF48FB1), // Pink
+      Color(0xFFFF9800), // Orange
+      Color(0xFFF44336), // Red
+      Color(0xFFFFEB3B), // Yellow
+      Color(0xFF4CAF50), // Green
+      Color(0xFF1976D2), // Dark Blue
+    ],
+    isDark: true,
+    unlockWins: null, // Always available
+  );
+
+  // UK Theme - Royal British
+  static const uk = BoardTheme(
+    id: 'uk',
+    name: 'UK',
+    description: 'Royal British elegance',
+    boardColor: Color(0xFF1b1464), // Royal Purple Deep
+    tileBackground: Color(0xFF2c1a40), // Deep Royal Purple
+    tileBorder: Color(0xFFc41e3a), // British Red
+    centerBackground: Color(0xFF3d2651), // Royal Purple
+    textColor: Color(0xFFEDE7F6), // Light Purple
+    accentColor: Color(0xFFffd700), // Royal Gold
+    propertyColors: [
+      Color(0xFF6D4C41), // Dark Brown
+      Color(0xFF64B5F6), // Royal Blue
+      Color(0xFFF48FB1), // Rose Pink
+      Color(0xFFFF7043), // British Orange
+      Color(0xFFE53935), // Royal Red
+      Color(0xFFFFD54F), // Gold
+      Color(0xFF66BB6A), // British Green
+      Color(0xFF1565C0), // Navy Blue
+    ],
+    isDark: true,
+    unlockWins: null, // Always available
+  );
+
+  // Japan Theme - Modern Tokyo
+  static const japan = BoardTheme(
+    id: 'japan',
+    name: 'Japan',
+    description: 'Modern Tokyo aesthetic',
+    boardColor: Color(0xFF1a1a2e), // Deep Indigo
+    tileBackground: Color(0xFF1a1a2e), // Deep Night
+    tileBorder: Color(0xFFe63946), // Japanese Red
+    centerBackground: Color(0xFF2d2d44), // Midnight Blue
+    textColor: Color(0xFFf1faee), // Sakura White
+    accentColor: Color(0xFFe63946), // Japanese Red
+    propertyColors: [
+      Color(0xFF5D4037), // Dark Brown
+      Color(0xFF42A5F5), // Sky Blue
+      Color(0xFFEC407A), // Cherry Blossom Pink
+      Color(0xFFFF7043), // Sunset Orange
+      Color(0xFFEF5350), // Red
+      Color(0xFFFFEE58), // Yellow
+      Color(0xFF66BB6A), // Green
+      Color(0xFF1976D2), // Deep Blue
+    ],
+    isDark: true,
+    unlockWins: null, // Always available
+  );
+
+  // France Theme - Parisian Elegance
+  static const france = BoardTheme(
+    id: 'france',
+    name: 'France',
+    description: 'Parisian elegance',
+    boardColor: Color(0xFF1e3a5f), // French Navy
+    tileBackground: Color(0xFF2c4a6e), // Deep Blue
+    tileBorder: Color(0xFFe4002b), // French Red
+    centerBackground: Color(0xFF3a5a7f), // Royal Blue
+    textColor: Color(0xFFf8f9fa), // Ivory White
+    accentColor: Color(0xFFffd700), // Gold
+    propertyColors: [
+      Color(0xFF6D4C41), // Brown
+      Color(0xFF64B5F6), // Sky Blue
+      Color(0xFFF48FB1), // Rose Pink
+      Color(0xFFFF8A65), // Coral Orange
+      Color(0xFFE53935), // French Red
+      Color(0xFFFFD54F), // Gold
+      Color(0xFF66BB6A), // Green
+      Color(0xFF1565C0), // Royal Blue
+    ],
+    isDark: true,
+    unlockWins: null, // Always available
+  );
+
+  // China Theme - Imperial Dynasty
+  static const china = BoardTheme(
+    id: 'china',
+    name: 'China',
+    description: 'Imperial dynasty',
+    boardColor: Color(0xFF8B0000), // Imperial Red
+    tileBackground: Color(0xFF9a1a1a), // Deep Red
+    tileBorder: Color(0xFFffd700), // Gold
+    centerBackground: Color(0xFFa52a2a), // Crimson
+    textColor: Color(0xFFfff8dc), // Cornsilk
+    accentColor: Color(0xFFffd700), // Gold
+    propertyColors: [
+      Color(0xFF6D4C41), // Brown
+      Color(0xFF42A5F5), // Sky Blue
+      Color(0xFFEC407A), // Pink
+      Color(0xFFFF7043), // Orange
+      Color(0xFFc62828), // Chinese Red
+      Color(0xFFFFD54F), // Gold
+      Color(0xFF66BB6A), // Green
+      Color(0xFF1565C0), // Blue
+    ],
+    isDark: true,
+    unlockWins: null, // Always available
+  );
+
+  // Mexico Theme - Vibrant Fiesta
+  static const mexico = BoardTheme(
+    id: 'mexico',
+    name: 'Mexico',
+    description: 'Vibrant fiesta colors',
+    boardColor: Color(0xFF006341), // Mexican Green
+    tileBackground: Color(0xFF0a7a4a), // Deep Green
+    tileBorder: Color(0xFFce1126), // Mexican Red
+    centerBackground: Color(0xFF0d8a55), // Forest Green
+    textColor: Color(0xFFffffff), // White
+    accentColor: Color(0xFFffd700), // Gold
+    propertyColors: [
+      Color(0xFF6D4C41), // Brown
+      Color(0xFF42A5F5), // Sky Blue
+      Color(0xFFEC407A), // Magenta Pink
+      Color(0xFFFF8A65), // Coral Orange
+      Color(0xFFce1126), // Mexican Red
+      Color(0xFFFFD54F), // Sunshine Yellow
+      Color(0xFF66BB6A), // Green
+      Color(0xFF1565C0), // Blue
+    ],
+    isDark: true,
+    unlockWins: null, // Always available
+  );
+
+  /// All available themes (including country themes)
   static const List<BoardTheme> all = [
     classic,
     beach,
@@ -196,6 +348,12 @@ class BoardThemes {
     candy,
     halloween,
     winter,
+    usa,
+    uk,
+    japan,
+    france,
+    china,
+    mexico,
   ];
 
   /// Get theme by ID

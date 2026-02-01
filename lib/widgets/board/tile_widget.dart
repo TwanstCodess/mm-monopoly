@@ -420,22 +420,38 @@ class TileWidget extends StatelessWidget {
     
     final nameWidget = Padding(
       padding: const EdgeInsets.symmetric(horizontal: 1),
-      child: hasSpace
-          ? Text(
-              shortName,
-              textAlign: TextAlign.center,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontSize: 9, fontWeight: FontWeight.w800, height: 1.1, color: Colors.black),
-            )
-          : FittedBox(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          hasSpace
+              ? Text(
+                  shortName,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontSize: 9, fontWeight: FontWeight.w800, height: 1.1, color: Colors.black),
+                )
+              : FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    shortName,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w800, height: 1.1, color: Colors.black),
+                  ),
+                ),
+          if (data.subtext != null) ...[
+            const SizedBox(height: 1),
+            FittedBox(
               fit: BoxFit.scaleDown,
               child: Text(
-                shortName,
+                data.subtext!,
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w800, height: 1.1, color: Colors.black),
+                style: const TextStyle(fontSize: 7, fontWeight: FontWeight.w600, height: 1.0, color: Colors.black87),
               ),
             ),
+          ],
+        ],
+      ),
     );
 
     final priceWidget = price != null
