@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'serialization/serialization_helpers.dart';
 
 /// Rarity levels for power-up cards
 enum CardRarity {
@@ -97,6 +98,34 @@ class PowerUpCard {
       icon: icon,
       primaryColor: primaryColor,
       duration: duration,
+    );
+  }
+
+  /// Serialize to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'description': description,
+      'type': enumToJson(type),
+      'rarity': enumToJson(rarity),
+      'icon': icon.codePoint,
+      'primaryColor': colorToJson(primaryColor),
+      'duration': duration,
+    };
+  }
+
+  /// Deserialize from JSON
+  factory PowerUpCard.fromJson(Map<String, dynamic> json) {
+    return PowerUpCard(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      description: json['description'] as String,
+      type: enumFromJson(json['type'] as String, PowerUpType.values),
+      rarity: enumFromJson(json['rarity'] as String, CardRarity.values),
+      icon: IconData(json['icon'] as int, fontFamily: 'MaterialIcons'),
+      primaryColor: colorFromJson(json['primaryColor'] as Map<String, dynamic>),
+      duration: json['duration'] as int?,
     );
   }
 }
@@ -280,5 +309,23 @@ class ActivePowerUp {
     if (remainingTurns > 0) {
       remainingTurns--;
     }
+  }
+
+  /// Serialize to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'card': card.toJson(),
+      'playerId': playerId,
+      'remainingTurns': remainingTurns,
+    };
+  }
+
+  /// Deserialize from JSON
+  factory ActivePowerUp.fromJson(Map<String, dynamic> json) {
+    return ActivePowerUp(
+      card: PowerUpCard.fromJson(json['card'] as Map<String, dynamic>),
+      playerId: json['playerId'] as String,
+      remainingTurns: json['remainingTurns'] as int,
+    );
   }
 }

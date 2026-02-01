@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 import '../../models/player.dart';
 import '../../models/tile.dart';
+import '../../models/game_state.dart';
 import '../../config/theme.dart';
 import '../effects/floating_cash_indicator.dart';
 import '../avatar/avatar_widget.dart';
+import '../dialogs/property_portfolio_dialog.dart';
 
 /// Full player card for landscape mode
 class PlayerCard extends StatefulWidget {
   final Player player;
   final bool isCurrentPlayer;
+  final List<TileData>? tiles;
+  final GameState? gameState;
 
   const PlayerCard({
     super.key,
     required this.player,
     required this.isCurrentPlayer,
+    this.tiles,
+    this.gameState,
   });
 
   @override
@@ -68,51 +74,64 @@ class _PlayerCardState extends State<PlayerCard>
         final glowIntensity = isCurrentPlayer ? 0.4 + _glowAnimation.value * 0.4 : 0.0;
         final borderWidth = isCurrentPlayer ? 3.0 + _glowAnimation.value * 2 : 1.0;
 
-        return Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: isCurrentPlayer
-                  ? [player.color.withOpacity(0.5), player.color.withOpacity(0.3)]
-                  : [Colors.grey.shade800.withOpacity(0.8), Colors.grey.shade900.withOpacity(0.8)],
+        return GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () {
+            if (widget.tiles != null && widget.gameState != null) {
+              showPropertyPortfolioDialog(
+                context: context,
+                player: player,
+                tiles: widget.tiles!,
+                gameState: widget.gameState!,
+              );
+            }
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: isCurrentPlayer
+                    ? [player.color.withOpacity(0.5), player.color.withOpacity(0.3)]
+                    : [Colors.grey.shade800.withOpacity(0.8), Colors.grey.shade900.withOpacity(0.8)],
+              ),
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(
+                color: isCurrentPlayer ? Colors.amber : Colors.grey.shade700,
+                width: borderWidth,
+              ),
+              boxShadow: isCurrentPlayer
+                  ? [
+                      BoxShadow(
+                        color: Colors.amber.withOpacity(glowIntensity),
+                        blurRadius: 15 + _glowAnimation.value * 10,
+                        spreadRadius: 2 + _glowAnimation.value * 4,
+                      ),
+                      BoxShadow(
+                        color: player.color.withOpacity(glowIntensity * 0.5),
+                        blurRadius: 25,
+                        spreadRadius: 5,
+                      ),
+                    ]
+                  : [],
             ),
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(
-              color: isCurrentPlayer ? Colors.amber : Colors.grey.shade700,
-              width: borderWidth,
-            ),
-            boxShadow: isCurrentPlayer
-                ? [
-                    BoxShadow(
-                      color: Colors.amber.withOpacity(glowIntensity),
-                      blurRadius: 15 + _glowAnimation.value * 10,
-                      spreadRadius: 2 + _glowAnimation.value * 4,
-                    ),
-                    BoxShadow(
-                      color: player.color.withOpacity(glowIntensity * 0.5),
-                      blurRadius: 25,
-                      spreadRadius: 5,
-                    ),
-                  ]
-                : [],
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildHeader(),
-                const SizedBox(height: 8),
-                _buildCashDisplay(),
-                // AI indicator under cash
-                if (player.isAI) ...[
-                  const SizedBox(height: 6),
-                  const _AIBadge(),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildHeader(),
+                  const SizedBox(height: 8),
+                  _buildCashDisplay(),
+                  // AI indicator under cash
+                  if (player.isAI) ...[
+                    const SizedBox(height: 6),
+                    const _AIBadge(),
+                  ],
+                  const SizedBox(height: 8),
+                  Expanded(child: _buildPropertiesSection()),
                 ],
-                const SizedBox(height: 8),
-                Expanded(child: _buildPropertiesSection()),
-              ],
+              ),
             ),
           ),
         );
@@ -244,7 +263,10 @@ class _PlayerCardState extends State<PlayerCard>
                       spacing: 5,
                       runSpacing: 5,
                       children: player.propertyIds
-                          .map((p) => _PropertyChip(propertyId: p))
+                          .map((p) => _PropertyChip(
+                                propertyId: p,
+                                tiles: widget.tiles,
+                              ))
                           .toList(),
                     ),
                   ),
@@ -468,7 +490,10 @@ class _PlayerCardCompactState extends State<PlayerCardCompact>
                                   spacing: 3,
                                   runSpacing: 3,
                                   children: player.propertyIds
-                                      .map((p) => _PropertyChip(propertyId: p))
+                                      .map((p) => _PropertyChip(
+                                            propertyId: p,
+                                            tiles: tiles,
+                                          ))
                                       .toList(),
                                 ),
                         ),
@@ -658,52 +683,117 @@ class _TurnIndicatorState extends State<_TurnIndicator>
 /// Property chip showing owned property
 class _PropertyChip extends StatelessWidget {
   final String propertyId;
+  final List<TileData>? tiles;
 
-  const _PropertyChip({required this.propertyId});
+  const _PropertyChip({
+    required this.propertyId,
+    this.tiles,
+  });
+
+  TileData? get tile {
+    if (tiles == null) return null;
+    final index = int.tryParse(propertyId);
+    if (index == null || index >= tiles!.length) return null;
+    return tiles![index];
+  }
 
   Color get _color {
-    // TODO: Get actual color from property data
-    // For now, use a simple index-based color
+    final t = tile;
+    if (t is PropertyTileData) return t.groupColor;
+    if (t is RailroadTileData) return Colors.grey.shade800;
+    if (t is UtilityTileData) return Colors.blue.shade300;
+
+    // Fallback to index-based colors if tiles not available
     final index = int.tryParse(propertyId) ?? 0;
     const colors = [
-      Color(0xFF795548), // Brown
-      Color(0xFF795548),
-      Color(0xFF4FC3F7), // Light Blue
-      Color(0xFF4FC3F7),
-      Color(0xFF4FC3F7),
-      Color(0xFFF48FB1), // Pink
-      Color(0xFFF48FB1),
-      Color(0xFFF48FB1),
-      Color(0xFFFF9800), // Orange
-      Color(0xFFFF9800),
-      Color(0xFFFF9800),
-      Color(0xFFF44336), // Red
-      Color(0xFFF44336),
-      Color(0xFFF44336),
-      Color(0xFFFFEB3B), // Yellow
-      Color(0xFFFFEB3B),
-      Color(0xFFFFEB3B),
-      Color(0xFF4CAF50), // Green
-      Color(0xFF4CAF50),
-      Color(0xFF4CAF50),
-      Color(0xFF1976D2), // Dark Blue
-      Color(0xFF1976D2),
+      Color(0xFF795548), Color(0xFF795548),
+      Color(0xFF4FC3F7), Color(0xFF4FC3F7), Color(0xFF4FC3F7),
+      Color(0xFFF48FB1), Color(0xFFF48FB1), Color(0xFFF48FB1),
+      Color(0xFFFF9800), Color(0xFFFF9800), Color(0xFFFF9800),
+      Color(0xFFF44336), Color(0xFFF44336), Color(0xFFF44336),
+      Color(0xFFFFEB3B), Color(0xFFFFEB3B), Color(0xFFFFEB3B),
+      Color(0xFF4CAF50), Color(0xFF4CAF50), Color(0xFF4CAF50),
+      Color(0xFF1976D2), Color(0xFF1976D2),
     ];
     return colors[index % colors.length];
   }
 
+  bool get _isMortgaged {
+    final t = tile;
+    if (t is PropertyTileData) return t.isMortgaged;
+    if (t is RailroadTileData) return t.isMortgaged;
+    if (t is UtilityTileData) return t.isMortgaged;
+    return false;
+  }
+
+  int get _upgradeLevel {
+    final t = tile;
+    if (t is PropertyTileData) return t.upgradeLevel;
+    return 0;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 20,
-      height: 12,
-      decoration: BoxDecoration(
-        color: _color,
-        borderRadius: BorderRadius.circular(2),
-        border: Border.all(color: Colors.white.withOpacity(0.5), width: 0.5),
-      ),
+    return Stack(
+      children: [
+        Container(
+          width: 24,
+          height: 16,
+          decoration: BoxDecoration(
+            color: _color,
+            borderRadius: BorderRadius.circular(2),
+            border: Border.all(color: Colors.white.withOpacity(0.5), width: 0.5),
+          ),
+          child: _upgradeLevel > 0
+              ? Center(
+                  child: Text(
+                    _upgradeLevel == 5 ? 'H' : '$_upgradeLevel',
+                    style: const TextStyle(
+                      fontSize: 9,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      shadows: [
+                        Shadow(
+                          color: Colors.black,
+                          offset: Offset(0.5, 0.5),
+                          blurRadius: 1,
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              : null,
+        ),
+        if (_isMortgaged)
+          Positioned.fill(
+            child: CustomPaint(
+              painter: _DiagonalStripePainter(),
+            ),
+          ),
+      ],
     );
   }
+}
+
+/// Custom painter for mortgage indicator (diagonal stripe)
+class _DiagonalStripePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = Colors.red.withOpacity(0.7)
+      ..strokeWidth = 1.5
+      ..style = PaintingStyle.stroke;
+
+    // Draw diagonal line from top-left to bottom-right
+    canvas.drawLine(
+      const Offset(0, 0),
+      Offset(size.width, size.height),
+      paint,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
 /// Vertical player panel (for landscape mode)

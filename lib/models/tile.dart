@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'serialization/serialization_helpers.dart';
 
 /// Types of tiles on the board
 enum TileType {
@@ -54,6 +55,42 @@ class TileData {
   });
 
   bool get isCorner => index % 10 == 0;
+
+  /// Serialize to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'type': enumToJson(type),
+      'index': index,
+      'name': name,
+      'color': colorToJson(color),
+      'subtext': subtext,
+      'funFact': funFact,
+    };
+  }
+
+  /// Deserialize from JSON (polymorphic)
+  factory TileData.fromJson(Map<String, dynamic> json) {
+    final type = enumFromJson<TileType>(json['type'] as String, TileType.values);
+
+    switch (type) {
+      case TileType.property:
+        return PropertyTileData.fromJson(json);
+      case TileType.railroad:
+        return RailroadTileData.fromJson(json);
+      case TileType.utility:
+        return UtilityTileData.fromJson(json);
+      case TileType.tax:
+        return TaxTileData.fromJson(json);
+      case TileType.chance:
+      case TileType.communityChest:
+        return CardTileData.fromJson(json);
+      case TileType.start:
+      case TileType.jail:
+      case TileType.goToJail:
+      case TileType.freeParking:
+        return CornerTileData.fromJson(json);
+    }
+  }
 }
 
 /// Property tile with purchase and rent information
@@ -150,6 +187,36 @@ class PropertyTileData extends TileData {
         return '';
     }
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      ...super.toJson(),
+      'groupId': groupId,
+      'groupColor': colorToJson(groupColor),
+      'price': price,
+      'rentLevels': rentLevels,
+      'ownerId': ownerId,
+      'upgradeLevel': upgradeLevel,
+      'isMortgaged': isMortgaged,
+    };
+  }
+
+  factory PropertyTileData.fromJson(Map<String, dynamic> json) {
+    return PropertyTileData(
+      index: json['index'] as int,
+      name: json['name'] as String,
+      groupId: json['groupId'] as String,
+      groupColor: colorFromJson(json['groupColor'] as Map<String, dynamic>),
+      price: json['price'] as int,
+      rentLevels: List<int>.from(json['rentLevels'] as List),
+      funFact: json['funFact'] as String?,
+      subtext: json['subtext'] as String?,
+      ownerId: json['ownerId'] as String?,
+      upgradeLevel: json['upgradeLevel'] as int? ?? 0,
+      isMortgaged: json['isMortgaged'] as bool? ?? false,
+    );
+  }
 }
 
 /// Railroad tile data
@@ -191,6 +258,28 @@ class RailroadTileData extends TileData {
 
   /// Can unmortgage if currently mortgaged
   bool get canUnmortgage => isOwned && isMortgaged;
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      ...super.toJson(),
+      'price': price,
+      'ownerId': ownerId,
+      'isMortgaged': isMortgaged,
+    };
+  }
+
+  factory RailroadTileData.fromJson(Map<String, dynamic> json) {
+    return RailroadTileData(
+      index: json['index'] as int,
+      name: json['name'] as String,
+      price: json['price'] as int? ?? 200,
+      funFact: json['funFact'] as String?,
+      subtext: json['subtext'] as String?,
+      ownerId: json['ownerId'] as String?,
+      isMortgaged: json['isMortgaged'] as bool? ?? false,
+    );
+  }
 }
 
 /// Utility tile data
@@ -232,6 +321,29 @@ class UtilityTileData extends TileData {
 
   /// Can unmortgage if currently mortgaged
   bool get canUnmortgage => isOwned && isMortgaged;
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      ...super.toJson(),
+      'price': price,
+      'isElectric': isElectric,
+      'ownerId': ownerId,
+      'isMortgaged': isMortgaged,
+    };
+  }
+
+  factory UtilityTileData.fromJson(Map<String, dynamic> json) {
+    return UtilityTileData(
+      index: json['index'] as int,
+      name: json['name'] as String,
+      isElectric: json['isElectric'] as bool,
+      price: json['price'] as int? ?? 150,
+      funFact: json['funFact'] as String?,
+      ownerId: json['ownerId'] as String?,
+      isMortgaged: json['isMortgaged'] as bool? ?? false,
+    );
+  }
 }
 
 /// Tax tile data
@@ -249,6 +361,24 @@ class TaxTileData extends TileData {
           color: Colors.white,
           subtext: '\$$amount',
         );
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      ...super.toJson(),
+      'amount': amount,
+      'percentage': percentage,
+    };
+  }
+
+  factory TaxTileData.fromJson(Map<String, dynamic> json) {
+    return TaxTileData(
+      index: json['index'] as int,
+      name: json['name'] as String,
+      amount: json['amount'] as int,
+      percentage: json['percentage'] as double?,
+    );
+  }
 }
 
 /// Special corner tiles (GO, Jail, Free Parking, Go To Jail)
@@ -260,6 +390,16 @@ class CornerTileData extends TileData {
     super.color = Colors.white,
     super.subtext,
   });
+
+  factory CornerTileData.fromJson(Map<String, dynamic> json) {
+    return CornerTileData(
+      index: json['index'] as int,
+      name: json['name'] as String,
+      type: enumFromJson(json['type'] as String, TileType.values),
+      color: colorFromJson(json['color'] as Map<String, dynamic>),
+      subtext: json['subtext'] as String?,
+    );
+  }
 }
 
 /// Card draw tiles (Chance/Community Chest)
@@ -274,6 +414,22 @@ class CardTileData extends TileData {
           type: isChance ? TileType.chance : TileType.communityChest,
           color: Colors.white,
         );
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      ...super.toJson(),
+      'isChance': isChance,
+    };
+  }
+
+  factory CardTileData.fromJson(Map<String, dynamic> json) {
+    return CardTileData(
+      index: json['index'] as int,
+      name: json['name'] as String,
+      isChance: json['isChance'] as bool,
+    );
+  }
 }
 
 /// Property group colors

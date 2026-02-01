@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'avatar.dart';
+import 'tile.dart';
+import 'serialization/serialization_helpers.dart';
 
 /// Player status in the game
 enum PlayerStatus {
@@ -146,7 +148,34 @@ class Player {
   Avatar get effectiveAvatar => avatar ?? Avatars.forPlayerIndex(int.tryParse(id.replaceAll('player_', '')) ?? 0);
 
   /// Calculate net worth (cash + property values)
+  /// Note: This is a simple getter for backwards compatibility.
+  /// For accurate net worth, use calculateNetWorth(tiles) instead.
+  @Deprecated('Use calculateNetWorth(tiles) for accurate net worth calculation')
   int get netWorth => cash; // TODO: Add property values when implemented
+
+  /// Calculate accurate net worth including all property values
+  /// Mortgaged properties reduce net worth by their mortgage value
+  /// Upgraded properties add their upgrade costs
+  int calculateNetWorth(List<TileData> tiles) {
+    int total = cash;
+
+    for (final tile in tiles) {
+      if (tile is PropertyTileData && tile.ownerId == id) {
+        if (tile.isMortgaged) {
+          total -= tile.mortgageValue;
+        } else {
+          total += tile.price;
+          total += (tile.upgradeLevel * tile.upgradeCost);
+        }
+      } else if (tile is RailroadTileData && tile.ownerId == id) {
+        total += tile.isMortgaged ? -tile.mortgageValue : tile.price;
+      } else if (tile is UtilityTileData && tile.ownerId == id) {
+        total += tile.isMortgaged ? -tile.mortgageValue : tile.price;
+      }
+    }
+
+    return total;
+  }
 
   /// Check if player is still in the game
   bool get isPlaying => status == PlayerStatus.active;
@@ -182,6 +211,42 @@ class Player {
       skipTurnsRemaining: skipTurnsRemaining ?? this.skipTurnsRemaining,
       jailTurnsRemaining: jailTurnsRemaining ?? this.jailTurnsRemaining,
       isAI: isAI ?? this.isAI,
+    );
+  }
+
+  /// Serialize to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'icon': enumToJson(icon),
+      'color': colorToJson(color),
+      'avatar': avatarToJson(avatar),
+      'cash': cash,
+      'position': position,
+      'propertyIds': propertyIds,
+      'status': enumToJson(status),
+      'skipTurnsRemaining': skipTurnsRemaining,
+      'jailTurnsRemaining': jailTurnsRemaining,
+      'isAI': isAI,
+    };
+  }
+
+  /// Deserialize from JSON
+  factory Player.fromJson(Map<String, dynamic> json) {
+    return Player(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      icon: enumFromJson(json['icon'] as String, PlayerIcon.values),
+      color: colorFromJson(json['color'] as Map<String, dynamic>),
+      avatar: avatarFromJson(json['avatar'] as Map<String, dynamic>?),
+      cash: json['cash'] as int,
+      position: json['position'] as int,
+      propertyIds: List<String>.from(json['propertyIds'] as List),
+      status: enumFromJson(json['status'] as String, PlayerStatus.values),
+      skipTurnsRemaining: json['skipTurnsRemaining'] as int,
+      jailTurnsRemaining: json['jailTurnsRemaining'] as int,
+      isAI: json['isAI'] as bool,
     );
   }
 }

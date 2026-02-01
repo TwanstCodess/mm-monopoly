@@ -26,6 +26,9 @@ class PlayerStats {
   int totalDiceSum;
   int doublesRolled;
 
+  // Special achievement tracking
+  bool wonWithLessThan100;
+
   // Achievements
   Set<String> unlockedAchievements;
 
@@ -51,6 +54,7 @@ class PlayerStats {
     this.totalDiceRolls = 0,
     this.totalDiceSum = 0,
     this.doublesRolled = 0,
+    this.wonWithLessThan100 = false,
     Set<String>? unlockedAchievements,
     DateTime? createdAt,
     this.lastPlayedAt,
@@ -132,6 +136,7 @@ class PlayerStats {
       'totalDiceRolls': totalDiceRolls,
       'totalDiceSum': totalDiceSum,
       'doublesRolled': doublesRolled,
+      'wonWithLessThan100': wonWithLessThan100,
       'unlockedAchievements': unlockedAchievements.toList(),
       'createdAt': createdAt.toIso8601String(),
       'lastPlayedAt': lastPlayedAt?.toIso8601String(),
@@ -158,6 +163,7 @@ class PlayerStats {
       totalDiceRolls: json['totalDiceRolls'] ?? 0,
       totalDiceSum: json['totalDiceSum'] ?? 0,
       doublesRolled: json['doublesRolled'] ?? 0,
+      wonWithLessThan100: json['wonWithLessThan100'] ?? false,
       unlockedAchievements:
           Set<String>.from(json['unlockedAchievements'] ?? []),
       createdAt: DateTime.parse(json['createdAt']),
@@ -231,7 +237,7 @@ class Achievements {
     description: 'Win a game with less than \$100 remaining',
     icon: Icons.shield,
     color: Colors.orange,
-    checkUnlock: (stats) => false, // Special tracking needed
+    checkUnlock: (stats) => stats.wonWithLessThan100,
   );
 
   static final luckySeven = Achievement(

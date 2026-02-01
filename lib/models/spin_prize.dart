@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'serialization/serialization_helpers.dart';
 
 /// Types of prizes that can be won from the spin wheel
 enum SpinPrizeType {
@@ -33,6 +34,34 @@ class SpinPrize {
     this.value,
     required this.weight,
   });
+
+  /// Serialize to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'description': description,
+      'type': enumToJson(type),
+      'color': colorToJson(color),
+      'icon': icon.codePoint,
+      'value': value,
+      'weight': weight,
+    };
+  }
+
+  /// Deserialize from JSON
+  factory SpinPrize.fromJson(Map<String, dynamic> json) {
+    return SpinPrize(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      description: json['description'] as String,
+      type: enumFromJson(json['type'] as String, SpinPrizeType.values),
+      color: colorFromJson(json['color'] as Map<String, dynamic>),
+      icon: IconData(json['icon'] as int, fontFamily: 'MaterialIcons'),
+      value: json['value'] as int?,
+      weight: (json['weight'] as num).toDouble(),
+    );
+  }
 }
 
 /// Default spin wheel prizes

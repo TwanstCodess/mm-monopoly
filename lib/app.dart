@@ -13,6 +13,7 @@ import 'models/country.dart';
 import 'config/board_factory.dart';
 import 'services/audio_service.dart';
 import 'services/unlock_service.dart';
+import 'services/save_service.dart';
 
 /// Main app widget with navigation
 class MonopolyApp extends StatelessWidget {
@@ -115,6 +116,50 @@ class _AppNavigatorState extends State<AppNavigator> {
     }
   }
 
+  Future<void> _loadSavedGame() async {
+    final savedState = await SaveService.instance.loadGame();
+    if (savedState != null) {
+      setState(() {
+        _gameState = savedState;
+        _diceCount = savedState.diceCount;
+        // Infer country from board theme ID
+        _selectedCountry = _inferCountryFromTheme(savedState.boardTheme.id);
+        _currentScreen = AppScreen.game;
+      });
+      // Play game music
+      AudioService.instance.playGameMusic();
+    } else {
+      // Show error if load failed
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Failed to load saved game'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
+  }
+
+  Country _inferCountryFromTheme(String themeId) {
+    switch (themeId) {
+      case 'usa':
+        return Country.usa;
+      case 'uk':
+        return Country.uk;
+      case 'japan':
+        return Country.japan;
+      case 'france':
+        return Country.france;
+      case 'china':
+        return Country.china;
+      case 'mexico':
+        return Country.mexico;
+      default:
+        return Country.usa; // Default to USA for non-country themes
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedSwitcher(duration: const Duration(milliseconds: 300), child: _buildCurrentScreen());
@@ -129,7 +174,7 @@ class _AppNavigatorState extends State<AppNavigator> {
         return MainMenuScreen(
           key: const ValueKey('mainMenu'),
           onNewGame: () => _navigateTo(AppScreen.gameSetup),
-          onContinue: _gameState != null ? () => _navigateTo(AppScreen.game) : null,
+          onContinue: (_gameState != null || SaveService.instance.hasSavedGame()) ? _loadSavedGame : null,
           onHowToPlay: () => _navigateTo(AppScreen.howToPlay),
           onSettings: () => _navigateTo(AppScreen.settings),
           onShop: () => _navigateTo(AppScreen.shop),

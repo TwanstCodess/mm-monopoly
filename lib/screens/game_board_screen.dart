@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 import '../models/player.dart';
 import '../models/game_state.dart';
 import '../models/board_theme.dart';
+import '../models/player_stats.dart';
 import '../config/theme.dart';
 import '../config/constants.dart';
 import '../services/audio_service.dart';
+import '../services/save_service.dart';
+import '../services/stats_service.dart';
+import '../widgets/achievements/achievement_notification.dart';
 import '../widgets/board/game_board.dart';
 import '../widgets/player/player_card.dart';
 import '../widgets/dice/dice_widget.dart';
@@ -158,7 +162,101 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
         widget.onQuit();
       },
       onRules: widget.onHowToPlay,
+      onSave: _saveGame,
+      onLoad: SaveService.instance.hasSavedGame() ? _loadGame : null,
     );
+  }
+
+  Future<void> _saveGame() async {
+    final success = await SaveService.instance.saveGame(gameState);
+
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Row(
+            children: [
+              Icon(
+                success ? Icons.check_circle : Icons.error,
+                color: Colors.white,
+              ),
+              const SizedBox(width: 12),
+              Text(
+                success ? 'Game saved successfully!' : 'Failed to save game',
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+          backgroundColor: success ? const Color(0xFF4CAF50) : const Color(0xFFFF5252),
+          behavior: SnackBarBehavior.floating,
+          margin: const EdgeInsets.all(16),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+    }
+  }
+
+  Future<void> _loadGame() async {
+    final loadedState = await SaveService.instance.loadGame();
+
+    if (loadedState != null && mounted) {
+      setState(() {
+        gameState = loadedState;
+        engine = GameEngine(gameState);
+        _isPaused = false;
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Row(
+            children: [
+              const Icon(Icons.check_circle, color: Colors.white),
+              const SizedBox(width: 12),
+              Text(
+                'Game loaded! Round ${gameState.roundNumber}',
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+          backgroundColor: const Color(0xFF2196F3),
+          behavior: SnackBarBehavior.floating,
+          margin: const EdgeInsets.all(16),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+
+      // Delete the save after successful load
+      await SaveService.instance.deleteSave();
+
+      // If it's AI turn, trigger their action
+      if (gameState.currentPlayer.isAI && gameState.canRoll) {
+        Future.delayed(const Duration(milliseconds: 1000), () {
+          if (mounted && !_isPaused && gameState.canRoll) {
+            _rollDice();
+          }
+        });
+      }
+    } else if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Row(
+            children: [
+              Icon(Icons.error, color: Colors.white),
+              SizedBox(width: 12),
+              Text(
+                'Failed to load game',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+          backgroundColor: Color(0xFFFF5252),
+          behavior: SnackBarBehavior.floating,
+          margin: EdgeInsets.all(16),
+          duration: Duration(seconds: 2),
+        ),
+      );
+    }
   }
 
   @override
@@ -327,7 +425,12 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
           return Expanded(
             child: Padding(
               padding: const EdgeInsets.only(bottom: 8),
-              child: PlayerCard(player: player, isCurrentPlayer: player.id == gameState.currentPlayer.id),
+              child: PlayerCard(
+                player: player,
+                isCurrentPlayer: player.id == gameState.currentPlayer.id,
+                tiles: gameState.tiles,
+                gameState: gameState,
+              ),
             ),
           );
         }).toList(),
@@ -413,6 +516,8 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
           player.cash += gameState.getGoBonus();
           // Play pass GO sound
           AudioService.instance.onPassGo();
+          // Check for mid-game achievements (like Cash King)
+          _checkMidGameAchievements(player);
         }
       });
       _bounceController.forward(from: 0);
@@ -1129,14 +1234,70 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     return false;
   }
 
-  void _showGameOverDialog(Player winner) {
-    // Phase 3: Use Victory Screen instead of simple dialog
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (_) => VictoryScreen(winner: winner, allPlayers: gameState.players, gameTurns: _totalRounds, onPlayAgain: widget.onRestart, onGoHome: widget.onQuit),
-      ),
+  /// Check for mid-game achievements (like Cash King)
+  void _checkMidGameAchievements(Player player) async {
+    // Skip AI players
+    if (player.isAI) return;
+
+    final stats = StatsService.instance.getOrCreateStats(
+      player.name,
+      avatarId: player.avatar?.id,
     );
+
+    // Check for Cash King (have $5000+ at once)
+    if (player.cash >= 5000 && stats.highestCash < player.cash) {
+      stats.highestCash = player.cash;
+
+      // Check if this unlocks any achievements
+      final achievements = Achievements.checkNewAchievements(stats);
+
+      // Show notifications for newly unlocked achievements
+      if (achievements.isNotEmpty && mounted) {
+        for (final achievement in achievements) {
+          if (!mounted) break;
+          AchievementNotificationManager.show(context, achievement);
+          await Future.delayed(const Duration(milliseconds: 3500));
+        }
+      }
+    }
+  }
+
+  void _showGameOverDialog(Player winner) async {
+    // Record stats and check for achievements
+    final achievements = await StatsService.instance.recordGameResult(
+      players: gameState.players,
+      winner: winner,
+      gameState: gameState,
+      totalRounds: _totalRounds,
+    );
+
+    // Show achievement notifications
+    if (achievements.isNotEmpty && mounted) {
+      for (final achievement in achievements) {
+        await Future.delayed(const Duration(milliseconds: 500));
+        if (mounted) {
+          AchievementNotificationManager.show(context, achievement);
+        }
+        // Wait for notification to be visible before showing next
+        await Future.delayed(const Duration(milliseconds: 3500));
+      }
+    }
+
+    // Phase 3: Use Victory Screen instead of simple dialog
+    if (mounted) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (_) => VictoryScreen(
+            winner: winner,
+            allPlayers: gameState.players,
+            gameTurns: _totalRounds,
+            onPlayAgain: widget.onRestart,
+            onGoHome: widget.onQuit,
+          ),
+        ),
+      );
+    }
   }
 
   void _endTurn() {

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'app.dart';
 import 'services/audio_service.dart';
 import 'services/unlock_service.dart';
+import 'services/save_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,6 +15,7 @@ void main() async {
   // Initialize services
   await AudioService.instance.init();
   await UnlockService().init();
+  await SaveService.instance.init();
 
   runApp(const MonopolyApp());
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'serialization/serialization_helpers.dart';
 
 /// Event card categories
 enum EventCategory {
@@ -95,6 +96,34 @@ class EventCard {
     this.duration,
     this.value,
   });
+
+  /// Serialize to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'description': description,
+      'effectType': enumToJson(effectType),
+      'category': enumToJson(category),
+      'icon': icon.codePoint,
+      'duration': duration,
+      'value': value,
+    };
+  }
+
+  /// Deserialize from JSON
+  factory EventCard.fromJson(Map<String, dynamic> json) {
+    return EventCard(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      description: json['description'] as String,
+      effectType: enumFromJson(json['effectType'] as String, EventEffectType.values),
+      category: enumFromJson(json['category'] as String, EventCategory.values),
+      icon: IconData(json['icon'] as int, fontFamily: 'MaterialIcons'),
+      duration: json['duration'] as int?,
+      value: json['value'] as int?,
+    );
+  }
 }
 
 /// All available event cards
@@ -302,5 +331,24 @@ class ActiveEvent {
     if (remainingRounds > 0) {
       remainingRounds--;
     }
+  }
+
+  /// Serialize to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'event': event.toJson(),
+      'remainingRounds': remainingRounds,
+      'activatedAt': activatedAt.toIso8601String(),
+    };
+  }
+
+  /// Deserialize from JSON
+  factory ActiveEvent.fromJson(Map<String, dynamic> json) {
+    final event = ActiveEvent(
+      event: EventCard.fromJson(json['event'] as Map<String, dynamic>),
+      remainingRounds: json['remainingRounds'] as int,
+    );
+    // Note: activatedAt is set in constructor, we can't override it
+    return event;
   }
 }

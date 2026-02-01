@@ -120,9 +120,16 @@ class StatsService {
         }
       }
 
+      final won = winner.id == player.id;
+
+      // Track Survivor achievement (win with less than $100)
+      if (won && player.cash < 100) {
+        stats.wonWithLessThan100 = true;
+      }
+
       // Record the game
       stats.recordGame(
-        won: winner.id == player.id,
+        won: won,
         finalCash: player.cash,
         propertiesOwned: propertiesOwned,
         rentCollected: rentCollected, // Would need turn-by-turn tracking

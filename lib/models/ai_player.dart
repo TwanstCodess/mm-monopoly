@@ -17,6 +17,10 @@ enum AIPersonality {
   conservative, // Keeps cash reserves, cautious
   balanced,     // Mix of both strategies
   collector,    // Focuses on completing color sets
+  riskTaker,    // High risk/reward, expensive properties
+  defensive,    // Blocks opponents, strategic
+  trader,       // Actively seeks trades
+  flipper,      // Buys cheap, mortgages for cash
 }
 
 /// Enhanced AI player configuration
@@ -52,6 +56,14 @@ class AIConfig {
         return 1.2; // Needs 20% more than price
       case AIPersonality.collector:
         return 1.3; // Moderate threshold, focuses on sets
+      case AIPersonality.riskTaker:
+        return 0.8; // Very aggressive, buys expensive properties
+      case AIPersonality.defensive:
+        return 1.4; // Cautious, strategic purchases
+      case AIPersonality.trader:
+        return 1.1; // Moderate, saves for trades
+      case AIPersonality.flipper:
+        return 0.9; // Low threshold, buys cheap properties
     }
   }
 
@@ -66,6 +78,14 @@ class AIConfig {
         return 1.0;
       case AIPersonality.collector:
         return 1.2; // Upgrades completed sets
+      case AIPersonality.riskTaker:
+        return 1.6; // Very likely to upgrade expensive properties
+      case AIPersonality.defensive:
+        return 0.9; // Moderate upgrades
+      case AIPersonality.trader:
+        return 0.8; // Saves cash for trades
+      case AIPersonality.flipper:
+        return 0.5; // Rarely upgrades, prefers quick cash
     }
   }
 }
@@ -106,6 +126,39 @@ class AIDecisionEngine {
     // Conservative needs more buffer
     if (config.personality == AIPersonality.conservative) {
       return cashAfterPurchase >= reserveNeeded * 1.5;
+    }
+
+    // Risk Taker: Prioritizes expensive properties
+    if (config.personality == AIPersonality.riskTaker) {
+      if (price > 300) {
+        return cashAfterPurchase >= reserveNeeded * 0.3; // Very aggressive on expensive
+      }
+      // Less interested in cheap properties
+      return cashAfterPurchase >= reserveNeeded * 1.2;
+    }
+
+    // Defensive: Blocks opponent sets
+    if (config.personality == AIPersonality.defensive) {
+      if (_wouldBlockOpponent(tile, aiPlayer, state)) {
+        return cashAfterPurchase >= reserveNeeded * 0.7; // Lower threshold to block
+      }
+      // Otherwise more cautious
+      return cashAfterPurchase >= reserveNeeded * 1.3;
+    }
+
+    // Trader: Saves cash for trading
+    if (config.personality == AIPersonality.trader) {
+      // Only buy if can maintain good cash reserve for trades
+      return cashAfterPurchase >= reserveNeeded * 1.5 && aiPlayer.cash - price >= 200;
+    }
+
+    // Flipper: Targets cheap properties
+    if (config.personality == AIPersonality.flipper) {
+      if (price < 200) {
+        return cashAfterPurchase >= reserveNeeded * 0.5; // Aggressive on cheap properties
+      }
+      // Avoids expensive properties
+      return false;
     }
 
     // Balanced approach
@@ -216,6 +269,16 @@ class AIDecisionEngine {
     // Conservative AI rarely initiates trades
     if (config.personality == AIPersonality.conservative && _random.nextDouble() < 0.7) {
       return null;
+    }
+
+    // Trader personality initiates trades frequently
+    if (config.personality == AIPersonality.trader && _random.nextDouble() < 0.6) {
+      return _buildStrategicTrade(aiPlayer, otherPlayers, state);
+    }
+
+    // Flipper personality creates cash-focused trades when low on money
+    if (config.personality == AIPersonality.flipper && aiPlayer.cash < 500) {
+      return _buildCashTrade(aiPlayer, otherPlayers, state);
     }
 
     // Find a property we want
@@ -372,6 +435,100 @@ class AIDecisionEngine {
       return false;
     }).toList();
   }
+
+  /// Check if buying this property would block an opponent from completing a set
+  bool _wouldBlockOpponent(TileData tile, Player aiPlayer, GameState state) {
+    if (tile is! PropertyTileData) return false;
+
+    final groupId = tile.groupId;
+    final groupProps = state.tiles
+        .whereType<PropertyTileData>()
+        .where((p) => p.groupId == groupId)
+        .toList();
+
+    // Check if any opponent owns most of this color set
+    for (final player in state.players) {
+      if (player.id == aiPlayer.id || player.status != PlayerStatus.active) continue;
+
+      final ownedCount = groupProps.where((p) => p.ownerId == player.id).length;
+      // If opponent owns all but this one, buying it blocks them
+      if (ownedCount == groupProps.length - 1) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  /// Build a strategic trade for Trader personality
+  TradeOffer? _buildStrategicTrade(Player aiPlayer, List<Player> otherPlayers, GameState state) {
+    // Look for mutually beneficial trades (e.g., both complete sets)
+    for (final other in otherPlayers) {
+      if (other.id == aiPlayer.id || other.status != PlayerStatus.active) continue;
+
+      // Find properties we each want from each other
+      final weWantFromThem = state.tiles.where((tile) {
+        if (tile is! PropertyTileData) return false;
+        if (tile.ownerId != other.id || tile.isMortgaged) return false;
+        return _wouldCompleteColorSet(tile, aiPlayer, state);
+      }).toList();
+
+      final theyWantFromUs = state.tiles.where((tile) {
+        if (tile is! PropertyTileData) return false;
+        if (tile.ownerId != aiPlayer.id || tile.isMortgaged) return false;
+        return _wouldCompleteColorSet(tile, other, state);
+      }).toList();
+
+      if (weWantFromThem.isNotEmpty && theyWantFromUs.isNotEmpty) {
+        // Propose a swap
+        return TradeOffer(
+          id: DateTime.now().millisecondsSinceEpoch.toString(),
+          offerer: aiPlayer,
+          recipient: other,
+          offeredProperties: [theyWantFromUs.first],
+          offeredCash: 0,
+          requestedProperties: [weWantFromThem.first],
+          requestedCash: 0,
+        );
+      }
+    }
+    return null;
+  }
+
+  /// Build a cash-focused trade for Flipper personality
+  TradeOffer? _buildCashTrade(Player aiPlayer, List<Player> otherPlayers, GameState state) {
+    // Find cheap properties we own to sell for cash
+    final ourCheapProps = state.tiles.where((tile) {
+      if (tile is! PropertyTileData) return false;
+      if (tile.ownerId != aiPlayer.id || tile.isMortgaged) return false;
+      if (_ownsFullColorSet(tile.groupId, aiPlayer, state)) return false; // Don't break sets
+      return tile.price < 200;
+    }).toList();
+
+    if (ourCheapProps.isEmpty) return null;
+
+    // Find a player with cash
+    for (final other in otherPlayers) {
+      if (other.id == aiPlayer.id || other.status != PlayerStatus.active) continue;
+      if (other.cash < 150) continue;
+
+      final propToSell = ourCheapProps.first as PropertyTileData;
+      final askingPrice = (propToSell.price * 0.9).toInt(); // Slight discount for quick sale
+
+      if (other.cash >= askingPrice) {
+        return TradeOffer(
+          id: DateTime.now().millisecondsSinceEpoch.toString(),
+          offerer: aiPlayer,
+          recipient: other,
+          offeredProperties: [propToSell],
+          offeredCash: 0,
+          requestedProperties: [],
+          requestedCash: askingPrice,
+        );
+      }
+    }
+    return null;
+  }
 }
 
 /// Extension to add AI config to Player
@@ -406,6 +563,14 @@ String getAIPersonalityName(AIPersonality personality) {
       return 'Balanced';
     case AIPersonality.collector:
       return 'Collector';
+    case AIPersonality.riskTaker:
+      return 'Risk Taker';
+    case AIPersonality.defensive:
+      return 'Defensive';
+    case AIPersonality.trader:
+      return 'Trader';
+    case AIPersonality.flipper:
+      return 'Flipper';
   }
 }
 
@@ -420,5 +585,13 @@ String getAIPersonalityDescription(AIPersonality personality) {
       return 'Mix of offense and defense';
     case AIPersonality.collector:
       return 'Focuses on completing color sets';
+    case AIPersonality.riskTaker:
+      return 'Targets expensive properties, high risk/reward';
+    case AIPersonality.defensive:
+      return 'Blocks opponents from completing sets';
+    case AIPersonality.trader:
+      return 'Actively seeks mutually beneficial trades';
+    case AIPersonality.flipper:
+      return 'Buys cheap properties and sells for cash';
   }
 }

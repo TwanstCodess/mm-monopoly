@@ -7,8 +7,18 @@ class GameMenuDialog extends StatelessWidget {
   final VoidCallback onRestart;
   final VoidCallback onQuit;
   final VoidCallback? onRules;
+  final VoidCallback? onSave;
+  final VoidCallback? onLoad;
 
-  const GameMenuDialog({super.key, required this.onClose, required this.onRestart, required this.onQuit, this.onRules});
+  const GameMenuDialog({
+    super.key,
+    required this.onClose,
+    required this.onRestart,
+    required this.onQuit,
+    this.onRules,
+    this.onSave,
+    this.onLoad,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +86,35 @@ class GameMenuDialog extends StatelessWidget {
             },
           ),
           const SizedBox(height: 12),
+          if (onSave != null) ...[
+            _buildMenuItem(
+              icon: Icons.save_rounded,
+              label: 'Save Game',
+              gradient: const [Color(0xFF56CCF2), Color(0xFF2F80ED)],
+              onTap: () {
+                Navigator.of(context).pop();
+                onSave!();
+              },
+            ),
+            const SizedBox(height: 12),
+          ],
+          if (onLoad != null) ...[
+            _buildMenuItem(
+              icon: Icons.folder_open_rounded,
+              label: 'Load Game',
+              gradient: const [Color(0xFFB06AB3), Color(0xFF4568DC)],
+              onTap: () {
+                Navigator.of(context).pop();
+                _showConfirmDialog(
+                  context,
+                  'Load Saved Game?',
+                  'Current game progress will be lost.',
+                  onLoad!,
+                );
+              },
+            ),
+            const SizedBox(height: 12),
+          ],
           if (onRules != null) ...[
             _buildMenuItem(
               icon: Icons.help_outline_rounded,
@@ -250,11 +289,26 @@ class GameMenuDialog extends StatelessWidget {
 }
 
 /// Show the game menu dialog
-Future<void> showGameMenuDialog({required BuildContext context, required VoidCallback onClose, required VoidCallback onRestart, required VoidCallback onQuit, VoidCallback? onRules}) {
+Future<void> showGameMenuDialog({
+  required BuildContext context,
+  required VoidCallback onClose,
+  required VoidCallback onRestart,
+  required VoidCallback onQuit,
+  VoidCallback? onRules,
+  VoidCallback? onSave,
+  VoidCallback? onLoad,
+}) {
   return showDialog(
     context: context,
     barrierDismissible: true,
-    builder: (context) => GameMenuDialog(onClose: onClose, onRestart: onRestart, onQuit: onQuit, onRules: onRules),
+    builder: (context) => GameMenuDialog(
+      onClose: onClose,
+      onRestart: onRestart,
+      onQuit: onQuit,
+      onRules: onRules,
+      onSave: onSave,
+      onLoad: onLoad,
+    ),
   ).then((_) {
     // Call onClose when dialog is dismissed (by tapping outside or "Back to Game")
     onClose();

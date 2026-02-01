@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'serialization/serialization_helpers.dart';
 
 /// A visual theme for the game board
 class BoardTheme {
@@ -33,6 +34,44 @@ class BoardTheme {
   /// Get property color by group index
   Color getPropertyColor(int groupIndex) {
     return propertyColors[groupIndex % propertyColors.length];
+  }
+
+  /// Serialize to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'description': description,
+      'boardColor': colorToJson(boardColor),
+      'tileBackground': colorToJson(tileBackground),
+      'tileBorder': colorToJson(tileBorder),
+      'centerBackground': colorToJson(centerBackground),
+      'textColor': colorToJson(textColor),
+      'accentColor': colorToJson(accentColor),
+      'propertyColors': propertyColors.map(colorToJson).toList(),
+      'isDark': isDark,
+      'unlockWins': unlockWins,
+    };
+  }
+
+  /// Deserialize from JSON
+  factory BoardTheme.fromJson(Map<String, dynamic> json) {
+    return BoardTheme(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      description: json['description'] as String,
+      boardColor: colorFromJson(json['boardColor'] as Map<String, dynamic>),
+      tileBackground: colorFromJson(json['tileBackground'] as Map<String, dynamic>),
+      tileBorder: colorFromJson(json['tileBorder'] as Map<String, dynamic>),
+      centerBackground: colorFromJson(json['centerBackground'] as Map<String, dynamic>),
+      textColor: colorFromJson(json['textColor'] as Map<String, dynamic>),
+      accentColor: colorFromJson(json['accentColor'] as Map<String, dynamic>),
+      propertyColors: (json['propertyColors'] as List)
+          .map((c) => colorFromJson(c as Map<String, dynamic>))
+          .toList(),
+      isDark: json['isDark'] as bool? ?? true,
+      unlockWins: json['unlockWins'] as int?,
+    );
   }
 }
 

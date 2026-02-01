@@ -478,6 +478,11 @@ class GameEngine {
         .length;
   }
 
+  /// Get accurate net worth for a player including all property values
+  int getPlayerNetWorth(Player player) {
+    return player.calculateNetWorth(state.tiles);
+  }
+
   void _transferProperties(Player from, Player to) {
     for (final tile in state.tiles) {
       if (tile is PropertyTileData && tile.ownerId == from.id) {

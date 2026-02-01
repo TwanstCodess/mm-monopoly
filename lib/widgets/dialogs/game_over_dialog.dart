@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import '../../models/player.dart';
+import '../../models/tile.dart';
 import '../../config/theme.dart';
 
 /// Dialog showing game over and winner
 class GameOverDialog extends StatelessWidget {
   final Player winner;
   final List<Player> allPlayers;
+  final List<TileData> tiles;
   final int totalRounds;
   final VoidCallback onPlayAgain;
   final VoidCallback onMainMenu;
@@ -14,6 +16,7 @@ class GameOverDialog extends StatelessWidget {
     super.key,
     required this.winner,
     required this.allPlayers,
+    required this.tiles,
     required this.totalRounds,
     required this.onPlayAgain,
     required this.onMainMenu,
@@ -23,7 +26,7 @@ class GameOverDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     // Sort players by net worth for rankings
     final sortedPlayers = List<Player>.from(allPlayers)
-      ..sort((a, b) => b.netWorth.compareTo(a.netWorth));
+      ..sort((a, b) => b.calculateNetWorth(tiles).compareTo(a.calculateNetWorth(tiles)));
 
     return Dialog(
       backgroundColor: Colors.transparent,
@@ -137,7 +140,7 @@ class GameOverDialog extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '\$${winner.netWorth}',
+                      '\$${winner.calculateNetWorth(tiles)}',
                       style: const TextStyle(
                         color: AppTheme.cashGreen,
                         fontSize: 20,
@@ -233,7 +236,7 @@ class GameOverDialog extends StatelessWidget {
               )
             else
               Text(
-                '\$${player.netWorth}',
+                '\$${player.calculateNetWorth(tiles)}',
                 style: const TextStyle(
                   color: AppTheme.cashGreen,
                   fontWeight: FontWeight.bold,
@@ -339,6 +342,7 @@ Future<void> showGameOverDialog({
   required BuildContext context,
   required Player winner,
   required List<Player> allPlayers,
+  required List<TileData> tiles,
   required int totalRounds,
   required VoidCallback onPlayAgain,
   required VoidCallback onMainMenu,
@@ -349,6 +353,7 @@ Future<void> showGameOverDialog({
     builder: (context) => GameOverDialog(
       winner: winner,
       allPlayers: allPlayers,
+      tiles: tiles,
       totalRounds: totalRounds,
       onPlayAgain: onPlayAgain,
       onMainMenu: onMainMenu,
