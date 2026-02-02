@@ -1,16 +1,98 @@
-# board_demo
+# M&M Property Tycoon 🏠🎲
 
-A new Flutter project.
+A fun, family-friendly board game for tablets inspired by classic property trading games.
+
+## Features
+
+- **2-4 Players** - Play with family and friends on a single device
+- **AI Opponents** - Practice against computer players
+- **Power-Up Cards** - Special abilities to shake up the game
+- **Mini Games** - Quick challenges to earn extra cash
+- **17 Languages** - Full localization support
+- **Custom Avatars** - Take photos or choose from presets
+- **Themes** - Multiple board themes to choose from
+
+## Screenshots
+
+Coming soon...
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter SDK 3.9.2 or later
+- Dart SDK (included with Flutter)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/mm-monopoly.git
+
+# Navigate to project directory
+cd mm-monopoly
+
+# Get dependencies
+flutter pub get
+
+# Run the app
+flutter run
+```
+
+### Building for Release
+
+```bash
+# iOS
+flutter build ios --release
+
+# Android
+flutter build apk --release
+```
+
+## Game Rules
+
+1. **Roll the dice** to move around the board
+2. **Buy properties** you land on
+3. **Collect rent** when others land on your properties
+4. **Build houses** to increase rent
+5. **Trade** with other players (optional)
+6. **Win** by being the last player with money!
+
+## Settings
+
+- **Starting Cash** - $500 to $3000
+- **Player Trading** - Enable/disable trades
+- **Bank Features** - Sell properties back to bank
+- **Property Auctions** - Auction unclaimed properties
+
+## Tech Stack
+
+- **Flutter** - Cross-platform UI framework
+- **Dart** - Programming language
+- **audioplayers** - Background music and sound effects
+- **shared_preferences** - Local data persistence
+
+## Project Structure
+
+```
+lib/
+├── config/          # Theme, board configurations
+├── models/          # Game state, players, properties
+├── screens/         # UI screens
+├── services/        # Audio, unlocks, persistence
+└── widgets/         # Reusable UI components
+```
+
+## Contributing
+
+This is a personal project, but suggestions are welcome!
+
+## License
+
+Private - All rights reserved
+
+## Support
+
+If you enjoy the game, consider buying me a coffee! ☕
+
+[Buy Me a Coffee](https://buymeacoffee.com/hao_yu)

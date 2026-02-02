@@ -228,10 +228,10 @@ class _MemoryMatchGameState extends State<MemoryMatchGame> {
 
 class _MemoryCard {
   final IconData icon;
-  bool isFlipped;
-  bool isMatched;
+  bool isFlipped = false;
+  bool isMatched = false;
 
-  _MemoryCard({required this.icon, this.isFlipped = false, this.isMatched = false});
+  _MemoryCard({required this.icon});
 }
 
 class _MemoryCardWidget extends StatefulWidget {
