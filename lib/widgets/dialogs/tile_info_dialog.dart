@@ -577,17 +577,71 @@ class TileInfoDialog extends StatelessWidget {
     }
   }
 
+  /// Get game tips/facts for purchasable tiles
+  List<String> _getGameTips() {
+    if (tile is PropertyTileData) {
+      final property = tile as PropertyTileData;
+      return [
+        'Own all properties in a color group to charge double rent!',
+        'Build houses evenly across your properties for maximum profit.',
+        'Hotels generate the highest rent - up to \$${property.rentLevels.last}!',
+      ];
+    } else if (tile is RailroadTileData) {
+      return [
+        'Own 1 railroad: \$25 rent',
+        'Own 2 railroads: \$50 rent',
+        'Own 3 railroads: \$100 rent',
+        'Own all 4 railroads: \$200 rent!',
+      ];
+    } else if (tile is UtilityTileData) {
+      return [
+        'Own 1 utility: Rent = 4× dice roll',
+        'Own both utilities: Rent = 10× dice roll!',
+        'Utilities can be very profitable with high dice rolls.',
+      ];
+    }
+    return [];
+  }
+
   @override
   Widget build(BuildContext context) {
-    // Use tile's built-in fun fact if available, otherwise fall back to hardcoded facts
-    final info = tile.funFact != null
-      ? TileInfo(
-          location: _getLocationFromTile(),
-          facts: _getFactsFromFunFact(tile.funFact!),
-          funFact: tile.funFact!,
-          emoji: _getEmojiFromTileType(),
-        )
-      : TileFacts.getInfo(tile);
+    // Get the base tile info from TileFacts (for special tiles like Chance, Tax, corners, etc.)
+    final baseInfo = TileFacts.getInfo(tile);
+
+    // Determine if this is a special tile type that should use TileFacts
+    final isSpecialTile = tile.type == TileType.start ||
+        tile.type == TileType.jail ||
+        tile.type == TileType.freeParking ||
+        tile.type == TileType.goToJail ||
+        tile.type == TileType.chance ||
+        tile.type == TileType.communityChest ||
+        tile.type == TileType.tax;
+
+    // Determine facts to show
+    List<String> facts;
+    String funFact;
+
+    if (tile.funFact != null) {
+      // Tile has its own funFact (all boards) - use it for banner
+      // Add game tips as bullet points for properties/railroads/utilities
+      funFact = tile.funFact!;
+      facts = _getGameTips();
+    } else if (isSpecialTile) {
+      // Special tiles use TileFacts (Chance, Tax, corners, etc.)
+      funFact = baseInfo.funFact;
+      facts = baseInfo.facts;
+    } else {
+      // Fallback to TileFacts
+      funFact = baseInfo.funFact;
+      facts = baseInfo.facts;
+    }
+
+    final info = TileInfo(
+      location: _getLocationFromTile(),
+      facts: facts,
+      funFact: funFact,
+      emoji: _getEmojiFromTileType(),
+    );
 
     return Dialog(
       backgroundColor: Colors.transparent,
@@ -709,35 +763,37 @@ class TileInfoDialog extends StatelessWidget {
           ),
           const SizedBox(height: 16),
 
-          // Facts section
-          const Text(
-            'Did You Know? 🧠',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
+          // Facts section - only show if there are facts to display
+          if (info.facts.isNotEmpty) ...[
+            const Text(
+              'Did You Know? 🧠',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-          const SizedBox(height: 8),
-          ...info.facts.map((fact) => Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('• ', style: TextStyle(color: Colors.amber, fontSize: 16)),
-                    Expanded(
-                      child: Text(
-                        fact,
-                        style: const TextStyle(
-                          color: Colors.white70,
-                          fontSize: 14,
-                          height: 1.3,
+            const SizedBox(height: 8),
+            ...info.facts.map((fact) => Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('• ', style: TextStyle(color: Colors.amber, fontSize: 16)),
+                      Expanded(
+                        child: Text(
+                          fact,
+                          style: const TextStyle(
+                            color: Colors.white70,
+                            fontSize: 14,
+                            height: 1.3,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              )),
+                    ],
+                  ),
+                )),
+          ],
 
           // Game rules for special tiles
           if (tile.type == TileType.chance ||

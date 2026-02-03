@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import '../../models/player.dart';
+import '../../models/tile.dart';
 import '../../config/theme.dart';
 import 'animated_dialog.dart';
+
+/// Type of rent being paid - affects how the calculation is displayed
+enum RentType {
+  property,   // Standard property rent
+  railroad,   // Railroad rent (depends on count owned)
+  utility,    // Utility rent (depends on dice roll)
+}
 
 /// Dialog showing rent payment
 class RentPaymentDialog extends StatelessWidget {
@@ -11,6 +19,9 @@ class RentPaymentDialog extends StatelessWidget {
   final Player payer;
   final bool isBankruptcy;
   final VoidCallback onConfirm;
+  final RentType rentType;
+  final int? diceRoll;        // For utilities: the dice roll used
+  final int? ownedCount;      // For utilities/railroads: count owned by owner
 
   const RentPaymentDialog({
     super.key,
@@ -20,6 +31,9 @@ class RentPaymentDialog extends StatelessWidget {
     required this.payer,
     this.isBankruptcy = false,
     required this.onConfirm,
+    this.rentType = RentType.property,
+    this.diceRoll,
+    this.ownedCount,
   });
 
   @override
@@ -134,7 +148,7 @@ class RentPaymentDialog extends StatelessWidget {
             style: TextStyle(color: Colors.white70, fontSize: 14),
           ),
           const SizedBox(height: 20),
-          // Amount
+          // Amount with calculation breakdown
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
             decoration: BoxDecoration(
@@ -156,6 +170,65 @@ class RentPaymentDialog extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                // Show calculation breakdown for utilities and railroads
+                if (rentType == RentType.utility && diceRoll != null) ...[
+                  const SizedBox(height: 8),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: Colors.amber.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(Icons.casino, color: Colors.amber, size: 16),
+                        const SizedBox(width: 6),
+                        Text(
+                          'Dice: $diceRoll × ${ownedCount == 2 ? 10 : 4} = \$$amount',
+                          style: const TextStyle(
+                            color: Colors.amber,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    ownedCount == 2 ? '(Owner has both utilities)' : '(Owner has 1 utility)',
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.5),
+                      fontSize: 11,
+                    ),
+                  ),
+                ],
+                if (rentType == RentType.railroad && ownedCount != null) ...[
+                  const SizedBox(height: 8),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.3),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(Icons.train, color: Colors.white70, size: 16),
+                        const SizedBox(width: 6),
+                        Text(
+                          'Owner has $ownedCount railroad${ownedCount! > 1 ? 's' : ''}',
+                          style: const TextStyle(
+                            color: Colors.white70,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ],
             ),
           ),
@@ -227,6 +300,9 @@ Future<void> showRentPaymentDialog({
   required Player payer,
   bool isBankruptcy = false,
   required VoidCallback onConfirm,
+  RentType rentType = RentType.property,
+  int? diceRoll,
+  int? ownedCount,
 }) {
   return showAnimatedDialog(
     context: context,
@@ -239,6 +315,9 @@ Future<void> showRentPaymentDialog({
       payer: payer,
       isBankruptcy: isBankruptcy,
       onConfirm: onConfirm,
+      rentType: rentType,
+      diceRoll: diceRoll,
+      ownedCount: ownedCount,
     ),
   );
 }

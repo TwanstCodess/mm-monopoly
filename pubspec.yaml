@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+1
+version: 1.0.0+3
 
 environment:
   sdk: ^3.9.2
@@ -47,6 +47,10 @@ dependencies:
   flutter_launcher_icons: ^0.14.4
   url_launcher: ^6.3.2
 
+  # Local notifications for fun facts
+  flutter_local_notifications: ^18.0.1
+  timezone: ^0.10.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -57,6 +61,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  flutter_native_splash: ^2.4.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -104,3 +109,37 @@ flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/icon/icon.png"
+
+flutter_native_splash:
+  # This package generates native code to customize Flutter's default white native splash screen
+  # with background color and splash image.
+  # Customize the parameters below, and run the following command in the terminal:
+  # dart run flutter_native_splash:create
+
+  # Use your existing icon as the splash screen image
+  image: assets/icon/icon.png
+
+  # Background color - use your app's purple gradient color
+  color: "#764ba2"
+
+  # Optional: Add gradient effect (uncomment if you want gradient background)
+  # color_dark: "#667eea"
+  # background_image: "assets/splash/background.png"
+
+  # iOS specific settings
+  ios: true
+
+  # Android specific settings
+  android: true
+
+  # Web specific settings
+  web: false
+
+  # Branding image (optional - shown below the main image)
+  # branding: assets/icon/branding.png
+  # branding_mode: bottom
+
+  # The image_dark, color_dark, and branding_dark parameters are optional
+  # They are used to set the image and color for dark mode.
+  # image_dark: assets/icon/icon_dark.png
+  # color_dark: "#1a1a2e"

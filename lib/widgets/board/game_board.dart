@@ -26,6 +26,8 @@ class GameBoard extends StatelessWidget {
   final VoidCallback? onChanceTap;
   final VoidCallback? onChestTap;
   final bool showActionButtons;
+  final VoidCallback? onMusicToggle;
+  final bool isMusicPlaying;
 
   const GameBoard({
     super.key,
@@ -46,6 +48,8 @@ class GameBoard extends StatelessWidget {
     this.onChanceTap,
     this.onChestTap,
     this.showActionButtons = false,
+    this.onMusicToggle,
+    this.isMusicPlaying = true,
   });
 
   @override
@@ -87,6 +91,8 @@ class GameBoard extends StatelessWidget {
                 onChanceTap: onChanceTap,
                 onChestTap: onChestTap,
                 boardTheme: boardTheme,
+                onMusicToggle: onMusicToggle,
+                isMusicPlaying: isMusicPlaying,
               ),
               // All tiles
               ..._buildAllTiles(boardTiles, boardSize, cornerSize, tileWidth, tileHeight),
@@ -217,8 +223,10 @@ class _CenterArea extends StatelessWidget {
   final bool isChestHighlighted;
   final VoidCallback? onChanceTap;
   final VoidCallback? onChestTap;
+  final VoidCallback? onMusicToggle;
+  final bool isMusicPlaying;
 
-  const _CenterArea({required this.boardSize, required this.cornerSize, this.centerControls, this.boardTheme, this.onMenuTap, this.onTradeTap, this.onBankTap, this.showActionButtons = false, this.isChanceHighlighted = false, this.isChestHighlighted = false, this.onChanceTap, this.onChestTap});
+  const _CenterArea({required this.boardSize, required this.cornerSize, this.centerControls, this.boardTheme, this.onMenuTap, this.onTradeTap, this.onBankTap, this.showActionButtons = false, this.isChanceHighlighted = false, this.isChestHighlighted = false, this.onChanceTap, this.onChestTap, this.onMusicToggle, this.isMusicPlaying = true});
 
   @override
   Widget build(BuildContext context) {
@@ -262,29 +270,67 @@ class _CenterArea extends StatelessWidget {
               ],
             ),
           ),
-          // Menu button inside board (top-right of center area)
-          if (onMenuTap != null)
-            Positioned(
-              top: 8,
-              right: 8,
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(10),
-                  onTap: onMenuTap,
-                  child: Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Colors.grey.shade700, Colors.grey.shade800]),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.white24, width: 1),
-                      boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 4, offset: const Offset(0, 2))],
+          // Menu and Music buttons inside board (top-right of center area)
+          Positioned(
+            top: 8,
+            right: 8,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Music toggle button
+                if (onMusicToggle != null)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 6),
+                    child: Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(10),
+                        onTap: onMusicToggle,
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: isMusicPlaying
+                                  ? [Colors.green.shade600, Colors.green.shade800]
+                                  : [Colors.grey.shade700, Colors.grey.shade800],
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: Colors.white24, width: 1),
+                            boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 4, offset: const Offset(0, 2))],
+                          ),
+                          child: Icon(
+                            isMusicPlaying ? Icons.music_note : Icons.music_off,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                        ),
+                      ),
                     ),
-                    child: const Icon(Icons.menu_rounded, color: Colors.white, size: 20),
                   ),
-                ),
-              ),
+                // Settings/Menu button
+                if (onMenuTap != null)
+                  Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(10),
+                      onTap: onMenuTap,
+                      child: Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Colors.grey.shade700, Colors.grey.shade800]),
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.white24, width: 1),
+                          boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 4, offset: const Offset(0, 2))],
+                        ),
+                        child: const Icon(Icons.settings, color: Colors.white, size: 20),
+                      ),
+                    ),
+                  ),
+              ],
             ),
+          ),
           // Trade and Bank buttons (top-left of center area)
           if (showActionButtons)
             Positioned(

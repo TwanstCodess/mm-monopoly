@@ -24,29 +24,52 @@ Color colorFromJson(Map<String, dynamic> json) {
 /// Serialize an Avatar to JSON (nullable)
 Map<String, dynamic>? avatarToJson(Avatar? avatar) {
   if (avatar == null) return null;
+
+  // For custom avatars, serialize all fields
+  if (avatar.category == AvatarCategory.custom) {
+    return {
+      'id': avatar.id,
+      'category': enumToJson(avatar.category),
+      'emoji': avatar.emoji,
+      'name': avatar.name,
+      'primaryColor': colorToJson(avatar.primaryColor),
+      'secondaryColor': colorToJson(avatar.secondaryColor),
+      'customImagePath': avatar.customImagePath,
+    };
+  }
+
+  // For predefined avatars, only store ID for lookup
   return {
     'id': avatar.id,
     'category': enumToJson(avatar.category),
-    'emoji': avatar.emoji,
-    'name': avatar.name,
-    'primaryColor': colorToJson(avatar.primaryColor),
-    'secondaryColor': colorToJson(avatar.secondaryColor),
-    'iconData': avatar.iconData.codePoint,
-    'customImagePath': avatar.customImagePath,
   };
 }
 
 /// Deserialize an Avatar from JSON (nullable)
 Avatar? avatarFromJson(Map<String, dynamic>? json) {
   if (json == null) return null;
-  return Avatar(
-    id: json['id'] as String,
-    category: enumFromJson(json['category'] as String, AvatarCategory.values),
-    emoji: json['emoji'] as String,
-    name: json['name'] as String,
-    primaryColor: colorFromJson(json['primaryColor'] as Map<String, dynamic>),
-    secondaryColor: colorFromJson(json['secondaryColor'] as Map<String, dynamic>),
-    iconData: IconData(json['iconData'] as int, fontFamily: 'MaterialIcons'),
-    customImagePath: json['customImagePath'] as String?,
+
+  final category = enumFromJson(json['category'] as String, AvatarCategory.values);
+
+  // For custom avatars, reconstruct from saved data
+  if (category == AvatarCategory.custom) {
+    return Avatar(
+      id: json['id'] as String,
+      category: category,
+      emoji: json['emoji'] as String,
+      name: json['name'] as String,
+      primaryColor: colorFromJson(json['primaryColor'] as Map<String, dynamic>),
+      secondaryColor: colorFromJson(json['secondaryColor'] as Map<String, dynamic>),
+      iconData: Icons.person, // Use const IconData for custom avatars
+      customImagePath: json['customImagePath'] as String?,
+    );
+  }
+
+  // For predefined avatars, look up from Avatars.all
+  final id = json['id'] as String;
+  final avatar = Avatars.all.firstWhere(
+    (a) => a.id == id,
+    orElse: () => Avatars.dog, // Fallback to default avatar
   );
+  return avatar;
 }

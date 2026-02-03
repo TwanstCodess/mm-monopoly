@@ -80,7 +80,7 @@ class FranceBoard {
       _property(19, 'Louvre', 'orange', PropertyGroups.orange, 200, [16, 80, 220, 600, 800, 1000],
         funFact: 'The world\'s largest art museum, home to the Mona Lisa and 38,000 artworks!',
         subtext: 'Le Louvre'),
-      _corner(20, 'LUCKY SPIN', TileType.freeParking, subtext: 'PARC GRATUIT'),
+      _corner(20, 'LUCKY SPIN', TileType.freeParking, subtext: 'ROUE CHANCE'),
 
       // Top row (left to right: 21-30)
       _property(21, 'Opéra', 'red', PropertyGroups.red, 220, [18, 90, 250, 700, 875, 1050],

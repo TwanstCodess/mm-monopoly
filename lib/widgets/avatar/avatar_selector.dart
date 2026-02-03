@@ -172,47 +172,56 @@ class _AvatarSelectorState extends State<AvatarSelector>
         const SizedBox(height: 16),
         // Avatar grid - expands to fill available space
         Expanded(
-          child: TabBarView(
-            controller: _tabController,
-            children: AvatarCategory.values.map((category) {
-              if (category == AvatarCategory.custom) {
-                return _buildCustomAvatarsTab();
-              }
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              // Adapt grid columns based on available width
+              final isWide = constraints.maxWidth > 500;
+              final crossAxisCount = isWide ? 6 : 4;
+              final spacing = isWide ? 12.0 : 16.0;
 
-              final avatars = Avatars.byCategory(category);
-              return GridView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  mainAxisSpacing: 16,
-                  crossAxisSpacing: 16,
-                  childAspectRatio: 1.0,
-                ),
-                itemCount: avatars.length,
-                itemBuilder: (context, index) {
-                  final avatar = avatars[index];
-                  final isAvailable = _isAvatarAvailable(avatar);
-                  final isSelected = widget.selectedAvatar?.id == avatar.id;
+              return TabBarView(
+                controller: _tabController,
+                children: AvatarCategory.values.map((category) {
+                  if (category == AvatarCategory.custom) {
+                    return _buildCustomAvatarsTab(crossAxisCount: crossAxisCount, spacing: spacing);
+                  }
 
-                  return _AvatarOption(
-                    avatar: avatar,
-                    size: widget.avatarSize,
-                    isSelected: isSelected,
-                    isAvailable: isAvailable,
-                    onTap: isAvailable
-                        ? () => widget.onAvatarSelected(avatar)
-                        : null,
+                  final avatars = Avatars.byCategory(category);
+                  return GridView.builder(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: crossAxisCount,
+                      mainAxisSpacing: spacing,
+                      crossAxisSpacing: spacing,
+                      childAspectRatio: 1.0,
+                    ),
+                    itemCount: avatars.length,
+                    itemBuilder: (context, index) {
+                      final avatar = avatars[index];
+                      final isAvailable = _isAvatarAvailable(avatar);
+                      final isSelected = widget.selectedAvatar?.id == avatar.id;
+
+                      return _AvatarOption(
+                        avatar: avatar,
+                        size: widget.avatarSize,
+                        isSelected: isSelected,
+                        isAvailable: isAvailable,
+                        onTap: isAvailable
+                            ? () => widget.onAvatarSelected(avatar)
+                            : null,
+                      );
+                    },
                   );
-                },
+                }).toList(),
               );
-            }).toList(),
+            },
           ),
         ),
       ],
     );
   }
 
-  Widget _buildCustomAvatarsTab() {
+  Widget _buildCustomAvatarsTab({int crossAxisCount = 4, double spacing = 16}) {
     if (_isLoading) {
       return const Center(
         child: CircularProgressIndicator(color: Color(0xFF7C4DFF)),
@@ -284,10 +293,10 @@ class _AvatarSelectorState extends State<AvatarSelector>
                 )
               : GridView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 12),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 4,
-                    mainAxisSpacing: 16,
-                    crossAxisSpacing: 16,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: crossAxisCount,
+                    mainAxisSpacing: spacing,
+                    crossAxisSpacing: spacing,
                     childAspectRatio: 1.0,
                   ),
                   itemCount: _customAvatars.length,

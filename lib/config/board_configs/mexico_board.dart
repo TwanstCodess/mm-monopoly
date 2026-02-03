@@ -80,7 +80,7 @@ class MexicoBoard {
       _property(19, 'Zócalo', 'orange', PropertyGroups.orange, 200, [16, 80, 220, 600, 800, 1000],
         funFact: 'One of the world\'s largest public squares, the heart of Mexico City since Aztec times!',
         subtext: 'Zócalo'),
-      _corner(20, 'LUCKY SPIN', TileType.freeParking, subtext: 'RULETA'),
+      _corner(20, 'LUCKY SPIN', TileType.freeParking, subtext: 'GIRA Y GANA'),
 
       // Top row (left to right: 21-30)
       _property(21, 'Palacio Nacional', 'red', PropertyGroups.red, 220, [18, 90, 250, 700, 875, 1050],

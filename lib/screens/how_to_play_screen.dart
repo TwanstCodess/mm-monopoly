@@ -124,34 +124,53 @@ class _HowToPlayScreenState extends State<HowToPlayScreen> {
                 ),
               ),
 
-              // Navigation hints & button
+              // Navigation arrows & button
               Padding(
                 padding: const EdgeInsets.all(24),
                 child: Column(
                   children: [
-                    // Swipe hint
-                    if (_currentPage < _cards.length - 1)
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 16),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Swipe for more',
-                              style: TextStyle(
-                                color: Colors.white.withOpacity(0.7),
-                                fontSize: 14,
-                              ),
-                            ),
-                            const SizedBox(width: 8),
-                            Icon(
-                              Icons.arrow_forward_ios,
+                    // Navigation row with arrows
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          // Left arrow
+                          _buildNavArrow(
+                            icon: Icons.arrow_back_ios_rounded,
+                            enabled: _currentPage > 0,
+                            onTap: () {
+                              _pageController.previousPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
+                            },
+                          ),
+                          const SizedBox(width: 16),
+                          // Page info text
+                          Text(
+                            '${_currentPage + 1} / ${_cards.length}',
+                            style: TextStyle(
                               color: Colors.white.withOpacity(0.7),
-                              size: 14,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
                             ),
-                          ],
-                        ),
+                          ),
+                          const SizedBox(width: 16),
+                          // Right arrow
+                          _buildNavArrow(
+                            icon: Icons.arrow_forward_ios_rounded,
+                            enabled: _currentPage < _cards.length - 1,
+                            onTap: () {
+                              _pageController.nextPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
+                            },
+                          ),
+                        ],
                       ),
+                    ),
 
                     // Got it button (always visible, emphasized on last page)
                     _buildGotItButton(),
@@ -259,6 +278,41 @@ class _HowToPlayScreenState extends State<HowToPlayScreen> {
             border: Border.all(color: Colors.white.withOpacity(0.3)),
           ),
           child: const Icon(Icons.arrow_back_rounded, color: Colors.white, size: 24),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNavArrow({
+    required IconData icon,
+    required bool enabled,
+    required VoidCallback onTap,
+  }) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: enabled ? onTap : null,
+        borderRadius: BorderRadius.circular(12),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          width: 44,
+          height: 44,
+          decoration: BoxDecoration(
+            color: enabled
+                ? Colors.white.withOpacity(0.2)
+                : Colors.white.withOpacity(0.05),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: enabled
+                  ? Colors.white.withOpacity(0.3)
+                  : Colors.white.withOpacity(0.1),
+            ),
+          ),
+          child: Icon(
+            icon,
+            color: enabled ? Colors.white : Colors.white.withOpacity(0.3),
+            size: 20,
+          ),
         ),
       ),
     );

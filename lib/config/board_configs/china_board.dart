@@ -80,7 +80,7 @@ class ChinaBoard {
       _property(19, 'Summer Palace', 'orange', PropertyGroups.orange, 200, [16, 80, 220, 600, 800, 1000],
         funFact: 'UNESCO site covering 290 hectares, 75% water! Empress Cixi\'s marble boat still stands!',
         subtext: '颐和园'),
-      _corner(20, 'LUCKY SPIN', TileType.freeParking, subtext: '免费停车'),
+      _corner(20, 'LUCKY SPIN', TileType.freeParking, subtext: '幸运转盘'),
 
       // Top row (left to right: 21-30)
       _property(21, 'Drum Tower', 'red', PropertyGroups.red, 220, [18, 90, 250, 700, 875, 1050],

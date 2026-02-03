@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'serialization/serialization_helpers.dart';
 
 /// Rarity levels for power-up cards
 enum CardRarity {
@@ -101,32 +100,21 @@ class PowerUpCard {
     );
   }
 
-  /// Serialize to JSON
+  /// Serialize to JSON (only stores ID for lookup)
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'name': name,
-      'description': description,
-      'type': enumToJson(type),
-      'rarity': enumToJson(rarity),
-      'icon': icon.codePoint,
-      'primaryColor': colorToJson(primaryColor),
-      'duration': duration,
     };
   }
 
-  /// Deserialize from JSON
+  /// Deserialize from JSON (lookup from predefined constants)
   factory PowerUpCard.fromJson(Map<String, dynamic> json) {
-    return PowerUpCard(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      description: json['description'] as String,
-      type: enumFromJson(json['type'] as String, PowerUpType.values),
-      rarity: enumFromJson(json['rarity'] as String, CardRarity.values),
-      icon: IconData(json['icon'] as int, fontFamily: 'MaterialIcons'),
-      primaryColor: colorFromJson(json['primaryColor'] as Map<String, dynamic>),
-      duration: json['duration'] as int?,
+    final id = json['id'] as String;
+    final card = PowerUpCards.all.firstWhere(
+      (c) => c.id == id,
+      orElse: () => PowerUpCards.rentReducer, // Fallback to a default card
     );
+    return card;
   }
 }
 

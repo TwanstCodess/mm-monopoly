@@ -70,6 +70,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   final Random _random = Random.secure();
   int _totalRounds = 1;
   bool _isPaused = false; // Track if game menu is open
+  bool _isMusicPlaying = true; // Track music state
 
   // Phase 4: AI Decision Engines per AI player
   final Map<String, AIDecisionEngine> _aiEngines = {};
@@ -87,6 +88,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     engine = GameEngine(gameState);
     _initializeAnimations();
     _initializeAIEngines();
+    _isMusicPlaying = AudioService.instance.musicEnabled;
   }
 
   void _initializeAIEngines() {
@@ -136,6 +138,13 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
 
   void _showTileInfo(TileData tile) {
     showTileInfoDialog(context: context, tile: tile);
+  }
+
+  void _toggleMusic() {
+    setState(() {
+      _isMusicPlaying = !_isMusicPlaying;
+    });
+    AudioService.instance.setMusicEnabled(_isMusicPlaying);
   }
 
   void _showGameMenu() {
@@ -356,6 +365,8 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
                   isChestHighlighted: _waitingForCardPick && !_isChanceCard,
                   onChanceTap: () => _onCardDeckTap(true),
                   onChestTap: () => _onCardDeckTap(false),
+                  onMusicToggle: _toggleMusic,
+                  isMusicPlaying: _isMusicPlaying,
                 ),
               ),
             ),
@@ -406,6 +417,8 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
                   isChestHighlighted: _waitingForCardPick && !_isChanceCard,
                   onChanceTap: () => _onCardDeckTap(true),
                   onChestTap: () => _onCardDeckTap(false),
+                  onMusicToggle: _toggleMusic,
+                  isMusicPlaying: _isMusicPlaying,
                 ),
               ),
             ),
@@ -729,6 +742,26 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     final owner = gameState.players.firstWhere((p) => p.id == ownerId);
     final isBankruptcy = player.cash < amount;
 
+    // Determine rent type and additional info for display
+    RentType rentType = RentType.property;
+    int? diceRoll;
+    int? ownedCount;
+
+    if (tile is UtilityTileData) {
+      rentType = RentType.utility;
+      diceRoll = gameState.lastDiceRoll;
+      ownedCount = gameState.tiles
+          .whereType<UtilityTileData>()
+          .where((u) => u.ownerId == ownerId)
+          .length;
+    } else if (tile is RailroadTileData) {
+      rentType = RentType.railroad;
+      ownedCount = gameState.tiles
+          .whereType<RailroadTileData>()
+          .where((r) => r.ownerId == ownerId)
+          .length;
+    }
+
     // AI automatically pays rent with notification
     if (player.isAI) {
       await _showAIActionNotification(player.name, 'Paid \$$amount rent to ${owner.name}', Icons.payments, Colors.red);
@@ -759,6 +792,9 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       owner: owner,
       payer: player,
       isBankruptcy: isBankruptcy,
+      rentType: rentType,
+      diceRoll: diceRoll,
+      ownedCount: ownedCount,
       onConfirm: () {
         AudioService.instance.onPayMoney();
         final result = engine.payRent(player, ownerId, amount);

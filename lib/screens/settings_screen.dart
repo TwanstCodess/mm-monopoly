@@ -52,120 +52,131 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
             ...List.generate(12, (index) => _buildFloatingShape(index)),
             // Main content
             SafeArea(
-              child: Column(
-                children: [
-                  // Custom app bar
-                  Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      children: [
-                        _buildBackButton(),
-                        const SizedBox(width: 16),
-                        ShaderMask(
-                          shaderCallback: (bounds) => const LinearGradient(colors: [Colors.white, Color(0xFFFFE66D)]).createShader(bounds),
-                          child: const Text(
-                            'Settings',
-                            style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  // Content - single column layout
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 32),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        // All settings in one card
-                        Container(
-                          padding: const EdgeInsets.all(24),
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: [Colors.white.withValues(alpha: 0.15), Colors.white.withValues(alpha: 0.05)],
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  final isCompact = constraints.maxHeight < 500;
+                  final horizontalPadding = isCompact ? 20.0 : 32.0;
+                  final cardPadding = isCompact ? 16.0 : 24.0;
+
+                  return Column(
+                    children: [
+                      // Custom app bar
+                      Padding(
+                        padding: EdgeInsets.all(isCompact ? 12 : 16),
+                        child: Row(
+                          children: [
+                            _buildBackButton(),
+                            const SizedBox(width: 16),
+                            ShaderMask(
+                              shaderCallback: (bounds) => const LinearGradient(colors: [Colors.white, Color(0xFFFFE66D)]).createShader(bounds),
+                              child: Text(
+                                'Settings',
+                                style: TextStyle(color: Colors.white, fontSize: isCompact ? 20 : 24, fontWeight: FontWeight.bold),
+                              ),
                             ),
-                            borderRadius: BorderRadius.circular(24),
-                            border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
-                          ),
+                          ],
+                        ),
+                      ),
+                      // Content - scrollable
+                      Expanded(
+                        child: SingleChildScrollView(
+                          padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                                  // Starting Cash row
-                                  Row(
-                                    children: [
-                                      const Icon(Icons.attach_money, color: Color(0xFFFFE66D), size: 28),
-                                      const SizedBox(width: 12),
-                                      const Text('Starting Cash', style: TextStyle(color: Colors.white, fontSize: 18)),
-                                      const Spacer(),
-                                      Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                                        decoration: BoxDecoration(
-                                          color: const Color(0xFFFFE66D).withValues(alpha: 0.2),
-                                          borderRadius: BorderRadius.circular(12),
+                              // All settings in one card
+                              Container(
+                                padding: EdgeInsets.all(cardPadding),
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    colors: [Colors.white.withValues(alpha: 0.15), Colors.white.withValues(alpha: 0.05)],
+                                  ),
+                                  borderRadius: BorderRadius.circular(24),
+                                  border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    // Starting Cash row
+                                    Row(
+                                      children: [
+                                        Icon(Icons.attach_money, color: const Color(0xFFFFE66D), size: isCompact ? 24 : 28),
+                                        SizedBox(width: isCompact ? 8 : 12),
+                                        Text('Starting Cash', style: TextStyle(color: Colors.white, fontSize: isCompact ? 16 : 18)),
+                                        const Spacer(),
+                                        Container(
+                                          padding: EdgeInsets.symmetric(horizontal: isCompact ? 12 : 16, vertical: isCompact ? 6 : 8),
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xFFFFE66D).withValues(alpha: 0.2),
+                                            borderRadius: BorderRadius.circular(12),
+                                          ),
+                                          child: Text('\$${_settings.startingCash}', style: TextStyle(color: const Color(0xFFFFE66D), fontSize: isCompact ? 16 : 20, fontWeight: FontWeight.bold)),
                                         ),
-                                        child: Text('\$${_settings.startingCash}', style: const TextStyle(color: Color(0xFFFFE66D), fontSize: 20, fontWeight: FontWeight.bold)),
+                                      ],
+                                    ),
+                                    SizedBox(height: isCompact ? 4 : 8),
+                                    SliderTheme(
+                                      data: SliderThemeData(
+                                        activeTrackColor: const Color(0xFFFFE66D),
+                                        inactiveTrackColor: Colors.white.withValues(alpha: 0.2),
+                                        thumbColor: const Color(0xFFFFE66D),
+                                        trackHeight: isCompact ? 6 : 8,
+                                        thumbShape: RoundSliderThumbShape(enabledThumbRadius: isCompact ? 10 : 14),
                                       ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 8),
-                                  SliderTheme(
-                                    data: SliderThemeData(
-                                      activeTrackColor: const Color(0xFFFFE66D),
-                                      inactiveTrackColor: Colors.white.withValues(alpha: 0.2),
-                                      thumbColor: const Color(0xFFFFE66D),
-                                      trackHeight: 8,
-                                      thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 14),
+                                      child: Slider(
+                                        value: _settings.startingCash.toDouble(),
+                                        min: 500,
+                                        max: 3000,
+                                        divisions: 10,
+                                        onChanged: (v) => _updateSettings(_settings.copyWith(startingCash: v.toInt())),
+                                      ),
                                     ),
-                                    child: Slider(
-                                      value: _settings.startingCash.toDouble(),
-                                      min: 500,
-                                      max: 3000,
-                                      divisions: 10,
-                                      onChanged: (v) => _updateSettings(_settings.copyWith(startingCash: v.toInt())),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  const Divider(color: Colors.white24, thickness: 1),
-                                  const SizedBox(height: 8),
-                                  // Game toggles
-                                  _buildSettingsRow(Icons.swap_horiz, 'Player Trading', _settings.tradingEnabled, (v) => _updateSettings(_settings.copyWith(tradingEnabled: v))),
-                                  _buildSettingsRow(Icons.account_balance, 'Bank Features', _settings.bankEnabled, (v) => _updateSettings(_settings.copyWith(bankEnabled: v))),
-                                  _buildSettingsRow(Icons.gavel, 'Property Auctions', _settings.auctionEnabled, (v) => _updateSettings(_settings.copyWith(auctionEnabled: v))),
-                                  const SizedBox(height: 8),
-                                  const Divider(color: Colors.white24, thickness: 1),
-                                  const SizedBox(height: 8),
-                                  // Audio
-                                  _buildSettingsRow(Icons.music_note, 'Background Music', _settings.musicEnabled, (v) {
-                                    _updateSettings(_settings.copyWith(musicEnabled: v));
-                                    AudioService.instance.setMusicEnabled(v);
-                                  }),
-                                  _buildSettingsRow(Icons.volume_up, 'Game Sounds', _settings.sfxEnabled, (v) {
-                                    _updateSettings(_settings.copyWith(sfxEnabled: v));
-                                    AudioService.instance.setSfxEnabled(v);
-                                  }),
-                                  const SizedBox(height: 8),
-                                  const Divider(color: Colors.white24, thickness: 1),
-                                  const SizedBox(height: 12),
-                                  // Support row
-                                  _buildSupportRow(),
+                                    SizedBox(height: isCompact ? 4 : 8),
+                                    const Divider(color: Colors.white24, thickness: 1),
+                                    SizedBox(height: isCompact ? 4 : 8),
+                                    // Game toggles
+                                    _buildSettingsRow(Icons.swap_horiz, 'Player Trading', _settings.tradingEnabled, (v) => _updateSettings(_settings.copyWith(tradingEnabled: v)), isCompact: isCompact),
+                                    _buildSettingsRow(Icons.account_balance, 'Bank Features', _settings.bankEnabled, (v) => _updateSettings(_settings.copyWith(bankEnabled: v)), isCompact: isCompact),
+                                    _buildSettingsRow(Icons.gavel, 'Property Auctions', _settings.auctionEnabled, (v) => _updateSettings(_settings.copyWith(auctionEnabled: v)), isCompact: isCompact),
+                                    SizedBox(height: isCompact ? 4 : 8),
+                                    const Divider(color: Colors.white24, thickness: 1),
+                                    SizedBox(height: isCompact ? 4 : 8),
+                                    // Audio
+                                    _buildSettingsRow(Icons.music_note, 'Background Music', _settings.musicEnabled, (v) {
+                                      _updateSettings(_settings.copyWith(musicEnabled: v));
+                                      AudioService.instance.setMusicEnabled(v);
+                                    }, isCompact: isCompact),
+                                    _buildSettingsRow(Icons.volume_up, 'Game Sounds', _settings.sfxEnabled, (v) {
+                                      _updateSettings(_settings.copyWith(sfxEnabled: v));
+                                      AudioService.instance.setSfxEnabled(v);
+                                    }, isCompact: isCompact),
+                                    SizedBox(height: isCompact ? 4 : 8),
+                                    const Divider(color: Colors.white24, thickness: 1),
+                                    SizedBox(height: isCompact ? 8 : 12),
+                                    // Support row
+                                    _buildSupportRow(isCompact: isCompact),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: isCompact ? 16 : 24),
+                              // Buttons row
+                              Row(
+                                children: [
+                                  Expanded(child: _buildCompactResetButton(isCompact: isCompact)),
+                                  const SizedBox(width: 16),
+                                  Expanded(flex: 2, child: _buildCompactBackButton(isCompact: isCompact)),
                                 ],
                               ),
-                            ),
-                        const SizedBox(height: 24),
-                        // Buttons row
-                        Row(
-                          children: [
-                            Expanded(child: _buildCompactResetButton()),
-                            const SizedBox(width: 16),
-                            Expanded(flex: 2, child: _buildCompactBackButton()),
-                          ],
+                              SizedBox(height: isCompact ? 12 : 20),
+                            ],
+                          ),
                         ),
-                      ],
-                    ),
-                  ),
-                ],
+                      ),
+                    ],
+                  );
+                },
               ),
             ),
           ],
@@ -194,17 +205,17 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
     );
   }
 
-  Widget _buildSettingsRow(IconData icon, String label, bool value, Function(bool) onChanged) {
+  Widget _buildSettingsRow(IconData icon, String label, bool value, Function(bool) onChanged, {bool isCompact = false}) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.symmetric(vertical: isCompact ? 6 : 10),
       child: Row(
         children: [
-          Icon(icon, color: Colors.white54, size: 26),
-          const SizedBox(width: 16),
-          Text(label, style: const TextStyle(color: Colors.white, fontSize: 18)),
+          Icon(icon, color: Colors.white54, size: isCompact ? 22 : 26),
+          SizedBox(width: isCompact ? 12 : 16),
+          Text(label, style: TextStyle(color: Colors.white, fontSize: isCompact ? 15 : 18)),
           const Spacer(),
           Transform.scale(
-            scale: 1.2,
+            scale: isCompact ? 1.0 : 1.2,
             child: Switch(
               value: value,
               onChanged: onChanged,
@@ -216,7 +227,7 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
     );
   }
 
-  Widget _buildSupportRow() {
+  Widget _buildSupportRow({bool isCompact = false}) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -228,7 +239,7 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
         },
         borderRadius: BorderRadius.circular(16),
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(isCompact ? 12 : 16),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [const Color(0xFFFFDD00).withValues(alpha: 0.15), const Color(0xFFFF8C00).withValues(alpha: 0.1)],
@@ -238,23 +249,25 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
           ),
           child: Row(
             children: [
-              const Text('☕', style: TextStyle(fontSize: 36)),
-              const SizedBox(width: 16),
+              Text('☕', style: TextStyle(fontSize: isCompact ? 28 : 36)),
+              SizedBox(width: isCompact ? 12 : 16),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Buy me a coffee', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
-                    const SizedBox(height: 4),
-                    Text(
-                      'Your support helps keep the game free and updated. Every coffee means a lot!',
-                      style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 14),
-                    ),
+                    Text('Buy me a coffee', style: TextStyle(color: Colors.white, fontSize: isCompact ? 15 : 18, fontWeight: FontWeight.bold)),
+                    if (!isCompact) ...[
+                      const SizedBox(height: 4),
+                      Text(
+                        'Your support helps keep the game free and updated. Every coffee means a lot!',
+                        style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 14),
+                      ),
+                    ],
                   ],
                 ),
               ),
-              const SizedBox(width: 12),
-              Icon(Icons.open_in_new, color: Colors.white.withValues(alpha: 0.5), size: 22),
+              SizedBox(width: isCompact ? 8 : 12),
+              Icon(Icons.open_in_new, color: Colors.white.withValues(alpha: 0.5), size: isCompact ? 18 : 22),
             ],
           ),
         ),
@@ -262,7 +275,7 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
     );
   }
 
-  Widget _buildCompactResetButton() {
+  Widget _buildCompactResetButton({bool isCompact = false}) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -279,39 +292,39 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
         },
         borderRadius: BorderRadius.circular(16),
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 18),
+          padding: EdgeInsets.symmetric(vertical: isCompact ? 12 : 18),
           decoration: BoxDecoration(
             color: Colors.white.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
           ),
-          child: const Center(
-            child: Text('Reset', style: TextStyle(color: Colors.white70, fontSize: 18, fontWeight: FontWeight.w600)),
+          child: Center(
+            child: Text('Reset', style: TextStyle(color: Colors.white70, fontSize: isCompact ? 15 : 18, fontWeight: FontWeight.w600)),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildCompactBackButton() {
+  Widget _buildCompactBackButton({bool isCompact = false}) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
         onTap: widget.onBack,
         borderRadius: BorderRadius.circular(16),
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 18),
+          padding: EdgeInsets.symmetric(vertical: isCompact ? 12 : 18),
           decoration: BoxDecoration(
             gradient: const LinearGradient(colors: [Color(0xFFFF6B6B), Color(0xFFFF8E53)]),
             borderRadius: BorderRadius.circular(16),
             boxShadow: [BoxShadow(color: const Color(0xFFFF6B6B).withValues(alpha: 0.3), blurRadius: 12, offset: const Offset(0, 6))],
           ),
-          child: const Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.arrow_back_rounded, color: Colors.white, size: 24),
-              SizedBox(width: 10),
-              Text('Back to Menu', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+              Icon(Icons.arrow_back_rounded, color: Colors.white, size: isCompact ? 20 : 24),
+              SizedBox(width: isCompact ? 8 : 10),
+              Text('Back to Menu', style: TextStyle(color: Colors.white, fontSize: isCompact ? 15 : 18, fontWeight: FontWeight.bold)),
             ],
           ),
         ),

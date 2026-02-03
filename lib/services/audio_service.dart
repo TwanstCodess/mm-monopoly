@@ -37,16 +37,21 @@ class AudioService {
   // Audio players
   final AudioPlayer _bgmPlayer = AudioPlayer();
   final AudioPlayer _sfxPlayer = AudioPlayer();
-  
+
   // Settings
   bool _musicEnabled = true;
   bool _sfxEnabled = true;
   double _musicVolume = 0.5;
   double _sfxVolume = 0.7;
-  
+
   // State
   bool _initialized = false;
   String? _currentBgm;
+
+  // Playlist state for shuffled game music
+  List<String> _shuffledPlaylist = [];
+  int _currentTrackIndex = 0;
+  bool _isPlaylistMode = false;
 
   // Getters
   bool get musicEnabled => _musicEnabled;
@@ -58,18 +63,25 @@ class AudioService {
   /// Initialize the audio service and load saved preferences
   Future<void> init() async {
     if (_initialized) return;
-    
+
     final prefs = await SharedPreferences.getInstance();
     _musicEnabled = prefs.getBool('audio_music_enabled') ?? true;
     _sfxEnabled = prefs.getBool('audio_sfx_enabled') ?? true;
     _musicVolume = prefs.getDouble('audio_music_volume') ?? 0.5;
     _sfxVolume = prefs.getDouble('audio_sfx_volume') ?? 0.7;
-    
+
     // Configure players
     await _bgmPlayer.setReleaseMode(ReleaseMode.loop);
     await _bgmPlayer.setVolume(_musicVolume);
     await _sfxPlayer.setVolume(_sfxVolume);
-    
+
+    // Listen for track completion to play next track in playlist mode
+    _bgmPlayer.onPlayerComplete.listen((_) {
+      if (_isPlaylistMode && _musicEnabled) {
+        _playNextTrack();
+      }
+    });
+
     _initialized = true;
   }
 
@@ -137,8 +149,12 @@ class AudioService {
     }
   }
 
-  /// Play the main menu music
-  Future<void> playMenuMusic() => playBgm('menu_theme.mp3');
+  /// Play the main menu music (loops single track)
+  Future<void> playMenuMusic() async {
+    _isPlaylistMode = false;
+    await _bgmPlayer.setReleaseMode(ReleaseMode.loop);
+    await playBgm('menu_theme.mp3');
+  }
 
   /// Available game music tracks
   static const List<String> _gameThemes = [
@@ -147,25 +163,77 @@ class AudioService {
     'game_theme_3.mp3',
     'game_theme_4.mp3',
   ];
-  
+
   static final Random _random = Random();
 
-  /// Play the in-game music (randomly selected)
-  Future<void> playGameMusic() {
-    final randomTheme = _gameThemes[_random.nextInt(_gameThemes.length)];
-    return playBgm(randomTheme);
+  /// Create a shuffled playlist starting with a random track
+  void _createShuffledPlaylist() {
+    // Copy and shuffle the playlist
+    _shuffledPlaylist = List<String>.from(_gameThemes);
+    _shuffledPlaylist.shuffle(_random);
+    _currentTrackIndex = 0;
+  }
+
+  /// Play the next track in the shuffled playlist
+  Future<void> _playNextTrack() async {
+    if (_shuffledPlaylist.isEmpty) return;
+
+    // Move to next track
+    _currentTrackIndex++;
+
+    // If we've played all tracks, reshuffle and start over
+    if (_currentTrackIndex >= _shuffledPlaylist.length) {
+      _shuffledPlaylist.shuffle(_random);
+      _currentTrackIndex = 0;
+    }
+
+    final nextTrack = _shuffledPlaylist[_currentTrackIndex];
+    await _playTrackWithoutLoop(nextTrack);
+  }
+
+  /// Play a track without looping (for playlist mode)
+  Future<void> _playTrackWithoutLoop(String trackName) async {
+    if (!_musicEnabled) {
+      _currentBgm = trackName;
+      return;
+    }
+
+    try {
+      _currentBgm = trackName;
+      await _bgmPlayer.setReleaseMode(ReleaseMode.stop);
+      await _bgmPlayer.play(AssetSource('audio/music/$trackName'));
+    } catch (e) {
+      // Audio file not found - try next track
+      print('BGM not found: $trackName');
+      _playNextTrack();
+    }
+  }
+
+  /// Play the in-game music (starts with random track, then shuffles through all)
+  Future<void> playGameMusic() async {
+    _isPlaylistMode = true;
+
+    // Create a shuffled playlist
+    _createShuffledPlaylist();
+
+    // Start playing the first track (which is random due to shuffle)
+    final firstTrack = _shuffledPlaylist[_currentTrackIndex];
+    await _playTrackWithoutLoop(firstTrack);
   }
 
   /// Play victory music (one-shot, not looped)
   Future<void> playVictoryMusic() async {
+    _isPlaylistMode = false;
     if (!_musicEnabled) return;
     await _bgmPlayer.setReleaseMode(ReleaseMode.stop);
     await playBgm('victory_theme.mp3');
-    await _bgmPlayer.setReleaseMode(ReleaseMode.loop);
   }
 
   /// Stop background music
   Future<void> stopBgm() async {
+    _isPlaylistMode = false;
+    _shuffledPlaylist.clear();
+    _currentTrackIndex = 0;
     await _bgmPlayer.stop();
     _currentBgm = null;
   }

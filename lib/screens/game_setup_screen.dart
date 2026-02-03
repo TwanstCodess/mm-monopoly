@@ -271,250 +271,263 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
   }
 
   Widget _buildPlayerCountStep() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 16),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // Calculate available height and distribute proportionally
+        final availableHeight = constraints.maxHeight;
+        final isCompact = availableHeight < 500;
 
-            // Country selection section
-            Container(
-              height: 190,
-              width: double.infinity,
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.05)],
-                ),
-                borderRadius: BorderRadius.circular(24),
-                border: Border.all(color: Colors.white.withOpacity(0.2)),
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text('🌍', style: TextStyle(fontSize: 24)),
-                      SizedBox(width: 10),
-                      Text(
-                        'Choose Country',
-                        style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  Expanded(
-                    child: Row(
-                      children: Country.values.map((country) {
-                        final isSelected = _selectedCountry == country;
-                        final colors = [const Color(0xFFFF6B6B), const Color(0xFF4ECDC4), const Color(0xFFFFE66D)];
-                        final color = colors[country.index % colors.length];
-                        return Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                              left: country.index == 0 ? 0 : 6,
-                              right: country.index == Country.values.length - 1 ? 0 : 6,
-                            ),
-                            child: GestureDetector(
-                              onTap: () => setState(() => _selectedCountry = country),
-                              child: AnimatedContainer(
-                                duration: const Duration(milliseconds: 200),
-                                decoration: BoxDecoration(
-                                  gradient: isSelected ? LinearGradient(colors: [color, color.withOpacity(0.7)]) : null,
-                                  color: isSelected ? null : Colors.white.withOpacity(0.1),
-                                  borderRadius: BorderRadius.circular(16),
-                                  border: Border.all(color: isSelected ? color : Colors.white24, width: isSelected ? 3 : 2),
-                                  boxShadow: isSelected ? [BoxShadow(color: color.withOpacity(0.5), blurRadius: 12, offset: const Offset(0, 4))] : null,
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      country.flag,
-                                      style: const TextStyle(fontSize: 32),
-                                    ),
-                                    const SizedBox(height: 6),
-                                    Text(
-                                      country.displayName,
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 12,
-                                        fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
-                                      ),
-                                    ),
-                                    if (country.nativeName != country.displayName)
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 1),
-                                        child: Text(
-                                          country.nativeName,
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            color: Colors.white.withOpacity(0.7),
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                        ),
-                                      ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+        // Proportional heights based on available space
+        final countryHeight = isCompact ? 140.0 : (availableHeight * 0.32).clamp(140.0, 190.0);
+        final playersHeight = isCompact ? 160.0 : (availableHeight * 0.38).clamp(160.0, 220.0);
+        final diceHeight = isCompact ? 100.0 : (availableHeight * 0.22).clamp(100.0, 140.0);
 
-          const SizedBox(height: 16),
-
-          // Players section - takes most space
-          Container(
-            height: 220,
-              width: double.infinity,
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.05)],
-                ),
-                borderRadius: BorderRadius.circular(24),
-                border: Border.all(color: Colors.white.withOpacity(0.2)),
-              ),
-              child: Column(
-                children: [
-                  // Section title
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(Icons.people_alt_rounded, color: Colors.white70, size: 24),
-                      const SizedBox(width: 10),
-                      const Text(
-                        'Number of Players',
-                        style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  
-                  const SizedBox(height: 24),
-                  
-                  // Player count buttons - fill available width
-                  Expanded(
-                    child: Row(
-                      children: List.generate(GameConstants.maxPlayers - 1, (index) {
-                        final count = index + 2;
-                        final isSelected = _playerCount == count;
-                        final colors = [const Color(0xFFFF6B6B), const Color(0xFF4ECDC4), const Color(0xFFFFE66D)];
-                        final color = colors[index % colors.length];
-                        return Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                              left: index == 0 ? 0 : 6,
-                              right: index == 2 ? 0 : 6,
-                            ),
-                            child: GestureDetector(
-                              onTap: () => _updatePlayerCount(count),
-                              child: AnimatedContainer(
-                                duration: const Duration(milliseconds: 200),
-                                decoration: BoxDecoration(
-                                  gradient: isSelected ? LinearGradient(colors: [color, color.withOpacity(0.7)]) : null,
-                                  color: isSelected ? null : Colors.white.withOpacity(0.1),
-                                  borderRadius: BorderRadius.circular(20),
-                                  border: Border.all(color: isSelected ? color : Colors.white24, width: isSelected ? 3 : 2),
-                                  boxShadow: isSelected ? [BoxShadow(color: color.withOpacity(0.5), blurRadius: 16, offset: const Offset(0, 6))] : null,
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      '$count',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 48,
-                                        fontWeight: FontWeight.bold,
-                                        shadows: isSelected ? [const Shadow(color: Colors.black26, blurRadius: 4, offset: Offset(1, 1))] : null,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Text(
-                                      'players',
-                                      style: TextStyle(
-                                        color: Colors.white.withOpacity(0.7),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
-                      }),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-          const SizedBox(height: 16),
-
-          // Dice section - bottom card
-          Container(
-            height: 140,
-            width: double.infinity,
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.05)],
-              ),
-              borderRadius: BorderRadius.circular(24),
-              border: Border.all(color: Colors.white.withOpacity(0.2)),
-            ),
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: SingleChildScrollView(
             child: Column(
               children: [
-                // Section title
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text('🎲', style: TextStyle(fontSize: 20)),
-                    const SizedBox(width: 8),
-                    const Text(
-                      'Number of Dice',
-                      style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                SizedBox(height: isCompact ? 8 : 16),
+
+                // Country selection section
+                Container(
+                  height: countryHeight,
+                  width: double.infinity,
+                  padding: EdgeInsets.all(isCompact ? 12 : 20),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.05)],
                     ),
-                  ],
-                ),
-
-                const SizedBox(height: 12),
-
-                // Dice options - side by side, filling width
-                Expanded(
-                  child: Row(
+                    borderRadius: BorderRadius.circular(24),
+                    border: Border.all(color: Colors.white.withOpacity(0.2)),
+                  ),
+                  child: Column(
                     children: [
-                      Expanded(child: _buildDiceCard(1, '🎲', 'One Die', 'Classic style', const Color(0xFF95E1D3))),
-                      const SizedBox(width: 12),
-                      Expanded(child: _buildDiceCard(2, '🎲🎲', 'Two Dice', 'Standard rules', const Color(0xFFFFB347))),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('🌍', style: TextStyle(fontSize: isCompact ? 20 : 24)),
+                          const SizedBox(width: 10),
+                          Text(
+                            'Choose Country',
+                            style: TextStyle(color: Colors.white, fontSize: isCompact ? 16 : 20, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: isCompact ? 8 : 16),
+                      Expanded(
+                        child: Row(
+                          children: Country.values.map((country) {
+                            final isSelected = _selectedCountry == country;
+                            final colors = [const Color(0xFFFF6B6B), const Color(0xFF4ECDC4), const Color(0xFFFFE66D)];
+                            final color = colors[country.index % colors.length];
+                            return Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  left: country.index == 0 ? 0 : 4,
+                                  right: country.index == Country.values.length - 1 ? 0 : 4,
+                                ),
+                                child: GestureDetector(
+                                  onTap: () => setState(() => _selectedCountry = country),
+                                  child: AnimatedContainer(
+                                    duration: const Duration(milliseconds: 200),
+                                    decoration: BoxDecoration(
+                                      gradient: isSelected ? LinearGradient(colors: [color, color.withOpacity(0.7)]) : null,
+                                      color: isSelected ? null : Colors.white.withOpacity(0.1),
+                                      borderRadius: BorderRadius.circular(16),
+                                      border: Border.all(color: isSelected ? color : Colors.white24, width: isSelected ? 3 : 2),
+                                      boxShadow: isSelected ? [BoxShadow(color: color.withOpacity(0.5), blurRadius: 12, offset: const Offset(0, 4))] : null,
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          country.flag,
+                                          style: TextStyle(fontSize: isCompact ? 24 : 32),
+                                        ),
+                                        SizedBox(height: isCompact ? 2 : 6),
+                                        Text(
+                                          country.displayName,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: isCompact ? 10 : 12,
+                                            fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+                                          ),
+                                        ),
+                                        if (country.nativeName != country.displayName && !isCompact)
+                                          Padding(
+                                            padding: const EdgeInsets.only(top: 1),
+                                            child: Text(
+                                              country.nativeName,
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                color: Colors.white.withOpacity(0.7),
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            ),
+                                          ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                      ),
                     ],
                   ),
                 ),
+
+                SizedBox(height: isCompact ? 8 : 16),
+
+                // Players section - takes most space
+                Container(
+                  height: playersHeight,
+                  width: double.infinity,
+                  padding: EdgeInsets.all(isCompact ? 12 : 20),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.05)],
+                    ),
+                    borderRadius: BorderRadius.circular(24),
+                    border: Border.all(color: Colors.white.withOpacity(0.2)),
+                  ),
+                  child: Column(
+                    children: [
+                      // Section title
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.people_alt_rounded, color: Colors.white70, size: isCompact ? 20 : 24),
+                          const SizedBox(width: 10),
+                          Text(
+                            'Number of Players',
+                            style: TextStyle(color: Colors.white, fontSize: isCompact ? 16 : 20, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+
+                      SizedBox(height: isCompact ? 12 : 24),
+
+                      // Player count buttons - fill available width
+                      Expanded(
+                        child: Row(
+                          children: List.generate(GameConstants.maxPlayers - 1, (index) {
+                            final count = index + 2;
+                            final isSelected = _playerCount == count;
+                            final colors = [const Color(0xFFFF6B6B), const Color(0xFF4ECDC4), const Color(0xFFFFE66D)];
+                            final color = colors[index % colors.length];
+                            return Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  left: index == 0 ? 0 : 6,
+                                  right: index == 2 ? 0 : 6,
+                                ),
+                                child: GestureDetector(
+                                  onTap: () => _updatePlayerCount(count),
+                                  child: AnimatedContainer(
+                                    duration: const Duration(milliseconds: 200),
+                                    decoration: BoxDecoration(
+                                      gradient: isSelected ? LinearGradient(colors: [color, color.withOpacity(0.7)]) : null,
+                                      color: isSelected ? null : Colors.white.withOpacity(0.1),
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(color: isSelected ? color : Colors.white24, width: isSelected ? 3 : 2),
+                                      boxShadow: isSelected ? [BoxShadow(color: color.withOpacity(0.5), blurRadius: 16, offset: const Offset(0, 6))] : null,
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          '$count',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: isCompact ? 36 : 48,
+                                            fontWeight: FontWeight.bold,
+                                            shadows: isSelected ? [const Shadow(color: Colors.black26, blurRadius: 4, offset: Offset(1, 1))] : null,
+                                          ),
+                                        ),
+                                        SizedBox(height: isCompact ? 2 : 4),
+                                        Text(
+                                          'players',
+                                          style: TextStyle(
+                                            color: Colors.white.withOpacity(0.7),
+                                            fontSize: isCompact ? 12 : 14,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          }),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                SizedBox(height: isCompact ? 8 : 16),
+
+                // Dice section - bottom card
+                Container(
+                  height: diceHeight,
+                  width: double.infinity,
+                  padding: EdgeInsets.all(isCompact ? 10 : 16),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.05)],
+                    ),
+                    borderRadius: BorderRadius.circular(24),
+                    border: Border.all(color: Colors.white.withOpacity(0.2)),
+                  ),
+                  child: Column(
+                    children: [
+                      // Section title
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('🎲', style: TextStyle(fontSize: isCompact ? 16 : 20)),
+                          const SizedBox(width: 8),
+                          Text(
+                            'Number of Dice',
+                            style: TextStyle(color: Colors.white, fontSize: isCompact ? 14 : 18, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+
+                      SizedBox(height: isCompact ? 8 : 12),
+
+                      // Dice options - side by side, filling width
+                      Expanded(
+                        child: Row(
+                          children: [
+                            Expanded(child: _buildDiceCard(1, '🎲', 'One Die', 'Classic style', const Color(0xFF95E1D3))),
+                            const SizedBox(width: 12),
+                            Expanded(child: _buildDiceCard(2, '🎲🎲', 'Two Dice', 'Standard rules', const Color(0xFFFFB347))),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                SizedBox(height: isCompact ? 8 : 16),
               ],
             ),
           ),
-
-          const SizedBox(height: 16),
-        ],
-      ),
-    ),
+        );
+      },
     );
   }
 
@@ -735,6 +748,13 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
               child: TextField(
                 controller: _nameControllers[index],
                 onChanged: (value) => _playerConfigs[index] = config.copyWith(name: value),
+                onTap: () {
+                  // Select all text when tapped so kids can easily replace the default name
+                  _nameControllers[index].selection = TextSelection(
+                    baseOffset: 0,
+                    extentOffset: _nameControllers[index].text.length,
+                  );
+                },
                 textAlign: TextAlign.center,
                 style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
                 decoration: InputDecoration(
@@ -793,51 +813,113 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
 
   void _showAvatarSelector(int playerIndex) {
     final config = _playerConfigs[playerIndex];
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.transparent,
-      isScrollControlled: true,
-      builder: (context) => DraggableScrollableSheet(
-        initialChildSize: 0.7,
-        minChildSize: 0.5,
-        maxChildSize: 0.9,
-        builder: (context, scrollController) => Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0xFF764ba2), Color(0xFF667eea)]),
-            borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-          ),
-          child: Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(top: 12),
-                width: 40,
-                height: 4,
-                decoration: BoxDecoration(color: Colors.white.withOpacity(0.3), borderRadius: BorderRadius.circular(2)),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: ShaderMask(
-                  shaderCallback: (bounds) => const LinearGradient(colors: [Colors.white, Color(0xFFFFE66D)]).createShader(bounds),
-                  child: const Text(
-                    'Choose Your Avatar',
-                    style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+    final screenSize = MediaQuery.of(context).size;
+    final isLandscape = screenSize.width > screenSize.height;
+
+    if (isLandscape) {
+      // Use dialog for landscape mode - better use of horizontal space
+      showDialog(
+        context: context,
+        builder: (context) => Dialog(
+          backgroundColor: Colors.transparent,
+          insetPadding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
+          child: Container(
+            constraints: BoxConstraints(
+              maxWidth: screenSize.width * 0.8,
+              maxHeight: screenSize.height * 0.85,
+            ),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0xFF764ba2), Color(0xFF667eea)]),
+              borderRadius: BorderRadius.circular(24),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 16, 20, 12),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ShaderMask(
+                          shaderCallback: (bounds) => const LinearGradient(colors: [Colors.white, Color(0xFFFFE66D)]).createShader(bounds),
+                          child: const Text(
+                            'Choose Your Avatar',
+                            style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () => Navigator.pop(context),
+                        icon: const Icon(Icons.close, color: Colors.white70),
+                      ),
+                    ],
                   ),
                 ),
-              ),
-              Expanded(
-                child: AvatarSelector(
-                  selectedAvatar: config.avatar,
-                  onAvatarSelected: (avatar) {
-                    setState(() => _playerConfigs[playerIndex] = config.copyWith(avatar: avatar));
-                    Navigator.pop(context);
-                  },
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                    child: AvatarSelector(
+                      selectedAvatar: config.avatar,
+                      onAvatarSelected: (avatar) {
+                        setState(() => _playerConfigs[playerIndex] = config.copyWith(avatar: avatar));
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      );
+    } else {
+      // Use bottom sheet for portrait mode
+      showModalBottomSheet(
+        context: context,
+        backgroundColor: Colors.transparent,
+        isScrollControlled: true,
+        builder: (context) => DraggableScrollableSheet(
+          initialChildSize: 0.7,
+          minChildSize: 0.5,
+          maxChildSize: 0.9,
+          builder: (context, scrollController) => Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0xFF764ba2), Color(0xFF667eea)]),
+              borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+            ),
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(top: 12),
+                  width: 40,
+                  height: 4,
+                  decoration: BoxDecoration(color: Colors.white.withOpacity(0.3), borderRadius: BorderRadius.circular(2)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: ShaderMask(
+                    shaderCallback: (bounds) => const LinearGradient(colors: [Colors.white, Color(0xFFFFE66D)]).createShader(bounds),
+                    child: const Text(
+                      'Choose Your Avatar',
+                      style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: AvatarSelector(
+                    selectedAvatar: config.avatar,
+                    onAvatarSelected: (avatar) {
+                      setState(() => _playerConfigs[playerIndex] = config.copyWith(avatar: avatar));
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
   }
 
   Widget _buildNavigationButtons() {
