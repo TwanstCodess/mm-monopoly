@@ -71,6 +71,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   int _totalRounds = 1;
   bool _isPaused = false; // Track if game menu is open
   bool _isMusicPlaying = true; // Track music state
+  bool _isProcessingTurn = false; // Prevent dice rolls while processing
 
   // Phase 4: AI Decision Engines per AI player
   final Map<String, AIDecisionEngine> _aiEngines = {};
@@ -468,12 +469,15 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   }
 
   Widget _buildCenterControls() {
+    // Only allow roll if game state allows AND we're not processing a turn
+    final canRoll = gameState.canRoll && !_isProcessingTurn;
+
     return CenterControls(
       die1: gameState.die1Value,
       die2: gameState.die2Value,
       isRolling: gameState.animationState == TurnAnimationState.rollingDice,
       isMoving: gameState.animationState == TurnAnimationState.movingToken,
-      onRoll: gameState.canRoll ? _rollDice : null,
+      onRoll: canRoll ? _rollDice : null,
       diceController: _diceController,
       glowController: _glowController,
       diceCount: gameState.diceCount,
@@ -481,8 +485,12 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   }
 
   Future<void> _rollDice() async {
-    // Start rolling animation
+    // Prevent double-tap exploits
+    if (_isProcessingTurn) return;
+
+    // Lock turn processing
     setState(() {
+      _isProcessingTurn = true;
       gameState = gameState.copyWith(animationState: TurnAnimationState.rollingDice);
     });
     _diceController.forward(from: 0);
@@ -856,11 +864,60 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
 
   Future<void> _handleGoToJail(Player player) async {
     AudioService.instance.onJail();
-    if (player.isAI) {
-      await _showAIActionNotification(player.name, 'Going to jail!', Icons.gavel, Colors.grey.shade700);
-    }
     engine.sendToJail(player);
     setState(() {});
+
+    if (!mounted) return;
+
+    // Show notification for both AI and human players
+    if (player.isAI) {
+      await _showAIActionNotification(player.name, 'Going to jail!', Icons.gavel, Colors.grey.shade700);
+    } else {
+      // Show a brief dialog for human players so they know what happened
+      await showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => Dialog(
+          backgroundColor: Colors.transparent,
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 300),
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              color: const Color(0xFF2D2D44),
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: Colors.orange, width: 2),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text('🚔', style: TextStyle(fontSize: 64)),
+                const SizedBox(height: 16),
+                const Text(
+                  'Go to Jail!',
+                  style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'You landed on Go to Jail!\nGo directly to jail, do not pass GO.',
+                  style: TextStyle(color: Colors.white.withValues(alpha: 0.8), fontSize: 16),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () => Navigator.pop(context),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.orange,
+                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  ),
+                  child: const Text('OK', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
   }
 
   // ==========================================================================
@@ -1340,13 +1397,14 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     // Phase 3: Check for extra turn
     if (gameState.hasExtraTurn) {
       setState(() {
+        _isProcessingTurn = false; // Unlock for next roll
         gameState = gameState.copyWith(hasExtraTurn: false, highlightedTileIndex: null, logicPhase: TurnLogicPhase.preRoll);
       });
 
       // Continue with same player
       if (gameState.currentPlayer.isAI) {
         Future.delayed(const Duration(milliseconds: 1500), () {
-          if (mounted && !_isPaused && gameState.canRoll) {
+          if (mounted && !_isPaused && gameState.canRoll && !_isProcessingTurn) {
             _rollDice();
           }
         });
@@ -1371,6 +1429,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       // Tick active power-ups
       gameState.tickActivePowerUps();
 
+      _isProcessingTurn = false; // Unlock for next player's turn
       gameState = gameState.copyWith(currentPlayerIndex: nextIndex, highlightedTileIndex: null, logicPhase: TurnLogicPhase.preRoll);
 
       // Phase 3: Check for random event trigger at new round
@@ -1393,7 +1452,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     // If next player is AI, auto-roll after a delay
     if (gameState.currentPlayer.isAI) {
       Future.delayed(const Duration(milliseconds: 1500), () {
-        if (mounted && !_isPaused && gameState.canRoll) {
+        if (mounted && !_isPaused && gameState.canRoll && !_isProcessingTurn) {
           _rollDice();
         }
       });
