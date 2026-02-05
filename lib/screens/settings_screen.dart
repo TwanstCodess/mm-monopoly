@@ -231,11 +231,8 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: () async {
-          final uri = Uri.parse('https://buymeacoffee.com/hao_yu');
-          if (await canLaunchUrl(uri)) {
-            await launchUrl(uri, mode: LaunchMode.externalApplication);
-          }
+        onTap: () {
+          _showExternalLinkDialog(context);
         },
         borderRadius: BorderRadius.circular(16),
         child: Container(
@@ -268,6 +265,86 @@ class _SettingsScreenState extends State<SettingsScreen> with SingleTickerProvid
               ),
               SizedBox(width: isCompact ? 8 : 12),
               Icon(Icons.open_in_new, color: Colors.white.withValues(alpha: 0.5), size: isCompact ? 18 : 22),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showExternalLinkDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        backgroundColor: Colors.transparent,
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 320),
+          padding: const EdgeInsets.all(24),
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFF667eea), Color(0xFF764ba2)]),
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+            boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.3), blurRadius: 20)],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 56,
+                height: 56,
+                decoration: BoxDecoration(color: const Color(0xFFFFDD00).withValues(alpha: 0.2), shape: BoxShape.circle),
+                child: const Center(child: Text('☕', style: TextStyle(fontSize: 28))),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                'Open External Link',
+                style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'This will open buymeacoffee.com in your browser.',
+                style: TextStyle(color: Colors.white.withValues(alpha: 0.8), fontSize: 15),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 24),
+              Row(
+                children: [
+                  Expanded(
+                    child: TextButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      style: TextButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          side: BorderSide(color: Colors.white.withValues(alpha: 0.3)),
+                        ),
+                      ),
+                      child: const Text(
+                        'Cancel',
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () async {
+                        Navigator.of(context).pop();
+                        final uri = Uri.parse('https://buymeacoffee.com/hao_yu');
+                        await launchUrl(uri, mode: LaunchMode.externalApplication);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFFFDD00),
+                        foregroundColor: Colors.black87,
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        elevation: 0,
+                      ),
+                      child: const Text('Open', style: TextStyle(fontWeight: FontWeight.w600)),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
