@@ -321,7 +321,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                           Text('🌍', style: TextStyle(fontSize: isCompact ? 20 : 24)),
                           const SizedBox(width: 10),
                           Text(
-                            AppLocalizations.of(context)!.chooseCountry,
+                            AppLocalizations.of(context)!.chooseBoard,
                             style: TextStyle(color: Colors.white, fontSize: isCompact ? 16 : 20, fontWeight: FontWeight.bold),
                           ),
                         ],

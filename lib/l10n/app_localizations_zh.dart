@@ -39,7 +39,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get playerSetup => '玩家设置';
 
   @override
-  String get chooseCountry => '选择国家';
+  String get chooseBoard => '选择棋盘';
 
   @override
   String get numberOfPlayers => '玩家人数';

@@ -164,11 +164,11 @@ abstract class AppLocalizations {
   /// **'Player Setup'**
   String get playerSetup;
 
-  /// No description provided for @chooseCountry.
+  /// No description provided for @chooseBoard.
   ///
   /// In en, this message translates to:
-  /// **'Choose Country'**
-  String get chooseCountry;
+  /// **'Choose Board'**
+  String get chooseBoard;
 
   /// No description provided for @numberOfPlayers.
   ///

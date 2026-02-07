@@ -39,7 +39,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get playerSetup => 'Player Setup';
 
   @override
-  String get chooseCountry => 'Choose Country';
+  String get chooseBoard => 'Choose Board';
 
   @override
   String get numberOfPlayers => 'Number of Players';

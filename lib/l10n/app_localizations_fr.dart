@@ -39,7 +39,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get playerSetup => 'Configuration des Joueurs';
 
   @override
-  String get chooseCountry => 'Choisir un Pays';
+  String get chooseBoard => 'Choisir un plateau';
 
   @override
   String get numberOfPlayers => 'Nombre de Joueurs';
