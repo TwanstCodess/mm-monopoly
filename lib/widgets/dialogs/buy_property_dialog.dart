@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/tile.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 import 'animated_dialog.dart';
 import '../effects/confetti.dart';
 
@@ -65,7 +66,7 @@ class BuyPropertyDialog extends StatelessWidget {
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [_buildHeader(), _buildContent(), _buildActions(context)],
+          children: [_buildHeader(), _buildContent(context), _buildActions(context)],
         ),
       ),
     );
@@ -97,14 +98,15 @@ class BuyPropertyDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildContent() {
+  Widget _buildContent(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-          const Text(
-            'This property is available!',
-            style: TextStyle(color: Colors.white70, fontSize: 14),
+          Text(
+            l10n.propertyAvailable,
+            style: const TextStyle(color: Colors.white70, fontSize: 14),
           ),
           const SizedBox(height: 20),
 
@@ -141,12 +143,12 @@ class BuyPropertyDialog extends StatelessWidget {
             const SizedBox(height: 16),
           ],
 
-          _buildInfoRow('Price', '\$$_price', AppTheme.warning),
+          _buildInfoRow(l10n.price, '\$$_price', AppTheme.warning),
           const SizedBox(height: 8),
           if (tile is! UtilityTileData)
-            _buildInfoRow('Base Rent', '\$$_baseRent', AppTheme.cashGreen),
+            _buildInfoRow(l10n.baseRent, '\$$_baseRent', AppTheme.cashGreen),
           if (tile is UtilityTileData)
-            _buildInfoRow('Rent', '4x or 10x dice roll', AppTheme.cashGreen),
+            _buildInfoRow(l10n.rent, l10n.utilityRentDesc, AppTheme.cashGreen),
           const SizedBox(height: 16),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -157,9 +159,9 @@ class BuyPropertyDialog extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Your Cash',
-                  style: TextStyle(color: Colors.white70),
+                Text(
+                  l10n.yourCash,
+                  style: const TextStyle(color: Colors.white70),
                 ),
                 Text(
                   '\$$playerCash',
@@ -174,9 +176,9 @@ class BuyPropertyDialog extends StatelessWidget {
           ),
           if (!_canAfford) ...[
             const SizedBox(height: 12),
-            const Text(
-              'Not enough cash!',
-              style: TextStyle(
+            Text(
+              l10n.notEnoughCash,
+              style: const TextStyle(
                 color: AppTheme.error,
                 fontWeight: FontWeight.bold,
               ),
@@ -208,6 +210,7 @@ class BuyPropertyDialog extends StatelessWidget {
   }
 
   Widget _buildActions(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
       child: Row(
@@ -226,7 +229,7 @@ class BuyPropertyDialog extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: const Text('Skip', style: TextStyle(fontSize: 16)),
+              child: Text(l10n.skip, style: const TextStyle(fontSize: 16)),
             ),
           ),
           const SizedBox(width: 12),
@@ -269,7 +272,7 @@ class BuyPropertyDialog extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'Buy \$$_price',
+                      l10n.buyForAmount('$_price'),
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 import 'animated_dialog.dart';
 
 /// Dialog showing tax payment
@@ -43,8 +44,8 @@ class TaxPaymentDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            _buildHeader(),
-            _buildContent(),
+            _buildHeader(context),
+            _buildContent(context),
             _buildAction(context),
           ],
         ),
@@ -52,7 +53,7 @@ class TaxPaymentDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
@@ -69,7 +70,7 @@ class TaxPaymentDialog extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            isBankruptcy ? 'BANKRUPTCY!' : taxName,
+            isBankruptcy ? AppLocalizations.of(context)!.bankruptcy : taxName,
             style: const TextStyle(
               color: Colors.white,
               fontSize: 22,
@@ -81,13 +82,13 @@ class TaxPaymentDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildContent() {
+  Widget _buildContent(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-          const Text(
-            'You must pay tax to the bank',
+          Text(
+            AppLocalizations.of(context)!.payTaxToBank,
             style: TextStyle(
               color: Colors.white70,
               fontSize: 14,
@@ -104,8 +105,8 @@ class TaxPaymentDialog extends StatelessWidget {
             ),
             child: Column(
               children: [
-                const Text(
-                  'Tax Amount',
+                Text(
+                  AppLocalizations.of(context)!.taxAmount,
                   style: TextStyle(color: Colors.white70, fontSize: 14),
                 ),
                 const SizedBox(height: 4),
@@ -125,8 +126,8 @@ class TaxPaymentDialog extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Your Cash',
+              Text(
+                AppLocalizations.of(context)!.yourCash,
                 style: TextStyle(color: Colors.white70),
               ),
               Text(
@@ -154,7 +155,7 @@ class TaxPaymentDialog extends StatelessWidget {
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
-                      'You don\'t have enough cash! You are bankrupt.',
+                      AppLocalizations.of(context)!.bankruptMessage,
                       style: TextStyle(
                         color: AppTheme.error.withOpacity(0.9),
                         fontSize: 13,
@@ -189,7 +190,7 @@ class TaxPaymentDialog extends StatelessWidget {
             ),
           ),
           child: Text(
-            isBankruptcy ? 'Accept Bankruptcy' : 'Pay \$$amount',
+            isBankruptcy ? AppLocalizations.of(context)!.acceptBankruptcy : AppLocalizations.of(context)!.payAmount(amount),
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
         ),

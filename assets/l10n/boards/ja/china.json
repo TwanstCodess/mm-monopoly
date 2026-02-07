@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "スタート",
+      "subtext": "$200を受け取る",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "南鑼鼓巷",
+      "subtext": null,
+      "funFact": "800年の歴史を持つ胡同で、北京で最も保存状態の良い歴史的な通りのひとつです！"
+    },
+    {
+      "index": 2,
+      "name": "共同基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "后海",
+      "subtext": null,
+      "funFact": "かつて皇帝がスケートを楽しんだ歴史ある湖のエリアです！"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "地下鉄1号線",
+      "subtext": null,
+      "funFact": "1971年に開業した北京初の地下鉄路線で、天安門広場を通ります！"
+    },
+    {
+      "index": 6,
+      "name": "王府井",
+      "subtext": null,
+      "funFact": "700年以上の歴史を持つ北京を代表するショッピングストリートです！"
+    },
+    {
+      "index": 7,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "三里屯",
+      "subtext": null,
+      "funFact": "大使館やナイトライフが集まる北京で最も国際的な地区です！"
+    },
+    {
+      "index": 9,
+      "name": "CBD（国貿）",
+      "subtext": null,
+      "funFact": "中央ビジネス地区には、レム・コールハース設計の象徴的なCCTVタワーがあります！"
+    },
+    {
+      "index": 10,
+      "name": "刑務所",
+      "subtext": "面会中",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "東城区",
+      "subtext": null,
+      "funFact": "東城区には数え切れないほどの歴史的な胡同と四合院が保存されています！"
+    },
+    {
+      "index": 12,
+      "name": "国家電網",
+      "subtext": null,
+      "funFact": "世界最大の電力会社で、11億人以上に電力を供給しています！"
+    },
+    {
+      "index": 13,
+      "name": "北海公園",
+      "subtext": null,
+      "funFact": "10世紀にさかのぼる皇室庭園で、美しい白塔が特徴です！"
+    },
+    {
+      "index": 14,
+      "name": "景山",
+      "subtext": null,
+      "funFact": "この人工の丘からは紫禁城の最高のパノラマビューが楽しめます！"
+    },
+    {
+      "index": 15,
+      "name": "地下鉄2号線",
+      "subtext": null,
+      "funFact": "旧城壁のルートに沿って北京の中心部を四角形に走ります！"
+    },
+    {
+      "index": 16,
+      "name": "雍和宮",
+      "subtext": null,
+      "funFact": "一本の白檀の木から彫られた高さ26メートルの仏像があります！"
+    },
+    {
+      "index": 17,
+      "name": "共同基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "天壇",
+      "subtext": null,
+      "funFact": "皇帝が豊作を祈った場所！回音壁はささやき声を65メートル先まで伝えます！"
+    },
+    {
+      "index": 19,
+      "name": "頤和園",
+      "subtext": null,
+      "funFact": "290ヘクタールの世界遺産で75%が水域！西太后の石舫が今も残っています！"
+    },
+    {
+      "index": 20,
+      "name": "ラッキースピン",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "鼓楼",
+      "subtext": null,
+      "funFact": "1272年に建てられ、かつて太鼓の音で街全体に時を告げていました！"
+    },
+    {
+      "index": 22,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "鐘楼",
+      "subtext": null,
+      "funFact": "明朝時代の重さ63トンの巨大な青銅の鐘が収められています！"
+    },
+    {
+      "index": 24,
+      "name": "天安門",
+      "subtext": null,
+      "funFact": "世界最大の公共広場で、最大100万人を収容できます！"
+    },
+    {
+      "index": 25,
+      "name": "地下鉄4号線",
+      "subtext": null,
+      "funFact": "頤和園から南部を結び、1日100万人の乗客を運んでいます！"
+    },
+    {
+      "index": 26,
+      "name": "朝陽区",
+      "subtext": null,
+      "funFact": "オリンピック会場を擁する北京で最も国際的な地区です！"
+    },
+    {
+      "index": 27,
+      "name": "オリンピック公園",
+      "subtext": null,
+      "funFact": "2008年オリンピックの鳥の巣スタジアムとウォーターキューブがあります！"
+    },
+    {
+      "index": 28,
+      "name": "北京水道",
+      "subtext": null,
+      "funFact": "南水北調プロジェクトは1,400km離れた場所から水を運んでいます！"
+    },
+    {
+      "index": 29,
+      "name": "中関村",
+      "subtext": null,
+      "funFact": "中国のシリコンバレーで、百度やレノボなどのテック大手の本拠地です！"
+    },
+    {
+      "index": 30,
+      "name": "刑務所へ行く",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "秀水街",
+      "subtext": null,
+      "funFact": "古代シルクロードの交易の伝統を受け継ぐ有名なショッピングマーケットです！"
+    },
+    {
+      "index": 32,
+      "name": "潘家園",
+      "subtext": null,
+      "funFact": "3,000以上の出店者を持つアジア最大の骨董品市場です！"
+    },
+    {
+      "index": 33,
+      "name": "共同基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "国家博物館",
+      "subtext": null,
+      "funFact": "年間740万人が訪れる世界で最も来館者の多い博物館です！"
+    },
+    {
+      "index": 35,
+      "name": "地下鉄10号線",
+      "subtext": null,
+      "funFact": "北京の主要な地区を結ぶ巨大な環状路線を形成しています！"
+    },
+    {
+      "index": 36,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "CCTVタワー",
+      "subtext": null,
+      "funFact": "高さ405メートルで、革新的な「ループ」デザインが特徴です！"
+    },
+    {
+      "index": 38,
+      "name": "物品税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "紫禁城",
+      "subtext": null,
+      "funFact": "9,999の部屋を持つ世界最大の宮殿群で、24人の皇帝が住みました！"
+    }
+  ]
+}

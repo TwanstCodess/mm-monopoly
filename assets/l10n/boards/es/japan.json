@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "SALIDA",
+      "subtext": "スタート",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Asakusa",
+      "subtext": "浅草",
+      "funFact": "¡Hogar de Senso-ji, el templo budista más antiguo de Tokio, construido en el año 645 d.C.!"
+    },
+    {
+      "index": 2,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Ueno",
+      "subtext": "上野",
+      "funFact": "¡El parque Ueno tiene más de 1.000 cerezos en flor y es el lugar más popular de Tokio para el hanami!"
+    },
+    {
+      "index": 4,
+      "name": "Impuesto sobre la Renta",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Línea Yamanote",
+      "subtext": "山手線",
+      "funFact": "¡La Línea Yamanote completa un circuito alrededor del centro de Tokio cada 59-65 minutos, transportando 3,5 millones de pasajeros al día!"
+    },
+    {
+      "index": 6,
+      "name": "Akihabara",
+      "subtext": "秋葉原",
+      "funFact": "¡Conocido como la \"Ciudad Eléctrica,\" Akihabara es el centro mundial de la cultura del anime, manga y electrónica!"
+    },
+    {
+      "index": 7,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Ikebukuro",
+      "subtext": "池袋",
+      "funFact": "¡La estación de Ikebukuro es la segunda más transitada del mundo, con más de 2,7 millones de pasajeros diarios!"
+    },
+    {
+      "index": 9,
+      "name": "Shinjuku",
+      "subtext": "新宿",
+      "funFact": "¡La estación de Shinjuku es la más transitada del mundo con más de 3,6 millones de pasajeros diarios!"
+    },
+    {
+      "index": 10,
+      "name": "CÁRCEL",
+      "subtext": "刑務所",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Harajuku",
+      "subtext": "原宿",
+      "funFact": "¡El epicentro de la moda juvenil de Tokio! La calle Takeshita atrae a millones de visitantes creadores de tendencias."
+    },
+    {
+      "index": 12,
+      "name": "Energía Eléctrica de Tokio",
+      "subtext": null,
+      "funFact": "¡TEPCO suministra electricidad a más de 45 millones de personas en el área metropolitana de Tokio, una de las redes eléctricas más grandes del mundo!"
+    },
+    {
+      "index": 13,
+      "name": "Omotesando",
+      "subtext": "表参道",
+      "funFact": "¡Conocida como los Campos Elíseos de Tokio, bordeada de zelkovas y tiendas insignia de arquitectos de renombre mundial!"
+    },
+    {
+      "index": 14,
+      "name": "Odaiba",
+      "subtext": "お台場",
+      "funFact": "¡Construido sobre terreno ganado al mar en la Bahía de Tokio, hogar de teamLab Borderless y una estatua gigante de Gundam!"
+    },
+    {
+      "index": 15,
+      "name": "Shinkansen Tokaido",
+      "subtext": "東海道新幹線",
+      "funFact": "¡La primera línea de tren bala de Japón, conectando Tokio con Osaka a velocidades de hasta 285 km/h desde 1964!"
+    },
+    {
+      "index": 16,
+      "name": "Roppongi",
+      "subtext": "六本木",
+      "funFact": "¡Hogar de Roppongi Hills y Tokyo Midtown, con museos de arte de clase mundial y vida nocturna!"
+    },
+    {
+      "index": 17,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Ebisu",
+      "subtext": "恵比寿",
+      "funFact": "¡Nombrado por la cerveza Yebisu, este exclusivo barrio es conocido por sus excelentes restaurantes y el Museo de Arte Fotográfico de Tokio!"
+    },
+    {
+      "index": 19,
+      "name": "Shibuya",
+      "subtext": "渋谷",
+      "funFact": "¡El cruce de Shibuya es la intersección peatonal más transitada del mundo, con hasta 3.000 personas cruzando a la vez!"
+    },
+    {
+      "index": 20,
+      "name": "GIRA Y GANA",
+      "subtext": "ラッキースピン",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Tsukiji",
+      "subtext": "築地",
+      "funFact": "¡El antiguo sitio del mercado de pescado más grande del mundo, donde un atún rojo se vendió por 3,1 millones de dólares!"
+    },
+    {
+      "index": 22,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Ginza",
+      "subtext": "銀座",
+      "funFact": "¡El distrito comercial más lujoso de Tokio! Los precios del suelo pueden alcanzar los $100.000 por metro cuadrado."
+    },
+    {
+      "index": 24,
+      "name": "Estación de Tokio",
+      "subtext": "東京駅",
+      "funFact": "¡La hermosa estación de ladrillo rojo restaurada de 1914 sirve como terminal de todas las líneas Shinkansen!"
+    },
+    {
+      "index": 25,
+      "name": "Línea Chuo",
+      "subtext": "中央線",
+      "funFact": "¡La Línea Rápida Chuo es una de las líneas de cercanías más importantes de Tokio, reconocible por sus trenes naranjas!"
+    },
+    {
+      "index": 26,
+      "name": "Marunouchi",
+      "subtext": "丸の内",
+      "funFact": "¡El principal distrito financiero de Tokio, hogar de grandes corporaciones y frente al Palacio Imperial!"
+    },
+    {
+      "index": 27,
+      "name": "Nihombashi",
+      "subtext": "日本橋",
+      "funFact": "¡El histórico centro comercial de Tokio, donde el famoso puente Nihombashi marca el \"kilómetro cero\" de Japón!"
+    },
+    {
+      "index": 28,
+      "name": "Gas de Tokio",
+      "subtext": null,
+      "funFact": "¡Fundada en 1885, Tokyo Gas fue una de las primeras empresas de servicios públicos modernas de Japón!"
+    },
+    {
+      "index": 29,
+      "name": "Roppongi Hills",
+      "subtext": "六本木ヒルズ",
+      "funFact": "¡Este enorme complejo urbano incluye el Museo de Arte Mori, residencias de lujo y un mirador de 238 metros!"
+    },
+    {
+      "index": 30,
+      "name": "VE A LA CÁRCEL",
+      "subtext": "刑務所へ",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Aoyama",
+      "subtext": "青山",
+      "funFact": "¡Uno de los barrios más elegantes de Tokio, conocido por sus boutiques de alta gama y cafeterías de moda!"
+    },
+    {
+      "index": 32,
+      "name": "Azabu",
+      "subtext": "麻布",
+      "funFact": "¡Una exclusiva zona residencial hogar de muchas embajadas y escuelas internacionales!"
+    },
+    {
+      "index": 33,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Torre de Tokio",
+      "subtext": "東京タワー",
+      "funFact": "¡Inspirada en la Torre Eiffel, este emblemático monumento de 333 metros ha sido el símbolo de Tokio desde 1958!"
+    },
+    {
+      "index": 35,
+      "name": "Línea Sobu",
+      "subtext": "総武線",
+      "funFact": "¡La Línea Sobu conecta los suburbios orientales de Tokio y transporta más de 1 millón de pasajeros diarios!"
+    },
+    {
+      "index": 36,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Akasaka",
+      "subtext": "赤坂",
+      "funFact": "¡Hogar de la Casa de Huéspedes del Estado y muchos restaurantes de alta gama, incluidos establecimientos con estrellas Michelin!"
+    },
+    {
+      "index": 38,
+      "name": "Impuesto de Lujo",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Tokyo Skytree",
+      "subtext": "東京スカイツリー",
+      "funFact": "¡La torre más alta del mundo con 634 metros! La altura representa \"Musashi,\" el nombre histórico de Tokio."
+    }
+  ]
+}

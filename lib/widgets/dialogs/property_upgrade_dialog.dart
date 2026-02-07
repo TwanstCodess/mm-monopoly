@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/tile.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 import 'animated_dialog.dart';
 
 /// Dialog for upgrading a property (buying houses/hotel)
@@ -41,8 +42,8 @@ class PropertyUpgradeDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            _buildHeader(),
-            _buildContent(),
+            _buildHeader(context),
+            _buildContent(context),
             _buildActions(context),
           ],
         ),
@@ -50,7 +51,7 @@ class PropertyUpgradeDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
@@ -130,15 +131,15 @@ class PropertyUpgradeDialog extends StatelessWidget {
     }
   }
 
-  Widget _buildContent() {
+  Widget _buildContent(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
           Text(
             property.upgradeLevel == 4
-                ? 'Build a Hotel!'
-                : 'Build a House!',
+                ? AppLocalizations.of(context)!.buildHotel
+                : AppLocalizations.of(context)!.buildHouse,
             style: const TextStyle(
               color: Colors.white,
               fontSize: 16,
@@ -148,28 +149,28 @@ class PropertyUpgradeDialog extends StatelessWidget {
           const SizedBox(height: 20),
           // Upgrade cost
           _buildInfoRow(
-            'Upgrade Cost',
+            AppLocalizations.of(context)!.upgradeCost,
             '\$${property.upgradeCost}',
             AppTheme.warning,
           ),
           const SizedBox(height: 12),
           // Current rent
           _buildInfoRow(
-            'Current Rent',
+            AppLocalizations.of(context)!.currentRent,
             '\$${property.currentRent}',
             Colors.white70,
           ),
           const SizedBox(height: 8),
           // New rent
           _buildInfoRow(
-            'New Rent',
+            AppLocalizations.of(context)!.newRent,
             '\$${property.nextLevelRent}',
             AppTheme.cashGreen,
           ),
           const SizedBox(height: 8),
           // Rent increase
           _buildInfoRow(
-            'Increase',
+            AppLocalizations.of(context)!.increase,
             '+\$${property.nextLevelRent - property.currentRent}',
             Colors.amber,
           ),
@@ -184,8 +185,8 @@ class PropertyUpgradeDialog extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Your Cash',
+                Text(
+                  AppLocalizations.of(context)!.yourCash,
                   style: TextStyle(color: Colors.white70),
                 ),
                 Text(
@@ -201,8 +202,8 @@ class PropertyUpgradeDialog extends StatelessWidget {
           ),
           if (!_canAfford) ...[
             const SizedBox(height: 12),
-            const Text(
-              'Not enough cash!',
+            Text(
+              AppLocalizations.of(context)!.notEnoughCash,
               style: TextStyle(
                 color: AppTheme.error,
                 fontWeight: FontWeight.bold,
@@ -253,7 +254,7 @@ class PropertyUpgradeDialog extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: const Text('Skip', style: TextStyle(fontSize: 16)),
+              child: Text(AppLocalizations.of(context)!.skip, style: const TextStyle(fontSize: 16)),
             ),
           ),
           const SizedBox(width: 12),

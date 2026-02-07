@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "出发",
+      "subtext": "领取 £200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "老肯特路",
+      "subtext": null,
+      "funFact": "伦敦最古老的道路之一，可追溯到罗马时代，当时连接伦敦和坎特伯雷！"
+    },
+    {
+      "index": 2,
+      "name": "公益金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "白教堂路",
+      "subtext": null,
+      "funFact": "东区的历史名街，著名的白教堂铸钟厂曾铸造了美国自由钟！"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "国王十字车站",
+      "subtext": null,
+      "funFact": "国王十字车站的九又四分之三站台是哈利·波特乘坐霍格沃茨特快列车的地方！"
+    },
+    {
+      "index": 6,
+      "name": "伊斯灵顿天使",
+      "subtext": null,
+      "funFact": "以一家历史悠久的驿站客栈命名，天使自1614年以来一直是伦敦的地标！"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "尤斯顿路",
+      "subtext": null,
+      "funFact": "大英图书馆坐落于此，藏有超过1.7亿件物品，包括《大宪章》！"
+    },
+    {
+      "index": 9,
+      "name": "彭顿维尔路",
+      "subtext": null,
+      "funFact": "以18世纪70年代开发该地区的亨利·彭顿命名，靠近历史悠久的彭顿维尔监狱。"
+    },
+    {
+      "index": 10,
+      "name": "监狱",
+      "subtext": "只是路过",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "帕尔摩街",
+      "subtext": null,
+      "funFact": "自19世纪以来就是高档绅士俱乐部的所在地，还有著名的皇家汽车俱乐部！"
+    },
+    {
+      "index": 12,
+      "name": "电力公司",
+      "subtext": null,
+      "funFact": "伦敦的第一座发电站于1882年启用，为城市带来了电力街灯！"
+    },
+    {
+      "index": 13,
+      "name": "白厅",
+      "subtext": null,
+      "funFact": "英国政府的中心！唐宁街10号和众多政府部门大楼都在这里。"
+    },
+    {
+      "index": 14,
+      "name": "诺森伯兰大道",
+      "subtext": null,
+      "funFact": "建于19世纪70年代，这条宏伟的大道连接特拉法加广场和泰晤士河堤！"
+    },
+    {
+      "index": 15,
+      "name": "马里波恩车站",
+      "subtext": null,
+      "funFact": "伦敦最晚建成的主要车站，于1899年开放，曾多次出现在福尔摩斯故事中！"
+    },
+    {
+      "index": 16,
+      "name": "弓街",
+      "subtext": null,
+      "funFact": "皇家歌剧院和第一支专业警察部队“弓街探员”的所在地！"
+    },
+    {
+      "index": 17,
+      "name": "公益金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "马尔伯勒街",
+      "subtext": null,
+      "funFact": "位于梅费尔区，这条优雅的街道数百年来一直是英国贵族的聚居地！"
+    },
+    {
+      "index": 19,
+      "name": "藤街",
+      "subtext": null,
+      "funFact": "梅费尔区的尊贵地段，藤街曾有许多名人居住和奢华场所！"
+    },
+    {
+      "index": 20,
+      "name": "幸运转盘",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "斯特兰德",
+      "subtext": null,
+      "funFact": "伦敦最繁忙的大道之一，斯特兰德连接着威斯敏斯特和伦敦金融城！"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "舰队街",
+      "subtext": null,
+      "funFact": "英国新闻业的历史中心！以其下方流淌的舰队河命名。"
+    },
+    {
+      "index": 24,
+      "name": "特拉法加广场",
+      "subtext": null,
+      "funFact": "以特拉法加海战命名，矗立着纳尔逊纪念柱，每年吸引1500万游客！"
+    },
+    {
+      "index": 25,
+      "name": "芬丘奇街车站",
+      "subtext": null,
+      "funFact": "伦敦主要终点站中最小的一个，建于1841年，服务于伦敦金融城！"
+    },
+    {
+      "index": 26,
+      "name": "莱斯特广场",
+      "subtext": null,
+      "funFact": "伦敦娱乐区的中心，举办电影首映礼，周围环绕着各大剧院！"
+    },
+    {
+      "index": 27,
+      "name": "考文垂街",
+      "subtext": null,
+      "funFact": "连接皮卡迪利广场和莱斯特广场，两旁林立着餐厅和娱乐场所！"
+    },
+    {
+      "index": 28,
+      "name": "自来水厂",
+      "subtext": null,
+      "funFact": "伦敦的水源来自泰晤士河和利河，每天处理超过26亿升水！"
+    },
+    {
+      "index": 29,
+      "name": "皮卡迪利",
+      "subtext": null,
+      "funFact": "皮卡迪利广场和奢华购物的所在地！名称源于17世纪流行的领饰。"
+    },
+    {
+      "index": 30,
+      "name": "去监狱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "摄政街",
+      "subtext": null,
+      "funFact": "由约翰·纳什于1811年设计，摄政街优雅地蜿蜒穿过西区，汇聚旗舰店！"
+    },
+    {
+      "index": 32,
+      "name": "牛津街",
+      "subtext": null,
+      "funFact": "欧洲最繁忙的购物街，拥有300多家商店，每年接待2亿游客！"
+    },
+    {
+      "index": 33,
+      "name": "公益金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "邦德街",
+      "subtext": null,
+      "funFact": "自18世纪以来的奢华象征，汇集世界著名的珠宝商、时装屋和艺术经销商！"
+    },
+    {
+      "index": 35,
+      "name": "利物浦街车站",
+      "subtext": null,
+      "funFact": "伦敦最繁忙的车站之一，每年服务超过6700万乘客！"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "公园巷",
+      "subtext": null,
+      "funFact": "俯瞰海德公园，拥有伦敦最昂贵的房产和豪华酒店！"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "梅费尔",
+      "subtext": null,
+      "funFact": "伦敦最高档的街区！名称源自1686年至1764年间在此举办的五月集市。"
+    }
+  ]
+}

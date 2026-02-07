@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "DÉPART",
+      "subtext": "RECEVEZ 200 $",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Mediterranean Ave",
+      "subtext": null,
+      "funFact": "La propriété la plus abordable d’Atlantic City, parfaite pour les primo-accédants !"
+    },
+    {
+      "index": 2,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Baltic Ave",
+      "subtext": null,
+      "funFact": "Nommée d’après la région de la mer Baltique, cette rue abritait de nombreux immigrants d’Europe de l’Est."
+    },
+    {
+      "index": 4,
+      "name": "Impôt sur le Revenu",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Reading Railroad",
+      "subtext": null,
+      "funFact": "Fondée en 1833, la Reading Railroad fut l’un des premiers chemins de fer des États-Unis !"
+    },
+    {
+      "index": 6,
+      "name": "Oriental Ave",
+      "subtext": null,
+      "funFact": "Cette rue célèbre le lien historique d’Atlantic City avec la culture et le commerce asiatiques."
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Vermont Ave",
+      "subtext": null,
+      "funFact": "Le Vermont, l’État de la Montagne Verte, est célèbre pour son sirop d’érable et ses magnifiques feuillages d’automne."
+    },
+    {
+      "index": 9,
+      "name": "Connecticut Ave",
+      "subtext": null,
+      "funFact": "Le Connecticut est surnommé l’État de la Constitution et abrite l’université de Yale !"
+    },
+    {
+      "index": 10,
+      "name": "PRISON",
+      "subtext": "SIMPLE VISITE",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "St. Charles Place",
+      "subtext": null,
+      "funFact": "Nommée d’après un hôtel historique, St. Charles Place était une destination prisée dans l’Atlantic City d’antan."
+    },
+    {
+      "index": 12,
+      "name": "Compagnie d’Électricité",
+      "subtext": null,
+      "funFact": "L’invention de l’ampoule électrique par Thomas Edison en 1879 a révolutionné l’industrie électrique !"
+    },
+    {
+      "index": 13,
+      "name": "States Ave",
+      "subtext": null,
+      "funFact": "Cette rue représente l’unité des 50 États américains !"
+    },
+    {
+      "index": 14,
+      "name": "Virginia Ave",
+      "subtext": null,
+      "funFact": "La Virginie a vu naître 8 présidents des États-Unis, plus que tout autre État !"
+    },
+    {
+      "index": 15,
+      "name": "Pennsylvania Railroad",
+      "subtext": null,
+      "funFact": "Le Pennsylvania Railroad fut autrefois le plus grand chemin de fer au monde en termes de trafic et de revenus !"
+    },
+    {
+      "index": 16,
+      "name": "St. James Place",
+      "subtext": null,
+      "funFact": "Saint Jacques est le saint patron des pèlerins et des voyageurs, idéal pour une ville balnéaire !"
+    },
+    {
+      "index": 17,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Tennessee Ave",
+      "subtext": null,
+      "funFact": "Le Tennessee est le berceau de la musique country et abrite le Grand Ole Opry !"
+    },
+    {
+      "index": 19,
+      "name": "New York Ave",
+      "subtext": null,
+      "funFact": "New York abrite la Statue de la Liberté, symbole de liberté dans le monde entier !"
+    },
+    {
+      "index": 20,
+      "name": "ROUE DE LA CHANCE",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Kentucky Ave",
+      "subtext": null,
+      "funFact": "Le Kentucky est célèbre pour le Kentucky Derby, les deux minutes les plus excitantes du sport !"
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Indiana Ave",
+      "subtext": null,
+      "funFact": "L’Indiana abrite l’Indianapolis 500, le plus grand événement sportif d’une journée au monde !"
+    },
+    {
+      "index": 24,
+      "name": "Illinois Ave",
+      "subtext": null,
+      "funFact": "Chicago, dans l’Illinois, abrite le premier gratte-ciel du monde, construit en 1885 !"
+    },
+    {
+      "index": 25,
+      "name": "B&O Railroad",
+      "subtext": null,
+      "funFact": "Le Baltimore & Ohio Railroad fut le premier chemin de fer de transport public en Amérique, fondé en 1827 !"
+    },
+    {
+      "index": 26,
+      "name": "Atlantic Ave",
+      "subtext": null,
+      "funFact": "Atlantic Avenue longe la célèbre promenade en planches d’Atlantic City !"
+    },
+    {
+      "index": 27,
+      "name": "Ventnor Ave",
+      "subtext": null,
+      "funFact": "Ventnor City est voisine d’Atlantic City et offre de belles plages et des rivages plus tranquilles."
+    },
+    {
+      "index": 28,
+      "name": "Service des Eaux",
+      "subtext": null,
+      "funFact": "L’eau d’Atlantic City provient de l’aquifère Kirkwood-Cohansey, l’une des sources les plus pures !"
+    },
+    {
+      "index": 29,
+      "name": "Marvin Gardens",
+      "subtext": null,
+      "funFact": "En réalité orthographié « Marven Gardens », situé dans la ville voisine de Margate City !"
+    },
+    {
+      "index": 30,
+      "name": "ALLEZ EN PRISON",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Pacific Ave",
+      "subtext": null,
+      "funFact": "Pacific Avenue est l’une des artères principales d’Atlantic City, traversant le cœur de la ville."
+    },
+    {
+      "index": 32,
+      "name": "North Carolina Ave",
+      "subtext": null,
+      "funFact": "La Caroline du Nord fut le premier État à déclarer son indépendance de la domination britannique !"
+    },
+    {
+      "index": 33,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Pennsylvania Ave",
+      "subtext": null,
+      "funFact": "Pennsylvania Avenue à Washington D.C. relie la Maison-Blanche au Capitole !"
+    },
+    {
+      "index": 35,
+      "name": "Short Line",
+      "subtext": null,
+      "funFact": "Le Shore Fast Line assurait un service de transport rapide le long de la côte du New Jersey au début des années 1900 !"
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Park Place",
+      "subtext": null,
+      "funFact": "L’une des adresses les plus prestigieuses d’Atlantic City, juste derrière Boardwalk !"
+    },
+    {
+      "index": 38,
+      "name": "Taxe de Luxe",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Boardwalk",
+      "subtext": null,
+      "funFact": "La promenade en planches d’Atlantic City, construite en 1870, fut la première des États-Unis !"
+    }
+  ]
+}

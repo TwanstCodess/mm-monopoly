@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "出发",
+      "subtext": "领取 $200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "地中海大道",
+      "subtext": null,
+      "funFact": "大西洋城最实惠的地产，非常适合首次购房者！"
+    },
+    {
+      "index": 2,
+      "name": "公益金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "波罗的海大道",
+      "subtext": null,
+      "funFact": "以波罗的海地区命名，这条街曾是许多东欧移民的聚居地。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "雷丁铁路",
+      "subtext": null,
+      "funFact": "雷丁铁路成立于1833年，是美国最早的铁路之一！"
+    },
+    {
+      "index": 6,
+      "name": "东方大道",
+      "subtext": null,
+      "funFact": "这条街见证了大西洋城与亚洲文化和贸易的历史渊源。"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "佛蒙特大道",
+      "subtext": null,
+      "funFact": "佛蒙特州被称为“绿山之州”，以枫糖浆和美丽的秋叶闻名。"
+    },
+    {
+      "index": 9,
+      "name": "康涅狄格大道",
+      "subtext": null,
+      "funFact": "康涅狄格州被称为“宪法之州”，也是耶鲁大学的所在地！"
+    },
+    {
+      "index": 10,
+      "name": "监狱",
+      "subtext": "只是路过",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "圣查尔斯广场",
+      "subtext": null,
+      "funFact": "以一家历史悠久的酒店命名，圣查尔斯广场曾是早期大西洋城的热门目的地。"
+    },
+    {
+      "index": 12,
+      "name": "电力公司",
+      "subtext": null,
+      "funFact": "托马斯·爱迪生于1879年发明的灯泡彻底改变了电力行业！"
+    },
+    {
+      "index": 13,
+      "name": "各州大道",
+      "subtext": null,
+      "funFact": "这条街象征着美国五十个州的团结统一！"
+    },
+    {
+      "index": 14,
+      "name": "弗吉尼亚大道",
+      "subtext": null,
+      "funFact": "弗吉尼亚州诞生了8位美国总统，比其他任何州都多！"
+    },
+    {
+      "index": 15,
+      "name": "宾夕法尼亚铁路",
+      "subtext": null,
+      "funFact": "宾夕法尼亚铁路曾是世界上客运量和收入最大的铁路！"
+    },
+    {
+      "index": 16,
+      "name": "圣詹姆斯广场",
+      "subtext": null,
+      "funFact": "圣詹姆斯是朝圣者和旅行者的守护圣人，非常适合一座度假城市！"
+    },
+    {
+      "index": 17,
+      "name": "公益金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "田纳西大道",
+      "subtext": null,
+      "funFact": "田纳西州是乡村音乐的发源地，也是大奥普里剧院的所在地！"
+    },
+    {
+      "index": 19,
+      "name": "纽约大道",
+      "subtext": null,
+      "funFact": "纽约市拥有自由女神像，它是全世界自由的象征！"
+    },
+    {
+      "index": 20,
+      "name": "幸运转盘",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "肯塔基大道",
+      "subtext": null,
+      "funFact": "肯塔基州以肯塔基赛马会闻名，被誉为“体育界最激动人心的两分钟”！"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "印第安纳大道",
+      "subtext": null,
+      "funFact": "印第安纳州拥有印第安纳波利斯500赛车，世界上最大的单日体育赛事！"
+    },
+    {
+      "index": 24,
+      "name": "伊利诺伊大道",
+      "subtext": null,
+      "funFact": "伊利诺伊州的芝加哥拥有世界上第一栋摩天大楼，建于1885年！"
+    },
+    {
+      "index": 25,
+      "name": "巴尔的摩与俄亥俄铁路",
+      "subtext": null,
+      "funFact": "巴尔的摩与俄亥俄铁路是美国第一条公共承运铁路，成立于1827年！"
+    },
+    {
+      "index": 26,
+      "name": "大西洋大道",
+      "subtext": null,
+      "funFact": "大西洋大道与著名的大西洋城木板路平行！"
+    },
+    {
+      "index": 27,
+      "name": "文特诺大道",
+      "subtext": null,
+      "funFact": "文特诺市紧邻大西洋城，拥有美丽的海滩和宁静的海岸线。"
+    },
+    {
+      "index": 28,
+      "name": "自来水厂",
+      "subtext": null,
+      "funFact": "大西洋城的水源来自柯克伍德-科汉西含水层，是最纯净的水源之一！"
+    },
+    {
+      "index": 29,
+      "name": "马文花园",
+      "subtext": null,
+      "funFact": "现实中实际拼写为Marven Gardens，位于附近的马盖特市！"
+    },
+    {
+      "index": 30,
+      "name": "去监狱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "太平洋大道",
+      "subtext": null,
+      "funFact": "太平洋大道是大西洋城的主要干道之一，贯穿城市中心。"
+    },
+    {
+      "index": 32,
+      "name": "北卡罗来纳大道",
+      "subtext": null,
+      "funFact": "北卡罗来纳州是第一个宣布脱离英国统治而独立的州！"
+    },
+    {
+      "index": 33,
+      "name": "公益金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "宾夕法尼亚大道",
+      "subtext": null,
+      "funFact": "华盛顿特区的宾夕法尼亚大道连接着白宫和国会大厦！"
+    },
+    {
+      "index": 35,
+      "name": "短线铁路",
+      "subtext": null,
+      "funFact": "海岸快线在20世纪初为新泽西海岸提供了快速交通服务！"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "公园广场",
+      "subtext": null,
+      "funFact": "大西洋城最负盛名的地段之一，仅次于木板路！"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "木板路",
+      "subtext": null,
+      "funFact": "大西洋城木板路建于1870年，是美国第一条木板路！"
+    }
+  ]
+}

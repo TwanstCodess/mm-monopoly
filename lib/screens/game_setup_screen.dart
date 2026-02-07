@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../models/player.dart';
 import '../models/avatar.dart';
 import '../models/country.dart';
@@ -26,6 +27,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
   final List<TextEditingController> _nameControllers = [];
   int _currentStep = 0;
   late AnimationController _floatController;
+  bool _didInitConfigs = false;
 
   static const List<Color> _availableColors = [
     Color(0xFFFF6B6B), // Coral Red
@@ -40,7 +42,15 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
   void initState() {
     super.initState();
     _floatController = AnimationController(vsync: this, duration: const Duration(milliseconds: 3000))..repeat(reverse: true);
-    _initializeConfigs();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_didInitConfigs) {
+      _didInitConfigs = true;
+      _initializeConfigs();
+    }
   }
 
   void _initializeConfigs() {
@@ -51,7 +61,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
     _playerConfigs.clear();
 
     for (int i = 0; i < _playerCount; i++) {
-      final name = 'Player ${i + 1}';
+      final name = AppLocalizations.of(context)!.playerN(i + 1);
       _playerConfigs.add(PlayerConfig(name: name, color: _availableColors[i % _availableColors.length], icon: PlayerIcon.values[i % PlayerIcon.values.length], isAI: false, avatar: Avatars.forPlayerIndex(i)));
       _nameControllers.add(TextEditingController(text: name));
     }
@@ -94,16 +104,16 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
   bool _validateConfigs() {
     final names = _playerConfigs.map((c) => c.name.trim()).toSet();
     if (names.length != _playerConfigs.length) {
-      _showError('Each player must have a unique name');
+      _showError(AppLocalizations.of(context)!.uniqueNameError);
       return false;
     }
     if (_playerConfigs.any((c) => c.name.trim().isEmpty)) {
-      _showError('All players must have a name');
+      _showError(AppLocalizations.of(context)!.allPlayersNeedName);
       return false;
     }
     final colors = _playerConfigs.map((c) => c.color.value).toSet();
     if (colors.length != _playerConfigs.length) {
-      _showError('Each player must have a unique color');
+      _showError(AppLocalizations.of(context)!.uniqueColorError);
       return false;
     }
     return true;
@@ -189,7 +199,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
             child: ShaderMask(
               shaderCallback: (bounds) => const LinearGradient(colors: [Colors.white, Color(0xFFFFE66D)]).createShader(bounds),
               child: Text(
-                _currentStep == 0 ? 'How Many Players?' : 'Player Setup',
+                _currentStep == 0 ? AppLocalizations.of(context)!.howManyPlayers : AppLocalizations.of(context)!.playerSetup,
                 style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
               ),
             ),
@@ -224,7 +234,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
       child: Row(
         children: [
-          _buildStepIndicator(0, 'Players'),
+          _buildStepIndicator(0, AppLocalizations.of(context)!.playersStep),
           Expanded(
             child: Container(
               height: 3,
@@ -232,7 +242,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(2), color: _currentStep >= 1 ? const Color(0xFF4ECDC4) : Colors.white.withOpacity(0.3)),
             ),
           ),
-          _buildStepIndicator(1, 'Setup'),
+          _buildStepIndicator(1, AppLocalizations.of(context)!.setupStep),
         ],
       ),
     );
@@ -311,7 +321,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                           Text('🌍', style: TextStyle(fontSize: isCompact ? 20 : 24)),
                           const SizedBox(width: 10),
                           Text(
-                            'Choose Country',
+                            AppLocalizations.of(context)!.chooseCountry,
                             style: TextStyle(color: Colors.white, fontSize: isCompact ? 16 : 20, fontWeight: FontWeight.bold),
                           ),
                         ],
@@ -349,7 +359,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                                         ),
                                         SizedBox(height: isCompact ? 2 : 6),
                                         Text(
-                                          country.displayName,
+                                          country.localizedDisplayName(AppLocalizations.of(context)!),
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                             color: Colors.white,
@@ -357,19 +367,6 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                                             fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
                                           ),
                                         ),
-                                        if (country.nativeName != country.displayName && !isCompact)
-                                          Padding(
-                                            padding: const EdgeInsets.only(top: 1),
-                                            child: Text(
-                                              country.nativeName,
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                color: Colors.white.withOpacity(0.7),
-                                                fontSize: 10,
-                                                fontWeight: FontWeight.w400,
-                                              ),
-                                            ),
-                                          ),
                                       ],
                                     ),
                                   ),
@@ -408,7 +405,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                           Icon(Icons.people_alt_rounded, color: Colors.white70, size: isCompact ? 20 : 24),
                           const SizedBox(width: 10),
                           Text(
-                            'Number of Players',
+                            AppLocalizations.of(context)!.numberOfPlayers,
                             style: TextStyle(color: Colors.white, fontSize: isCompact ? 16 : 20, fontWeight: FontWeight.bold),
                           ),
                         ],
@@ -455,7 +452,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                                         ),
                                         SizedBox(height: isCompact ? 2 : 4),
                                         Text(
-                                          'players',
+                                          AppLocalizations.of(context)!.players,
                                           style: TextStyle(
                                             color: Colors.white.withOpacity(0.7),
                                             fontSize: isCompact ? 12 : 14,
@@ -500,7 +497,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                           Text('🎲', style: TextStyle(fontSize: isCompact ? 16 : 20)),
                           const SizedBox(width: 8),
                           Text(
-                            'Number of Dice',
+                            AppLocalizations.of(context)!.numberOfDice,
                             style: TextStyle(color: Colors.white, fontSize: isCompact ? 14 : 18, fontWeight: FontWeight.bold),
                           ),
                         ],
@@ -512,9 +509,9 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                       Expanded(
                         child: Row(
                           children: [
-                            Expanded(child: _buildDiceCard(1, '🎲', 'One Die', 'Classic style', const Color(0xFF95E1D3))),
+                            Expanded(child: _buildDiceCard(1, '🎲', AppLocalizations.of(context)!.oneDie, AppLocalizations.of(context)!.classicStyle, const Color(0xFF95E1D3))),
                             const SizedBox(width: 12),
-                            Expanded(child: _buildDiceCard(2, '🎲🎲', 'Two Dice', 'Standard rules', const Color(0xFFFFB347))),
+                            Expanded(child: _buildDiceCard(2, '🎲🎲', AppLocalizations.of(context)!.twoDice, AppLocalizations.of(context)!.standardRules, const Color(0xFFFFB347))),
                           ],
                         ),
                       ),
@@ -665,12 +662,12 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                       gradient: const LinearGradient(colors: [Color(0xFF4ECDC4), Color(0xFF44A08D)]),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Row(
+                    child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.person, color: Colors.white, size: 14),
-                        SizedBox(width: 4),
-                        Text('You', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+                        const Icon(Icons.person, color: Colors.white, size: 14),
+                        const SizedBox(width: 4),
+                        Text(AppLocalizations.of(context)!.you, style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
                       ],
                     ),
                   )
@@ -678,7 +675,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text('AI', style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 12)),
+                      Text(AppLocalizations.of(context)!.ai, style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 12)),
                       SizedBox(
                         height: 28,
                         child: Transform.scale(
@@ -758,7 +755,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                 textAlign: TextAlign.center,
                 style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
                 decoration: InputDecoration(
-                  hintText: 'Name',
+                  hintText: AppLocalizations.of(context)!.name,
                   hintStyle: TextStyle(color: Colors.white.withOpacity(0.4)),
                   filled: true,
                   fillColor: Colors.white.withOpacity(0.1),
@@ -842,9 +839,9 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                       Expanded(
                         child: ShaderMask(
                           shaderCallback: (bounds) => const LinearGradient(colors: [Colors.white, Color(0xFFFFE66D)]).createShader(bounds),
-                          child: const Text(
-                            'Choose Your Avatar',
-                            style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                          child: Text(
+                            AppLocalizations.of(context)!.chooseYourAvatar,
+                            style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
@@ -899,9 +896,9 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                   padding: const EdgeInsets.all(20),
                   child: ShaderMask(
                     shaderCallback: (bounds) => const LinearGradient(colors: [Colors.white, Color(0xFFFFE66D)]).createShader(bounds),
-                    child: const Text(
-                      'Choose Your Avatar',
-                      style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+                    child: Text(
+                      AppLocalizations.of(context)!.chooseYourAvatar,
+                      style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -942,7 +939,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                   ),
                   child: Center(
                     child: Text(
-                      _currentStep == 0 ? 'Back' : 'Previous',
+                      _currentStep == 0 ? AppLocalizations.of(context)!.back : AppLocalizations.of(context)!.previous,
                       style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600),
                     ),
                   ),
@@ -967,7 +964,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
                   ),
                   child: Center(
                     child: Text(
-                      _currentStep == 0 ? 'Next' : 'Start Game',
+                      _currentStep == 0 ? AppLocalizations.of(context)!.next : AppLocalizations.of(context)!.startGame,
                       style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ),

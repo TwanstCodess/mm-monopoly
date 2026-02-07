@@ -9,7 +9,14 @@ class TileWidget extends StatelessWidget {
   final bool isHighlighted;
   final Color? ownerColor; // Color of the player who owns this property
 
-  const TileWidget({super.key, required this.data, required this.isCorner, this.rotation = 0, this.isHighlighted = false, this.ownerColor});
+  const TileWidget({
+    super.key,
+    required this.data,
+    required this.isCorner,
+    this.rotation = 0,
+    this.isHighlighted = false,
+    this.ownerColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +25,10 @@ class TileWidget extends StatelessWidget {
       return Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          border: Border.all(color: isHighlighted ? Colors.amber : Colors.black, width: isHighlighted ? 2 : 1),
+          border: Border.all(
+            color: isHighlighted ? Colors.amber : Colors.black,
+            width: isHighlighted ? 2 : 1,
+          ),
         ),
         child: _buildCornerTile(),
       );
@@ -28,7 +38,10 @@ class TileWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: isHighlighted ? Colors.amber : Colors.black, width: isHighlighted ? 2 : 1),
+        border: Border.all(
+          color: isHighlighted ? Colors.amber : Colors.black,
+          width: isHighlighted ? 2 : 1,
+        ),
       ),
       child: Stack(
         children: [
@@ -84,12 +97,24 @@ class TileWidget extends StatelessWidget {
         width: 14,
         height: 14,
         decoration: BoxDecoration(
-          gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [ownerColor!.withOpacity(0.9), ownerColor!]),
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [ownerColor!.withOpacity(0.9), ownerColor!],
+          ),
           shape: BoxShape.circle,
           border: Border.all(color: Colors.white, width: 2),
           boxShadow: [
-            BoxShadow(color: ownerColor!.withOpacity(0.6), blurRadius: 4, spreadRadius: 1),
-            BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 2, offset: const Offset(1, 1)),
+            BoxShadow(
+              color: ownerColor!.withOpacity(0.6),
+              blurRadius: 4,
+              spreadRadius: 1,
+            ),
+            BoxShadow(
+              color: Colors.black.withOpacity(0.3),
+              blurRadius: 2,
+              offset: const Offset(1, 1),
+            ),
           ],
         ),
       );
@@ -99,18 +124,37 @@ class TileWidget extends StatelessWidget {
     } else {
       // Houses (1-4) in player color
       final houseCount = upgradeLevel.clamp(1, 4);
-      indicator = isVertical
-          ? Column(
-              mainAxisSize: MainAxisSize.min,
-              children: List.generate(houseCount, (_) => Padding(padding: const EdgeInsets.only(bottom: 2), child: _build3DHouse(ownerColor!))),
-            )
-          : Row(
-              mainAxisSize: MainAxisSize.min,
-              children: List.generate(houseCount, (_) => Padding(padding: const EdgeInsets.only(right: 2), child: _build3DHouse(ownerColor!))),
-            );
+      indicator =
+          isVertical
+              ? Column(
+                mainAxisSize: MainAxisSize.min,
+                children: List.generate(
+                  houseCount,
+                  (_) => Padding(
+                    padding: const EdgeInsets.only(bottom: 2),
+                    child: _build3DHouse(ownerColor!),
+                  ),
+                ),
+              )
+              : Row(
+                mainAxisSize: MainAxisSize.min,
+                children: List.generate(
+                  houseCount,
+                  (_) => Padding(
+                    padding: const EdgeInsets.only(right: 2),
+                    child: _build3DHouse(ownerColor!),
+                  ),
+                ),
+              );
     }
 
-    return Positioned(top: top, bottom: bottom, left: left, right: right, child: indicator);
+    return Positioned(
+      top: top,
+      bottom: bottom,
+      left: left,
+      right: right,
+      child: indicator,
+    );
   }
 
   /// Build a 3D house widget in player's color
@@ -122,10 +166,14 @@ class TileWidget extends StatelessWidget {
 
     // Create color variants from the player color
     final HSLColor hsl = HSLColor.fromColor(playerColor);
-    final Color darkColor = hsl.withLightness((hsl.lightness - 0.3).clamp(0.0, 1.0)).toColor();
-    final Color lightColor = hsl.withLightness((hsl.lightness + 0.1).clamp(0.0, 1.0)).toColor();
-    final Color roofColor = hsl.withLightness((hsl.lightness - 0.15).clamp(0.0, 1.0)).toColor();
-    final Color roofDarkColor = hsl.withLightness((hsl.lightness - 0.25).clamp(0.0, 1.0)).toColor();
+    final Color darkColor =
+        hsl.withLightness((hsl.lightness - 0.3).clamp(0.0, 1.0)).toColor();
+    final Color lightColor =
+        hsl.withLightness((hsl.lightness + 0.1).clamp(0.0, 1.0)).toColor();
+    final Color roofColor =
+        hsl.withLightness((hsl.lightness - 0.15).clamp(0.0, 1.0)).toColor();
+    final Color roofDarkColor =
+        hsl.withLightness((hsl.lightness - 0.25).clamp(0.0, 1.0)).toColor();
 
     return SizedBox(
       width: houseWidth,
@@ -139,7 +187,10 @@ class TileWidget extends StatelessWidget {
             child: Container(
               width: houseWidth - 1,
               height: bodyHeight,
-              decoration: BoxDecoration(color: darkColor, borderRadius: BorderRadius.circular(1)),
+              decoration: BoxDecoration(
+                color: darkColor,
+                borderRadius: BorderRadius.circular(1),
+              ),
             ),
           ),
           // House body (main layer)
@@ -150,7 +201,11 @@ class TileWidget extends StatelessWidget {
               width: houseWidth - 1,
               height: bodyHeight,
               decoration: BoxDecoration(
-                gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [lightColor, playerColor]),
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [lightColor, playerColor],
+                ),
                 borderRadius: BorderRadius.circular(1),
                 border: Border.all(color: darkColor, width: 0.5),
               ),
@@ -162,7 +217,10 @@ class TileWidget extends StatelessWidget {
             left: 1,
             child: CustomPaint(
               size: Size(houseWidth - 1, roofHeight),
-              painter: _RoofPainter(color: roofDarkColor, shadowColor: roofDarkColor),
+              painter: _RoofPainter(
+                color: roofDarkColor,
+                shadowColor: roofDarkColor,
+              ),
             ),
           ),
           // Roof (triangle) - main
@@ -171,7 +229,10 @@ class TileWidget extends StatelessWidget {
             left: 0,
             child: CustomPaint(
               size: Size(houseWidth - 1, roofHeight),
-              painter: _RoofPainter(color: roofColor, shadowColor: roofDarkColor),
+              painter: _RoofPainter(
+                color: roofColor,
+                shadowColor: roofDarkColor,
+              ),
             ),
           ),
         ],
@@ -197,7 +258,10 @@ class TileWidget extends StatelessWidget {
             child: Container(
               width: hotelWidth - 2,
               height: bodyHeight,
-              decoration: BoxDecoration(color: Colors.red.shade900, borderRadius: BorderRadius.circular(1)),
+              decoration: BoxDecoration(
+                color: Colors.red.shade900,
+                borderRadius: BorderRadius.circular(1),
+              ),
             ),
           ),
           // Hotel body - main layer
@@ -208,7 +272,11 @@ class TileWidget extends StatelessWidget {
               width: hotelWidth - 2,
               height: bodyHeight,
               decoration: BoxDecoration(
-                gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Colors.red.shade400, Colors.red.shade600]),
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.red.shade400, Colors.red.shade600],
+                ),
                 borderRadius: BorderRadius.circular(1),
                 border: Border.all(color: Colors.red.shade800, width: 0.5),
               ),
@@ -216,7 +284,16 @@ class TileWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // Windows row
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [_buildWindow(), const SizedBox(width: 2), _buildWindow(), const SizedBox(width: 2), _buildWindow()]),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _buildWindow(),
+                      const SizedBox(width: 2),
+                      _buildWindow(),
+                      const SizedBox(width: 2),
+                      _buildWindow(),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -230,7 +307,10 @@ class TileWidget extends StatelessWidget {
               height: 3,
               decoration: BoxDecoration(
                 color: Colors.red.shade800,
-                borderRadius: const BorderRadius.only(topLeft: Radius.circular(2), topRight: Radius.circular(2)),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(2),
+                  topRight: Radius.circular(2),
+                ),
               ),
             ),
           ),
@@ -241,8 +321,15 @@ class TileWidget extends StatelessWidget {
               width: hotelWidth - 4,
               height: 3,
               decoration: BoxDecoration(
-                gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Colors.red.shade300, Colors.red.shade500]),
-                borderRadius: const BorderRadius.only(topLeft: Radius.circular(2), topRight: Radius.circular(2)),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Colors.red.shade300, Colors.red.shade500],
+                ),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(2),
+                  topRight: Radius.circular(2),
+                ),
               ),
             ),
           ),
@@ -254,7 +341,11 @@ class TileWidget extends StatelessWidget {
             child: Center(
               child: Text(
                 'H',
-                style: TextStyle(fontSize: 6, fontWeight: FontWeight.bold, color: Colors.white.withOpacity(0.9)),
+                style: TextStyle(
+                  fontSize: 6,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white.withOpacity(0.9),
+                ),
               ),
             ),
           ),
@@ -314,21 +405,14 @@ class TileWidget extends StatelessWidget {
               child: Text(
                 data.name,
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w900, color: Colors.black),
-              ),
-            ),
-          ),
-          if (data.subtext != null)
-            Padding(
-              padding: const EdgeInsets.only(top: 2),
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text(
-                  data.subtext!,
-                  style: const TextStyle(fontSize: 9, color: Colors.black87, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.black,
                 ),
               ),
             ),
+          ),
         ],
       ),
     );
@@ -357,7 +441,10 @@ class TileWidget extends StatelessWidget {
     final content = _buildTileContent();
 
     return Column(
-      children: colorBandOnTop ? [colorBand, Expanded(child: content)] : [Expanded(child: content), colorBand],
+      children:
+          colorBandOnTop
+              ? [colorBand, Expanded(child: content)]
+              : [Expanded(child: content), colorBand],
     );
   }
 
@@ -368,7 +455,10 @@ class TileWidget extends StatelessWidget {
     final content = _buildTileContent();
 
     return Row(
-      children: colorBandOnRight ? [Expanded(child: content), colorBand] : [colorBand, Expanded(child: content)],
+      children:
+          colorBandOnRight
+              ? [Expanded(child: content), colorBand]
+              : [colorBand, Expanded(child: content)],
     );
   }
 
@@ -381,26 +471,36 @@ class TileWidget extends StatelessWidget {
       return Container(
         height: 16,
         width: double.infinity,
-        decoration: hasColorBand
-            ? BoxDecoration(
-                color: data.color,
-                border: const Border(bottom: BorderSide(color: Colors.black, width: 0.5)),
-              )
-            : null,
+        decoration:
+            hasColorBand
+                ? BoxDecoration(
+                  color: data.color,
+                  border: const Border(
+                    bottom: BorderSide(color: Colors.black, width: 0.5),
+                  ),
+                )
+                : null,
       );
     } else {
       return Container(
         width: 16,
         height: double.infinity,
-        decoration: hasColorBand
-            ? BoxDecoration(
-                color: data.color,
-                border: Border(
-                  left: rotation == 3 ? const BorderSide(color: Colors.black, width: 0.5) : BorderSide.none,
-                  right: rotation == 1 ? const BorderSide(color: Colors.black, width: 0.5) : BorderSide.none,
-                ),
-              )
-            : null,
+        decoration:
+            hasColorBand
+                ? BoxDecoration(
+                  color: data.color,
+                  border: Border(
+                    left:
+                        rotation == 3
+                            ? const BorderSide(color: Colors.black, width: 0.5)
+                            : BorderSide.none,
+                    right:
+                        rotation == 1
+                            ? const BorderSide(color: Colors.black, width: 0.5)
+                            : BorderSide.none,
+                  ),
+                )
+                : null,
       );
     }
   }
@@ -417,7 +517,7 @@ class TileWidget extends StatelessWidget {
     // Use two-line layout only if name has a natural break (space)
     // Otherwise scale down to fit on one line to avoid orphan characters
     final hasSpace = shortName.contains(' ');
-    
+
     final nameWidget = Padding(
       padding: const EdgeInsets.symmetric(horizontal: 1),
       child: Column(
@@ -425,52 +525,65 @@ class TileWidget extends StatelessWidget {
         children: [
           hasSpace
               ? Text(
+                shortName,
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontSize: 9,
+                  fontWeight: FontWeight.w800,
+                  height: 1.1,
+                  color: Colors.black,
+                ),
+              )
+              : FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
                   shortName,
                   textAlign: TextAlign.center,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontSize: 9, fontWeight: FontWeight.w800, height: 1.1, color: Colors.black),
-                )
-              : FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
-                    shortName,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w800, height: 1.1, color: Colors.black),
+                  style: const TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w800,
+                    height: 1.1,
+                    color: Colors.black,
                   ),
                 ),
-          if (data.subtext != null) ...[
-            const SizedBox(height: 1),
-            FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                data.subtext!,
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 7, fontWeight: FontWeight.w600, height: 1.0, color: Colors.black87),
               ),
-            ),
-          ],
         ],
       ),
     );
 
-    final priceWidget = price != null
-        ? Container(
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-            decoration: BoxDecoration(color: Colors.green.shade100, borderRadius: BorderRadius.circular(3)),
-            child: Text(
-              '\$$price',
-              style: TextStyle(fontSize: 11, fontWeight: FontWeight.w900, color: Colors.green.shade800),
-            ),
-          )
-        : const SizedBox(height: 16);
+    final priceWidget =
+        price != null
+            ? Container(
+              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+              decoration: BoxDecoration(
+                color: Colors.green.shade100,
+                borderRadius: BorderRadius.circular(3),
+              ),
+              child: Text(
+                '\$$price',
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.green.shade800,
+                ),
+              ),
+            )
+            : const SizedBox(height: 16);
 
     final iconWidget = Expanded(child: Center(child: _buildTileIcon()));
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 4),
       color: Colors.white,
-      child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: nameAtBottom ? [priceWidget, iconWidget, nameWidget] : [nameWidget, iconWidget, priceWidget]),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children:
+            nameAtBottom
+                ? [priceWidget, iconWidget, nameWidget]
+                : [nameWidget, iconWidget, priceWidget],
+      ),
     );
   }
 
@@ -505,15 +618,27 @@ class TileWidget extends StatelessWidget {
       case TileType.railroad:
         return const Icon(Icons.train, size: 16, color: Colors.black87);
       case TileType.utility:
-        final isElectric = data is UtilityTileData && (data as UtilityTileData).isElectric;
-        return Icon(isElectric ? Icons.bolt : Icons.water_drop, size: 16, color: isElectric ? Colors.amber.shade700 : Colors.blue);
+        final isElectric =
+            data is UtilityTileData && (data as UtilityTileData).isElectric;
+        return Icon(
+          isElectric ? Icons.bolt : Icons.water_drop,
+          size: 16,
+          color: isElectric ? Colors.amber.shade700 : Colors.blue,
+        );
       case TileType.chance:
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-          decoration: BoxDecoration(color: Colors.orange, borderRadius: BorderRadius.circular(3)),
+          decoration: BoxDecoration(
+            color: Colors.orange,
+            borderRadius: BorderRadius.circular(3),
+          ),
           child: const Text(
             '?',
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
         );
       case TileType.communityChest:
@@ -538,11 +663,25 @@ class PositionedTileWidget extends StatelessWidget {
   final Color? ownerColor;
   final void Function(TileData)? onTap;
 
-  const PositionedTileWidget({super.key, required this.data, required this.position, this.isHighlighted = false, this.glowController, this.ownerColor, this.onTap});
+  const PositionedTileWidget({
+    super.key,
+    required this.data,
+    required this.position,
+    this.isHighlighted = false,
+    this.glowController,
+    this.ownerColor,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    Widget tile = TileWidget(data: data, isCorner: position.isCorner, rotation: position.rotation, isHighlighted: isHighlighted, ownerColor: ownerColor);
+    Widget tile = TileWidget(
+      data: data,
+      isCorner: position.isCorner,
+      rotation: position.rotation,
+      isHighlighted: isHighlighted,
+      ownerColor: ownerColor,
+    );
 
     // Add glow effect when highlighted
     if (isHighlighted && glowController != null) {
@@ -550,8 +689,22 @@ class PositionedTileWidget extends StatelessWidget {
         animation: glowController!,
         builder: (context, child) {
           return Container(
-            decoration: BoxDecoration(boxShadow: [BoxShadow(color: Colors.amber.withAlpha((128 + glowController!.value * 127).toInt()), blurRadius: 15, spreadRadius: 3)]),
-            child: AnimatedScale(scale: 1.03, duration: const Duration(milliseconds: 200), child: child),
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.amber.withAlpha(
+                    (128 + glowController!.value * 127).toInt(),
+                  ),
+                  blurRadius: 15,
+                  spreadRadius: 3,
+                ),
+              ],
+            ),
+            child: AnimatedScale(
+              scale: 1.03,
+              duration: const Duration(milliseconds: 200),
+              child: child,
+            ),
           );
         },
         child: tile,
@@ -563,7 +716,13 @@ class PositionedTileWidget extends StatelessWidget {
       tile = GestureDetector(onTap: () => onTap!(data), child: tile);
     }
 
-    return Positioned(left: position.left, top: position.top, width: position.width, height: position.height, child: tile);
+    return Positioned(
+      left: position.left,
+      top: position.top,
+      width: position.width,
+      height: position.height,
+      child: tile,
+    );
   }
 }
 
@@ -580,20 +739,22 @@ class _RoofPainter extends CustomPainter {
 
     // Draw shadow (offset to right)
     paint.color = shadowColor;
-    final shadowPath = Path()
-      ..moveTo(size.width / 2 + 1, 0)
-      ..lineTo(size.width + 1, size.height + 1)
-      ..lineTo(1, size.height + 1)
-      ..close();
+    final shadowPath =
+        Path()
+          ..moveTo(size.width / 2 + 1, 0)
+          ..lineTo(size.width + 1, size.height + 1)
+          ..lineTo(1, size.height + 1)
+          ..close();
     canvas.drawPath(shadowPath, paint);
 
     // Draw main roof
     paint.color = color;
-    final path = Path()
-      ..moveTo(size.width / 2, 0)
-      ..lineTo(size.width, size.height)
-      ..lineTo(0, size.height)
-      ..close();
+    final path =
+        Path()
+          ..moveTo(size.width / 2, 0)
+          ..lineTo(size.width, size.height)
+          ..lineTo(0, size.height)
+          ..close();
     canvas.drawPath(path, paint);
   }
 

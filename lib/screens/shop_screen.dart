@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../models/unlockable.dart';
 import '../services/unlock_service.dart';
 
@@ -83,20 +84,20 @@ class _ShopScreenState extends State<ShopScreen> with TickerProviderStateMixin {
           ),
           const SizedBox(width: 8),
           // Title
-          const Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '🛍️ Shop',
-                style: TextStyle(
+                '🛍️ ${AppLocalizations.of(context)!.shopTitle}',
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                'Unlock themes, tokens & more!',
-                style: TextStyle(
+                AppLocalizations.of(context)!.shopSubtitle,
+                style: const TextStyle(
                   color: Colors.white70,
                   fontSize: 14,
                 ),
@@ -267,15 +268,15 @@ class _ShopScreenState extends State<ShopScreen> with TickerProviderStateMixin {
                         Icon(Icons.check_circle, color: Colors.green[400], size: 16),
                         const SizedBox(width: 4),
                         Text(
-                          'Unlocked',
+                          AppLocalizations.of(context)!.unlocked,
                           style: TextStyle(color: Colors.green[400], fontSize: 12),
                         ),
                       ],
                     )
                   else if (item.isFree)
-                    const Text(
-                      'Free',
-                      style: TextStyle(color: Colors.white70, fontSize: 12),
+                    Text(
+                      AppLocalizations.of(context)!.free,
+                      style: const TextStyle(color: Colors.white70, fontSize: 12),
                     )
                   else
                     _buildUnlockInfo(item, adsWatched, progress),
@@ -380,16 +381,16 @@ class _ShopScreenState extends State<ShopScreen> with TickerProviderStateMixin {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (context) => const Center(
+      builder: (context) => Center(
         child: Card(
           child: Padding(
-            padding: EdgeInsets.all(32),
+            padding: const EdgeInsets.all(32),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                CircularProgressIndicator(),
-                SizedBox(height: 16),
-                Text('Loading ad...'),
+                const CircularProgressIndicator(),
+                const SizedBox(height: 16),
+                Text(AppLocalizations.of(context)!.loadingAd),
               ],
             ),
           ),
@@ -416,7 +417,7 @@ class _ShopScreenState extends State<ShopScreen> with TickerProviderStateMixin {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            'Progress: ${_unlockService.getAdsWatched(item.id)}/${item.adsRequired} ads watched!',
+            AppLocalizations.of(context)!.adsProgress(_unlockService.getAdsWatched(item.id), item.adsRequired),
           ),
           backgroundColor: const Color(0xFF4CAF50),
         ),
@@ -431,19 +432,19 @@ class _ShopScreenState extends State<ShopScreen> with TickerProviderStateMixin {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Purchase ${item.name}?'),
-        content: Text('Unlock for ${item.priceString}'),
+        title: Text(AppLocalizations.of(context)!.purchaseItem(item.name)),
+        content: Text(AppLocalizations.of(context)!.unlockFor(item.priceString)),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           ElevatedButton(
             onPressed: () => Navigator.pop(context, true),
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xFFFF6B6B),
             ),
-            child: Text('Buy ${item.priceString}'),
+            child: Text(AppLocalizations.of(context)!.buyPrice(item.priceString)),
           ),
         ],
       ),
@@ -479,9 +480,9 @@ class _ShopScreenState extends State<ShopScreen> with TickerProviderStateMixin {
             children: [
               const Text('🎉', style: TextStyle(fontSize: 64)),
               const SizedBox(height: 16),
-              const Text(
-                'UNLOCKED!',
-                style: TextStyle(
+              Text(
+                AppLocalizations.of(context)!.unlockedExcl,
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
@@ -504,7 +505,7 @@ class _ShopScreenState extends State<ShopScreen> with TickerProviderStateMixin {
                   foregroundColor: const Color(0xFF764ba2),
                   padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                 ),
-                child: const Text('Awesome!', style: TextStyle(fontWeight: FontWeight.bold)),
+                child: Text(AppLocalizations.of(context)!.awesome, style: const TextStyle(fontWeight: FontWeight.bold)),
               ),
             ],
           ),
@@ -610,9 +611,9 @@ class _ItemDetailsSheet extends StatelessWidget {
                               color: Colors.green.withOpacity(0.2),
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            child: const Text(
-                              '✓ Owned',
-                              style: TextStyle(color: Colors.green, fontSize: 12),
+                            child: Text(
+                              '✓ ${AppLocalizations.of(context)!.owned}',
+                              style: const TextStyle(color: Colors.green, fontSize: 12),
                             ),
                           ),
                       ],
@@ -646,9 +647,9 @@ class _ItemDetailsSheet extends StatelessWidget {
             if (item.canUnlockWithAds) ...[
               Row(
                 children: [
-                  const Text(
-                    'Watch ads to unlock',
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  Text(
+                    AppLocalizations.of(context)!.watchAdsToUnlock,
+                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                   const Spacer(),
                   Text(
@@ -677,7 +678,7 @@ class _ItemDetailsSheet extends StatelessWidget {
                     child: ElevatedButton.icon(
                       onPressed: onWatchAd,
                       icon: const Icon(Icons.play_circle_outline),
-                      label: const Text('Watch Ad'),
+                      label: Text(AppLocalizations.of(context)!.watchAdsToUnlock),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF4CAF50),
                         foregroundColor: Colors.white,
@@ -712,10 +713,10 @@ class _ItemDetailsSheet extends StatelessWidget {
             Center(
               child: Text(
                 item.canUnlockWithAds && item.canPurchase
-                    ? 'Watch ${item.adsRequired} ads or pay to unlock instantly'
+                    ? AppLocalizations.of(context)!.watchAdsOrPay(item.adsRequired)
                     : item.canUnlockWithAds
-                        ? 'Watch ${item.adsRequired} ads to unlock'
-                        : 'Purchase to unlock',
+                        ? AppLocalizations.of(context)!.watchAdsCount(item.adsRequired)
+                        : AppLocalizations.of(context)!.purchaseToUnlock,
                 style: const TextStyle(color: Colors.white54, fontSize: 12),
               ),
             ),
@@ -729,11 +730,11 @@ class _ItemDetailsSheet extends StatelessWidget {
                   Navigator.pop(context);
                   // TODO: Implement equip functionality
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('${item.name} selected!')),
+                    SnackBar(content: Text(AppLocalizations.of(context)!.itemSelected(item.name))),
                   );
                 },
                 icon: const Icon(Icons.check_circle),
-                label: const Text('Use This'),
+                label: Text(AppLocalizations.of(context)!.useThis),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.amber,
                   foregroundColor: Colors.black,

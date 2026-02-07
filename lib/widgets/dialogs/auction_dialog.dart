@@ -4,6 +4,7 @@ import '../../models/tile.dart';
 import '../../models/player.dart';
 import '../../models/auction.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 import 'animated_dialog.dart';
 
 /// Dialog for property auctions
@@ -194,8 +195,8 @@ class _AuctionDialogState extends State<AuctionDialog> with SingleTickerProvider
         children: [
           const Icon(Icons.gavel, color: Colors.white, size: 36),
           const SizedBox(height: 8),
-          const Text(
-            'AUCTION',
+          Text(
+            AppLocalizations.of(context)!.auction,
             style: TextStyle(
               color: Colors.white,
               fontSize: 22,
@@ -213,7 +214,7 @@ class _AuctionDialogState extends State<AuctionDialog> with SingleTickerProvider
             textAlign: TextAlign.center,
           ),
           Text(
-            'Value: \$${_auction.propertyPrice}',
+            AppLocalizations.of(context)!.propertyValue(_auction.propertyPrice),
             style: TextStyle(
               color: Colors.white.withOpacity(0.8),
               fontSize: 14,
@@ -237,15 +238,15 @@ class _AuctionDialogState extends State<AuctionDialog> with SingleTickerProvider
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Current Bid:',
+              Text(
+                AppLocalizations.of(context)!.currentBid,
                 style: TextStyle(color: Colors.white70, fontSize: 14),
               ),
               AnimatedBuilder(
                 animation: _pulseController,
                 builder: (context, child) {
                   return Text(
-                    _auction.currentBid == 0 ? 'No bids yet' : '\$${_auction.currentBid}',
+                    _auction.currentBid == 0 ? AppLocalizations.of(context)!.noBidsYet : '\$${_auction.currentBid}',
                     style: TextStyle(
                       color: _auction.currentBid == 0
                           ? Colors.white54
@@ -443,7 +444,7 @@ class _AuctionDialogState extends State<AuctionDialog> with SingleTickerProvider
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: const Text('Pass'),
+                  child: Text(AppLocalizations.of(context)!.pass),
                 ),
               ),
               const SizedBox(width: 12),

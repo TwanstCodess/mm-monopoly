@@ -1,0 +1,206 @@
+{
+  "chance": [
+    {
+      "text": "银行说：“送你一笔零花钱！”",
+      "effect": "+$50",
+      "action": "collect50"
+    },
+    {
+      "text": "哎呀！骑滑板车超速被抓啦！",
+      "effect": "-$15",
+      "action": "pay15"
+    },
+    {
+      "text": "冲向“起点”！嗖嗖嗖！",
+      "effect": "领取 $200",
+      "action": "advanceGo"
+    },
+    {
+      "text": "走错路啦！退后3格，哎呀呀！",
+      "effect": "后退",
+      "action": "back3"
+    },
+    {
+      "text": "你的小猪存钱罐都要撑爆啦！",
+      "effect": "+$150",
+      "action": "collect150"
+    },
+    {
+      "text": "在旧裤子口袋里发现了$25！",
+      "effect": "+$25",
+      "action": "collect25"
+    },
+    {
+      "text": "校园才艺秀冠军！你就是大明星！",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "你的柠檬水摊超级火爆！",
+      "effect": "+$50",
+      "action": "collect50"
+    },
+    {
+      "text": "请大家吃披萨派对！花得值！",
+      "effect": "-$50",
+      "action": "pay50"
+    },
+    {
+      "text": "在后院挖到了海盗宝藏！",
+      "effect": "+$150",
+      "action": "collect150"
+    },
+    {
+      "text": "你拍的猫咪视频火遍全网！名利双收！",
+      "effect": "+$200",
+      "action": "collect200"
+    },
+    {
+      "text": "车库大甩卖冠军！旧玩具全卖光啦！",
+      "effect": "+$25",
+      "action": "collect25"
+    },
+    {
+      "text": "拼字比赛冠军！天——才！",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "棒球打破了邻居家的窗户……",
+      "effect": "-$50",
+      "action": "pay50"
+    },
+    {
+      "text": "奶奶寄来了惊喜生日红包！",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "你的小金鱼在集市上获得“最佳宠物”奖！",
+      "effect": "+$150",
+      "action": "collect150"
+    },
+    {
+      "text": "冰淇淋车来啦！必须买一个！",
+      "effect": "-$15",
+      "action": "pay15"
+    },
+    {
+      "text": "捡到一株四叶草……还有$100！",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "你的饼干在义卖会上全部卖光啦！",
+      "effect": "+$50",
+      "action": "collect50"
+    },
+    {
+      "text": "电子游戏锦标赛冠军！太厉害啦！",
+      "effect": "+$200",
+      "action": "collect200"
+    }
+  ],
+  "communityChest": [
+    {
+      "text": "你的存款账户涨利息啦！叮咚！",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "哦不，该去看医生做体检啦。",
+      "effect": "-$50",
+      "action": "pay50"
+    },
+    {
+      "text": "祝你生日快乐！派对时间到！",
+      "effect": "+$25",
+      "action": "collect25"
+    },
+    {
+      "text": "银行算错账了……多给了你钱！",
+      "effect": "+$200",
+      "action": "collect200"
+    },
+    {
+      "text": "要买新的学习用品啦！",
+      "effect": "-$50",
+      "action": "pay50"
+    },
+    {
+      "text": "姑奶奶把她的财产留给了你！",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "暑假旅游基金准备好啦！",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "帮邻居扫落叶！干得漂亮！",
+      "effect": "+$25",
+      "action": "collect25"
+    },
+    {
+      "text": "拍照日获得“最佳微笑奖”！",
+      "effect": "+$50",
+      "action": "collect50"
+    },
+    {
+      "text": "退税啦！钱钱回来啦！",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "你的美术作品在学校拍卖会上卖出啦！",
+      "effect": "+$150",
+      "action": "collect150"
+    },
+    {
+      "text": "遛狗生意红红火火！",
+      "effect": "+$50",
+      "action": "collect50"
+    },
+    {
+      "text": "妈妈看到了你的成绩单……全A就有奖励！",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "哎呀！忘记还图书馆的书了！",
+      "effect": "-$15",
+      "action": "pay15"
+    },
+    {
+      "text": "神秘好心人送你一份大礼！",
+      "effect": "+$200",
+      "action": "collect200"
+    },
+    {
+      "text": "你们队赢得了科学展览大奖！",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "牙仙子来啦……把所有乳牙都换成钱！",
+      "effect": "+$50",
+      "action": "collect50"
+    },
+    {
+      "text": "回收废品赚到钱啦！保护地球又赚钱！",
+      "effect": "+$25",
+      "action": "collect25"
+    },
+    {
+      "text": "你做的手工手链在网上卖出去啦！",
+      "effect": "+$50",
+      "action": "collect50"
+    },
+    {
+      "text": "社区小英雄奖！你太棒啦！",
+      "effect": "+$150",
+      "action": "collect150"
+    }
+  ]
+}

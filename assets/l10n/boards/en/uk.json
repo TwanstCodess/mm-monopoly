@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "COLLECT £200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Old Kent Road",
+      "subtext": null,
+      "funFact": "One of London's oldest roads, dating back to Roman times when it connected London to Canterbury!"
+    },
+    {
+      "index": 2,
+      "name": "Community Chest",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Whitechapel Road",
+      "subtext": null,
+      "funFact": "Historic East End street, famous for the Whitechapel Bell Foundry which cast the Liberty Bell!"
+    },
+    {
+      "index": 4,
+      "name": "Income Tax",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "King's Cross Station",
+      "subtext": null,
+      "funFact": "Platform 9¾ at King's Cross is where Harry Potter catches the Hogwarts Express!"
+    },
+    {
+      "index": 6,
+      "name": "The Angel Islington",
+      "subtext": null,
+      "funFact": "Named after a historic coaching inn, The Angel has been a London landmark since 1614!"
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Euston Road",
+      "subtext": null,
+      "funFact": "Home to the British Library, which houses over 170 million items including the Magna Carta!"
+    },
+    {
+      "index": 9,
+      "name": "Pentonville Road",
+      "subtext": null,
+      "funFact": "Named after Henry Penton who developed the area in the 1770s, near historic Pentonville Prison."
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "JUST VISITING",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Pall Mall",
+      "subtext": null,
+      "funFact": "Home to exclusive gentlemen's clubs since the 1800s, and the famous Royal Automobile Club!"
+    },
+    {
+      "index": 12,
+      "name": "Electric Company",
+      "subtext": null,
+      "funFact": "London's first power station opened in 1882, bringing electric street lights to the city!"
+    },
+    {
+      "index": 13,
+      "name": "Whitehall",
+      "subtext": null,
+      "funFact": "The center of UK government! Home to 10 Downing Street and numerous ministry buildings."
+    },
+    {
+      "index": 14,
+      "name": "Northumberland Ave",
+      "subtext": null,
+      "funFact": "Built in the 1870s, this grand avenue connects Trafalgar Square to the Thames Embankment!"
+    },
+    {
+      "index": 15,
+      "name": "Marylebone Station",
+      "subtext": null,
+      "funFact": "London's most recent major station, opened in 1899, and featured in many Sherlock Holmes stories!"
+    },
+    {
+      "index": 16,
+      "name": "Bow Street",
+      "subtext": null,
+      "funFact": "Home to the Royal Opera House and the first professional police force, the Bow Street Runners!"
+    },
+    {
+      "index": 17,
+      "name": "Community Chest",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Marlborough Street",
+      "subtext": null,
+      "funFact": "Located in Mayfair, this elegant street has been home to British aristocracy for centuries!"
+    },
+    {
+      "index": 19,
+      "name": "Vine Street",
+      "subtext": null,
+      "funFact": "A prestigious Mayfair address, Vine Street has housed famous residents and luxury establishments!"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Strand",
+      "subtext": null,
+      "funFact": "One of London's busiest thoroughfares, the Strand connects Westminster to the City of London!"
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Fleet Street",
+      "subtext": null,
+      "funFact": "The historic heart of British journalism! Named after the River Fleet that runs beneath it."
+    },
+    {
+      "index": 24,
+      "name": "Trafalgar Square",
+      "subtext": null,
+      "funFact": "Named after the Battle of Trafalgar, features Nelson's Column and is visited by 15 million people yearly!"
+    },
+    {
+      "index": 25,
+      "name": "Fenchurch St Station",
+      "subtext": null,
+      "funFact": "The smallest of London's major terminals, built in 1841, serving the historic City of London!"
+    },
+    {
+      "index": 26,
+      "name": "Leicester Square",
+      "subtext": null,
+      "funFact": "The heart of London's entertainment district, hosting movie premieres and surrounded by theaters!"
+    },
+    {
+      "index": 27,
+      "name": "Coventry Street",
+      "subtext": null,
+      "funFact": "Connects Piccadilly Circus to Leicester Square, lined with restaurants and entertainment venues!"
+    },
+    {
+      "index": 28,
+      "name": "Water Works",
+      "subtext": null,
+      "funFact": "London's water comes from the Thames and Lea rivers, treating over 2.6 billion liters daily!"
+    },
+    {
+      "index": 29,
+      "name": "Piccadilly",
+      "subtext": null,
+      "funFact": "Home to Piccadilly Circus and luxury shopping! Named after piccadills, fashionable 17th century collars."
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Regent Street",
+      "subtext": null,
+      "funFact": "Designed by John Nash in 1811, Regent Street curves elegantly through the West End with flagship stores!"
+    },
+    {
+      "index": 32,
+      "name": "Oxford Street",
+      "subtext": null,
+      "funFact": "Europe's busiest shopping street with over 300 shops and 200 million visitors each year!"
+    },
+    {
+      "index": 33,
+      "name": "Community Chest",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Bond Street",
+      "subtext": null,
+      "funFact": "The epitome of luxury since the 1700s, home to world-famous jewelers, fashion houses, and art dealers!"
+    },
+    {
+      "index": 35,
+      "name": "Liverpool St Station",
+      "subtext": null,
+      "funFact": "One of London's busiest stations, serving over 67 million passengers annually!"
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Park Lane",
+      "subtext": null,
+      "funFact": "Overlooks Hyde Park and is home to some of London's most expensive real estate and luxury hotels!"
+    },
+    {
+      "index": 38,
+      "name": "Luxury Tax",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Mayfair",
+      "subtext": null,
+      "funFact": "London's most exclusive district! Named after the annual May Fair held here from 1686 to 1764."
+    }
+  ]
+}

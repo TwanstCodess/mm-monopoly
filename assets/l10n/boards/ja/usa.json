@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "スタート",
+      "subtext": "$200を受け取る",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "メディテレニアン通り",
+      "subtext": null,
+      "funFact": "アトランティックシティで最も手頃な物件で、初めての不動産購入者にぴったり！"
+    },
+    {
+      "index": 2,
+      "name": "共同基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "バルティック通り",
+      "subtext": null,
+      "funFact": "バルト海地域にちなんで名付けられたこの通りには、多くの東欧移民が住んでいました。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "レディング鉄道",
+      "subtext": null,
+      "funFact": "1833年に設立されたレディング鉄道は、アメリカ最初期の鉄道のひとつです！"
+    },
+    {
+      "index": 6,
+      "name": "オリエンタル通り",
+      "subtext": null,
+      "funFact": "この通りはアトランティックシティとアジア文化・貿易との歴史的なつながりを象徴しています。"
+    },
+    {
+      "index": 7,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "バーモント通り",
+      "subtext": null,
+      "funFact": "「緑の山の州」バーモントは、メープルシロップと美しい紅葉で有名です。"
+    },
+    {
+      "index": 9,
+      "name": "コネチカット通り",
+      "subtext": null,
+      "funFact": "コネチカット州は「憲法の州」として知られ、名門イェール大学があります！"
+    },
+    {
+      "index": 10,
+      "name": "刑務所",
+      "subtext": "面会中",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "セントチャールズプレイス",
+      "subtext": null,
+      "funFact": "歴史的なホテルにちなんで名付けられ、初期のアトランティックシティで人気の観光地でした。"
+    },
+    {
+      "index": 12,
+      "name": "電力会社",
+      "subtext": null,
+      "funFact": "1879年のトーマス・エジソンによる電球の発明が、電力産業に革命をもたらしました！"
+    },
+    {
+      "index": 13,
+      "name": "ステーツ通り",
+      "subtext": null,
+      "funFact": "この通りはアメリカの50州すべての団結を象徴しています！"
+    },
+    {
+      "index": 14,
+      "name": "バージニア通り",
+      "subtext": null,
+      "funFact": "バージニア州からは8人のアメリカ大統領が誕生しており、どの州よりも多い記録です！"
+    },
+    {
+      "index": 15,
+      "name": "ペンシルベニア鉄道",
+      "subtext": null,
+      "funFact": "ペンシルベニア鉄道はかつて輸送量と収益で世界最大の鉄道でした！"
+    },
+    {
+      "index": 16,
+      "name": "セントジェームズプレイス",
+      "subtext": null,
+      "funFact": "聖ヤコブは巡礼者と旅人の守護聖人で、リゾート都市にふさわしい名前です！"
+    },
+    {
+      "index": 17,
+      "name": "共同基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "テネシー通り",
+      "subtext": null,
+      "funFact": "テネシー州はカントリーミュージック発祥の地で、グランド・オール・オプリーの本拠地です！"
+    },
+    {
+      "index": 19,
+      "name": "ニューヨーク通り",
+      "subtext": null,
+      "funFact": "ニューヨーク市には自由の女神像があり、世界中で自由の象徴とされています！"
+    },
+    {
+      "index": 20,
+      "name": "ラッキースピン",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "ケンタッキー通り",
+      "subtext": null,
+      "funFact": "ケンタッキー州はケンタッキーダービーで有名で、「スポーツ界で最も興奮する2分間」と呼ばれています！"
+    },
+    {
+      "index": 22,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "インディアナ通り",
+      "subtext": null,
+      "funFact": "インディアナ州にはインディ500があり、世界最大の1日限りのスポーツイベントです！"
+    },
+    {
+      "index": 24,
+      "name": "イリノイ通り",
+      "subtext": null,
+      "funFact": "イリノイ州シカゴには、1885年に建てられた世界初の超高層ビルがあります！"
+    },
+    {
+      "index": 25,
+      "name": "B&O鉄道",
+      "subtext": null,
+      "funFact": "ボルチモア・アンド・オハイオ鉄道は1827年設立のアメリカ初の公共鉄道です！"
+    },
+    {
+      "index": 26,
+      "name": "アトランティック通り",
+      "subtext": null,
+      "funFact": "アトランティック通りは有名なアトランティックシティ・ボードウォークと平行に走っています！"
+    },
+    {
+      "index": 27,
+      "name": "ベントノア通り",
+      "subtext": null,
+      "funFact": "ベントノアシティはアトランティックシティに隣接し、美しいビーチと静かな海岸があります。"
+    },
+    {
+      "index": 28,
+      "name": "水道局",
+      "subtext": null,
+      "funFact": "アトランティックシティの水はカークウッド・コハンジー帯水層から供給されており、最も純粋な水源のひとつです！"
+    },
+    {
+      "index": 29,
+      "name": "マーヴィンガーデンズ",
+      "subtext": null,
+      "funFact": "実際の綴りは「Marven Gardens」で、近隣のマーゲートシティにあります！"
+    },
+    {
+      "index": 30,
+      "name": "刑務所へ行く",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "パシフィック通り",
+      "subtext": null,
+      "funFact": "パシフィック通りはアトランティックシティの主要道路のひとつで、市の中心を走っています。"
+    },
+    {
+      "index": 32,
+      "name": "ノースカロライナ通り",
+      "subtext": null,
+      "funFact": "ノースカロライナ州は英国からの独立を最初に宣言した州です！"
+    },
+    {
+      "index": 33,
+      "name": "共同基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "ペンシルベニア通り",
+      "subtext": null,
+      "funFact": "ワシントンD.C.のペンシルベニア通りはホワイトハウスと国会議事堂を結んでいます！"
+    },
+    {
+      "index": 35,
+      "name": "ショートライン",
+      "subtext": null,
+      "funFact": "ショア・ファスト・ラインは1900年代初頭にジャージーショア沿いで高速輸送サービスを提供しました！"
+    },
+    {
+      "index": 36,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "パークプレイス",
+      "subtext": null,
+      "funFact": "アトランティックシティで最も格式高い住所のひとつで、ボードウォークに次ぐ名所です！"
+    },
+    {
+      "index": 38,
+      "name": "物品税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "ボードウォーク",
+      "subtext": null,
+      "funFact": "1870年に建設されたアトランティックシティ・ボードウォークはアメリカ初のボードウォークです！"
+    }
+  ]
+}

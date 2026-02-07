@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "出发",
+      "subtext": "领取奖金",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "浅草",
+      "subtext": null,
+      "funFact": "浅草寺是东京最古老的佛教寺庙，建于公元645年！"
+    },
+    {
+      "index": 2,
+      "name": "公益金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "上野",
+      "subtext": null,
+      "funFact": "上野公园拥有1000多棵樱花树，是东京最受欢迎的赏樱胜地！"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "山手线",
+      "subtext": null,
+      "funFact": "山手线每59至65分钟绕东京市中心一圈，每天运送350万乘客！"
+    },
+    {
+      "index": 6,
+      "name": "秋叶原",
+      "subtext": null,
+      "funFact": "被称为“电器街”，秋叶原是全球动漫、漫画和电子产品文化的中心！"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "池袋",
+      "subtext": null,
+      "funFact": "池袋站是世界第二繁忙的火车站，每天服务超过270万乘客！"
+    },
+    {
+      "index": 9,
+      "name": "新宿",
+      "subtext": null,
+      "funFact": "新宿站是世界上最繁忙的火车站，每天客流量超过360万人次！"
+    },
+    {
+      "index": 10,
+      "name": "监狱",
+      "subtext": "只是路过",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "原宿",
+      "subtext": null,
+      "funFact": "东京青年时尚文化的中心！竹下通吸引了无数引领潮流的游客。"
+    },
+    {
+      "index": 12,
+      "name": "东京电力",
+      "subtext": null,
+      "funFact": "东京电力为大东京地区4500多万人供电，是世界上最大的电网之一！"
+    },
+    {
+      "index": 13,
+      "name": "表参道",
+      "subtext": null,
+      "funFact": "被称为“东京的香榭丽舍大道”，两旁种满榉树，汇聚世界顶级建筑师设计的旗舰店！"
+    },
+    {
+      "index": 14,
+      "name": "台场",
+      "subtext": null,
+      "funFact": "建在东京湾填海造地上，拥有teamLab无界美术馆和巨型高达雕像！"
+    },
+    {
+      "index": 15,
+      "name": "东海道新干线",
+      "subtext": null,
+      "funFact": "日本第一条新干线，自1964年以来以最高285公里/小时的速度连接东京和大阪！"
+    },
+    {
+      "index": 16,
+      "name": "六本木",
+      "subtext": null,
+      "funFact": "六本木新城和东京中城坐落于此，拥有世界级美术馆和繁华夜生活！"
+    },
+    {
+      "index": 17,
+      "name": "公益金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "惠比寿",
+      "subtext": null,
+      "funFact": "以惠比寿啤酒命名，这个高档社区以美食餐厅和东京摄影艺术博物馆闻名！"
+    },
+    {
+      "index": 19,
+      "name": "涩谷",
+      "subtext": null,
+      "funFact": "涩谷十字路口是世界上最繁忙的行人十字路口，一次最多有3000人同时过马路！"
+    },
+    {
+      "index": 20,
+      "name": "幸运转盘",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "筑地",
+      "subtext": null,
+      "funFact": "曾是世界上最大的鱼市场所在地，一条蓝鳍金枪鱼曾以310万美元成交！"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "银座",
+      "subtext": null,
+      "funFact": "东京最奢华的购物区！地价可达每平方米10万美元。"
+    },
+    {
+      "index": 24,
+      "name": "东京站",
+      "subtext": null,
+      "funFact": "这座修复精美的1914年红砖车站是所有新干线的终点站！"
+    },
+    {
+      "index": 25,
+      "name": "中央线",
+      "subtext": null,
+      "funFact": "中央快速线是东京最重要的通勤线路之一，以其橙色列车而闻名！"
+    },
+    {
+      "index": 26,
+      "name": "丸之内",
+      "subtext": null,
+      "funFact": "东京首屈一指的商业区，众多大型企业总部汇聚于此，面朝皇居！"
+    },
+    {
+      "index": 27,
+      "name": "日本桥",
+      "subtext": null,
+      "funFact": "东京的历史商业中心，著名的日本桥标志着日本的“零公里”起点！"
+    },
+    {
+      "index": 28,
+      "name": "东京燃气",
+      "subtext": null,
+      "funFact": "东京燃气成立于1885年，是日本最早的现代公用事业公司之一！"
+    },
+    {
+      "index": 29,
+      "name": "六本木新城",
+      "subtext": null,
+      "funFact": "这个大型城市综合体包含森美术馆、豪华住宅和238米高的观景台！"
+    },
+    {
+      "index": 30,
+      "name": "去监狱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "青山",
+      "subtext": null,
+      "funFact": "东京最时尚的街区之一，以高端精品店和潮流咖啡馆闻名！"
+    },
+    {
+      "index": 32,
+      "name": "麻布",
+      "subtext": null,
+      "funFact": "高档住宅区，众多大使馆和国际学校坐落于此！"
+    },
+    {
+      "index": 33,
+      "name": "公益金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "东京塔",
+      "subtext": null,
+      "funFact": "灵感来自埃菲尔铁塔，这座333米高的地标自1958年以来一直是东京的象征！"
+    },
+    {
+      "index": 35,
+      "name": "总武线",
+      "subtext": null,
+      "funFact": "总武线连接东京东部郊区，每天运送超过100万乘客！"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "赤坂",
+      "subtext": null,
+      "funFact": "国宾馆所在地，拥有众多高端餐厅，包括米其林星级餐厅！"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "东京晴空塔",
+      "subtext": null,
+      "funFact": "世界上最高的电波塔，高634米！其高度代表“武藏”，东京的历史名称。"
+    }
+  ]
+}

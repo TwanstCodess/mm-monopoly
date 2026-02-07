@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'l10n/app_localizations.dart';
 import 'config/theme.dart';
 import 'screens/splash_screen.dart';
 import 'screens/main_menu_screen.dart';
@@ -13,6 +15,8 @@ import 'models/country.dart';
 import 'config/board_factory.dart';
 import 'services/audio_service.dart';
 import 'services/save_service.dart';
+import 'services/locale_service.dart';
+import 'services/game_content_loader.dart';
 
 /// Main app widget with navigation
 class MonopolyApp extends StatelessWidget {
@@ -20,7 +24,20 @@ class MonopolyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'M&M Property Tycoon', debugShowCheckedModeBanner: false, theme: AppTheme.theme, home: const AppNavigator());
+    return ValueListenableBuilder<Locale>(
+      valueListenable: LocaleService.instance.localeNotifier,
+      builder: (context, locale, _) {
+        return MaterialApp(
+          title: 'M&M Property Tycoon',
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.theme,
+          locale: locale,
+          supportedLocales: AppLocalizations.supportedLocales,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          home: const AppNavigator(),
+        );
+      },
+    );
   }
 }
 
@@ -72,7 +89,7 @@ class _AppNavigatorState extends State<AppNavigator> {
     }
   }
 
-  void _startGame(List<PlayerConfig> configs, {int diceCount = 2, Country country = Country.usa}) {
+  Future<void> _startGame(List<PlayerConfig> configs, {int diceCount = 2, Country country = Country.usa}) async {
     // Create players from configs
     final players = configs.asMap().entries.map((entry) {
       final index = entry.key;
@@ -80,11 +97,15 @@ class _AppNavigatorState extends State<AppNavigator> {
       return Player(id: 'player_$index', name: config.name, color: config.color, icon: config.icon, avatar: config.avatar, isAI: config.isAI, cash: _settings.startingCash);
     }).toList();
 
+    // Load localized tiles
+    final locale = LocaleService.instance.currentLocale;
+    final tiles = await BoardFactory.generateLocalizedTiles(country, locale);
+
     // Create game state using factory constructor
     setState(() {
       _diceCount = diceCount;
       _selectedCountry = country;
-      _gameState = GameState.initial(players: players, tiles: BoardFactory.generateTiles(country), startingCash: _settings.startingCash, diceCount: diceCount);
+      _gameState = GameState.initial(players: players, tiles: tiles, startingCash: _settings.startingCash, diceCount: diceCount);
       _currentScreen = AppScreen.game;
     });
 
@@ -102,15 +123,18 @@ class _AppNavigatorState extends State<AppNavigator> {
     AudioService.instance.playMenuMusic();
   }
 
-  void _restartGame() {
+  Future<void> _restartGame() async {
     if (_gameState != null) {
       // Reset all players
       final resetPlayers = _gameState!.players.map((p) {
         return Player(id: p.id, name: p.name, color: p.color, icon: p.icon, avatar: p.avatar, isAI: p.isAI, cash: _settings.startingCash);
       }).toList();
 
+      final locale = LocaleService.instance.currentLocale;
+      final tiles = await BoardFactory.generateLocalizedTiles(_selectedCountry, locale);
+
       setState(() {
-        _gameState = GameState.initial(players: resetPlayers, tiles: BoardFactory.generateTiles(_selectedCountry), startingCash: _settings.startingCash, diceCount: _diceCount);
+        _gameState = GameState.initial(players: resetPlayers, tiles: tiles, startingCash: _settings.startingCash, diceCount: _diceCount);
       });
     }
   }

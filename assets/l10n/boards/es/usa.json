@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "SALIDA",
+      "subtext": "COBRA $200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Mediterranean Ave",
+      "subtext": null,
+      "funFact": "¡La propiedad más económica de Atlantic City, perfecta para compradores primerizos!"
+    },
+    {
+      "index": 2,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Baltic Ave",
+      "subtext": null,
+      "funFact": "Nombrada por la región del Mar Báltico, esta calle fue hogar de muchos inmigrantes de Europa del Este."
+    },
+    {
+      "index": 4,
+      "name": "Impuesto sobre la Renta",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Reading Railroad",
+      "subtext": null,
+      "funFact": "¡Fundado en 1833, el Reading Railroad fue uno de los primeros ferrocarriles en los Estados Unidos!"
+    },
+    {
+      "index": 6,
+      "name": "Oriental Ave",
+      "subtext": null,
+      "funFact": "Esta calle celebra la conexión histórica de Atlantic City con la cultura y el comercio asiático."
+    },
+    {
+      "index": 7,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Vermont Ave",
+      "subtext": null,
+      "funFact": "Vermont, el Estado de las Montañas Verdes, es famoso por su jarabe de arce y su hermoso follaje otoñal."
+    },
+    {
+      "index": 9,
+      "name": "Connecticut Ave",
+      "subtext": null,
+      "funFact": "¡Connecticut es conocido como el Estado de la Constitución y es hogar de la Universidad de Yale!"
+    },
+    {
+      "index": 10,
+      "name": "CÁRCEL",
+      "subtext": "DE VISITA",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "St. Charles Place",
+      "subtext": null,
+      "funFact": "Nombrado por un hotel histórico, St. Charles Place fue un destino popular en los inicios de Atlantic City."
+    },
+    {
+      "index": 12,
+      "name": "Compañía Eléctrica",
+      "subtext": null,
+      "funFact": "¡La invención de la bombilla por Thomas Edison en 1879 revolucionó la industria eléctrica!"
+    },
+    {
+      "index": 13,
+      "name": "States Ave",
+      "subtext": null,
+      "funFact": "¡Esta calle representa la unión de los 50 estados de América!"
+    },
+    {
+      "index": 14,
+      "name": "Virginia Ave",
+      "subtext": null,
+      "funFact": "¡Virginia fue hogar de 8 presidentes de EE. UU., más que cualquier otro estado!"
+    },
+    {
+      "index": 15,
+      "name": "Pennsylvania Railroad",
+      "subtext": null,
+      "funFact": "¡El Pennsylvania Railroad fue el ferrocarril más grande del mundo por tráfico e ingresos!"
+    },
+    {
+      "index": 16,
+      "name": "St. James Place",
+      "subtext": null,
+      "funFact": "¡San James es el santo patrón de los peregrinos y viajeros, perfecto para una ciudad turística!"
+    },
+    {
+      "index": 17,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Tennessee Ave",
+      "subtext": null,
+      "funFact": "¡Tennessee es la cuna de la música country y hogar del Grand Ole Opry!"
+    },
+    {
+      "index": 19,
+      "name": "New York Ave",
+      "subtext": null,
+      "funFact": "¡La ciudad de Nueva York alberga la Estatua de la Libertad, un símbolo de libertad en todo el mundo!"
+    },
+    {
+      "index": 20,
+      "name": "GIRA Y GANA",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Kentucky Ave",
+      "subtext": null,
+      "funFact": "¡Kentucky es famoso por el Derby de Kentucky, los dos minutos más emocionantes del deporte!"
+    },
+    {
+      "index": 22,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Indiana Ave",
+      "subtext": null,
+      "funFact": "¡Indiana alberga las 500 Millas de Indianápolis, el evento deportivo de un solo día más grande del mundo!"
+    },
+    {
+      "index": 24,
+      "name": "Illinois Ave",
+      "subtext": null,
+      "funFact": "¡Chicago, Illinois, es hogar del primer rascacielos del mundo, construido en 1885!"
+    },
+    {
+      "index": 25,
+      "name": "B&O Railroad",
+      "subtext": null,
+      "funFact": "¡El Baltimore & Ohio Railroad fue el primer ferrocarril de transporte público en América, fundado en 1827!"
+    },
+    {
+      "index": 26,
+      "name": "Atlantic Ave",
+      "subtext": null,
+      "funFact": "¡Atlantic Avenue corre paralela al famoso paseo marítimo de Atlantic City!"
+    },
+    {
+      "index": 27,
+      "name": "Ventnor Ave",
+      "subtext": null,
+      "funFact": "Ventnor City es vecina de Atlantic City y ofrece hermosas playas y costas más tranquilas."
+    },
+    {
+      "index": 28,
+      "name": "Compañía de Agua",
+      "subtext": null,
+      "funFact": "¡El agua de Atlantic City proviene del acuífero Kirkwood-Cohansey, una de las fuentes de agua más puras!"
+    },
+    {
+      "index": 29,
+      "name": "Marvin Gardens",
+      "subtext": null,
+      "funFact": "¡En realidad se escribe \"Marven Gardens\" en la vida real, ubicado en la cercana Margate City!"
+    },
+    {
+      "index": 30,
+      "name": "VE A LA CÁRCEL",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Pacific Ave",
+      "subtext": null,
+      "funFact": "Pacific Avenue es una de las principales vías de Atlantic City, atravesando el corazón de la ciudad."
+    },
+    {
+      "index": 32,
+      "name": "North Carolina Ave",
+      "subtext": null,
+      "funFact": "¡Carolina del Norte fue el primer estado en declarar la independencia del dominio británico!"
+    },
+    {
+      "index": 33,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Pennsylvania Ave",
+      "subtext": null,
+      "funFact": "¡La Avenida Pennsylvania en Washington D.C. conecta la Casa Blanca con el Capitolio!"
+    },
+    {
+      "index": 35,
+      "name": "Short Line",
+      "subtext": null,
+      "funFact": "¡El Shore Fast Line proporcionó servicio de tránsito rápido a lo largo de la costa de Jersey a principios del siglo XX!"
+    },
+    {
+      "index": 36,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Park Place",
+      "subtext": null,
+      "funFact": "¡Una de las direcciones más prestigiosas de Atlantic City, solo superada por Boardwalk!"
+    },
+    {
+      "index": 38,
+      "name": "Impuesto de Lujo",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Boardwalk",
+      "subtext": null,
+      "funFact": "¡El paseo marítimo de Atlantic City, construido en 1870, fue el primer paseo marítimo en los Estados Unidos!"
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "DÉPART",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Montmartre",
+      "subtext": "Montmartre",
+      "funFact": "This hilltop village is crowned by the stunning white Sacré-Cœur Basilica!"
+    },
+    {
+      "index": 2,
+      "name": "Community Chest",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Pigalle",
+      "subtext": "Pigalle",
+      "funFact": "Famous for the Moulin Rouge cabaret, founded in 1889!"
+    },
+    {
+      "index": 4,
+      "name": "Income Tax",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Ligne 1",
+      "subtext": "Métro Ligne 1",
+      "funFact": "The first metro line in Paris, opened in 1900 for the World's Fair!"
+    },
+    {
+      "index": 6,
+      "name": "Bastille",
+      "subtext": "Bastille",
+      "funFact": "Site of the famous fortress prison stormed during the French Revolution in 1789!"
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Marais",
+      "subtext": "Le Marais",
+      "funFact": "The historic Jewish quarter, now one of Paris's trendiest neighborhoods!"
+    },
+    {
+      "index": 9,
+      "name": "Luxembourg",
+      "subtext": "Luxembourg",
+      "funFact": "The Luxembourg Gardens feature 106 statues and the beautiful Medici Fountain!"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "PRISON",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Saint-Germain",
+      "subtext": "St-Germain-des-Prés",
+      "funFact": "Historic literary café district where Hemingway and Sartre debated philosophy!"
+    },
+    {
+      "index": 12,
+      "name": "EDF",
+      "subtext": null,
+      "funFact": "Électricité de France is the world's largest producer of electricity!"
+    },
+    {
+      "index": 13,
+      "name": "Latin Quarter",
+      "subtext": "Quartier Latin",
+      "funFact": "Home to the Sorbonne University, founded in 1257!"
+    },
+    {
+      "index": 14,
+      "name": "Panthéon",
+      "subtext": "Panthéon",
+      "funFact": "Final resting place of France's greatest minds including Voltaire and Rousseau!"
+    },
+    {
+      "index": 15,
+      "name": "Ligne 4",
+      "subtext": "Métro Ligne 4",
+      "funFact": "This line crosses the Seine twice and passes under Île de la Cité!"
+    },
+    {
+      "index": 16,
+      "name": "Versailles",
+      "subtext": "Versailles",
+      "funFact": "The Palace of Versailles has 2,300 rooms and 67,000 square meters of floor space!"
+    },
+    {
+      "index": 17,
+      "name": "Community Chest",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Tuileries",
+      "subtext": "Tuileries",
+      "funFact": "These royal gardens connect the Louvre to the Place de la Concorde!"
+    },
+    {
+      "index": 19,
+      "name": "Louvre",
+      "subtext": "Le Louvre",
+      "funFact": "The world's largest art museum, home to the Mona Lisa and 38,000 artworks!"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": "ROUE CHANCE",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Opéra",
+      "subtext": "Opéra Garnier",
+      "funFact": "The Palais Garnier opera house inspired \"The Phantom of the Opera\"!"
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Champs-Élysées",
+      "subtext": "Champs-Élysées",
+      "funFact": "The most expensive retail street in Europe at €12,000 per square meter!"
+    },
+    {
+      "index": 24,
+      "name": "Arc de Triomphe",
+      "subtext": "Arc de Triomphe",
+      "funFact": "Built by Napoleon, it honors those who fought for France!"
+    },
+    {
+      "index": 25,
+      "name": "RER A",
+      "subtext": "RER Ligne A",
+      "funFact": "The busiest train line in Europe, carrying 1.2 million passengers daily!"
+    },
+    {
+      "index": 26,
+      "name": "La Défense",
+      "subtext": "La Défense",
+      "funFact": "Europe's largest business district with the iconic Grande Arche!"
+    },
+    {
+      "index": 27,
+      "name": "Concorde",
+      "subtext": "Place de la Concorde",
+      "funFact": "Where Louis XVI and Marie Antoinette were executed during the Revolution!"
+    },
+    {
+      "index": 28,
+      "name": "Veolia Water",
+      "subtext": null,
+      "funFact": "Paris water comes from sources over 150km away, ensuring the finest quality!"
+    },
+    {
+      "index": 29,
+      "name": "Invalides",
+      "subtext": "Les Invalides",
+      "funFact": "Napoleon's tomb lies under the golden dome of Les Invalides!"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": "ALLEZ EN PRISON",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Île de la Cité",
+      "subtext": "Île de la Cité",
+      "funFact": "The historic heart of Paris, where the city was founded in 250 BC!"
+    },
+    {
+      "index": 32,
+      "name": "Notre-Dame",
+      "subtext": "Notre-Dame",
+      "funFact": "This Gothic masterpiece took 182 years to complete (1163-1345)!"
+    },
+    {
+      "index": 33,
+      "name": "Community Chest",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Musée d'Orsay",
+      "subtext": "Musée d'Orsay",
+      "funFact": "Built in a former railway station, it houses the world's finest Impressionist collection!"
+    },
+    {
+      "index": 35,
+      "name": "Ligne 14",
+      "subtext": "Métro Ligne 14",
+      "funFact": "Paris's newest fully automated metro line, opened in 1998!"
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Montparnasse",
+      "subtext": "Montparnasse",
+      "funFact": "Historic artist quarter where Picasso, Hemingway, and Fitzgerald gathered!"
+    },
+    {
+      "index": 38,
+      "name": "Luxury Tax",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Eiffel Tower",
+      "subtext": "Tour Eiffel",
+      "funFact": "The Iron Lady weighs 10,100 tons and was the world's tallest structure until 1930!"
+    }
+  ]
+}

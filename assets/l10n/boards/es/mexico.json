@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "SALIDA",
+      "subtext": "COBRA $200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Coyoacán",
+      "subtext": "Coyoacán",
+      "funFact": "¡Lugar de nacimiento de Frida Kahlo! Su famoso museo de la Casa Azul atrae a miles de visitantes diariamente."
+    },
+    {
+      "index": 2,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Xochimilco",
+      "subtext": "Xochimilco",
+      "funFact": "¡Antiguos canales aztecas donde coloridas trajineras flotan entre jardines flotantes!"
+    },
+    {
+      "index": 4,
+      "name": "Impuesto sobre la Renta",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Línea 1",
+      "subtext": "Metro Línea 1",
+      "funFact": "¡La primera línea del metro de la Ciudad de México, inaugurada en 1969! Usa símbolos para los pasajeros que no saben leer."
+    },
+    {
+      "index": 6,
+      "name": "Roma Norte",
+      "subtext": "Roma Norte",
+      "funFact": "¡Barrio de moda lleno de arquitectura Art Nouveau y Art Déco!"
+    },
+    {
+      "index": 7,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Condesa",
+      "subtext": "Condesa",
+      "funFact": "¡Distrito Art Déco arbolado construido alrededor de un antiguo hipódromo!"
+    },
+    {
+      "index": 9,
+      "name": "Polanco",
+      "subtext": "Polanco",
+      "funFact": "¡El Beverly Hills de la Ciudad de México, hogar de embajadas y boutiques de lujo!"
+    },
+    {
+      "index": 10,
+      "name": "CÁRCEL",
+      "subtext": "DE VISITA",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "San Ángel",
+      "subtext": "San Ángel",
+      "funFact": "¡Barrio colonial con calles empedradas y un vibrante mercado de arte los sábados!"
+    },
+    {
+      "index": 12,
+      "name": "CFE",
+      "subtext": null,
+      "funFact": "¡La Comisión Federal de Electricidad suministra energía a todo México!"
+    },
+    {
+      "index": 13,
+      "name": "Chapultepec",
+      "subtext": "Chapultepec",
+      "funFact": "¡Uno de los parques urbanos más grandes del hemisferio occidental con 686 hectáreas!"
+    },
+    {
+      "index": 14,
+      "name": "Bosque de Chapultepec",
+      "subtext": "Bosque",
+      "funFact": "¡Este parque forestal es el doble del tamaño del Central Park de Nueva York!"
+    },
+    {
+      "index": 15,
+      "name": "Línea 2",
+      "subtext": "Metro Línea 2",
+      "funFact": "¡La Línea Azul conecta los principales sitios culturales, incluyendo Bellas Artes!"
+    },
+    {
+      "index": 16,
+      "name": "Teotihuacán",
+      "subtext": "Teotihuacán",
+      "funFact": "¡Pirámides ancestrales! ¡La Pirámide del Sol es la tercera pirámide más grande del mundo!"
+    },
+    {
+      "index": 17,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Templo Mayor",
+      "subtext": "Templo Mayor",
+      "funFact": "¡El templo principal de los aztecas, descubierto accidentalmente en 1978 por trabajadores eléctricos!"
+    },
+    {
+      "index": 19,
+      "name": "Zócalo",
+      "subtext": "Zócalo",
+      "funFact": "¡Una de las plazas públicas más grandes del mundo, el corazón de la Ciudad de México desde tiempos aztecas!"
+    },
+    {
+      "index": 20,
+      "name": "GIRA Y GANA",
+      "subtext": "GIRA Y GANA",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Palacio Nacional",
+      "subtext": "Palacio Nacional",
+      "funFact": "¡Hogar de los famosos murales de Diego Rivera que representan la historia de México!"
+    },
+    {
+      "index": 22,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Bellas Artes",
+      "subtext": "Bellas Artes",
+      "funFact": "¡Impresionante palacio Art Nouveau con un telón hecho de casi 1 millón de piezas de vidrio!"
+    },
+    {
+      "index": 24,
+      "name": "Paseo de la Reforma",
+      "subtext": "Reforma",
+      "funFact": "¡Gran avenida inspirada en los Campos Elíseos, bordeada de monumentos y rascacielos!"
+    },
+    {
+      "index": 25,
+      "name": "Línea 3",
+      "subtext": "Metro Línea 3",
+      "funFact": "¡La Línea Olivo transporta 1,3 millones de pasajeros diarios!"
+    },
+    {
+      "index": 26,
+      "name": "Ángel de la Independencia",
+      "subtext": "El Ángel",
+      "funFact": "¡El monumento más emblemático de México, celebrando la independencia de España!"
+    },
+    {
+      "index": 27,
+      "name": "Zona Rosa",
+      "subtext": "Zona Rosa",
+      "funFact": "¡La Zona Rosa! Barrio histórico amigable con la comunidad LGBTQ+ con influencia coreana e internacional."
+    },
+    {
+      "index": 28,
+      "name": "Agua de México",
+      "subtext": null,
+      "funFact": "¡La Ciudad de México obtiene agua de acuíferos subterráneos y fuentes distantes en las montañas!"
+    },
+    {
+      "index": 29,
+      "name": "Santa Fe",
+      "subtext": "Santa Fe",
+      "funFact": "¡Distrito empresarial ultramoderno que surgió de un antiguo basurero!"
+    },
+    {
+      "index": 30,
+      "name": "VE A LA CÁRCEL",
+      "subtext": "VE A LA CÁRCEL",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Museo Frida Kahlo",
+      "subtext": "Casa Azul",
+      "funFact": "¡La Casa Azul donde Frida vivió, amó y creó su arte icónico!"
+    },
+    {
+      "index": 32,
+      "name": "Museo Soumaya",
+      "subtext": "Soumaya",
+      "funFact": "¡Impresionante edificio plateado que alberga 66.000 obras de arte, incluyendo obras de Rodin!"
+    },
+    {
+      "index": 33,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Museo de Antropología",
+      "subtext": "Antropología",
+      "funFact": "¡El museo de antropología más grande del mundo, mostrando 3.000 años de cultura mexicana!"
+    },
+    {
+      "index": 35,
+      "name": "Línea 12",
+      "subtext": "Metro Línea 12",
+      "funFact": "¡La Línea Dorada, la línea de metro más nueva de la Ciudad de México!"
+    },
+    {
+      "index": 36,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Torre Latinoamericana",
+      "subtext": "Torre Latino",
+      "funFact": "¡Construida en 1956, sobrevivió grandes terremotos gracias a su innovadora cimentación flotante!"
+    },
+    {
+      "index": 38,
+      "name": "Impuesto de Lujo",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Castillo de Chapultepec",
+      "subtext": "Castillo",
+      "funFact": "¡El único castillo real en Norteamérica, antiguo hogar del Emperador Maximiliano!"
+    }
+  ]
+}

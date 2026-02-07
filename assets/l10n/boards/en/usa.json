@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "COLLECT $200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Mediterranean Ave",
+      "subtext": null,
+      "funFact": "The most affordable property in Atlantic City, perfect for first-time property owners!"
+    },
+    {
+      "index": 2,
+      "name": "Community Chest",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Baltic Ave",
+      "subtext": null,
+      "funFact": "Named after the Baltic Sea region, this street was home to many Eastern European immigrants."
+    },
+    {
+      "index": 4,
+      "name": "Income Tax",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Reading Railroad",
+      "subtext": null,
+      "funFact": "Founded in 1833, the Reading Railroad was one of the first railroads in the United States!"
+    },
+    {
+      "index": 6,
+      "name": "Oriental Ave",
+      "subtext": null,
+      "funFact": "This street celebrates Atlantic City's historic connection to Asian culture and trade."
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Vermont Ave",
+      "subtext": null,
+      "funFact": "Vermont, the Green Mountain State, is famous for its maple syrup and beautiful fall foliage."
+    },
+    {
+      "index": 9,
+      "name": "Connecticut Ave",
+      "subtext": null,
+      "funFact": "Connecticut is known as the Constitution State and is home to Yale University!"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "JUST VISITING",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "St. Charles Place",
+      "subtext": null,
+      "funFact": "Named after a historic hotel, St. Charles Place was a popular destination in early Atlantic City."
+    },
+    {
+      "index": 12,
+      "name": "Electric Company",
+      "subtext": null,
+      "funFact": "Thomas Edison's invention of the light bulb in 1879 revolutionized the electric industry!"
+    },
+    {
+      "index": 13,
+      "name": "States Ave",
+      "subtext": null,
+      "funFact": "This street represents the unity of all 50 states in America!"
+    },
+    {
+      "index": 14,
+      "name": "Virginia Ave",
+      "subtext": null,
+      "funFact": "Virginia was home to 8 U.S. Presidents, more than any other state!"
+    },
+    {
+      "index": 15,
+      "name": "Pennsylvania Railroad",
+      "subtext": null,
+      "funFact": "The Pennsylvania Railroad was once the largest railroad in the world by traffic and revenue!"
+    },
+    {
+      "index": 16,
+      "name": "St. James Place",
+      "subtext": null,
+      "funFact": "St. James is the patron saint of pilgrims and travelers, perfect for a resort city!"
+    },
+    {
+      "index": 17,
+      "name": "Community Chest",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Tennessee Ave",
+      "subtext": null,
+      "funFact": "Tennessee is the birthplace of country music and home to the Grand Ole Opry!"
+    },
+    {
+      "index": 19,
+      "name": "New York Ave",
+      "subtext": null,
+      "funFact": "New York City is home to the Statue of Liberty, a symbol of freedom worldwide!"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Kentucky Ave",
+      "subtext": null,
+      "funFact": "Kentucky is famous for the Kentucky Derby, the most exciting two minutes in sports!"
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Indiana Ave",
+      "subtext": null,
+      "funFact": "Indiana is home to the Indianapolis 500, the world's largest single-day sporting event!"
+    },
+    {
+      "index": 24,
+      "name": "Illinois Ave",
+      "subtext": null,
+      "funFact": "Chicago, Illinois is home to the world's first skyscraper, built in 1885!"
+    },
+    {
+      "index": 25,
+      "name": "B&O Railroad",
+      "subtext": null,
+      "funFact": "The Baltimore & Ohio Railroad was the first common carrier railroad in America, founded in 1827!"
+    },
+    {
+      "index": 26,
+      "name": "Atlantic Ave",
+      "subtext": null,
+      "funFact": "Atlantic Avenue runs parallel to the famous Atlantic City Boardwalk!"
+    },
+    {
+      "index": 27,
+      "name": "Ventnor Ave",
+      "subtext": null,
+      "funFact": "Ventnor City neighbors Atlantic City and offers beautiful beaches and quieter shores."
+    },
+    {
+      "index": 28,
+      "name": "Water Works",
+      "subtext": null,
+      "funFact": "Atlantic City's water comes from the Kirkwood-Cohansey aquifer, one of the purest water sources!"
+    },
+    {
+      "index": 29,
+      "name": "Marvin Gardens",
+      "subtext": null,
+      "funFact": "Actually spelled \"Marven Gardens\" in real life, located in nearby Margate City!"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Pacific Ave",
+      "subtext": null,
+      "funFact": "Pacific Avenue is one of Atlantic City's main thoroughfares, running through the heart of the city."
+    },
+    {
+      "index": 32,
+      "name": "North Carolina Ave",
+      "subtext": null,
+      "funFact": "North Carolina was the first state to declare independence from British rule!"
+    },
+    {
+      "index": 33,
+      "name": "Community Chest",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Pennsylvania Ave",
+      "subtext": null,
+      "funFact": "Pennsylvania Avenue in Washington D.C. connects the White House to the Capitol Building!"
+    },
+    {
+      "index": 35,
+      "name": "Short Line",
+      "subtext": null,
+      "funFact": "The Shore Fast Line provided rapid transit service along the Jersey Shore in the early 1900s!"
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Park Place",
+      "subtext": null,
+      "funFact": "One of the most prestigious addresses in Atlantic City, second only to Boardwalk!"
+    },
+    {
+      "index": 38,
+      "name": "Luxury Tax",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Boardwalk",
+      "subtext": null,
+      "funFact": "Atlantic City Boardwalk, built in 1870, was the first boardwalk in the United States!"
+    }
+  ]
+}

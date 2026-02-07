@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "DÉPART",
+      "subtext": "SALIDA",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Coyoacán",
+      "subtext": "Coyoacán",
+      "funFact": "Lieu de naissance de Frida Kahlo ! Son célèbre musée de la Maison Bleue attire des milliers de visiteurs chaque jour !"
+    },
+    {
+      "index": 2,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Xochimilco",
+      "subtext": "Xochimilco",
+      "funFact": "Anciens canaux aztèques où des trajineras colorées flottent parmi les jardins flottants !"
+    },
+    {
+      "index": 4,
+      "name": "Impôt sur le Revenu",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Línea 1",
+      "subtext": "Metro Línea 1",
+      "funFact": "La première ligne de métro de Mexico, ouverte en 1969 ! Elle utilise des symboles pour les passagers illettrés !"
+    },
+    {
+      "index": 6,
+      "name": "Roma Norte",
+      "subtext": "Roma Norte",
+      "funFact": "Quartier branché rempli d’architecture Art nouveau et Art déco !"
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Condesa",
+      "subtext": "Condesa",
+      "funFact": "Quartier Art déco bordé d’arbres, construit autour d’un ancien hippodrome !"
+    },
+    {
+      "index": 9,
+      "name": "Polanco",
+      "subtext": "Polanco",
+      "funFact": "Le Beverly Hills de Mexico, abritant ambassades et boutiques de luxe !"
+    },
+    {
+      "index": 10,
+      "name": "PRISON",
+      "subtext": "CÁRCEL",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "San Ángel",
+      "subtext": "San Ángel",
+      "funFact": "Quartier colonial aux rues pavées et un marché d’art animé le samedi !"
+    },
+    {
+      "index": 12,
+      "name": "CFE",
+      "subtext": null,
+      "funFact": "La Commission Fédérale d’Électricité alimente tout le Mexique !"
+    },
+    {
+      "index": 13,
+      "name": "Chapultepec",
+      "subtext": "Chapultepec",
+      "funFact": "L’un des plus grands parcs urbains de l’hémisphère occidental avec 686 hectares !"
+    },
+    {
+      "index": 14,
+      "name": "Bosque de Chapultepec",
+      "subtext": "Bosque",
+      "funFact": "Ce parc forestier fait deux fois la taille de Central Park à New York !"
+    },
+    {
+      "index": 15,
+      "name": "Línea 2",
+      "subtext": "Metro Línea 2",
+      "funFact": "La Ligne Bleue relie les principaux sites culturels, dont le Palais des Beaux-Arts !"
+    },
+    {
+      "index": 16,
+      "name": "Teotihuacán",
+      "subtext": "Teotihuacán",
+      "funFact": "Des pyramides anciennes ! La Pyramide du Soleil est la 3e plus grande pyramide au monde !"
+    },
+    {
+      "index": 17,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Templo Mayor",
+      "subtext": "Templo Mayor",
+      "funFact": "Temple principal des Aztèques, découvert accidentellement en 1978 par des ouvriers électriciens !"
+    },
+    {
+      "index": 19,
+      "name": "Zócalo",
+      "subtext": "Zócalo",
+      "funFact": "L’une des plus grandes places publiques du monde, cœur de Mexico depuis l’époque aztèque !"
+    },
+    {
+      "index": 20,
+      "name": "ROUE DE LA CHANCE",
+      "subtext": "GIRA Y GANA",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Palacio Nacional",
+      "subtext": "Palacio Nacional",
+      "funFact": "Abrite les célèbres fresques de Diego Rivera illustrant l’histoire du Mexique !"
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Bellas Artes",
+      "subtext": "Bellas Artes",
+      "funFact": "Magnifique palais Art nouveau avec un rideau de scène composé de près d’un million de pièces de verre !"
+    },
+    {
+      "index": 24,
+      "name": "Reforma",
+      "subtext": "Reforma",
+      "funFact": "Grande avenue inspirée des Champs-Élysées, bordée de monuments et de gratte-ciel !"
+    },
+    {
+      "index": 25,
+      "name": "Línea 3",
+      "subtext": "Metro Línea 3",
+      "funFact": "La Ligne Olive dessert 1,3 million de passagers par jour !"
+    },
+    {
+      "index": 26,
+      "name": "Ángel de la Independencia",
+      "subtext": "El Ángel",
+      "funFact": "Le monument le plus emblématique du Mexique, célébrant l’indépendance vis-à-vis de l’Espagne !"
+    },
+    {
+      "index": 27,
+      "name": "Zona Rosa",
+      "subtext": "Zona Rosa",
+      "funFact": "La Zone Rose ! Quartier historique accueillant pour la communauté LGBTQ+ avec une touche coréenne et internationale !"
+    },
+    {
+      "index": 28,
+      "name": "Service des Eaux du Mexique",
+      "subtext": null,
+      "funFact": "Mexico obtient son eau à partir d’aquifères souterrains et de sources montagneuses lointaines !"
+    },
+    {
+      "index": 29,
+      "name": "Santa Fe",
+      "subtext": "Santa Fe",
+      "funFact": "Quartier d’affaires ultramoderne construit sur un ancien site de décharge !"
+    },
+    {
+      "index": 30,
+      "name": "ALLEZ EN PRISON",
+      "subtext": "VE A LA CÁRCEL",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Musée Frida Kahlo",
+      "subtext": "Casa Azul",
+      "funFact": "La Maison Bleue où Frida a vécu, aimé et créé son art emblématique !"
+    },
+    {
+      "index": 32,
+      "name": "Musée Soumaya",
+      "subtext": "Soumaya",
+      "funFact": "Bâtiment argenté époustouflant abritant 66 000 œuvres d’art, dont des œuvres de Rodin !"
+    },
+    {
+      "index": 33,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Musée d’Anthropologie",
+      "subtext": "Antropología",
+      "funFact": "Le plus grand musée d’anthropologie au monde, présentant 3 000 ans de culture mexicaine !"
+    },
+    {
+      "index": 35,
+      "name": "Línea 12",
+      "subtext": "Metro Línea 12",
+      "funFact": "La Ligne Dorée, la plus récente ligne de métro de Mexico !"
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Torre Latinoamericana",
+      "subtext": "Torre Latino",
+      "funFact": "Construite en 1956, elle a survécu à de grands tremblements de terre grâce à une fondation flottante innovante !"
+    },
+    {
+      "index": 38,
+      "name": "Taxe de Luxe",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Castillo de Chapultepec",
+      "subtext": "Castillo",
+      "funFact": "Le seul château royal d’Amérique du Nord, ancienne résidence de l’empereur Maximilien !"
+    }
+  ]
+}

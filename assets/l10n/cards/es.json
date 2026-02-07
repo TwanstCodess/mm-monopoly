@@ -1,0 +1,206 @@
+{
+  "chance": [
+    {
+      "text": "¡El banco dice: \"Aquí tienes un dinerito extra!\"",
+      "effect": "+$50",
+      "action": "collect50"
+    },
+    {
+      "text": "¡Ups! ¡Te pillaron yendo muy rápido en tu patinete!",
+      "effect": "-$15",
+      "action": "pay15"
+    },
+    {
+      "text": "¡Corre a la SALIDA! ¡Zum zum!",
+      "effect": "Cobra $200",
+      "action": "advanceGo"
+    },
+    {
+      "text": "¡Giro equivocado! Retrocede 3 casillas. ¡Uy!",
+      "effect": "Retrocede",
+      "action": "back3"
+    },
+    {
+      "text": "¡Tu alcancía está a punto de reventar!",
+      "effect": "+$150",
+      "action": "collect150"
+    },
+    {
+      "text": "¡Encontraste $25 en el bolsillo de tus vaqueros viejos!",
+      "effect": "+$25",
+      "action": "collect25"
+    },
+    {
+      "text": "¡Ganaste el concurso de talentos del cole! ¡Eres una estrella!",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "¡Tu puesto de limonada fue un EXITAZO!",
+      "effect": "+$50",
+      "action": "collect50"
+    },
+    {
+      "text": "¡Fiesta de pizza para todos! ¡Vale cada centavo!",
+      "effect": "-$50",
+      "action": "pay50"
+    },
+    {
+      "text": "¡Desenterraste un tesoro pirata en el jardín!",
+      "effect": "+$150",
+      "action": "collect150"
+    },
+    {
+      "text": "¡Tu video de gatitos se hizo VIRAL! ¡Fama y fortuna!",
+      "effect": "+$200",
+      "action": "collect200"
+    },
+    {
+      "text": "¡Campeón del mercadillo! ¡Vendiste todos tus juguetes viejos!",
+      "effect": "+$25",
+      "action": "collect25"
+    },
+    {
+      "text": "¡Ganaste el concurso de ortografía! ¡G-E-N-I-A-L!",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "La pelota de béisbol rompió la ventana del vecino...",
+      "effect": "-$50",
+      "action": "pay50"
+    },
+    {
+      "text": "¡Llegó el dinero sorpresa de cumpleaños de la abuela!",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "¡Tu pececito ganó \"Mejor Mascota\" en la feria!",
+      "effect": "+$150",
+      "action": "collect150"
+    },
+    {
+      "text": "¡El camión de helados! ¡TIENES que comprar uno!",
+      "effect": "-$15",
+      "action": "pay15"
+    },
+    {
+      "text": "¡Encontraste un trébol de cuatro hojas... y $100!",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "¡Tus galletas se agotaron en la venta del cole!",
+      "effect": "+$50",
+      "action": "collect50"
+    },
+    {
+      "text": "¡CAMPEÓN del torneo de videojuegos!",
+      "effect": "+$200",
+      "action": "collect200"
+    }
+  ],
+  "communityChest": [
+    {
+      "text": "¡Tu cuenta de ahorros creció! ¡Cha-chín!",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "¡Ay, toca revisión médica con el doctor!",
+      "effect": "-$50",
+      "action": "pay50"
+    },
+    {
+      "text": "¡FELIZ CUMPLEAÑOS! ¡A celebrar!",
+      "effect": "+$25",
+      "action": "collect25"
+    },
+    {
+      "text": "¡El banco se equivocó... a TU favor!",
+      "effect": "+$200",
+      "action": "collect200"
+    },
+    {
+      "text": "¡Necesitas material nuevo para el cole!",
+      "effect": "-$50",
+      "action": "pay50"
+    },
+    {
+      "text": "¡La tía abuela Mildred te dejó su fortuna!",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "¡El fondo de vacaciones de verano está listo!",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "¡Ayudaste al vecino a barrer las hojas! ¡Buen trabajo!",
+      "effect": "+$25",
+      "action": "collect25"
+    },
+    {
+      "text": "¡Ganaste \"Mejor Sonrisa\" en el día de la foto!",
+      "effect": "+$50",
+      "action": "collect50"
+    },
+    {
+      "text": "¡Devolución de impuestos! ¡Dinero de vuelta!",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "¡Tu proyecto de arte se vendió en la subasta del cole!",
+      "effect": "+$150",
+      "action": "collect150"
+    },
+    {
+      "text": "¡Tu negocio de pasear perritos va genial!",
+      "effect": "+$50",
+      "action": "collect50"
+    },
+    {
+      "text": "¡Mamá encontró tus notas... un 10 significa $$!",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "¡Ups! ¡Se te olvidó devolver los libros a la biblioteca!",
+      "effect": "-$15",
+      "action": "pay15"
+    },
+    {
+      "text": "¡Un donante anónimo te envía un regalo!",
+      "effect": "+$200",
+      "action": "collect200"
+    },
+    {
+      "text": "¡Tu equipo ganó la feria de ciencias!",
+      "effect": "+$100",
+      "action": "collect100"
+    },
+    {
+      "text": "¡Vino el Ratoncito Pérez... por TODOS tus dientes de leche!",
+      "effect": "+$50",
+      "action": "collect50"
+    },
+    {
+      "text": "¡Reciclar valió la pena! ¡Salva el planeta Y gana $!",
+      "effect": "+$25",
+      "action": "collect25"
+    },
+    {
+      "text": "¡Tu pulsera hecha a mano se vendió por internet!",
+      "effect": "+$50",
+      "action": "collect50"
+    },
+    {
+      "text": "¡Premio al héroe de la comunidad! ¡Eres increíble!",
+      "effect": "+$150",
+      "action": "collect150"
+    }
+  ]
+}

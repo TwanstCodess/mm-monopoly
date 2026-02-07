@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 
 /// Memory card matching mini-game
 class MemoryMatchGame extends StatefulWidget {
@@ -132,6 +133,7 @@ class _MemoryMatchGameState extends State<MemoryMatchGame> {
   }
 
   void _showResultDialog(int score) {
+    final l10n = AppLocalizations.of(context)!;
     final isWin = _pairsFound == _cardIcons.length;
 
     showDialog(
@@ -145,16 +147,16 @@ class _MemoryMatchGameState extends State<MemoryMatchGame> {
           children: [
             Icon(isWin ? Icons.emoji_events : Icons.timer_off, color: isWin ? Colors.amber : Colors.orange, size: 32),
             const SizedBox(width: 12),
-            Text(isWin ? 'Great Job!' : 'Time\'s Up!', style: const TextStyle(color: Colors.white)),
+            Text(isWin ? l10n.greatJob : l10n.timeUp, style: const TextStyle(color: Colors.white)),
           ],
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('Pairs Found: $_pairsFound / ${_cardIcons.length}', style: const TextStyle(color: Colors.white70, fontSize: 16)),
+            Text(l10n.pairsFound(_pairsFound, _cardIcons.length), style: const TextStyle(color: Colors.white70, fontSize: 16)),
             const SizedBox(height: 12),
             Text(
-              'Score: \$$score',
+              l10n.scoreAmount(score),
               style: TextStyle(color: AppTheme.cashGreen, fontSize: 28, fontWeight: FontWeight.bold),
             ),
           ],
@@ -167,7 +169,7 @@ class _MemoryMatchGameState extends State<MemoryMatchGame> {
                 widget.onComplete();
               },
               style: ElevatedButton.styleFrom(backgroundColor: AppTheme.primary, padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12)),
-              child: const Text('Continue'),
+              child: Text(l10n.continueGame),
             ),
           ),
         ],
@@ -185,7 +187,7 @@ class _MemoryMatchGameState extends State<MemoryMatchGame> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.background,
-      appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0, title: const Text('Memory Match'), automaticallyImplyLeading: false),
+      appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0, title: Text(AppLocalizations.of(context)!.memoryMatchTitle), automaticallyImplyLeading: false),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -208,9 +210,9 @@ class _MemoryMatchGameState extends State<MemoryMatchGame> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         // Pairs found
-        _StatChip(icon: Icons.check_circle, label: 'Pairs', value: '$_pairsFound/${_cardIcons.length}', color: Colors.green),
+        _StatChip(icon: Icons.check_circle, label: AppLocalizations.of(context)!.pairs, value: '$_pairsFound/${_cardIcons.length}', color: Colors.green),
         // Timer
-        _StatChip(icon: Icons.timer, label: 'Time', value: '$_timeRemaining s', color: _timeRemaining <= 10 ? Colors.red : Colors.blue),
+        _StatChip(icon: Icons.timer, label: AppLocalizations.of(context)!.timeLabel, value: AppLocalizations.of(context)!.secondsShort(_timeRemaining), color: _timeRemaining <= 10 ? Colors.red : Colors.blue),
       ],
     );
   }

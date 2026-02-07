@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 
 /// Splash screen shown on app launch
 class SplashScreen extends StatefulWidget {
@@ -111,9 +112,9 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                           // PROPERTY TYCOON with gradient effect
                           ShaderMask(
                             shaderCallback: (bounds) => const LinearGradient(colors: [Color(0xFFFFFFFF), Color(0xFFFFE66D), Color(0xFFFFFFFF)]).createShader(bounds),
-                            child: const Text(
-                              'PROPERTY TYCOON',
-                              style: TextStyle(
+                            child: Text(
+                              AppLocalizations.of(context)!.propertyTycoon,
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 28,
                                 fontWeight: FontWeight.w900,
@@ -131,9 +132,9 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(color: Colors.white.withOpacity(0.5), width: 2),
                             ),
-                            child: const Text(
-                              'FAMILY EDITION',
-                              style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold, letterSpacing: 3),
+                            child: Text(
+                              AppLocalizations.of(context)!.familyEdition,
+                              style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold, letterSpacing: 3),
                             ),
                           ),
                           const SizedBox(height: 50),

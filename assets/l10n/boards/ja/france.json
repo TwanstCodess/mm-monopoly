@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "スタート",
+      "subtext": "$200を受け取る",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "モンマルトル",
+      "subtext": null,
+      "funFact": "丘の上のこの村には、美しい白亜のサクレ・クール寺院がそびえ立っています！"
+    },
+    {
+      "index": 2,
+      "name": "共同基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "ピガール",
+      "subtext": null,
+      "funFact": "1889年に設立されたキャバレー、ムーラン・ルージュで有名です！"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "メトロ1号線",
+      "subtext": null,
+      "funFact": "パリ初のメトロ路線で、1900年の万国博覧会に合わせて開業しました！"
+    },
+    {
+      "index": 6,
+      "name": "バスティーユ",
+      "subtext": null,
+      "funFact": "1789年のフランス革命で襲撃された有名な要塞監獄の跡地です！"
+    },
+    {
+      "index": 7,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "マレ地区",
+      "subtext": null,
+      "funFact": "歴史的なユダヤ人地区で、現在はパリで最もトレンディな地区のひとつです！"
+    },
+    {
+      "index": 9,
+      "name": "リュクサンブール",
+      "subtext": null,
+      "funFact": "リュクサンブール公園には106体の彫像と美しいメディチの泉があります！"
+    },
+    {
+      "index": 10,
+      "name": "刑務所",
+      "subtext": "面会中",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "サンジェルマン",
+      "subtext": null,
+      "funFact": "ヘミングウェイやサルトルが哲学を議論した歴史的な文学カフェ地区です！"
+    },
+    {
+      "index": 12,
+      "name": "電力会社",
+      "subtext": null,
+      "funFact": "フランス電力公社は世界最大の電力生産者です！"
+    },
+    {
+      "index": 13,
+      "name": "カルチエ・ラタン",
+      "subtext": null,
+      "funFact": "1257年に創立されたソルボンヌ大学があります！"
+    },
+    {
+      "index": 14,
+      "name": "パンテオン",
+      "subtext": null,
+      "funFact": "ヴォルテールやルソーなど、フランスの偉大な思想家たちが眠る場所です！"
+    },
+    {
+      "index": 15,
+      "name": "メトロ4号線",
+      "subtext": null,
+      "funFact": "この路線はセーヌ川を2回横断し、シテ島の下を通ります！"
+    },
+    {
+      "index": 16,
+      "name": "ヴェルサイユ",
+      "subtext": null,
+      "funFact": "ヴェルサイユ宮殿には2,300の部屋と67,000平方メートルの床面積があります！"
+    },
+    {
+      "index": 17,
+      "name": "共同基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "テュイルリー",
+      "subtext": null,
+      "funFact": "この王室庭園はルーヴルとコンコルド広場を結んでいます！"
+    },
+    {
+      "index": 19,
+      "name": "ルーヴル",
+      "subtext": null,
+      "funFact": "世界最大の美術館で、モナ・リザをはじめ38,000点の美術品を所蔵しています！"
+    },
+    {
+      "index": 20,
+      "name": "ラッキースピン",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "オペラ座",
+      "subtext": null,
+      "funFact": "パレ・ガルニエは「オペラ座の怪人」のインスピレーションの源です！"
+    },
+    {
+      "index": 22,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "シャンゼリゼ",
+      "subtext": null,
+      "funFact": "ヨーロッパで最も賃料の高い商業通りで、1平方メートルあたり12,000ユーロです！"
+    },
+    {
+      "index": 24,
+      "name": "凱旋門",
+      "subtext": null,
+      "funFact": "ナポレオンが建設し、フランスのために戦った人々を称えています！"
+    },
+    {
+      "index": 25,
+      "name": "RER A線",
+      "subtext": null,
+      "funFact": "ヨーロッパで最も利用者の多い鉄道路線で、1日120万人の乗客を運んでいます！"
+    },
+    {
+      "index": 26,
+      "name": "ラ・デファンス",
+      "subtext": null,
+      "funFact": "ヨーロッパ最大のビジネス街で、象徴的なグランダルシュがあります！"
+    },
+    {
+      "index": 27,
+      "name": "コンコルド広場",
+      "subtext": null,
+      "funFact": "フランス革命中にルイ16世とマリー・アントワネットが処刑された場所です！"
+    },
+    {
+      "index": 28,
+      "name": "水道局",
+      "subtext": null,
+      "funFact": "パリの水は150km以上離れた水源から供給され、最高品質が保たれています！"
+    },
+    {
+      "index": 29,
+      "name": "アンヴァリッド",
+      "subtext": null,
+      "funFact": "ナポレオンの墓はアンヴァリッドの金色のドームの下にあります！"
+    },
+    {
+      "index": 30,
+      "name": "刑務所へ行く",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "シテ島",
+      "subtext": null,
+      "funFact": "パリの歴史的な中心地で、紀元前250年にこの都市が誕生した場所です！"
+    },
+    {
+      "index": 32,
+      "name": "ノートルダム",
+      "subtext": null,
+      "funFact": "このゴシック建築の傑作は完成まで182年かかりました（1163年〜1345年）！"
+    },
+    {
+      "index": 33,
+      "name": "共同基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "オルセー美術館",
+      "subtext": null,
+      "funFact": "旧鉄道駅を改装して建てられ、世界最高の印象派コレクションを所蔵しています！"
+    },
+    {
+      "index": 35,
+      "name": "メトロ14号線",
+      "subtext": null,
+      "funFact": "パリ最新の完全自動運転メトロ路線で、1998年に開業しました！"
+    },
+    {
+      "index": 36,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "モンパルナス",
+      "subtext": null,
+      "funFact": "ピカソ、ヘミングウェイ、フィッツジェラルドが集った歴史的な芸術家の街です！"
+    },
+    {
+      "index": 38,
+      "name": "物品税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "エッフェル塔",
+      "subtext": null,
+      "funFact": "「鉄の貴婦人」の重さは10,100トンで、1930年まで世界で最も高い建造物でした！"
+    }
+  ]
+}

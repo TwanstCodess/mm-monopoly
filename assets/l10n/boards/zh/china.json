@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "出发",
+      "subtext": "领取奖金",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "南锣鼓巷",
+      "subtext": null,
+      "funFact": "这条有800年历史的胡同是北京保存最完好的历史街区之一！"
+    },
+    {
+      "index": 2,
+      "name": "公益金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "后海",
+      "subtext": null,
+      "funFact": "历史悠久的湖区，皇帝曾在此滑冰！"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "地铁1号线",
+      "subtext": null,
+      "funFact": "北京第一条地铁线路，1971年开通，途经天安门广场！"
+    },
+    {
+      "index": 6,
+      "name": "王府井",
+      "subtext": null,
+      "funFact": "北京首屈一指的购物街，已有700多年历史！"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "三里屯",
+      "subtext": null,
+      "funFact": "北京最国际化的街区，汇聚大使馆和丰富夜生活！"
+    },
+    {
+      "index": 9,
+      "name": "国贸",
+      "subtext": null,
+      "funFact": "中央商务区拥有由雷姆·库哈斯设计的标志性央视大楼！"
+    },
+    {
+      "index": 10,
+      "name": "监狱",
+      "subtext": "只是路过",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "东城区",
+      "subtext": null,
+      "funFact": "东城区保存着无数历史胡同和四合院！"
+    },
+    {
+      "index": 12,
+      "name": "国家电网",
+      "subtext": null,
+      "funFact": "世界上最大的公用事业公司，为超过11亿人供电！"
+    },
+    {
+      "index": 13,
+      "name": "北海公园",
+      "subtext": null,
+      "funFact": "可追溯到10世纪的皇家园林，拥有壮美的白塔！"
+    },
+    {
+      "index": 14,
+      "name": "景山",
+      "subtext": null,
+      "funFact": "这座人工山丘是俯瞰故宫全景的最佳地点！"
+    },
+    {
+      "index": 15,
+      "name": "地铁2号线",
+      "subtext": null,
+      "funFact": "环绕北京市中心，沿着古老的城墙路线运行！"
+    },
+    {
+      "index": 16,
+      "name": "雍和宫",
+      "subtext": null,
+      "funFact": "寺内有一尊由一棵白檀木雕刻而成的26米高佛像！"
+    },
+    {
+      "index": 17,
+      "name": "公益金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "天坛",
+      "subtext": null,
+      "funFact": "皇帝祈求丰收的圣地！回音壁能将耳语传送65米远！"
+    },
+    {
+      "index": 19,
+      "name": "颐和园",
+      "subtext": null,
+      "funFact": "占地290公顷的联合国教科文组织世界遗产，75%为水面！慈禧太后的石舫至今仍在！"
+    },
+    {
+      "index": 20,
+      "name": "幸运转盘",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "鼓楼",
+      "subtext": null,
+      "funFact": "建于1272年，鼓手曾在此为全城报时！"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "钟楼",
+      "subtext": null,
+      "funFact": "楼内悬挂着一口重达63吨的明代铜钟！"
+    },
+    {
+      "index": 24,
+      "name": "天安门",
+      "subtext": null,
+      "funFact": "世界上最大的公共广场，可容纳100万人！"
+    },
+    {
+      "index": 25,
+      "name": "地铁4号线",
+      "subtext": null,
+      "funFact": "从颐和园一路连接到南部，每天运送100万乘客！"
+    },
+    {
+      "index": 26,
+      "name": "朝阳区",
+      "subtext": null,
+      "funFact": "北京最国际化的城区，拥有奥运场馆！"
+    },
+    {
+      "index": 27,
+      "name": "奥林匹克公园",
+      "subtext": null,
+      "funFact": "2008年奥运会的鸟巢体育场和水立方坐落于此！"
+    },
+    {
+      "index": 28,
+      "name": "北京水务",
+      "subtext": null,
+      "funFact": "南水北调工程从1400公里外引水至北京！"
+    },
+    {
+      "index": 29,
+      "name": "中关村",
+      "subtext": null,
+      "funFact": "中国的硅谷，百度和联想等科技巨头的所在地！"
+    },
+    {
+      "index": 30,
+      "name": "去监狱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "秀水街",
+      "subtext": null,
+      "funFact": "传承古代丝绸之路贸易传统的著名购物市场！"
+    },
+    {
+      "index": 32,
+      "name": "潘家园",
+      "subtext": null,
+      "funFact": "亚洲最大的古玩市场，拥有3000多个摊位！"
+    },
+    {
+      "index": 33,
+      "name": "公益金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "国家博物馆",
+      "subtext": null,
+      "funFact": "世界上参观人数最多的博物馆，年接待740万游客！"
+    },
+    {
+      "index": 35,
+      "name": "地铁10号线",
+      "subtext": null,
+      "funFact": "形成巨大环线，连接北京各主要城区！"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "央视大楼",
+      "subtext": null,
+      "funFact": "高405米，拥有革命性的“环形”设计！"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "故宫",
+      "subtext": null,
+      "funFact": "世界上最大的宫殿建筑群，拥有9999个房间，曾是24位皇帝的家！"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 
 /// How to play screen - swipeable card carousel
 class HowToPlayScreen extends StatefulWidget {
@@ -14,47 +15,51 @@ class _HowToPlayScreenState extends State<HowToPlayScreen> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
-  final List<_TutorialCard> _cards = const [
-    _TutorialCard(
-      emoji: '🎲',
-      title: 'Roll & Move',
-      description: 'Tap the dice to roll!\nMove around the board.',
-      color: Color(0xFF4ECDC4),
-    ),
-    _TutorialCard(
-      emoji: '🏠',
-      title: 'Buy Properties',
-      description: 'Land on an empty spot?\nBuy it and own it!',
-      color: Color(0xFFFFE66D),
-    ),
-    _TutorialCard(
-      emoji: '💰',
-      title: 'Collect Rent',
-      description: 'Others land on your property?\nThey pay YOU!',
-      color: Color(0xFF95E1D3),
-    ),
-    _TutorialCard(
-      emoji: '⭐',
-      title: 'Special Spaces',
-      description: 'Chance cards, jail, trains...\nSurprises everywhere!',
-      color: Color(0xFFDDA0DD),
-    ),
-    _TutorialCard(
-      emoji: '🏆',
-      title: 'Win the Game!',
-      description: 'Last player with money wins!\nBankrupt your friends!',
-      color: Color(0xFFFF6B6B),
-    ),
-  ];
-
   @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
   }
 
+  List<_TutorialCard> _buildCards(AppLocalizations l10n) {
+    return [
+      _TutorialCard(
+        emoji: '🎲',
+        title: l10n.tutorialRollMove,
+        description: l10n.tutorialRollMoveDesc,
+        color: const Color(0xFF4ECDC4),
+      ),
+      _TutorialCard(
+        emoji: '🏠',
+        title: l10n.tutorialBuyProperties,
+        description: l10n.tutorialBuyPropertiesDesc,
+        color: const Color(0xFFFFE66D),
+      ),
+      _TutorialCard(
+        emoji: '💰',
+        title: l10n.tutorialCollectRent,
+        description: l10n.tutorialCollectRentDesc,
+        color: const Color(0xFF95E1D3),
+      ),
+      _TutorialCard(
+        emoji: '⭐',
+        title: l10n.tutorialSpecialSpaces,
+        description: l10n.tutorialSpecialSpacesDesc,
+        color: const Color(0xFFDDA0DD),
+      ),
+      _TutorialCard(
+        emoji: '🏆',
+        title: l10n.tutorialWinGame,
+        description: l10n.tutorialWinGameDesc,
+        color: const Color(0xFFFF6B6B),
+      ),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final cards = _buildCards(l10n);
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -74,9 +79,9 @@ class _HowToPlayScreenState extends State<HowToPlayScreen> {
                   children: [
                     _buildBackButton(),
                     const Spacer(),
-                    const Text(
-                      'How to Play',
-                      style: TextStyle(
+                    Text(
+                      l10n.howToPlay,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -93,7 +98,7 @@ class _HowToPlayScreenState extends State<HowToPlayScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(_cards.length, (index) {
+                  children: List.generate(cards.length, (index) {
                     return AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
                       margin: const EdgeInsets.symmetric(horizontal: 4),
@@ -117,9 +122,9 @@ class _HowToPlayScreenState extends State<HowToPlayScreen> {
                   onPageChanged: (index) {
                     setState(() => _currentPage = index);
                   },
-                  itemCount: _cards.length,
+                  itemCount: cards.length,
                   itemBuilder: (context, index) {
-                    return _buildCard(_cards[index]);
+                    return _buildCard(cards[index]);
                   },
                 ),
               ),
@@ -149,7 +154,7 @@ class _HowToPlayScreenState extends State<HowToPlayScreen> {
                           const SizedBox(width: 16),
                           // Page info text
                           Text(
-                            '${_currentPage + 1} / ${_cards.length}',
+                            '${_currentPage + 1} / ${cards.length}',
                             style: TextStyle(
                               color: Colors.white.withOpacity(0.7),
                               fontSize: 14,
@@ -160,7 +165,7 @@ class _HowToPlayScreenState extends State<HowToPlayScreen> {
                           // Right arrow
                           _buildNavArrow(
                             icon: Icons.arrow_forward_ios_rounded,
-                            enabled: _currentPage < _cards.length - 1,
+                            enabled: _currentPage < cards.length - 1,
                             onTap: () {
                               _pageController.nextPage(
                                 duration: const Duration(milliseconds: 300),
@@ -173,7 +178,7 @@ class _HowToPlayScreenState extends State<HowToPlayScreen> {
                     ),
 
                     // Got it button (always visible, emphasized on last page)
-                    _buildGotItButton(),
+                    _buildGotItButton(l10n, cards.length),
                   ],
                 ),
               ),
@@ -318,9 +323,9 @@ class _HowToPlayScreenState extends State<HowToPlayScreen> {
     );
   }
 
-  Widget _buildGotItButton() {
-    final isLastPage = _currentPage == _cards.length - 1;
-    
+  Widget _buildGotItButton(AppLocalizations l10n, int cardCount) {
+    final isLastPage = _currentPage == cardCount - 1;
+
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -353,7 +358,7 @@ class _HowToPlayScreenState extends State<HowToPlayScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                isLastPage ? "Let's Play!" : "Got it!",
+                isLastPage ? l10n.letsPlay : l10n.gotIt,
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 18,

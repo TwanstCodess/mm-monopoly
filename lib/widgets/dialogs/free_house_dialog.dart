@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/tile.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 import 'animated_dialog.dart';
 
 /// Dialog for selecting a property to build a free house on
@@ -77,9 +78,9 @@ class _FreeHouseDialogState extends State<FreeHouseDialog> {
             ),
           ),
           const SizedBox(height: 12),
-          const Text(
-            'FREE HOUSE!',
-            style: TextStyle(
+          Text(
+            AppLocalizations.of(context)!.freeHouseTitle,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 22,
               fontWeight: FontWeight.bold,
@@ -88,7 +89,7 @@ class _FreeHouseDialogState extends State<FreeHouseDialog> {
           ),
           const SizedBox(height: 4),
           Text(
-            'Choose a property to build on',
+            AppLocalizations.of(context)!.choosePropertyToBuild,
             style: TextStyle(
               color: Colors.white.withOpacity(0.9),
               fontSize: 14,
@@ -113,7 +114,7 @@ class _FreeHouseDialogState extends State<FreeHouseDialog> {
             ),
             const SizedBox(height: 12),
             Text(
-              'No properties available to upgrade!',
+              AppLocalizations.of(context)!.noUpgradeableProperties,
               style: TextStyle(
                 color: Colors.white.withOpacity(0.7),
                 fontSize: 14,
@@ -122,7 +123,7 @@ class _FreeHouseDialogState extends State<FreeHouseDialog> {
             ),
             const SizedBox(height: 8),
             Text(
-              'Buy properties and come back later.',
+              AppLocalizations.of(context)!.buyPropertiesComeBack,
               style: TextStyle(
                 color: Colors.white.withOpacity(0.5),
                 fontSize: 12,
@@ -141,9 +142,10 @@ class _FreeHouseDialogState extends State<FreeHouseDialog> {
       itemBuilder: (context, index) {
         final property = widget.properties[index];
         final isSelected = _selectedProperty == property;
+        final l10n = AppLocalizations.of(context)!;
         final upgradeText = property.upgradeLevel < 4
-            ? 'House ${property.upgradeLevel + 1}'
-            : 'Hotel';
+            ? l10n.houseN(property.upgradeLevel + 1)
+            : l10n.hotel;
 
         return Padding(
           padding: const EdgeInsets.only(bottom: 8),
@@ -213,7 +215,7 @@ class _FreeHouseDialogState extends State<FreeHouseDialog> {
                               if (property.upgradeLevel > 0)
                                 const SizedBox(width: 4),
                               Text(
-                                'Next: $upgradeText',
+                                l10n.nextUpgrade(upgradeText),
                                 style: TextStyle(
                                   color: Colors.white.withOpacity(0.6),
                                   fontSize: 12,
@@ -264,7 +266,7 @@ class _FreeHouseDialogState extends State<FreeHouseDialog> {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: const Text('Save for Later'),
+              child: Text(AppLocalizations.of(context)!.saveForLater),
             ),
           ),
           const SizedBox(width: 12),
@@ -285,9 +287,9 @@ class _FreeHouseDialogState extends State<FreeHouseDialog> {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: const Text(
-                'Build!',
-                style: TextStyle(fontWeight: FontWeight.bold),
+              child: Text(
+                AppLocalizations.of(context)!.build,
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/event_card.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 import 'animated_dialog.dart';
 
 /// Dialog for announcing a random event
@@ -8,11 +9,7 @@ class EventDialog extends StatefulWidget {
   final EventCard event;
   final VoidCallback onDismiss;
 
-  const EventDialog({
-    super.key,
-    required this.event,
-    required this.onDismiss,
-  });
+  const EventDialog({super.key, required this.event, required this.onDismiss});
 
   @override
   State<EventDialog> createState() => _EventDialogState();
@@ -41,13 +38,17 @@ class _EventDialogState extends State<EventDialog>
 
     _scaleAnimation = TweenSequence<double>([
       TweenSequenceItem(
-        tween: Tween(begin: 0.0, end: 1.15)
-            .chain(CurveTween(curve: Curves.easeOut)),
+        tween: Tween(
+          begin: 0.0,
+          end: 1.15,
+        ).chain(CurveTween(curve: Curves.easeOut)),
         weight: 60,
       ),
       TweenSequenceItem(
-        tween: Tween(begin: 1.15, end: 1.0)
-            .chain(CurveTween(curve: Curves.elasticOut)),
+        tween: Tween(
+          begin: 1.15,
+          end: 1.0,
+        ).chain(CurveTween(curve: Curves.elasticOut)),
         weight: 40,
       ),
     ]).animate(_entranceController);
@@ -75,14 +76,12 @@ class _EventDialogState extends State<EventDialog>
       child: AnimatedBuilder(
         animation: Listenable.merge([_scaleAnimation, _pulseAnimation]),
         builder: (context, child) {
-          final scale = _entranceController.isCompleted
-              ? _pulseAnimation.value
-              : _scaleAnimation.value;
+          final scale =
+              _entranceController.isCompleted
+                  ? _pulseAnimation.value
+                  : _scaleAnimation.value;
 
-          return Transform.scale(
-            scale: scale,
-            child: _buildCard(),
-          );
+          return Transform.scale(scale: scale, child: _buildCard());
         },
       ),
     );
@@ -127,10 +126,7 @@ class _EventDialogState extends State<EventDialog>
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            category.color.withOpacity(0.8),
-            category.color,
-          ],
+          colors: [category.color.withOpacity(0.8), category.color],
         ),
         borderRadius: const BorderRadius.vertical(top: Radius.circular(21)),
       ),
@@ -151,11 +147,7 @@ class _EventDialogState extends State<EventDialog>
                 ),
               ],
             ),
-            child: Icon(
-              category.icon,
-              size: 40,
-              color: Colors.white,
-            ),
+            child: Icon(category.icon, size: 40, color: Colors.white),
           ),
           const SizedBox(height: 16),
           // Category label
@@ -186,11 +178,7 @@ class _EventDialogState extends State<EventDialog>
       child: Column(
         children: [
           // Event icon
-          Icon(
-            widget.event.icon,
-            size: 48,
-            color: widget.event.category.color,
-          ),
+          Icon(widget.event.icon, size: 48, color: widget.event.category.color),
           const SizedBox(height: 16),
           // Event name
           Text(
@@ -223,6 +211,7 @@ class _EventDialogState extends State<EventDialog>
       return const SizedBox.shrink();
     }
 
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 24),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -234,14 +223,13 @@ class _EventDialogState extends State<EventDialog>
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.timer,
-            color: widget.event.category.color,
-            size: 20,
-          ),
+          Icon(Icons.timer, color: widget.event.category.color, size: 20),
           const SizedBox(width: 8),
           Text(
-            'Lasts ${widget.event.duration} round${widget.event.duration! > 1 ? 's' : ''}',
+            l10n.eventLastsRounds(
+              widget.event.duration!,
+              widget.event.duration! > 1 ? 's' : '',
+            ),
             style: TextStyle(
               color: widget.event.category.color,
               fontSize: 14,
@@ -254,6 +242,7 @@ class _EventDialogState extends State<EventDialog>
   }
 
   Widget _buildAction() {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.all(24),
       child: SizedBox(
@@ -271,9 +260,9 @@ class _EventDialogState extends State<EventDialog>
               borderRadius: BorderRadius.circular(12),
             ),
           ),
-          child: const Text(
-            'Got it!',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          child: Text(
+            l10n.gotIt,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
       ),
@@ -291,10 +280,7 @@ Future<void> showEventDialog({
     context: context,
     barrierDismissible: false,
     animationType: DialogAnimationType.scale,
-    builder: (context) => EventDialog(
-      event: event,
-      onDismiss: onDismiss,
-    ),
+    builder: (context) => EventDialog(event: event, onDismiss: onDismiss),
   );
 }
 
@@ -326,9 +312,10 @@ class _ActiveEventIndicatorState extends State<ActiveEventIndicator>
       vsync: this,
     )..repeat(reverse: true);
 
-    _pulseAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
-    );
+    _pulseAnimation = Tween<double>(
+      begin: 0.8,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
   }
 
   @override

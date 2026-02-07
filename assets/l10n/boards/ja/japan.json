@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "スタート",
+      "subtext": "$200を受け取る",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "浅草",
+      "subtext": null,
+      "funFact": "西暦645年に建立された東京最古の仏教寺院、浅草寺があります！"
+    },
+    {
+      "index": 2,
+      "name": "共同基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "上野",
+      "subtext": null,
+      "funFact": "上野公園には1,000本以上の桜の木があり、東京で最も人気のある花見スポットです！"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "山手線",
+      "subtext": null,
+      "funFact": "山手線は都心を59〜65分で一周し、1日350万人の乗客を運んでいます！"
+    },
+    {
+      "index": 6,
+      "name": "秋葉原",
+      "subtext": null,
+      "funFact": "「電気街」として知られ、アニメ、マンガ、電子機器文化の世界的中心地です！"
+    },
+    {
+      "index": 7,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "池袋",
+      "subtext": null,
+      "funFact": "池袋駅は世界で2番目に利用者の多い駅で、1日270万人以上の乗客が利用しています！"
+    },
+    {
+      "index": 9,
+      "name": "新宿",
+      "subtext": null,
+      "funFact": "新宿駅は世界で最も利用者の多い駅で、1日の乗降客数は360万人を超えます！"
+    },
+    {
+      "index": 10,
+      "name": "刑務所",
+      "subtext": "面会中",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "原宿",
+      "subtext": null,
+      "funFact": "東京の若者ファッション文化の発信地！竹下通りには数百万人のトレンドセッターが訪れます。"
+    },
+    {
+      "index": 12,
+      "name": "東京電力",
+      "subtext": null,
+      "funFact": "東京電力は首都圏の4500万人以上に電力を供給しており、世界最大級の電力網です！"
+    },
+    {
+      "index": 13,
+      "name": "表参道",
+      "subtext": null,
+      "funFact": "「東京のシャンゼリゼ」として知られ、ケヤキ並木と世界的建築家による旗艦店が並びます！"
+    },
+    {
+      "index": 14,
+      "name": "お台場",
+      "subtext": null,
+      "funFact": "東京湾の埋立地に建設され、チームラボボーダレスや巨大なガンダム立像があります！"
+    },
+    {
+      "index": 15,
+      "name": "東海道新幹線",
+      "subtext": null,
+      "funFact": "日本初の新幹線路線で、1964年から最高時速285kmで東京と大阪を結んでいます！"
+    },
+    {
+      "index": 16,
+      "name": "六本木",
+      "subtext": null,
+      "funFact": "六本木ヒルズと東京ミッドタウンがあり、世界クラスの美術館とナイトライフで有名です！"
+    },
+    {
+      "index": 17,
+      "name": "共同基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "恵比寿",
+      "subtext": null,
+      "funFact": "ヱビスビールにちなんで名付けられたこの高級エリアは、素晴らしいレストランと東京都写真美術館で知られています！"
+    },
+    {
+      "index": 19,
+      "name": "渋谷",
+      "subtext": null,
+      "funFact": "渋谷スクランブル交差点は世界で最も混雑する交差点で、一度に最大3,000人が横断します！"
+    },
+    {
+      "index": 20,
+      "name": "ラッキースピン",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "築地",
+      "subtext": null,
+      "funFact": "かつて世界最大の魚市場があった場所で、クロマグロが310万ドルで落札されたことも！"
+    },
+    {
+      "index": 22,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "銀座",
+      "subtext": null,
+      "funFact": "東京で最も高級なショッピング地区！地価は1平方メートルあたり10万ドルに達することもあります。"
+    },
+    {
+      "index": 24,
+      "name": "東京駅",
+      "subtext": null,
+      "funFact": "美しく復元された1914年の赤レンガ駅舎は、すべての新幹線の起点となっています！"
+    },
+    {
+      "index": 25,
+      "name": "中央線",
+      "subtext": null,
+      "funFact": "中央快速線は東京で最も重要な通勤路線のひとつで、オレンジ色の車両が目印です！"
+    },
+    {
+      "index": 26,
+      "name": "丸の内",
+      "subtext": null,
+      "funFact": "東京を代表するビジネス街で、大手企業が集まり、皇居に面しています！"
+    },
+    {
+      "index": 27,
+      "name": "日本橋",
+      "subtext": null,
+      "funFact": "東京の歴史的な商業の中心地で、有名な日本橋は日本の道路元標の起点です！"
+    },
+    {
+      "index": 28,
+      "name": "東京ガス",
+      "subtext": null,
+      "funFact": "1885年設立の東京ガスは、日本初期の近代的な公益事業会社のひとつです！"
+    },
+    {
+      "index": 29,
+      "name": "六本木ヒルズ",
+      "subtext": null,
+      "funFact": "森美術館、高級住宅、238メートルの展望台を含む大規模な都市複合施設です！"
+    },
+    {
+      "index": 30,
+      "name": "刑務所へ行く",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "青山",
+      "subtext": null,
+      "funFact": "東京で最もおしゃれな街のひとつで、高級ブティックやトレンディなカフェで知られています！"
+    },
+    {
+      "index": 32,
+      "name": "麻布",
+      "subtext": null,
+      "funFact": "多くの大使館やインターナショナルスクールがある高級住宅地です！"
+    },
+    {
+      "index": 33,
+      "name": "共同基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "東京タワー",
+      "subtext": null,
+      "funFact": "エッフェル塔に触発された高さ333メートルのこのランドマークは、1958年から東京のシンボルです！"
+    },
+    {
+      "index": 35,
+      "name": "総武線",
+      "subtext": null,
+      "funFact": "総武線は東京の東部郊外を結び、1日100万人以上の乗客を運んでいます！"
+    },
+    {
+      "index": 36,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "赤坂",
+      "subtext": null,
+      "funFact": "迎賓館があり、ミシュラン星付きレストランを含む多くの高級レストランが集まっています！"
+    },
+    {
+      "index": 38,
+      "name": "物品税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "東京スカイツリー",
+      "subtext": null,
+      "funFact": "高さ634メートルの世界一高い電波塔！「634」は東京の旧名「武蔵」を表しています。"
+    }
+  ]
+}

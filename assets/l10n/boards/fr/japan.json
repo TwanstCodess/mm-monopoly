@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "DÉPART",
+      "subtext": "スタート",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Asakusa",
+      "subtext": "浅草",
+      "funFact": "Abrite le Senso-ji, le plus ancien temple bouddhiste de Tokyo, construit en 645 après J.-C. !"
+    },
+    {
+      "index": 2,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Ueno",
+      "subtext": "上野",
+      "funFact": "Le parc d’Ueno compte plus de 1 000 cerisiers en fleurs et est le lieu de hanami le plus populaire de Tokyo !"
+    },
+    {
+      "index": 4,
+      "name": "Impôt sur le Revenu",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Yamanote Line",
+      "subtext": "山手線",
+      "funFact": "La ligne Yamanote fait une boucle complète autour du centre de Tokyo en 59 à 65 minutes, transportant 3,5 millions de passagers par jour !"
+    },
+    {
+      "index": 6,
+      "name": "Akihabara",
+      "subtext": "秋葉原",
+      "funFact": "Surnommée « Electric Town », Akihabara est le centre mondial de la culture anime, manga et électronique !"
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Ikebukuro",
+      "subtext": "池袋",
+      "funFact": "La gare d’Ikebukuro est la deuxième gare la plus fréquentée au monde, desservant plus de 2,7 millions de passagers par jour !"
+    },
+    {
+      "index": 9,
+      "name": "Shinjuku",
+      "subtext": "新宿",
+      "funFact": "La gare de Shinjuku est la plus fréquentée au monde avec plus de 3,6 millions de passagers quotidiens !"
+    },
+    {
+      "index": 10,
+      "name": "PRISON",
+      "subtext": "刑務所",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Harajuku",
+      "subtext": "原宿",
+      "funFact": "L’épicentre de la mode jeune à Tokyo ! La rue Takeshita attire des millions de visiteurs branchés."
+    },
+    {
+      "index": 12,
+      "name": "Compagnie d’Électricité de Tokyo",
+      "subtext": null,
+      "funFact": "TEPCO alimente en énergie plus de 45 millions de personnes dans le Grand Tokyo, l’un des plus grands réseaux électriques au monde !"
+    },
+    {
+      "index": 13,
+      "name": "Omotesando",
+      "subtext": "表参道",
+      "funFact": "Surnommée les Champs-Élysées de Tokyo, bordée de zelkovas et de boutiques phares conçues par des architectes de renommée mondiale !"
+    },
+    {
+      "index": 14,
+      "name": "Odaiba",
+      "subtext": "お台場",
+      "funFact": "Construite sur des terres gagnées sur la baie de Tokyo, elle abrite teamLab Borderless et une statue géante de Gundam !"
+    },
+    {
+      "index": 15,
+      "name": "Tokaido Shinkansen",
+      "subtext": "東海道新幹線",
+      "funFact": "La première ligne de train à grande vitesse du Japon, reliant Tokyo à Osaka à 285 km/h depuis 1964 !"
+    },
+    {
+      "index": 16,
+      "name": "Roppongi",
+      "subtext": "六本木",
+      "funFact": "Abrite Roppongi Hills et Tokyo Midtown, avec des musées d’art de classe mondiale et une vie nocturne animée !"
+    },
+    {
+      "index": 17,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Ebisu",
+      "subtext": "恵比寿",
+      "funFact": "Nommé d’après la bière Yebisu, ce quartier chic est réputé pour ses excellents restaurants et le Musée de la photographie de Tokyo !"
+    },
+    {
+      "index": 19,
+      "name": "Shibuya",
+      "subtext": "渋谷",
+      "funFact": "Le carrefour de Shibuya est le passage piéton le plus fréquenté au monde, avec jusqu’à 3 000 personnes traversant en même temps !"
+    },
+    {
+      "index": 20,
+      "name": "ROUE DE LA CHANCE",
+      "subtext": "ラッキースピン",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Tsukiji",
+      "subtext": "築地",
+      "funFact": "Ancien site du plus grand marché aux poissons du monde, où un thon rouge s’est vendu 3,1 millions de dollars !"
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Ginza",
+      "subtext": "銀座",
+      "funFact": "Le quartier commerçant le plus luxueux de Tokyo ! Le prix du terrain peut atteindre 100 000 $ le mètre carré."
+    },
+    {
+      "index": 24,
+      "name": "Tokyo Station",
+      "subtext": "東京駅",
+      "funFact": "La magnifique gare en briques rouges de 1914, restaurée, sert de terminus à toutes les lignes Shinkansen !"
+    },
+    {
+      "index": 25,
+      "name": "Chuo Line",
+      "subtext": "中央線",
+      "funFact": "La ligne Chuo Rapide est l’une des lignes de banlieue les plus importantes de Tokyo, reconnaissable à ses trains orange !"
+    },
+    {
+      "index": 26,
+      "name": "Marunouchi",
+      "subtext": "丸の内",
+      "funFact": "Le quartier d’affaires de premier plan de Tokyo, siège de grandes entreprises et face au Palais impérial !"
+    },
+    {
+      "index": 27,
+      "name": "Nihombashi",
+      "subtext": "日本橋",
+      "funFact": "Le centre commercial historique de Tokyo, où le célèbre pont Nihombashi marque le « kilomètre zéro » du Japon !"
+    },
+    {
+      "index": 28,
+      "name": "Service des Eaux de Tokyo",
+      "subtext": null,
+      "funFact": "Fondée en 1885, Tokyo Gas fut l’une des premières entreprises de services publics modernes du Japon !"
+    },
+    {
+      "index": 29,
+      "name": "Roppongi Hills",
+      "subtext": "六本木ヒルズ",
+      "funFact": "Ce vaste complexe urbain comprend le musée d’art Mori, des résidences de luxe et un observatoire à 238 mètres de hauteur !"
+    },
+    {
+      "index": 30,
+      "name": "ALLEZ EN PRISON",
+      "subtext": "刑務所へ",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Aoyama",
+      "subtext": "青山",
+      "funFact": "L’un des quartiers les plus élégants de Tokyo, connu pour ses boutiques haut de gamme et ses cafés branchés !"
+    },
+    {
+      "index": 32,
+      "name": "Azabu",
+      "subtext": "麻布",
+      "funFact": "Un quartier résidentiel exclusif abritant de nombreuses ambassades et écoles internationales !"
+    },
+    {
+      "index": 33,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Tokyo Tower",
+      "subtext": "東京タワー",
+      "funFact": "Inspirée de la tour Eiffel, ce monument de 333 mètres est le symbole de Tokyo depuis 1958 !"
+    },
+    {
+      "index": 35,
+      "name": "Sobu Line",
+      "subtext": "総武線",
+      "funFact": "La ligne Sobu relie les banlieues est de Tokyo et transporte plus d’un million de passagers par jour !"
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Akasaka",
+      "subtext": "赤坂",
+      "funFact": "Abrite la Maison d’État des hôtes et de nombreux restaurants haut de gamme, dont des établissements étoilés au Michelin !"
+    },
+    {
+      "index": 38,
+      "name": "Taxe de Luxe",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Tokyo Skytree",
+      "subtext": "東京スカイツリー",
+      "funFact": "La plus haute tour du monde avec 634 mètres ! Sa hauteur représente « Musashi », l’ancien nom de Tokyo."
+    }
+  ]
+}

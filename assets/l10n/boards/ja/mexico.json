@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "スタート",
+      "subtext": "$200を受け取る",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "コヨアカン",
+      "subtext": null,
+      "funFact": "フリーダ・カーロの生誕地！有名な青い家の美術館には毎日何千人もの人が訪れます！"
+    },
+    {
+      "index": 2,
+      "name": "共同基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "ソチミルコ",
+      "subtext": null,
+      "funFact": "古代アステカの運河で、色鮮やかなトラヒネラが浮き庭園の間を漂います！"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "メトロ1号線",
+      "subtext": null,
+      "funFact": "1969年に開業したメキシコシティ初のメトロ路線！文字が読めない人のためにシンボルが使われています！"
+    },
+    {
+      "index": 6,
+      "name": "ローマ・ノルテ",
+      "subtext": null,
+      "funFact": "アール・ヌーヴォーとアール・デコの建築が溢れるおしゃれな地区です！"
+    },
+    {
+      "index": 7,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "コンデサ",
+      "subtext": null,
+      "funFact": "かつての競馬場跡に造られた、並木が美しいアール・デコ地区です！"
+    },
+    {
+      "index": 9,
+      "name": "ポランコ",
+      "subtext": null,
+      "funFact": "メキシコシティのビバリーヒルズで、大使館や高級ブティックが集まっています！"
+    },
+    {
+      "index": 10,
+      "name": "刑務所",
+      "subtext": "面会中",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "サン・アンヘル",
+      "subtext": null,
+      "funFact": "石畳の通りと活気ある土曜アートマーケットがあるコロニアル地区です！"
+    },
+    {
+      "index": 12,
+      "name": "電力会社",
+      "subtext": null,
+      "funFact": "連邦電力委員会はメキシコ全土に電力を供給しています！"
+    },
+    {
+      "index": 13,
+      "name": "チャプルテペック",
+      "subtext": null,
+      "funFact": "686ヘクタールの広さを持つ西半球最大級の都市公園のひとつです！"
+    },
+    {
+      "index": 14,
+      "name": "チャプルテペックの森",
+      "subtext": null,
+      "funFact": "この森林公園はニューヨークのセントラルパークの2倍の広さがあります！"
+    },
+    {
+      "index": 15,
+      "name": "メトロ2号線",
+      "subtext": null,
+      "funFact": "ブルーラインはベジャス・アルテスなどの主要な文化施設を結んでいます！"
+    },
+    {
+      "index": 16,
+      "name": "テオティワカン",
+      "subtext": null,
+      "funFact": "古代のピラミッド群！太陽のピラミッドは世界で3番目に大きなピラミッドです！"
+    },
+    {
+      "index": 17,
+      "name": "共同基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "テンプロ・マヨール",
+      "subtext": null,
+      "funFact": "アステカ人の主神殿で、1978年に電気工事の作業員が偶然発見しました！"
+    },
+    {
+      "index": 19,
+      "name": "ソカロ",
+      "subtext": null,
+      "funFact": "世界最大級の公共広場のひとつで、アステカ時代からメキシコシティの中心です！"
+    },
+    {
+      "index": 20,
+      "name": "ラッキースピン",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "国立宮殿",
+      "subtext": null,
+      "funFact": "メキシコの歴史を描いたディエゴ・リベラの有名な壁画があります！"
+    },
+    {
+      "index": 22,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "ベジャス・アルテス宮殿",
+      "subtext": null,
+      "funFact": "約100万個のガラス片で作られた幕を持つ、美しいアール・ヌーヴォーの宮殿です！"
+    },
+    {
+      "index": 24,
+      "name": "レフォルマ通り",
+      "subtext": null,
+      "funFact": "シャンゼリゼに触発された壮大な大通りで、記念碑や超高層ビルが立ち並びます！"
+    },
+    {
+      "index": 25,
+      "name": "メトロ3号線",
+      "subtext": null,
+      "funFact": "オリーブラインは1日130万人の乗客を運んでいます！"
+    },
+    {
+      "index": 26,
+      "name": "独立記念塔",
+      "subtext": null,
+      "funFact": "スペインからの独立を祝うメキシコで最も象徴的なモニュメントです！"
+    },
+    {
+      "index": 27,
+      "name": "ソナ・ロサ",
+      "subtext": null,
+      "funFact": "ピンクゾーン！LGBTQ+フレンドリーな歴史的地区で、韓国系や国際的な雰囲気が漂います！"
+    },
+    {
+      "index": 28,
+      "name": "水道局",
+      "subtext": null,
+      "funFact": "メキシコシティの水は地下帯水層と遠くの山岳水源から供給されています！"
+    },
+    {
+      "index": 29,
+      "name": "サンタフェ",
+      "subtext": null,
+      "funFact": "かつてのゴミ捨て場から生まれた超近代的なビジネス地区です！"
+    },
+    {
+      "index": 30,
+      "name": "刑務所へ行く",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "フリーダ・カーロ美術館",
+      "subtext": null,
+      "funFact": "フリーダが住み、愛し、象徴的な作品を生み出した青い家です！"
+    },
+    {
+      "index": 32,
+      "name": "ソウマヤ美術館",
+      "subtext": null,
+      "funFact": "ロダンの作品を含む66,000点の美術品を収蔵する銀色の美しい建物です！"
+    },
+    {
+      "index": 33,
+      "name": "共同基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "国立人類学博物館",
+      "subtext": null,
+      "funFact": "3,000年のメキシコ文化を紹介する世界最大の人類学博物館です！"
+    },
+    {
+      "index": 35,
+      "name": "メトロ12号線",
+      "subtext": null,
+      "funFact": "ゴールドライン、メキシコシティ最新のメトロ路線です！"
+    },
+    {
+      "index": 36,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "ラテンアメリカタワー",
+      "subtext": null,
+      "funFact": "1956年建設で、革新的な浮き基礎のおかげで大地震にも耐えました！"
+    },
+    {
+      "index": 38,
+      "name": "物品税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "チャプルテペック城",
+      "subtext": null,
+      "funFact": "北米唯一の王城で、かつてマクシミリアン皇帝の居城でした！"
+    }
+  ]
+}

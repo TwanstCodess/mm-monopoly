@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../models/player.dart';
 import '../models/game_state.dart';
 import '../models/board_theme.dart';
@@ -10,6 +11,8 @@ import '../config/constants.dart';
 import '../services/audio_service.dart';
 import '../services/save_service.dart';
 import '../services/stats_service.dart';
+import '../services/locale_service.dart';
+import '../services/game_content_loader.dart';
 import '../widgets/achievements/achievement_notification.dart';
 import '../widgets/board/game_board.dart';
 import '../widgets/player/player_card.dart';
@@ -93,6 +96,10 @@ class _GameBoardScreenState extends State<GameBoardScreen>
   Player? _cardPickPlayer;
   Completer<int?>? _cardPickCompleter;
 
+  // Localized cards (loaded from JSON)
+  List<Map<String, dynamic>> _localizedChanceCards = [];
+  List<Map<String, dynamic>> _localizedChestCards = [];
+
   @override
   void initState() {
     super.initState();
@@ -101,6 +108,18 @@ class _GameBoardScreenState extends State<GameBoardScreen>
     _initializeAnimations();
     _initializeAIEngines();
     _isMusicPlaying = AudioService.instance.musicEnabled;
+    _loadLocalizedCards();
+  }
+
+  Future<void> _loadLocalizedCards() async {
+    final locale = LocaleService.instance.currentLocale;
+    final cards = await GameContentLoader.instance.loadCards(locale);
+    if (mounted) {
+      setState(() {
+        _localizedChanceCards = cards['chance'] ?? [];
+        _localizedChestCards = cards['communityChest'] ?? [];
+      });
+    }
   }
 
   void _initializeAIEngines() {
@@ -217,7 +236,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
               ),
               const SizedBox(width: 12),
               Text(
-                success ? 'Game saved successfully!' : 'Failed to save game',
+                success ? AppLocalizations.of(context)!.gameSaved : AppLocalizations.of(context)!.failedToSave,
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
@@ -255,7 +274,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
               const Icon(Icons.check_circle, color: Colors.white),
               const SizedBox(width: 12),
               Text(
-                'Game loaded! Round ${gameState.roundNumber}',
+                AppLocalizations.of(context)!.gameLoaded(gameState.roundNumber),
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
@@ -286,21 +305,21 @@ class _GameBoardScreenState extends State<GameBoardScreen>
       }
     } else if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Row(
             children: [
-              Icon(Icons.error, color: Colors.white),
-              SizedBox(width: 12),
+              const Icon(Icons.error, color: Colors.white),
+              const SizedBox(width: 12),
               Text(
-                'Failed to load game',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                AppLocalizations.of(context)!.failedToLoad,
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               ),
             ],
           ),
-          backgroundColor: Color(0xFFFF5252),
+          backgroundColor: const Color(0xFFFF5252),
           behavior: SnackBarBehavior.floating,
-          margin: EdgeInsets.all(16),
-          duration: Duration(seconds: 2),
+          margin: const EdgeInsets.all(16),
+          duration: const Duration(seconds: 2),
         ),
       );
     }
@@ -545,6 +564,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
                     player: player,
                     isCurrentPlayer: player.id == gameState.currentPlayer.id,
                     tiles: gameState.tiles,
+                    gameState: gameState,
                   ),
                 ),
               );
@@ -782,7 +802,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
 
         await _showAIActionNotification(
           player.name,
-          'Bought ${tile.name} for \$$price!',
+          AppLocalizations.of(context)!.boughtProperty(tile.name, price),
           Icons.home,
           Colors.green,
         );
@@ -873,10 +893,12 @@ class _GameBoardScreenState extends State<GameBoardScreen>
           (player.cash >= property.upgradeCost + 200);
 
       if (shouldUpgrade) {
-        final levelName = property.upgradeLevel < 4 ? 'house' : 'hotel';
+        final levelName = property.upgradeLevel < 4
+            ? AppLocalizations.of(context)!.buildHouse.toLowerCase().replaceAll('!', '')
+            : AppLocalizations.of(context)!.buildHotel.toLowerCase().replaceAll('!', '');
         await _showAIActionNotification(
           player.name,
-          'Built a $levelName on ${property.name}!',
+          AppLocalizations.of(context)!.aiBuiltOn(levelName, property.name),
           Icons.construction,
           Colors.green,
         );
@@ -940,7 +962,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
     if (player.isAI) {
       await _showAIActionNotification(
         player.name,
-        'Paid \$$amount rent to ${owner.name}',
+        AppLocalizations.of(context)!.paidRentTo(amount, owner.name),
         Icons.payments,
         Colors.red,
       );
@@ -1001,7 +1023,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
     if (player.isAI) {
       await _showAIActionNotification(
         player.name,
-        'Paid \$$amount $taxName',
+        AppLocalizations.of(context)!.paidTax(amount, taxName),
         Icons.account_balance,
         Colors.amber.shade700,
       );
@@ -1049,7 +1071,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
     if (player.isAI) {
       await _showAIActionNotification(
         player.name,
-        'Going to jail!',
+        AppLocalizations.of(context)!.goingToJail,
         Icons.gavel,
         Colors.grey.shade700,
       );
@@ -1074,9 +1096,9 @@ class _GameBoardScreenState extends State<GameBoardScreen>
                   children: [
                     const Text('🚔', style: TextStyle(fontSize: 64)),
                     const SizedBox(height: 16),
-                    const Text(
-                      'Go to Jail!',
-                      style: TextStyle(
+                    Text(
+                      AppLocalizations.of(context)!.goToJailTitle,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -1084,7 +1106,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'You landed on Go to Jail!\nGo directly to jail, do not pass GO.',
+                      AppLocalizations.of(context)!.goToJailMessage,
                       style: TextStyle(
                         color: Colors.white.withValues(alpha: 0.8),
                         fontSize: 16,
@@ -1104,9 +1126,9 @@ class _GameBoardScreenState extends State<GameBoardScreen>
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      child: const Text(
-                        'OK',
-                        style: TextStyle(
+                      child: Text(
+                        AppLocalizations.of(context)!.ok,
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -1133,7 +1155,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
       AudioService.instance.onSpinResult();
       await _showAIActionNotification(
         player.name,
-        'Spun the wheel and won $prizeText!',
+        AppLocalizations.of(context)!.wonPrize(prizeText),
         Icons.casino,
         Colors.purple,
       );
@@ -1366,9 +1388,9 @@ class _GameBoardScreenState extends State<GameBoardScreen>
 
     if (cards.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('No power-up cards! Win mini-games to collect them.'),
-          duration: Duration(seconds: 2),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.noPowerUpCards),
+          duration: const Duration(seconds: 2),
         ),
       );
       return;
@@ -1388,11 +1410,11 @@ class _GameBoardScreenState extends State<GameBoardScreen>
             ),
             child: Column(
               children: [
-                const Padding(
-                  padding: EdgeInsets.all(16),
+                Padding(
+                  padding: const EdgeInsets.all(16),
                   child: Text(
-                    'Your Power-Up Cards',
-                    style: TextStyle(
+                    AppLocalizations.of(context)!.yourPowerUpCards,
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -1416,213 +1438,25 @@ class _GameBoardScreenState extends State<GameBoardScreen>
 
   // Card definitions with text and effects - Fun kid-friendly wording!
   static const List<Map<String, String>> _chanceCards = [
-    // Classic cards with fun twists
-    {
-      'text': 'Bank says "Here\'s some extra cash!"',
-      'effect': '+\$50',
-      'action': 'collect50',
-    },
-    {
-      'text': 'Oops! Caught going too fast on your scooter!',
-      'effect': '-\$15',
-      'action': 'pay15',
-    },
-    {
-      'text': 'Race to GO! Zoom zoom!',
-      'effect': 'Collect \$200',
-      'action': 'advanceGo',
-    },
-    {
-      'text': 'Wrong turn! Go back 3 spaces. Oopsie!',
-      'effect': 'Move back',
-      'action': 'back3',
-    },
-    {
-      'text': 'Your piggy bank is overflowing!',
-      'effect': '+\$150',
-      'action': 'collect150',
-    },
-    // Fun new cards
-    {
-      'text': 'Found \$25 in your old jeans pocket!',
-      'effect': '+\$25',
-      'action': 'collect25',
-    },
-    {
-      'text': 'Won the school talent show! Star power!',
-      'effect': '+\$100',
-      'action': 'collect100',
-    },
-    {
-      'text': 'Your lemonade stand was a HUGE hit!',
-      'effect': '+\$50',
-      'action': 'collect50',
-    },
-    {
-      'text': 'Pizza party for everyone! Worth every penny!',
-      'effect': '-\$50',
-      'action': 'pay50',
-    },
-    {
-      'text': 'Dug up pirate treasure in the backyard!',
-      'effect': '+\$150',
-      'action': 'collect150',
-    },
-    {
-      'text': 'Your cat video went VIRAL! Fame and fortune!',
-      'effect': '+\$200',
-      'action': 'collect200',
-    },
-    {
-      'text': 'Garage sale champion! Sold all your old toys!',
-      'effect': '+\$25',
-      'action': 'collect25',
-    },
-    {
-      'text': 'Spelling bee winner! B-R-I-L-L-I-A-N-T!',
-      'effect': '+\$100',
-      'action': 'collect100',
-    },
-    {
-      'text': 'Baseball went through the neighbor\'s window...',
-      'effect': '-\$50',
-      'action': 'pay50',
-    },
-    {
-      'text': 'Grandma\'s surprise birthday money arrived!',
-      'effect': '+\$100',
-      'action': 'collect100',
-    },
-    {
-      'text': 'Your goldfish won "Best Pet" at the fair!',
-      'effect': '+\$150',
-      'action': 'collect150',
-    },
-    {
-      'text': 'Ice cream truck! You HAVE to get some!',
-      'effect': '-\$15',
-      'action': 'pay15',
-    },
-    {
-      'text': 'Found a four-leaf clover... and \$100!',
-      'effect': '+\$100',
-      'action': 'collect100',
-    },
-    {
-      'text': 'Your cookies sold out at the bake sale!',
-      'effect': '+\$50',
-      'action': 'collect50',
-    },
-    {
-      'text': 'Video game tournament CHAMPION!',
-      'effect': '+\$200',
-      'action': 'collect200',
-    },
+    {'text': '🎲', 'effect': '+\$25', 'action': 'collect25'},
+    {'text': '🎲', 'effect': '+\$50', 'action': 'collect50'},
+    {'text': '🎲', 'effect': '+\$100', 'action': 'collect100'},
+    {'text': '🎲', 'effect': '+\$150', 'action': 'collect150'},
+    {'text': '🎲', 'effect': '+\$200', 'action': 'collect200'},
+    {'text': '🎲', 'effect': '-\$15', 'action': 'pay15'},
+    {'text': '🎲', 'effect': '-\$50', 'action': 'pay50'},
+    {'text': '🎲', 'effect': 'GO', 'action': 'advanceGo'},
+    {'text': '🎲', 'effect': '-3', 'action': 'back3'},
   ];
 
   static const List<Map<String, String>> _chestCards = [
-    // Classic cards with fun twists
-    {
-      'text': 'Your savings account grew! Cha-ching!',
-      'effect': '+\$100',
-      'action': 'collect100',
-    },
-    {
-      'text': 'Uh oh, time for a check-up at the doctor.',
-      'effect': '-\$50',
-      'action': 'pay50',
-    },
-    {
-      'text': 'HAPPY BIRTHDAY TO YOU! Party time!',
-      'effect': '+\$25',
-      'action': 'collect25',
-    },
-    {
-      'text': 'The bank made a mistake... in YOUR favor!',
-      'effect': '+\$200',
-      'action': 'collect200',
-    },
-    {
-      'text': 'New school supplies needed!',
-      'effect': '-\$50',
-      'action': 'pay50',
-    },
-    // Fun new cards
-    {
-      'text': 'Great-aunt Mildred left you her fortune!',
-      'effect': '+\$100',
-      'action': 'collect100',
-    },
-    {
-      'text': 'Summer vacation fund is ready!',
-      'effect': '+\$100',
-      'action': 'collect100',
-    },
-    {
-      'text': 'Helped the neighbor rake leaves! Good job!',
-      'effect': '+\$25',
-      'action': 'collect25',
-    },
-    {
-      'text': 'Won "Best Smile" at picture day!',
-      'effect': '+\$50',
-      'action': 'collect50',
-    },
-    {
-      'text': 'Tax refund time! Money back!',
-      'effect': '+\$100',
-      'action': 'collect100',
-    },
-    {
-      'text': 'Your art project sold at the school auction!',
-      'effect': '+\$150',
-      'action': 'collect150',
-    },
-    {
-      'text': 'Dog walking business is booming!',
-      'effect': '+\$50',
-      'action': 'collect50',
-    },
-    {
-      'text': 'Mom found your report card... A+ means \$\$!',
-      'effect': '+\$100',
-      'action': 'collect100',
-    },
-    {
-      'text': 'Oops! Forgot to return library books!',
-      'effect': '-\$15',
-      'action': 'pay15',
-    },
-    {
-      'text': 'Anonymous donor sends you a gift!',
-      'effect': '+\$200',
-      'action': 'collect200',
-    },
-    {
-      'text': 'Your team won the science fair!',
-      'effect': '+\$100',
-      'action': 'collect100',
-    },
-    {
-      'text': 'Tooth fairy came... for ALL your baby teeth!',
-      'effect': '+\$50',
-      'action': 'collect50',
-    },
-    {
-      'text': 'Recycling paid off! Save the planet AND get \$!',
-      'effect': '+\$25',
-      'action': 'collect25',
-    },
-    {
-      'text': 'Your handmade bracelet sold on Etsy!',
-      'effect': '+\$50',
-      'action': 'collect50',
-    },
-    {
-      'text': 'Community hero award! You\'re awesome!',
-      'effect': '+\$150',
-      'action': 'collect150',
-    },
+    {'text': '📦', 'effect': '+\$25', 'action': 'collect25'},
+    {'text': '📦', 'effect': '+\$50', 'action': 'collect50'},
+    {'text': '📦', 'effect': '+\$100', 'action': 'collect100'},
+    {'text': '📦', 'effect': '+\$150', 'action': 'collect150'},
+    {'text': '📦', 'effect': '+\$200', 'action': 'collect200'},
+    {'text': '📦', 'effect': '-\$15', 'action': 'pay15'},
+    {'text': '📦', 'effect': '-\$50', 'action': 'pay50'},
   ];
 
   /// Apply card effect. Returns the new tile index if the player moved, null otherwise.
@@ -1675,19 +1509,21 @@ class _GameBoardScreenState extends State<GameBoardScreen>
     if (isChance != _isChanceCard) return; // Wrong deck tapped
     if (_cardPickPlayer == null) return;
 
-    final cards = isChance ? _chanceCards : _chestCards;
+    final localizedCards = isChance ? _localizedChanceCards : _localizedChestCards;
+    final fallbackCards = isChance ? _chanceCards : _chestCards;
+    final cards = localizedCards.isNotEmpty ? localizedCards : fallbackCards;
 
     // Shuffle and pick 5 random cards for the player to choose from
-    final shuffledCards = List<Map<String, String>>.from(cards)
+    final shuffledCards = List<Map<String, dynamic>>.from(cards)
       ..shuffle(_random);
     final pickableCards =
         shuffledCards
             .take(5)
             .map(
               (c) => PickableCard(
-                text: c['text']!,
-                effect: c['effect']!,
-                action: c['action']!,
+                text: c['text'] as String,
+                effect: c['effect'] as String,
+                action: c['action'] as String,
               ),
             )
             .toList();
@@ -1721,7 +1557,9 @@ class _GameBoardScreenState extends State<GameBoardScreen>
   Future<void> _handleDrawCard(Player player, TileData tile) async {
     final isChance = tile.type == TileType.chance;
 
-    final cards = isChance ? _chanceCards : _chestCards;
+    final localizedCards = isChance ? _localizedChanceCards : _localizedChestCards;
+    final fallbackCards = isChance ? _chanceCards : _chestCards;
+    final cards = localizedCards.isNotEmpty ? localizedCards : fallbackCards;
 
     // AI automatically handles card effect with notification
     if (player.isAI) {
@@ -1734,7 +1572,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
         isChance ? Icons.help_outline : Icons.inventory_2,
         isChance ? Colors.orange : Colors.blue,
       );
-      final newPosition = _applyCardEffect(player, card['action']!);
+      final newPosition = _applyCardEffect(player, card['action'] as String);
       // If card moved the player, resolve the new tile (skip end turn since outer caller handles it)
       if (newPosition != null) {
         await _resolveTileLanding(player, newPosition, skipEndTurn: true);
@@ -2030,9 +1868,9 @@ class _GameBoardScreenState extends State<GameBoardScreen>
 
     if (otherPlayers.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('No other players to trade with!'),
-          duration: Duration(seconds: 2),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.noOtherPlayers),
+          duration: const Duration(seconds: 2),
         ),
       );
       return;
@@ -2062,7 +1900,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
       if (shouldAccept) {
         await _showAIActionNotification(
           recipient.name,
-          'Accepted the trade!',
+          AppLocalizations.of(context)!.tradeAccepted,
           Icons.handshake,
           Colors.green,
         );
@@ -2071,7 +1909,7 @@ class _GameBoardScreenState extends State<GameBoardScreen>
       } else {
         await _showAIActionNotification(
           recipient.name,
-          'Rejected the trade.',
+          AppLocalizations.of(context)!.tradeRejected,
           Icons.cancel,
           Colors.red,
         );
@@ -2088,19 +1926,19 @@ class _GameBoardScreenState extends State<GameBoardScreen>
         offer.execute();
         setState(() {});
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Trade completed!'),
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.tradeCompleted),
             backgroundColor: Colors.green,
-            duration: Duration(seconds: 2),
+            duration: const Duration(seconds: 2),
           ),
         );
       },
       onReject: () {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Trade rejected.'),
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.tradeRejectedShort),
             backgroundColor: Colors.red,
-            duration: Duration(seconds: 2),
+            duration: const Duration(seconds: 2),
           ),
         );
       },

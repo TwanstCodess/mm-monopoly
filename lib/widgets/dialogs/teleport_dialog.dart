@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/tile.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 import 'animated_dialog.dart';
 
 /// Dialog for selecting a tile to teleport to
@@ -104,9 +105,9 @@ class _TeleportDialogState extends State<TeleportDialog> {
             ),
           ),
           const SizedBox(height: 12),
-          const Text(
-            'TELEPORT!',
-            style: TextStyle(
+          Text(
+            AppLocalizations.of(context)!.teleportTitle,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 22,
               fontWeight: FontWeight.bold,
@@ -115,7 +116,7 @@ class _TeleportDialogState extends State<TeleportDialog> {
           ),
           const SizedBox(height: 4),
           Text(
-            'Choose any tile to teleport to',
+            AppLocalizations.of(context)!.chooseTileToTeleport,
             style: TextStyle(
               color: Colors.white.withOpacity(0.9),
               fontSize: 14,
@@ -133,11 +134,11 @@ class _TeleportDialogState extends State<TeleportDialog> {
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
-            _buildChip('All', 'all'),
-            _buildChip('Properties', 'property'),
-            _buildChip('Railroads', 'railroad'),
-            _buildChip('Utilities', 'utility'),
-            _buildChip('Special', 'special'),
+            _buildChip(AppLocalizations.of(context)!.all, 'all'),
+            _buildChip(AppLocalizations.of(context)!.properties, 'property'),
+            _buildChip(AppLocalizations.of(context)!.railroads, 'railroad'),
+            _buildChip(AppLocalizations.of(context)!.utilities, 'utility'),
+            _buildChip(AppLocalizations.of(context)!.special, 'special'),
           ],
         ),
       ),
@@ -187,7 +188,7 @@ class _TeleportDialogState extends State<TeleportDialog> {
             ),
             const SizedBox(height: 12),
             Text(
-              'No tiles match this filter',
+              AppLocalizations.of(context)!.noTilesMatch,
               style: TextStyle(
                 color: Colors.white.withOpacity(0.7),
                 fontSize: 14,
@@ -347,7 +348,7 @@ class _TeleportDialogState extends State<TeleportDialog> {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: const Text('Save for Later'),
+              child: Text(AppLocalizations.of(context)!.saveForLater),
             ),
           ),
           const SizedBox(width: 12),
@@ -370,12 +371,12 @@ class _TeleportDialogState extends State<TeleportDialog> {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(Icons.flash_on, size: 18),
-                  SizedBox(width: 4),
+                children: [
+                  const Icon(Icons.flash_on, size: 18),
+                  const SizedBox(width: 4),
                   Text(
-                    'Teleport!',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    AppLocalizations.of(context)!.teleportBtn,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
               ),

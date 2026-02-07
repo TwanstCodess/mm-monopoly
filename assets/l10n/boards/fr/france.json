@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "DÉPART",
+      "subtext": "RECEVEZ 200 €",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Montmartre",
+      "subtext": "Montmartre",
+      "funFact": "Ce village perché est couronné par la magnifique basilique blanche du Sacré-Cœur !"
+    },
+    {
+      "index": 2,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Pigalle",
+      "subtext": "Pigalle",
+      "funFact": "Célèbre pour le cabaret du Moulin Rouge, fondé en 1889 !"
+    },
+    {
+      "index": 4,
+      "name": "Impôt sur le Revenu",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Ligne 1",
+      "subtext": "Métro Ligne 1",
+      "funFact": "La première ligne de métro de Paris, ouverte en 1900 pour l’Exposition universelle !"
+    },
+    {
+      "index": 6,
+      "name": "Bastille",
+      "subtext": "Bastille",
+      "funFact": "Site de la célèbre forteresse-prison prise d’assaut lors de la Révolution française en 1789 !"
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Le Marais",
+      "subtext": "Le Marais",
+      "funFact": "L’ancien quartier juif historique, aujourd’hui l’un des quartiers les plus branchés de Paris !"
+    },
+    {
+      "index": 9,
+      "name": "Luxembourg",
+      "subtext": "Luxembourg",
+      "funFact": "Le jardin du Luxembourg abrite 106 statues et la magnifique fontaine Médicis !"
+    },
+    {
+      "index": 10,
+      "name": "PRISON",
+      "subtext": "SIMPLE VISITE",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Saint-Germain-des-Prés",
+      "subtext": "St-Germain-des-Prés",
+      "funFact": "Quartier historique des cafés littéraires où Hemingway et Sartre débattaient de philosophie !"
+    },
+    {
+      "index": 12,
+      "name": "EDF",
+      "subtext": null,
+      "funFact": "Électricité de France est le plus grand producteur d’électricité au monde !"
+    },
+    {
+      "index": 13,
+      "name": "Quartier Latin",
+      "subtext": "Quartier Latin",
+      "funFact": "Abrite l’université de la Sorbonne, fondée en 1257 !"
+    },
+    {
+      "index": 14,
+      "name": "Panthéon",
+      "subtext": "Panthéon",
+      "funFact": "Dernière demeure des plus grands esprits de France, dont Voltaire et Rousseau !"
+    },
+    {
+      "index": 15,
+      "name": "Ligne 4",
+      "subtext": "Métro Ligne 4",
+      "funFact": "Cette ligne traverse la Seine deux fois et passe sous l’Île de la Cité !"
+    },
+    {
+      "index": 16,
+      "name": "Versailles",
+      "subtext": "Versailles",
+      "funFact": "Le château de Versailles possède 2 300 pièces et 67 000 mètres carrés de surface !"
+    },
+    {
+      "index": 17,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Tuileries",
+      "subtext": "Tuileries",
+      "funFact": "Ces jardins royaux relient le Louvre à la place de la Concorde !"
+    },
+    {
+      "index": 19,
+      "name": "Le Louvre",
+      "subtext": "Le Louvre",
+      "funFact": "Le plus grand musée d’art au monde, abritant la Joconde et 38 000 œuvres d’art !"
+    },
+    {
+      "index": 20,
+      "name": "ROUE DE LA CHANCE",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Opéra Garnier",
+      "subtext": "Opéra Garnier",
+      "funFact": "Le Palais Garnier a inspiré « Le Fantôme de l’Opéra » !"
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Champs-Élysées",
+      "subtext": "Champs-Élysées",
+      "funFact": "La rue commerçante la plus chère d’Europe à 12 000 € le mètre carré !"
+    },
+    {
+      "index": 24,
+      "name": "Arc de Triomphe",
+      "subtext": "Arc de Triomphe",
+      "funFact": "Construit par Napoléon, il honore ceux qui ont combattu pour la France !"
+    },
+    {
+      "index": 25,
+      "name": "RER A",
+      "subtext": "RER Ligne A",
+      "funFact": "La ligne de train la plus fréquentée d’Europe, transportant 1,2 million de passagers par jour !"
+    },
+    {
+      "index": 26,
+      "name": "La Défense",
+      "subtext": "La Défense",
+      "funFact": "Le plus grand quartier d’affaires d’Europe avec l’emblématique Grande Arche !"
+    },
+    {
+      "index": 27,
+      "name": "Place de la Concorde",
+      "subtext": "Place de la Concorde",
+      "funFact": "Lieu où Louis XVI et Marie-Antoinette furent exécutés pendant la Révolution !"
+    },
+    {
+      "index": 28,
+      "name": "Veolia Eau",
+      "subtext": null,
+      "funFact": "L’eau de Paris provient de sources situées à plus de 150 km, garantissant la meilleure qualité !"
+    },
+    {
+      "index": 29,
+      "name": "Les Invalides",
+      "subtext": "Les Invalides",
+      "funFact": "Le tombeau de Napoléon repose sous le dôme doré des Invalides !"
+    },
+    {
+      "index": 30,
+      "name": "ALLEZ EN PRISON",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Île de la Cité",
+      "subtext": "Île de la Cité",
+      "funFact": "Le cœur historique de Paris, où la ville fut fondée en 250 avant J.-C. !"
+    },
+    {
+      "index": 32,
+      "name": "Notre-Dame",
+      "subtext": "Notre-Dame",
+      "funFact": "Ce chef-d’œuvre gothique a nécessité 182 ans de construction (1163-1345) !"
+    },
+    {
+      "index": 33,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Musée d’Orsay",
+      "subtext": "Musée d’Orsay",
+      "funFact": "Construit dans une ancienne gare ferroviaire, il abrite la plus belle collection impressionniste au monde !"
+    },
+    {
+      "index": 35,
+      "name": "Ligne 14",
+      "subtext": "Métro Ligne 14",
+      "funFact": "La plus récente ligne de métro entièrement automatique de Paris, ouverte en 1998 !"
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Montparnasse",
+      "subtext": "Montparnasse",
+      "funFact": "Quartier artistique historique où se retrouvaient Picasso, Hemingway et Fitzgerald !"
+    },
+    {
+      "index": 38,
+      "name": "Taxe de Luxe",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Tour Eiffel",
+      "subtext": "Tour Eiffel",
+      "funFact": "La Dame de Fer pèse 10 100 tonnes et fut la plus haute structure du monde jusqu’en 1930 !"
+    }
+  ]
+}

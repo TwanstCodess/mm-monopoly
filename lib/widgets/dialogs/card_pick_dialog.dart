@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 import 'animated_dialog.dart';
 
 /// A card in the card pick dialog
@@ -174,7 +175,7 @@ class _CardPickDialogState extends State<CardPickDialog>
           ),
           const SizedBox(height: 8),
           Text(
-            widget.isChance ? 'CHANCE!' : 'COMMUNITY CHEST!',
+            widget.isChance ? AppLocalizations.of(context)!.chanceExcl : AppLocalizations.of(context)!.communityChestExcl,
             style: const TextStyle(
               color: Colors.white,
               fontSize: 22,
@@ -397,7 +398,7 @@ class _CardPickDialogState extends State<CardPickDialog>
                 borderRadius: const BorderRadius.vertical(top: Radius.circular(9)),
               ),
               child: Text(
-                widget.isChance ? 'CHANCE' : 'CHEST',
+                widget.isChance ? AppLocalizations.of(context)!.chance : AppLocalizations.of(context)!.chestShort,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Colors.white,
@@ -462,12 +463,12 @@ class _CardPickDialogState extends State<CardPickDialog>
 
   Widget _buildInstructions() {
     if (_canClose) {
-      return const Padding(
+      return Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
             Text(
-              '👆 Tap anywhere to continue',
+              '👆 ${AppLocalizations.of(context)!.tapToContinue}',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.amber,
@@ -481,10 +482,10 @@ class _CardPickDialogState extends State<CardPickDialog>
     }
 
     if (_selectedIndex != null) {
-      return const Padding(
+      return Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: Text(
-          '✨ Revealing your card... ✨',
+          '✨ ${AppLocalizations.of(context)!.revealingCard} ✨',
           textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.amber,
@@ -498,7 +499,7 @@ class _CardPickDialogState extends State<CardPickDialog>
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Text(
-        '👆 Tap a card to pick it!',
+        '👆 ${AppLocalizations.of(context)!.tapCardToPick}',
         textAlign: TextAlign.center,
         style: TextStyle(
           color: Colors.white.withOpacity(0.7),

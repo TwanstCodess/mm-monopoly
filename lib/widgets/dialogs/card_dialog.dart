@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 
 /// Dialog for displaying Chance and Community Chest cards with flip animation
 class CardDialog extends StatefulWidget {
@@ -92,7 +93,7 @@ class _CardDialogState extends State<CardDialog> with SingleTickerProviderStateM
                 padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 14),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               ),
-              child: const Text('OK', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              child: Text(AppLocalizations.of(context)!.ok, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             ),
           ],
         ),
@@ -122,7 +123,7 @@ class _CardDialogState extends State<CardDialog> with SingleTickerProviderStateM
           const SizedBox(height: 24),
           // Card type text
           Text(
-            widget.isChance ? 'CHANCE' : 'COMMUNITY\nCHEST',
+            widget.isChance ? AppLocalizations.of(context)!.chanceCard.toUpperCase() : AppLocalizations.of(context)!.communityChestCard.toUpperCase(),
             textAlign: TextAlign.center,
             style: const TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold, letterSpacing: 3),
           ),
@@ -161,7 +162,7 @@ class _CardDialogState extends State<CardDialog> with SingleTickerProviderStateM
               borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
             ),
             child: Text(
-              widget.isChance ? 'CHANCE' : 'COMMUNITY CHEST',
+              widget.isChance ? AppLocalizations.of(context)!.chanceCard.toUpperCase() : AppLocalizations.of(context)!.communityChestCard.toUpperCase(),
               textAlign: TextAlign.center,
               style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold, letterSpacing: 2),
             ),

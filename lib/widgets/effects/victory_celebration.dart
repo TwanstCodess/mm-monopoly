@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../../models/player.dart';
+import '../../l10n/app_localizations.dart';
 import '../avatar/avatar_widget.dart';
 import 'fireworks.dart';
 import 'trophy_animation.dart';
@@ -102,8 +103,8 @@ class _VictoryCelebrationState extends State<VictoryCelebration> with TickerProv
                   duration: const Duration(milliseconds: 500),
                   scale: _phase >= 1 ? 1 : 0.5,
                   curve: Curves.elasticOut,
-                  child: const Text(
-                    'WINNER!',
+                  child: Text(
+                    AppLocalizations.of(context)!.winnerTitle,
                     style: TextStyle(
                       color: Colors.amber,
                       fontSize: 48,
@@ -140,7 +141,7 @@ class _VictoryCelebrationState extends State<VictoryCelebration> with TickerProv
               const SizedBox(height: 32),
 
               // Trophy (phase 3+)
-              if (_phase >= 3) TrophyAnimation(winnerName: 'Champion', delay: Duration.zero),
+              if (_phase >= 3) TrophyAnimation(winnerName: widget.winner.name, delay: Duration.zero),
 
               const SizedBox(height: 24),
 
@@ -170,9 +171,9 @@ class _VictoryCelebrationState extends State<VictoryCelebration> with TickerProv
       ),
       child: Column(
         children: [
-          _StatRow(icon: Icons.attach_money, label: 'Final Cash', value: '\$${widget.finalCash}', color: Colors.green),
+          _StatRow(icon: Icons.attach_money, label: AppLocalizations.of(context)!.finalCash, value: '\$${widget.finalCash}', color: Colors.green),
           const SizedBox(height: 12),
-          _StatRow(icon: Icons.home, label: 'Properties', value: '${widget.propertiesOwned}', color: Colors.blue),
+          _StatRow(icon: Icons.home, label: AppLocalizations.of(context)!.properties, value: '${widget.propertiesOwned}', color: Colors.blue),
         ],
       ),
     );

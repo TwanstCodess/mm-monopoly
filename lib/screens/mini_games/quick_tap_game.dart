@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 
 /// Quick tap mini-game - tap coins, avoid bombs
 class QuickTapGame extends StatefulWidget {
@@ -135,20 +136,21 @@ class _QuickTapGameState extends State<QuickTapGame>
   }
 
   void _showResultDialog() {
+    final l10n = AppLocalizations.of(context)!;
     String rating;
     Color ratingColor;
 
     if (_score >= 150) {
-      rating = 'AMAZING!';
+      rating = l10n.quickTapAmazing;
       ratingColor = Colors.amber;
     } else if (_score >= 100) {
-      rating = 'Great!';
+      rating = l10n.quickTapGreat;
       ratingColor = Colors.green;
     } else if (_score >= 50) {
-      rating = 'Good';
+      rating = l10n.quickTapGood;
       ratingColor = Colors.blue;
     } else {
-      rating = 'Try Again';
+      rating = l10n.quickTapTryAgain;
       ratingColor = Colors.orange;
     }
 
@@ -163,8 +165,8 @@ class _QuickTapGameState extends State<QuickTapGame>
           children: [
             Icon(Icons.timer_off, color: Colors.orange, size: 32),
             const SizedBox(width: 12),
-            const Text(
-              'Time\'s Up!',
+            Text(
+              l10n.timeUp,
               style: TextStyle(color: Colors.white),
             ),
           ],
@@ -182,7 +184,7 @@ class _QuickTapGameState extends State<QuickTapGame>
             ),
             const SizedBox(height: 16),
             Text(
-              'Score: \$$_score',
+              l10n.scoreAmount(_score),
               style: TextStyle(
                 color: AppTheme.cashGreen,
                 fontSize: 32,
@@ -203,7 +205,7 @@ class _QuickTapGameState extends State<QuickTapGame>
                 padding:
                     const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
               ),
-              child: const Text('Continue'),
+              child: Text(l10n.continueGame),
             ),
           ),
         ],
@@ -239,7 +241,7 @@ class _QuickTapGameState extends State<QuickTapGame>
               left: 16,
               right: 16,
               child: Text(
-                'Tap the coins! Avoid bombs!',
+                AppLocalizations.of(context)!.quickTapInstruction,
                 style: TextStyle(
                   color: Colors.white.withOpacity(0.7),
                   fontSize: 14,
@@ -535,7 +537,7 @@ class _StreakIndicator extends StatelessWidget {
           const Icon(Icons.local_fire_department, color: Colors.white),
           const SizedBox(width: 8),
           Text(
-            '$streak Streak!',
+            AppLocalizations.of(context)!.streakCount(streak),
             style: const TextStyle(
               color: Colors.white,
               fontSize: 16,

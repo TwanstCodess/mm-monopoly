@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "スタート",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Asakusa",
+      "subtext": "浅草",
+      "funFact": "Home to Senso-ji, Tokyo's oldest Buddhist temple built in 645 AD!"
+    },
+    {
+      "index": 2,
+      "name": "Community Chest",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Ueno",
+      "subtext": "上野",
+      "funFact": "Ueno Park has over 1,000 cherry blossom trees and is Tokyo's most popular hanami spot!"
+    },
+    {
+      "index": 4,
+      "name": "Income Tax",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Yamanote Line",
+      "subtext": "山手線",
+      "funFact": "The Yamanote Line completes a full loop around central Tokyo every 59-65 minutes, carrying 3.5 million passengers daily!"
+    },
+    {
+      "index": 6,
+      "name": "Akihabara",
+      "subtext": "秋葉原",
+      "funFact": "Known as \"Electric Town,\" Akihabara is the global center of anime, manga, and electronics culture!"
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Ikebukuro",
+      "subtext": "池袋",
+      "funFact": "Ikebukuro Station is the world's second-busiest train station, serving over 2.7 million passengers daily!"
+    },
+    {
+      "index": 9,
+      "name": "Shinjuku",
+      "subtext": "新宿",
+      "funFact": "Shinjuku Station is the busiest train station in the world with over 3.6 million daily passengers!"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "刑務所",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Harajuku",
+      "subtext": "原宿",
+      "funFact": "The epicenter of Tokyo's youth fashion culture! Takeshita Street attracts millions of trendsetting visitors."
+    },
+    {
+      "index": 12,
+      "name": "Tokyo Electric Power",
+      "subtext": null,
+      "funFact": "TEPCO powers over 45 million people in the greater Tokyo area, one of the world's largest power grids!"
+    },
+    {
+      "index": 13,
+      "name": "Omotesando",
+      "subtext": "表参道",
+      "funFact": "Known as Tokyo's Champs-Élysées, lined with zelkova trees and flagship stores by world-renowned architects!"
+    },
+    {
+      "index": 14,
+      "name": "Odaiba",
+      "subtext": "お台場",
+      "funFact": "Built on reclaimed land in Tokyo Bay, home to teamLab Borderless and a giant Gundam statue!"
+    },
+    {
+      "index": 15,
+      "name": "Tokaido Shinkansen",
+      "subtext": "東海道新幹線",
+      "funFact": "Japan's first bullet train line, connecting Tokyo to Osaka at speeds up to 285 km/h since 1964!"
+    },
+    {
+      "index": 16,
+      "name": "Roppongi",
+      "subtext": "六本木",
+      "funFact": "Home to Roppongi Hills and Tokyo Midtown, featuring world-class art museums and nightlife!"
+    },
+    {
+      "index": 17,
+      "name": "Community Chest",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Ebisu",
+      "subtext": "恵比寿",
+      "funFact": "Named after Yebisu Beer, this upscale neighborhood is known for great restaurants and the Tokyo Photographic Art Museum!"
+    },
+    {
+      "index": 19,
+      "name": "Shibuya",
+      "subtext": "渋谷",
+      "funFact": "Shibuya Crossing is the world's busiest pedestrian intersection, with up to 3,000 people crossing at once!"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": "ラッキースピン",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Tsukiji",
+      "subtext": "築地",
+      "funFact": "The former site of the world's largest fish market, where a bluefin tuna once sold for $3.1 million!"
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Ginza",
+      "subtext": "銀座",
+      "funFact": "Tokyo's most luxurious shopping district! Land prices can reach $100,000 per square meter."
+    },
+    {
+      "index": 24,
+      "name": "Tokyo Station",
+      "subtext": "東京駅",
+      "funFact": "The beautifully restored 1914 red-brick station serves as the terminus for all Shinkansen lines!"
+    },
+    {
+      "index": 25,
+      "name": "Chuo Line",
+      "subtext": "中央線",
+      "funFact": "The Chuo Rapid Line is one of Tokyo's most important commuter lines, recognizable by its orange trains!"
+    },
+    {
+      "index": 26,
+      "name": "Marunouchi",
+      "subtext": "丸の内",
+      "funFact": "Tokyo's premier business district, home to major corporations and facing the Imperial Palace!"
+    },
+    {
+      "index": 27,
+      "name": "Nihombashi",
+      "subtext": "日本橋",
+      "funFact": "The historic commercial center of Tokyo, where the famous Nihombashi Bridge marks \"kilometer zero\" for Japan!"
+    },
+    {
+      "index": 28,
+      "name": "Tokyo Gas",
+      "subtext": null,
+      "funFact": "Founded in 1885, Tokyo Gas was one of Japan's first modern utility companies!"
+    },
+    {
+      "index": 29,
+      "name": "Roppongi Hills",
+      "subtext": "六本木ヒルズ",
+      "funFact": "This massive urban complex includes the Mori Art Museum, luxury residences, and a 238-meter observation deck!"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": "刑務所へ",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Aoyama",
+      "subtext": "青山",
+      "funFact": "One of Tokyo's most fashionable neighborhoods, known for high-end boutiques and trendy cafes!"
+    },
+    {
+      "index": 32,
+      "name": "Azabu",
+      "subtext": "麻布",
+      "funFact": "An exclusive residential area home to many embassies and international schools!"
+    },
+    {
+      "index": 33,
+      "name": "Community Chest",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Tokyo Tower",
+      "subtext": "東京タワー",
+      "funFact": "Inspired by the Eiffel Tower, this 333-meter landmark has been Tokyo's symbol since 1958!"
+    },
+    {
+      "index": 35,
+      "name": "Sobu Line",
+      "subtext": "総武線",
+      "funFact": "The Sobu Line connects Tokyo's eastern suburbs and carries over 1 million passengers daily!"
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Akasaka",
+      "subtext": "赤坂",
+      "funFact": "Home to the State Guest House and many high-end restaurants, including Michelin-starred establishments!"
+    },
+    {
+      "index": 38,
+      "name": "Luxury Tax",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Tokyo Skytree",
+      "subtext": "東京スカイツリー",
+      "funFact": "The world's tallest tower at 634 meters! The height represents \"Musashi,\" the historic name for Tokyo."
+    }
+  ]
+}

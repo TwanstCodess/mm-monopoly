@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "出发",
+      "subtext": "领取奖金",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Coyoacán",
+      "subtext": "科约阿坎区",
+      "funFact": "这里是弗里达·卡罗的出生地！她著名的蓝房子博物馆每天吸引成千上万的游客！"
+    },
+    {
+      "index": 2,
+      "name": "公共基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Xochimilco",
+      "subtext": "霍奇米尔科水乡",
+      "funFact": "古老的阿兹特克运河上，五彩缤纷的游船在漂浮花园之间穿梭！"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "地铁1号线",
+      "subtext": "墨西哥城地铁1号线",
+      "funFact": "墨西哥城的第一条地铁线路，1969年开通！每个站都有图形标识，方便不识字的乘客！"
+    },
+    {
+      "index": 6,
+      "name": "Roma Norte",
+      "subtext": "罗马北区",
+      "funFact": "充满新艺术和装饰艺术风格建筑的时尚街区！"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Condesa",
+      "subtext": "孔德萨区",
+      "funFact": "林荫环绕的装饰艺术风格街区，围绕一座古老的赛马场而建！"
+    },
+    {
+      "index": 9,
+      "name": "Polanco",
+      "subtext": "波兰科区",
+      "funFact": "墨西哥城的「比弗利山庄」，大使馆和奢侈品精品店云集！"
+    },
+    {
+      "index": 10,
+      "name": "监狱",
+      "subtext": "只是路过",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "San Ángel",
+      "subtext": "圣安赫尔区",
+      "funFact": "鹅卵石铺就的殖民风格街区，每周六都有热闹的艺术集市！"
+    },
+    {
+      "index": 12,
+      "name": "联邦电力委员会",
+      "subtext": null,
+      "funFact": "联邦电力委员会为整个墨西哥供电！"
+    },
+    {
+      "index": 13,
+      "name": "Chapultepec",
+      "subtext": "查普尔特佩克公园",
+      "funFact": "西半球最大的城市公园之一，占地686公顷！"
+    },
+    {
+      "index": 14,
+      "name": "Bosque de Chapultepec",
+      "subtext": "查普尔特佩克森林",
+      "funFact": "这座森林公园的面积是纽约中央公园的两倍大！"
+    },
+    {
+      "index": 15,
+      "name": "地铁2号线",
+      "subtext": "墨西哥城地铁2号线",
+      "funFact": "蓝色线路连接各大文化景点，包括美术宫！"
+    },
+    {
+      "index": 16,
+      "name": "Teotihuacán",
+      "subtext": "特奥蒂瓦坎古城",
+      "funFact": "古老的金字塔群！太阳金字塔是世界上第三大金字塔！"
+    },
+    {
+      "index": 17,
+      "name": "公共基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Templo Mayor",
+      "subtext": "大神庙遗址",
+      "funFact": "阿兹特克人的主神庙，1978年被电力工人意外发现的！"
+    },
+    {
+      "index": 19,
+      "name": "Zócalo",
+      "subtext": "宪法广场",
+      "funFact": "世界上最大的公共广场之一，从阿兹特克时代起就是墨西哥城的心脏！"
+    },
+    {
+      "index": 20,
+      "name": "幸运转盘",
+      "subtext": "转转看运气",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Palacio Nacional",
+      "subtext": "国家宫",
+      "funFact": "迭戈·里维拉描绘墨西哥历史的著名壁画就在这里！"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Bellas Artes",
+      "subtext": "美术宫",
+      "funFact": "令人惊叹的新艺术风格宫殿，舞台幕布由近100万块玻璃拼成！"
+    },
+    {
+      "index": 24,
+      "name": "Reforma",
+      "subtext": "改革大道",
+      "funFact": "灵感来自巴黎香榭丽舍大道的宏伟大道，两旁是纪念碑和摩天大楼！"
+    },
+    {
+      "index": 25,
+      "name": "地铁3号线",
+      "subtext": "墨西哥城地铁3号线",
+      "funFact": "橄榄线每天运送130万名乘客！"
+    },
+    {
+      "index": 26,
+      "name": "Ángel de la Independencia",
+      "subtext": "独立天使纪念碑",
+      "funFact": "墨西哥最具标志性的纪念碑，纪念从西班牙独立！"
+    },
+    {
+      "index": 27,
+      "name": "Zona Rosa",
+      "subtext": "玫瑰区",
+      "funFact": "粉红地带！历史悠久的多元文化街区，融合了韩国文化和国际风情！"
+    },
+    {
+      "index": 28,
+      "name": "墨西哥水务",
+      "subtext": null,
+      "funFact": "墨西哥城的水源来自地下含水层和遥远的山脉！"
+    },
+    {
+      "index": 29,
+      "name": "Santa Fe",
+      "subtext": "圣菲商业区",
+      "funFact": "从一座垃圾填埋场上崛起的超现代商业区！"
+    },
+    {
+      "index": 30,
+      "name": "去监狱",
+      "subtext": "直接入狱",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Museo Frida Kahlo",
+      "subtext": "弗里达·卡罗博物馆（蓝房子）",
+      "funFact": "弗里达生活、恋爱和创作的蓝房子，充满了她独特的艺术气息！"
+    },
+    {
+      "index": 32,
+      "name": "Museo Soumaya",
+      "subtext": "索玛雅博物馆",
+      "funFact": "造型惊艳的银色建筑，收藏了66000件艺术品，包括罗丹的雕塑！"
+    },
+    {
+      "index": 33,
+      "name": "公共基金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Antropología",
+      "subtext": "国立人类学博物馆",
+      "funFact": "世界上最大的人类学博物馆，展示了3000年的墨西哥文化！"
+    },
+    {
+      "index": 35,
+      "name": "地铁12号线",
+      "subtext": "墨西哥城地铁12号线",
+      "funFact": "黄金线，墨西哥城最新的地铁线路！"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Torre Latinoamericana",
+      "subtext": "拉丁美洲塔",
+      "funFact": "建于1956年，凭借创新的浮动地基在多次大地震中屹立不倒！"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Castillo de Chapultepec",
+      "subtext": "查普尔特佩克城堡",
+      "funFact": "北美洲唯一的皇家城堡，曾经是马西米连诺皇帝的住所！"
+    }
+  ]
+}

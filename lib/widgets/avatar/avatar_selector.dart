@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/avatar.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 import '../../services/custom_avatar_service.dart';
 import 'avatar_widget.dart';
 
@@ -101,23 +102,23 @@ class _AvatarSelectorState extends State<AvatarSelector>
       builder: (context) => AlertDialog(
         backgroundColor: AppTheme.surface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Text(
-          'Delete Photo?',
+        title: Text(
+          AppLocalizations.of(context)!.deletePhotoTitle,
           style: TextStyle(color: Colors.white),
         ),
-        content: const Text(
-          'This photo will be removed from your avatars.',
+        content: Text(
+          AppLocalizations.of(context)!.deletePhotoMessage,
           style: TextStyle(color: Colors.white70),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           ElevatedButton(
             onPressed: () => Navigator.pop(context, true),
             style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-            child: const Text('Delete'),
+            child: Text(AppLocalizations.of(context)!.delete),
           ),
         ],
       ),
@@ -238,7 +239,7 @@ class _AvatarSelectorState extends State<AvatarSelector>
               Expanded(
                 child: _ActionButton(
                   icon: Icons.camera_alt,
-                  label: 'Take Photo',
+                  label: AppLocalizations.of(context)!.takePhoto,
                   onTap: _capturePhoto,
                   gradientColors: const [Color(0xFFFF6B9D), Color(0xFFFF8A65)],
                 ),
@@ -247,7 +248,7 @@ class _AvatarSelectorState extends State<AvatarSelector>
               Expanded(
                 child: _ActionButton(
                   icon: Icons.photo_library,
-                  label: 'Choose Photo',
+                  label: AppLocalizations.of(context)!.choosePhoto,
                   onTap: _pickFromGallery,
                   gradientColors: const [Color(0xFF26C6DA), Color(0xFF00ACC1)],
                 ),
@@ -272,8 +273,8 @@ class _AvatarSelectorState extends State<AvatarSelector>
                         child: const Icon(Icons.add_a_photo, color: Colors.white38, size: 40),
                       ),
                       const SizedBox(height: 12),
-                      const Text(
-                        'No photos yet',
+                      Text(
+                        AppLocalizations.of(context)!.noPhotosYet,
                         style: TextStyle(
                           color: Colors.white54,
                           fontSize: 16,
@@ -281,8 +282,8 @@ class _AvatarSelectorState extends State<AvatarSelector>
                         ),
                       ),
                       const SizedBox(height: 4),
-                      const Text(
-                        'Take a selfie or pick from gallery!',
+                      Text(
+                        AppLocalizations.of(context)!.takeSelfieOrPick,
                         style: TextStyle(
                           color: Colors.white38,
                           fontSize: 13,
@@ -688,18 +689,18 @@ class _AvatarSelectionDialogState extends State<AvatarSelectionDialog>
       builder: (context) => AlertDialog(
         backgroundColor: AppTheme.surface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Text('Delete Photo?', style: TextStyle(color: Colors.white)),
-        content: const Text('This photo will be removed from your avatars.',
+        title: Text(AppLocalizations.of(context)!.deletePhotoTitle, style: const TextStyle(color: Colors.white)),
+        content: Text(AppLocalizations.of(context)!.deletePhotoMessage,
             style: TextStyle(color: Colors.white70)),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           ElevatedButton(
             onPressed: () => Navigator.pop(context, true),
             style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-            child: const Text('Delete'),
+            child: Text(AppLocalizations.of(context)!.delete),
           ),
         ],
       ),
@@ -744,8 +745,8 @@ class _AvatarSelectionDialogState extends State<AvatarSelectionDialog>
                 shaderCallback: (bounds) => const LinearGradient(
                   colors: [Color(0xFFFFD54F), Color(0xFFFF8A65), Color(0xFFFF6B9D)],
                 ).createShader(bounds),
-                child: const Text(
-                  '✨ Choose Your Avatar ✨',
+                child: Text(
+                  AppLocalizations.of(context)!.chooseYourAvatarFancy,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 22,
@@ -811,8 +812,8 @@ class _AvatarSelectionDialogState extends State<AvatarSelectionDialog>
                       foregroundColor: Colors.white70,
                       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                     ),
-                    child: const Text(
-                      'Cancel',
+                    child: Text(
+                      AppLocalizations.of(context)!.cancel,
                       style: TextStyle(fontSize: 15),
                     ),
                   ),
@@ -851,7 +852,7 @@ class _AvatarSelectionDialogState extends State<AvatarSelectionDialog>
                               const Icon(Icons.check_circle, color: Colors.white, size: 18),
                               const SizedBox(width: 8),
                               Text(
-                                'Select',
+                                AppLocalizations.of(context)!.select,
                                 style: TextStyle(
                                   color: _selectedAvatar != null ? Colors.white : Colors.white54,
                                   fontWeight: FontWeight.bold,
@@ -917,7 +918,7 @@ class _AvatarSelectionDialogState extends State<AvatarSelectionDialog>
               Expanded(
                 child: _ActionButton(
                   icon: Icons.camera_alt,
-                  label: 'Take Photo',
+                  label: AppLocalizations.of(context)!.takePhoto,
                   onTap: _capturePhoto,
                   gradientColors: const [Color(0xFFFF6B9D), Color(0xFFFF8A65)],
                 ),
@@ -926,7 +927,7 @@ class _AvatarSelectionDialogState extends State<AvatarSelectionDialog>
               Expanded(
                 child: _ActionButton(
                   icon: Icons.photo_library,
-                  label: 'Choose Photo',
+                  label: AppLocalizations.of(context)!.choosePhoto,
                   onTap: _pickFromGallery,
                   gradientColors: const [Color(0xFF26C6DA), Color(0xFF00ACC1)],
                 ),
@@ -951,10 +952,10 @@ class _AvatarSelectionDialogState extends State<AvatarSelectionDialog>
                         child: const Icon(Icons.add_a_photo, color: Colors.white38, size: 40),
                       ),
                       const SizedBox(height: 12),
-                      const Text('No photos yet',
+                      Text(AppLocalizations.of(context)!.noPhotosYet,
                           style: TextStyle(color: Colors.white54, fontSize: 16, fontWeight: FontWeight.w500)),
                       const SizedBox(height: 4),
-                      const Text('Take a selfie or pick from gallery!',
+                      Text(AppLocalizations.of(context)!.takeSelfieOrPick,
                           style: TextStyle(color: Colors.white38, fontSize: 13)),
                     ],
                   ),

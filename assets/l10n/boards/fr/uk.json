@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "DÉPART",
+      "subtext": "RECEVEZ 200 £",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Old Kent Road",
+      "subtext": null,
+      "funFact": "L’une des plus anciennes routes de Londres, datant de l’époque romaine quand elle reliait Londres à Canterbury !"
+    },
+    {
+      "index": 2,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Whitechapel Road",
+      "subtext": null,
+      "funFact": "Rue historique de l’East End, célèbre pour la fonderie de cloches de Whitechapel qui a coulé la Cloche de la Liberté !"
+    },
+    {
+      "index": 4,
+      "name": "Impôt sur le Revenu",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "King’s Cross Station",
+      "subtext": null,
+      "funFact": "Le quai 9¾ de King’s Cross est là où Harry Potter prend le Poudlard Express !"
+    },
+    {
+      "index": 6,
+      "name": "The Angel Islington",
+      "subtext": null,
+      "funFact": "Nommé d’après une auberge historique, The Angel est un monument londonien depuis 1614 !"
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Euston Road",
+      "subtext": null,
+      "funFact": "Abrite la British Library, qui conserve plus de 170 millions de documents dont la Magna Carta !"
+    },
+    {
+      "index": 9,
+      "name": "Pentonville Road",
+      "subtext": null,
+      "funFact": "Nommée d’après Henry Penton qui développa le quartier dans les années 1770, près de la prison historique de Pentonville."
+    },
+    {
+      "index": 10,
+      "name": "PRISON",
+      "subtext": "SIMPLE VISITE",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Pall Mall",
+      "subtext": null,
+      "funFact": "Abrite des clubs exclusifs pour gentlemen depuis les années 1800, et le célèbre Royal Automobile Club !"
+    },
+    {
+      "index": 12,
+      "name": "Compagnie d’Électricité",
+      "subtext": null,
+      "funFact": "La première centrale électrique de Londres a ouvert en 1882, apportant l’éclairage public à la ville !"
+    },
+    {
+      "index": 13,
+      "name": "Whitehall",
+      "subtext": null,
+      "funFact": "Le centre du gouvernement britannique ! Abrite le 10 Downing Street et de nombreux bâtiments ministériels."
+    },
+    {
+      "index": 14,
+      "name": "Northumberland Ave",
+      "subtext": null,
+      "funFact": "Construite dans les années 1870, cette grande avenue relie Trafalgar Square aux berges de la Tamise !"
+    },
+    {
+      "index": 15,
+      "name": "Marylebone Station",
+      "subtext": null,
+      "funFact": "La plus récente grande gare de Londres, ouverte en 1899, et présente dans de nombreuses histoires de Sherlock Holmes !"
+    },
+    {
+      "index": 16,
+      "name": "Bow Street",
+      "subtext": null,
+      "funFact": "Abrite le Royal Opera House et la première force de police professionnelle, les Bow Street Runners !"
+    },
+    {
+      "index": 17,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Marlborough Street",
+      "subtext": null,
+      "funFact": "Située à Mayfair, cette rue élégante est le domicile de l’aristocratie britannique depuis des siècles !"
+    },
+    {
+      "index": 19,
+      "name": "Vine Street",
+      "subtext": null,
+      "funFact": "Adresse prestigieuse de Mayfair, Vine Street a abrité des résidents célèbres et des établissements de luxe !"
+    },
+    {
+      "index": 20,
+      "name": "ROUE DE LA CHANCE",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Strand",
+      "subtext": null,
+      "funFact": "L’une des artères les plus fréquentées de Londres, le Strand relie Westminster à la City !"
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Fleet Street",
+      "subtext": null,
+      "funFact": "Le cœur historique du journalisme britannique ! Nommée d’après la rivière Fleet qui coule en dessous."
+    },
+    {
+      "index": 24,
+      "name": "Trafalgar Square",
+      "subtext": null,
+      "funFact": "Nommée d’après la bataille de Trafalgar, elle abrite la colonne de Nelson et accueille 15 millions de visiteurs par an !"
+    },
+    {
+      "index": 25,
+      "name": "Fenchurch St Station",
+      "subtext": null,
+      "funFact": "La plus petite des grandes gares londoniennes, construite en 1841, desservant la City historique !"
+    },
+    {
+      "index": 26,
+      "name": "Leicester Square",
+      "subtext": null,
+      "funFact": "Le cœur du quartier des divertissements de Londres, accueillant des avant-premières et entouré de théâtres !"
+    },
+    {
+      "index": 27,
+      "name": "Coventry Street",
+      "subtext": null,
+      "funFact": "Relie Piccadilly Circus à Leicester Square, bordée de restaurants et de lieux de divertissement !"
+    },
+    {
+      "index": 28,
+      "name": "Service des Eaux",
+      "subtext": null,
+      "funFact": "L’eau de Londres provient de la Tamise et de la Lea, traitant plus de 2,6 milliards de litres par jour !"
+    },
+    {
+      "index": 29,
+      "name": "Piccadilly",
+      "subtext": null,
+      "funFact": "Abrite Piccadilly Circus et le shopping de luxe ! Nommée d’après les piccadills, des cols à la mode au XVIIe siècle."
+    },
+    {
+      "index": 30,
+      "name": "ALLEZ EN PRISON",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Regent Street",
+      "subtext": null,
+      "funFact": "Conçue par John Nash en 1811, Regent Street serpente élégamment à travers le West End avec ses boutiques phares !"
+    },
+    {
+      "index": 32,
+      "name": "Oxford Street",
+      "subtext": null,
+      "funFact": "La rue commerçante la plus fréquentée d’Europe avec plus de 300 boutiques et 200 millions de visiteurs par an !"
+    },
+    {
+      "index": 33,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Bond Street",
+      "subtext": null,
+      "funFact": "L’incarnation du luxe depuis les années 1700, abritant joailliers, maisons de couture et galeries d’art de renommée mondiale !"
+    },
+    {
+      "index": 35,
+      "name": "Liverpool St Station",
+      "subtext": null,
+      "funFact": "L’une des gares les plus fréquentées de Londres, desservant plus de 67 millions de passagers par an !"
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Park Lane",
+      "subtext": null,
+      "funFact": "Surplombant Hyde Park, elle abrite certains des biens immobiliers les plus chers et des hôtels de luxe de Londres !"
+    },
+    {
+      "index": 38,
+      "name": "Taxe de Luxe",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Mayfair",
+      "subtext": null,
+      "funFact": "Le quartier le plus exclusif de Londres ! Nommé d’après la foire de mai qui s’y tenait de 1686 à 1764."
+    }
+  ]
+}

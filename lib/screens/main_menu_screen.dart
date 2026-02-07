@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 
 /// Main menu screen with game options
 class MainMenuScreen extends StatefulWidget {
@@ -157,8 +158,8 @@ class _MainMenuScreenState extends State<MainMenuScreen> with TickerProviderStat
         // PROPERTY TYCOON
         ShaderMask(
           shaderCallback: (bounds) => const LinearGradient(colors: [Color(0xFFFFFFFF), Color(0xFFFFE66D), Color(0xFFFFFFFF)]).createShader(bounds),
-          child: const Text(
-            'PROPERTY TYCOON',
+          child: Text(
+            AppLocalizations.of(context)!.propertyTycoon,
             style: TextStyle(
               color: Colors.white,
               fontSize: 24,
@@ -177,9 +178,9 @@ class _MainMenuScreenState extends State<MainMenuScreen> with TickerProviderStat
             borderRadius: BorderRadius.circular(20),
             border: Border.all(color: Colors.white.withOpacity(0.4), width: 2),
           ),
-          child: const Text(
-            'FAMILY EDITION',
-            style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold, letterSpacing: 3),
+          child: Text(
+            AppLocalizations.of(context)!.familyEdition,
+            style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold, letterSpacing: 3),
           ),
         ),
       ],
@@ -204,20 +205,20 @@ class _MainMenuScreenState extends State<MainMenuScreen> with TickerProviderStat
   Widget _buildMenuButtons() {
     return Column(
       children: [
-        _buildFunButton(icon: Icons.play_arrow_rounded, label: 'New Game', onTap: widget.onNewGame, gradient: const [Color(0xFFFF6B6B), Color(0xFFFF8E53)]),
+        _buildFunButton(icon: Icons.play_arrow_rounded, label: AppLocalizations.of(context)!.newGame, onTap: widget.onNewGame, gradient: const [Color(0xFFFF6B6B), Color(0xFFFF8E53)]),
         const SizedBox(height: 14),
         if (widget.onContinue != null) ...[
-          _buildFunButton(icon: Icons.refresh_rounded, label: 'Continue', onTap: widget.onContinue!, gradient: const [Color(0xFF4ECDC4), Color(0xFF44A08D)]),
+          _buildFunButton(icon: Icons.refresh_rounded, label: AppLocalizations.of(context)!.continueGame, onTap: widget.onContinue!, gradient: const [Color(0xFF4ECDC4), Color(0xFF44A08D)]),
           const SizedBox(height: 14),
         ],
-        _buildFunButton(icon: Icons.lightbulb_outline_rounded, label: 'How to Play', onTap: widget.onHowToPlay, gradient: const [Color(0xFFFFE66D), Color(0xFFFFA502)], textColor: Colors.brown.shade800),
+        _buildFunButton(icon: Icons.lightbulb_outline_rounded, label: AppLocalizations.of(context)!.howToPlay, onTap: widget.onHowToPlay, gradient: const [Color(0xFFFFE66D), Color(0xFFFFA502)], textColor: Colors.brown.shade800),
         const SizedBox(height: 14),
         // Shop hidden for initial release
         // if (widget.onShop != null) ...[
         //   _buildFunButton(icon: Icons.shopping_bag_rounded, label: 'Shop', onTap: widget.onShop!, gradient: const [Color(0xFFE040FB), Color(0xFF9C27B0)]),
         //   const SizedBox(height: 14),
         // ],
-        _buildFunButton(icon: Icons.settings_rounded, label: 'Settings', onTap: widget.onSettings, gradient: const [Color(0xFF667eea), Color(0xFF764ba2)]),
+        _buildFunButton(icon: Icons.settings_rounded, label: AppLocalizations.of(context)!.settings, onTap: widget.onSettings, gradient: const [Color(0xFF667eea), Color(0xFF764ba2)]),
       ],
     );
   }

@@ -1,432 +1,95 @@
 import 'package:flutter/material.dart';
 import '../../models/tile.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 import 'animated_dialog.dart';
 
-/// Fun facts and educational content about Monopoly tiles
+/// Localized facts and educational content for Monopoly tiles
 class TileFacts {
-  /// Get fun facts for a specific tile
-  static TileInfo getInfo(TileData tile) {
-    // Property tiles - based on real Atlantic City locations
-    final propertyFacts = <int, TileInfo>{
-      // Brown properties
-      1: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Mediterranean Avenue was one of the poorest streets in Atlantic City',
-          'It was named after the Mediterranean Sea!',
-          'In the 1930s, this area had small boarding houses',
-        ],
-        funFact: '🏖️ Atlantic City is famous for its beaches and boardwalk!',
-        emoji: '🏠',
-      ),
-      3: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Baltic Avenue was near the railroad tracks',
-          'The Baltic Sea is in Northern Europe',
-          'This is one of the cheapest properties in Monopoly!',
-        ],
-        funFact: '🚂 Trains used to bring visitors to Atlantic City!',
-        emoji: '🏚️',
-      ),
-      // Light Blue properties
-      6: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Oriental Avenue got its name from Asian-themed buildings',
-          'In the 1920s, this area had exotic restaurants',
-          'It\'s now called Martin Luther King Jr. Boulevard',
-        ],
-        funFact: '🥢 Imagine eating yummy noodles on this street!',
-        emoji: '🏮',
-      ),
-      8: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Vermont Avenue was named after the US state',
-          'Vermont means "Green Mountain" in French',
-          'The state of Vermont is famous for maple syrup!',
-        ],
-        funFact: '🍁 Vermont makes the most maple syrup in the USA!',
-        emoji: '🌲',
-      ),
-      9: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Connecticut Avenue was named after the state',
-          'Connecticut is called "The Constitution State"',
-          'The first hamburger was served in Connecticut!',
-        ],
-        funFact: '🍔 Would you believe the hamburger was invented there?',
-        emoji: '🏛️',
-      ),
-      // Pink properties
-      11: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'St. Charles Place was a real street with nice homes',
-          'It was named after Charles II, King of England',
-          'Many famous people visited this area in the 1920s',
-        ],
-        funFact: '👑 This street was named after a real king!',
-        emoji: '🏰',
-      ),
-      13: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'States Avenue represented all 50 US states',
-          'In the original game, it was called State Street',
-          'Many states have their own special birds and flowers!',
-        ],
-        funFact: '🗺️ The USA has 50 states - can you name them all?',
-        emoji: '🇺🇸',
-      ),
-      14: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Virginia Avenue was named after the state',
-          'Virginia is called "The Old Dominion"',
-          'Eight US Presidents were born in Virginia!',
-        ],
-        funFact: '🏛️ More presidents came from Virginia than any other state!',
-        emoji: '⭐',
-      ),
-      // Orange properties
-      16: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'St. James Place was a fancy street',
-          'Named after St. James, one of Jesus\'s disciples',
-          'There\'s a famous St. James Palace in London!',
-        ],
-        funFact: '🇬🇧 The royal family in England has a St. James Palace!',
-        emoji: '👸',
-      ),
-      18: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Tennessee Avenue was named after the state',
-          'Tennessee is called "The Volunteer State"',
-          'Country music was born in Tennessee!',
-        ],
-        funFact: '🎸 Nashville, Tennessee is the home of country music!',
-        emoji: '🎵',
-      ),
-      19: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'New York Avenue was named after NYC',
-          'New York City is called "The Big Apple"',
-          'The Statue of Liberty is in New York!',
-        ],
-        funFact: '🗽 The Statue of Liberty was a gift from France!',
-        emoji: '🍎',
-      ),
-      // Red properties
-      21: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Kentucky Avenue was named after the state',
-          'Kentucky is famous for horse racing',
-          'The Kentucky Derby is the most famous horse race!',
-        ],
-        funFact: '🏇 Horses run super fast at the Kentucky Derby!',
-        emoji: '🐴',
-      ),
-      23: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Indiana Avenue was named after the state',
-          'Indiana means "Land of Indians"',
-          'The famous Indy 500 car race is there!',
-        ],
-        funFact: '🏎️ Race cars go over 200 mph at the Indy 500!',
-        emoji: '🏁',
-      ),
-      24: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Illinois Avenue was named after the state',
-          'Chicago is the biggest city in Illinois',
-          'The first skyscraper was built in Chicago!',
-        ],
-        funFact: '🏙️ Chicago has amazing pizza and tall buildings!',
-        emoji: '🍕',
-      ),
-      // Yellow properties
-      26: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Atlantic Avenue was the main street!',
-          'It ran along the famous boardwalk',
-          'Many hotels and shops were on this street',
-        ],
-        funFact: '🎡 The boardwalk had rides and games!',
-        emoji: '🌊',
-      ),
-      27: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Ventnor Avenue was named after a nearby town',
-          'Ventnor is just south of Atlantic City',
-          'It had beautiful beach homes',
-        ],
-        funFact: '🏖️ Ventnor has quiet, peaceful beaches!',
-        emoji: '🐚',
-      ),
-      29: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Marvin Gardens was actually "Marven Gardens"',
-          'It\'s a fancy neighborhood between two towns',
-          'The game had a spelling mistake that stuck!',
-        ],
-        funFact: '✏️ Oops! The game spelled the name wrong!',
-        emoji: '🌷',
-      ),
-      // Green properties
-      31: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Pacific Avenue runs parallel to the ocean',
-          'It was named after the Pacific Ocean',
-          'Many big hotels were built here',
-        ],
-        funFact: '🌅 You could see beautiful sunrises from here!',
-        emoji: '🌴',
-      ),
-      32: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'North Carolina Avenue was named after the state',
-          'North Carolina has beautiful mountains and beaches',
-          'The Wright Brothers flew the first airplane there!',
-        ],
-        funFact: '✈️ The first airplane flight was only 12 seconds!',
-        emoji: '🛫',
-      ),
-      34: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Pennsylvania Avenue is also in Washington DC',
-          'The White House is on Pennsylvania Avenue!',
-          'Pennsylvania means "Penn\'s Woods"',
-        ],
-        funFact: '🏛️ The President lives on a Pennsylvania Avenue!',
-        emoji: '🦅',
-      ),
-      // Dark Blue properties
-      37: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Park Place was a very wealthy area',
-          'Rich families lived in big mansions here',
-          'It\'s the second most expensive property!',
-        ],
-        funFact: '💎 Only millionaires could afford to live here!',
-        emoji: '🎩',
-      ),
-      39: TileInfo(
-        location: 'Atlantic City, New Jersey, USA',
-        facts: [
-          'Boardwalk is the most famous property!',
-          'Atlantic City\'s boardwalk was built in 1870',
-          'It was the first boardwalk in America!',
-        ],
-        funFact: '🎢 The boardwalk had cotton candy and saltwater taffy!',
-        emoji: '🎪',
-      ),
-    };
+  static TileInfo getInfo(BuildContext context, TileData tile) {
+    final l10n = AppLocalizations.of(context)!;
 
-    // Railroad info
-    final railroadFacts = <int, TileInfo>{
-      5: TileInfo(
-        location: 'Philadelphia & Reading Railroad',
-        facts: [
-          'This was a real railroad company from 1833!',
-          'Trains carried coal from mines to cities',
-          'Steam engines were very loud and smoky!',
-        ],
-        funFact: '🚂 Choo choo! Steam trains could go 60 mph!',
-        emoji: '🚃',
-      ),
-      15: TileInfo(
-        location: 'Pennsylvania Railroad',
-        facts: [
-          'The Pennsylvania Railroad was HUGE!',
-          'It was called "The Standard Railroad of the World"',
-          'It connected New York to Chicago!',
-        ],
-        funFact: '🌟 This was the biggest railroad company in America!',
-        emoji: '🚂',
-      ),
-      25: TileInfo(
-        location: 'Baltimore & Ohio Railroad',
-        facts: [
-          'B&O was America\'s first railroad!',
-          'It started in 1827 - almost 200 years ago!',
-          'Horses pulled the first train cars!',
-        ],
-        funFact: '🐴 Before engines, horses pulled trains!',
-        emoji: '🚆',
-      ),
-      35: TileInfo(
-        location: 'Short Line Railroad',
-        facts: [
-          'Short Line railroads were small local trains',
-          'They connected small towns to big cities',
-          'Some were only a few miles long!',
-        ],
-        funFact: '🏘️ Small towns needed trains too!',
-        emoji: '🚈',
-      ),
-    };
-
-    // Utility info
-    final utilityFacts = <int, TileInfo>{
-      12: TileInfo(
-        location: 'Atlantic City Electric Company',
-        facts: [
-          'Electricity was a new invention in the 1900s!',
-          'Thomas Edison invented the light bulb',
-          'Before electricity, people used candles!',
-        ],
-        funFact: '💡 Edison tried 1,000 times before the light bulb worked!',
-        emoji: '⚡',
-      ),
-      28: TileInfo(
-        location: 'Atlantic City Water Works',
-        facts: [
-          'Clean water is super important!',
-          'Water treatment makes water safe to drink',
-          'We use water for drinking, cooking, and bathing',
-        ],
-        funFact: '💧 Your body is 60% water!',
-        emoji: '🚰',
-      ),
-    };
-
-    // Check specific tile info
-    if (propertyFacts.containsKey(tile.index)) {
-      return propertyFacts[tile.index]!;
-    }
-    if (railroadFacts.containsKey(tile.index)) {
-      return railroadFacts[tile.index]!;
-    }
-    if (utilityFacts.containsKey(tile.index)) {
-      return utilityFacts[tile.index]!;
-    }
-
-    // Special tiles
     switch (tile.type) {
       case TileType.start:
         return TileInfo(
-          location: 'Starting Point',
-          facts: [
-            'Everyone starts the game here!',
-            'Pass GO and collect \$200!',
-            'This rule has been the same since 1935!',
-          ],
-          funFact: '🎉 GO is like getting your allowance!',
+          location: l10n.startingPoint,
+          facts: [l10n.collectGoBonus, l10n.passGoEarn],
+          funFact: l10n.startTileFunFact,
           emoji: '🚀',
         );
       case TileType.jail:
         return TileInfo(
-          location: 'Just Visiting / In Jail',
-          facts: [
-            'You can visit without going to jail!',
-            'If you\'re "just visiting," you\'re safe',
-            'Roll doubles to get out of jail!',
-          ],
-          funFact: '🔑 You can pay \$50 to leave jail!',
+          location: l10n.justVisiting,
+          facts: [l10n.jailFactOne, l10n.jailFactTwo],
+          funFact: l10n.jailFunFact,
           emoji: '🔒',
         );
       case TileType.freeParking:
         return TileInfo(
-          location: 'Spin to Win!',
-          facts: [
-            'Spin the colorful wheel for prizes!',
-            'Win cash, power-ups, or special bonuses!',
-            'Every spin is a chance for something amazing!',
-          ],
-          funFact: '🎰 Lucky Spin can change the game!',
+          location: l10n.spinToWin,
+          facts: [l10n.freeParkingFactOne, l10n.freeParkingFactTwo],
+          funFact: l10n.freeParkingFunFact,
           emoji: '🎡',
         );
       case TileType.goToJail:
         return TileInfo(
-          location: 'Go To Jail',
-          facts: [
-            'Uh oh! Go directly to jail!',
-            'Do not pass GO!',
-            'Do not collect \$200!',
-          ],
-          funFact: '👮 The police officer sends you to jail!',
+          location: l10n.goToJailLabel,
+          facts: [l10n.goToJailFactOne, l10n.goToJailFactTwo],
+          funFact: l10n.goToJailFunFact,
           emoji: '🚨',
         );
       case TileType.chance:
         return TileInfo(
-          location: 'Chance Card',
+          location: l10n.chanceCard,
           facts: [
-            'Draw a card and see what happens!',
-            'You might win money or pay a fine',
-            'There are 16 different Chance cards!',
+            l10n.drawTopCard,
+            l10n.readCardAloud,
+            l10n.followInstructions,
           ],
-          funFact: '🎲 Chance cards add surprise to the game!',
+          funFact: l10n.chanceFunFact,
           emoji: '❓',
         );
       case TileType.communityChest:
         return TileInfo(
-          location: 'Community Chest',
+          location: l10n.communityChestCard,
           facts: [
-            'The community helps each other!',
-            'These cards often give you money',
-            'Bank error in your favor = win!',
+            l10n.communityChestFactOne,
+            l10n.communityChestFactTwo,
+            l10n.communityChestFactThree,
           ],
-          funFact: '💰 Community Chest cards are usually nice!',
+          funFact: l10n.communityChestFunFact,
           emoji: '📦',
         );
       case TileType.tax:
         final taxTile = tile as TaxTileData;
-        if (tile.index == 4) {
-          return TileInfo(
-            location: 'Income Tax',
-            facts: [
-              'Everyone has to pay taxes!',
-              'Taxes pay for schools and roads',
-              'Pay \$${taxTile.amount} when you land here',
-            ],
-            funFact: '🏫 Taxes help build schools and parks!',
-            emoji: '💸',
-          );
-        } else {
-          return TileInfo(
-            location: 'Luxury Tax',
-            facts: [
-              'Luxury means something fancy!',
-              'Expensive things have extra taxes',
-              'Pay \$${taxTile.amount} for luxury items',
-            ],
-            funFact: '💎 Fancy jewelry has luxury tax!',
-            emoji: '👛',
-          );
-        }
-      default:
         return TileInfo(
-          location: 'Monopoly Board',
+          location: tile.index == 4 ? l10n.incomeTax : l10n.luxuryTax,
           facts: [
-            'Monopoly was invented in 1935!',
-            'The game is sold in over 100 countries',
-            'Millions of people play every year!',
+            l10n.taxFactOne,
+            l10n.taxFactTwo,
+            l10n.payAmount(taxTile.amount),
           ],
-          funFact: '🌍 Kids all over the world play Monopoly!',
-          emoji: '🎲',
+          funFact: l10n.taxFunFact,
+          emoji: '💸',
+        );
+      case TileType.property:
+      case TileType.railroad:
+      case TileType.utility:
+        return TileInfo(
+          location: l10n.propertyLocation,
+          facts: const [],
+          funFact: tile.funFact ?? l10n.didYouKnow,
+          emoji:
+              tile.type == TileType.railroad
+                  ? '🚂'
+                  : tile.type == TileType.utility
+                  ? ((tile as UtilityTileData).isElectric ? '⚡' : '💧')
+                  : '🏠',
         );
     }
   }
 }
 
-/// Tile information data class
 class TileInfo {
   final String location;
   final List<String> facts;
@@ -445,10 +108,7 @@ class TileInfo {
 class TileInfoDialog extends StatelessWidget {
   final TileData tile;
 
-  const TileInfoDialog({
-    super.key,
-    required this.tile,
-  });
+  const TileInfoDialog({super.key, required this.tile});
 
   Color get _headerColor {
     if (tile is PropertyTileData) {
@@ -491,35 +151,33 @@ class TileInfoDialog extends StatelessWidget {
       _isLightColor ? Colors.black54 : Colors.white.withOpacity(0.85);
 
   /// Get location text from tile type
-  String _getLocationFromTile() {
-    if (tile is PropertyTileData || tile is RailroadTileData || tile is UtilityTileData) {
+  String _getLocationFromTile(BuildContext context) {
+    if (tile is PropertyTileData ||
+        tile is RailroadTileData ||
+        tile is UtilityTileData) {
       // Generic location - the tile name itself is the location
-      return 'Property Location';
+      return AppLocalizations.of(context)!.propertyLocation;
     }
     switch (tile.type) {
       case TileType.start:
-        return 'Starting Point';
+        return AppLocalizations.of(context)!.startingPoint;
       case TileType.jail:
-        return 'Just Visiting / In Jail';
+        return AppLocalizations.of(context)!.justVisiting;
       case TileType.freeParking:
-        return 'Spin to Win!';
+        return AppLocalizations.of(context)!.spinToWin;
       case TileType.goToJail:
-        return 'Go To Jail';
+        return AppLocalizations.of(context)!.goToJailLabel;
       case TileType.chance:
-        return 'Chance Card';
+        return AppLocalizations.of(context)!.chanceCard;
       case TileType.communityChest:
-        return 'Community Chest';
+        return AppLocalizations.of(context)!.communityChestCard;
       case TileType.tax:
-        return tile.index == 4 ? 'Income Tax' : 'Luxury Tax';
+        return tile.index == 4
+            ? AppLocalizations.of(context)!.incomeTax
+            : AppLocalizations.of(context)!.luxuryTax;
       default:
-        return 'Monopoly Board';
+        return AppLocalizations.of(context)!.appTitle;
     }
-  }
-
-  /// Convert fun fact to facts list
-  List<String> _getFactsFromFunFact(String funFact) {
-    // Simply return the fun fact as a single item list
-    return [funFact];
   }
 
   /// Get emoji from tile type
@@ -545,8 +203,6 @@ class TileInfoDialog extends StatelessWidget {
         return '🎡';
       case TileType.goToJail:
         return '🚨';
-      default:
-        return '🎲';
     }
   }
 
@@ -578,27 +234,24 @@ class TileInfoDialog extends StatelessWidget {
   }
 
   /// Get game tips/facts for purchasable tiles
-  List<String> _getGameTips() {
+  List<String> _getGameTips(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     if (tile is PropertyTileData) {
       final property = tile as PropertyTileData;
       return [
-        'Own all properties in a color group to charge double rent!',
-        'Build houses evenly across your properties for maximum profit.',
-        'Hotels generate the highest rent - up to \$${property.rentLevels.last}!',
+        l10n.ownAllPropertiesTip,
+        l10n.buildHousesEvenlyTip,
+        l10n.hotelsMaxRentTip(property.rentLevels.last),
       ];
     } else if (tile is RailroadTileData) {
       return [
-        'Own 1 railroad: \$25 rent',
-        'Own 2 railroads: \$50 rent',
-        'Own 3 railroads: \$100 rent',
-        'Own all 4 railroads: \$200 rent!',
+        l10n.railroad1Tip,
+        l10n.railroad2Tip,
+        l10n.railroad3Tip,
+        l10n.railroad4Tip,
       ];
     } else if (tile is UtilityTileData) {
-      return [
-        'Own 1 utility: Rent = 4× dice roll',
-        'Own both utilities: Rent = 10× dice roll!',
-        'Utilities can be very profitable with high dice rolls.',
-      ];
+      return [l10n.utility1Tip, l10n.utility2Tip, l10n.utilitiesProfitableTip];
     }
     return [];
   }
@@ -606,10 +259,11 @@ class TileInfoDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Get the base tile info from TileFacts (for special tiles like Chance, Tax, corners, etc.)
-    final baseInfo = TileFacts.getInfo(tile);
+    final baseInfo = TileFacts.getInfo(context, tile);
 
     // Determine if this is a special tile type that should use TileFacts
-    final isSpecialTile = tile.type == TileType.start ||
+    final isSpecialTile =
+        tile.type == TileType.start ||
         tile.type == TileType.jail ||
         tile.type == TileType.freeParking ||
         tile.type == TileType.goToJail ||
@@ -625,7 +279,7 @@ class TileInfoDialog extends StatelessWidget {
       // Tile has its own funFact (all boards) - use it for banner
       // Add game tips as bullet points for properties/railroads/utilities
       funFact = tile.funFact!;
-      facts = _getGameTips();
+      facts = _getGameTips(context);
     } else if (isSpecialTile) {
       // Special tiles use TileFacts (Chance, Tax, corners, etc.)
       funFact = baseInfo.funFact;
@@ -637,7 +291,7 @@ class TileInfoDialog extends StatelessWidget {
     }
 
     final info = TileInfo(
-      location: _getLocationFromTile(),
+      location: _getLocationFromTile(context),
       facts: facts,
       funFact: funFact,
       emoji: _getEmojiFromTileType(),
@@ -663,7 +317,7 @@ class TileInfoDialog extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             _buildHeader(info),
-            Flexible(child: _buildContent(info)),
+            Flexible(child: _buildContent(context, info)),
             _buildCloseButton(context),
           ],
         ),
@@ -682,10 +336,7 @@ class TileInfoDialog extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            info.emoji,
-            style: const TextStyle(fontSize: 24),
-          ),
+          Text(info.emoji, style: const TextStyle(fontSize: 24)),
           const SizedBox(width: 8),
           Flexible(
             child: Column(
@@ -704,10 +355,7 @@ class TileInfoDialog extends StatelessWidget {
                 ),
                 Text(
                   info.location,
-                  style: TextStyle(
-                    color: _headerSubTextColor,
-                    fontSize: 11,
-                  ),
+                  style: TextStyle(color: _headerSubTextColor, fontSize: 11),
                   textAlign: TextAlign.center,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -722,7 +370,7 @@ class TileInfoDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildContent(TileInfo info) {
+  Widget _buildContent(BuildContext context, TileInfo info) {
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -732,7 +380,7 @@ class TileInfoDialog extends StatelessWidget {
           if (tile is PropertyTileData ||
               tile is RailroadTileData ||
               tile is UtilityTileData)
-            _buildPriceSection(),
+            _buildPriceSection(context),
 
           // Fun fact banner
           Container(
@@ -765,8 +413,8 @@ class TileInfoDialog extends StatelessWidget {
 
           // Facts section - only show if there are facts to display
           if (info.facts.isNotEmpty) ...[
-            const Text(
-              'Did You Know? 🧠',
+            Text(
+              '${AppLocalizations.of(context)!.didYouKnow} 🧠',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16,
@@ -774,25 +422,30 @@ class TileInfoDialog extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            ...info.facts.map((fact) => Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('• ', style: TextStyle(color: Colors.amber, fontSize: 16)),
-                      Expanded(
-                        child: Text(
-                          fact,
-                          style: const TextStyle(
-                            color: Colors.white70,
-                            fontSize: 14,
-                            height: 1.3,
-                          ),
+            ...info.facts.map(
+              (fact) => Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      '• ',
+                      style: TextStyle(color: Colors.amber, fontSize: 16),
+                    ),
+                    Expanded(
+                      child: Text(
+                        fact,
+                        style: const TextStyle(
+                          color: Colors.white70,
+                          fontSize: 14,
+                          height: 1.3,
                         ),
                       ),
-                    ],
-                  ),
-                )),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
 
           // Game rules for special tiles
@@ -802,27 +455,28 @@ class TileInfoDialog extends StatelessWidget {
               tile.type == TileType.goToJail ||
               tile.type == TileType.tax) ...[
             const SizedBox(height: 12),
-            _buildRulesSection(),
+            _buildRulesSection(context),
           ],
         ],
       ),
     );
   }
 
-  Widget _buildPriceSection() {
+  Widget _buildPriceSection(BuildContext context) {
     int? price;
     String rentInfo = '';
 
     if (tile is PropertyTileData) {
       final prop = tile as PropertyTileData;
       price = prop.price;
-      rentInfo = 'Rent: \$${prop.rentLevels.first} (up to \$${prop.rentLevels.last} with hotel!)';
+      rentInfo =
+          '${AppLocalizations.of(context)!.rent}: \$${prop.rentLevels.first} (${AppLocalizations.of(context)!.hotelsMaxRentTip(prop.rentLevels.last)})';
     } else if (tile is RailroadTileData) {
       price = (tile as RailroadTileData).price;
-      rentInfo = 'Rent: \$25-\$200 (depends on how many railroads you own!)';
+      rentInfo = '${AppLocalizations.of(context)!.rent}: \$25-\$200';
     } else if (tile is UtilityTileData) {
       price = (tile as UtilityTileData).price;
-      rentInfo = 'Rent: 4x or 10x your dice roll!';
+      rentInfo = AppLocalizations.of(context)!.utilityRentDesc;
     }
 
     return Container(
@@ -838,9 +492,13 @@ class TileInfoDialog extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.attach_money, color: AppTheme.cashGreen, size: 24),
+              const Icon(
+                Icons.attach_money,
+                color: AppTheme.cashGreen,
+                size: 24,
+              ),
               Text(
-                'Price: \$$price',
+                '${AppLocalizations.of(context)!.price}: \$$price',
                 style: const TextStyle(
                   color: AppTheme.cashGreen,
                   fontSize: 20,
@@ -860,54 +518,55 @@ class TileInfoDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildRulesSection() {
+  Widget _buildRulesSection(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     String title;
     List<String> rules;
 
     switch (tile.type) {
       case TileType.chance:
-        title = '🎲 How to Play';
+        title = '🎲 ${l10n.chanceHowToPlay}';
         rules = [
-          'Draw the top card from the Chance pile',
-          'Read the card out loud',
-          'Do what the card says!',
-          'Put the card at the bottom of the pile',
+          l10n.drawTopCard,
+          l10n.readCardAloud,
+          l10n.doWhatCardSays,
+          l10n.putCardBottom,
         ];
         break;
       case TileType.communityChest:
-        title = '📦 How to Play';
+        title = '📦 ${l10n.chestHowToPlay}';
         rules = [
-          'Draw the top card from the chest',
-          'Read it out loud to everyone',
-          'Follow the instructions on the card',
-          'Return the card to the bottom',
+          l10n.drawTopChestCard,
+          l10n.readToEveryone,
+          l10n.followInstructions,
+          l10n.returnCardBottom,
         ];
         break;
       case TileType.jail:
-        title = '🔒 Jail Rules';
+        title = '🔒 ${l10n.jailRules}';
         rules = [
-          'If you\'re "Just Visiting" - you\'re safe!',
-          'If you\'re IN jail, you can:',
-          '  • Pay \$50 to get out',
-          '  • Try to roll doubles (3 tries)',
-          '  • Use a "Get Out of Jail Free" card',
+          l10n.justVisitingSafe,
+          l10n.inJailYouCan,
+          l10n.pay50GetOut,
+          l10n.rollDoublesThreeTries,
+          l10n.useGetOutCard,
         ];
         break;
       case TileType.goToJail:
-        title = '🚨 Go To Jail Rules';
+        title = '🚨 ${l10n.goToJailRules}';
         rules = [
-          'Go directly to Jail!',
-          'Do NOT pass GO',
-          'Do NOT collect \$200',
-          'Your turn ends immediately',
+          l10n.goDirectlyToJail,
+          l10n.doNotPassGo,
+          l10n.doNotCollect200,
+          l10n.turnEndsImmediately,
         ];
         break;
       case TileType.tax:
-        title = '💰 Tax Rules';
+        title = '💰 ${l10n.taxRules}';
         rules = [
-          'You MUST pay this tax!',
-          'Pay the bank the amount shown',
-          'If you can\'t pay, you might go bankrupt!',
+          l10n.mustPayTaxRule,
+          l10n.payBankAmountShown,
+          l10n.cantPayMightGoBankrupt,
         ];
         break;
       default:
@@ -934,17 +593,19 @@ class TileInfoDialog extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          ...rules.map((rule) => Padding(
-                padding: const EdgeInsets.only(bottom: 4),
-                child: Text(
-                  rule,
-                  style: const TextStyle(
-                    color: Colors.white70,
-                    fontSize: 13,
-                    height: 1.3,
-                  ),
+          ...rules.map(
+            (rule) => Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: Text(
+                rule,
+                style: const TextStyle(
+                  color: Colors.white70,
+                  fontSize: 13,
+                  height: 1.3,
                 ),
-              )),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -965,8 +626,8 @@ class TileInfoDialog extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
           ),
-          child: const Text(
-            'Got it!',
+          child: Text(
+            AppLocalizations.of(context)!.gotIt,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),

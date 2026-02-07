@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "出发",
+      "subtext": "领取奖金",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "蒙马特",
+      "subtext": null,
+      "funFact": "这座山丘上的小村庄顶部矗立着壮丽的白色圣心大教堂！"
+    },
+    {
+      "index": 2,
+      "name": "公益金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "皮加勒",
+      "subtext": null,
+      "funFact": "以1889年创立的红磨坊歌舞表演闻名！"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "地铁1号线",
+      "subtext": null,
+      "funFact": "巴黎第一条地铁线路，于1900年为世界博览会开通！"
+    },
+    {
+      "index": 6,
+      "name": "巴士底",
+      "subtext": null,
+      "funFact": "1789年法国大革命中著名的巴士底监狱被攻占的地方！"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "玛黑区",
+      "subtext": null,
+      "funFact": "历史悠久的犹太区，如今是巴黎最时尚的街区之一！"
+    },
+    {
+      "index": 9,
+      "name": "卢森堡",
+      "subtext": null,
+      "funFact": "卢森堡公园拥有106座雕塑和美丽的美第奇喷泉！"
+    },
+    {
+      "index": 10,
+      "name": "监狱",
+      "subtext": "只是路过",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "圣日耳曼",
+      "subtext": null,
+      "funFact": "历史悠久的文学咖啡区，海明威和萨特曾在此讨论哲学！"
+    },
+    {
+      "index": 12,
+      "name": "法国电力公司",
+      "subtext": null,
+      "funFact": "法国电力公司是世界上最大的电力生产商！"
+    },
+    {
+      "index": 13,
+      "name": "拉丁区",
+      "subtext": null,
+      "funFact": "索邦大学坐落于此，创建于1257年！"
+    },
+    {
+      "index": 14,
+      "name": "先贤祠",
+      "subtext": null,
+      "funFact": "法国最伟大的思想家的安息之地，包括伏尔泰和卢梭！"
+    },
+    {
+      "index": 15,
+      "name": "地铁4号线",
+      "subtext": null,
+      "funFact": "这条线路两次穿越塞纳河，并经过西岱岛下方！"
+    },
+    {
+      "index": 16,
+      "name": "凡尔赛",
+      "subtext": null,
+      "funFact": "凡尔赛宫拥有2300个房间和67000平方米的建筑面积！"
+    },
+    {
+      "index": 17,
+      "name": "公益金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "杜伊勒里",
+      "subtext": null,
+      "funFact": "这座皇家花园连接着卢浮宫和协和广场！"
+    },
+    {
+      "index": 19,
+      "name": "卢浮宫",
+      "subtext": null,
+      "funFact": "世界上最大的艺术博物馆，收藏着蒙娜丽莎和38000件艺术品！"
+    },
+    {
+      "index": 20,
+      "name": "幸运转盘",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "歌剧院",
+      "subtext": null,
+      "funFact": "加尼叶歌剧院启发了《歌剧魅影》的创作！"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "香榭丽舍大街",
+      "subtext": null,
+      "funFact": "欧洲最昂贵的商业街，每平方米租金达12000欧元！"
+    },
+    {
+      "index": 24,
+      "name": "凯旋门",
+      "subtext": null,
+      "funFact": "由拿破仑下令建造，纪念为法国而战的将士！"
+    },
+    {
+      "index": 25,
+      "name": "RER A线",
+      "subtext": null,
+      "funFact": "欧洲最繁忙的铁路线，每天运送120万乘客！"
+    },
+    {
+      "index": 26,
+      "name": "拉德芳斯",
+      "subtext": null,
+      "funFact": "欧洲最大的商业区，拥有标志性的新凯旋门！"
+    },
+    {
+      "index": 27,
+      "name": "协和广场",
+      "subtext": null,
+      "funFact": "法国大革命期间路易十六和玛丽·安托瓦内特在此被处决！"
+    },
+    {
+      "index": 28,
+      "name": "威立雅水务",
+      "subtext": null,
+      "funFact": "巴黎的水源来自150公里以外，以确保最优质的水质！"
+    },
+    {
+      "index": 29,
+      "name": "荣军院",
+      "subtext": null,
+      "funFact": "拿破仑的陵墓就在荣军院的金色穹顶之下！"
+    },
+    {
+      "index": 30,
+      "name": "去监狱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "西岱岛",
+      "subtext": null,
+      "funFact": "巴黎的历史中心，城市在公元前250年在此诞生！"
+    },
+    {
+      "index": 32,
+      "name": "巴黎圣母院",
+      "subtext": null,
+      "funFact": "这座哥特式杰作历时182年才建成（1163-1345年）！"
+    },
+    {
+      "index": 33,
+      "name": "公益金",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "奥赛博物馆",
+      "subtext": null,
+      "funFact": "由一座旧火车站改建，收藏着世界上最精美的印象派作品！"
+    },
+    {
+      "index": 35,
+      "name": "地铁14号线",
+      "subtext": null,
+      "funFact": "巴黎最新的全自动地铁线路，于1998年开通！"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "蒙帕纳斯",
+      "subtext": null,
+      "funFact": "历史悠久的艺术家聚集区，毕加索、海明威和菲茨杰拉德曾在此汇聚！"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "埃菲尔铁塔",
+      "subtext": null,
+      "funFact": "这座“铁娘子”重达10100吨，在1930年之前一直是世界上最高的建筑！"
+    }
+  ]
+}

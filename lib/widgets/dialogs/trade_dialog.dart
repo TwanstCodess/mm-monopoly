@@ -3,6 +3,7 @@ import '../../models/tile.dart';
 import '../../models/player.dart';
 import '../../models/trade.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 import 'animated_dialog.dart';
 
 /// Dialog for proposing trades between players
@@ -94,12 +95,12 @@ class _TradeDialogState extends State<TradeDialog> {
         color: Colors.teal,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(18)),
       ),
-      child: const Column(
+      child: Column(
         children: [
-          Icon(Icons.swap_horiz, color: Colors.white, size: 32),
-          SizedBox(height: 8),
+          const Icon(Icons.swap_horiz, color: Colors.white, size: 32),
+          const SizedBox(height: 8),
           Text(
-            'Propose a Trade',
+            AppLocalizations.of(context)!.proposeTrade,
             style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
           ),
         ],
@@ -113,7 +114,7 @@ class _TradeDialogState extends State<TradeDialog> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Trade with:', style: TextStyle(color: Colors.white70, fontSize: 14)),
+          Text(AppLocalizations.of(context)!.tradeWith, style: const TextStyle(color: Colors.white70, fontSize: 14)),
           const SizedBox(height: 8),
           Wrap(
             spacing: 8,
@@ -172,7 +173,7 @@ class _TradeDialogState extends State<TradeDialog> {
               Icon(Icons.arrow_upward, color: widget.currentPlayer.color, size: 20),
               const SizedBox(width: 8),
               Text(
-                'You Offer (${widget.currentPlayer.name})',
+                AppLocalizations.of(context)!.youOffer(widget.currentPlayer.name),
                 style: TextStyle(color: widget.currentPlayer.color, fontWeight: FontWeight.bold),
               ),
             ],
@@ -181,7 +182,7 @@ class _TradeDialogState extends State<TradeDialog> {
           // Cash slider
           Row(
             children: [
-              const Text('Cash:', style: TextStyle(color: Colors.white70)),
+              Text(AppLocalizations.of(context)!.cashLabel, style: const TextStyle(color: Colors.white70)),
               Expanded(
                 child: Slider(
                   value: _offeredCash.toDouble(),
@@ -207,7 +208,7 @@ class _TradeDialogState extends State<TradeDialog> {
           ),
           // Properties
           if (_myProperties.isNotEmpty) ...[
-            const Text('Properties:', style: TextStyle(color: Colors.white70, fontSize: 12)),
+            Text(AppLocalizations.of(context)!.propertiesLabel, style: const TextStyle(color: Colors.white70, fontSize: 12)),
             const SizedBox(height: 8),
             Wrap(
               spacing: 6,
@@ -226,7 +227,7 @@ class _TradeDialogState extends State<TradeDialog> {
               }).toList(),
             ),
           ],
-          if (_myProperties.isEmpty) const Text('No properties to offer', style: TextStyle(color: Colors.white38, fontSize: 12)),
+          if (_myProperties.isEmpty) Text(AppLocalizations.of(context)!.noPropertiesToOffer, style: const TextStyle(color: Colors.white38, fontSize: 12)),
         ],
       ),
     );
@@ -249,7 +250,7 @@ class _TradeDialogState extends State<TradeDialog> {
               Icon(Icons.arrow_downward, color: _selectedPartner!.color, size: 20),
               const SizedBox(width: 8),
               Text(
-                'You Request (from ${_selectedPartner!.name})',
+                AppLocalizations.of(context)!.youRequest(_selectedPartner!.name),
                 style: TextStyle(color: _selectedPartner!.color, fontWeight: FontWeight.bold),
               ),
             ],
@@ -258,7 +259,7 @@ class _TradeDialogState extends State<TradeDialog> {
           // Cash slider
           Row(
             children: [
-              const Text('Cash:', style: TextStyle(color: Colors.white70)),
+              Text(AppLocalizations.of(context)!.cashLabel, style: const TextStyle(color: Colors.white70)),
               Expanded(
                 child: Slider(
                   value: _requestedCash.toDouble(),
@@ -284,7 +285,7 @@ class _TradeDialogState extends State<TradeDialog> {
           ),
           // Properties
           if (_partnerProperties.isNotEmpty) ...[
-            const Text('Properties:', style: TextStyle(color: Colors.white70, fontSize: 12)),
+            Text(AppLocalizations.of(context)!.propertiesLabel, style: const TextStyle(color: Colors.white70, fontSize: 12)),
             const SizedBox(height: 8),
             Wrap(
               spacing: 6,
@@ -303,7 +304,7 @@ class _TradeDialogState extends State<TradeDialog> {
               }).toList(),
             ),
           ],
-          if (_partnerProperties.isEmpty) const Text('No properties available', style: TextStyle(color: Colors.white38, fontSize: 12)),
+          if (_partnerProperties.isEmpty) Text(AppLocalizations.of(context)!.noPropertiesAvailable, style: const TextStyle(color: Colors.white38, fontSize: 12)),
         ],
       ),
     );
@@ -362,7 +363,7 @@ class _TradeDialogState extends State<TradeDialog> {
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               ),
-              child: const Text('Cancel'),
+              child: Text(AppLocalizations.of(context)!.cancel),
             ),
           ),
           const SizedBox(width: 12),
@@ -376,7 +377,7 @@ class _TradeDialogState extends State<TradeDialog> {
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               ),
-              child: const Text('Propose Trade', style: TextStyle(fontWeight: FontWeight.bold)),
+              child: Text(AppLocalizations.of(context)!.proposeTradeBtn, style: const TextStyle(fontWeight: FontWeight.bold)),
             ),
           ),
         ],
@@ -415,12 +416,12 @@ class TradeResponseDialog extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           border: Border.all(color: Colors.teal, width: 2),
         ),
-        child: Column(mainAxisSize: MainAxisSize.min, children: [_buildHeader(), _buildTradeDetails(), _buildActions(context)]),
+        child: Column(mainAxisSize: MainAxisSize.min, children: [_buildHeader(context), _buildTradeDetails(context), _buildActions(context)]),
       ),
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
@@ -433,7 +434,7 @@ class TradeResponseDialog extends StatelessWidget {
           const Icon(Icons.local_offer, color: Colors.white, size: 32),
           const SizedBox(height: 8),
           Text(
-            '${offer.offerer.name} wants to trade!',
+            AppLocalizations.of(context)!.wantsToTrade(offer.offerer.name),
             style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
           ),
         ],
@@ -441,7 +442,7 @@ class TradeResponseDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildTradeDetails() {
+  Widget _buildTradeDetails(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -454,20 +455,20 @@ class TradeResponseDialog extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Row(
+                Row(
                   children: [
-                    Icon(Icons.arrow_downward, color: AppTheme.cashGreen, size: 16),
-                    SizedBox(width: 8),
+                    const Icon(Icons.arrow_downward, color: AppTheme.cashGreen, size: 16),
+                    const SizedBox(width: 8),
                     Text(
-                      'You Receive:',
-                      style: TextStyle(color: AppTheme.cashGreen, fontWeight: FontWeight.bold),
+                      AppLocalizations.of(context)!.youReceive,
+                      style: const TextStyle(color: AppTheme.cashGreen, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
                 const SizedBox(height: 8),
                 if (offer.offeredCash > 0) Text('\$${offer.offeredCash}', style: const TextStyle(color: Colors.white)),
                 ...offer.offeredProperties.map((p) => Text('• ${p.name}', style: const TextStyle(color: Colors.white70))),
-                if (offer.offeredCash == 0 && offer.offeredProperties.isEmpty) const Text('Nothing', style: TextStyle(color: Colors.white38)),
+                if (offer.offeredCash == 0 && offer.offeredProperties.isEmpty) Text(AppLocalizations.of(context)!.nothing, style: const TextStyle(color: Colors.white38)),
               ],
             ),
           ),
@@ -480,20 +481,20 @@ class TradeResponseDialog extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Row(
+                Row(
                   children: [
-                    Icon(Icons.arrow_upward, color: AppTheme.warning, size: 16),
-                    SizedBox(width: 8),
+                    const Icon(Icons.arrow_upward, color: AppTheme.warning, size: 16),
+                    const SizedBox(width: 8),
                     Text(
-                      'You Give:',
-                      style: TextStyle(color: AppTheme.warning, fontWeight: FontWeight.bold),
+                      AppLocalizations.of(context)!.youGive,
+                      style: const TextStyle(color: AppTheme.warning, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
                 const SizedBox(height: 8),
                 if (offer.requestedCash > 0) Text('\$${offer.requestedCash}', style: const TextStyle(color: Colors.white)),
                 ...offer.requestedProperties.map((p) => Text('• ${p.name}', style: const TextStyle(color: Colors.white70))),
-                if (offer.requestedCash == 0 && offer.requestedProperties.isEmpty) const Text('Nothing', style: TextStyle(color: Colors.white38)),
+                if (offer.requestedCash == 0 && offer.requestedProperties.isEmpty) Text(AppLocalizations.of(context)!.nothing, style: const TextStyle(color: Colors.white38)),
               ],
             ),
           ),
@@ -521,7 +522,7 @@ class TradeResponseDialog extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   ),
-                  child: const Text('Reject'),
+                  child: Text(AppLocalizations.of(context)!.reject),
                 ),
               ),
               const SizedBox(width: 12),
@@ -537,7 +538,7 @@ class TradeResponseDialog extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   ),
-                  child: const Text('Accept', style: TextStyle(fontWeight: FontWeight.bold)),
+                  child: Text(AppLocalizations.of(context)!.accept, style: const TextStyle(fontWeight: FontWeight.bold)),
                 ),
               ),
             ],

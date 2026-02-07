@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../models/player.dart';
 import '../../models/tile.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 import 'animated_dialog.dart';
 
 /// Type of rent being paid - affects how the calculation is displayed
@@ -60,8 +61,8 @@ class RentPaymentDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            _buildHeader(),
-            _buildContent(),
+            _buildHeader(context),
+            _buildContent(context),
             _buildAction(context),
           ],
         ),
@@ -69,7 +70,8 @@ class RentPaymentDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
@@ -86,7 +88,7 @@ class RentPaymentDialog extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            isBankruptcy ? 'BANKRUPTCY!' : 'Pay Rent',
+            isBankruptcy ? l10n.bankruptcy : l10n.payRent,
             style: const TextStyle(
               color: Colors.white,
               fontSize: 22,
@@ -98,13 +100,14 @@ class RentPaymentDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildContent() {
+  Widget _buildContent(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
           Text(
-            'You landed on $propertyName',
+            l10n.landedOnProperty(propertyName),
             style: const TextStyle(
               color: Colors.white70,
               fontSize: 14,
@@ -143,9 +146,9 @@ class RentPaymentDialog extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 8),
-          const Text(
-            'owns this property',
-            style: TextStyle(color: Colors.white70, fontSize: 14),
+          Text(
+            l10n.ownsThisProperty,
+            style: const TextStyle(color: Colors.white70, fontSize: 14),
           ),
           const SizedBox(height: 20),
           // Amount with calculation breakdown
@@ -157,9 +160,9 @@ class RentPaymentDialog extends StatelessWidget {
             ),
             child: Column(
               children: [
-                const Text(
-                  'Rent Due',
-                  style: TextStyle(color: Colors.white70, fontSize: 14),
+                Text(
+                  l10n.rentDue,
+                  style: const TextStyle(color: Colors.white70, fontSize: 14),
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -185,7 +188,7 @@ class RentPaymentDialog extends StatelessWidget {
                         const Icon(Icons.casino, color: Colors.amber, size: 16),
                         const SizedBox(width: 6),
                         Text(
-                          'Dice: $diceRoll × ${ownedCount == 2 ? 10 : 4} = \$$amount',
+                          l10n.diceRentCalc(diceRoll!, ownedCount == 2 ? 10 : 4, amount),
                           style: const TextStyle(
                             color: Colors.amber,
                             fontSize: 13,
@@ -197,7 +200,7 @@ class RentPaymentDialog extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    ownedCount == 2 ? '(Owner has both utilities)' : '(Owner has 1 utility)',
+                    ownedCount == 2 ? l10n.ownerHasBothUtilities : l10n.ownerHasOneUtility,
                     style: TextStyle(
                       color: Colors.white.withOpacity(0.5),
                       fontSize: 11,
@@ -218,7 +221,7 @@ class RentPaymentDialog extends StatelessWidget {
                         const Icon(Icons.train, color: Colors.white70, size: 16),
                         const SizedBox(width: 6),
                         Text(
-                          'Owner has $ownedCount railroad${ownedCount! > 1 ? 's' : ''}',
+                          l10n.ownerHasRailroads(ownedCount!, ownedCount! > 1 ? 's' : ''),
                           style: const TextStyle(
                             color: Colors.white70,
                             fontSize: 13,
@@ -247,7 +250,7 @@ class RentPaymentDialog extends StatelessWidget {
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
-                      'You don\'t have enough cash! You are bankrupt.',
+                      l10n.bankruptMessage,
                       style: TextStyle(
                         color: AppTheme.error.withOpacity(0.9),
                         fontSize: 13,
@@ -264,6 +267,7 @@ class RentPaymentDialog extends StatelessWidget {
   }
 
   Widget _buildAction(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
       child: SizedBox(
@@ -282,7 +286,7 @@ class RentPaymentDialog extends StatelessWidget {
             ),
           ),
           child: Text(
-            isBankruptcy ? 'Accept Bankruptcy' : 'Pay \$$amount',
+            isBankruptcy ? l10n.acceptBankruptcy : l10n.payAmount(amount),
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
         ),

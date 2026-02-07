@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "SALIDA",
+      "subtext": "COBRA",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Montmartre",
+      "subtext": "Montmartre",
+      "funFact": "¡Este pueblo en la colina está coronado por la impresionante Basílica blanca del Sacré-Cœur!"
+    },
+    {
+      "index": 2,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Pigalle",
+      "subtext": "Pigalle",
+      "funFact": "¡Famoso por el cabaret Moulin Rouge, fundado en 1889!"
+    },
+    {
+      "index": 4,
+      "name": "Impuesto sobre la Renta",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Línea 1",
+      "subtext": "Metro Línea 1",
+      "funFact": "¡La primera línea de metro de París, inaugurada en 1900 para la Exposición Universal!"
+    },
+    {
+      "index": 6,
+      "name": "Bastilla",
+      "subtext": "Bastille",
+      "funFact": "¡Sitio de la famosa fortaleza-prisión asaltada durante la Revolución Francesa en 1789!"
+    },
+    {
+      "index": 7,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Marais",
+      "subtext": "Le Marais",
+      "funFact": "¡El histórico barrio judío, ahora uno de los barrios más de moda de París!"
+    },
+    {
+      "index": 9,
+      "name": "Luxemburgo",
+      "subtext": "Luxembourg",
+      "funFact": "¡Los Jardines de Luxemburgo cuentan con 106 estatuas y la hermosa Fuente de Médici!"
+    },
+    {
+      "index": 10,
+      "name": "CÁRCEL",
+      "subtext": "DE VISITA",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Saint-Germain",
+      "subtext": "St-Germain-des-Prés",
+      "funFact": "¡Histórico barrio de cafés literarios donde Hemingway y Sartre debatían filosofía!"
+    },
+    {
+      "index": 12,
+      "name": "EDF",
+      "subtext": null,
+      "funFact": "¡Électricité de France es el mayor productor de electricidad del mundo!"
+    },
+    {
+      "index": 13,
+      "name": "Barrio Latino",
+      "subtext": "Quartier Latin",
+      "funFact": "¡Hogar de la Universidad de la Sorbona, fundada en 1257!"
+    },
+    {
+      "index": 14,
+      "name": "Panteón",
+      "subtext": "Panthéon",
+      "funFact": "¡Lugar de descanso final de las mentes más brillantes de Francia, incluyendo a Voltaire y Rousseau!"
+    },
+    {
+      "index": 15,
+      "name": "Línea 4",
+      "subtext": "Metro Línea 4",
+      "funFact": "¡Esta línea cruza el Sena dos veces y pasa bajo la Île de la Cité!"
+    },
+    {
+      "index": 16,
+      "name": "Versalles",
+      "subtext": "Versailles",
+      "funFact": "¡El Palacio de Versalles tiene 2.300 habitaciones y 67.000 metros cuadrados de superficie!"
+    },
+    {
+      "index": 17,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Tullerías",
+      "subtext": "Tuileries",
+      "funFact": "¡Estos jardines reales conectan el Louvre con la Plaza de la Concordia!"
+    },
+    {
+      "index": 19,
+      "name": "Louvre",
+      "subtext": "Le Louvre",
+      "funFact": "¡El museo de arte más grande del mundo, hogar de la Mona Lisa y 38.000 obras de arte!"
+    },
+    {
+      "index": 20,
+      "name": "GIRA Y GANA",
+      "subtext": "RUEDA DE LA SUERTE",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Ópera",
+      "subtext": "Opéra Garnier",
+      "funFact": "¡El Palacio Garnier inspiró \"El Fantasma de la Ópera\"!"
+    },
+    {
+      "index": 22,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Campos Elíseos",
+      "subtext": "Champs-Élysées",
+      "funFact": "¡La calle comercial más cara de Europa a 12.000 € por metro cuadrado!"
+    },
+    {
+      "index": 24,
+      "name": "Arco de Triunfo",
+      "subtext": "Arc de Triomphe",
+      "funFact": "¡Construido por Napoleón, honra a quienes lucharon por Francia!"
+    },
+    {
+      "index": 25,
+      "name": "RER A",
+      "subtext": "RER Línea A",
+      "funFact": "¡La línea de tren más transitada de Europa, transportando 1,2 millones de pasajeros diarios!"
+    },
+    {
+      "index": 26,
+      "name": "La Défense",
+      "subtext": "La Défense",
+      "funFact": "¡El distrito financiero más grande de Europa con el icónico Grand Arche!"
+    },
+    {
+      "index": 27,
+      "name": "Concordia",
+      "subtext": "Place de la Concorde",
+      "funFact": "¡Donde Luis XVI y María Antonieta fueron ejecutados durante la Revolución!"
+    },
+    {
+      "index": 28,
+      "name": "Compañía de Agua",
+      "subtext": null,
+      "funFact": "¡El agua de París proviene de fuentes a más de 150 km de distancia, asegurando la mejor calidad!"
+    },
+    {
+      "index": 29,
+      "name": "Inválidos",
+      "subtext": "Les Invalides",
+      "funFact": "¡La tumba de Napoleón yace bajo la cúpula dorada de Los Inválidos!"
+    },
+    {
+      "index": 30,
+      "name": "VE A LA CÁRCEL",
+      "subtext": "VE A LA CÁRCEL",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Île de la Cité",
+      "subtext": "Île de la Cité",
+      "funFact": "¡El corazón histórico de París, donde la ciudad fue fundada en el 250 a.C.!"
+    },
+    {
+      "index": 32,
+      "name": "Notre-Dame",
+      "subtext": "Notre-Dame",
+      "funFact": "¡Esta obra maestra gótica tardó 182 años en completarse (1163-1345)!"
+    },
+    {
+      "index": 33,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Museo de Orsay",
+      "subtext": "Musée d'Orsay",
+      "funFact": "¡Construido en una antigua estación de tren, alberga la mejor colección impresionista del mundo!"
+    },
+    {
+      "index": 35,
+      "name": "Línea 14",
+      "subtext": "Metro Línea 14",
+      "funFact": "¡La línea de metro completamente automatizada más nueva de París, inaugurada en 1998!"
+    },
+    {
+      "index": 36,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Montparnasse",
+      "subtext": "Montparnasse",
+      "funFact": "¡Histórico barrio de artistas donde Picasso, Hemingway y Fitzgerald se reunían!"
+    },
+    {
+      "index": 38,
+      "name": "Impuesto de Lujo",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Torre Eiffel",
+      "subtext": "Tour Eiffel",
+      "funFact": "¡La Dama de Hierro pesa 10.100 toneladas y fue la estructura más alta del mundo hasta 1930!"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../config/theme.dart';
+import '../l10n/app_localizations.dart';
 import '../models/player_stats.dart';
 import '../models/avatar.dart';
 import '../widgets/avatar/avatar_widget.dart';
@@ -62,16 +63,16 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text('Family Leaderboard'),
+        title: Text(AppLocalizations.of(context)!.familyLeaderboard),
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: Colors.amber,
           labelColor: Colors.amber,
           unselectedLabelColor: Colors.white54,
-          tabs: const [
-            Tab(text: 'Rankings', icon: Icon(Icons.leaderboard, size: 20)),
-            Tab(text: 'Records', icon: Icon(Icons.emoji_events, size: 20)),
-            Tab(text: 'Achievements', icon: Icon(Icons.star, size: 20)),
+          tabs: [
+            Tab(text: AppLocalizations.of(context)!.rankings, icon: const Icon(Icons.leaderboard, size: 20)),
+            Tab(text: AppLocalizations.of(context)!.records, icon: const Icon(Icons.emoji_events, size: 20)),
+            Tab(text: AppLocalizations.of(context)!.achievements, icon: const Icon(Icons.star, size: 20)),
           ],
         ),
       ),
@@ -94,27 +95,27 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
           padding: const EdgeInsets.all(16),
           child: Row(
             children: [
-              const Text(
-                'Sort by: ',
+              Text(
+                AppLocalizations.of(context)!.sortBy,
                 style: TextStyle(color: Colors.white70),
               ),
               _SortChip(
-                label: 'Wins',
+                label: AppLocalizations.of(context)!.wins,
                 isSelected: _sortBy == 'wins',
                 onTap: () => setState(() => _sortBy = 'wins'),
               ),
               _SortChip(
-                label: 'Win %',
+                label: AppLocalizations.of(context)!.winPercent,
                 isSelected: _sortBy == 'winRate',
                 onTap: () => setState(() => _sortBy = 'winRate'),
               ),
               _SortChip(
-                label: 'Earnings',
+                label: AppLocalizations.of(context)!.earnings,
                 isSelected: _sortBy == 'earnings',
                 onTap: () => setState(() => _sortBy = 'earnings'),
               ),
               _SortChip(
-                label: 'Games',
+                label: AppLocalizations.of(context)!.games,
                 isSelected: _sortBy == 'games',
                 onTap: () => setState(() => _sortBy = 'games'),
               ),
@@ -177,48 +178,48 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
       padding: const EdgeInsets.all(16),
       children: [
         _RecordCard(
-          title: 'Most Wins',
+          title: AppLocalizations.of(context)!.mostWins,
           icon: Icons.emoji_events,
           color: Colors.amber,
           player: mostWins,
-          value: '${mostWins.gamesWon} wins',
+          value: '${mostWins.gamesWon} ${AppLocalizations.of(context)!.wins.toLowerCase()}',
         ),
         _RecordCard(
-          title: 'Highest Cash',
+          title: AppLocalizations.of(context)!.highestCash,
           icon: Icons.attach_money,
           color: Colors.green,
           player: highestCash,
           value: '\$${highestCash.highestCash}',
         ),
         _RecordCard(
-          title: 'Property Tycoon',
+          title: AppLocalizations.of(context)!.propertyTycoonRecord,
           icon: Icons.business,
           color: Colors.blue,
           player: mostProperties,
-          value: '${mostProperties.mostPropertiesInGame} properties',
+          value: '${mostProperties.mostPropertiesInGame} ${AppLocalizations.of(context)!.properties.toLowerCase()}',
         ),
         _RecordCard(
-          title: 'Longest Win Streak',
+          title: AppLocalizations.of(context)!.longestWinStreak,
           icon: Icons.local_fire_department,
           color: Colors.orange,
           player: longestStreak,
-          value: '${longestStreak.longestWinStreak} in a row',
+          value: AppLocalizations.of(context)!.inARow(longestStreak.longestWinStreak),
         ),
         if (quickestWinner != null)
           _RecordCard(
-            title: 'Speed Champion',
+            title: AppLocalizations.of(context)!.speedChampion,
             icon: Icons.speed,
             color: Colors.purple,
             player: quickestWinner,
-            value: '${quickestWinner.quickestWin} turns',
+            value: AppLocalizations.of(context)!.turnsCount(quickestWinner.quickestWin),
           ),
         if (luckiest != null)
           _RecordCard(
-            title: 'Luckiest Roller',
+            title: AppLocalizations.of(context)!.luckiestRoller,
             icon: Icons.casino,
             color: Colors.red,
             player: luckiest,
-            value: '${luckiest.averageDiceRoll.toStringAsFixed(1)} avg',
+            value: AppLocalizations.of(context)!.avgValue(luckiest.averageDiceRoll.toStringAsFixed(1)),
           ),
       ],
     );
@@ -261,16 +262,16 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
             color: Colors.white24,
           ),
           const SizedBox(height: 16),
-          const Text(
-            'No players yet',
+          Text(
+            AppLocalizations.of(context)!.noPlayersYet,
             style: TextStyle(
               color: Colors.white54,
               fontSize: 18,
             ),
           ),
           const SizedBox(height: 8),
-          const Text(
-            'Play some games to see stats!',
+          Text(
+            AppLocalizations.of(context)!.playToSeeStats,
             style: TextStyle(
               color: Colors.white38,
               fontSize: 14,
@@ -330,16 +331,16 @@ class _RankingCard extends StatelessWidget {
     required this.sortBy,
   });
 
-  String get _mainValue {
+  String _mainValue(BuildContext context) {
     switch (sortBy) {
       case 'wins':
-        return '${player.gamesWon} wins';
+        return '${player.gamesWon} ${AppLocalizations.of(context)!.wins.toLowerCase()}';
       case 'winRate':
         return '${player.winRate.toStringAsFixed(1)}%';
       case 'earnings':
         return '\$${player.totalEarnings}';
       case 'games':
-        return '${player.gamesPlayed} games';
+        return '${player.gamesPlayed} ${AppLocalizations.of(context)!.games.toLowerCase()}';
       default:
         return '';
     }
@@ -424,7 +425,7 @@ class _RankingCard extends StatelessWidget {
           ),
           // Main value
           Text(
-            _mainValue,
+            _mainValue(context),
             style: TextStyle(
               color: rank == 1 ? Colors.amber : Colors.white,
               fontSize: 18,

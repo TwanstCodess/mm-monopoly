@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/spin_prize.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 import '../spin_wheel/spin_wheel_widget.dart';
 import '../effects/confetti.dart';
 import 'animated_dialog.dart';
@@ -91,6 +92,7 @@ class _SpinWheelDialogState extends State<SpinWheelDialog> {
   }
 
   Widget _buildHeader() {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
@@ -102,14 +104,10 @@ class _SpinWheelDialogState extends State<SpinWheelDialog> {
       ),
       child: Column(
         children: [
-          const Icon(
-            Icons.casino,
-            color: Colors.white,
-            size: 36,
-          ),
+          const Icon(Icons.casino, color: Colors.white, size: 36),
           const SizedBox(height: 8),
-          const Text(
-            'LUCKY SPIN!',
+          Text(
+            l10n.luckySpinTitle,
             style: TextStyle(
               color: Colors.white,
               fontSize: 24,
@@ -119,7 +117,7 @@ class _SpinWheelDialogState extends State<SpinWheelDialog> {
           ),
           const SizedBox(height: 4),
           Text(
-            '${widget.playerName}\'s turn to spin!',
+            l10n.playerTurnToSpin(widget.playerName),
             style: TextStyle(
               color: Colors.white.withOpacity(0.9),
               fontSize: 14,
@@ -143,22 +141,19 @@ class _SpinWheelDialogState extends State<SpinWheelDialog> {
   }
 
   Widget _buildInstructions() {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Text(
-        _hasSpun
-            ? 'Spinning...'
-            : 'Tap the center to spin the wheel!',
-        style: TextStyle(
-          color: Colors.white.withOpacity(0.7),
-          fontSize: 14,
-        ),
+        _hasSpun ? l10n.spinning : l10n.spinInstructions,
+        style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 14),
         textAlign: TextAlign.center,
       ),
     );
   }
 
   Widget _buildResult() {
+    final l10n = AppLocalizations.of(context)!;
     if (_wonPrize == null) return const SizedBox.shrink();
 
     return Container(
@@ -172,18 +167,14 @@ class _SpinWheelDialogState extends State<SpinWheelDialog> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            _wonPrize!.icon,
-            color: _wonPrize!.color,
-            size: 32,
-          ),
+          Icon(_wonPrize!.icon, color: _wonPrize!.color, size: 32),
           const SizedBox(width: 12),
           Flexible(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'You won ${_wonPrize!.name}!',
+                  l10n.youWonPrize(_wonPrize!.name),
                   style: TextStyle(
                     color: _wonPrize!.color,
                     fontSize: 18,
@@ -207,51 +198,57 @@ class _SpinWheelDialogState extends State<SpinWheelDialog> {
   }
 
   Widget _buildActions() {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: SizedBox(
         width: double.infinity,
-        child: _showResult
-            ? ElevatedButton(
-                onPressed: () async {
-                  await widget.onPrizeWon(_wonPrize!);
-                  if (context.mounted) {
-                    Navigator.of(context).pop(_wonPrize);
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: _wonPrize!.color,
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+        child:
+            _showResult
+                ? ElevatedButton(
+                  onPressed: () async {
+                    await widget.onPrizeWon(_wonPrize!);
+                    if (context.mounted) {
+                      Navigator.of(context).pop(_wonPrize);
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: _wonPrize!.color,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: Text(
+                    l10n.collectPrize,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                )
+                : OutlinedButton(
+                  onPressed:
+                      _hasSpun
+                          ? null
+                          : () {
+                            setState(() => _hasSpun = true);
+                            _wheelKey.currentState?.spin();
+                          },
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: Colors.amber,
+                    side: BorderSide(color: Colors.amber.withOpacity(0.5)),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: Text(
+                    _hasSpun ? l10n.goodLuck : l10n.orTapToSpin,
+                    style: const TextStyle(fontSize: 14),
                   ),
                 ),
-                child: const Text(
-                  'Collect Prize!',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              )
-            : OutlinedButton(
-                onPressed: _hasSpun
-                    ? null
-                    : () {
-                        setState(() => _hasSpun = true);
-                        _wheelKey.currentState?.spin();
-                      },
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: Colors.amber,
-                  side: BorderSide(color: Colors.amber.withOpacity(0.5)),
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: Text(
-                  _hasSpun ? 'Good luck!' : 'Or tap here to spin',
-                  style: const TextStyle(fontSize: 14),
-                ),
-              ),
       ),
     );
   }
@@ -267,9 +264,8 @@ Future<SpinPrize?> showSpinWheelDialog({
     context: context,
     barrierDismissible: false,
     animationType: DialogAnimationType.scale,
-    builder: (context) => SpinWheelDialog(
-      playerName: playerName,
-      onPrizeWon: onPrizeWon,
-    ),
+    builder:
+        (context) =>
+            SpinWheelDialog(playerName: playerName, onPrizeWon: onPrizeWon),
   );
 }

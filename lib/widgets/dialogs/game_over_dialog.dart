@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../models/player.dart';
 import '../../models/tile.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 
 /// Dialog showing game over and winner
 class GameOverDialog extends StatelessWidget {
@@ -47,10 +48,10 @@ class GameOverDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            _buildHeader(),
-            _buildWinnerSection(),
-            _buildRankings(sortedPlayers),
-            _buildStats(),
+            _buildHeader(context),
+            _buildWinnerSection(context),
+            _buildRankings(context, sortedPlayers),
+            _buildStats(context),
             _buildActions(context),
           ],
         ),
@@ -58,7 +59,7 @@ class GameOverDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
@@ -68,13 +69,13 @@ class GameOverDialog extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.vertical(top: Radius.circular(17)),
       ),
-      child: const Column(
+      child: Column(
         children: [
-          Icon(Icons.emoji_events, color: Colors.white, size: 50),
-          SizedBox(height: 8),
+          const Icon(Icons.emoji_events, color: Colors.white, size: 50),
+          const SizedBox(height: 8),
           Text(
-            'GAME OVER!',
-            style: TextStyle(
+            AppLocalizations.of(context)!.gameOver,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 28,
               fontWeight: FontWeight.bold,
@@ -86,13 +87,13 @@ class GameOverDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildWinnerSection() {
+  Widget _buildWinnerSection(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-          const Text(
-            'Winner',
+          Text(
+            AppLocalizations.of(context)!.winner,
             style: TextStyle(color: Colors.white70, fontSize: 14),
           ),
           const SizedBox(height: 12),
@@ -157,14 +158,14 @@ class GameOverDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildRankings(List<Player> sortedPlayers) {
+  Widget _buildRankings(BuildContext context, List<Player> sortedPlayers) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Final Standings',
+          Text(
+            AppLocalizations.of(context)!.finalStandings,
             style: TextStyle(
               color: Colors.white70,
               fontSize: 14,
@@ -175,14 +176,14 @@ class GameOverDialog extends StatelessWidget {
           ...sortedPlayers.asMap().entries.map((entry) {
             final index = entry.key;
             final player = entry.value;
-            return _buildRankingRow(index + 1, player);
+            return _buildRankingRow(context, index + 1, player);
           }),
         ],
       ),
     );
   }
 
-  Widget _buildRankingRow(int rank, Player player) {
+  Widget _buildRankingRow(BuildContext context, int rank, Player player) {
     final isBankrupt = player.status == PlayerStatus.bankrupt;
 
     return Padding(
@@ -230,8 +231,8 @@ class GameOverDialog extends StatelessWidget {
               ),
             ),
             if (isBankrupt)
-              const Text(
-                'BANKRUPT',
+              Text(
+                AppLocalizations.of(context)!.bankrupt,
                 style: TextStyle(color: AppTheme.error, fontSize: 12),
               )
             else
@@ -248,7 +249,7 @@ class GameOverDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildStats() {
+  Widget _buildStats(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Container(
@@ -260,9 +261,9 @@ class GameOverDialog extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            _buildStat('Rounds', totalRounds.toString()),
-            _buildStat('Properties', winner.propertyIds.length.toString()),
-            _buildStat('Final Cash', '\$${winner.cash}'),
+            _buildStat(AppLocalizations.of(context)!.rounds, totalRounds.toString()),
+            _buildStat(AppLocalizations.of(context)!.properties, winner.propertyIds.length.toString()),
+            _buildStat(AppLocalizations.of(context)!.finalCash, '\$${winner.cash}'),
           ],
         ),
       ),
@@ -307,7 +308,7 @@ class GameOverDialog extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: const Text('Main Menu', style: TextStyle(fontSize: 16)),
+              child: Text(AppLocalizations.of(context)!.mainMenu, style: const TextStyle(fontSize: 16)),
             ),
           ),
           const SizedBox(width: 12),
@@ -325,9 +326,9 @@ class GameOverDialog extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: const Text(
-                'Play Again',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              child: Text(
+                AppLocalizations.of(context)!.playAgain,
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
           ),

@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import '../models/player.dart';
 import '../config/theme.dart';
+import '../l10n/app_localizations.dart';
 import '../widgets/avatar/avatar_widget.dart';
 import '../widgets/effects/fireworks.dart';
 import '../services/audio_service.dart';
@@ -184,7 +185,7 @@ class _VictoryScreenState extends State<VictoryScreen> with TickerProviderStateM
           children: [
             // Glow
             Text(
-              'WINNER!',
+              AppLocalizations.of(context)!.winnerTitle,
               style: TextStyle(
                 fontSize: 48,
                 fontWeight: FontWeight.bold,
@@ -195,8 +196,8 @@ class _VictoryScreenState extends State<VictoryScreen> with TickerProviderStateM
               ),
             ),
             // Text
-            const Text(
-              'WINNER!',
+            Text(
+              AppLocalizations.of(context)!.winnerTitle,
               style: TextStyle(
                 color: Colors.amber,
                 fontSize: 48,
@@ -249,17 +250,17 @@ class _VictoryScreenState extends State<VictoryScreen> with TickerProviderStateM
       ),
       child: Column(
         children: [
-          const Text(
-            'Game Stats',
+          Text(
+            AppLocalizations.of(context)!.gameStats,
             style: TextStyle(color: Colors.white70, fontSize: 14, fontWeight: FontWeight.w500),
           ),
           const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _StatItem(icon: Icons.attach_money, value: '\$${widget.winner.cash}', label: 'Final Cash', color: Colors.green),
-              _StatItem(icon: Icons.home, value: '${widget.winner.propertyIds.length}', label: 'Properties', color: Colors.blue),
-              _StatItem(icon: Icons.replay, value: '${widget.gameTurns}', label: 'Turns', color: Colors.purple),
+              _StatItem(icon: Icons.attach_money, value: '\$${widget.winner.cash}', label: AppLocalizations.of(context)!.finalCash, color: Colors.green),
+              _StatItem(icon: Icons.home, value: '${widget.winner.propertyIds.length}', label: AppLocalizations.of(context)!.properties, color: Colors.blue),
+              _StatItem(icon: Icons.replay, value: '${widget.gameTurns}', label: AppLocalizations.of(context)!.turns, color: Colors.purple),
             ],
           ),
         ],
@@ -276,8 +277,8 @@ class _VictoryScreenState extends State<VictoryScreen> with TickerProviderStateM
       decoration: BoxDecoration(color: Colors.white.withOpacity(0.05), borderRadius: BorderRadius.circular(16)),
       child: Column(
         children: [
-          const Text(
-            'Final Standings',
+          Text(
+            AppLocalizations.of(context)!.finalStandings,
             style: TextStyle(color: Colors.white70, fontSize: 14, fontWeight: FontWeight.w500),
           ),
           const SizedBox(height: 12),
@@ -339,7 +340,7 @@ class _VictoryScreenState extends State<VictoryScreen> with TickerProviderStateM
                 child: ElevatedButton.icon(
                   onPressed: widget.onPlayAgain,
                   icon: const Icon(Icons.replay, size: 24),
-                  label: const Text('Play Again', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  label: Text(AppLocalizations.of(context)!.playAgain, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.amber,
                     foregroundColor: Colors.black,
@@ -358,7 +359,7 @@ class _VictoryScreenState extends State<VictoryScreen> with TickerProviderStateM
           child: OutlinedButton.icon(
             onPressed: widget.onGoHome,
             icon: const Icon(Icons.home, size: 24),
-            label: const Text('Back to Home', style: TextStyle(fontSize: 18)),
+            label: Text(AppLocalizations.of(context)!.backToMenu, style: const TextStyle(fontSize: 18)),
             style: OutlinedButton.styleFrom(
               foregroundColor: Colors.white70,
               side: const BorderSide(color: Colors.white30),

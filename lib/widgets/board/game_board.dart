@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../models/player.dart';
 import '../../models/tile.dart';
 import '../../models/board_theme.dart';
+import '../../l10n/app_localizations.dart';
 import '../../config/board_configs/classic_board.dart';
 import 'tile_widget.dart';
 import '../player/player_token.dart';
@@ -246,7 +247,7 @@ class _CenterArea extends StatelessWidget {
               children: [
                 const SizedBox(height: 60),
                 // Logo at top (with more spacing from tiles)
-                Center(child: _buildVegasLogo()),
+                Center(child: _buildVegasLogo(context)),
                 const Spacer(),
                 // Controls (dice only, no button)
                 if (centerControls != null) Center(child: centerControls!),
@@ -259,9 +260,9 @@ class _CenterArea extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CardDeck(label: 'CHANCE', color: Colors.orange, icon: Icons.help_outline, isHighlighted: isChanceHighlighted, onTap: onChanceTap),
+                        CardDeck(label: AppLocalizations.of(context)!.chanceCard.toUpperCase(), color: Colors.orange, icon: Icons.help_outline, isHighlighted: isChanceHighlighted, onTap: onChanceTap),
                         const SizedBox(width: 16), // Reduced gap for better centering
-                        CardDeck(label: 'CHEST', color: Colors.blue, icon: Icons.inventory_2, isHighlighted: isChestHighlighted, onTap: onChestTap),
+                        CardDeck(label: AppLocalizations.of(context)!.communityChestCard.toUpperCase(), color: Colors.blue, icon: Icons.inventory_2, isHighlighted: isChestHighlighted, onTap: onChestTap),
                       ],
                     ),
                   ),
@@ -339,9 +340,9 @@ class _CenterArea extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  if (onTradeTap != null) _ActionButton(icon: Icons.swap_horiz, label: 'Trade', color: Colors.teal, onTap: onTradeTap!),
+                  if (onTradeTap != null) _ActionButton(icon: Icons.swap_horiz, label: AppLocalizations.of(context)!.proposeTradeBtn, color: Colors.teal, onTap: onTradeTap!),
                   if (onTradeTap != null && onBankTap != null) const SizedBox(width: 6),
-                  if (onBankTap != null) _ActionButton(icon: Icons.account_balance, label: 'Bank', color: Colors.deepPurple, onTap: onBankTap!),
+                  if (onBankTap != null) _ActionButton(icon: Icons.account_balance, label: AppLocalizations.of(context)!.bankFeatures, color: Colors.deepPurple, onTap: onBankTap!),
                 ],
               ),
             ),
@@ -351,7 +352,7 @@ class _CenterArea extends StatelessWidget {
   }
 
   /// Vegas-style welcome sign shaped logo
-  Widget _buildVegasLogo() {
+  Widget _buildVegasLogo(BuildContext context) {
     return CustomPaint(
       painter: _VegasSignPainter(),
       child: Container(
@@ -372,7 +373,7 @@ class _CenterArea extends StatelessWidget {
             Stack(
               children: [
                 Text(
-                  'PROPERTY TYCOON',
+                  AppLocalizations.of(context)!.propertyTycoon,
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.w900,
@@ -385,8 +386,8 @@ class _CenterArea extends StatelessWidget {
                 ),
                 ShaderMask(
                   shaderCallback: (bounds) => const LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Colors.white, Colors.amber]).createShader(bounds),
-                  child: const Text(
-                    'PROPERTY TYCOON',
+                  child: Text(
+                    AppLocalizations.of(context)!.propertyTycoon,
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.w900, letterSpacing: 2, color: Colors.white),
                   ),
                 ),

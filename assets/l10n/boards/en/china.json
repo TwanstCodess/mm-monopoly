@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "开始",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Nanluoguxiang",
+      "subtext": "南锣鼓巷",
+      "funFact": "This 800-year-old hutong alley is one of Beijing's best-preserved historical streets!"
+    },
+    {
+      "index": 2,
+      "name": "Community Chest",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Houhai",
+      "subtext": "后海",
+      "funFact": "Historic lake area where emperors once went ice skating!"
+    },
+    {
+      "index": 4,
+      "name": "Income Tax",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Line 1",
+      "subtext": "地铁1号线",
+      "funFact": "Beijing's first subway line, opened in 1971, running through Tiananmen Square!"
+    },
+    {
+      "index": 6,
+      "name": "Wangfujing",
+      "subtext": "王府井",
+      "funFact": "Beijing's premier shopping street, over 700 years old!"
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Sanlitun",
+      "subtext": "三里屯",
+      "funFact": "Beijing's most international neighborhood, home to embassies and nightlife!"
+    },
+    {
+      "index": 9,
+      "name": "CBD",
+      "subtext": "国贸",
+      "funFact": "The Central Business District features the iconic CCTV Tower by Rem Koolhaas!"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "监狱",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Dongcheng",
+      "subtext": "东城区",
+      "funFact": "The eastern district preserves countless historical hutongs and courtyard homes!"
+    },
+    {
+      "index": 12,
+      "name": "State Grid",
+      "subtext": null,
+      "funFact": "The world's largest utility company, powering over 1.1 billion people!"
+    },
+    {
+      "index": 13,
+      "name": "Beihai Park",
+      "subtext": "北海公园",
+      "funFact": "Imperial garden dating back to the 10th century, featuring the stunning White Dagoba!"
+    },
+    {
+      "index": 14,
+      "name": "Jingshan",
+      "subtext": "景山",
+      "funFact": "This artificial hill offers the best panoramic view of the Forbidden City!"
+    },
+    {
+      "index": 15,
+      "name": "Line 2",
+      "subtext": "地铁2号线",
+      "funFact": "Forms a rectangle around central Beijing, following the old city wall route!"
+    },
+    {
+      "index": 16,
+      "name": "Lama Temple",
+      "subtext": "雍和宫",
+      "funFact": "Home to a 26-meter tall Buddha carved from a single sandalwood tree!"
+    },
+    {
+      "index": 17,
+      "name": "Community Chest",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Temple of Heaven",
+      "subtext": "天坛",
+      "funFact": "Where emperors prayed for good harvests! The Echo Wall can carry whispers 65 meters!"
+    },
+    {
+      "index": 19,
+      "name": "Summer Palace",
+      "subtext": "颐和园",
+      "funFact": "UNESCO site covering 290 hectares, 75% water! Empress Cixi's marble boat still stands!"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": "幸运转盘",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Drum Tower",
+      "subtext": "鼓楼",
+      "funFact": "Built in 1272, drummers once marked time for the entire city!"
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Bell Tower",
+      "subtext": "钟楼",
+      "funFact": "Houses a massive 63-ton bronze bell from the Ming Dynasty!"
+    },
+    {
+      "index": 24,
+      "name": "Tiananmen",
+      "subtext": "天安门",
+      "funFact": "The largest public square in the world, holding up to 1 million people!"
+    },
+    {
+      "index": 25,
+      "name": "Line 4",
+      "subtext": "地铁4号线",
+      "funFact": "Connects the Summer Palace to the south, carrying 1 million riders daily!"
+    },
+    {
+      "index": 26,
+      "name": "Chaoyang",
+      "subtext": "朝阳区",
+      "funFact": "Beijing's most international district, hosting the Olympic venues!"
+    },
+    {
+      "index": 27,
+      "name": "Olympic Park",
+      "subtext": "奥林匹克公园",
+      "funFact": "Home to the Bird's Nest stadium and Water Cube from the 2008 Olympics!"
+    },
+    {
+      "index": 28,
+      "name": "Beijing Water",
+      "subtext": null,
+      "funFact": "The South-North Water Transfer Project brings water from 1,400km away!"
+    },
+    {
+      "index": 29,
+      "name": "Zhongguancun",
+      "subtext": "中关村",
+      "funFact": "China's Silicon Valley, home to tech giants like Baidu and Lenovo!"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": "去监狱",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Silk Street",
+      "subtext": "秀水街",
+      "funFact": "Famous shopping market following the ancient Silk Road trading tradition!"
+    },
+    {
+      "index": 32,
+      "name": "Panjiayuan",
+      "subtext": "潘家园",
+      "funFact": "Asia's largest antique market with over 3,000 vendors!"
+    },
+    {
+      "index": 33,
+      "name": "Community Chest",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "National Museum",
+      "subtext": "国家博物馆",
+      "funFact": "The world's most visited museum with 7.4 million visitors annually!"
+    },
+    {
+      "index": 35,
+      "name": "Line 10",
+      "subtext": "地铁10号线",
+      "funFact": "Forms a giant loop connecting all major districts of Beijing!"
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "CCTV Tower",
+      "subtext": "央视大楼",
+      "funFact": "Standing 405 meters tall with a revolutionary \"loop\" design!"
+    },
+    {
+      "index": 38,
+      "name": "Luxury Tax",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Forbidden City",
+      "subtext": "故宫",
+      "funFact": "The world's largest palace complex with 9,999 rooms, home to 24 emperors!"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../config/theme.dart';
 import '../../config/constants.dart';
+import '../../l10n/app_localizations.dart';
 import 'animated_dialog.dart';
 
 /// Dialog for jail options - pay fine or stay
@@ -41,8 +42,8 @@ class JailDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            _buildHeader(),
-            _buildContent(),
+            _buildHeader(context),
+            _buildContent(context),
             _buildActions(context),
           ],
         ),
@@ -50,7 +51,8 @@ class JailDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
@@ -58,13 +60,13 @@ class JailDialog extends StatelessWidget {
         color: Colors.orange,
         borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
       ),
-      child: const Column(
+      child: Column(
         children: [
-          Icon(Icons.gavel, color: Colors.white, size: 40),
-          SizedBox(height: 8),
+          const Icon(Icons.gavel, color: Colors.white, size: 40),
+          const SizedBox(height: 8),
           Text(
-            'IN JAIL',
-            style: TextStyle(
+            l10n.inJail,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 22,
               fontWeight: FontWeight.bold,
@@ -75,14 +77,15 @@ class JailDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildContent() {
+  Widget _buildContent(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-          const Text(
-            'You are in jail!',
-            style: TextStyle(
+          Text(
+            l10n.youAreInJail,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 16,
             ),
@@ -100,9 +103,9 @@ class JailDialog extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'Bail Amount',
-                      style: TextStyle(color: Colors.white70),
+                    Text(
+                      l10n.bailAmount,
+                      style: const TextStyle(color: Colors.white70),
                     ),
                     Text(
                       '\$${GameConstants.jailBailAmount}',
@@ -118,9 +121,9 @@ class JailDialog extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'Your Cash',
-                      style: TextStyle(color: Colors.white70),
+                    Text(
+                      l10n.yourCash,
+                      style: const TextStyle(color: Colors.white70),
                     ),
                     Text(
                       '\$$playerCash',
@@ -138,8 +141,8 @@ class JailDialog extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             turnsRemaining > 0
-              ? 'Or stay in jail for $turnsRemaining more turn${turnsRemaining > 1 ? 's' : ''}.'
-              : 'You must pay the fine to get out!',
+              ? l10n.stayInJailTurns(turnsRemaining, turnsRemaining > 1 ? 's' : '')
+              : l10n.mustPayFine,
             style: const TextStyle(
               color: Colors.white70,
               fontSize: 14,
@@ -171,7 +174,7 @@ class JailDialog extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: const Text('Stay in Jail', style: TextStyle(fontSize: 16)),
+                child: Text(AppLocalizations.of(context)!.stayInJail, style: const TextStyle(fontSize: 16)),
               ),
             ),
           if (turnsRemaining > 0) const SizedBox(width: 12),
@@ -193,7 +196,7 @@ class JailDialog extends StatelessWidget {
                 ),
               ),
               child: Text(
-                'Pay \$${GameConstants.jailBailAmount}',
+                AppLocalizations.of(context)!.payBail(GameConstants.jailBailAmount),
                 style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),

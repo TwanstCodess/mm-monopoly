@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "SALIDA",
+      "subtext": "开始",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Nanluoguxiang",
+      "subtext": "南锣鼓巷",
+      "funFact": "¡Este callejón hutong de 800 años es una de las calles históricas mejor conservadas de Pekín!"
+    },
+    {
+      "index": 2,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Houhai",
+      "subtext": "后海",
+      "funFact": "¡Zona histórica de lagos donde los emperadores patinaban sobre hielo!"
+    },
+    {
+      "index": 4,
+      "name": "Impuesto sobre la Renta",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Línea 1",
+      "subtext": "地铁1号线",
+      "funFact": "¡La primera línea de metro de Pekín, inaugurada en 1971, pasando por la Plaza de Tiananmen!"
+    },
+    {
+      "index": 6,
+      "name": "Wangfujing",
+      "subtext": "王府井",
+      "funFact": "¡La principal calle comercial de Pekín, con más de 700 años de antigüedad!"
+    },
+    {
+      "index": 7,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Sanlitun",
+      "subtext": "三里屯",
+      "funFact": "¡El barrio más internacional de Pekín, hogar de embajadas y vida nocturna!"
+    },
+    {
+      "index": 9,
+      "name": "CBD",
+      "subtext": "国贸",
+      "funFact": "¡El Distrito Central de Negocios presenta la icónica Torre CCTV de Rem Koolhaas!"
+    },
+    {
+      "index": 10,
+      "name": "CÁRCEL",
+      "subtext": "监狱",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Dongcheng",
+      "subtext": "东城区",
+      "funFact": "¡El distrito oriental conserva innumerables hutongs históricos y casas con patio!"
+    },
+    {
+      "index": 12,
+      "name": "Red Eléctrica Estatal",
+      "subtext": null,
+      "funFact": "¡La empresa de servicios públicos más grande del mundo, suministrando energía a más de 1.100 millones de personas!"
+    },
+    {
+      "index": 13,
+      "name": "Parque Beihai",
+      "subtext": "北海公园",
+      "funFact": "¡Jardín imperial que data del siglo X, con la impresionante Dagoba Blanca!"
+    },
+    {
+      "index": 14,
+      "name": "Jingshan",
+      "subtext": "景山",
+      "funFact": "¡Esta colina artificial ofrece la mejor vista panorámica de la Ciudad Prohibida!"
+    },
+    {
+      "index": 15,
+      "name": "Línea 2",
+      "subtext": "地铁2号线",
+      "funFact": "¡Forma un rectángulo alrededor del centro de Pekín, siguiendo la ruta de la antigua muralla!"
+    },
+    {
+      "index": 16,
+      "name": "Templo Lama",
+      "subtext": "雍和宫",
+      "funFact": "¡Hogar de un Buda de 26 metros tallado en un solo tronco de sándalo!"
+    },
+    {
+      "index": 17,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Templo del Cielo",
+      "subtext": "天坛",
+      "funFact": "¡Donde los emperadores rezaban por buenas cosechas! El Muro del Eco puede llevar susurros a 65 metros!"
+    },
+    {
+      "index": 19,
+      "name": "Palacio de Verano",
+      "subtext": "颐和园",
+      "funFact": "¡Patrimonio de la UNESCO que abarca 290 hectáreas, 75% agua! El barco de mármol de la Emperatriz Cixi aún permanece en pie!"
+    },
+    {
+      "index": 20,
+      "name": "GIRA Y GANA",
+      "subtext": "幸运转盘",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Torre del Tambor",
+      "subtext": "鼓楼",
+      "funFact": "¡Construida en 1272, los tamborileros marcaban la hora para toda la ciudad!"
+    },
+    {
+      "index": 22,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Torre de la Campana",
+      "subtext": "钟楼",
+      "funFact": "¡Alberga una enorme campana de bronce de 63 toneladas de la Dinastía Ming!"
+    },
+    {
+      "index": 24,
+      "name": "Tiananmen",
+      "subtext": "天安门",
+      "funFact": "¡La plaza pública más grande del mundo, con capacidad para hasta 1 millón de personas!"
+    },
+    {
+      "index": 25,
+      "name": "Línea 4",
+      "subtext": "地铁4号线",
+      "funFact": "¡Conecta el Palacio de Verano con el sur, transportando 1 millón de pasajeros diarios!"
+    },
+    {
+      "index": 26,
+      "name": "Chaoyang",
+      "subtext": "朝阳区",
+      "funFact": "¡El distrito más internacional de Pekín, sede de las instalaciones olímpicas!"
+    },
+    {
+      "index": 27,
+      "name": "Parque Olímpico",
+      "subtext": "奥林匹克公园",
+      "funFact": "¡Hogar del estadio Nido de Pájaro y el Cubo de Agua de los Juegos Olímpicos de 2008!"
+    },
+    {
+      "index": 28,
+      "name": "Agua de Pekín",
+      "subtext": null,
+      "funFact": "¡El Proyecto de Transferencia de Agua Sur-Norte trae agua desde 1.400 km de distancia!"
+    },
+    {
+      "index": 29,
+      "name": "Zhongguancun",
+      "subtext": "中关村",
+      "funFact": "¡El Silicon Valley de China, hogar de gigantes tecnológicos como Baidu y Lenovo!"
+    },
+    {
+      "index": 30,
+      "name": "VE A LA CÁRCEL",
+      "subtext": "去监狱",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Calle de la Seda",
+      "subtext": "秀水街",
+      "funFact": "¡Famoso mercado comercial que sigue la antigua tradición de la Ruta de la Seda!"
+    },
+    {
+      "index": 32,
+      "name": "Panjiayuan",
+      "subtext": "潘家园",
+      "funFact": "¡El mercado de antigüedades más grande de Asia con más de 3.000 vendedores!"
+    },
+    {
+      "index": 33,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Museo Nacional",
+      "subtext": "国家博物馆",
+      "funFact": "¡El museo más visitado del mundo con 7,4 millones de visitantes al año!"
+    },
+    {
+      "index": 35,
+      "name": "Línea 10",
+      "subtext": "地铁10号线",
+      "funFact": "¡Forma un gran circuito conectando todos los distritos principales de Pekín!"
+    },
+    {
+      "index": 36,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Torre CCTV",
+      "subtext": "央视大楼",
+      "funFact": "¡Con 405 metros de altura y un revolucionario diseño en forma de \"bucle\"!"
+    },
+    {
+      "index": 38,
+      "name": "Impuesto de Lujo",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Ciudad Prohibida",
+      "subtext": "故宫",
+      "funFact": "¡El complejo palaciego más grande del mundo con 9.999 habitaciones, hogar de 24 emperadores!"
+    }
+  ]
+}

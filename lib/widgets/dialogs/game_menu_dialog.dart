@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../l10n/app_localizations.dart';
 
 /// In-game menu dialog with fun colorful styling
 class GameMenuDialog extends StatelessWidget {
@@ -35,12 +36,13 @@ class GameMenuDialog extends StatelessWidget {
             BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 15, offset: const Offset(0, 8)),
           ],
         ),
-        child: Column(mainAxisSize: MainAxisSize.min, children: [_buildHeader(), _buildMenuItems(context)]),
+        child: Column(mainAxisSize: MainAxisSize.min, children: [_buildHeader(context), _buildMenuItems(context)]),
       ),
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
@@ -58,9 +60,9 @@ class GameMenuDialog extends StatelessWidget {
             child: const Icon(Icons.sports_esports_rounded, color: Colors.white, size: 32),
           ),
           const SizedBox(height: 12),
-          const Text(
-            'Game Menu',
-            style: TextStyle(
+          Text(
+            l10n.gameMenu,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 24,
               fontWeight: FontWeight.bold,
@@ -73,13 +75,14 @@ class GameMenuDialog extends StatelessWidget {
   }
 
   Widget _buildMenuItems(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
           _buildMenuItem(
             icon: Icons.play_arrow_rounded,
-            label: 'Back to Game',
+            label: l10n.backToGame,
             gradient: const [Color(0xFF4ECDC4), Color(0xFF44A08D)],
             onTap: () {
               Navigator.of(context).pop();
@@ -89,7 +92,7 @@ class GameMenuDialog extends StatelessWidget {
           if (onSave != null) ...[
             _buildMenuItem(
               icon: Icons.save_rounded,
-              label: 'Save Game',
+              label: l10n.saveGame,
               gradient: const [Color(0xFF56CCF2), Color(0xFF2F80ED)],
               onTap: () {
                 Navigator.of(context).pop();
@@ -101,14 +104,14 @@ class GameMenuDialog extends StatelessWidget {
           if (onLoad != null) ...[
             _buildMenuItem(
               icon: Icons.folder_open_rounded,
-              label: 'Load Game',
+              label: l10n.loadGame,
               gradient: const [Color(0xFFB06AB3), Color(0xFF4568DC)],
               onTap: () {
                 Navigator.of(context).pop();
                 _showConfirmDialog(
                   context,
-                  'Load Saved Game?',
-                  'Current game progress will be lost.',
+                  l10n.loadSavedGame,
+                  l10n.currentProgressLost,
                   onLoad!,
                 );
               },
@@ -118,7 +121,7 @@ class GameMenuDialog extends StatelessWidget {
           if (onRules != null) ...[
             _buildMenuItem(
               icon: Icons.help_outline_rounded,
-              label: 'How to Play',
+              label: l10n.howToPlay,
               gradient: const [Color(0xFF667eea), Color(0xFF5567d5)],
               onTap: () {
                 Navigator.of(context).pop();
@@ -129,17 +132,17 @@ class GameMenuDialog extends StatelessWidget {
           ],
           _buildMenuItem(
             icon: Icons.refresh_rounded,
-            label: 'Restart Game',
+            label: l10n.restartGame,
             gradient: const [Color(0xFFFFE66D), Color(0xFFFFB347)],
             onTap: () {
               Navigator.of(context).pop();
-              _showConfirmDialog(context, 'Restart Game?', 'All progress will be lost.', onRestart);
+              _showConfirmDialog(context, '${l10n.restartGame}?', l10n.allProgressLost, onRestart);
             },
           ),
           const SizedBox(height: 12),
           _buildMenuItem(
             icon: Icons.coffee_rounded,
-            label: 'Buy me a coffee',
+            label: l10n.buyMeACoffee,
             gradient: const [Color(0xFFFFA07A), Color(0xFFFF8C69)],
             onTap: () {
               Navigator.of(context).pop();
@@ -149,11 +152,11 @@ class GameMenuDialog extends StatelessWidget {
           const SizedBox(height: 12),
           _buildMenuItem(
             icon: Icons.exit_to_app_rounded,
-            label: 'Quit to Menu',
+            label: l10n.quitToMenu,
             gradient: const [Color(0xFFFF6B6B), Color(0xFFEE5A5A)],
             onTap: () {
               Navigator.of(context).pop();
-              _showConfirmDialog(context, 'Quit Game?', 'All progress will be lost.', onQuit);
+              _showConfirmDialog(context, l10n.quitGame, l10n.allProgressLost, onQuit);
             },
           ),
         ],
@@ -209,159 +212,165 @@ class GameMenuDialog extends StatelessWidget {
   void _showExternalLinkDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => Dialog(
-        backgroundColor: Colors.transparent,
-        child: Container(
-          constraints: const BoxConstraints(maxWidth: 320),
-          padding: const EdgeInsets.all(24),
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFF667eea), Color(0xFF764ba2)]),
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: Colors.white.withOpacity(0.2)),
-            boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 20)],
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                width: 56,
-                height: 56,
-                decoration: BoxDecoration(color: const Color(0xFFFFDD00).withOpacity(0.2), shape: BoxShape.circle),
-                child: const Center(child: Text('☕', style: TextStyle(fontSize: 28))),
-              ),
-              const SizedBox(height: 16),
-              const Text(
-                'Open External Link',
-                style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'This will open buymeacoffee.com in your browser.',
-                style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 15),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 24),
-              Row(
-                children: [
-                  Expanded(
-                    child: TextButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      style: TextButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          side: BorderSide(color: Colors.white.withOpacity(0.3)),
+      builder: (dialogContext) {
+        final l10n = AppLocalizations.of(dialogContext)!;
+        return Dialog(
+          backgroundColor: Colors.transparent,
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 320),
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFF667eea), Color(0xFF764ba2)]),
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: Colors.white.withOpacity(0.2)),
+              boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 20)],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 56,
+                  height: 56,
+                  decoration: BoxDecoration(color: const Color(0xFFFFDD00).withOpacity(0.2), shape: BoxShape.circle),
+                  child: const Center(child: Text('☕', style: TextStyle(fontSize: 28))),
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  l10n.openExternalLink,
+                  style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  l10n.openBuyMeACoffeeDesc,
+                  style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 15),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 24),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextButton(
+                        onPressed: () => Navigator.of(dialogContext).pop(),
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            side: BorderSide(color: Colors.white.withOpacity(0.3)),
+                          ),
+                        ),
+                        child: Text(
+                          l10n.cancel,
+                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
                         ),
                       ),
-                      child: const Text(
-                        'Cancel',
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          Navigator.of(dialogContext).pop();
+                          final uri = Uri.parse('https://buymeacoffee.com/hao_yu');
+                          await launchUrl(uri, mode: LaunchMode.externalApplication);
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFFFFDD00),
+                          foregroundColor: Colors.black87,
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                          elevation: 0,
+                        ),
+                        child: Text(l10n.open, style: const TextStyle(fontWeight: FontWeight.w600)),
                       ),
                     ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () async {
-                        Navigator.of(context).pop();
-                        final uri = Uri.parse('https://buymeacoffee.com/hao_yu');
-                        await launchUrl(uri, mode: LaunchMode.externalApplication);
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFFFDD00),
-                        foregroundColor: Colors.black87,
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                        elevation: 0,
-                      ),
-                      child: const Text('Open', style: TextStyle(fontWeight: FontWeight.w600)),
-                    ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 
   void _showConfirmDialog(BuildContext context, String title, String message, VoidCallback onConfirm) {
     showDialog(
       context: context,
-      builder: (context) => Dialog(
-        backgroundColor: Colors.transparent,
-        child: Container(
-          constraints: const BoxConstraints(maxWidth: 320),
-          padding: const EdgeInsets.all(24),
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFF667eea), Color(0xFF764ba2)]),
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: Colors.white.withOpacity(0.2)),
-            boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 20)],
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                width: 56,
-                height: 56,
-                decoration: BoxDecoration(color: const Color(0xFFFF6B6B).withOpacity(0.2), shape: BoxShape.circle),
-                child: const Icon(Icons.warning_amber_rounded, color: Color(0xFFFF6B6B), size: 32),
-              ),
-              const SizedBox(height: 16),
-              Text(
-                title,
-                style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                message,
-                style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 15),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 24),
-              Row(
-                children: [
-                  Expanded(
-                    child: TextButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      style: TextButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          side: BorderSide(color: Colors.white.withOpacity(0.3)),
+      builder: (dialogContext) {
+        final l10n = AppLocalizations.of(dialogContext)!;
+        return Dialog(
+          backgroundColor: Colors.transparent,
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 320),
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFF667eea), Color(0xFF764ba2)]),
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: Colors.white.withOpacity(0.2)),
+              boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 20)],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 56,
+                  height: 56,
+                  decoration: BoxDecoration(color: const Color(0xFFFF6B6B).withOpacity(0.2), shape: BoxShape.circle),
+                  child: const Icon(Icons.warning_amber_rounded, color: Color(0xFFFF6B6B), size: 32),
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  title,
+                  style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  message,
+                  style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 15),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 24),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextButton(
+                        onPressed: () => Navigator.of(dialogContext).pop(),
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            side: BorderSide(color: Colors.white.withOpacity(0.3)),
+                          ),
+                        ),
+                        child: Text(
+                          l10n.cancel,
+                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
                         ),
                       ),
-                      child: const Text(
-                        'Cancel',
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(dialogContext).pop();
+                          onConfirm();
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFFFF6B6B),
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                          elevation: 0,
+                        ),
+                        child: Text(l10n.confirm, style: const TextStyle(fontWeight: FontWeight.w600)),
                       ),
                     ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                        onConfirm();
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFFF6B6B),
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                        elevation: 0,
-                      ),
-                      child: const Text('Confirm', style: TextStyle(fontWeight: FontWeight.w600)),
-                    ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

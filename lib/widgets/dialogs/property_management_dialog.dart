@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../models/tile.dart';
 import '../../models/player.dart';
 import '../../config/theme.dart';
+import '../../l10n/app_localizations.dart';
 import 'animated_dialog.dart';
 
 /// Dialog for managing properties (mortgage/unmortgage)
@@ -82,12 +83,12 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
         children: [
           const Icon(Icons.account_balance, color: Colors.white, size: 32),
           const SizedBox(height: 8),
-          const Text(
-            'Property Management',
+          Text(
+            AppLocalizations.of(context)!.propertyManagement,
             style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 4),
-          Text('Cash: \$${widget.player.cash}', style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 14)),
+          Text('${AppLocalizations.of(context)!.cashLabel} \$${widget.player.cash}', style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 14)),
         ],
       ),
     );
@@ -106,7 +107,7 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 decoration: BoxDecoration(color: _selectedTab == 0 ? AppTheme.warning : Colors.transparent, borderRadius: BorderRadius.circular(12)),
                 child: Text(
-                  'Mortgage (${_mortgageableProperties.length})',
+                  AppLocalizations.of(context)!.mortgageCount(_mortgageableProperties.length),
                   textAlign: TextAlign.center,
                   style: TextStyle(color: _selectedTab == 0 ? Colors.black : Colors.white70, fontWeight: FontWeight.bold),
                 ),
@@ -120,7 +121,7 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 decoration: BoxDecoration(color: _selectedTab == 1 ? AppTheme.cashGreen : Colors.transparent, borderRadius: BorderRadius.circular(12)),
                 child: Text(
-                  'Unmortgage (${_mortgagedProperties.length})',
+                  AppLocalizations.of(context)!.unmortgageCount(_mortgagedProperties.length),
                   textAlign: TextAlign.center,
                   style: TextStyle(color: _selectedTab == 1 ? Colors.black : Colors.white70, fontWeight: FontWeight.bold),
                 ),
@@ -140,7 +141,7 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
         child: Padding(
           padding: const EdgeInsets.all(32),
           child: Text(
-            _selectedTab == 0 ? 'No properties available to mortgage.\nProperties with houses must sell houses first.' : 'No mortgaged properties.',
+            _selectedTab == 0 ? AppLocalizations.of(context)!.noMortgageableProperties : AppLocalizations.of(context)!.noMortgagedProperties,
             textAlign: TextAlign.center,
             style: const TextStyle(color: Colors.white54),
           ),
@@ -204,7 +205,7 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
           name,
           style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14),
         ),
-        subtitle: Text(_selectedTab == 0 ? 'Receive: \$$value' : 'Cost: \$$value', style: TextStyle(color: _selectedTab == 0 ? AppTheme.cashGreen : AppTheme.warning, fontSize: 12)),
+        subtitle: Text(_selectedTab == 0 ? AppLocalizations.of(context)!.receiveAmount(value) : AppLocalizations.of(context)!.costAmount(value), style: TextStyle(color: _selectedTab == 0 ? AppTheme.cashGreen : AppTheme.warning, fontSize: 12)),
         trailing: ElevatedButton(
           onPressed: canAfford
               ? () {
@@ -223,7 +224,7 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           ),
-          child: Text(_selectedTab == 0 ? 'Mortgage' : 'Pay', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+          child: Text(_selectedTab == 0 ? AppLocalizations.of(context)!.mortgage : AppLocalizations.of(context)!.pay, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
         ),
       ),
     );
@@ -242,7 +243,7 @@ class _PropertyManagementDialogState extends State<PropertyManagementDialog> {
             padding: const EdgeInsets.symmetric(vertical: 14),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
-          child: const Text('Close', style: TextStyle(fontSize: 16)),
+          child: Text(AppLocalizations.of(context)!.close, style: const TextStyle(fontSize: 16)),
         ),
       ),
     );

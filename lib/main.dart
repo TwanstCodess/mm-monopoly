@@ -5,6 +5,7 @@ import 'services/audio_service.dart';
 import 'services/unlock_service.dart';
 import 'services/save_service.dart';
 import 'services/notification_service.dart';
+import 'services/locale_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +19,7 @@ void main() async {
   await UnlockService().init();
   await SaveService.instance.init();
   await NotificationService.instance.init();
+  await LocaleService.instance.init();
 
   runApp(const MonopolyApp());
 }
