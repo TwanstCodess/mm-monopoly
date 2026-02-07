@@ -7,18 +7,10 @@ import 'spin_prize.dart';
 import 'serialization/serialization_helpers.dart';
 
 /// Game mode
-enum GameMode {
-  passAndPlay,
-  vsAI,
-}
+enum GameMode { passAndPlay, vsAI }
 
 /// Overall game status
-enum GameStatus {
-  setup,
-  inProgress,
-  paused,
-  finished,
-}
+enum GameStatus { setup, inProgress, paused, finished }
 
 /// Win condition types
 enum WinCondition {
@@ -151,13 +143,13 @@ class GameState {
     this.totalDiceSum = 0,
     this.doublesRolledTotal = 0,
     this.diceCount = 2,
-  })  : boardTheme = boardTheme ?? BoardThemes.classic,
-        playerPowerUps = playerPowerUps ?? {},
-        activePowerUps = activePowerUps ?? [],
-        activeEvents = activeEvents ?? [],
-        playerSpinPrizes = playerSpinPrizes ?? {},
-        playerShields = playerShields ?? {},
-        playerDoubleRent = playerDoubleRent ?? {};
+  }) : boardTheme = boardTheme ?? BoardThemes.classic,
+       playerPowerUps = playerPowerUps ?? {},
+       activePowerUps = activePowerUps ?? [],
+       activeEvents = activeEvents ?? [],
+       playerSpinPrizes = playerSpinPrizes ?? {},
+       playerShields = playerShields ?? {},
+       playerDoubleRent = playerDoubleRent ?? {};
 
   /// Get current player
   Player get currentPlayer => players[currentPlayerIndex];
@@ -200,8 +192,11 @@ class GameState {
       case WinCondition.turnLimit:
         if (roundNumber > maxRounds) {
           // Find player with highest net worth
-          final sorted = List<Player>.from(activePlayers)
-            ..sort((a, b) => b.calculateNetWorth(tiles).compareTo(a.calculateNetWorth(tiles)));
+          final sorted = List<Player>.from(activePlayers)..sort(
+            (a, b) => b
+                .calculateNetWorth(tiles)
+                .compareTo(a.calculateNetWorth(tiles)),
+          );
           if (sorted.isNotEmpty) {
             return sorted.first.id;
           }
@@ -343,8 +338,16 @@ class GameState {
   /// Check if player has double rent active
   bool hasDoubleRent(String playerId) => playerDoubleRent[playerId] ?? false;
 
+  /// Check if player has a specific active power-up effect
+  bool hasActivePowerUp(String playerId, PowerUpType type) {
+    return activePowerUps.any(
+      (p) => p.playerId == playerId && p.card.type == type && !p.isExpired,
+    );
+  }
+
   /// Get power-up cards for a player
-  List<PowerUpCard> getPowerUps(String playerId) => playerPowerUps[playerId] ?? [];
+  List<PowerUpCard> getPowerUps(String playerId) =>
+      playerPowerUps[playerId] ?? [];
 
   /// Add a power-up card to a player
   void addPowerUp(String playerId, PowerUpCard card) {
@@ -378,6 +381,15 @@ class GameState {
     int bonus = 200;
     if (hasActiveEvent(EventEffectType.goldRush)) {
       bonus = 300;
+    }
+    return bonus;
+  }
+
+  /// Get GO bonus for a specific player including active power-up modifiers
+  int getGoBonusForPlayer(String playerId) {
+    int bonus = getGoBonus();
+    if (hasActivePowerUp(playerId, PowerUpType.moneyMagnet)) {
+      bonus += 100;
     }
     return bonus;
   }
@@ -459,19 +471,30 @@ class GameState {
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
       mode: enumFromJson(json['mode'] as String, GameMode.values),
-      winCondition: enumFromJson(json['winCondition'] as String, WinCondition.values),
+      winCondition: enumFromJson(
+        json['winCondition'] as String,
+        WinCondition.values,
+      ),
       targetWealth: json['targetWealth'] as int,
       maxRounds: json['maxRounds'] as int,
-      players: (json['players'] as List)
-          .map((p) => Player.fromJson(p as Map<String, dynamic>))
-          .toList(),
-      tiles: (json['tiles'] as List)
-          .map((t) => TileData.fromJson(t as Map<String, dynamic>))
-          .toList(),
+      players:
+          (json['players'] as List)
+              .map((p) => Player.fromJson(p as Map<String, dynamic>))
+              .toList(),
+      tiles:
+          (json['tiles'] as List)
+              .map((t) => TileData.fromJson(t as Map<String, dynamic>))
+              .toList(),
       currentPlayerIndex: json['currentPlayerIndex'] as int,
       roundNumber: json['roundNumber'] as int,
-      logicPhase: enumFromJson(json['logicPhase'] as String, TurnLogicPhase.values),
-      animationState: enumFromJson(json['animationState'] as String, TurnAnimationState.values),
+      logicPhase: enumFromJson(
+        json['logicPhase'] as String,
+        TurnLogicPhase.values,
+      ),
+      animationState: enumFromJson(
+        json['animationState'] as String,
+        TurnAnimationState.values,
+      ),
       lastDiceRoll: json['lastDiceRoll'] as int,
       die1Value: json['die1Value'] as int,
       die2Value: json['die2Value'] as int,
@@ -479,23 +502,31 @@ class GameState {
       status: enumFromJson(json['status'] as String, GameStatus.values),
       winnerId: json['winnerId'] as String?,
       highlightedTileIndex: json['highlightedTileIndex'] as int?,
-      boardTheme: BoardTheme.fromJson(json['boardTheme'] as Map<String, dynamic>),
+      boardTheme: BoardTheme.fromJson(
+        json['boardTheme'] as Map<String, dynamic>,
+      ),
       playerPowerUps: (json['playerPowerUps'] as Map<String, dynamic>).map(
         (key, value) => MapEntry(
           key,
-          (value as List).map((c) => PowerUpCard.fromJson(c as Map<String, dynamic>)).toList(),
+          (value as List)
+              .map((c) => PowerUpCard.fromJson(c as Map<String, dynamic>))
+              .toList(),
         ),
       ),
-      activePowerUps: (json['activePowerUps'] as List)
-          .map((a) => ActivePowerUp.fromJson(a as Map<String, dynamic>))
-          .toList(),
-      activeEvents: (json['activeEvents'] as List)
-          .map((e) => ActiveEvent.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      activePowerUps:
+          (json['activePowerUps'] as List)
+              .map((a) => ActivePowerUp.fromJson(a as Map<String, dynamic>))
+              .toList(),
+      activeEvents:
+          (json['activeEvents'] as List)
+              .map((e) => ActiveEvent.fromJson(e as Map<String, dynamic>))
+              .toList(),
       playerSpinPrizes: (json['playerSpinPrizes'] as Map<String, dynamic>).map(
         (key, value) => MapEntry(
           key,
-          (value as List).map((s) => SpinPrize.fromJson(s as Map<String, dynamic>)).toList(),
+          (value as List)
+              .map((s) => SpinPrize.fromJson(s as Map<String, dynamic>))
+              .toList(),
         ),
       ),
       turnsSinceLastEvent: json['turnsSinceLastEvent'] as int,

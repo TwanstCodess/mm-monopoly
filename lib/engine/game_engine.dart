@@ -72,7 +72,10 @@ class GameEngine {
       case TileType.communityChest:
         return TileResolutionResult(
           actionType: TileActionType.drawCard,
-          message: tile.type == TileType.chance ? 'Draw a Chance card!' : 'Draw a Community Chest card!',
+          message:
+              tile.type == TileType.chance
+                  ? 'Draw a Chance card!'
+                  : 'Draw a Community Chest card!',
           tile: tile,
         );
 
@@ -98,13 +101,20 @@ class GameEngine {
     }
   }
 
-  TileResolutionResult _resolveProperty(Player player, PropertyTileData property) {
+  TileResolutionResult _resolveProperty(
+    Player player,
+    PropertyTileData property,
+  ) {
     if (property.ownerId == null) {
       // Unowned - can buy
+      final price = getPurchasePrice(player, property);
       return TileResolutionResult(
         actionType: TileActionType.buyProperty,
-        message: 'Would you like to buy ${property.name}?',
-        amount: property.price,
+        message:
+            price < property.price
+                ? 'Sale! Buy ${property.name} for \$$price (was \$${property.price})?'
+                : 'Would you like to buy ${property.name}?',
+        amount: price,
         tile: property,
       );
     } else if (property.ownerId == player.id) {
@@ -139,6 +149,11 @@ class GameEngine {
         rent *= 2;
       }
 
+      // Apply payer's rent reducer power-up
+      if (state.hasActivePowerUp(player.id, PowerUpType.rentReducer)) {
+        rent = (rent * 0.5).round();
+      }
+
       return TileResolutionResult(
         actionType: TileActionType.payRent,
         message: 'Pay \$$rent rent to ${_getPlayerName(property.ownerId!)}',
@@ -149,12 +164,19 @@ class GameEngine {
     }
   }
 
-  TileResolutionResult _resolveRailroad(Player player, RailroadTileData railroad) {
+  TileResolutionResult _resolveRailroad(
+    Player player,
+    RailroadTileData railroad,
+  ) {
     if (railroad.ownerId == null) {
+      final price = getPurchasePrice(player, railroad);
       return TileResolutionResult(
         actionType: TileActionType.buyProperty,
-        message: 'Would you like to buy ${railroad.name}?',
-        amount: railroad.price,
+        message:
+            price < railroad.price
+                ? 'Sale! Buy ${railroad.name} for \$$price (was \$${railroad.price})?'
+                : 'Would you like to buy ${railroad.name}?',
+        amount: price,
         tile: railroad,
       );
     } else if (railroad.ownerId == player.id) {
@@ -180,6 +202,11 @@ class GameEngine {
         rent *= 2;
       }
 
+      // Apply payer's rent reducer power-up
+      if (state.hasActivePowerUp(player.id, PowerUpType.rentReducer)) {
+        rent = (rent * 0.5).round();
+      }
+
       return TileResolutionResult(
         actionType: TileActionType.payRent,
         message: 'Pay \$$rent to ${_getPlayerName(railroad.ownerId!)}',
@@ -192,10 +219,14 @@ class GameEngine {
 
   TileResolutionResult _resolveUtility(Player player, UtilityTileData utility) {
     if (utility.ownerId == null) {
+      final price = getPurchasePrice(player, utility);
       return TileResolutionResult(
         actionType: TileActionType.buyProperty,
-        message: 'Would you like to buy ${utility.name}?',
-        amount: utility.price,
+        message:
+            price < utility.price
+                ? 'Sale! Buy ${utility.name} for \$$price (was \$${utility.price})?'
+                : 'Would you like to buy ${utility.name}?',
+        amount: price,
         tile: utility,
       );
     } else if (utility.ownerId == player.id) {
@@ -219,6 +250,11 @@ class GameEngine {
       // Apply owner's double rent power-up
       if (state.hasDoubleRent(utility.ownerId!)) {
         rent *= 2;
+      }
+
+      // Apply payer's rent reducer power-up
+      if (state.hasActivePowerUp(player.id, PowerUpType.rentReducer)) {
+        rent = (rent * 0.5).round();
       }
 
       return TileResolutionResult(
@@ -249,11 +285,9 @@ class GameEngine {
 
   /// Buy a property for the current player
   bool buyProperty(Player player, TileData tile) {
-    int price = 0;
-
     if (tile is PropertyTileData) {
       if (tile.ownerId != null) return false;
-      price = tile.price;
+      final price = getPurchasePrice(player, tile);
       if (player.cash < price) return false;
 
       player.cash -= price;
@@ -262,7 +296,7 @@ class GameEngine {
       return true;
     } else if (tile is RailroadTileData) {
       if (tile.ownerId != null) return false;
-      price = tile.price;
+      final price = getPurchasePrice(player, tile);
       if (player.cash < price) return false;
 
       player.cash -= price;
@@ -271,7 +305,7 @@ class GameEngine {
       return true;
     } else if (tile is UtilityTileData) {
       if (tile.ownerId != null) return false;
-      price = tile.price;
+      final price = getPurchasePrice(player, tile);
       if (player.cash < price) return false;
 
       player.cash -= price;
@@ -422,11 +456,17 @@ class GameEngine {
   List<TileData> getMortgageableProperties(Player player) {
     final result = <TileData>[];
     for (final tile in state.tiles) {
-      if (tile is PropertyTileData && tile.ownerId == player.id && tile.canMortgage) {
+      if (tile is PropertyTileData &&
+          tile.ownerId == player.id &&
+          tile.canMortgage) {
         result.add(tile);
-      } else if (tile is RailroadTileData && tile.ownerId == player.id && tile.canMortgage) {
+      } else if (tile is RailroadTileData &&
+          tile.ownerId == player.id &&
+          tile.canMortgage) {
         result.add(tile);
-      } else if (tile is UtilityTileData && tile.ownerId == player.id && tile.canMortgage) {
+      } else if (tile is UtilityTileData &&
+          tile.ownerId == player.id &&
+          tile.canMortgage) {
         result.add(tile);
       }
     }
@@ -437,11 +477,17 @@ class GameEngine {
   List<TileData> getMortgagedProperties(Player player) {
     final result = <TileData>[];
     for (final tile in state.tiles) {
-      if (tile is PropertyTileData && tile.ownerId == player.id && tile.isMortgaged) {
+      if (tile is PropertyTileData &&
+          tile.ownerId == player.id &&
+          tile.isMortgaged) {
         result.add(tile);
-      } else if (tile is RailroadTileData && tile.ownerId == player.id && tile.isMortgaged) {
+      } else if (tile is RailroadTileData &&
+          tile.ownerId == player.id &&
+          tile.isMortgaged) {
         result.add(tile);
-      } else if (tile is UtilityTileData && tile.ownerId == player.id && tile.isMortgaged) {
+      } else if (tile is UtilityTileData &&
+          tile.ownerId == player.id &&
+          tile.isMortgaged) {
         result.add(tile);
       }
     }
@@ -450,7 +496,7 @@ class GameEngine {
 
   /// Process passing GO (collect $200)
   void processPassGo(Player player) {
-    player.cash += GameConstants.passGoBonus;
+    player.cash += state.getGoBonusForPlayer(player.id);
   }
 
   /// Check if player passed GO during movement
@@ -484,6 +530,18 @@ class GameEngine {
     return player.calculateNetWorth(state.tiles);
   }
 
+  /// Get adjusted purchase price for a property-like tile based on active modifiers
+  int getPurchasePrice(Player player, TileData tile) {
+    final basePrice = _getBaseTilePrice(tile);
+    if (basePrice == null) return 0;
+
+    double modifier = state.getPropertyPriceModifier();
+    if (state.hasActivePowerUp(player.id, PowerUpType.priceFreeze)) {
+      modifier *= 0.75;
+    }
+    return (basePrice * modifier).round();
+  }
+
   void _transferProperties(Player from, Player to) {
     for (final tile in state.tiles) {
       if (tile is PropertyTileData && tile.ownerId == from.id) {
@@ -513,6 +571,13 @@ class GameEngine {
     player.propertyIds.clear();
   }
 
+  int? _getBaseTilePrice(TileData tile) {
+    if (tile is PropertyTileData) return tile.price;
+    if (tile is RailroadTileData) return tile.price;
+    if (tile is UtilityTileData) return tile.price;
+    return null;
+  }
+
   /// Get property info for display
   PropertyInfo? getPropertyInfo(int tileIndex) {
     final tile = state.tiles[tileIndex];
@@ -527,7 +592,8 @@ class GameEngine {
         ownerName: tile.ownerId != null ? _getPlayerName(tile.ownerId!) : null,
       );
     } else if (tile is RailroadTileData) {
-      final ownedCount = tile.ownerId != null ? _countOwnedRailroads(tile.ownerId!) : 0;
+      final ownedCount =
+          tile.ownerId != null ? _countOwnedRailroads(tile.ownerId!) : 0;
       return PropertyInfo(
         name: tile.name,
         price: tile.price,
@@ -632,7 +698,9 @@ void applyEventEffect(EventCard event, GameState state) {
     case EventEffectType.birthdayParty:
       // Current player collects from others
       final currentPlayer = state.currentPlayer;
-      final otherPlayers = state.activePlayers.where((p) => p.id != currentPlayer.id);
+      final otherPlayers = state.activePlayers.where(
+        (p) => p.id != currentPlayer.id,
+      );
       for (final player in otherPlayers) {
         final amount = event.value ?? 25;
         if (player.cash >= amount) {
@@ -654,15 +722,17 @@ void applyEventEffect(EventCard event, GameState state) {
 
     case EventEffectType.meteorShower:
       // Random player loses cash
-      final randomPlayer = state.activePlayers[
-          DateTime.now().millisecondsSinceEpoch % state.activePlayers.length];
+      final randomPlayer =
+          state.activePlayers[DateTime.now().millisecondsSinceEpoch %
+              state.activePlayers.length];
       randomPlayer.cash -= (event.value ?? 100).clamp(0, randomPlayer.cash);
       break;
 
     case EventEffectType.bankError:
       // Random player gets cash
-      final luckyPlayer = state.activePlayers[
-          DateTime.now().millisecond % state.activePlayers.length];
+      final luckyPlayer =
+          state.activePlayers[DateTime.now().millisecond %
+              state.activePlayers.length];
       luckyPlayer.cash += event.value ?? 200;
       break;
 
@@ -682,12 +752,14 @@ void applyEventEffect(EventCard event, GameState state) {
     case EventEffectType.housingBoom:
       // Free upgrade on a random owned property
       for (final player in state.activePlayers) {
-        final ownedProps = state.tiles
-            .whereType<PropertyTileData>()
-            .where((t) => t.ownerId == player.id && t.canUpgrade)
-            .toList();
+        final ownedProps =
+            state.tiles
+                .whereType<PropertyTileData>()
+                .where((t) => t.ownerId == player.id && t.canUpgrade)
+                .toList();
         if (ownedProps.isNotEmpty) {
-          final prop = ownedProps[DateTime.now().millisecond % ownedProps.length];
+          final prop =
+              ownedProps[DateTime.now().millisecond % ownedProps.length];
           prop.upgradeLevel++;
         }
       }
@@ -702,10 +774,9 @@ void applyEventEffect(EventCard event, GameState state) {
     case EventEffectType.marketCrash:
       // These are handled through state.hasActiveEvent() checks
       if (event.duration != null) {
-        state.activeEvents.add(ActiveEvent(
-          event: event,
-          remainingRounds: event.duration!,
-        ));
+        state.activeEvents.add(
+          ActiveEvent(event: event, remainingRounds: event.duration!),
+        );
       }
       break;
   }
@@ -715,11 +786,9 @@ void applyEventEffect(EventCard event, GameState state) {
 void applyPowerUpCard(Player player, PowerUpCard card, GameState state) {
   switch (card.type) {
     case PowerUpType.rentReducer:
-      state.activePowerUps.add(ActivePowerUp(
-        card: card,
-        playerId: player.id,
-        remainingTurns: 1,
-      ));
+      state.activePowerUps.add(
+        ActivePowerUp(card: card, playerId: player.id, remainingTurns: 1),
+      );
       break;
 
     case PowerUpType.speedBoost:
@@ -742,11 +811,9 @@ void applyPowerUpCard(Player player, PowerUpCard card, GameState state) {
       break;
 
     case PowerUpType.priceFreeze:
-      state.activePowerUps.add(ActivePowerUp(
-        card: card,
-        playerId: player.id,
-        remainingTurns: 1,
-      ));
+      state.activePowerUps.add(
+        ActivePowerUp(card: card, playerId: player.id, remainingTurns: 1),
+      );
       break;
 
     case PowerUpType.teleporter:
@@ -758,15 +825,19 @@ void applyPowerUpCard(Player player, PowerUpCard card, GameState state) {
       break;
 
     case PowerUpType.doubleDice:
-      // UI handles dice roll with advantage
+      state.activePowerUps.add(
+        ActivePowerUp(card: card, playerId: player.id, remainingTurns: 1),
+      );
       break;
 
     case PowerUpType.moneyMagnet:
-      state.activePowerUps.add(ActivePowerUp(
-        card: card,
-        playerId: player.id,
-        remainingTurns: card.duration ?? 3,
-      ));
+      state.activePowerUps.add(
+        ActivePowerUp(
+          card: card,
+          playerId: player.id,
+          remainingTurns: card.duration ?? 3,
+        ),
+      );
       break;
 
     case PowerUpType.monopolyMaster:
@@ -786,7 +857,11 @@ void applyPowerUpCard(Player player, PowerUpCard card, GameState state) {
 }
 
 /// Award a power-up card to a player (chance/community chest mini-game win)
-void awardPowerUpCard(Player player, GameState state, {bool guaranteeRare = false}) {
+void awardPowerUpCard(
+  Player player,
+  GameState state, {
+  bool guaranteeRare = false,
+}) {
   final card = PowerUpCards.getRandomCard(guaranteeRare: guaranteeRare);
   state.addPowerUp(player.id, card);
 }

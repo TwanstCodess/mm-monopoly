@@ -53,13 +53,24 @@ class GameBoardScreen extends StatefulWidget {
   final bool auctionEnabled;
   final BoardTheme? boardTheme;
 
-  const GameBoardScreen({super.key, required this.gameState, required this.onQuit, required this.onRestart, this.onHowToPlay, this.tradingEnabled = false, this.bankEnabled = false, this.auctionEnabled = false, this.boardTheme});
+  const GameBoardScreen({
+    super.key,
+    required this.gameState,
+    required this.onQuit,
+    required this.onRestart,
+    this.onHowToPlay,
+    this.tradingEnabled = false,
+    this.bankEnabled = false,
+    this.auctionEnabled = false,
+    this.boardTheme,
+  });
 
   @override
   State<GameBoardScreen> createState() => _GameBoardScreenState();
 }
 
-class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderStateMixin {
+class _GameBoardScreenState extends State<GameBoardScreen>
+    with TickerProviderStateMixin {
   late GameState gameState;
   late GameEngine engine;
   late AnimationController _diceController;
@@ -97,9 +108,13 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       if (player.isAI) {
         // Create AI engine with random personality for variety
         final personalities = AIPersonality.values;
-        final personality = personalities[_random.nextInt(personalities.length)];
+        final personality =
+            personalities[_random.nextInt(personalities.length)];
         _aiEngines[player.id] = AIDecisionEngine(
-          config: AIConfig(difficulty: AIDifficulty.medium, personality: personality),
+          config: AIConfig(
+            difficulty: AIDifficulty.medium,
+            personality: personality,
+          ),
         );
       }
     }
@@ -120,13 +135,24 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   }
 
   void _initializeAnimations() {
-    _diceController = AnimationController(duration: AnimationDurations.diceRoll, vsync: this);
+    _diceController = AnimationController(
+      duration: AnimationDurations.diceRoll,
+      vsync: this,
+    );
 
-    _bounceController = AnimationController(duration: AnimationDurations.bounce, vsync: this);
+    _bounceController = AnimationController(
+      duration: AnimationDurations.bounce,
+      vsync: this,
+    );
 
-    _bounceAnimation = Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(parent: _bounceController, curve: Curves.elasticOut));
+    _bounceAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(parent: _bounceController, curve: Curves.elasticOut),
+    );
 
-    _glowController = AnimationController(duration: AnimationDurations.glow, vsync: this)..repeat(reverse: true);
+    _glowController = AnimationController(
+      duration: AnimationDurations.glow,
+      vsync: this,
+    )..repeat(reverse: true);
   }
 
   @override
@@ -192,14 +218,20 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
               const SizedBox(width: 12),
               Text(
                 success ? 'Game saved successfully!' : 'Failed to save game',
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ],
           ),
-          backgroundColor: success ? const Color(0xFF4CAF50) : const Color(0xFFFF5252),
+          backgroundColor:
+              success ? const Color(0xFF4CAF50) : const Color(0xFFFF5252),
           behavior: SnackBarBehavior.floating,
           margin: const EdgeInsets.all(16),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
           duration: const Duration(seconds: 2),
         ),
       );
@@ -224,14 +256,19 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
               const SizedBox(width: 12),
               Text(
                 'Game loaded! Round ${gameState.roundNumber}',
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ],
           ),
           backgroundColor: const Color(0xFF2196F3),
           behavior: SnackBarBehavior.floating,
           margin: const EdgeInsets.all(16),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
           duration: const Duration(seconds: 2),
         ),
       );
@@ -272,16 +309,14 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   @override
   Widget build(BuildContext context) {
     final theme = widget.boardTheme;
-    final backgroundGradient = theme != null
-        ? LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              theme.boardColor,
-              theme.centerBackground,
-            ],
-          )
-        : AppTheme.backgroundGradient;
+    final backgroundGradient =
+        theme != null
+            ? LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [theme.boardColor, theme.centerBackground],
+            )
+            : AppTheme.backgroundGradient;
 
     return Scaffold(
       body: Container(
@@ -292,15 +327,24 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
               OrientationBuilder(
                 builder: (context, orientation) {
                   final isPortrait = orientation == Orientation.portrait;
-                  return isPortrait ? _buildPortraitLayout() : _buildLandscapeLayout();
+                  return isPortrait
+                      ? _buildPortraitLayout()
+                      : _buildLandscapeLayout();
                 },
               ),
               // Power-up cards button (if has cards) - top left overlay
-              if (!gameState.currentPlayer.isAI && gameState.getPowerUps(gameState.currentPlayer.id).isNotEmpty)
+              if (!gameState.currentPlayer.isAI &&
+                  gameState.getPowerUps(gameState.currentPlayer.id).isNotEmpty)
                 Positioned(
                   top: 8,
                   left: 8,
-                  child: _buildActionButton(icon: Icons.style, label: '${gameState.getPowerUps(gameState.currentPlayer.id).length}', color: Colors.amber, onTap: _showPowerUpHand),
+                  child: _buildActionButton(
+                    icon: Icons.style,
+                    label:
+                        '${gameState.getPowerUps(gameState.currentPlayer.id).length}',
+                    color: Colors.amber,
+                    onTap: _showPowerUpHand,
+                  ),
                 ),
               // Phase 3: Active event indicators
               if (gameState.activeEvents.isNotEmpty)
@@ -309,15 +353,16 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
                   left: 8,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: gameState.activeEvents
-                        .where((e) => !e.isExpired)
-                        .map(
-                          (event) => Padding(
-                            padding: const EdgeInsets.only(bottom: 4),
-                            child: ActiveEventIndicator(activeEvent: event),
-                          ),
-                        )
-                        .toList(),
+                    children:
+                        gameState.activeEvents
+                            .where((e) => !e.isExpired)
+                            .map(
+                              (event) => Padding(
+                                padding: const EdgeInsets.only(bottom: 4),
+                                child: ActiveEventIndicator(activeEvent: event),
+                              ),
+                            )
+                            .toList(),
                   ),
                 ),
             ],
@@ -328,7 +373,10 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   }
 
   Widget _buildLandscapeLayout() {
-    final activePlayers = gameState.players.where((p) => p.status == PlayerStatus.active).toList();
+    final activePlayers =
+        gameState.players
+            .where((p) => p.status == PlayerStatus.active)
+            .toList();
     final halfCount = (activePlayers.length / 2).ceil();
 
     return LayoutBuilder(
@@ -341,7 +389,13 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
         return Row(
           children: [
             // Left player panel - fixed width based on remaining space
-            if (activePlayers.isNotEmpty) SizedBox(width: playerPanelWidth, child: _buildVerticalPlayerPanel(activePlayers.take(halfCount).toList())),
+            if (activePlayers.isNotEmpty)
+              SizedBox(
+                width: playerPanelWidth,
+                child: _buildVerticalPlayerPanel(
+                  activePlayers.take(halfCount).toList(),
+                ),
+              ),
             // Game board - maximized square
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
@@ -360,7 +414,9 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
                   onMenuTap: _showGameMenu,
                   onTradeTap: widget.tradingEnabled ? _showTradeDialog : null,
                   onBankTap: widget.bankEnabled ? _showMortgageDialog : null,
-                  showActionButtons: !gameState.currentPlayer.isAI && (widget.tradingEnabled || widget.bankEnabled),
+                  showActionButtons:
+                      !gameState.currentPlayer.isAI &&
+                      (widget.tradingEnabled || widget.bankEnabled),
                   onTileTap: _showTileInfo,
                   isChanceHighlighted: _waitingForCardPick && _isChanceCard,
                   isChestHighlighted: _waitingForCardPick && !_isChanceCard,
@@ -372,7 +428,13 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
               ),
             ),
             // Right player panel - fixed width based on remaining space
-            if (activePlayers.length > halfCount) SizedBox(width: playerPanelWidth, child: _buildVerticalPlayerPanel(activePlayers.skip(halfCount).toList())),
+            if (activePlayers.length > halfCount)
+              SizedBox(
+                width: playerPanelWidth,
+                child: _buildVerticalPlayerPanel(
+                  activePlayers.skip(halfCount).toList(),
+                ),
+              ),
           ],
         );
       },
@@ -380,7 +442,10 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   }
 
   Widget _buildPortraitLayout() {
-    final activePlayers = gameState.players.where((p) => p.status == PlayerStatus.active).toList();
+    final activePlayers =
+        gameState.players
+            .where((p) => p.status == PlayerStatus.active)
+            .toList();
     final halfCount = (activePlayers.length / 2).ceil();
 
     return LayoutBuilder(
@@ -393,7 +458,13 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
         return Column(
           children: [
             // Top player panel - fixed height based on remaining space
-            if (activePlayers.isNotEmpty) SizedBox(height: playerPanelHeight, child: _buildHorizontalPlayerPanel(activePlayers.take(halfCount).toList())),
+            if (activePlayers.isNotEmpty)
+              SizedBox(
+                height: playerPanelHeight,
+                child: _buildHorizontalPlayerPanel(
+                  activePlayers.take(halfCount).toList(),
+                ),
+              ),
             // Game board - maximized square
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -412,7 +483,9 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
                   onMenuTap: _showGameMenu,
                   onTradeTap: widget.tradingEnabled ? _showTradeDialog : null,
                   onBankTap: widget.bankEnabled ? _showMortgageDialog : null,
-                  showActionButtons: !gameState.currentPlayer.isAI && (widget.tradingEnabled || widget.bankEnabled),
+                  showActionButtons:
+                      !gameState.currentPlayer.isAI &&
+                      (widget.tradingEnabled || widget.bankEnabled),
                   onTileTap: _showTileInfo,
                   isChanceHighlighted: _waitingForCardPick && _isChanceCard,
                   isChestHighlighted: _waitingForCardPick && !_isChanceCard,
@@ -424,7 +497,13 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
               ),
             ),
             // Bottom player panel - fixed height based on remaining space
-            if (activePlayers.length > halfCount) SizedBox(height: playerPanelHeight, child: _buildHorizontalPlayerPanel(activePlayers.skip(halfCount).toList())),
+            if (activePlayers.length > halfCount)
+              SizedBox(
+                height: playerPanelHeight,
+                child: _buildHorizontalPlayerPanel(
+                  activePlayers.skip(halfCount).toList(),
+                ),
+              ),
           ],
         );
       },
@@ -435,19 +514,20 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     return Container(
       margin: const EdgeInsets.all(8),
       child: Column(
-        children: players.map((player) {
-          return Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: PlayerCard(
-                player: player,
-                isCurrentPlayer: player.id == gameState.currentPlayer.id,
-                tiles: gameState.tiles,
-                gameState: gameState,
-              ),
-            ),
-          );
-        }).toList(),
+        children:
+            players.map((player) {
+              return Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: PlayerCard(
+                    player: player,
+                    isCurrentPlayer: player.id == gameState.currentPlayer.id,
+                    tiles: gameState.tiles,
+                    gameState: gameState,
+                  ),
+                ),
+              );
+            }).toList(),
       ),
     );
   }
@@ -456,14 +536,19 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: Row(
-        children: players.map((player) {
-          return Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: PlayerCardCompact(player: player, isCurrentPlayer: player.id == gameState.currentPlayer.id, tiles: gameState.tiles),
-            ),
-          );
-        }).toList(),
+        children:
+            players.map((player) {
+              return Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  child: PlayerCardCompact(
+                    player: player,
+                    isCurrentPlayer: player.id == gameState.currentPlayer.id,
+                    tiles: gameState.tiles,
+                  ),
+                ),
+              );
+            }).toList(),
       ),
     );
   }
@@ -491,21 +576,52 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     // Lock turn processing
     setState(() {
       _isProcessingTurn = true;
-      gameState = gameState.copyWith(animationState: TurnAnimationState.rollingDice);
+      gameState = gameState.copyWith(
+        animationState: TurnAnimationState.rollingDice,
+      );
     });
     _diceController.forward(from: 0);
-    
+
     // Play dice roll sound
     AudioService.instance.onDiceRoll();
 
-    // Generate dice values
-    final die1 = _random.nextInt(6) + 1;
-    final die2 = _random.nextInt(6) + 1;
-    final roll = die1 + die2;
-    final isDoubles = die1 == die2;
+    // Generate dice values (respect configured dice count and double-dice power-up)
+    final player = gameState.currentPlayer;
+    int die1;
+    int die2;
+    int roll;
+    bool isDoubles = false;
+    final hasDoubleDice = gameState.hasActivePowerUp(
+      player.id,
+      PowerUpType.doubleDice,
+    );
+
+    if (gameState.diceCount == 1) {
+      if (hasDoubleDice) {
+        final r1 = _random.nextInt(6) + 1;
+        final r2 = _random.nextInt(6) + 1;
+        die1 = r1 > r2 ? r1 : r2;
+      } else {
+        die1 = _random.nextInt(6) + 1;
+      }
+      die2 = 0;
+      roll = die1;
+    } else {
+      if (hasDoubleDice) {
+        final rolls = List<int>.generate(4, (_) => _random.nextInt(6) + 1)
+          ..sort((a, b) => b.compareTo(a));
+        die1 = rolls[0];
+        die2 = rolls[1];
+      } else {
+        die1 = _random.nextInt(6) + 1;
+        die2 = _random.nextInt(6) + 1;
+      }
+      roll = die1 + die2;
+      isDoubles = die1 == die2;
+    }
 
     await Future.delayed(AnimationDurations.diceRoll);
-    
+
     // Play dice land sound
     AudioService.instance.onDiceLand();
 
@@ -516,25 +632,33 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
 
     // Update dice values and start moving
     setState(() {
-      gameState = gameState.copyWith(die1Value: die1, die2Value: die2, lastDiceRoll: roll, animationState: TurnAnimationState.movingToken, logicPhase: TurnLogicPhase.rolled, totalDiceRolls: newTotalRolls, totalDiceSum: newTotalSum, doublesRolledTotal: newDoublesTotal);
+      gameState = gameState.copyWith(
+        die1Value: die1,
+        die2Value: die2,
+        lastDiceRoll: roll,
+        animationState: TurnAnimationState.movingToken,
+        logicPhase: TurnLogicPhase.rolled,
+        totalDiceRolls: newTotalRolls,
+        totalDiceSum: newTotalSum,
+        doublesRolledTotal: newDoublesTotal,
+      );
     });
 
     // Move current player tile by tile
-    final player = gameState.currentPlayer;
     final startPosition = player.position;
     final endPosition = (startPosition + roll) % 40;
 
     for (int i = 0; i < roll; i++) {
       await Future.delayed(AnimationDurations.tokenHop);
-      
+
       // Play token step sound
       AudioService.instance.onTokenStep();
-      
+
       setState(() {
         player.position = (player.position + 1) % 40;
-        // Check for passing GO (Phase 3: use event-modified bonus)
-        if (player.position == 0 && i < roll - 1) {
-          player.cash += gameState.getGoBonus();
+        // Collect GO bonus whenever crossing or landing on GO via movement
+        if (player.position == 0) {
+          player.cash += gameState.getGoBonusForPlayer(player.id);
           // Play pass GO sound
           AudioService.instance.onPassGo();
           // Check for mid-game achievements (like Cash King)
@@ -543,13 +667,17 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       });
       _bounceController.forward(from: 0);
     }
-    
+
     // Play token land sound
     AudioService.instance.onTokenLand();
 
     // Highlight landing tile
     setState(() {
-      gameState = gameState.copyWith(highlightedTileIndex: endPosition, animationState: TurnAnimationState.idle, logicPhase: TurnLogicPhase.tileResolution);
+      gameState = gameState.copyWith(
+        highlightedTileIndex: endPosition,
+        animationState: TurnAnimationState.idle,
+        logicPhase: TurnLogicPhase.tileResolution,
+      );
     });
 
     // Wait for the bounce animation to complete before showing dialogs
@@ -559,7 +687,11 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     await _resolveTileLanding(player, endPosition);
   }
 
-  Future<void> _resolveTileLanding(Player player, int tileIndex, {bool skipEndTurn = false}) async {
+  Future<void> _resolveTileLanding(
+    Player player,
+    int tileIndex, {
+    bool skipEndTurn = false,
+  }) async {
     final result = engine.resolveTileLanding(player, tileIndex);
 
     switch (result.actionType) {
@@ -568,7 +700,12 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
         break;
 
       case TileActionType.payRent:
-        await _handlePayRent(player, result.tile!, result.amount!, result.targetPlayerId!);
+        await _handlePayRent(
+          player,
+          result.tile!,
+          result.amount!,
+          result.targetPlayerId!,
+        );
         break;
 
       case TileActionType.payTax:
@@ -614,9 +751,20 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   }
 
   // Show centered AI action notification popup (kid-friendly)
-  Future<void> _showAIActionNotification(String playerName, String message, IconData icon, Color color) async {
+  Future<void> _showAIActionNotification(
+    String playerName,
+    String message,
+    IconData icon,
+    Color color,
+  ) async {
     if (!mounted) return;
-    await showAIActionDialog(context: context, playerName: playerName, message: message, icon: icon, color: color);
+    await showAIActionDialog(
+      context: context,
+      playerName: playerName,
+      message: message,
+      icon: icon,
+      color: color,
+    );
   }
 
   Future<void> _handleBuyOption(Player player, TileData tile) async {
@@ -625,18 +773,19 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       await Future.delayed(const Duration(milliseconds: 300));
 
       final aiEngine = _aiEngines[player.id];
-      final shouldBuy = aiEngine?.shouldBuyProperty(player, tile, gameState) ?? _defaultAIShouldBuy(player, tile);
+      final shouldBuy =
+          aiEngine?.shouldBuyProperty(player, tile, gameState) ??
+          _defaultAIShouldBuy(player, tile);
 
       if (shouldBuy) {
-        int? price;
-        if (tile is PropertyTileData)
-          price = tile.price;
-        else if (tile is RailroadTileData)
-          price = tile.price;
-        else if (tile is UtilityTileData)
-          price = tile.price;
+        final price = engine.getPurchasePrice(player, tile);
 
-        await _showAIActionNotification(player.name, 'Bought ${tile.name} for \$$price!', Icons.home, Colors.green);
+        await _showAIActionNotification(
+          player.name,
+          'Bought ${tile.name} for \$$price!',
+          Icons.home,
+          Colors.green,
+        );
         if (engine.buyProperty(player, tile)) {
           AudioService.instance.onBuyProperty();
           setState(() {});
@@ -653,6 +802,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       context: context,
       tile: tile,
       playerCash: player.cash,
+      purchasePrice: engine.getPurchasePrice(player, tile),
       onBuy: () {
         if (engine.buyProperty(player, tile)) {
           AudioService.instance.onBuyProperty();
@@ -667,23 +817,20 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   }
 
   bool _defaultAIShouldBuy(Player player, TileData tile) {
-    int? price;
-    if (tile is PropertyTileData)
-      price = tile.price;
-    else if (tile is RailroadTileData)
-      price = tile.price;
-    else if (tile is UtilityTileData)
-      price = tile.price;
-    return price != null && player.cash >= price + 100;
+    final price = engine.getPurchasePrice(player, tile);
+    return price > 0 && player.cash >= price + 100;
   }
 
   Future<void> _startAuction(TileData tile) async {
     if (!mounted) return;
-    
+
     // Skip auction if disabled - property stays unowned
     if (!widget.auctionEnabled) return;
 
-    final activePlayers = gameState.players.where((p) => p.status == PlayerStatus.active).toList();
+    final activePlayers =
+        gameState.players
+            .where((p) => p.status == PlayerStatus.active)
+            .toList();
 
     if (activePlayers.length < 2) return;
 
@@ -712,17 +859,27 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     );
   }
 
-  Future<void> _handleUpgradeOption(Player player, PropertyTileData property) async {
+  Future<void> _handleUpgradeOption(
+    Player player,
+    PropertyTileData property,
+  ) async {
     // AI automatically decides whether to upgrade using enhanced AI engine
     if (player.isAI) {
       await Future.delayed(const Duration(milliseconds: 300));
 
       final aiEngine = _aiEngines[player.id];
-      final shouldUpgrade = aiEngine?.shouldUpgradeProperty(player, property, gameState) ?? (player.cash >= property.upgradeCost + 200);
+      final shouldUpgrade =
+          aiEngine?.shouldUpgradeProperty(player, property, gameState) ??
+          (player.cash >= property.upgradeCost + 200);
 
       if (shouldUpgrade) {
         final levelName = property.upgradeLevel < 4 ? 'house' : 'hotel';
-        await _showAIActionNotification(player.name, 'Built a $levelName on ${property.name}!', Icons.construction, Colors.green);
+        await _showAIActionNotification(
+          player.name,
+          'Built a $levelName on ${property.name}!',
+          Icons.construction,
+          Colors.green,
+        );
         if (engine.upgradeProperty(player, property)) {
           AudioService.instance.onUpgrade();
           setState(() {});
@@ -748,7 +905,12 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     );
   }
 
-  Future<void> _handlePayRent(Player player, TileData tile, int amount, String ownerId) async {
+  Future<void> _handlePayRent(
+    Player player,
+    TileData tile,
+    int amount,
+    String ownerId,
+  ) async {
     final owner = gameState.players.firstWhere((p) => p.id == ownerId);
     final isBankruptcy = player.cash < amount;
 
@@ -760,21 +922,28 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     if (tile is UtilityTileData) {
       rentType = RentType.utility;
       diceRoll = gameState.lastDiceRoll;
-      ownedCount = gameState.tiles
-          .whereType<UtilityTileData>()
-          .where((u) => u.ownerId == ownerId)
-          .length;
+      ownedCount =
+          gameState.tiles
+              .whereType<UtilityTileData>()
+              .where((u) => u.ownerId == ownerId)
+              .length;
     } else if (tile is RailroadTileData) {
       rentType = RentType.railroad;
-      ownedCount = gameState.tiles
-          .whereType<RailroadTileData>()
-          .where((r) => r.ownerId == ownerId)
-          .length;
+      ownedCount =
+          gameState.tiles
+              .whereType<RailroadTileData>()
+              .where((r) => r.ownerId == ownerId)
+              .length;
     }
 
     // AI automatically pays rent with notification
     if (player.isAI) {
-      await _showAIActionNotification(player.name, 'Paid \$$amount rent to ${owner.name}', Icons.payments, Colors.red);
+      await _showAIActionNotification(
+        player.name,
+        'Paid \$$amount rent to ${owner.name}',
+        Icons.payments,
+        Colors.red,
+      );
       AudioService.instance.onPayMoney();
       final result = engine.payRent(player, ownerId, amount);
       if (!result.bankruptcy) {
@@ -830,7 +999,12 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
 
     // AI automatically pays tax with notification
     if (player.isAI) {
-      await _showAIActionNotification(player.name, 'Paid \$$amount $taxName', Icons.account_balance, Colors.amber.shade700);
+      await _showAIActionNotification(
+        player.name,
+        'Paid \$$amount $taxName',
+        Icons.account_balance,
+        Colors.amber.shade700,
+      );
       AudioService.instance.onPayMoney();
       final result = engine.payTax(player, amount);
       setState(() {
@@ -873,51 +1047,76 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
 
     // Show notification for both AI and human players
     if (player.isAI) {
-      await _showAIActionNotification(player.name, 'Going to jail!', Icons.gavel, Colors.grey.shade700);
+      await _showAIActionNotification(
+        player.name,
+        'Going to jail!',
+        Icons.gavel,
+        Colors.grey.shade700,
+      );
     } else {
       // Show a brief dialog for human players so they know what happened
       await showDialog(
         context: context,
         barrierDismissible: false,
-        builder: (context) => Dialog(
-          backgroundColor: Colors.transparent,
-          child: Container(
-            constraints: const BoxConstraints(maxWidth: 300),
-            padding: const EdgeInsets.all(24),
-            decoration: BoxDecoration(
-              color: const Color(0xFF2D2D44),
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: Colors.orange, width: 2),
+        builder:
+            (context) => Dialog(
+              backgroundColor: Colors.transparent,
+              child: Container(
+                constraints: const BoxConstraints(maxWidth: 300),
+                padding: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF2D2D44),
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: Colors.orange, width: 2),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text('🚔', style: TextStyle(fontSize: 64)),
+                    const SizedBox(height: 16),
+                    const Text(
+                      'Go to Jail!',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'You landed on Go to Jail!\nGo directly to jail, do not pass GO.',
+                      style: TextStyle(
+                        color: Colors.white.withValues(alpha: 0.8),
+                        fontSize: 16,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () => Navigator.pop(context),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.orange,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 32,
+                          vertical: 12,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: const Text(
+                        'OK',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Text('🚔', style: TextStyle(fontSize: 64)),
-                const SizedBox(height: 16),
-                const Text(
-                  'Go to Jail!',
-                  style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'You landed on Go to Jail!\nGo directly to jail, do not pass GO.',
-                  style: TextStyle(color: Colors.white.withValues(alpha: 0.8), fontSize: 16),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () => Navigator.pop(context),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
-                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  ),
-                  child: const Text('OK', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
-                ),
-              ],
-            ),
-          ),
-        ),
       );
     }
   }
@@ -932,7 +1131,12 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       final prize = SpinPrizes.getRandomPrize();
       final prizeText = prize.value != null ? '\$${prize.value}' : prize.name;
       AudioService.instance.onSpinResult();
-      await _showAIActionNotification(player.name, 'Spun the wheel and won $prizeText!', Icons.casino, Colors.purple);
+      await _showAIActionNotification(
+        player.name,
+        'Spun the wheel and won $prizeText!',
+        Icons.casino,
+        Colors.purple,
+      );
       await _applySpinPrizeWithUI(player, prize);
       setState(() {});
       return;
@@ -966,7 +1170,11 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
         // Show property selection dialog for human players
         if (!player.isAI && mounted) {
           // Get all upgradable properties owned by the player
-          final ownedProperties = gameState.tiles.whereType<PropertyTileData>().where((p) => p.ownerId == player.id && p.canUpgrade).toList();
+          final ownedProperties =
+              gameState.tiles
+                  .whereType<PropertyTileData>()
+                  .where((p) => p.ownerId == player.id && p.canUpgrade)
+                  .toList();
 
           if (ownedProperties.isNotEmpty) {
             bool houseUsed = false;
@@ -991,7 +1199,11 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
           }
         } else {
           // AI: automatically upgrade first available property
-          final ownedProperties = gameState.tiles.whereType<PropertyTileData>().where((p) => p.ownerId == player.id && p.canUpgrade).toList();
+          final ownedProperties =
+              gameState.tiles
+                  .whereType<PropertyTileData>()
+                  .where((p) => p.ownerId == player.id && p.canUpgrade)
+                  .toList();
           if (ownedProperties.isNotEmpty) {
             ownedProperties.first.upgradeLevel++;
           }
@@ -1027,14 +1239,18 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
           }
         } else {
           // AI: teleport to a random unowned property if available
-          final unownedProperties = gameState.tiles.whereType<PropertyTileData>().where((p) => p.ownerId == null).toList();
+          final unownedProperties =
+              gameState.tiles
+                  .whereType<PropertyTileData>()
+                  .where((p) => p.ownerId == null)
+                  .toList();
           if (unownedProperties.isNotEmpty) {
-            final randomProperty = unownedProperties[_random.nextInt(unownedProperties.length)];
+            final randomProperty =
+                unownedProperties[_random.nextInt(unownedProperties.length)];
             player.position = randomProperty.index;
           }
         }
         break;
-
     }
   }
 
@@ -1068,12 +1284,13 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       await Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (_) => MemoryMatchGame(
-            onComplete: () => Navigator.pop(context),
-            onScoreEarned: (score) {
-              earnedScore = score;
-            },
-          ),
+          builder:
+              (_) => MemoryMatchGame(
+                onComplete: () => Navigator.pop(context),
+                onScoreEarned: (score) {
+                  earnedScore = score;
+                },
+              ),
         ),
       );
     } else {
@@ -1081,12 +1298,13 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       await Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (_) => QuickTapGame(
-            onComplete: () => Navigator.pop(context),
-            onScoreEarned: (score) {
-              earnedScore = score;
-            },
-          ),
+          builder:
+              (_) => QuickTapGame(
+                onComplete: () => Navigator.pop(context),
+                onScoreEarned: (score) {
+                  earnedScore = score;
+                },
+              ),
         ),
       );
     }
@@ -1106,7 +1324,9 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     gameState.turnsSinceLastEvent++;
 
     // 10% chance each round, guaranteed every 10 rounds
-    final shouldTrigger = EventCards.shouldTriggerEvent(_totalRounds) || gameState.turnsSinceLastEvent >= 10;
+    final shouldTrigger =
+        EventCards.shouldTriggerEvent(_totalRounds) ||
+        gameState.turnsSinceLastEvent >= 10;
 
     if (shouldTrigger) {
       gameState.turnsSinceLastEvent = 0;
@@ -1145,92 +1365,264 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     final cards = gameState.getPowerUps(player.id);
 
     if (cards.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('No power-up cards! Win mini-games to collect them.'), duration: Duration(seconds: 2)));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('No power-up cards! Win mini-games to collect them.'),
+          duration: Duration(seconds: 2),
+        ),
+      );
       return;
     }
 
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
-      builder: (context) => Container(
-        height: 280,
-        decoration: BoxDecoration(
-          color: AppTheme.surface,
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
-        ),
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.all(16),
-              child: Text(
-                'Your Power-Up Cards',
-                style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+      builder:
+          (context) => Container(
+            height: 280,
+            decoration: BoxDecoration(
+              color: AppTheme.surface,
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(20),
               ),
             ),
-            Expanded(
-              child: PowerUpHand(
-                cards: cards,
-                onCardTap: (card) {
-                  Navigator.pop(context);
-                  _usePowerUpCard(card);
-                },
-              ),
+            child: Column(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Text(
+                    'Your Power-Up Cards',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: PowerUpHand(
+                    cards: cards,
+                    onCardTap: (card) {
+                      Navigator.pop(context);
+                      _usePowerUpCard(card);
+                    },
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
     );
   }
 
   // Card definitions with text and effects - Fun kid-friendly wording!
   static const List<Map<String, String>> _chanceCards = [
     // Classic cards with fun twists
-    {'text': 'Bank says "Here\'s some extra cash!"', 'effect': '+\$50', 'action': 'collect50'},
-    {'text': 'Oops! Caught going too fast on your scooter!', 'effect': '-\$15', 'action': 'pay15'},
-    {'text': 'Race to GO! Zoom zoom!', 'effect': 'Collect \$200', 'action': 'advanceGo'},
-    {'text': 'Wrong turn! Go back 3 spaces. Oopsie!', 'effect': 'Move back', 'action': 'back3'},
-    {'text': 'Your piggy bank is overflowing!', 'effect': '+\$150', 'action': 'collect150'},
+    {
+      'text': 'Bank says "Here\'s some extra cash!"',
+      'effect': '+\$50',
+      'action': 'collect50',
+    },
+    {
+      'text': 'Oops! Caught going too fast on your scooter!',
+      'effect': '-\$15',
+      'action': 'pay15',
+    },
+    {
+      'text': 'Race to GO! Zoom zoom!',
+      'effect': 'Collect \$200',
+      'action': 'advanceGo',
+    },
+    {
+      'text': 'Wrong turn! Go back 3 spaces. Oopsie!',
+      'effect': 'Move back',
+      'action': 'back3',
+    },
+    {
+      'text': 'Your piggy bank is overflowing!',
+      'effect': '+\$150',
+      'action': 'collect150',
+    },
     // Fun new cards
-    {'text': 'Found \$25 in your old jeans pocket!', 'effect': '+\$25', 'action': 'collect25'},
-    {'text': 'Won the school talent show! Star power!', 'effect': '+\$100', 'action': 'collect100'},
-    {'text': 'Your lemonade stand was a HUGE hit!', 'effect': '+\$50', 'action': 'collect50'},
-    {'text': 'Pizza party for everyone! Worth every penny!', 'effect': '-\$50', 'action': 'pay50'},
-    {'text': 'Dug up pirate treasure in the backyard!', 'effect': '+\$150', 'action': 'collect150'},
-    {'text': 'Your cat video went VIRAL! Fame and fortune!', 'effect': '+\$200', 'action': 'collect200'},
-    {'text': 'Garage sale champion! Sold all your old toys!', 'effect': '+\$25', 'action': 'collect25'},
-    {'text': 'Spelling bee winner! B-R-I-L-L-I-A-N-T!', 'effect': '+\$100', 'action': 'collect100'},
-    {'text': 'Baseball went through the neighbor\'s window...', 'effect': '-\$50', 'action': 'pay50'},
-    {'text': 'Grandma\'s surprise birthday money arrived!', 'effect': '+\$100', 'action': 'collect100'},
-    {'text': 'Your goldfish won "Best Pet" at the fair!', 'effect': '+\$150', 'action': 'collect150'},
-    {'text': 'Ice cream truck! You HAVE to get some!', 'effect': '-\$15', 'action': 'pay15'},
-    {'text': 'Found a four-leaf clover... and \$100!', 'effect': '+\$100', 'action': 'collect100'},
-    {'text': 'Your cookies sold out at the bake sale!', 'effect': '+\$50', 'action': 'collect50'},
-    {'text': 'Video game tournament CHAMPION!', 'effect': '+\$200', 'action': 'collect200'},
+    {
+      'text': 'Found \$25 in your old jeans pocket!',
+      'effect': '+\$25',
+      'action': 'collect25',
+    },
+    {
+      'text': 'Won the school talent show! Star power!',
+      'effect': '+\$100',
+      'action': 'collect100',
+    },
+    {
+      'text': 'Your lemonade stand was a HUGE hit!',
+      'effect': '+\$50',
+      'action': 'collect50',
+    },
+    {
+      'text': 'Pizza party for everyone! Worth every penny!',
+      'effect': '-\$50',
+      'action': 'pay50',
+    },
+    {
+      'text': 'Dug up pirate treasure in the backyard!',
+      'effect': '+\$150',
+      'action': 'collect150',
+    },
+    {
+      'text': 'Your cat video went VIRAL! Fame and fortune!',
+      'effect': '+\$200',
+      'action': 'collect200',
+    },
+    {
+      'text': 'Garage sale champion! Sold all your old toys!',
+      'effect': '+\$25',
+      'action': 'collect25',
+    },
+    {
+      'text': 'Spelling bee winner! B-R-I-L-L-I-A-N-T!',
+      'effect': '+\$100',
+      'action': 'collect100',
+    },
+    {
+      'text': 'Baseball went through the neighbor\'s window...',
+      'effect': '-\$50',
+      'action': 'pay50',
+    },
+    {
+      'text': 'Grandma\'s surprise birthday money arrived!',
+      'effect': '+\$100',
+      'action': 'collect100',
+    },
+    {
+      'text': 'Your goldfish won "Best Pet" at the fair!',
+      'effect': '+\$150',
+      'action': 'collect150',
+    },
+    {
+      'text': 'Ice cream truck! You HAVE to get some!',
+      'effect': '-\$15',
+      'action': 'pay15',
+    },
+    {
+      'text': 'Found a four-leaf clover... and \$100!',
+      'effect': '+\$100',
+      'action': 'collect100',
+    },
+    {
+      'text': 'Your cookies sold out at the bake sale!',
+      'effect': '+\$50',
+      'action': 'collect50',
+    },
+    {
+      'text': 'Video game tournament CHAMPION!',
+      'effect': '+\$200',
+      'action': 'collect200',
+    },
   ];
 
   static const List<Map<String, String>> _chestCards = [
     // Classic cards with fun twists
-    {'text': 'Your savings account grew! Cha-ching!', 'effect': '+\$100', 'action': 'collect100'},
-    {'text': 'Uh oh, time for a check-up at the doctor.', 'effect': '-\$50', 'action': 'pay50'},
-    {'text': 'HAPPY BIRTHDAY TO YOU! Party time!', 'effect': '+\$25', 'action': 'collect25'},
-    {'text': 'The bank made a mistake... in YOUR favor!', 'effect': '+\$200', 'action': 'collect200'},
-    {'text': 'New school supplies needed!', 'effect': '-\$50', 'action': 'pay50'},
+    {
+      'text': 'Your savings account grew! Cha-ching!',
+      'effect': '+\$100',
+      'action': 'collect100',
+    },
+    {
+      'text': 'Uh oh, time for a check-up at the doctor.',
+      'effect': '-\$50',
+      'action': 'pay50',
+    },
+    {
+      'text': 'HAPPY BIRTHDAY TO YOU! Party time!',
+      'effect': '+\$25',
+      'action': 'collect25',
+    },
+    {
+      'text': 'The bank made a mistake... in YOUR favor!',
+      'effect': '+\$200',
+      'action': 'collect200',
+    },
+    {
+      'text': 'New school supplies needed!',
+      'effect': '-\$50',
+      'action': 'pay50',
+    },
     // Fun new cards
-    {'text': 'Great-aunt Mildred left you her fortune!', 'effect': '+\$100', 'action': 'collect100'},
-    {'text': 'Summer vacation fund is ready!', 'effect': '+\$100', 'action': 'collect100'},
-    {'text': 'Helped the neighbor rake leaves! Good job!', 'effect': '+\$25', 'action': 'collect25'},
-    {'text': 'Won "Best Smile" at picture day!', 'effect': '+\$50', 'action': 'collect50'},
-    {'text': 'Tax refund time! Money back!', 'effect': '+\$100', 'action': 'collect100'},
-    {'text': 'Your art project sold at the school auction!', 'effect': '+\$150', 'action': 'collect150'},
-    {'text': 'Dog walking business is booming!', 'effect': '+\$50', 'action': 'collect50'},
-    {'text': 'Mom found your report card... A+ means \$\$!', 'effect': '+\$100', 'action': 'collect100'},
-    {'text': 'Oops! Forgot to return library books!', 'effect': '-\$15', 'action': 'pay15'},
-    {'text': 'Anonymous donor sends you a gift!', 'effect': '+\$200', 'action': 'collect200'},
-    {'text': 'Your team won the science fair!', 'effect': '+\$100', 'action': 'collect100'},
-    {'text': 'Tooth fairy came... for ALL your baby teeth!', 'effect': '+\$50', 'action': 'collect50'},
-    {'text': 'Recycling paid off! Save the planet AND get \$!', 'effect': '+\$25', 'action': 'collect25'},
-    {'text': 'Your handmade bracelet sold on Etsy!', 'effect': '+\$50', 'action': 'collect50'},
-    {'text': 'Community hero award! You\'re awesome!', 'effect': '+\$150', 'action': 'collect150'},
+    {
+      'text': 'Great-aunt Mildred left you her fortune!',
+      'effect': '+\$100',
+      'action': 'collect100',
+    },
+    {
+      'text': 'Summer vacation fund is ready!',
+      'effect': '+\$100',
+      'action': 'collect100',
+    },
+    {
+      'text': 'Helped the neighbor rake leaves! Good job!',
+      'effect': '+\$25',
+      'action': 'collect25',
+    },
+    {
+      'text': 'Won "Best Smile" at picture day!',
+      'effect': '+\$50',
+      'action': 'collect50',
+    },
+    {
+      'text': 'Tax refund time! Money back!',
+      'effect': '+\$100',
+      'action': 'collect100',
+    },
+    {
+      'text': 'Your art project sold at the school auction!',
+      'effect': '+\$150',
+      'action': 'collect150',
+    },
+    {
+      'text': 'Dog walking business is booming!',
+      'effect': '+\$50',
+      'action': 'collect50',
+    },
+    {
+      'text': 'Mom found your report card... A+ means \$\$!',
+      'effect': '+\$100',
+      'action': 'collect100',
+    },
+    {
+      'text': 'Oops! Forgot to return library books!',
+      'effect': '-\$15',
+      'action': 'pay15',
+    },
+    {
+      'text': 'Anonymous donor sends you a gift!',
+      'effect': '+\$200',
+      'action': 'collect200',
+    },
+    {
+      'text': 'Your team won the science fair!',
+      'effect': '+\$100',
+      'action': 'collect100',
+    },
+    {
+      'text': 'Tooth fairy came... for ALL your baby teeth!',
+      'effect': '+\$50',
+      'action': 'collect50',
+    },
+    {
+      'text': 'Recycling paid off! Save the planet AND get \$!',
+      'effect': '+\$25',
+      'action': 'collect25',
+    },
+    {
+      'text': 'Your handmade bracelet sold on Etsy!',
+      'effect': '+\$50',
+      'action': 'collect50',
+    },
+    {
+      'text': 'Community hero award! You\'re awesome!',
+      'effect': '+\$150',
+      'action': 'collect150',
+    },
   ];
 
   /// Apply card effect. Returns the new tile index if the player moved, null otherwise.
@@ -1254,14 +1646,20 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
           player.cash += 200;
           break;
         case 'pay15':
-          player.cash -= 15;
+          final pay15Result = engine.payTax(player, 15);
+          if (pay15Result.bankruptcy) {
+            AudioService.instance.onDefeat();
+          }
           break;
         case 'pay50':
-          player.cash -= 50;
+          final pay50Result = engine.payTax(player, 50);
+          if (pay50Result.bankruptcy) {
+            AudioService.instance.onDefeat();
+          }
           break;
         case 'advanceGo':
           player.position = 0;
-          player.cash += 200;
+          player.cash += gameState.getGoBonusForPlayer(player.id);
           break;
         case 'back3':
           player.position = (player.position - 3 + 40) % 40;
@@ -1280,8 +1678,19 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     final cards = isChance ? _chanceCards : _chestCards;
 
     // Shuffle and pick 5 random cards for the player to choose from
-    final shuffledCards = List<Map<String, String>>.from(cards)..shuffle(_random);
-    final pickableCards = shuffledCards.take(5).map((c) => PickableCard(text: c['text']!, effect: c['effect']!, action: c['action']!)).toList();
+    final shuffledCards = List<Map<String, String>>.from(cards)
+      ..shuffle(_random);
+    final pickableCards =
+        shuffledCards
+            .take(5)
+            .map(
+              (c) => PickableCard(
+                text: c['text']!,
+                effect: c['effect']!,
+                action: c['action']!,
+              ),
+            )
+            .toList();
 
     AudioService.instance.onDrawCard();
     showCardPickDialog(
@@ -1290,7 +1699,10 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       cards: pickableCards,
       onCardPicked: (pickedCard) {
         AudioService.instance.onFlipCard();
-        final newPosition = _applyCardEffect(_cardPickPlayer!, pickedCard.action);
+        final newPosition = _applyCardEffect(
+          _cardPickPlayer!,
+          pickedCard.action,
+        );
 
         // Reset card picking state
         setState(() {
@@ -1316,7 +1728,12 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       AudioService.instance.onDrawCard();
       final card = cards[_random.nextInt(cards.length)];
       AudioService.instance.onFlipCard();
-      await _showAIActionNotification(player.name, '${card['text']}\n${card['effect']}', isChance ? Icons.help_outline : Icons.inventory_2, isChance ? Colors.orange : Colors.blue);
+      await _showAIActionNotification(
+        player.name,
+        '${card['text']}\n${card['effect']}',
+        isChance ? Icons.help_outline : Icons.inventory_2,
+        isChance ? Colors.orange : Colors.blue,
+      );
       final newPosition = _applyCardEffect(player, card['action']!);
       // If card moved the player, resolve the new tile (skip end turn since outer caller handles it)
       if (newPosition != null) {
@@ -1342,13 +1759,24 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   }
 
   bool _checkWinCondition() {
-    final activePlayers = gameState.players.where((p) => p.status == PlayerStatus.active).toList();
+    if (gameState.status == GameStatus.finished) return true;
 
-    if (activePlayers.length == 1) {
-      _showGameOverDialog(activePlayers.first);
-      return true;
-    }
-    return false;
+    final winnerId = gameState.checkWinCondition();
+    if (winnerId == null) return false;
+
+    final winner = gameState.players.firstWhere(
+      (p) => p.id == winnerId,
+      orElse: () => gameState.currentPlayer,
+    );
+
+    setState(() {
+      gameState = gameState.copyWith(
+        status: GameStatus.finished,
+        winnerId: winnerId,
+      );
+    });
+    _showGameOverDialog(winner);
+    return true;
   }
 
   /// Check for mid-game achievements (like Cash King)
@@ -1405,13 +1833,14 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (_) => VictoryScreen(
-            winner: winner,
-            allPlayers: gameState.players,
-            gameTurns: _totalRounds,
-            onPlayAgain: widget.onRestart,
-            onGoHome: widget.onQuit,
-          ),
+          builder:
+              (_) => VictoryScreen(
+                winner: winner,
+                allPlayers: gameState.players,
+                gameTurns: _totalRounds,
+                onPlayAgain: widget.onRestart,
+                onGoHome: widget.onQuit,
+              ),
         ),
       );
     }
@@ -1422,13 +1851,20 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     if (gameState.hasExtraTurn) {
       setState(() {
         _isProcessingTurn = false; // Unlock for next roll
-        gameState = gameState.copyWith(hasExtraTurn: false, highlightedTileIndex: null, logicPhase: TurnLogicPhase.preRoll);
+        gameState = gameState.copyWith(
+          hasExtraTurn: false,
+          highlightedTileIndex: null,
+          logicPhase: TurnLogicPhase.preRoll,
+        );
       });
 
       // Continue with same player
       if (gameState.currentPlayer.isAI) {
         Future.delayed(const Duration(milliseconds: 1500), () {
-          if (mounted && !_isPaused && gameState.canRoll && !_isProcessingTurn) {
+          if (mounted &&
+              !_isPaused &&
+              gameState.canRoll &&
+              !_isProcessingTurn) {
             _rollDice();
           }
         });
@@ -1454,7 +1890,11 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       gameState.tickActivePowerUps();
 
       _isProcessingTurn = false; // Unlock for next player's turn
-      gameState = gameState.copyWith(currentPlayerIndex: nextIndex, highlightedTileIndex: null, logicPhase: TurnLogicPhase.preRoll);
+      gameState = gameState.copyWith(
+        currentPlayerIndex: nextIndex,
+        highlightedTileIndex: null,
+        logicPhase: TurnLogicPhase.preRoll,
+      );
 
       // Phase 3: Check for random event trigger at new round
       if (crossedRound) {
@@ -1541,7 +1981,12 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   // ==========================================================================
   // Phase 4: Action Button Widget Builder
   // ==========================================================================
-  Widget _buildActionButton({required IconData icon, required String label, required Color color, required VoidCallback onTap}) {
+  Widget _buildActionButton({
+    required IconData icon,
+    required String label,
+    required Color color,
+    required VoidCallback onTap,
+  }) {
     return Material(
       color: color.withOpacity(0.9),
       borderRadius: BorderRadius.circular(8),
@@ -1557,7 +2002,11 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
               const SizedBox(width: 4),
               Text(
                 label,
-                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                ),
               ),
             ],
           ),
@@ -1571,14 +2020,31 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   // ==========================================================================
   void _showTradeDialog() {
     final currentPlayer = gameState.currentPlayer;
-    final otherPlayers = gameState.players.where((p) => p.id != currentPlayer.id && p.status == PlayerStatus.active).toList();
+    final otherPlayers =
+        gameState.players
+            .where(
+              (p) =>
+                  p.id != currentPlayer.id && p.status == PlayerStatus.active,
+            )
+            .toList();
 
     if (otherPlayers.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('No other players to trade with!'), duration: Duration(seconds: 2)));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('No other players to trade with!'),
+          duration: Duration(seconds: 2),
+        ),
+      );
       return;
     }
 
-    showTradeDialog(context: context, currentPlayer: currentPlayer, otherPlayers: otherPlayers, tiles: gameState.tiles, onTradeProposed: _handleTradeProposal);
+    showTradeDialog(
+      context: context,
+      currentPlayer: currentPlayer,
+      otherPlayers: otherPlayers,
+      tiles: gameState.tiles,
+      onTradeProposed: _handleTradeProposal,
+    );
   }
 
   Future<void> _handleTradeProposal(TradeOffer offer) async {
@@ -1589,14 +2055,26 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       await Future.delayed(const Duration(milliseconds: 500));
 
       final aiEngine = _aiEngines[recipient.id];
-      final shouldAccept = aiEngine?.shouldAcceptTrade(offer, recipient, gameState) ?? AITradeStrategy.shouldAcceptTrade(offer, recipient);
+      final shouldAccept =
+          aiEngine?.shouldAcceptTrade(offer, recipient, gameState) ??
+          AITradeStrategy.shouldAcceptTrade(offer, recipient);
 
       if (shouldAccept) {
-        await _showAIActionNotification(recipient.name, 'Accepted the trade!', Icons.handshake, Colors.green);
+        await _showAIActionNotification(
+          recipient.name,
+          'Accepted the trade!',
+          Icons.handshake,
+          Colors.green,
+        );
         offer.execute();
         setState(() {});
       } else {
-        await _showAIActionNotification(recipient.name, 'Rejected the trade.', Icons.cancel, Colors.red);
+        await _showAIActionNotification(
+          recipient.name,
+          'Rejected the trade.',
+          Icons.cancel,
+          Colors.red,
+        );
       }
       return;
     }
@@ -1609,10 +2087,22 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       onAccept: () {
         offer.execute();
         setState(() {});
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Trade completed!'), backgroundColor: Colors.green, duration: Duration(seconds: 2)));
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Trade completed!'),
+            backgroundColor: Colors.green,
+            duration: Duration(seconds: 2),
+          ),
+        );
       },
       onReject: () {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Trade rejected.'), backgroundColor: Colors.red, duration: Duration(seconds: 2)));
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Trade rejected.'),
+            backgroundColor: Colors.red,
+            duration: Duration(seconds: 2),
+          ),
+        );
       },
     );
   }

@@ -8,6 +8,7 @@ import '../effects/confetti.dart';
 class BuyPropertyDialog extends StatelessWidget {
   final TileData tile;
   final int playerCash;
+  final int? purchasePrice;
   final VoidCallback onBuy;
   final VoidCallback onSkip;
 
@@ -15,11 +16,13 @@ class BuyPropertyDialog extends StatelessWidget {
     super.key,
     required this.tile,
     required this.playerCash,
+    this.purchasePrice,
     required this.onBuy,
     required this.onSkip,
   });
 
   int get _price {
+    if (purchasePrice != null) return purchasePrice!;
     if (tile is PropertyTileData) return (tile as PropertyTileData).price;
     if (tile is RailroadTileData) return (tile as RailroadTileData).price;
     if (tile is UtilityTileData) return (tile as UtilityTileData).price;
@@ -62,11 +65,7 @@ class BuyPropertyDialog extends StatelessWidget {
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [
-            _buildHeader(),
-            _buildContent(),
-            _buildActions(context),
-          ],
+          children: [_buildHeader(), _buildContent(), _buildActions(context)],
         ),
       ),
     );
@@ -105,10 +104,7 @@ class BuyPropertyDialog extends StatelessWidget {
         children: [
           const Text(
             'This property is available!',
-            style: TextStyle(
-              color: Colors.white70,
-              fontSize: 14,
-            ),
+            style: TextStyle(color: Colors.white70, fontSize: 14),
           ),
           const SizedBox(height: 20),
 
@@ -119,7 +115,10 @@ class BuyPropertyDialog extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.blue.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.blue.withOpacity(0.3), width: 1),
+                border: Border.all(
+                  color: Colors.blue.withOpacity(0.3),
+                  width: 1,
+                ),
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -233,41 +232,51 @@ class BuyPropertyDialog extends StatelessWidget {
           const SizedBox(width: 12),
           Expanded(
             child: Builder(
-              builder: (buttonContext) => ElevatedButton(
-              onPressed: _canAfford
-                  ? () {
-                      // Get button position for confetti
-                      final RenderBox? box = buttonContext.findRenderObject() as RenderBox?;
-                      if (box != null) {
-                        final position = box.localToGlobal(
-                          Offset(box.size.width / 2, box.size.height / 2),
-                        );
-                        // Show confetti celebration!
-                        ConfettiManager.show(
-                          context,
-                          position: position,
-                          primaryColor: _color ?? AppTheme.cashGreen,
-                        );
-                      }
-                      Navigator.of(context).pop();
-                      onBuy();
-                    }
-                  : null,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppTheme.cashGreen,
-                foregroundColor: Colors.black,
-                disabledBackgroundColor: Colors.grey,
-                padding: const EdgeInsets.symmetric(vertical: 14),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-              child: Text(
-                'Buy \$$_price',
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
+              builder:
+                  (buttonContext) => ElevatedButton(
+                    onPressed:
+                        _canAfford
+                            ? () {
+                              // Get button position for confetti
+                              final RenderBox? box =
+                                  buttonContext.findRenderObject()
+                                      as RenderBox?;
+                              if (box != null) {
+                                final position = box.localToGlobal(
+                                  Offset(
+                                    box.size.width / 2,
+                                    box.size.height / 2,
+                                  ),
+                                );
+                                // Show confetti celebration!
+                                ConfettiManager.show(
+                                  context,
+                                  position: position,
+                                  primaryColor: _color ?? AppTheme.cashGreen,
+                                );
+                              }
+                              Navigator.of(context).pop();
+                              onBuy();
+                            }
+                            : null,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppTheme.cashGreen,
+                      foregroundColor: Colors.black,
+                      disabledBackgroundColor: Colors.grey,
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: Text(
+                      'Buy \$$_price',
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
             ),
-          ),
           ),
         ],
       ),
@@ -280,6 +289,7 @@ Future<void> showBuyPropertyDialog({
   required BuildContext context,
   required TileData tile,
   required int playerCash,
+  int? purchasePrice,
   required VoidCallback onBuy,
   required VoidCallback onSkip,
 }) {
@@ -287,11 +297,13 @@ Future<void> showBuyPropertyDialog({
     context: context,
     barrierDismissible: false,
     animationType: DialogAnimationType.scale,
-    builder: (context) => BuyPropertyDialog(
-      tile: tile,
-      playerCash: playerCash,
-      onBuy: onBuy,
-      onSkip: onSkip,
-    ),
+    builder:
+        (context) => BuyPropertyDialog(
+          tile: tile,
+          playerCash: playerCash,
+          purchasePrice: purchasePrice,
+          onBuy: onBuy,
+          onSkip: onSkip,
+        ),
   );
 }
