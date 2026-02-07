@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 /// Types of prizes that can be won from the spin wheel
@@ -8,8 +9,6 @@ enum SpinPrizeType {
   shield,
   teleport,
   jackpot,
-  extraTurn,
-  rentDiscount,
 }
 
 /// A prize that can be won from the spin wheel
@@ -153,14 +152,16 @@ class SpinPrizes {
   /// Total weight for probability calculations
   static double get totalWeight => all.fold(0, (sum, p) => sum + p.weight);
 
+  static final _random = Random();
+
   /// Get a random prize based on weights
   static SpinPrize getRandomPrize() {
-    final random = DateTime.now().millisecondsSinceEpoch % 1000 / 1000;
+    final roll = _random.nextDouble();
     double cumulative = 0;
 
     for (final prize in all) {
       cumulative += prize.weight / totalWeight;
-      if (random <= cumulative) {
+      if (roll <= cumulative) {
         return prize;
       }
     }

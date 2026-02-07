@@ -9,7 +9,7 @@ import '../../services/audio_service.dart';
 /// Dialog containing the spin wheel
 class SpinWheelDialog extends StatefulWidget {
   final String playerName;
-  final Function(SpinPrize) onPrizeWon;
+  final Future<void> Function(SpinPrize) onPrizeWon;
 
   const SpinWheelDialog({
     super.key,
@@ -213,9 +213,11 @@ class _SpinWheelDialogState extends State<SpinWheelDialog> {
         width: double.infinity,
         child: _showResult
             ? ElevatedButton(
-                onPressed: () {
-                  widget.onPrizeWon(_wonPrize!);
-                  Navigator.of(context).pop(_wonPrize);
+                onPressed: () async {
+                  await widget.onPrizeWon(_wonPrize!);
+                  if (context.mounted) {
+                    Navigator.of(context).pop(_wonPrize);
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: _wonPrize!.color,
@@ -259,7 +261,7 @@ class _SpinWheelDialogState extends State<SpinWheelDialog> {
 Future<SpinPrize?> showSpinWheelDialog({
   required BuildContext context,
   required String playerName,
-  required Function(SpinPrize) onPrizeWon,
+  required Future<void> Function(SpinPrize) onPrizeWon,
 }) {
   return showAnimatedDialog<SpinPrize>(
     context: context,

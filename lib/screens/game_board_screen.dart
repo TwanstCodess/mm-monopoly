@@ -80,7 +80,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
   bool _waitingForCardPick = false;
   bool _isChanceCard = false;
   Player? _cardPickPlayer;
-  Completer<void>? _cardPickCompleter;
+  Completer<int?>? _cardPickCompleter;
 
   @override
   void initState() {
@@ -559,7 +559,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     await _resolveTileLanding(player, endPosition);
   }
 
-  Future<void> _resolveTileLanding(Player player, int tileIndex) async {
+  Future<void> _resolveTileLanding(Player player, int tileIndex, {bool skipEndTurn = false}) async {
     final result = engine.resolveTileLanding(player, tileIndex);
 
     switch (result.actionType) {
@@ -600,6 +600,8 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
         // Nothing happens on GO, Free Parking, Jail (visiting), etc.
         break;
     }
+
+    if (skipEndTurn) return;
 
     // Check win condition
     if (_checkWinCondition()) {
@@ -943,8 +945,11 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       context: context,
       playerName: player.name,
       onPrizeWon: (prize) async {
+        // Apply prize first (may show sub-dialogs like Free House or Teleport)
         await _applySpinPrizeWithUI(player, prize);
-        setState(() {});
+        if (mounted) {
+          setState(() {});
+        }
       },
     );
   }
@@ -964,14 +969,21 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
           final ownedProperties = gameState.tiles.whereType<PropertyTileData>().where((p) => p.ownerId == player.id && p.canUpgrade).toList();
 
           if (ownedProperties.isNotEmpty) {
+            bool houseUsed = false;
             await showFreeHouseDialog(
               context: context,
               properties: ownedProperties,
               onPropertySelected: (property) {
+                houseUsed = true;
                 property.upgradeLevel++;
                 setState(() {});
               },
             );
+            // If player chose "Save for Later", store the prize
+            if (!houseUsed) {
+              gameState.playerSpinPrizes[player.id] ??= [];
+              gameState.playerSpinPrizes[player.id]!.add(prize);
+            }
           } else {
             // Store for later if no properties available
             gameState.playerSpinPrizes[player.id] ??= [];
@@ -997,15 +1009,22 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       case SpinPrizeType.teleport:
         // Show teleport dialog for human players
         if (!player.isAI && mounted) {
+          bool teleportUsed = false;
           await showTeleportDialog(
             context: context,
             tiles: gameState.tiles,
             currentPosition: player.position,
             onTileSelected: (tileIndex) {
+              teleportUsed = true;
               player.position = tileIndex;
               setState(() {});
             },
           );
+          // If player chose "Save for Later", store the prize
+          if (!teleportUsed) {
+            gameState.playerSpinPrizes[player.id] ??= [];
+            gameState.playerSpinPrizes[player.id]!.add(prize);
+          }
         } else {
           // AI: teleport to a random unowned property if available
           final unownedProperties = gameState.tiles.whereType<PropertyTileData>().where((p) => p.ownerId == null).toList();
@@ -1016,13 +1035,6 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
         }
         break;
 
-      case SpinPrizeType.extraTurn:
-        gameState.hasExtraTurn = true;
-        break;
-
-      case SpinPrizeType.rentDiscount:
-        gameState.activePowerUps.add(ActivePowerUp(card: PowerUpCards.rentReducer.createInstance(), playerId: player.id, remainingTurns: 1));
-        break;
     }
   }
 
@@ -1221,7 +1233,9 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     {'text': 'Community hero award! You\'re awesome!', 'effect': '+\$150', 'action': 'collect150'},
   ];
 
-  void _applyCardEffect(Player player, String action) {
+  /// Apply card effect. Returns the new tile index if the player moved, null otherwise.
+  int? _applyCardEffect(Player player, String action) {
+    int? newPosition;
     setState(() {
       switch (action) {
         case 'collect25':
@@ -1251,9 +1265,11 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
           break;
         case 'back3':
           player.position = (player.position - 3 + 40) % 40;
+          newPosition = player.position;
           break;
       }
     });
+    return newPosition;
   }
 
   void _onCardDeckTap(bool isChance) {
@@ -1274,7 +1290,7 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       cards: pickableCards,
       onCardPicked: (pickedCard) {
         AudioService.instance.onFlipCard();
-        _applyCardEffect(_cardPickPlayer!, pickedCard.action);
+        final newPosition = _applyCardEffect(_cardPickPlayer!, pickedCard.action);
 
         // Reset card picking state
         setState(() {
@@ -1283,8 +1299,8 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
           _cardPickPlayer = null;
         });
 
-        // Complete the future to continue game flow
-        _cardPickCompleter?.complete();
+        // Complete the future to continue game flow (pass new position if moved)
+        _cardPickCompleter?.complete(newPosition);
         _cardPickCompleter = null;
       },
     );
@@ -1301,12 +1317,16 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
       final card = cards[_random.nextInt(cards.length)];
       AudioService.instance.onFlipCard();
       await _showAIActionNotification(player.name, '${card['text']}\n${card['effect']}', isChance ? Icons.help_outline : Icons.inventory_2, isChance ? Colors.orange : Colors.blue);
-      _applyCardEffect(player, card['action']!);
+      final newPosition = _applyCardEffect(player, card['action']!);
+      // If card moved the player, resolve the new tile (skip end turn since outer caller handles it)
+      if (newPosition != null) {
+        await _resolveTileLanding(player, newPosition, skipEndTurn: true);
+      }
       return;
     }
 
     // Human player - highlight the deck and wait for them to tap it
-    _cardPickCompleter = Completer<void>();
+    _cardPickCompleter = Completer<int?>();
     setState(() {
       _waitingForCardPick = true;
       _isChanceCard = isChance;
@@ -1314,7 +1334,11 @@ class _GameBoardScreenState extends State<GameBoardScreen> with TickerProviderSt
     });
 
     // Wait for the card to be picked
-    await _cardPickCompleter!.future;
+    final newPosition = await _cardPickCompleter!.future;
+    // If card moved the player, resolve the new tile (skip end turn since outer caller handles it)
+    if (newPosition != null) {
+      await _resolveTileLanding(player, newPosition, skipEndTurn: true);
+    }
   }
 
   bool _checkWinCondition() {

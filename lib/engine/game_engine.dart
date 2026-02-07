@@ -325,13 +325,14 @@ class GameEngine {
       return PaymentResult(success: true, paidAmount: amount);
     } else {
       // Bankruptcy
+      final paidAmount = player.cash;
       player.cash = 0;
       player.status = PlayerStatus.bankrupt;
       _returnPropertiesToBank(player);
 
       return PaymentResult(
         success: false,
-        paidAmount: player.cash,
+        paidAmount: paidAmount,
         bankruptcy: true,
       );
     }
@@ -614,19 +615,6 @@ void applySpinPrize(Player player, SpinPrize prize, GameState state) {
       // Store for player to choose tile
       state.playerSpinPrizes[player.id] ??= [];
       state.playerSpinPrizes[player.id]!.add(prize);
-      break;
-
-    case SpinPrizeType.extraTurn:
-      state.hasExtraTurn = true;
-      break;
-
-    case SpinPrizeType.rentDiscount:
-      // Handled during rent payment via active power-up
-      state.activePowerUps.add(ActivePowerUp(
-        card: PowerUpCards.rentReducer.createInstance(),
-        playerId: player.id,
-        remainingTurns: 1,
-      ));
       break;
   }
 }

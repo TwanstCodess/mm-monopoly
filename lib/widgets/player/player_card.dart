@@ -192,21 +192,15 @@ class _PlayerCardState extends State<PlayerCard>
   }
 
   String _getTileNameForPosition(int position) {
-    // Simple tile name mapping
-    const tileNames = [
-      'GO', 'Mediterranean Ave', 'Community Chest', 'Baltic Ave', 'Income Tax',
-      'Reading RR', 'Oriental Ave', 'Chance', 'Vermont Ave', 'Connecticut Ave',
-      'Jail', 'St. Charles Pl', 'Electric Co', 'States Ave', 'Virginia Ave',
-      'Pennsylvania RR', 'St. James Pl', 'Community Chest', 'Tennessee Ave', 'New York Ave',
-      'Free Parking', 'Kentucky Ave', 'Chance', 'Indiana Ave', 'Illinois Ave',
-      'B&O RR', 'Atlantic Ave', 'Ventnor Ave', 'Water Works', 'Marvin Gardens',
-      'Go To Jail', 'Pacific Ave', 'North Carolina Ave', 'Community Chest', 'Pennsylvania Ave',
-      'Short Line', 'Chance', 'Park Place', 'Luxury Tax', 'Boardwalk',
-    ];
-    if (position >= 0 && position < tileNames.length) {
-      return tileNames[position];
+    final tiles = widget.tiles;
+    if (tiles != null && tiles.isNotEmpty) {
+      final tile = tiles.firstWhere(
+        (t) => t.index == position,
+        orElse: () => tiles[0],
+      );
+      return tile.name;
     }
-    return 'Unknown';
+    return 'Tile $position';
   }
 
   Widget _buildCashDisplay() {
