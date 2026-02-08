@@ -227,7 +227,7 @@ class TileInfoDialog extends StatelessWidget {
       case TileType.jail:
         return Icons.gavel;
       case TileType.freeParking:
-        return Icons.local_parking;
+        return Icons.casino;
       case TileType.goToJail:
         return Icons.warning;
     }

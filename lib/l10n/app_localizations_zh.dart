@@ -1436,6 +1436,21 @@ class AppLocalizationsZh extends AppLocalizations {
   String get chooseYourAvatarFancy => '✨ 选择你的头像 ✨';
 
   @override
+  String get avatarCategoryAnimals => '动物';
+
+  @override
+  String get avatarCategoryFood => '食物';
+
+  @override
+  String get avatarCategoryObjects => '物品';
+
+  @override
+  String get avatarCategoryCharacters => '角色';
+
+  @override
+  String get avatarCategoryMyPhotos => '我的照片';
+
+  @override
   String get select => '选择';
 
   @override

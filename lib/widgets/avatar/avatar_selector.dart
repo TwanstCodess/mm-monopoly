@@ -162,12 +162,12 @@ class _AvatarSelectorState extends State<AvatarSelector>
             labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
             labelPadding: const EdgeInsets.symmetric(horizontal: 2),
             isScrollable: false,
-            tabs: AvatarCategory.values.map((category) {
-              return Tab(
-                icon: Icon(category.icon, size: 20),
-                text: category.displayName,
-              );
-            }).toList(),
+                tabs: AvatarCategory.values.map((category) {
+                  return Tab(
+                    icon: Icon(category.icon, size: 20),
+                    text: category.localizedDisplayName(AppLocalizations.of(context)!),
+                  );
+                }).toList(),
           ),
         ),
         const SizedBox(height: 16),
@@ -783,7 +783,7 @@ class _AvatarSelectionDialogState extends State<AvatarSelectionDialog>
                   tabs: AvatarCategory.values.map((category) {
                     return Tab(
                       icon: Icon(category.icon, size: 20),
-                      text: category.displayName,
+                      text: category.localizedDisplayName(AppLocalizations.of(context)!),
                     );
                   }).toList(),
                 ),

@@ -2,8 +2,8 @@
   "tiles": [
     {
       "index": 0,
-      "name": "GO",
-      "subtext": "スタート",
+      "name": "スタート",
+      "subtext": "$200を受け取る",
       "funFact": null
     },
     {
@@ -62,8 +62,8 @@
     },
     {
       "index": 10,
-      "name": "JAIL",
-      "subtext": "刑務所",
+      "name": "刑務所",
+      "subtext": "面会中",
       "funFact": null
     },
     {
@@ -122,8 +122,8 @@
     },
     {
       "index": 20,
-      "name": "LUCKY SPIN",
-      "subtext": "ラッキースピン",
+      "name": "ラッキースピン",
+      "subtext": null,
       "funFact": null
     },
     {
@@ -182,8 +182,8 @@
     },
     {
       "index": 30,
-      "name": "GO TO JAIL",
-      "subtext": "刑務所へ",
+      "name": "刑務所へ行く",
+      "subtext": null,
       "funFact": null
     },
     {

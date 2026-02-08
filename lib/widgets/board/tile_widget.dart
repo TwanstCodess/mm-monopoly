@@ -30,7 +30,7 @@ class TileWidget extends StatelessWidget {
             width: isHighlighted ? 2 : 1,
           ),
         ),
-        child: _buildCornerTile(),
+        child: _buildCornerTile(context),
       );
     }
 
@@ -45,7 +45,7 @@ class TileWidget extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          _buildPropertyTile(),
+          _buildPropertyTile(context),
           // Show ownership indicator:
           // - Small dot when owned but no upgrades
           // - Houses when upgraded (1-4 houses, or hotel at level 5)
@@ -366,7 +366,7 @@ class TileWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildCornerTile() {
+  Widget _buildCornerTile(BuildContext context) {
     IconData? icon;
     Color iconColor = Colors.black;
     Color bgColor = data.color;
@@ -403,7 +403,7 @@ class TileWidget extends StatelessWidget {
             child: FittedBox(
               fit: BoxFit.scaleDown,
               child: Text(
-                data.name,
+                _getDisplayName(context),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 12,
@@ -418,7 +418,7 @@ class TileWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildPropertyTile() {
+  Widget _buildPropertyTile(BuildContext context) {
     // Determine layout based on rotation
     // 0 = bottom row (color band on top, text reads normally)
     // 1 = left column (color band on right, vertical tile)
@@ -428,17 +428,17 @@ class TileWidget extends StatelessWidget {
     final isVertical = rotation == 1 || rotation == 3;
 
     if (isVertical) {
-      return _buildVerticalTile();
+      return _buildVerticalTile(context);
     } else {
-      return _buildHorizontalTile();
+      return _buildHorizontalTile(context);
     }
   }
 
   /// Build tile for bottom (rotation=0) or top (rotation=2) row
-  Widget _buildHorizontalTile() {
+  Widget _buildHorizontalTile(BuildContext context) {
     final colorBandOnTop = rotation == 0;
     final colorBand = _buildColorBand(isHorizontal: true);
-    final content = _buildTileContent();
+    final content = _buildTileContent(context);
 
     return Column(
       children:
@@ -449,10 +449,10 @@ class TileWidget extends StatelessWidget {
   }
 
   /// Build tile for left (rotation=1) or right (rotation=3) column
-  Widget _buildVerticalTile() {
+  Widget _buildVerticalTile(BuildContext context) {
     final colorBandOnRight = rotation == 1;
     final colorBand = _buildColorBand(isHorizontal: false);
-    final content = _buildTileContent();
+    final content = _buildTileContent(context);
 
     return Row(
       children:
@@ -505,7 +505,7 @@ class TileWidget extends StatelessWidget {
     }
   }
 
-  Widget _buildTileContent() {
+  Widget _buildTileContent(BuildContext context) {
     final price = _getPrice();
 
     // For top row (rotation=2), flip the layout so name is at bottom (toward center)
@@ -513,7 +513,7 @@ class TileWidget extends StatelessWidget {
     // For left/right columns, name toward center as well
     final nameAtBottom = rotation == 2;
 
-    final shortName = _getShortName();
+    final shortName = _getShortName(context);
     // Use two-line layout only if name has a natural break (space)
     // Otherwise scale down to fit on one line to avoid orphan characters
     final hasSpace = shortName.contains(' ');
@@ -588,8 +588,8 @@ class TileWidget extends StatelessWidget {
   }
 
   /// Get a shortened version of the name for better readability
-  String _getShortName() {
-    String name = data.name;
+  String _getShortName(BuildContext context) {
+    String name = _getDisplayName(context);
     // Shorten common words
     name = name.replaceAll('Avenue', 'Ave');
     name = name.replaceAll('Place', 'Pl');
@@ -600,6 +600,27 @@ class TileWidget extends StatelessWidget {
     name = name.replaceAll('Water Works', 'Water');
     name = name.replaceAll('Chance Card', 'Chance');
     return name;
+  }
+
+  /// Prefer localized subtext for CJK locales when name is left in ASCII.
+  String _getDisplayName(BuildContext context) {
+    final locale = Localizations.localeOf(context).languageCode;
+    final subtext = data.subtext?.trim();
+    if (subtext == null || subtext.isEmpty) return data.name;
+
+    if (locale == 'zh' || locale == 'ja') {
+      final hasCjkSubtext = RegExp(
+        r'[\u3040-\u30FF\u3400-\u9FFF]',
+      ).hasMatch(subtext);
+      final hasCjkName = RegExp(
+        r'[\u3040-\u30FF\u3400-\u9FFF]',
+      ).hasMatch(data.name);
+      if (!hasCjkName && hasCjkSubtext) {
+        return subtext;
+      }
+    }
+
+    return data.name;
   }
 
   int? _getPrice() {

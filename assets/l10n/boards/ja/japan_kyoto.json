@@ -1,44 +1,244 @@
 {
   "tiles": [
-    {"index": 0, "name": "GO", "subtext": "スタート", "funFact": null},
-    {"index": 1, "name": "Tofukuji", "subtext": "東福寺", "funFact": "1236年に九条道家によって創建された東福寺の通天橋からは、2,000本の紅葉が広がる谷の京都で最も美しい秋の景色が楽しめます。"},
-    {"index": 2, "name": "宝箱", "subtext": null, "funFact": null},
-    {"index": 3, "name": "Fushimi", "subtext": "伏見", "funFact": "伏見は京都の伝説的な酒造りの町で、清らかな地下水のおかげで日本酒の約40%を生産しています。"},
-    {"index": 4, "name": "所得税", "subtext": null, "funFact": null},
-    {"index": 5, "name": "Hankyu Line", "subtext": "阪急線", "funFact": "阪急京都線は1928年から京都と大阪を結び、独特のマルーン色の電車と優美な河原町駅のターミナルで有名です。"},
-    {"index": 6, "name": "Nijo Castle", "subtext": "二条城", "funFact": "1603年に徳川家康によって築城された二条城には、歩くと鳴る「鶯張り」の廊下があり、忍者の侵入を知らせる仕掛けです。"},
-    {"index": 7, "name": "チャンス", "subtext": null, "funFact": null},
-    {"index": 8, "name": "Gion", "subtext": "祇園", "funFact": "祇園は京都で最も有名な花街で、17世紀から続く伝統芸能を約200人の芸妓・舞妓が今も守っています。"},
-    {"index": 9, "name": "Pontocho", "subtext": "先斗町", "funFact": "先斗町は鴨川沿いに500メートル続く細い路地で、伝統的な料理店や夏の川床が並んでいます。"},
-    {"index": 10, "name": "JAIL", "subtext": "刑務所", "funFact": null},
-    {"index": 11, "name": "Kinkaku-ji", "subtext": "金閣寺", "funFact": "金閣の上二層は純金箔で覆われています！1397年に建てられた元の建物は、1950年に僧侶が放火した後、1955年に再建されました。"},
-    {"index": 12, "name": "Kansai Electric Power", "subtext": "関西電力", "funFact": "1951年設立の関西電力は、西日本の関西地方全域で1,300万人以上の顧客に電力を供給しています。"},
-    {"index": 13, "name": "Ryoan-ji", "subtext": "龍安寺", "funFact": "龍安寺の有名な石庭には15個の石が配置されており、どこから見ても14個しか見えないように設計されています。これは人間の視点の不完全さを象徴しています。"},
-    {"index": 14, "name": "Ninna-ji", "subtext": "仁和寺", "funFact": "888年に宇多天皇によって創建された仁和寺は、高さ2〜3メートルにしかならない遅咲きの御室桜で有名なユネスコ世界遺産です。"},
-    {"index": 15, "name": "JR Sagano Line", "subtext": "JR嵯峨野線", "funFact": "JR嵯峨野線は京都西部から嵐山を走り、嵯峨野トロッコ列車は保津峡沿いの7.3キロメートルの景勝路線です。"},
-    {"index": 16, "name": "Arashiyama", "subtext": "嵐山", "funFact": "嵐山は1,000年以上前の平安時代から人気の行楽地で、貴族が山の景色と紅葉を楽しむために別荘を建てました。"},
-    {"index": 17, "name": "宝箱", "subtext": null, "funFact": null},
-    {"index": 18, "name": "Bamboo Grove", "subtext": "竹林", "funFact": "嵐山の竹林は20メートル以上の高さに達する竹が茂り、風が竹を揺らす音は「日本の音風景百選」に選ばれました。"},
-    {"index": 19, "name": "Togetsukyo", "subtext": "渡月橋", "funFact": "「月を渡る橋」は9世紀の平安時代に初めて架けられました。亀山天皇が月が橋を渡るように見えたことからこの名がつきました。"},
-    {"index": 20, "name": "LUCKY SPIN", "subtext": "ラッキースピン", "funFact": null},
-    {"index": 21, "name": "Kiyomizu-dera", "subtext": "清水寺", "funFact": "778年に建立された清水寺の有名な木造の舞台は、釘を一本も使わない特殊な組み木技術で造られ、崖から13メートル突き出しています。"},
-    {"index": 22, "name": "チャンス", "subtext": null, "funFact": null},
-    {"index": 23, "name": "Sannenzaka", "subtext": "三年坂", "funFact": "807年まで遡る石畳の坂道です。地元の迷信では、この坂で転ぶと三年以内に不幸が訪れると言われています。"},
-    {"index": 24, "name": "Higashiyama", "subtext": "東山", "funFact": "東山地区は日本で最もよく保存された歴史的地域の一つで、伝統的な木造町家と2,500以上の寺社仏閣があります。"},
-    {"index": 25, "name": "Keifuku Line", "subtext": "嵐電", "funFact": "「嵐電」の愛称で親しまれる京福電気鉄道は1910年から運行しており、全長7.2キロメートルの京都で唯一残る路面電車です。"},
-    {"index": 26, "name": "Imperial Palace", "subtext": "京都御所", "funFact": "京都御所は1869年に首都が東京に移るまで1,000年以上にわたって天皇の住居でした。"},
-    {"index": 27, "name": "Shimogamo", "subtext": "下鴨", "funFact": "下鴨神社は正式には賀茂御祖神社といい、京都そのものよりも古い歴史を持つ神社で、2,000年以上の歴史がある糺の森という神聖な森があります。"},
-    {"index": 28, "name": "Kyoto Water", "subtext": "京都水道", "funFact": "京都の水道は1890年の琵琶湖疏水を通じて琵琶湖から水を引いており、日本初の近代水力発電事業の一つでした。"},
-    {"index": 29, "name": "Philosopher Path", "subtext": "哲学の道", "funFact": "疏水沿いの2キロメートルの石畳の小径は、毎日ここで瞑想した哲学者・西田幾太郎にちなんで名付けられ、1921年に寄贈された数百本の桜が並んでいます。"},
-    {"index": 30, "name": "GO TO JAIL", "subtext": "刑務所へ", "funFact": null},
-    {"index": 31, "name": "Fushimi Inari", "subtext": "伏見稲荷", "funFact": "伏見稲荷大社には1万本以上の朱色の鳥居が稲荷山を4キロメートルにわたって連なり、江戸時代から商売繁盛を祈願する企業が奉納しています。"},
-    {"index": 32, "name": "Byodo-in", "subtext": "平等院", "funFact": "1053年に建てられた平等院鳳凰堂は日本の10円硬貨に描かれています！平安時代の浄土仏教建築で唯一現存する例です。"},
-    {"index": 33, "name": "宝箱", "subtext": null, "funFact": null},
-    {"index": 34, "name": "Uji", "subtext": "宇治", "funFact": "宇治は800年以上にわたって日本で最も格式高い茶の産地です。世界初の長編小説『源氏物語』は最終章の舞台を宇治に設定しています。"},
-    {"index": 35, "name": "Kintetsu Line", "subtext": "近鉄線", "funFact": "近鉄は508キロメートルの路線網を持つ日本最大の私鉄で、特急に乗れば京都から奈良までわずか35分です。"},
-    {"index": 36, "name": "チャンス", "subtext": null, "funFact": null},
-    {"index": 37, "name": "Daitoku-ji", "subtext": "大徳寺", "funFact": "1319年に創建された大徳寺は24の塔頭を持つ広大な禅寺院群で、千利休を通じて日本の茶道の歴史と深く結びついています。"},
-    {"index": 38, "name": "贅沢税", "subtext": null, "funFact": null},
-    {"index": 39, "name": "Kitano Tenmangu", "subtext": "北野天満宮", "funFact": "947年に学者・菅原道真を祀って創建された北野天満宮には2,000本の梅の木があり、学問の神様として日本で最も重要な神社です。"}
+    {
+      "index": 0,
+      "name": "スタート",
+      "subtext": "$200を受け取る",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Tofukuji",
+      "subtext": "東福寺",
+      "funFact": "1236年に九条道家によって創建された東福寺の通天橋からは、2,000本の紅葉が広がる谷の京都で最も美しい秋の景色が楽しめます。"
+    },
+    {
+      "index": 2,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Fushimi",
+      "subtext": "伏見",
+      "funFact": "伏見は京都の伝説的な酒造りの町で、清らかな地下水のおかげで日本酒の約40%を生産しています。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Hankyu Line",
+      "subtext": "阪急線",
+      "funFact": "阪急京都線は1928年から京都と大阪を結び、独特のマルーン色の電車と優美な河原町駅のターミナルで有名です。"
+    },
+    {
+      "index": 6,
+      "name": "Nijo Castle",
+      "subtext": "二条城",
+      "funFact": "1603年に徳川家康によって築城された二条城には、歩くと鳴る「鶯張り」の廊下があり、忍者の侵入を知らせる仕掛けです。"
+    },
+    {
+      "index": 7,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Gion",
+      "subtext": "祇園",
+      "funFact": "祇園は京都で最も有名な花街で、17世紀から続く伝統芸能を約200人の芸妓・舞妓が今も守っています。"
+    },
+    {
+      "index": 9,
+      "name": "Pontocho",
+      "subtext": "先斗町",
+      "funFact": "先斗町は鴨川沿いに500メートル続く細い路地で、伝統的な料理店や夏の川床が並んでいます。"
+    },
+    {
+      "index": 10,
+      "name": "刑務所",
+      "subtext": "面会中",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Kinkaku-ji",
+      "subtext": "金閣寺",
+      "funFact": "金閣の上二層は純金箔で覆われています！1397年に建てられた元の建物は、1950年に僧侶が放火した後、1955年に再建されました。"
+    },
+    {
+      "index": 12,
+      "name": "Kansai Electric Power",
+      "subtext": "関西電力",
+      "funFact": "1951年設立の関西電力は、西日本の関西地方全域で1,300万人以上の顧客に電力を供給しています。"
+    },
+    {
+      "index": 13,
+      "name": "Ryoan-ji",
+      "subtext": "龍安寺",
+      "funFact": "龍安寺の有名な石庭には15個の石が配置されており、どこから見ても14個しか見えないように設計されています。これは人間の視点の不完全さを象徴しています。"
+    },
+    {
+      "index": 14,
+      "name": "Ninna-ji",
+      "subtext": "仁和寺",
+      "funFact": "888年に宇多天皇によって創建された仁和寺は、高さ2〜3メートルにしかならない遅咲きの御室桜で有名なユネスコ世界遺産です。"
+    },
+    {
+      "index": 15,
+      "name": "JR Sagano Line",
+      "subtext": "JR嵯峨野線",
+      "funFact": "JR嵯峨野線は京都西部から嵐山を走り、嵯峨野トロッコ列車は保津峡沿いの7.3キロメートルの景勝路線です。"
+    },
+    {
+      "index": 16,
+      "name": "Arashiyama",
+      "subtext": "嵐山",
+      "funFact": "嵐山は1,000年以上前の平安時代から人気の行楽地で、貴族が山の景色と紅葉を楽しむために別荘を建てました。"
+    },
+    {
+      "index": 17,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Bamboo Grove",
+      "subtext": "竹林",
+      "funFact": "嵐山の竹林は20メートル以上の高さに達する竹が茂り、風が竹を揺らす音は「日本の音風景百選」に選ばれました。"
+    },
+    {
+      "index": 19,
+      "name": "Togetsukyo",
+      "subtext": "渡月橋",
+      "funFact": "「月を渡る橋」は9世紀の平安時代に初めて架けられました。亀山天皇が月が橋を渡るように見えたことからこの名がつきました。"
+    },
+    {
+      "index": 20,
+      "name": "ラッキースピン",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Kiyomizu-dera",
+      "subtext": "清水寺",
+      "funFact": "778年に建立された清水寺の有名な木造の舞台は、釘を一本も使わない特殊な組み木技術で造られ、崖から13メートル突き出しています。"
+    },
+    {
+      "index": 22,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Sannenzaka",
+      "subtext": "三年坂",
+      "funFact": "807年まで遡る石畳の坂道です。地元の迷信では、この坂で転ぶと三年以内に不幸が訪れると言われています。"
+    },
+    {
+      "index": 24,
+      "name": "Higashiyama",
+      "subtext": "東山",
+      "funFact": "東山地区は日本で最もよく保存された歴史的地域の一つで、伝統的な木造町家と2,500以上の寺社仏閣があります。"
+    },
+    {
+      "index": 25,
+      "name": "Keifuku Line",
+      "subtext": "嵐電",
+      "funFact": "「嵐電」の愛称で親しまれる京福電気鉄道は1910年から運行しており、全長7.2キロメートルの京都で唯一残る路面電車です。"
+    },
+    {
+      "index": 26,
+      "name": "Imperial Palace",
+      "subtext": "京都御所",
+      "funFact": "京都御所は1869年に首都が東京に移るまで1,000年以上にわたって天皇の住居でした。"
+    },
+    {
+      "index": 27,
+      "name": "Shimogamo",
+      "subtext": "下鴨",
+      "funFact": "下鴨神社は正式には賀茂御祖神社といい、京都そのものよりも古い歴史を持つ神社で、2,000年以上の歴史がある糺の森という神聖な森があります。"
+    },
+    {
+      "index": 28,
+      "name": "Kyoto Water",
+      "subtext": "京都水道",
+      "funFact": "京都の水道は1890年の琵琶湖疏水を通じて琵琶湖から水を引いており、日本初の近代水力発電事業の一つでした。"
+    },
+    {
+      "index": 29,
+      "name": "Philosopher Path",
+      "subtext": "哲学の道",
+      "funFact": "疏水沿いの2キロメートルの石畳の小径は、毎日ここで瞑想した哲学者・西田幾太郎にちなんで名付けられ、1921年に寄贈された数百本の桜が並んでいます。"
+    },
+    {
+      "index": 30,
+      "name": "刑務所へ行く",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Fushimi Inari",
+      "subtext": "伏見稲荷",
+      "funFact": "伏見稲荷大社には1万本以上の朱色の鳥居が稲荷山を4キロメートルにわたって連なり、江戸時代から商売繁盛を祈願する企業が奉納しています。"
+    },
+    {
+      "index": 32,
+      "name": "Byodo-in",
+      "subtext": "平等院",
+      "funFact": "1053年に建てられた平等院鳳凰堂は日本の10円硬貨に描かれています！平安時代の浄土仏教建築で唯一現存する例です。"
+    },
+    {
+      "index": 33,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Uji",
+      "subtext": "宇治",
+      "funFact": "宇治は800年以上にわたって日本で最も格式高い茶の産地です。世界初の長編小説『源氏物語』は最終章の舞台を宇治に設定しています。"
+    },
+    {
+      "index": 35,
+      "name": "Kintetsu Line",
+      "subtext": "近鉄線",
+      "funFact": "近鉄は508キロメートルの路線網を持つ日本最大の私鉄で、特急に乗れば京都から奈良までわずか35分です。"
+    },
+    {
+      "index": 36,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Daitoku-ji",
+      "subtext": "大徳寺",
+      "funFact": "1319年に創建された大徳寺は24の塔頭を持つ広大な禅寺院群で、千利休を通じて日本の茶道の歴史と深く結びついています。"
+    },
+    {
+      "index": 38,
+      "name": "贅沢税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Kitano Tenmangu",
+      "subtext": "北野天満宮",
+      "funFact": "947年に学者・菅原道真を祀って創建された北野天満宮には2,000本の梅の木があり、学問の神様として日本で最も重要な神社です。"
+    }
   ]
 }

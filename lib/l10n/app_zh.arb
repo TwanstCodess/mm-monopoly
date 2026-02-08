@@ -456,6 +456,11 @@
   "noPhotosYet": "还没有照片",
   "takeSelfieOrPick": "拍一张自拍或从相册选择！",
   "chooseYourAvatarFancy": "✨ 选择你的头像 ✨",
+  "avatarCategoryAnimals": "动物",
+  "avatarCategoryFood": "食物",
+  "avatarCategoryObjects": "物品",
+  "avatarCategoryCharacters": "角色",
+  "avatarCategoryMyPhotos": "我的照片",
   "select": "选择",
   "yourTurn": "轮到你了",
 

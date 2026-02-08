@@ -1437,6 +1437,21 @@ class AppLocalizationsJa extends AppLocalizations {
   String get chooseYourAvatarFancy => '✨ アバターを選ぼう ✨';
 
   @override
+  String get avatarCategoryAnimals => '動物';
+
+  @override
+  String get avatarCategoryFood => '食べ物';
+
+  @override
+  String get avatarCategoryObjects => 'アイテム';
+
+  @override
+  String get avatarCategoryCharacters => 'キャラクター';
+
+  @override
+  String get avatarCategoryMyPhotos => 'マイ写真';
+
+  @override
   String get select => '選択';
 
   @override

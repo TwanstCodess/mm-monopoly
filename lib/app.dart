@@ -60,7 +60,9 @@ class _AppNavigatorState extends State<AppNavigator> {
   GameState? _gameState;
   GameSettings _settings = const GameSettings();
   int _diceCount = 2; // Track dice count for the game
-  CityBoard _selectedCityBoard = CityBoardRegistry.defaultForCountry(Country.usa); // Track selected city board
+  CityBoard _selectedCityBoard = CityBoardRegistry.defaultForCountry(
+    Country.usa,
+  ); // Track selected city board
 
   void _navigateTo(AppScreen screen) {
     setState(() {
@@ -91,15 +93,28 @@ class _AppNavigatorState extends State<AppNavigator> {
     }
   }
 
-  Future<void> _startGame(List<PlayerConfig> configs, {int diceCount = 2, CityBoard? cityBoard}) async {
+  Future<void> _startGame(
+    List<PlayerConfig> configs, {
+    int diceCount = 2,
+    CityBoard? cityBoard,
+  }) async {
     final board = cityBoard ?? CityBoardRegistry.defaultForCountry(Country.usa);
 
     // Create players from configs
-    final players = configs.asMap().entries.map((entry) {
-      final index = entry.key;
-      final config = entry.value;
-      return Player(id: 'player_$index', name: config.name, color: config.color, icon: config.icon, avatar: config.avatar, isAI: config.isAI, cash: _settings.startingCash);
-    }).toList();
+    final players =
+        configs.asMap().entries.map((entry) {
+          final index = entry.key;
+          final config = entry.value;
+          return Player(
+            id: 'player_$index',
+            name: config.name,
+            color: config.color,
+            icon: config.icon,
+            avatar: config.avatar,
+            isAI: config.isAI,
+            cash: _settings.startingCash,
+          );
+        }).toList();
 
     // Load localized tiles
     final locale = LocaleService.instance.currentLocale;
@@ -109,7 +124,13 @@ class _AppNavigatorState extends State<AppNavigator> {
     setState(() {
       _diceCount = diceCount;
       _selectedCityBoard = board;
-      _gameState = GameState.initial(players: players, tiles: tiles, startingCash: _settings.startingCash, diceCount: diceCount);
+      _gameState = GameState.initial(
+        players: players,
+        tiles: tiles,
+        startingCash: _settings.startingCash,
+        diceCount: diceCount,
+        cityBoardId: board.boardId,
+      );
       _currentScreen = AppScreen.game;
     });
 
@@ -122,7 +143,7 @@ class _AppNavigatorState extends State<AppNavigator> {
       _gameState = null;
       _currentScreen = AppScreen.mainMenu;
     });
-    
+
     // Switch back to menu music
     AudioService.instance.playMenuMusic();
   }
@@ -130,15 +151,33 @@ class _AppNavigatorState extends State<AppNavigator> {
   Future<void> _restartGame() async {
     if (_gameState != null) {
       // Reset all players
-      final resetPlayers = _gameState!.players.map((p) {
-        return Player(id: p.id, name: p.name, color: p.color, icon: p.icon, avatar: p.avatar, isAI: p.isAI, cash: _settings.startingCash);
-      }).toList();
+      final resetPlayers =
+          _gameState!.players.map((p) {
+            return Player(
+              id: p.id,
+              name: p.name,
+              color: p.color,
+              icon: p.icon,
+              avatar: p.avatar,
+              isAI: p.isAI,
+              cash: _settings.startingCash,
+            );
+          }).toList();
 
       final locale = LocaleService.instance.currentLocale;
-      final tiles = await BoardFactory.generateLocalizedTiles(_selectedCityBoard, locale);
+      final tiles = await BoardFactory.generateLocalizedTiles(
+        _selectedCityBoard,
+        locale,
+      );
 
       setState(() {
-        _gameState = GameState.initial(players: resetPlayers, tiles: tiles, startingCash: _settings.startingCash, diceCount: _diceCount);
+        _gameState = GameState.initial(
+          players: resetPlayers,
+          tiles: tiles,
+          startingCash: _settings.startingCash,
+          diceCount: _diceCount,
+          cityBoardId: _selectedCityBoard.boardId,
+        );
       });
     }
   }
@@ -149,8 +188,9 @@ class _AppNavigatorState extends State<AppNavigator> {
       setState(() {
         _gameState = savedState;
         _diceCount = savedState.diceCount;
-        // Infer city board from board theme ID
-        _selectedCityBoard = _inferCityBoardFromTheme(savedState.boardTheme.id);
+        _selectedCityBoard =
+            CityBoardRegistry.byBoardId(savedState.cityBoardId) ??
+            _inferCityBoardFromTheme(savedState.boardTheme.id);
         _currentScreen = AppScreen.game;
       });
       // Play game music
@@ -194,31 +234,50 @@ class _AppNavigatorState extends State<AppNavigator> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedSwitcher(duration: const Duration(milliseconds: 300), child: _buildCurrentScreen());
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 300),
+      child: _buildCurrentScreen(),
+    );
   }
 
   Widget _buildCurrentScreen() {
     switch (_currentScreen) {
       case AppScreen.splash:
-        return SplashScreen(key: const ValueKey('splash'), onComplete: () => _navigateTo(AppScreen.mainMenu));
+        return SplashScreen(
+          key: const ValueKey('splash'),
+          onComplete: () => _navigateTo(AppScreen.mainMenu),
+        );
 
       case AppScreen.mainMenu:
         return MainMenuScreen(
           key: const ValueKey('mainMenu'),
           onNewGame: () => _navigateTo(AppScreen.gameSetup),
-          onContinue: (_gameState != null || SaveService.instance.hasSavedGame()) ? _loadSavedGame : null,
+          onContinue:
+              (_gameState != null || SaveService.instance.hasSavedGame())
+                  ? _loadSavedGame
+                  : null,
           onHowToPlay: () => _navigateTo(AppScreen.howToPlay),
           onSettings: () => _navigateTo(AppScreen.settings),
           onShop: () => _navigateTo(AppScreen.shop),
         );
 
       case AppScreen.gameSetup:
-        return GameSetupScreen(key: const ValueKey('gameSetup'), onBack: () => _navigateTo(AppScreen.mainMenu), onStartGame: _startGame);
+        return GameSetupScreen(
+          key: const ValueKey('gameSetup'),
+          onBack: () => _navigateTo(AppScreen.mainMenu),
+          onStartGame: _startGame,
+        );
 
       case AppScreen.howToPlay:
         // Go back to where user came from (game or mainMenu)
-        final returnScreen = _previousScreen == AppScreen.game ? AppScreen.game : AppScreen.mainMenu;
-        return HowToPlayScreen(key: const ValueKey('howToPlay'), onBack: () => _navigateTo(returnScreen));
+        final returnScreen =
+            _previousScreen == AppScreen.game
+                ? AppScreen.game
+                : AppScreen.mainMenu;
+        return HowToPlayScreen(
+          key: const ValueKey('howToPlay'),
+          onBack: () => _navigateTo(returnScreen),
+        );
 
       case AppScreen.settings:
         return SettingsScreen(
@@ -233,12 +292,16 @@ class _AppNavigatorState extends State<AppNavigator> {
         );
 
       case AppScreen.shop:
-        return ShopScreen(key: const ValueKey('shop'), onBack: () => _navigateTo(AppScreen.mainMenu));
+        return ShopScreen(
+          key: const ValueKey('shop'),
+          onBack: () => _navigateTo(AppScreen.mainMenu),
+        );
 
       case AppScreen.game:
         return GameBoardScreen(
           key: ValueKey('game_${_gameState!.id}'),
           gameState: _gameState!,
+          cityBoard: _selectedCityBoard,
           onQuit: _quitGame,
           onRestart: _restartGame,
           onHowToPlay: () => _navigateTo(AppScreen.howToPlay),

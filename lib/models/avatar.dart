@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 
 /// Avatar categories for organization
 enum AvatarCategory {
@@ -579,6 +580,21 @@ class Avatars {
 
 /// Extension to get category display name
 extension AvatarCategoryExt on AvatarCategory {
+  String localizedDisplayName(AppLocalizations l10n) {
+    switch (this) {
+      case AvatarCategory.animals:
+        return l10n.avatarCategoryAnimals;
+      case AvatarCategory.food:
+        return l10n.avatarCategoryFood;
+      case AvatarCategory.objects:
+        return l10n.avatarCategoryObjects;
+      case AvatarCategory.characters:
+        return l10n.avatarCategoryCharacters;
+      case AvatarCategory.custom:
+        return l10n.avatarCategoryMyPhotos;
+    }
+  }
+
   String get displayName {
     switch (this) {
       case AvatarCategory.animals:

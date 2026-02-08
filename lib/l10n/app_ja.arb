@@ -422,6 +422,11 @@
   "noPhotosYet": "まだ写真がありません",
   "takeSelfieOrPick": "自撮りするかギャラリーから選ぼう！",
   "chooseYourAvatarFancy": "✨ アバターを選ぼう ✨",
+  "avatarCategoryAnimals": "動物",
+  "avatarCategoryFood": "食べ物",
+  "avatarCategoryObjects": "アイテム",
+  "avatarCategoryCharacters": "キャラクター",
+  "avatarCategoryMyPhotos": "マイ写真",
   "select": "選択",
   "yourTurn": "あなたの番",
 

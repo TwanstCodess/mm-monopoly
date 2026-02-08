@@ -73,12 +73,18 @@ class BoardFactory {
   }
 
   /// Generate tiles with localized text overlays from JSON
-  static Future<List<TileData>> generateLocalizedTiles(CityBoard cityBoard, Locale locale) async {
+  static Future<List<TileData>> generateLocalizedTiles(
+    CityBoard cityBoard,
+    Locale locale,
+  ) async {
     // Get the base tiles (structural data: prices, rents, colors)
     final tiles = generateTiles(cityBoard);
 
     // Load localized text overlays using the boardId
-    final overlays = await GameContentLoader.instance.loadBoardTiles(cityBoard.boardId, locale);
+    final overlays = await GameContentLoader.instance.loadBoardTiles(
+      cityBoard.boardId,
+      locale,
+    );
 
     if (overlays.isEmpty) return tiles;
 
@@ -102,7 +108,12 @@ class BoardFactory {
   }
 
   /// Apply localized text to a tile, returning a new tile of the same type
-  static TileData _applyTextOverlay(TileData tile, String name, String? subtext, String? funFact) {
+  static TileData _applyTextOverlay(
+    TileData tile,
+    String name,
+    String? subtext,
+    String? funFact,
+  ) {
     if (tile is PropertyTileData) {
       return PropertyTileData(
         index: tile.index,
@@ -128,6 +139,7 @@ class BoardFactory {
         name: name,
         isElectric: tile.isElectric,
         price: tile.price,
+        subtext: subtext,
         funFact: funFact,
       );
     } else if (tile is TaxTileData) {

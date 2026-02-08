@@ -6,6 +6,7 @@ import '../models/player.dart';
 import '../models/game_state.dart';
 import '../models/board_theme.dart';
 import '../models/player_stats.dart';
+import '../models/city_board.dart';
 import '../config/theme.dart';
 import '../config/constants.dart';
 import '../services/audio_service.dart';
@@ -48,6 +49,7 @@ import 'victory_screen.dart';
 /// Main game board screen
 class GameBoardScreen extends StatefulWidget {
   final GameState gameState;
+  final CityBoard cityBoard;
   final VoidCallback onQuit;
   final VoidCallback onRestart;
   final VoidCallback? onHowToPlay;
@@ -59,6 +61,7 @@ class GameBoardScreen extends StatefulWidget {
   const GameBoardScreen({
     super.key,
     required this.gameState,
+    required this.cityBoard,
     required this.onQuit,
     required this.onRestart,
     this.onHowToPlay,
@@ -236,7 +239,9 @@ class _GameBoardScreenState extends State<GameBoardScreen>
               ),
               const SizedBox(width: 12),
               Text(
-                success ? AppLocalizations.of(context)!.gameSaved : AppLocalizations.of(context)!.failedToSave,
+                success
+                    ? AppLocalizations.of(context)!.gameSaved
+                    : AppLocalizations.of(context)!.failedToSave,
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
@@ -312,7 +317,10 @@ class _GameBoardScreenState extends State<GameBoardScreen>
               const SizedBox(width: 12),
               Text(
                 AppLocalizations.of(context)!.failedToLoad,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ],
           ),
@@ -343,6 +351,12 @@ class _GameBoardScreenState extends State<GameBoardScreen>
         child: SafeArea(
           child: Stack(
             children: [
+              Positioned(
+                top: 8,
+                left: 0,
+                right: 0,
+                child: Center(child: _buildCityBadge()),
+              ),
               OrientationBuilder(
                 builder: (context, orientation) {
                   final isPortrait = orientation == Orientation.portrait;
@@ -385,6 +399,35 @@ class _GameBoardScreenState extends State<GameBoardScreen>
                   ),
                 ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCityBadge() {
+    final l10n = AppLocalizations.of(context)!;
+    final city = widget.cityBoard.localizedDisplayName(l10n);
+    final country = widget.cityBoard.country.localizedDisplayName(l10n);
+
+    return IgnorePointer(
+      child: Container(
+        constraints: const BoxConstraints(maxWidth: 240),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        decoration: BoxDecoration(
+          color: Colors.black.withOpacity(0.35),
+          borderRadius: BorderRadius.circular(999),
+          border: Border.all(color: Colors.white.withOpacity(0.2)),
+        ),
+        child: Text(
+          '$city • $country',
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 12,
+            fontWeight: FontWeight.w700,
           ),
         ),
       ),
@@ -893,9 +936,14 @@ class _GameBoardScreenState extends State<GameBoardScreen>
           (player.cash >= property.upgradeCost + 200);
 
       if (shouldUpgrade) {
-        final levelName = property.upgradeLevel < 4
-            ? AppLocalizations.of(context)!.buildHouse.toLowerCase().replaceAll('!', '')
-            : AppLocalizations.of(context)!.buildHotel.toLowerCase().replaceAll('!', '');
+        final levelName =
+            property.upgradeLevel < 4
+                ? AppLocalizations.of(
+                  context,
+                )!.buildHouse.toLowerCase().replaceAll('!', '')
+                : AppLocalizations.of(
+                  context,
+                )!.buildHotel.toLowerCase().replaceAll('!', '');
         await _showAIActionNotification(
           player.name,
           AppLocalizations.of(context)!.aiBuiltOn(levelName, property.name),
@@ -1509,7 +1557,8 @@ class _GameBoardScreenState extends State<GameBoardScreen>
     if (isChance != _isChanceCard) return; // Wrong deck tapped
     if (_cardPickPlayer == null) return;
 
-    final localizedCards = isChance ? _localizedChanceCards : _localizedChestCards;
+    final localizedCards =
+        isChance ? _localizedChanceCards : _localizedChestCards;
     final fallbackCards = isChance ? _chanceCards : _chestCards;
     final cards = localizedCards.isNotEmpty ? localizedCards : fallbackCards;
 
@@ -1557,7 +1606,8 @@ class _GameBoardScreenState extends State<GameBoardScreen>
   Future<void> _handleDrawCard(Player player, TileData tile) async {
     final isChance = tile.type == TileType.chance;
 
-    final localizedCards = isChance ? _localizedChanceCards : _localizedChestCards;
+    final localizedCards =
+        isChance ? _localizedChanceCards : _localizedChestCards;
     final fallbackCards = isChance ? _chanceCards : _chestCards;
     final cards = localizedCards.isNotEmpty ? localizedCards : fallbackCards;
 

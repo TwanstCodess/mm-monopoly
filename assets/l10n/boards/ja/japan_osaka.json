@@ -1,44 +1,244 @@
 {
   "tiles": [
-    {"index": 0, "name": "GO", "subtext": "スタート", "funFact": null},
-    {"index": 1, "name": "Shinsekai", "subtext": "新世界", "funFact": "1912年にニューヨークとパリをモデルに「新世界」として建設され、レトロな雰囲気と串カツの名所として有名です。"},
-    {"index": 2, "name": "宝箱", "subtext": null, "funFact": null},
-    {"index": 3, "name": "Tennoji", "subtext": "天王寺", "funFact": "天王寺公園は1909年に開園し、日本・中国美術の作品8,000点以上を所蔵する大阪市立美術館があります。"},
-    {"index": 4, "name": "所得税", "subtext": null, "funFact": null},
-    {"index": 5, "name": "Midosuji Line", "subtext": "御堂筋線", "funFact": "1933年に開業した御堂筋線は、大阪で最も利用者の多い地下鉄路線で、象徴的な御堂筋沿いを毎日120万人以上が利用しています。"},
-    {"index": 6, "name": "Namba", "subtext": "難波", "funFact": "難波は大阪の活気あふれる繁華街で、1912年から吉本新喜劇が上演されている「なんばグランド花月」の本拠地です。"},
-    {"index": 7, "name": "チャンス", "subtext": null, "funFact": null},
-    {"index": 8, "name": "Shinsaibashi", "subtext": "心斎橋", "funFact": "心斎橋筋商店街は全長600メートルで、17世紀の江戸時代から大阪を代表するショッピングストリートです。"},
-    {"index": 9, "name": "Amerikamura", "subtext": "アメリカ村", "funFact": "「アメ村」の愛称で親しまれるこの若者文化の街は、1970年代にアメリカのヴィンテージ衣料やレコードを輸入する店が誕生して発展しました。"},
-    {"index": 10, "name": "JAIL", "subtext": "刑務所", "funFact": null},
-    {"index": 11, "name": "Tsutenkaku", "subtext": "通天閣", "funFact": "現在の108メートルの通天閣は1956年に再建されたもので、初代の1912年の塔は第二次世界大戦中に鉄材として解体されました。"},
-    {"index": 12, "name": "Kansai Electric Power", "subtext": "関西電力", "funFact": "1951年設立の関西電力は、西日本の関西地方全域で1,300万人以上の顧客に電力を供給しています。"},
-    {"index": 13, "name": "Sumiyoshi Taisha", "subtext": "住吉大社", "funFact": "西暦211年に創建された住吉大社は日本最古の神社の一つで、全国2,300社以上の住吉神社の総本社です。"},
-    {"index": 14, "name": "Osaka Castle", "subtext": "大阪城", "funFact": "1583年に豊臣秀吉によって築城された大阪城は、天守閣の高さ55メートルを誇り、日本統一に重要な役割を果たしました。"},
-    {"index": 15, "name": "Osaka Loop Line", "subtext": "大阪環状線", "funFact": "大阪環状線は1961年に環状運転を開始し、中央大阪を一周する21.7キロメートルに19駅があります。"},
-    {"index": 16, "name": "Dotonbori", "subtext": "道頓堀", "funFact": "1612年に運河を開削した商人・安井道頓にちなんで名付けられた道頓堀の有名なグリコの看板は、1935年からのシンボルです。"},
-    {"index": 17, "name": "宝箱", "subtext": null, "funFact": null},
-    {"index": 18, "name": "Kuromon Market", "subtext": "黒門市場", "funFact": "190年以上にわたって「大阪の台所」として知られる黒門市場には、新鮮な魚介、青果、ストリートフードを扱う約150店舗が並んでいます。"},
-    {"index": 19, "name": "Umeda", "subtext": "梅田", "funFact": "梅田スカイビルの空中庭園展望台は地上173メートルにあり、旅行ガイドで世界の建築物トップ20に選ばれました。"},
-    {"index": 20, "name": "LUCKY SPIN", "subtext": "ラッキースピン", "funFact": null},
-    {"index": 21, "name": "Universal Studios", "subtext": "ユニバーサル", "funFact": "ユニバーサル・スタジオ・ジャパンは2001年に開業し、年間1,400万人以上が訪れる日本で最も来場者の多いテーマパークです。"},
-    {"index": 22, "name": "チャンス", "subtext": null, "funFact": null},
-    {"index": 23, "name": "Tempozan", "subtext": "天保山", "funFact": "標高わずか4.53メートルの天保山は、日本で最も低い公認の山の一つで、1831年に大阪港の浚渫土で造られました。"},
-    {"index": 24, "name": "Kaiyukan", "subtext": "海遊館", "funFact": "大阪の海遊館は10,941トンの水量を誇り、ジンベエザメやマンタなど太平洋沿岸の30,000匹以上の海洋生物が暮らしています。"},
-    {"index": 25, "name": "Nankai Line", "subtext": "南海本線", "funFact": "1885年に開業した南海本線は日本最古の鉄道路線の一つで、大阪から関西国際空港や和歌山を結んでいます。"},
-    {"index": 26, "name": "Nakanoshima", "subtext": "中之島", "funFact": "堂島川と土佐堀川に挟まれた中洲の島で、1891年以来大阪の文化の中心地であり、国立国際美術館があります。"},
-    {"index": 27, "name": "Kitashinchi", "subtext": "北新地", "funFact": "北新地は大阪で最も高級な飲食・歓楽街で、コンパクトなエリアに3,000軒以上のバー、クラブ、レストランが集まっています。"},
-    {"index": 28, "name": "Osaka Water Bureau", "subtext": "大阪市水道局", "funFact": "大阪の水道システムは1895年に建設された20kmの水路を通じて琵琶湖から取水し、毎日270万人以上の住民にきれいな水を供給しています。"},
-    {"index": 29, "name": "Abeno Harukas", "subtext": "あべのハルカス", "funFact": "高さ300メートルのあべのハルカスは、2014年の竣工から2023年まで日本一高い超高層ビルで、美術館、ホテル、展望台を備えています。"},
-    {"index": 30, "name": "GO TO JAIL", "subtext": "刑務所へ", "funFact": null},
-    {"index": 31, "name": "Expo Park", "subtext": "万博記念公園", "funFact": "アジア初の万国博覧会「大阪万博'70」の跡地で、6,400万人が来場しました！岡本太郎の象徴的な太陽の塔は高さ70メートルで今も立っています。"},
-    {"index": 32, "name": "Minoh Falls", "subtext": "箕面滝", "funFact": "箕面大滝は落差33メートルで日本の滝百選の一つに選ばれ、壮大な紅葉ともみじの天ぷらで有名です。"},
-    {"index": 33, "name": "宝箱", "subtext": null, "funFact": null},
-    {"index": 34, "name": "Sakai", "subtext": "堺", "funFact": "堺には世界最大の前方後円墳である大仙古墳があり、全長486メートルで5世紀に仁徳天皇のために築造されました。"},
-    {"index": 35, "name": "Keihan Line", "subtext": "京阪本線", "funFact": "京阪本線は1910年から大阪と京都を結び、全長49.3キロメートルの路線でプレミアムな2階建て車両を運行しています。"},
-    {"index": 36, "name": "チャンス", "subtext": null, "funFact": null},
-    {"index": 37, "name": "Grand Front", "subtext": "グランフロント", "funFact": "グランフロント大阪は2013年にうめきた再開発の一環として開業し、266店舗、ナレッジキャピタル、インターコンチネンタルホテルを擁しています。"},
-    {"index": 38, "name": "贅沢税", "subtext": null, "funFact": null},
-    {"index": 39, "name": "Kita", "subtext": "キタ", "funFact": "キタ地区は大阪の北の商業の中心地で、毎日250万人以上が利用する大阪ステーションシティを核としています。"}
+    {
+      "index": 0,
+      "name": "スタート",
+      "subtext": "$200を受け取る",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Shinsekai",
+      "subtext": "新世界",
+      "funFact": "1912年にニューヨークとパリをモデルに「新世界」として建設され、レトロな雰囲気と串カツの名所として有名です。"
+    },
+    {
+      "index": 2,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Tennoji",
+      "subtext": "天王寺",
+      "funFact": "天王寺公園は1909年に開園し、日本・中国美術の作品8,000点以上を所蔵する大阪市立美術館があります。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Midosuji Line",
+      "subtext": "御堂筋線",
+      "funFact": "1933年に開業した御堂筋線は、大阪で最も利用者の多い地下鉄路線で、象徴的な御堂筋沿いを毎日120万人以上が利用しています。"
+    },
+    {
+      "index": 6,
+      "name": "Namba",
+      "subtext": "難波",
+      "funFact": "難波は大阪の活気あふれる繁華街で、1912年から吉本新喜劇が上演されている「なんばグランド花月」の本拠地です。"
+    },
+    {
+      "index": 7,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Shinsaibashi",
+      "subtext": "心斎橋",
+      "funFact": "心斎橋筋商店街は全長600メートルで、17世紀の江戸時代から大阪を代表するショッピングストリートです。"
+    },
+    {
+      "index": 9,
+      "name": "Amerikamura",
+      "subtext": "アメリカ村",
+      "funFact": "「アメ村」の愛称で親しまれるこの若者文化の街は、1970年代にアメリカのヴィンテージ衣料やレコードを輸入する店が誕生して発展しました。"
+    },
+    {
+      "index": 10,
+      "name": "刑務所",
+      "subtext": "面会中",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Tsutenkaku",
+      "subtext": "通天閣",
+      "funFact": "現在の108メートルの通天閣は1956年に再建されたもので、初代の1912年の塔は第二次世界大戦中に鉄材として解体されました。"
+    },
+    {
+      "index": 12,
+      "name": "Kansai Electric Power",
+      "subtext": "関西電力",
+      "funFact": "1951年設立の関西電力は、西日本の関西地方全域で1,300万人以上の顧客に電力を供給しています。"
+    },
+    {
+      "index": 13,
+      "name": "Sumiyoshi Taisha",
+      "subtext": "住吉大社",
+      "funFact": "西暦211年に創建された住吉大社は日本最古の神社の一つで、全国2,300社以上の住吉神社の総本社です。"
+    },
+    {
+      "index": 14,
+      "name": "Osaka Castle",
+      "subtext": "大阪城",
+      "funFact": "1583年に豊臣秀吉によって築城された大阪城は、天守閣の高さ55メートルを誇り、日本統一に重要な役割を果たしました。"
+    },
+    {
+      "index": 15,
+      "name": "Osaka Loop Line",
+      "subtext": "大阪環状線",
+      "funFact": "大阪環状線は1961年に環状運転を開始し、中央大阪を一周する21.7キロメートルに19駅があります。"
+    },
+    {
+      "index": 16,
+      "name": "Dotonbori",
+      "subtext": "道頓堀",
+      "funFact": "1612年に運河を開削した商人・安井道頓にちなんで名付けられた道頓堀の有名なグリコの看板は、1935年からのシンボルです。"
+    },
+    {
+      "index": 17,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Kuromon Market",
+      "subtext": "黒門市場",
+      "funFact": "190年以上にわたって「大阪の台所」として知られる黒門市場には、新鮮な魚介、青果、ストリートフードを扱う約150店舗が並んでいます。"
+    },
+    {
+      "index": 19,
+      "name": "Umeda",
+      "subtext": "梅田",
+      "funFact": "梅田スカイビルの空中庭園展望台は地上173メートルにあり、旅行ガイドで世界の建築物トップ20に選ばれました。"
+    },
+    {
+      "index": 20,
+      "name": "ラッキースピン",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Universal Studios",
+      "subtext": "ユニバーサル",
+      "funFact": "ユニバーサル・スタジオ・ジャパンは2001年に開業し、年間1,400万人以上が訪れる日本で最も来場者の多いテーマパークです。"
+    },
+    {
+      "index": 22,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Tempozan",
+      "subtext": "天保山",
+      "funFact": "標高わずか4.53メートルの天保山は、日本で最も低い公認の山の一つで、1831年に大阪港の浚渫土で造られました。"
+    },
+    {
+      "index": 24,
+      "name": "Kaiyukan",
+      "subtext": "海遊館",
+      "funFact": "大阪の海遊館は10,941トンの水量を誇り、ジンベエザメやマンタなど太平洋沿岸の30,000匹以上の海洋生物が暮らしています。"
+    },
+    {
+      "index": 25,
+      "name": "Nankai Line",
+      "subtext": "南海本線",
+      "funFact": "1885年に開業した南海本線は日本最古の鉄道路線の一つで、大阪から関西国際空港や和歌山を結んでいます。"
+    },
+    {
+      "index": 26,
+      "name": "Nakanoshima",
+      "subtext": "中之島",
+      "funFact": "堂島川と土佐堀川に挟まれた中洲の島で、1891年以来大阪の文化の中心地であり、国立国際美術館があります。"
+    },
+    {
+      "index": 27,
+      "name": "Kitashinchi",
+      "subtext": "北新地",
+      "funFact": "北新地は大阪で最も高級な飲食・歓楽街で、コンパクトなエリアに3,000軒以上のバー、クラブ、レストランが集まっています。"
+    },
+    {
+      "index": 28,
+      "name": "Osaka Water Bureau",
+      "subtext": "大阪市水道局",
+      "funFact": "大阪の水道システムは1895年に建設された20kmの水路を通じて琵琶湖から取水し、毎日270万人以上の住民にきれいな水を供給しています。"
+    },
+    {
+      "index": 29,
+      "name": "Abeno Harukas",
+      "subtext": "あべのハルカス",
+      "funFact": "高さ300メートルのあべのハルカスは、2014年の竣工から2023年まで日本一高い超高層ビルで、美術館、ホテル、展望台を備えています。"
+    },
+    {
+      "index": 30,
+      "name": "刑務所へ行く",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Expo Park",
+      "subtext": "万博記念公園",
+      "funFact": "アジア初の万国博覧会「大阪万博'70」の跡地で、6,400万人が来場しました！岡本太郎の象徴的な太陽の塔は高さ70メートルで今も立っています。"
+    },
+    {
+      "index": 32,
+      "name": "Minoh Falls",
+      "subtext": "箕面滝",
+      "funFact": "箕面大滝は落差33メートルで日本の滝百選の一つに選ばれ、壮大な紅葉ともみじの天ぷらで有名です。"
+    },
+    {
+      "index": 33,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Sakai",
+      "subtext": "堺",
+      "funFact": "堺には世界最大の前方後円墳である大仙古墳があり、全長486メートルで5世紀に仁徳天皇のために築造されました。"
+    },
+    {
+      "index": 35,
+      "name": "Keihan Line",
+      "subtext": "京阪本線",
+      "funFact": "京阪本線は1910年から大阪と京都を結び、全長49.3キロメートルの路線でプレミアムな2階建て車両を運行しています。"
+    },
+    {
+      "index": 36,
+      "name": "チャンス",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Grand Front",
+      "subtext": "グランフロント",
+      "funFact": "グランフロント大阪は2013年にうめきた再開発の一環として開業し、266店舗、ナレッジキャピタル、インターコンチネンタルホテルを擁しています。"
+    },
+    {
+      "index": 38,
+      "name": "贅沢税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Kita",
+      "subtext": "キタ",
+      "funFact": "キタ地区は大阪の北の商業の中心地で、毎日250万人以上が利用する大阪ステーションシティを核としています。"
+    }
   ]
 }

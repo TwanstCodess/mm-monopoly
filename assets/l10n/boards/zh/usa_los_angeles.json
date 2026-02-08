@@ -2,8 +2,8 @@
   "tiles": [
     {
       "index": 0,
-      "name": "GO",
-      "subtext": "收取200",
+      "name": "出发",
+      "subtext": "领取 $200",
       "funFact": null
     },
     {
@@ -62,8 +62,8 @@
     },
     {
       "index": 10,
-      "name": "JAIL",
-      "subtext": "监狱",
+      "name": "监狱",
+      "subtext": "只是路过",
       "funFact": null
     },
     {
@@ -122,8 +122,8 @@
     },
     {
       "index": 20,
-      "name": "LUCKY SPIN",
-      "subtext": "幸运转盘",
+      "name": "幸运转盘",
+      "subtext": null,
       "funFact": null
     },
     {
@@ -182,8 +182,8 @@
     },
     {
       "index": 30,
-      "name": "GO TO JAIL",
-      "subtext": "去监狱",
+      "name": "去监狱",
+      "subtext": null,
       "funFact": null
     },
     {

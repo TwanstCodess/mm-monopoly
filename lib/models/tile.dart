@@ -70,7 +70,10 @@ class TileData {
 
   /// Deserialize from JSON (polymorphic)
   factory TileData.fromJson(Map<String, dynamic> json) {
-    final type = enumFromJson<TileType>(json['type'] as String, TileType.values);
+    final type = enumFromJson<TileType>(
+      json['type'] as String,
+      TileType.values,
+    );
 
     switch (type) {
       case TileType.property:
@@ -116,10 +119,7 @@ class PropertyTileData extends TileData {
     this.ownerId,
     this.upgradeLevel = 0,
     this.isMortgaged = false,
-  }) : super(
-          type: TileType.property,
-          color: groupColor,
-        );
+  }) : super(type: TileType.property, color: groupColor);
 
   int get currentRent {
     if (isMortgaged) return 0;
@@ -233,10 +233,7 @@ class RailroadTileData extends TileData {
     super.subtext,
     this.ownerId,
     this.isMortgaged = false,
-  }) : super(
-          type: TileType.railroad,
-          color: Colors.white,
-        );
+  }) : super(type: TileType.railroad, color: Colors.white);
 
   /// Rent depends on how many railroads owned (25, 50, 100, 200)
   int getRent(int railroadsOwned) {
@@ -294,13 +291,11 @@ class UtilityTileData extends TileData {
     required super.name,
     required this.isElectric,
     this.price = 150,
+    super.subtext,
     super.funFact,
     this.ownerId,
     this.isMortgaged = false,
-  }) : super(
-          type: TileType.utility,
-          color: Colors.white,
-        );
+  }) : super(type: TileType.utility, color: Colors.white);
 
   /// Rent is dice roll * 4 (one utility) or * 10 (both utilities)
   int getRent(int diceRoll, int utilitiesOwned) {
@@ -339,6 +334,7 @@ class UtilityTileData extends TileData {
       name: json['name'] as String,
       isElectric: json['isElectric'] as bool,
       price: json['price'] as int? ?? 150,
+      subtext: json['subtext'] as String?,
       funFact: json['funFact'] as String?,
       ownerId: json['ownerId'] as String?,
       isMortgaged: json['isMortgaged'] as bool? ?? false,
@@ -356,19 +352,11 @@ class TaxTileData extends TileData {
     required super.name,
     required this.amount,
     this.percentage,
-  }) : super(
-          type: TileType.tax,
-          color: Colors.white,
-          subtext: '\$$amount',
-        );
+  }) : super(type: TileType.tax, color: Colors.white, subtext: '\$$amount');
 
   @override
   Map<String, dynamic> toJson() {
-    return {
-      ...super.toJson(),
-      'amount': amount,
-      'percentage': percentage,
-    };
+    return {...super.toJson(), 'amount': amount, 'percentage': percentage};
   }
 
   factory TaxTileData.fromJson(Map<String, dynamic> json) {
@@ -411,16 +399,13 @@ class CardTileData extends TileData {
     required super.name,
     required this.isChance,
   }) : super(
-          type: isChance ? TileType.chance : TileType.communityChest,
-          color: Colors.white,
-        );
+         type: isChance ? TileType.chance : TileType.communityChest,
+         color: Colors.white,
+       );
 
   @override
   Map<String, dynamic> toJson() {
-    return {
-      ...super.toJson(),
-      'isChance': isChance,
-    };
+    return {...super.toJson(), 'isChance': isChance};
   }
 
   factory CardTileData.fromJson(Map<String, dynamic> json) {

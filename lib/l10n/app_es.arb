@@ -456,6 +456,11 @@
   "noPhotosYet": "Aún no hay fotos",
   "takeSelfieOrPick": "¡Hazte una selfie o elige de la galería!",
   "chooseYourAvatarFancy": "✨ Elige tu avatar ✨",
+  "avatarCategoryAnimals": "Animales",
+  "avatarCategoryFood": "Comida",
+  "avatarCategoryObjects": "Objetos",
+  "avatarCategoryCharacters": "Personajes",
+  "avatarCategoryMyPhotos": "Mis fotos",
   "select": "Seleccionar",
   "yourTurn": "TU TURNO",
 

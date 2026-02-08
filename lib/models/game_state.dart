@@ -76,6 +76,7 @@ class GameState {
 
   // Phase 3: Board theme
   BoardTheme boardTheme;
+  String cityBoardId;
 
   // Phase 3: Power-up cards per player
   Map<String, List<PowerUpCard>> playerPowerUps;
@@ -131,6 +132,7 @@ class GameState {
     this.winnerId,
     this.highlightedTileIndex,
     BoardTheme? boardTheme,
+    this.cityBoardId = 'usa',
     Map<String, List<PowerUpCard>>? playerPowerUps,
     List<ActivePowerUp>? activePowerUps,
     List<ActiveEvent>? activeEvents,
@@ -241,6 +243,7 @@ class GameState {
     WinCondition winCondition = WinCondition.lastStanding,
     int startingCash = 1500,
     int diceCount = 2,
+    String cityBoardId = 'usa',
   }) {
     // Set starting cash for all players
     for (final player in players) {
@@ -256,6 +259,7 @@ class GameState {
       players: players,
       tiles: tiles,
       diceCount: diceCount,
+      cityBoardId: cityBoardId,
     );
   }
 
@@ -294,6 +298,7 @@ class GameState {
     int? totalDiceSum,
     int? doublesRolledTotal,
     int? diceCount,
+    String? cityBoardId,
   }) {
     return GameState(
       id: id ?? this.id,
@@ -317,6 +322,7 @@ class GameState {
       winnerId: winnerId ?? this.winnerId,
       highlightedTileIndex: highlightedTileIndex ?? this.highlightedTileIndex,
       boardTheme: boardTheme ?? this.boardTheme,
+      cityBoardId: cityBoardId ?? this.cityBoardId,
       playerPowerUps: playerPowerUps ?? this.playerPowerUps,
       activePowerUps: activePowerUps ?? this.activePowerUps,
       activeEvents: activeEvents ?? this.activeEvents,
@@ -445,6 +451,7 @@ class GameState {
       'winnerId': winnerId,
       'highlightedTileIndex': highlightedTileIndex,
       'boardTheme': boardTheme.toJson(),
+      'cityBoardId': cityBoardId,
       'playerPowerUps': playerPowerUps.map(
         (key, value) => MapEntry(key, value.map((c) => c.toJson()).toList()),
       ),
@@ -466,6 +473,10 @@ class GameState {
 
   /// Deserialize from JSON
   factory GameState.fromJson(Map<String, dynamic> json) {
+    final boardThemeJson = json['boardTheme'] as Map<String, dynamic>;
+    final boardTheme = BoardTheme.fromJson(boardThemeJson);
+    final savedCityBoardId = json['cityBoardId'] as String?;
+
     return GameState(
       id: json['id'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
@@ -502,9 +513,8 @@ class GameState {
       status: enumFromJson(json['status'] as String, GameStatus.values),
       winnerId: json['winnerId'] as String?,
       highlightedTileIndex: json['highlightedTileIndex'] as int?,
-      boardTheme: BoardTheme.fromJson(
-        json['boardTheme'] as Map<String, dynamic>,
-      ),
+      boardTheme: boardTheme,
+      cityBoardId: savedCityBoardId ?? boardTheme.id,
       playerPowerUps: (json['playerPowerUps'] as Map<String, dynamic>).map(
         (key, value) => MapEntry(
           key,

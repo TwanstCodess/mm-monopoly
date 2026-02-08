@@ -2750,6 +2750,36 @@ abstract class AppLocalizations {
   /// **'✨ Choose Your Avatar ✨'**
   String get chooseYourAvatarFancy;
 
+  /// No description provided for @avatarCategoryAnimals.
+  ///
+  /// In en, this message translates to:
+  /// **'Animals'**
+  String get avatarCategoryAnimals;
+
+  /// No description provided for @avatarCategoryFood.
+  ///
+  /// In en, this message translates to:
+  /// **'Food'**
+  String get avatarCategoryFood;
+
+  /// No description provided for @avatarCategoryObjects.
+  ///
+  /// In en, this message translates to:
+  /// **'Objects'**
+  String get avatarCategoryObjects;
+
+  /// No description provided for @avatarCategoryCharacters.
+  ///
+  /// In en, this message translates to:
+  /// **'Characters'**
+  String get avatarCategoryCharacters;
+
+  /// No description provided for @avatarCategoryMyPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'My Photos'**
+  String get avatarCategoryMyPhotos;
+
   /// No description provided for @select.
   ///
   /// In en, this message translates to:
