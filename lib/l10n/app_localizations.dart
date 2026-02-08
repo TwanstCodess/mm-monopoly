@@ -1067,13 +1067,13 @@ abstract class AppLocalizations {
   /// No description provided for @chanceCard.
   ///
   /// In en, this message translates to:
-  /// **'Chance Card'**
+  /// **'Chance'**
   String get chanceCard;
 
   /// No description provided for @communityChestCard.
   ///
   /// In en, this message translates to:
-  /// **'Community Chest'**
+  /// **'Comm Chest'**
   String get communityChestCard;
 
   /// No description provided for @incomeTax.
@@ -1343,19 +1343,19 @@ abstract class AppLocalizations {
   /// No description provided for @freeParkingFactOne.
   ///
   /// In en, this message translates to:
-  /// **'House rules often add bonus money here.'**
+  /// **'Spin the wheel to win cash, power-ups, or special prizes!'**
   String get freeParkingFactOne;
 
   /// No description provided for @freeParkingFactTwo.
   ///
   /// In en, this message translates to:
-  /// **'Official rules treat it as a free resting space.'**
+  /// **'Every spin guarantees a reward — no bad outcomes!'**
   String get freeParkingFactTwo;
 
   /// No description provided for @freeParkingFunFact.
   ///
   /// In en, this message translates to:
-  /// **'Free Parking is where many comebacks begin.'**
+  /// **'Lucky Spin is where fortunes can change in an instant.'**
   String get freeParkingFunFact;
 
   /// No description provided for @goToJailFactOne.
@@ -1439,7 +1439,7 @@ abstract class AppLocalizations {
   /// No description provided for @communityChest.
   ///
   /// In en, this message translates to:
-  /// **'COMMUNITY CHEST'**
+  /// **'COMM CHEST'**
   String get communityChest;
 
   /// No description provided for @chanceExcl.
@@ -1451,7 +1451,7 @@ abstract class AppLocalizations {
   /// No description provided for @communityChestExcl.
   ///
   /// In en, this message translates to:
-  /// **'COMMUNITY CHEST!'**
+  /// **'COMM CHEST!'**
   String get communityChestExcl;
 
   /// No description provided for @tapCardToPick.
@@ -1475,7 +1475,7 @@ abstract class AppLocalizations {
   /// No description provided for @chestShort.
   ///
   /// In en, this message translates to:
-  /// **'CHEST'**
+  /// **'COMM CHEST'**
   String get chestShort;
 
   /// No description provided for @ok.

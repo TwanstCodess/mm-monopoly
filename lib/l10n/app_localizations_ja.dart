@@ -534,7 +534,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get goToJailLabel => '刑務所行き';
 
   @override
-  String get chanceCard => 'チャンスカード';
+  String get chanceCard => 'チャンス';
 
   @override
   String get communityChestCard => '共同基金';
@@ -674,13 +674,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get jailFunFact => '刑務所はゲーム内でも特に戦略性の高いマスです。';
 
   @override
-  String get freeParkingFactOne => 'ハウスルールではここにボーナス金を置くことがよくあります。';
+  String get freeParkingFactOne => 'ルーレットを回して現金、パワーアップ、特別賞品を獲得しよう！';
 
   @override
-  String get freeParkingFactTwo => '公式ルールでは無料で休めるマスです。';
+  String get freeParkingFactTwo => '毎回必ず報酬がもらえます — ハズレなし！';
 
   @override
-  String get freeParkingFunFact => 'フリーパーキングは逆転のきっかけになりやすいマスです。';
+  String get freeParkingFunFact => 'ラッキースピンは一瞬で運命が変わる場所です。';
 
   @override
   String get goToJailFactOne => 'このマスに止まると駒は刑務所へ直行します。';

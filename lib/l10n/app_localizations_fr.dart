@@ -544,10 +544,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get goToJailLabel => 'Allez en Prison';
 
   @override
-  String get chanceCard => 'Carte Chance';
+  String get chanceCard => 'Chance';
 
   @override
-  String get communityChestCard => 'Caisse de Communauté';
+  String get communityChestCard => 'Caisse';
 
   @override
   String get incomeTax => 'Impôt sur le Revenu';
@@ -697,15 +697,15 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get freeParkingFactOne =>
-      'Les règles maison ajoutent souvent un bonus d\'argent ici.';
+      'Tournez la roue pour gagner de l\'argent, des bonus ou des prix spéciaux !';
 
   @override
   String get freeParkingFactTwo =>
-      'Les règles officielles en font une case de repos gratuite.';
+      'Chaque tour garantit une récompense — jamais de mauvais résultat !';
 
   @override
   String get freeParkingFunFact =>
-      'Parking Gratuit est le point de départ de nombreux retours.';
+      'La Roue de la Chance peut retourner la situation en un instant.';
 
   @override
   String get goToJailFactOne =>
@@ -756,13 +756,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get chance => 'Hasard';
 
   @override
-  String get communityChest => 'CAISSE DE COMMUNAUTÉ';
+  String get communityChest => 'CAISSE';
 
   @override
   String get chanceExcl => 'CHANCE !';
 
   @override
-  String get communityChestExcl => 'CAISSE DE COMMUNAUTÉ !';
+  String get communityChestExcl => 'CAISSE !';
 
   @override
   String get tapCardToPick => 'Appuyez sur une carte pour la choisir !';

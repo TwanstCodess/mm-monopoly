@@ -542,10 +542,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get goToJailLabel => 'Go To Jail';
 
   @override
-  String get chanceCard => 'Chance Card';
+  String get chanceCard => 'Chance';
 
   @override
-  String get communityChestCard => 'Community Chest';
+  String get communityChestCard => 'Comm Chest';
 
   @override
   String get incomeTax => 'Income Tax';
@@ -687,15 +687,16 @@ class AppLocalizationsEn extends AppLocalizations {
       'Jail is one of the most strategic spaces in the game.';
 
   @override
-  String get freeParkingFactOne => 'House rules often add bonus money here.';
+  String get freeParkingFactOne =>
+      'Spin the wheel to win cash, power-ups, or special prizes!';
 
   @override
   String get freeParkingFactTwo =>
-      'Official rules treat it as a free resting space.';
+      'Every spin guarantees a reward — no bad outcomes!';
 
   @override
   String get freeParkingFunFact =>
-      'Free Parking is where many comebacks begin.';
+      'Lucky Spin is where fortunes can change in an instant.';
 
   @override
   String get goToJailFactOne => 'This sends your token directly to Jail.';
@@ -740,13 +741,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chance => 'CHANCE';
 
   @override
-  String get communityChest => 'COMMUNITY CHEST';
+  String get communityChest => 'COMM CHEST';
 
   @override
   String get chanceExcl => 'CHANCE!';
 
   @override
-  String get communityChestExcl => 'COMMUNITY CHEST!';
+  String get communityChestExcl => 'COMM CHEST!';
 
   @override
   String get tapCardToPick => 'Tap a card to pick it!';
@@ -758,7 +759,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get tapToContinue => 'Tap anywhere to continue';
 
   @override
-  String get chestShort => 'CHEST';
+  String get chestShort => 'COMM CHEST';
 
   @override
   String get ok => 'OK';

@@ -598,7 +598,7 @@ class TileWidget extends StatelessWidget {
     name = name.replaceAll('Electric', 'Elec');
     name = name.replaceAll('Company', 'Co');
     name = name.replaceAll('Water Works', 'Water');
-    name = name.replaceAll('Community Chest', 'Comm Chest');
+    name = name.replaceAll('Chance Card', 'Chance');
     return name;
   }
 

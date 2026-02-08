@@ -75,7 +75,7 @@ class GameEngine {
           message:
               tile.type == TileType.chance
                   ? 'Draw a Chance card!'
-                  : 'Draw a Community Chest card!',
+                  : 'Draw a Comm Chest card!',
           tile: tile,
         );
 

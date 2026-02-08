@@ -542,7 +542,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get goToJailLabel => 'Ve a la Cárcel';
 
   @override
-  String get chanceCard => 'Carta de Suerte';
+  String get chanceCard => 'Suerte';
 
   @override
   String get communityChestCard => 'Arca Comunal';
@@ -691,14 +691,15 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get freeParkingFactOne =>
-      'Las reglas caseras suelen añadir dinero extra aquí.';
+      '¡Gira la ruleta para ganar dinero, potenciadores o premios especiales!';
 
   @override
   String get freeParkingFactTwo =>
-      'Las reglas oficiales la tratan como una casilla de descanso.';
+      'Cada giro garantiza una recompensa — ¡sin malos resultados!';
 
   @override
-  String get freeParkingFunFact => 'En Parking Libre nacen muchas remontadas.';
+  String get freeParkingFunFact =>
+      'El Giro de la Suerte es donde las fortunas pueden cambiar al instante.';
 
   @override
   String get goToJailFactOne =>

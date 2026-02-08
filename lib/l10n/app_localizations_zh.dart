@@ -533,7 +533,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get goToJailLabel => '进入监狱';
 
   @override
-  String get chanceCard => '机会卡';
+  String get chanceCard => '机会';
 
   @override
   String get communityChestCard => '公益金';
@@ -673,13 +673,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get jailFunFact => '监狱是游戏里最讲策略的格子之一。';
 
   @override
-  String get freeParkingFactOne => '很多自定义规则会在这里放置奖励金。';
+  String get freeParkingFactOne => '转动转盘赢取现金、增益卡或特别奖品！';
 
   @override
-  String get freeParkingFactTwo => '官方规则中这里只是免费休息格。';
+  String get freeParkingFactTwo => '每次转动都保证有奖励——绝无空手而归！';
 
   @override
-  String get freeParkingFunFact => '免费停车位常常是逆转的开始。';
+  String get freeParkingFunFact => '幸运转盘是命运瞬间逆转的地方。';
 
   @override
   String get goToJailFactOne => '落在这里会直接把你送进监狱。';
