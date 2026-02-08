@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "收取200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Boyle Heights",
+      "subtext": "博伊尔高地",
+      "funFact": "20世纪40年代博伊尔高地是美国最多元化的街区之一，犹太裔、日裔、墨西哥裔和非裔美国人和睦共处。"
+    },
+    {
+      "index": 2,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Echo Park",
+      "subtext": "回声公园",
+      "funFact": "回声公园湖建于19世纪60年代，最初是饮用水水库。其标志性的莲花每年七月盛开，最初种植于20世纪20年代。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Union Station",
+      "subtext": "联合车站",
+      "funFact": "洛杉矶联合车站于1939年开放，是美国最后一座伟大的铁路车站，融合了西班牙殖民、布道院复兴和装饰艺术建筑风格。"
+    },
+    {
+      "index": 6,
+      "name": "Silver Lake",
+      "subtext": "银湖",
+      "funFact": "银湖以水务专员赫尔曼·西尔弗命名而非其水库的颜色。21世纪初这里成为洛杉矶的潮人中心。"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Los Feliz",
+      "subtext": "洛斯费利兹",
+      "funFact": "洛斯费利兹以1796年获得西班牙土地许可的何塞·维森特·费利兹下士命名。沃尔特·迪士尼于1923年在此建立了他的第一个工作室。"
+    },
+    {
+      "index": 9,
+      "name": "Hollywood Blvd",
+      "subtext": "好莱坞大道",
+      "funFact": "好莱坞星光大道沿好莱坞大道绵延1.3英里，人行道上镶嵌着2700多颗铜星，1958年安装了第一批。"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "监狱",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Sunset Strip",
+      "subtext": "日落大道",
+      "funFact": "日落大道是日落林荫大道上1.5英里长的路段，位于洛杉矶县非建制区域，历史上较宽松的法律吸引了夜总会和摇滚场馆。"
+    },
+    {
+      "index": 12,
+      "name": "LADWP Electric",
+      "subtext": "洛杉矶水电局（电力）",
+      "funFact": "洛杉矶水电局是美国最大的市政公用事业机构，为400多万居民服务，发电量达7880兆瓦。"
+    },
+    {
+      "index": 13,
+      "name": "Venice Beach",
+      "subtext": "威尼斯海滩",
+      "funFact": "威尼斯海滩由阿博特·金尼于1905年创建为“美国的威尼斯“，配有意大利风格运河。著名的肌肉海滩户外健身房自20世纪30年代运营至今。"
+    },
+    {
+      "index": 14,
+      "name": "Santa Monica",
+      "subtext": "圣莫尼卡",
+      "funFact": "圣莫尼卡码头建于1909年，是66号公路的西部终点。太平洋公园的游乐设施包括世界上唯一的太阳能摩天轮。"
+    },
+    {
+      "index": 15,
+      "name": "Metro Purple Line",
+      "subtext": "地铁紫线",
+      "funFact": "地铁紫线在威尔希尔大道下方穿过拉布雷亚焦油坑区域，施工人员在挖掘隧道时发现了包括猛犸象骨骼在内的冰河时代化石。"
+    },
+    {
+      "index": 16,
+      "name": "Malibu",
+      "subtext": "马里布",
+      "funFact": "马里布沿太平洋海岸绵延27英里，最初是丘马什人的家园。名字来自丘马什语“Humaliwo“，意为“海浪声很响“。"
+    },
+    {
+      "index": 17,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Downtown LA",
+      "subtext": "洛杉矶市中心",
+      "funFact": "洛杉矶市中心的布拉德伯里大厦建于1893年，设计灵感来自灵媒的指示。其壮观的铁艺中庭出现在《银翼杀手》和《恋夏500日》中。"
+    },
+    {
+      "index": 19,
+      "name": "Arts District",
+      "subtext": "艺术区",
+      "funFact": "洛杉矶艺术区于1981年正式划定，是全美最早合法允许艺术家在工业建筑中居住的区域之一。"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": "幸运转盘",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Little Tokyo",
+      "subtext": "小东京",
+      "funFact": "小东京是美国仅存的三个正式日本城之一。建于19世纪80年代，二战期间日裔美国人被强制拘留时曾被清空。"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Griffith Observatory",
+      "subtext": "格里菲斯天文台",
+      "funFact": "格里菲斯天文台自1935年以来接待了8000多万游客，是世界上接待人数最多的天文台。大楼和望远镜的入场始终免费。"
+    },
+    {
+      "index": 24,
+      "name": "Beverly Hills",
+      "subtext": "比佛利山庄",
+      "funFact": "比佛利山庄最初是一个利马豆农场，1914年才开发建设。这座城市仅5.7平方英里，却拥有自己的警察和消防部门。"
+    },
+    {
+      "index": 25,
+      "name": "Metro Gold Line",
+      "subtext": "地铁金线",
+      "funFact": "地铁金线连接洛杉矶市中心和帕萨迪纳，沿着太平洋电气铁路红色列车曾经行驶的路线，该列车在20世纪50至60年代被拆除。"
+    },
+    {
+      "index": 26,
+      "name": "Rodeo Drive",
+      "subtext": "罗迪欧大道",
+      "funFact": "罗迪欧大道在1928年比华利威尔希尔酒店开业后成为奢侈品购物天堂。罗迪欧大道一个街区的单位面积收入超过美国任何其他零售街道。"
+    },
+    {
+      "index": 27,
+      "name": "Bel Air",
+      "subtext": "贝莱尔",
+      "funFact": "贝莱尔由阿方索·贝尔于1923年开发，他通过在圣菲泉庄园发现的石油致富。日落大道上的东门是洛杉矶地标。"
+    },
+    {
+      "index": 28,
+      "name": "LADWP Water",
+      "subtext": "洛杉矶水电局（供水）",
+      "funFact": "洛杉矶水电局运营的洛杉矶引水渠从欧文斯谷引水233英里。1913年的引水渠建设是美国历史上最具争议的工程项目之一。"
+    },
+    {
+      "index": 29,
+      "name": "Westwood",
+      "subtext": "韦斯特伍德",
+      "funFact": "韦斯特伍德是1919年创办的加州大学洛杉矶分校的所在地，韦斯特伍德村纪念公园公墓安葬着玛丽莲·梦露、迪恩·马丁等好莱坞传奇人物。"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": "去监狱",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Century City",
+      "subtext": "世纪城",
+      "funFact": "世纪城建在20世纪福克斯电影公司的外景地上，1961年为弥补电影《埃及艳后》的超支成本而出售了180英亩土地。"
+    },
+    {
+      "index": 32,
+      "name": "Pasadena",
+      "subtext": "帕萨迪纳",
+      "funFact": "帕萨迪纳自1890年以来每年举办玫瑰花车游行和玫瑰碗比赛。这里也是加州理工学院和管理每次火星探测任务的NASA喷气推进实验室的所在地。"
+    },
+    {
+      "index": 33,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Long Beach",
+      "subtext": "长滩",
+      "funFact": "长滩港是美国第二繁忙的集装箱港口，年贸易额超过2000亿美元。玛丽皇后号邮轮自1967年以来永久停泊于此。"
+    },
+    {
+      "index": 35,
+      "name": "Metro Expo Line",
+      "subtext": "地铁博览线",
+      "funFact": "地铁博览线沿前太平洋电气铁路博览线的路权连接洛杉矶市中心和圣莫尼卡，恢复了中断63年的海岸铁路服务。"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Manhattan Beach",
+      "subtext": "曼哈顿海滩",
+      "funFact": "曼哈顿海滩建于1912年，其码头最初是太平洋电气铁路的一个站点。社区的“海滩步道“滨海小径沿海岸延伸22英里。"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Getty Center",
+      "subtext": "盖蒂中心",
+      "funFact": "盖蒂中心耗资13亿美元建造，1997年开放。由理查德·迈耶设计，坐落于圣莫尼卡山丘顶上，入场始终免费。"
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "DÉPART",
+      "subtext": "RECEVEZ 200 £",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Grassmarket",
+      "subtext": null,
+      "funFact": "Autrefois le principal marché d'Édimbourg et lieu d'exécutions publiques, le Grassmarket est un centre commercial animé depuis le XVe siècle."
+    },
+    {
+      "index": 2,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Portobello",
+      "subtext": null,
+      "funFact": "Ce faubourg balnéaire d'Édimbourg tire son nom d'un cottage de marin appelé Porto Bello, inspiré de la capture britannique de Portobelo au Panama en 1739."
+    },
+    {
+      "index": 4,
+      "name": "Impôt sur le Revenu",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Edinburgh Waverley",
+      "subtext": null,
+      "funFact": "Edinburgh Waverley est la deuxième plus grande gare du Royaume-Uni par nombre de quais et la seule grande gare nommée d'après un roman, « Waverley » de Sir Walter Scott."
+    },
+    {
+      "index": 6,
+      "name": "Leith",
+      "subtext": null,
+      "funFact": "L'historique quartier portuaire d'Édimbourg était un bourg indépendant jusqu'en 1920 et abrite désormais le Royal Yacht Britannia, l'ancien palais flottant de la Reine."
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Stockbridge",
+      "subtext": null,
+      "funFact": "Ce charmant village au sein d'Édimbourg tire son nom d'un pont en bois qui traversait autrefois la Water of Leith, et accueille un populaire marché fermier le dimanche."
+    },
+    {
+      "index": 9,
+      "name": "Bruntsfield",
+      "subtext": null,
+      "funFact": "Les Bruntsfield Links sont l'un des plus anciens parcours de golf au monde, avec des traces de golf pratiqué dès 1456."
+    },
+    {
+      "index": 10,
+      "name": "PRISON",
+      "subtext": "EN VISITE",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "New Town",
+      "subtext": null,
+      "funFact": "La New Town d'Édimbourg est un chef-d'œuvre d'urbanisme géorgien, conçu par James Craig en 1767 et classé au patrimoine mondial de l'UNESCO."
+    },
+    {
+      "index": 12,
+      "name": "Scottish Power",
+      "subtext": null,
+      "funFact": "L'Écosse produit suffisamment d'énergie éolienne pour alimenter l'équivalent de chaque foyer écossais deux fois, ce qui en fait un leader européen des énergies renouvelables."
+    },
+    {
+      "index": 13,
+      "name": "Marchmont",
+      "subtext": null,
+      "funFact": "Construit dans les années 1870 comme logements en immeubles pour la classe moyenne croissante d'Édimbourg, Marchmont est célèbre pour ses appartements victoriens en grès rouge et sa population étudiante."
+    },
+    {
+      "index": 14,
+      "name": "Morningside",
+      "subtext": null,
+      "funFact": "Connu pour son accent raffiné et son caractère distingué, Morningside était autrefois un village séparé et aurait inspiré la banlieue fictive de Springfield dans « Les Simpson »."
+    },
+    {
+      "index": 15,
+      "name": "Haymarket Station",
+      "subtext": null,
+      "funFact": "La gare de Haymarket a ouvert en 1842 et se trouve près du site de la dernière exécution publique d'Édimbourg, ainsi que de la célèbre horloge de Haymarket."
+    },
+    {
+      "index": 16,
+      "name": "Dean Village",
+      "subtext": null,
+      "funFact": "Ce pittoresque village médiéval le long de la Water of Leith abritait autrefois plus de 70 moulins à grain et est aujourd'hui l'un des lieux les plus photographiés d'Édimbourg."
+    },
+    {
+      "index": 17,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Haymarket",
+      "subtext": null,
+      "funFact": "Le quartier de Haymarket abrite la célèbre mosaïque Heart of Midlothian dans le trottoir et est un important centre de transport depuis l'ère ferroviaire victorienne."
+    },
+    {
+      "index": 19,
+      "name": "Murrayfield",
+      "subtext": null,
+      "funFact": "Siège du stade national de rugby écossais depuis 1925, Murrayfield accueille 67 144 spectateurs et fut le premier stade du Royaume-Uni à installer un chauffage par le sol."
+    },
+    {
+      "index": 20,
+      "name": "ROUE DE LA CHANCE",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Calton Hill",
+      "subtext": null,
+      "funFact": "Le Monument national inachevé de Calton Hill, commencé en 1826 pour honorer les morts des guerres napoléoniennes, a valu à Édimbourg le surnom d'« Athènes du Nord »."
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Holyrood",
+      "subtext": null,
+      "funFact": "Le palais de Holyroodhouse est la résidence officielle écossaise de la monarchie depuis le XVIe siècle et fut la demeure de Marie, reine d'Écosse."
+    },
+    {
+      "index": 24,
+      "name": "Arthur's Seat",
+      "subtext": null,
+      "funFact": "Cet ancien volcan culminant à 251 mètres au-dessus d'Édimbourg est vieux d'environ 340 millions d'années et serait l'une des inspirations possibles pour Camelot."
+    },
+    {
+      "index": 25,
+      "name": "South Gyle",
+      "subtext": null,
+      "funFact": "La gare de South Gyle dessert le quartier d'affaires ouest d'Édimbourg et le centre commercial Gyle, reliant la ville au Fife et au Forth Bridge."
+    },
+    {
+      "index": 26,
+      "name": "Princes Street",
+      "subtext": null,
+      "funFact": "La principale artère commerçante d'Édimbourg n'a des bâtiments que d'un seul côté, offrant une vue ininterrompue sur la Vieille Ville, le château et le Scott Monument."
+    },
+    {
+      "index": 27,
+      "name": "George Street",
+      "subtext": null,
+      "funFact": "Nommée d'après le roi George III, cette élégante rue de la New Town était à l'origine la principale rue résidentielle et accueille aujourd'hui des bars et restaurants haut de gamme."
+    },
+    {
+      "index": 28,
+      "name": "Scottish Water",
+      "subtext": null,
+      "funFact": "Scottish Water fournit 1,46 milliard de litres d'eau potable par jour à 5,4 millions de clients, puisée dans certains des réservoirs les plus purs d'Europe."
+    },
+    {
+      "index": 29,
+      "name": "Heriot Row",
+      "subtext": null,
+      "funFact": "Cette adresse prestigieuse de la New Town fut autrefois le domicile de Robert Louis Stevenson, qui écrivit « L'Île au trésor » alors qu'il vivait au numéro 17 Heriot Row."
+    },
+    {
+      "index": 30,
+      "name": "ALLEZ EN PRISON",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Monument Scott",
+      "subtext": null,
+      "funFact": "Avec 61 mètres de haut, le Scott Monument est le plus grand monument au monde dédié à un écrivain, avec 287 marches menant à des vues panoramiques sur Édimbourg."
+    },
+    {
+      "index": 32,
+      "name": "Cathédrale St Giles",
+      "subtext": null,
+      "funFact": "La cathédrale Saint-Gilles d'Édimbourg remonte au XIIe siècle et sa flèche distinctive en forme de couronne, ajoutée en 1495, est devenue un symbole emblématique de la ville."
+    },
+    {
+      "index": 33,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Cramond",
+      "subtext": null,
+      "funFact": "Cramond était un fort romain datant de 142 après J.-C., et en 1997 une sculpture romaine inestimable d'une lionne dévorant un prisonnier a été trouvée dans la rivière Almond."
+    },
+    {
+      "index": 35,
+      "name": "Edinburgh Park",
+      "subtext": null,
+      "funFact": "La gare d'Edinburgh Park dessert le plus grand parc d'affaires d'Écosse et a été conçue comme un arrêt clé de l'échangeur Edinburgh Gateway avec les services de tramway."
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Royal Mile",
+      "subtext": null,
+      "funFact": "Le Royal Mile s'étend exactement sur un mille écossais du château d'Édimbourg au palais de Holyroodhouse et contient plus de 80 ruelles et passages étroits."
+    },
+    {
+      "index": 38,
+      "name": "Taxe de Luxe",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Château d'Édimbourg",
+      "subtext": null,
+      "funFact": "Perché au sommet d'un rocher volcanique éteint, le château d'Édimbourg est une résidence royale depuis le XIIe siècle et abrite les joyaux de la Couronne écossaise, les plus anciens regalia de Grande-Bretagne."
+    }
+  ]
+}

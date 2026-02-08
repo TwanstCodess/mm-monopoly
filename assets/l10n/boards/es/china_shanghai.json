@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "SALIDA",
+      "subtext": "COBRA $200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Tianzifang",
+      "subtext": "Tianzifang",
+      "funFact": "Tianzifang es un laberinto de estrechos callejones en un complejo de viviendas shikumen de los años 30, ahora repleto de más de 200 diminutos estudios de arte, boutiques y cafés."
+    },
+    {
+      "index": 2,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Ciudad Vieja",
+      "subtext": "Ciudad Vieja",
+      "funFact": "La Ciudad Vieja estuvo una vez rodeada por una muralla circular construida en 1553 para defenderse de los piratas japoneses, y su trazado aún puede rastrearse en el diseño actual de las calles."
+    },
+    {
+      "index": 4,
+      "name": "Impuesto sobre la Renta",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Metro Línea 1",
+      "subtext": "Metro Línea 1",
+      "funFact": "La Línea 1 del Metro de Shanghái abrió en 1995 como la primera línea de metro de la ciudad, recorriendo 36,9 km desde Fujin Road hasta Xinzhuang."
+    },
+    {
+      "index": 6,
+      "name": "Plaza del Pueblo",
+      "subtext": "Plaza del Pueblo",
+      "funFact": "La Plaza del Pueblo fue anteriormente el Hipódromo de Shanghái construido por los británicos en 1862, y fue convertida en un parque público después de 1949."
+    },
+    {
+      "index": 7,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Templo Jing'an",
+      "subtext": "Templo Jing'an",
+      "funFact": "El Templo Jing'an fue construido originalmente en el año 247 d.C. durante el período de los Tres Reinos, convirtiéndolo en uno de los templos más antiguos de Shanghái con más de 1.700 años."
+    },
+    {
+      "index": 9,
+      "name": "Xintiandi",
+      "subtext": "Xintiandi",
+      "funFact": "Xintiandi es una magistral restauración de las tradicionales casas shikumen con puertas de piedra en un exclusivo distrito gastronómico y de entretenimiento, que también alberga el sitio del Primer Congreso Nacional del Partido Comunista Chino."
+    },
+    {
+      "index": 10,
+      "name": "CÁRCEL",
+      "subtext": "DE VISITA",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Jardín Yu",
+      "subtext": "Jardín Yuyuan",
+      "funFact": "El Jardín Yu fue construido en 1559 por un funcionario de la Dinastía Ming para su anciano padre; el nombre \"Yu\" significa \"placentero\" y el jardín abarca más de 2 hectáreas con exquisitas rocallas y pabellones."
+    },
+    {
+      "index": 12,
+      "name": "State Grid Shanghai",
+      "subtext": null,
+      "funFact": "State Grid Shanghai suministra electricidad a más de 24 millones de residentes y gestiona una carga punta que supera los 34 millones de kilovatios durante el verano."
+    },
+    {
+      "index": 13,
+      "name": "Nanjing Road",
+      "subtext": "Calle Nanjing",
+      "funFact": "La Calle Nanjing se extiende por 5,5 km y es una de las calles comerciales más concurridas del mundo, atrayendo a más de 1 millón de visitantes diarios en los días de mayor afluencia."
+    },
+    {
+      "index": 14,
+      "name": "The Bund",
+      "subtext": "El Bund",
+      "funFact": "El Bund presenta 52 edificios en una impresionante mezcla de estilos gótico, barroco, románico y Art Déco, ganándose el apodo de \"Museo de Arquitectura Internacional\"."
+    },
+    {
+      "index": 15,
+      "name": "Metro Línea 2",
+      "subtext": "Metro Línea 2",
+      "funFact": "La Línea 2 del Metro conecta el Aeropuerto Internacional de Pudong con el Aeropuerto de Hongqiao, abarcando 64 km a través de toda la ciudad de este a oeste."
+    },
+    {
+      "index": 16,
+      "name": "Concesión Francesa",
+      "subtext": "Concesión Francesa",
+      "funFact": "La Concesión Francesa fue establecida en 1849 y es famosa por sus avenidas arboladas de plátanos, que fueron importados de Francia hace más de un siglo."
+    },
+    {
+      "index": 17,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Río Huangpu",
+      "subtext": "Río Huangpu",
+      "funFact": "El río Huangpu tiene 113 km de largo y divide Shanghái en Puxi y Pudong; su nombre literalmente significa \"Río de la Orilla Amarilla\" y desemboca en el Yangtsé en Wusongkou."
+    },
+    {
+      "index": 19,
+      "name": "Perla de Oriente",
+      "subtext": "Perla Oriental",
+      "funFact": "La Torre Perla Oriental mide 468 metros de altura y fue la estructura más alta de China cuando se completó en 1994; su mirador con piso de vidrio a 259 metros ofrece una emocionante vista hacia abajo."
+    },
+    {
+      "index": 20,
+      "name": "GIRA Y GANA",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Shanghai Tower",
+      "subtext": "Torre de Shanghái",
+      "funFact": "La Torre de Shanghái es el edificio más alto de China y el tercero más alto del mundo con 632 metros, con 127 pisos y el mirador más alto del mundo a 561 metros."
+    },
+    {
+      "index": 22,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Lujiazui",
+      "subtext": "Lujiazui",
+      "funFact": "Lujiazui es la única zona financiera de nivel nacional que lleva el nombre de una persona; \"Lu Jiazui\" se refiere a la familia Lu que una vez vivió en esta curva del río Huangpu."
+    },
+    {
+      "index": 24,
+      "name": "Pudong",
+      "subtext": "Pudong",
+      "funFact": "Antes de 1990, Pudong era mayormente tierras de cultivo; un dicho popular decía \"Mejor una cama en Puxi que una habitación en Pudong\", pero hoy alberga los rascacielos más altos de China y el distrito financiero más concurrido."
+    },
+    {
+      "index": 25,
+      "name": "Tren Maglev",
+      "subtext": "Tren de Levitación Magnética",
+      "funFact": "El Maglev de Shanghái alcanza una velocidad máxima de 431 km/h, cubriendo los 30 km desde el Aeropuerto de Pudong hasta Longyang Road en solo 7 minutos y 20 segundos."
+    },
+    {
+      "index": 26,
+      "name": "Zhujiajiao",
+      "subtext": "Pueblo de Agua Zhujiajiao",
+      "funFact": "Zhujiajiao es un pueblo de agua de 1.700 años con 36 antiguos puentes de piedra; su Puente Fangsheng, construido en 1571, es el puente de piedra más largo y alto de la región de Shanghái."
+    },
+    {
+      "index": 27,
+      "name": "Templo Longhua",
+      "subtext": "Templo Longhua",
+      "funFact": "El Templo Longhua es el complejo de templos más antiguo y grande de Shanghái, fundado originalmente en el año 242 d.C.; su pagoda de siete pisos se inclina ligeramente y nunca ha sido abierta al público."
+    },
+    {
+      "index": 28,
+      "name": "Agua de Shanghái",
+      "subtext": null,
+      "funFact": "Shanghai Water suministra más de 7,3 millones de metros cúbicos de agua potable diariamente a la ciudad, provenientes principalmente del Embalse Qingcaosha en la Isla Changxing en el estuario del Yangtsé."
+    },
+    {
+      "index": 29,
+      "name": "Buda de Jade",
+      "subtext": "Templo del Buda de Jade",
+      "funFact": "El Templo del Buda de Jade alberga dos estatuas de Buda de jade traídas de Birmania en 1882; el Buda sentado mide 1,95 metros de altura y está incrustado con piedras preciosas."
+    },
+    {
+      "index": 30,
+      "name": "VE A LA CÁRCEL",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Hongqiao",
+      "subtext": "Centro de Transporte Hongqiao",
+      "funFact": "El Centro de Transporte Hongqiao es uno de los más grandes de Asia, integrando un aeropuerto, estación de tren de alta velocidad, líneas de metro y terminales de autobús en un solo complejo que atiende a más de 300.000 pasajeros diarios."
+    },
+    {
+      "index": 32,
+      "name": "Hengshan Road",
+      "subtext": "Calle Hengshan",
+      "funFact": "La Calle Hengshan está bordeada de plátanos centenarios y elegantes villas de estilo europeo de los años 20, que una vez fueron hogar de diplomáticos extranjeros y familias adineradas de Shanghái."
+    },
+    {
+      "index": 33,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Centro Financiero Mundial",
+      "subtext": "Centro Financiero Mundial",
+      "funFact": "El Centro Financiero Mundial de Shanghái mide 492 metros de altura y su distintiva abertura trapezoidal en la cima le valió el apodo de \"El Destapador\" entre los locales."
+    },
+    {
+      "index": 35,
+      "name": "Metro Línea 10",
+      "subtext": "Metro Línea 10",
+      "funFact": "La Línea 10 del Metro fue la primera línea sin conductor de Shanghái cuando abrió en 2010, operando trenes completamente automatizados en 41 estaciones."
+    },
+    {
+      "index": 36,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Torre Jin Mao",
+      "subtext": "Torre Jin Mao",
+      "funFact": "La Torre Jin Mao mide 420,5 metros con 88 pisos, y su diseño se basa en el número de la suerte 8: el edificio se estrecha en segmentos de 1/8, creando una silueta similar a una pagoda."
+    },
+    {
+      "index": 38,
+      "name": "Impuesto de Lujo",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Disneyland",
+      "subtext": "Disneyland Shanghái",
+      "funFact": "Shanghai Disneyland abrió en 2016 y presenta el castillo de Disney más grande jamás construido, el Castillo del Cuento de Hadas Encantado, con 60 metros de altura y atracciones interactivas en su interior."
+    }
+  ]
+}

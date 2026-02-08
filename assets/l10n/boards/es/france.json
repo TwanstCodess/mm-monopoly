@@ -10,7 +10,7 @@
       "index": 1,
       "name": "Montmartre",
       "subtext": "Montmartre",
-      "funFact": "¡Este pueblo en la colina está coronado por la impresionante Basílica blanca del Sacré-Cœur!"
+      "funFact": "La Basílica del Sacré-Cœur, terminada en 1914 tras 39 años de construcción, se alza en el punto más alto de París a 130 metros sobre el nivel del mar."
     },
     {
       "index": 2,
@@ -22,7 +22,7 @@
       "index": 3,
       "name": "Pigalle",
       "subtext": "Pigalle",
-      "funFact": "¡Famoso por el cabaret Moulin Rouge, fundado en 1889!"
+      "funFact": "El Moulin Rouge abrió sus puertas el 6 de octubre de 1889, presentando el cancán al mundo y atrayendo a 300.000 visitantes en su primer año."
     },
     {
       "index": 4,
@@ -34,13 +34,13 @@
       "index": 5,
       "name": "Línea 1",
       "subtext": "Metro Línea 1",
-      "funFact": "¡La primera línea de metro de París, inaugurada en 1900 para la Exposición Universal!"
+      "funFact": "Inaugurada el 19 de julio de 1900 para la Exposición Universal, la Línea 1 transporta hoy más de 725.000 pasajeros diarios a lo largo de 16,5 km con 25 estaciones."
     },
     {
       "index": 6,
       "name": "Bastilla",
       "subtext": "Bastille",
-      "funFact": "¡Sitio de la famosa fortaleza-prisión asaltada durante la Revolución Francesa en 1789!"
+      "funFact": "El 14 de julio de 1789, una multitud de unos 1.000 asaltó la fortaleza de la Bastilla, un evento que hoy se celebra anualmente como la fiesta nacional de Francia."
     },
     {
       "index": 7,
@@ -52,13 +52,13 @@
       "index": 8,
       "name": "Marais",
       "subtext": "Le Marais",
-      "funFact": "¡El histórico barrio judío, ahora uno de los barrios más de moda de París!"
+      "funFact": "Zona pantanosa desde el siglo XIII (marais significa pantano), Le Marais fue salvado de la demolición en 1962 cuando André Malraux aprobó la primera ley de protección del patrimonio histórico de Francia."
     },
     {
       "index": 9,
       "name": "Luxemburgo",
       "subtext": "Luxembourg",
-      "funFact": "¡Los Jardines de Luxemburgo cuentan con 106 estatuas y la hermosa Fuente de Médici!"
+      "funFact": "Creados en 1612 para María de Médici, los Jardines de Luxemburgo abarcan 23 hectáreas con 106 estatuas, un teatro de marionetas desde 1933 y una Estatua de la Libertad en miniatura."
     },
     {
       "index": 10,
@@ -70,37 +70,37 @@
       "index": 11,
       "name": "Saint-Germain",
       "subtext": "St-Germain-des-Prés",
-      "funFact": "¡Histórico barrio de cafés literarios donde Hemingway y Sartre debatían filosofía!"
+      "funFact": "En los años 1940–1950, el Café de Flore y Les Deux Magots se convirtieron en el centro intelectual de París, donde Sartre y Simone de Beauvoir escribieron libros enteros en sus mesas habituales."
     },
     {
       "index": 12,
       "name": "EDF",
       "subtext": null,
-      "funFact": "¡Électricité de France es el mayor productor de electricidad del mundo!"
+      "funFact": "Fundada en 1946 al nacionalizar 1.700 empresas privadas, EDF opera hoy 56 reactores nucleares que suministran cerca del 70% de la electricidad de Francia."
     },
     {
       "index": 13,
       "name": "Barrio Latino",
       "subtext": "Quartier Latin",
-      "funFact": "¡Hogar de la Universidad de la Sorbona, fundada en 1257!"
+      "funFact": "Nombrado por el latín que hablaban los estudiantes medievales, el Barrio Latino alberga la Sorbona, fundada en 1257 por Robert de Sorbon como escuela de teología para solo 16 alumnos."
     },
     {
       "index": 14,
       "name": "Panteón",
       "subtext": "Panthéon",
-      "funFact": "¡Lugar de descanso final de las mentes más brillantes de Francia, incluyendo a Voltaire y Rousseau!"
+      "funFact": "Construido originalmente como iglesia entre 1758 y 1790, el Panteón alberga 83 figuras ilustres, entre ellas Marie Curie, la primera mujer honrada allí por méritos propios en 1995."
     },
     {
       "index": 15,
       "name": "Línea 4",
       "subtext": "Metro Línea 4",
-      "funFact": "¡Esta línea cruza el Sena dos veces y pasa bajo la Île de la Cité!"
+      "funFact": "Inaugurada en 1908, la Línea 4 fue la primera del metro de París en cruzar bajo el Sena, utilizando un revolucionario método de túnel con aire comprimido para perforar el lecho del río."
     },
     {
       "index": 16,
       "name": "Versalles",
       "subtext": "Versailles",
-      "funFact": "¡El Palacio de Versalles tiene 2.300 habitaciones y 67.000 metros cuadrados de superficie!"
+      "funFact": "Luis XIV transformó un pabellón de caza en el Palacio de Versalles entre 1661 y 1715, gastando unos 2.000 millones de euros actuales en sus 2.300 habitaciones y 800 hectáreas de jardines."
     },
     {
       "index": 17,
@@ -112,13 +112,13 @@
       "index": 18,
       "name": "Tullerías",
       "subtext": "Tuileries",
-      "funFact": "¡Estos jardines reales conectan el Louvre con la Plaza de la Concordia!"
+      "funFact": "Diseñado por Catalina de Médici en 1564, el Jardín de las Tullerías es el parque público más antiguo de París y abarca 25,5 hectáreas entre el Louvre y la Plaza de la Concordia."
     },
     {
       "index": 19,
       "name": "Louvre",
       "subtext": "Le Louvre",
-      "funFact": "¡El museo de arte más grande del mundo, hogar de la Mona Lisa y 38.000 obras de arte!"
+      "funFact": "Originalmente una fortaleza del siglo XII construida por el rey Felipe Augusto en 1190, el Louvre recibió 8,9 millones de visitantes en 2023, siendo el museo más visitado del mundo."
     },
     {
       "index": 20,
@@ -130,7 +130,7 @@
       "index": 21,
       "name": "Ópera",
       "subtext": "Opéra Garnier",
-      "funFact": "¡El Palacio Garnier inspiró \"El Fantasma de la Ópera\"!"
+      "funFact": "Diseñado por Charles Garnier en 1861, el Palacio Garnier tardó 14 años en construirse, cuenta con una lámpara de bronce de 7 toneladas y un lago subterráneo que inspiró la novela de Gaston Leroux de 1910."
     },
     {
       "index": 22,
@@ -142,43 +142,43 @@
       "index": 23,
       "name": "Campos Elíseos",
       "subtext": "Champs-Élysées",
-      "funFact": "¡La calle comercial más cara de Europa a 12.000 € por metro cuadrado!"
+      "funFact": "Con 1,91 km desde el Arco de Triunfo hasta la Plaza de la Concordia, los Campos Elíseos eran tierras de cultivo hasta 1667, cuando André Le Nôtre los transformó en un gran paseo."
     },
     {
       "index": 24,
       "name": "Arco de Triunfo",
       "subtext": "Arc de Triomphe",
-      "funFact": "¡Construido por Napoleón, honra a quienes lucharon por Francia!"
+      "funFact": "Encargado por Napoleón en 1806 tras la Batalla de Austerlitz, el Arco de Triunfo tardó 30 años en completarse y mide 50 metros de alto con los nombres de 660 generales grabados en sus muros."
     },
     {
       "index": 25,
       "name": "RER A",
       "subtext": "RER Línea A",
-      "funFact": "¡La línea de tren más transitada de Europa, transportando 1,2 millones de pasajeros diarios!"
+      "funFact": "Inaugurada en 1969, la línea RER A recorre 109 km por la región parisina, transportando más de 1,2 millones de pasajeros diarios y conectando La Défense con Disneyland París."
     },
     {
       "index": 26,
       "name": "La Défense",
       "subtext": "La Défense",
-      "funFact": "¡El distrito financiero más grande de Europa con el icónico Grand Arche!"
+      "funFact": "Con 1.500 sedes corporativas y 180.000 trabajadores diarios, el Gran Arco de La Défense fue terminado en 1989 para el bicentenario de la Revolución Francesa y podría albergar Notre-Dame en su interior."
     },
     {
       "index": 27,
       "name": "Concordia",
       "subtext": "Place de la Concorde",
-      "funFact": "¡Donde Luis XVI y María Antonieta fueron ejecutados durante la Revolución!"
+      "funFact": "El Obelisco de Luxor de 3.300 años en su centro fue un regalo de Egipto en 1833, y durante la Revolución más de 1.300 personas fueron guillotinadas en esta plaza entre 1793 y 1795."
     },
     {
       "index": 28,
       "name": "Compañía de Agua",
       "subtext": null,
-      "funFact": "¡El agua de París proviene de fuentes a más de 150 km de distancia, asegurando la mejor calidad!"
+      "funFact": "París remunicipalizó su suministro de agua en 2010 con Eau de Paris, distribuyendo 483.000 metros cúbicos diarios a través de 2.000 km de tuberías para 3 millones de habitantes."
     },
     {
       "index": 29,
       "name": "Inválidos",
       "subtext": "Les Invalides",
-      "funFact": "¡La tumba de Napoleón yace bajo la cúpula dorada de Los Inválidos!"
+      "funFact": "Construido por Luis XIV en 1670 para alojar a soldados heridos, la cúpula dorada de Los Inválidos se eleva 107 metros y la tumba de Napoleón descansa en seis ataúdes anidados bajo ella."
     },
     {
       "index": 30,
@@ -190,13 +190,13 @@
       "index": 31,
       "name": "Île de la Cité",
       "subtext": "Île de la Cité",
-      "funFact": "¡El corazón histórico de París, donde la ciudad fue fundada en el 250 a.C.!"
+      "funFact": "Poblada por la tribu de los parisios hacia el 250 a.C., esta isla de 9 hectáreas en el Sena alberga Notre-Dame y la Sainte-Chapelle, cuyos 15 vitrales contienen 1.113 escenas bíblicas."
     },
     {
       "index": 32,
       "name": "Notre-Dame",
       "subtext": "Notre-Dame",
-      "funFact": "¡Esta obra maestra gótica tardó 182 años en completarse (1163-1345)!"
+      "funFact": "Su construcción comenzó en 1163 y tardó 182 años en completarse. Tras el devastador incendio del 15 de abril de 2019, se donaron más de 840 millones de euros en pocos días para su restauración."
     },
     {
       "index": 33,
@@ -208,13 +208,13 @@
       "index": 34,
       "name": "Museo de Orsay",
       "subtext": "Musée d'Orsay",
-      "funFact": "¡Construido en una antigua estación de tren, alberga la mejor colección impresionista del mundo!"
+      "funFact": "Construido como estación de tren Gare d'Orsay para la Exposición Universal de 1900, fue convertido en museo en 1986 y hoy alberga más de 3.000 obras maestras impresionistas de Monet, Renoir y Van Gogh."
     },
     {
       "index": 35,
       "name": "Línea 14",
       "subtext": "Metro Línea 14",
-      "funFact": "¡La línea de metro completamente automatizada más nueva de París, inaugurada en 1998!"
+      "funFact": "Inaugurada en 1998 como la primera línea de metro totalmente automática de París, la Línea 14 opera trenes cada 85 segundos en horas punta y fue ampliada hasta el aeropuerto de Orly en 2024."
     },
     {
       "index": 36,
@@ -226,7 +226,7 @@
       "index": 37,
       "name": "Montparnasse",
       "subtext": "Montparnasse",
-      "funFact": "¡Histórico barrio de artistas donde Picasso, Hemingway y Fitzgerald se reunían!"
+      "funFact": "En los años 1920, los cafés La Rotonde y Le Dôme fueron el centro creativo de Picasso, Modigliani y Man Ray. Hoy, la Torre Montparnasse de 210 metros ofrece la mejor vista panorámica de París."
     },
     {
       "index": 38,
@@ -238,7 +238,7 @@
       "index": 39,
       "name": "Torre Eiffel",
       "subtext": "Tour Eiffel",
-      "funFact": "¡La Dama de Hierro pesa 10.100 toneladas y fue la estructura más alta del mundo hasta 1930!"
+      "funFact": "Construida en solo 2 años y 2 meses para la Exposición Universal de 1889 por 300 obreros con 2,5 millones de remaches, la torre de 330 metros iba a ser temporal pero se salvó por su utilidad como antena de radio."
     }
   ]
 }

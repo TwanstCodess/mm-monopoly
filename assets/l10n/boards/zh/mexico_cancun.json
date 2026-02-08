@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "收取200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Mercado 28",
+      "subtext": "28号市场",
+      "funFact": "坎昆市中心最著名的市场，自1973年以来游客和当地人在此砍价购买银饰、吊床和墨西哥手工艺品。"
+    },
+    {
+      "index": 2,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Parque de las Palapas",
+      "subtext": "棕榈亭公园",
+      "funFact": "坎昆市中心的文化心脏，每晚家庭聚集于此享受免费音乐会、街头美食和传统舞蹈表演。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Tren Maya - Estación Cancún",
+      "subtext": "玛雅列车坎昆站",
+      "funFact": "玛雅列车坎昆站将度假城市连接至整个尤卡坦半岛，横跨五个墨西哥州的1554公里铁路。"
+    },
+    {
+      "index": 6,
+      "name": "Hotel Zone North",
+      "subtext": "酒店区北段",
+      "funFact": "坎昆著名L形沙洲的北段拥有适合家庭的平静海湾水域和20多家大型度假酒店。"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Hotel Zone South",
+      "subtext": "酒店区南段",
+      "funFact": "南段面向开阔的加勒比海，海浪强劲，汇集坎昆最高档的全包式大型度假酒店。"
+    },
+    {
+      "index": 9,
+      "name": "Playa Delfines",
+      "subtext": "海豚海滩",
+      "funFact": "坎昆仅有的几个没有酒店的公共海滩之一，以巨大的彩色“CANCUN“标志和壮观的碧蓝海水闻名。"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "监狱",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Playa Forum",
+      "subtext": "论坛海滩",
+      "funFact": "位于酒店区弯道处，毗邻坎昆著名的派对区，拥有最平静的游泳水域。"
+    },
+    {
+      "index": 12,
+      "name": "CFE Cancún",
+      "subtext": "坎昆联邦电力",
+      "funFact": "联邦电力委员会为坎昆庞大的旅游基础设施供电，服务超过30000间客房和90万居民。"
+    },
+    {
+      "index": 13,
+      "name": "Punta Cancún",
+      "subtext": "坎昆角",
+      "funFact": "酒店区肘形尖端处加勒比海与尼楚普特泻湖交汇，汇聚最密集的夜总会和餐厅。"
+    },
+    {
+      "index": 14,
+      "name": "Punta Nizuc",
+      "subtext": "尼祖克角",
+      "funFact": "酒店区南端是MUSA水下博物馆的所在地，500多座真人大小的雕塑沉没在清澈的珊瑚礁中。"
+    },
+    {
+      "index": 15,
+      "name": "Tren Maya - Estación Puerto Morelos",
+      "subtext": "玛雅列车莫雷洛斯港站",
+      "funFact": "该站服务于宁静的渔村莫雷洛斯港，是世界第二大中美洲堡礁的门户。"
+    },
+    {
+      "index": 16,
+      "name": "El Rey Ruins",
+      "subtext": "国王遗址",
+      "funFact": "酒店区内的古代玛雅遗址，可追溯至公元前300年，数百只野生鬣蜥在47座考古建筑间自由漫步。"
+    },
+    {
+      "index": 17,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Isla Mujeres",
+      "subtext": "女人岛",
+      "funFact": "\"女人岛\"曾是玛雅女神伊希切尔的圣地。距海岸仅13公里，岛上的南角是墨西哥最东端。"
+    },
+    {
+      "index": 19,
+      "name": "Puerto Morelos",
+      "subtext": "莫雷洛斯港",
+      "funFact": "迷人的渔村拥有一座1967年被飓风比尤拉损坏的著名倾斜灯塔，现为保护原始珊瑚礁的国家海洋公园。"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": "幸运转盘",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Playa del Carmen",
+      "subtext": "卡门海滩",
+      "funFact": "曾是通往科苏梅尔岛的小渡船港口，后成为世界上增长最快的城市之一。第五大道绵延20个街区的商铺和餐厅。"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Cozumel",
+      "subtext": "科苏梅尔",
+      "funFact": "雅克·库斯托于1961年使这座岛屿因水晶般清澈的珊瑚礁闻名世界。现在是墨西哥最繁忙的邮轮港口，年接待1200多艘邮轮。"
+    },
+    {
+      "index": 24,
+      "name": "Xcaret",
+      "subtext": "西卡莱特",
+      "funFact": "围绕古玛雅遗址和地下河建造的大型生态考古公园，每晚300名演员的壮观表演展现墨西哥文化。"
+    },
+    {
+      "index": 25,
+      "name": "Tren Maya - Estación Playa del Carmen",
+      "subtext": "玛雅列车卡门海滩站",
+      "funFact": "该站将卡门海滩连入玛雅列车网络，游客无需开车即可到达奇琴伊察和梅里达。"
+    },
+    {
+      "index": 26,
+      "name": "Xel-Há",
+      "subtext": "谢尔哈",
+      "funFact": "世界上最大的天然水族馆，淡水天然井与加勒比海交汇，形成拥有90多种海洋物种的浮潜天堂。"
+    },
+    {
+      "index": 27,
+      "name": "Tulum Ruins",
+      "subtext": "图卢姆遗址",
+      "funFact": "唯一建在加勒比海崖上的主要玛雅城市，图卢姆在公元1200年至1521年间是繁荣的贸易港口，是墨西哥第三大考古景点。"
+    },
+    {
+      "index": 28,
+      "name": "CAPA",
+      "subtext": "坎昆水务",
+      "funFact": "CAPA管理坎昆的供水，水源来自尤卡坦半岛多孔石灰岩中的地下天然井和含水层。"
+    },
+    {
+      "index": 29,
+      "name": "Cenote Ik Kil",
+      "subtext": "伊基尔天然井",
+      "funFact": "奇琴伊察附近一个令人叹为观止的60米深天坑，藤蔓从边缘垂下。玛雅人视天然井为通往冥界的神圣入口。"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": "去监狱",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Zona Hotelera",
+      "subtext": "酒店区",
+      "funFact": "坎昆标志性的23公里L形屏障岛于1970年由政府计算机程序从零规划，被选为理想的度假胜地。"
+    },
+    {
+      "index": 32,
+      "name": "La Isla Shopping",
+      "subtext": "小岛购物村",
+      "funFact": "建在尼楚普特泻湖上的露天购物村，运河穿流其中，设有互动水族馆和日落湖滨餐厅。"
+    },
+    {
+      "index": 33,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Kukulcán Boulevard",
+      "subtext": "库库尔坎大道",
+      "funFact": "以羽蛇神命名的26公里道路是酒店区的主动脉，连接所有主要度假村、商场和夜生活场所。"
+    },
+    {
+      "index": 35,
+      "name": "Tren Maya - Estación Tulum",
+      "subtext": "玛雅列车图卢姆站",
+      "funFact": "图卢姆站是通往里维埃拉玛雅南部海岸的门户，提供直达尤卡坦内陆古遗址的铁路通道。"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Nichupté Lagoon",
+      "subtext": "尼楚普特泻湖",
+      "funFact": "这个3000公顷的泻湖系统将酒店区与大陆隔开，栖息着鳄鱼、海牛和对坎昆生态至关重要的红树林。"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Chichén Itzá",
+      "subtext": "奇琴伊察",
+      "funFact": "世界新七大奇迹之一，库库尔坎金字塔在春分和秋分时会产生羽蛇阴影效果，每年吸引超过260万游客。"
+    }
+  ]
+}

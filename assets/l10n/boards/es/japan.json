@@ -10,7 +10,7 @@
       "index": 1,
       "name": "Asakusa",
       "subtext": "浅草",
-      "funFact": "¡Hogar de Senso-ji, el templo budista más antiguo de Tokio, construido en el año 645 d.C.!"
+      "funFact": "El Senso-ji, fundado en el 645 d.C., es el templo más antiguo de Tokio y recibe más de 30 millones de visitantes al año, siendo el sitio espiritual más visitado de Japón."
     },
     {
       "index": 2,
@@ -22,7 +22,7 @@
       "index": 3,
       "name": "Ueno",
       "subtext": "上野",
-      "funFact": "¡El parque Ueno tiene más de 1.000 cerezos en flor y es el lugar más popular de Tokio para el hanami!"
+      "funFact": "El parque Ueno, inaugurado en 1873 como uno de los primeros parques públicos de Japón, alberga más de 1.000 cerezos y cuatro museos nacionales en sus 53 hectáreas."
     },
     {
       "index": 4,
@@ -34,13 +34,13 @@
       "index": 5,
       "name": "Línea Yamanote",
       "subtext": "山手線",
-      "funFact": "¡La Línea Yamanote completa un circuito alrededor del centro de Tokio cada 59-65 minutos, transportando 3,5 millones de pasajeros al día!"
+      "funFact": "Inaugurada en 1885, las 30 estaciones de la Línea Yamanote forman un circuito de 34,5 km que transporta 3,5 millones de pasajeros diarios, con un retraso promedio de solo 18 segundos."
     },
     {
       "index": 6,
       "name": "Akihabara",
       "subtext": "秋葉原",
-      "funFact": "¡Conocido como la \"Ciudad Eléctrica,\" Akihabara es el centro mundial de la cultura del anime, manga y electrónica!"
+      "funFact": "La transformación de Akihabara, de mercado negro de piezas de radio en los años 40 a capital mundial de la cultura otaku, lo convierte en hogar de más de 250 tiendas de electrónica y maid cafés."
     },
     {
       "index": 7,
@@ -52,13 +52,13 @@
       "index": 8,
       "name": "Ikebukuro",
       "subtext": "池袋",
-      "funFact": "¡La estación de Ikebukuro es la segunda más transitada del mundo, con más de 2,7 millones de pasajeros diarios!"
+      "funFact": "La estación de Ikebukuro, inaugurada en 1903, sirve a 2,7 millones de pasajeros diarios en 8 líneas ferroviarias y cuenta con Sunshine City, construida en 1978 sobre la antigua prisión de Sugamo."
     },
     {
       "index": 9,
       "name": "Shinjuku",
       "subtext": "新宿",
-      "funFact": "¡La estación de Shinjuku es la más transitada del mundo con más de 3,6 millones de pasajeros diarios!"
+      "funFact": "La estación de Shinjuku ostenta el Récord Guinness como el nudo de transporte más concurrido del planeta, con 3,6 millones de pasajeros diarios navegando más de 200 salidas en 12 líneas."
     },
     {
       "index": 10,
@@ -70,37 +70,37 @@
       "index": 11,
       "name": "Harajuku",
       "subtext": "原宿",
-      "funFact": "¡El epicentro de la moda juvenil de Tokio! La calle Takeshita atrae a millones de visitantes creadores de tendencias."
+      "funFact": "La calle Takeshita de Harajuku, de 350 metros y meca de la moda desde los años 70, atrae a más de 10.000 visitantes en fines de semana y fue donde la cultura cosplay japonesa nació en los años 90."
     },
     {
       "index": 12,
       "name": "Energía Eléctrica de Tokio",
       "subtext": null,
-      "funFact": "¡TEPCO suministra electricidad a más de 45 millones de personas en el área metropolitana de Tokio, una de las redes eléctricas más grandes del mundo!"
+      "funFact": "Fundada en 1951, TEPCO suministra electricidad a 45 millones de personas en un área de 39.000 km², generando aproximadamente 290.000 millones de kWh al año a través de una de las mayores redes eléctricas del mundo."
     },
     {
       "index": 13,
       "name": "Omotesando",
       "subtext": "表参道",
-      "funFact": "¡Conocida como los Campos Elíseos de Tokio, bordeada de zelkovas y tiendas insignia de arquitectos de renombre mundial!"
+      "funFact": "Construida originalmente en 1920 como la gran avenida de acceso al Santuario Meiji, el bulevar de 1 km de Omotesando está ahora flanqueado por obras maestras de Tadao Ando, Toyo Ito y SANAA."
     },
     {
       "index": 14,
       "name": "Odaiba",
       "subtext": "お台場",
-      "funFact": "¡Construido sobre terreno ganado al mar en la Bahía de Tokio, hogar de teamLab Borderless y una estatua gigante de Gundam!"
+      "funFact": "Odaiba se construyó originalmente como islas de baterías de cañones en 1853 para defender contra la flota del Comodoro Perry; hoy sus más de 400 hectáreas de tierra ganada al mar albergan un Gundam a escala real de 19,7 metros."
     },
     {
       "index": 15,
       "name": "Shinkansen Tokaido",
       "subtext": "東海道新幹線",
-      "funFact": "¡La primera línea de tren bala de Japón, conectando Tokio con Osaka a velocidades de hasta 285 km/h desde 1964!"
+      "funFact": "Inaugurado el 1 de octubre de 1964, solo 9 días antes de los Juegos Olímpicos de Tokio, el Shinkansen Tokaido ha transportado más de 10.000 millones de pasajeros sin ninguna víctima mortal en sus más de 60 años."
     },
     {
       "index": 16,
       "name": "Roppongi",
       "subtext": "六本木",
-      "funFact": "¡Hogar de Roppongi Hills y Tokyo Midtown, con museos de arte de clase mundial y vida nocturna!"
+      "funFact": "Roppongi significa \"seis árboles\" en japonés, en referencia a seis antiguos olmos zelkova que se alzaban aquí; hoy alberga más de 80 embajadas extranjeras y un vibrante distrito de entretenimiento las 24 horas."
     },
     {
       "index": 17,
@@ -112,13 +112,13 @@
       "index": 18,
       "name": "Ebisu",
       "subtext": "恵比寿",
-      "funFact": "¡Nombrado por la cerveza Yebisu, este exclusivo barrio es conocido por sus excelentes restaurantes y el Museo de Arte Fotográfico de Tokio!"
+      "funFact": "Ebisu debe su nombre a la cervecería Yebisu Beer construida aquí en 1890 por Japan Beer Brewery Co.; la estación, las calles e incluso el distrito tomaron su nombre de esta única marca de cerveza."
     },
     {
       "index": 19,
       "name": "Shibuya",
       "subtext": "渋谷",
-      "funFact": "¡El cruce de Shibuya es la intersección peatonal más transitada del mundo, con hasta 3.000 personas cruzando a la vez!"
+      "funFact": "El cruce de Shibuya ve hasta 3.000 personas cruzando simultáneamente en horas punta, y la cercana estatua de Hachiko conmemora al fiel perro Akita que esperó a su dueño en la estación cada día de 1925 a 1935."
     },
     {
       "index": 20,
@@ -130,7 +130,7 @@
       "index": 21,
       "name": "Tsukiji",
       "subtext": "築地",
-      "funFact": "¡El antiguo sitio del mercado de pescado más grande del mundo, donde un atún rojo se vendió por 3,1 millones de dólares!"
+      "funFact": "El mercado de Tsukiji funcionó durante 83 años (1935-2018) manejando más de 480 tipos de productos del mar diariamente; en enero de 2019, un atún rojo de 278 kg se vendió en el nuevo mercado de Toyosu por un récord de 3,1 millones de dólares."
     },
     {
       "index": 22,
@@ -142,43 +142,43 @@
       "index": 23,
       "name": "Ginza",
       "subtext": "銀座",
-      "funFact": "¡El distrito comercial más lujoso de Tokio! Los precios del suelo pueden alcanzar los $100.000 por metro cuadrado."
+      "funFact": "El nombre Ginza significa \"casa de la moneda de plata\", desde 1612 cuando el shogunato Tokugawa estableció aquí una ceca de monedas de plata. Desde 1970, su calle Chuo-dori se convierte en paraíso peatonal cada fin de semana."
     },
     {
       "index": 24,
       "name": "Estación de Tokio",
       "subtext": "東京駅",
-      "funFact": "¡La hermosa estación de ladrillo rojo restaurada de 1914 sirve como terminal de todas las líneas Shinkansen!"
+      "funFact": "Diseñada por Tatsuno Kingo e inaugurada el 20 de diciembre de 1914, el edificio Marunouchi de ladrillo rojo de la Estación de Tokio sobrevivió a los bombardeos de la Segunda Guerra Mundial y fue restaurado a su esplendor original de 3 pisos en 2012."
     },
     {
       "index": 25,
       "name": "Línea Chuo",
       "subtext": "中央線",
-      "funFact": "¡La Línea Rápida Chuo es una de las líneas de cercanías más importantes de Tokio, reconocible por sus trenes naranjas!"
+      "funFact": "La Línea Chuo, inaugurada en 1889, recorre 53,1 km de Tokio a Takao; sus distintivos trenes naranjas se introdujeron en 1957 para ayudar a los viajeros a identificar rápidamente el servicio rápido."
     },
     {
       "index": 26,
       "name": "Marunouchi",
       "subtext": "丸の内",
-      "funFact": "¡El principal distrito financiero de Tokio, hogar de grandes corporaciones y frente al Palacio Imperial!"
+      "funFact": "Marunouchi, que significa \"dentro del círculo\" del foso del Palacio Imperial, fue comprado íntegramente por Mitsubishi en 1890 por 1,5 millones de yenes, transformándolo de un campo desolado en el Wall Street de Japón."
     },
     {
       "index": 27,
       "name": "Nihombashi",
       "subtext": "日本橋",
-      "funFact": "¡El histórico centro comercial de Tokio, donde el famoso puente Nihombashi marca el \"kilómetro cero\" de Japón!"
+      "funFact": "El puente original de madera Nihombashi fue construido en 1603 y designado como punto de partida oficial de las cinco principales carreteras de Japón; el puente de piedra actual de 1911 aún conserva la placa de bronce del \"kilómetro cero\"."
     },
     {
       "index": 28,
       "name": "Gas de Tokio",
       "subtext": null,
-      "funFact": "¡Fundada en 1885, Tokyo Gas fue una de las primeras empresas de servicios públicos modernas de Japón!"
+      "funFact": "Tokyo Gas, fundada el 1 de octubre de 1885, encendió las primeras farolas de gas de Tokio en Ginza y hoy sirve a más de 12 millones de clientes a través de una red subterránea de 66.000 km de tuberías."
     },
     {
       "index": 29,
       "name": "Roppongi Hills",
       "subtext": "六本木ヒルズ",
-      "funFact": "¡Este enorme complejo urbano incluye el Museo de Arte Mori, residencias de lujo y un mirador de 238 metros!"
+      "funFact": "Roppongi Hills tardó 17 años en desarrollarse y abrió en 2003 como una \"ciudad dentro de la ciudad\" de 11,6 hectáreas, requiriendo la reubicación de más de 400 residentes y la cooperación de 77 propietarios."
     },
     {
       "index": 30,
@@ -190,13 +190,13 @@
       "index": 31,
       "name": "Aoyama",
       "subtext": "青山",
-      "funFact": "¡Uno de los barrios más elegantes de Tokio, conocido por sus boutiques de alta gama y cafeterías de moda!"
+      "funFact": "Aoyama lleva el nombre de un señor feudal cuya finca estaba aquí durante el período Edo (1603-1868); hoy sus avenidas arboladas albergan el Museo Nezu, que exhibe más de 7.400 obras de arte premoderno."
     },
     {
       "index": 32,
       "name": "Azabu",
       "subtext": "麻布",
-      "funFact": "¡Una exclusiva zona residencial hogar de muchas embajadas y escuelas internacionales!"
+      "funFact": "Azabu ha sido una zona residencial de élite desde el período Edo y hoy acoge más de 50 embajadas extranjeras, ganándose el apodo de \"Fila de Embajadas\" con algunos de los mayores ingresos per cápita de Tokio."
     },
     {
       "index": 33,
@@ -208,13 +208,13 @@
       "index": 34,
       "name": "Torre de Tokio",
       "subtext": "東京タワー",
-      "funFact": "¡Inspirada en la Torre Eiffel, este emblemático monumento de 333 metros ha sido el símbolo de Tokio desde 1958!"
+      "funFact": "Completada el 23 de diciembre de 1958, la Torre de Tokio mide exactamente 333 metros (13 metros más que la Torre Eiffel) y fue construida en parte con acero reciclado de tanques estadounidenses de la Guerra de Corea."
     },
     {
       "index": 35,
       "name": "Línea Sobu",
       "subtext": "総武線",
-      "funFact": "¡La Línea Sobu conecta los suburbios orientales de Tokio y transporta más de 1 millón de pasajeros diarios!"
+      "funFact": "La Línea Sobu, operativa desde 1894, se extiende 120,5 km entre Chiba y Mitaka, y sus trenes locales con franjas amarillas son uno de los servicios de cercanías más reconocibles de Tokio."
     },
     {
       "index": 36,
@@ -226,7 +226,7 @@
       "index": 37,
       "name": "Akasaka",
       "subtext": "赤坂",
-      "funFact": "¡Hogar de la Casa de Huéspedes del Estado y muchos restaurantes de alta gama, incluidos establecimientos con estrellas Michelin!"
+      "funFact": "La Casa de Huéspedes del Estado de Akasaka, construida en 1909 como Palacio del Príncipe Heredero, es el único palacio neobarroco de Japón y ha acogido cenas de estado para líderes incluyendo presidentes de EE.UU. y la realeza europea."
     },
     {
       "index": 38,
@@ -238,7 +238,7 @@
       "index": 39,
       "name": "Tokyo Skytree",
       "subtext": "東京スカイツリー",
-      "funFact": "¡La torre más alta del mundo con 634 metros! La altura representa \"Musashi,\" el nombre histórico de Tokio."
+      "funFact": "Inaugurada el 22 de mayo de 2012, la Tokyo Skytree mide 634 metros de altura (un número que se lee \"mu-sa-shi\", el antiguo nombre de Tokio) y puede resistir terremotos de magnitud 7, oscilando hasta 6 metros en su punta."
     }
   ]
 }

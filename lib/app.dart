@@ -12,7 +12,9 @@ import 'screens/shop_screen.dart';
 import 'models/player.dart';
 import 'models/game_state.dart';
 import 'models/country.dart';
+import 'models/city_board.dart';
 import 'config/board_factory.dart';
+import 'config/city_board_registry.dart';
 import 'services/audio_service.dart';
 import 'services/save_service.dart';
 import 'services/locale_service.dart';
@@ -58,7 +60,7 @@ class _AppNavigatorState extends State<AppNavigator> {
   GameState? _gameState;
   GameSettings _settings = const GameSettings();
   int _diceCount = 2; // Track dice count for the game
-  Country _selectedCountry = Country.usa; // Track selected country for the board
+  CityBoard _selectedCityBoard = CityBoardRegistry.defaultForCountry(Country.usa); // Track selected city board
 
   void _navigateTo(AppScreen screen) {
     setState(() {
@@ -89,7 +91,9 @@ class _AppNavigatorState extends State<AppNavigator> {
     }
   }
 
-  Future<void> _startGame(List<PlayerConfig> configs, {int diceCount = 2, Country country = Country.usa}) async {
+  Future<void> _startGame(List<PlayerConfig> configs, {int diceCount = 2, CityBoard? cityBoard}) async {
+    final board = cityBoard ?? CityBoardRegistry.defaultForCountry(Country.usa);
+
     // Create players from configs
     final players = configs.asMap().entries.map((entry) {
       final index = entry.key;
@@ -99,12 +103,12 @@ class _AppNavigatorState extends State<AppNavigator> {
 
     // Load localized tiles
     final locale = LocaleService.instance.currentLocale;
-    final tiles = await BoardFactory.generateLocalizedTiles(country, locale);
+    final tiles = await BoardFactory.generateLocalizedTiles(board, locale);
 
     // Create game state using factory constructor
     setState(() {
       _diceCount = diceCount;
-      _selectedCountry = country;
+      _selectedCityBoard = board;
       _gameState = GameState.initial(players: players, tiles: tiles, startingCash: _settings.startingCash, diceCount: diceCount);
       _currentScreen = AppScreen.game;
     });
@@ -131,7 +135,7 @@ class _AppNavigatorState extends State<AppNavigator> {
       }).toList();
 
       final locale = LocaleService.instance.currentLocale;
-      final tiles = await BoardFactory.generateLocalizedTiles(_selectedCountry, locale);
+      final tiles = await BoardFactory.generateLocalizedTiles(_selectedCityBoard, locale);
 
       setState(() {
         _gameState = GameState.initial(players: resetPlayers, tiles: tiles, startingCash: _settings.startingCash, diceCount: _diceCount);
@@ -145,8 +149,8 @@ class _AppNavigatorState extends State<AppNavigator> {
       setState(() {
         _gameState = savedState;
         _diceCount = savedState.diceCount;
-        // Infer country from board theme ID
-        _selectedCountry = _inferCountryFromTheme(savedState.boardTheme.id);
+        // Infer city board from board theme ID
+        _selectedCityBoard = _inferCityBoardFromTheme(savedState.boardTheme.id);
         _currentScreen = AppScreen.game;
       });
       // Play game music
@@ -164,22 +168,27 @@ class _AppNavigatorState extends State<AppNavigator> {
     }
   }
 
-  Country _inferCountryFromTheme(String themeId) {
+  CityBoard _inferCityBoardFromTheme(String themeId) {
+    // Try to find by boardId first, then fall back to country theme
+    final byId = CityBoardRegistry.byBoardId(themeId);
+    if (byId != null) return byId;
+
+    // Fall back to country default by theme ID
     switch (themeId) {
       case 'usa':
-        return Country.usa;
+        return CityBoardRegistry.defaultForCountry(Country.usa);
       case 'uk':
-        return Country.uk;
+        return CityBoardRegistry.defaultForCountry(Country.uk);
       case 'japan':
-        return Country.japan;
+        return CityBoardRegistry.defaultForCountry(Country.japan);
       case 'france':
-        return Country.france;
+        return CityBoardRegistry.defaultForCountry(Country.france);
       case 'china':
-        return Country.china;
+        return CityBoardRegistry.defaultForCountry(Country.china);
       case 'mexico':
-        return Country.mexico;
+        return CityBoardRegistry.defaultForCountry(Country.mexico);
       default:
-        return Country.usa; // Default to USA for non-country themes
+        return CityBoardRegistry.defaultForCountry(Country.usa);
     }
   }
 
@@ -236,7 +245,7 @@ class _AppNavigatorState extends State<AppNavigator> {
           tradingEnabled: _settings.tradingEnabled,
           bankEnabled: _settings.bankEnabled,
           auctionEnabled: _settings.auctionEnabled,
-          boardTheme: BoardFactory.getTheme(_selectedCountry),
+          boardTheme: BoardFactory.getThemeForCityBoard(_selectedCityBoard),
         );
     }
   }

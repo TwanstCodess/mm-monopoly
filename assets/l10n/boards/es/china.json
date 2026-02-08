@@ -10,7 +10,7 @@
       "index": 1,
       "name": "Nanluoguxiang",
       "subtext": "南锣鼓巷",
-      "funFact": "¡Este callejón hutong de 800 años es una de las calles históricas mejor conservadas de Pekín!"
+      "funFact": "Este hutong de 786 metros data de la dinastía Yuan en 1267 y fue hogar de nobles de la dinastía Qing. Hoy atrae a más de 10.000 visitantes diarios."
     },
     {
       "index": 2,
@@ -22,7 +22,7 @@
       "index": 3,
       "name": "Houhai",
       "subtext": "后海",
-      "funFact": "¡Zona histórica de lagos donde los emperadores patinaban sobre hielo!"
+      "funFact": "Durante la dinastía Qing (1644-1912), los emperadores celebraban aquí grandes competiciones de patinaje sobre hielo cada invierno. El lago cubre 34 hectáreas y está rodeado de patios centenarios."
     },
     {
       "index": 4,
@@ -34,13 +34,13 @@
       "index": 5,
       "name": "Línea 1",
       "subtext": "地铁1号线",
-      "funFact": "¡La primera línea de metro de Pekín, inaugurada en 1971, pasando por la Plaza de Tiananmen!"
+      "funFact": "Inaugurada el 1 de octubre de 1969 para uso militar y abierta al público en 1971, la Línea 1 tiene 31 km con 23 estaciones y fue el primer ferrocarril subterráneo de China."
     },
     {
       "index": 6,
       "name": "Wangfujing",
       "subtext": "王府井",
-      "funFact": "¡La principal calle comercial de Pekín, con más de 700 años de antigüedad!"
+      "funFact": "Establecida durante la dinastía Yuan hacia 1280, esta calle de 810 metros recibe su nombre de un pozo de agua dulce hallado en la mansión de un príncipe. Hoy recibe más de 600.000 compradores al día."
     },
     {
       "index": 7,
@@ -52,13 +52,13 @@
       "index": 8,
       "name": "Sanlitun",
       "subtext": "三里屯",
-      "funFact": "¡El barrio más internacional de Pekín, hogar de embajadas y vida nocturna!"
+      "funFact": "Llamado así por estar exactamente a tres li (1,5 km) de la antigua muralla, Sanlitun alberga más de 70 embajadas y se convirtió en el centro de la vida nocturna de Pekín tras el auge de los bares en los años 90."
     },
     {
       "index": 9,
       "name": "CBD",
       "subtext": "国贸",
-      "funFact": "¡El Distrito Central de Negocios presenta la icónica Torre CCTV de Rem Koolhaas!"
+      "funFact": "Establecido en 2001, el CBD de Pekín ocupa 3,99 km² en Chaoyang y alberga más del 60% de las sedes regionales de las empresas Fortune 500 en la ciudad."
     },
     {
       "index": 10,
@@ -70,37 +70,37 @@
       "index": 11,
       "name": "Dongcheng",
       "subtext": "东城区",
-      "funFact": "¡El distrito oriental conserva innumerables hutongs históricos y casas con patio!"
+      "funFact": "Con 41,84 km², Dongcheng contiene más de 200 hutongs históricos protegidos y fue sede de los exámenes imperiales que moldearon la gobernanza china durante 1.300 años."
     },
     {
       "index": 12,
       "name": "Red Eléctrica Estatal",
       "subtext": null,
-      "funFact": "¡La empresa de servicios públicos más grande del mundo, suministrando energía a más de 1.100 millones de personas!"
+      "funFact": "Fundada en 2002, State Grid es la mayor empresa de servicios públicos del mundo por ingresos (383.000 millones de dólares en 2022) y opera más de 1 millón de km de líneas eléctricas que cubren el 88% de China."
     },
     {
       "index": 13,
       "name": "Parque Beihai",
       "subtext": "北海公园",
-      "funFact": "¡Jardín imperial que data del siglo X, con la impresionante Dagoba Blanca!"
+      "funFact": "Construido por primera vez en el año 938 d.C., Beihai es uno de los jardines imperiales más antiguos de China. Su icónica Dagoba Blanca de 36 metros fue erigida en 1651 en honor a la visita del 5.º Dalai Lama."
     },
     {
       "index": 14,
       "name": "Jingshan",
       "subtext": "景山",
-      "funFact": "¡Esta colina artificial ofrece la mejor vista panorámica de la Ciudad Prohibida!"
+      "funFact": "Construida con la tierra excavada del foso de la Ciudad Prohibida en 1421, esta colina de 45 metros es donde el último emperador Ming, Chongzhen, acabó trágicamente con su vida en 1644."
     },
     {
       "index": 15,
       "name": "Línea 2",
       "subtext": "地铁2号线",
-      "funFact": "¡Forma un rectángulo alrededor del centro de Pekín, siguiendo la ruta de la antigua muralla!"
+      "funFact": "Inaugurada en 1984, la Línea 2 recorre el trazado de la demolida muralla de la dinastía Ming en un bucle de 23 km con 18 estaciones. Fue la primera línea de metro en China con cobro automático."
     },
     {
       "index": 16,
       "name": "Templo Lama",
       "subtext": "雍和宫",
-      "funFact": "¡Hogar de un Buda de 26 metros tallado en un solo tronco de sándalo!"
+      "funFact": "Construido originalmente como residencia imperial en 1694, se convirtió en monasterio budista tibetano en 1744. Su Buda Maitreya de 18 metros fue tallado de un solo tronco de sándalo blanco regalado por el 7.º Dalai Lama."
     },
     {
       "index": 17,
@@ -112,13 +112,13 @@
       "index": 18,
       "name": "Templo del Cielo",
       "subtext": "天坛",
-      "funFact": "¡Donde los emperadores rezaban por buenas cosechas! El Muro del Eco puede llevar susurros a 65 metros!"
+      "funFact": "Construido en 1420 por el emperador Yongle, este Patrimonio de la Humanidad de la UNESCO abarca 273 hectáreas, casi cuatro veces el tamaño de la Ciudad Prohibida. Su Salón de la Oración no tiene ni clavos ni cemento."
     },
     {
       "index": 19,
       "name": "Palacio de Verano",
       "subtext": "颐和园",
-      "funFact": "¡Patrimonio de la UNESCO que abarca 290 hectáreas, 75% agua! El barco de mármol de la Emperatriz Cixi aún permanece en pie!"
+      "funFact": "La emperatriz Cixi desvió polémicamente 30 millones de taeles de plata del presupuesto naval en 1888 para reconstruir este jardín. Su Gran Corredor se extiende 728 metros con más de 14.000 escenas pintadas."
     },
     {
       "index": 20,
@@ -130,7 +130,7 @@
       "index": 21,
       "name": "Torre del Tambor",
       "subtext": "鼓楼",
-      "funFact": "¡Construida en 1272, los tamborileros marcaban la hora para toda la ciudad!"
+      "funFact": "Construida originalmente por Kublai Khan en 1272, la torre actual data de 1420 y mide 47 metros. Sus 25 tambores se golpeaban 13 veces al anochecer para señalar el cierre de las puertas de la ciudad."
     },
     {
       "index": 22,
@@ -142,43 +142,43 @@
       "index": 23,
       "name": "Torre de la Campana",
       "subtext": "钟楼",
-      "funFact": "¡Alberga una enorme campana de bronce de 63 toneladas de la Dinastía Ming!"
+      "funFact": "Reconstruida en 1745, la Torre de la Campana alberga una campana de bronce de 63 toneladas fundida en la era Yongle (1420) que se oía a más de 20 km. La leyenda cuenta que una joven se sacrificó en el bronce fundido para perfeccionar la fundición."
     },
     {
       "index": 24,
       "name": "Tiananmen",
       "subtext": "天安门",
-      "funFact": "¡La plaza pública más grande del mundo, con capacidad para hasta 1 millón de personas!"
+      "funFact": "La puerta fue construida en 1420 y reconstruida en 1651. La propia Plaza de Tiananmen fue ampliada a 44 hectáreas en 1959, convirtiéndose en la plaza pública más grande del mundo."
     },
     {
       "index": 25,
       "name": "Línea 4",
       "subtext": "地铁4号线",
-      "funFact": "¡Conecta el Palacio de Verano con el sur, transportando 1 millón de pasajeros diarios!"
+      "funFact": "Inaugurada el 28 de septiembre de 2009, la Línea 4 recorre 28,2 km con 24 estaciones y fue la primera línea de metro de Pekín en asociación público-privada, co-operada con MTR Corporation de Hong Kong."
     },
     {
       "index": 26,
       "name": "Chaoyang",
       "subtext": "朝阳区",
-      "funFact": "¡El distrito más internacional de Pekín, sede de las instalaciones olímpicas!"
+      "funFact": "Con 3,45 millones de habitantes en 455 km², Chaoyang es el distrito urbano más grande de Pekín. Alberga más de 130 embajadas extranjeras y genera casi el 30% del PIB de la ciudad."
     },
     {
       "index": 27,
       "name": "Parque Olímpico",
       "subtext": "奥林匹克公园",
-      "funFact": "¡Hogar del estadio Nido de Pájaro y el Cubo de Agua de los Juegos Olímpicos de 2008!"
+      "funFact": "Construido para los Juegos Olímpicos de Verano de 2008 con un coste de 480 millones de dólares, el Nido de Pájaro utilizó 42.000 toneladas de acero y tiene capacidad para 91.000 espectadores. El parque también acogió eventos de los Juegos de Invierno de 2022."
     },
     {
       "index": 28,
       "name": "Agua de Pekín",
       "subtext": null,
-      "funFact": "¡El Proyecto de Transferencia de Agua Sur-Norte trae agua desde 1.400 km de distancia!"
+      "funFact": "El Proyecto de Trasvase de Agua Sur-Norte, concebido por Mao Zedong en 1952 e iniciado en 2002, costó más de 80.000 millones de dólares y canaliza agua desde el río Yangtsé a 1.432 km de distancia hasta Pekín."
     },
     {
       "index": 29,
       "name": "Zhongguancun",
       "subtext": "中关村",
-      "funFact": "¡El Silicon Valley de China, hogar de gigantes tecnológicos como Baidu y Lenovo!"
+      "funFact": "Apodado el \"Silicon Valley de China\" desde los años 80, Zhongguancun alberga más de 20.000 empresas tecnológicas. Aquí Lenovo fue fundada en una caseta de guardia con solo 25.000 dólares en 1984."
     },
     {
       "index": 30,
@@ -190,13 +190,13 @@
       "index": 31,
       "name": "Calle de la Seda",
       "subtext": "秀水街",
-      "funFact": "¡Famoso mercado comercial que sigue la antigua tradición de la Ruta de la Seda!"
+      "funFact": "Originalmente un mercado al aire libre surgido en los años 80 para el personal de las embajadas, la Calle de la Seda se trasladó en 2005 a un edificio de 7 plantas y 28.000 m² que recibe 20.000 visitantes diarios."
     },
     {
       "index": 32,
       "name": "Panjiayuan",
       "subtext": "潘家园",
-      "funFact": "¡El mercado de antigüedades más grande de Asia con más de 3.000 vendedores!"
+      "funFact": "Abierto desde 1992, este mercado de 48.500 m² es el mayor bazar de antigüedades de Asia, con más de 3.000 vendedores que ofrecen desde porcelana Ming hasta recuerdos de la Revolución Cultural."
     },
     {
       "index": 33,
@@ -208,13 +208,13 @@
       "index": 34,
       "name": "Museo Nacional",
       "subtext": "国家博物馆",
-      "funFact": "¡El museo más visitado del mundo con 7,4 millones de visitantes al año!"
+      "funFact": "Reabierto en 2011 tras una renovación de 400 millones de dólares, el Museo Nacional de China abarca 192.000 m² y alberga más de 1,4 millones de artefactos que cubren 1,7 millones de años de civilización china."
     },
     {
       "index": 35,
       "name": "Línea 10",
       "subtext": "地铁10号线",
-      "funFact": "¡Forma un gran circuito conectando todos los distritos principales de Pekín!"
+      "funFact": "Completada como circuito en 2013, la Línea 10 es la línea de metro más larga de Pekín con 57,1 km y 45 estaciones, transportando más de 2 millones de pasajeros diarios a lo largo del Tercer Anillo."
     },
     {
       "index": 36,
@@ -226,7 +226,7 @@
       "index": 37,
       "name": "Torre CCTV",
       "subtext": "央视大楼",
-      "funFact": "¡Con 405 metros de altura y un revolucionario diseño en forma de \"bucle\"!"
+      "funFact": "Completada en 2012 con un coste de 800 millones de dólares, esta torre de 234 metros diseñada por OMA usa 10.000 toneladas de acero estructural en su bucle continuo y fue apodada \"Los Pantalones\" por los pekineses."
     },
     {
       "index": 38,
@@ -238,7 +238,7 @@
       "index": 39,
       "name": "Ciudad Prohibida",
       "subtext": "故宫",
-      "funFact": "¡El complejo palaciego más grande del mundo con 9.999 habitaciones, hogar de 24 emperadores!"
+      "funFact": "Construida entre 1406 y 1420 por más de 1 millón de trabajadores, la Ciudad Prohibida abarca 72 hectáreas con 980 edificios y 8.728 habitaciones. Fue hogar de 24 emperadores de las dinastías Ming y Qing."
     }
   ]
 }

@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "SALIDA",
+      "subtext": "COBRA $200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Boyle Heights",
+      "subtext": "Boyle Heights",
+      "funFact": "Boyle Heights fue uno de los barrios más diversos de Estados Unidos durante los años 40, hogar de comunidades judías, japonesas, mexicanas y afroamericanas conviviendo lado a lado."
+    },
+    {
+      "index": 2,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Echo Park",
+      "subtext": "Parque del Eco",
+      "funFact": "El Lago de Echo Park fue creado en la década de 1860 como reserva de agua potable. Sus icónicos lotos florecen cada julio y fueron plantados originalmente en los años 20."
+    },
+    {
+      "index": 4,
+      "name": "Impuesto sobre la Renta",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Union Station",
+      "subtext": "Estación Unión",
+      "funFact": "La Union Station de Los Ángeles abrió en 1939 como la última gran estación de tren construida en Estados Unidos, fusionando arquitectura colonial española, Mission Revival y Art Déco."
+    },
+    {
+      "index": 6,
+      "name": "Silver Lake",
+      "subtext": "Silver Lake",
+      "funFact": "Silver Lake debe su nombre a Herman Silver, un comisionado de aguas de la ciudad, no al color de su embalse. El barrio se convirtió en el epicentro hipster de LA a principios de los 2000."
+    },
+    {
+      "index": 7,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Los Feliz",
+      "subtext": "Los Feliz",
+      "funFact": "Los Feliz toma su nombre del Cabo José Vicente Feliz, quien recibió la concesión de tierras Rancho Los Feliz de España en 1796. Walt Disney construyó su primer estudio aquí en 1923."
+    },
+    {
+      "index": 9,
+      "name": "Hollywood Blvd",
+      "subtext": "Bulevar Hollywood",
+      "funFact": "El Paseo de la Fama de Hollywood se extiende 2,1 km a lo largo del Bulevar Hollywood y contiene más de 2.700 estrellas de bronce en la acera, con las primeras instaladas en 1958."
+    },
+    {
+      "index": 10,
+      "name": "CÁRCEL",
+      "subtext": "DE VISITA",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Sunset Strip",
+      "subtext": "Franja del Atardecer",
+      "funFact": "El Sunset Strip es un tramo de 2,4 km del Bulevar Sunset que se encuentra en el Condado de LA no incorporado, lo que históricamente significó leyes más laxas que atrajeron discotecas y locales de rock."
+    },
+    {
+      "index": 12,
+      "name": "LADWP Eléctrica",
+      "subtext": null,
+      "funFact": "El Departamento de Agua y Energía de Los Ángeles es la compañía de servicios públicos municipal más grande de Estados Unidos, sirviendo a más de 4 millones de residentes y generando 7.880 megavatios de potencia."
+    },
+    {
+      "index": 13,
+      "name": "Venice Beach",
+      "subtext": "Playa Venice",
+      "funFact": "Venice Beach fue fundada en 1905 por Abbot Kinney como \"Venice of America\", con canales al estilo italiano. El famoso gimnasio al aire libre Muscle Beach funciona desde los años 30."
+    },
+    {
+      "index": 14,
+      "name": "Santa Monica",
+      "subtext": "Santa Mónica",
+      "funFact": "El Muelle de Santa Mónica, construido en 1909, marca el extremo occidental de la Ruta 66. Sus atracciones de Pacific Park incluyen la única noria de energía solar del mundo."
+    },
+    {
+      "index": 15,
+      "name": "Metro Purple Line",
+      "subtext": "Metro Línea Púrpura",
+      "funFact": "La Línea Púrpura del Metro pasa bajo el Bulevar Wilshire por la zona de los Pozos de Brea de La Brea, donde los trabajadores de construcción descubrieron fósiles de la Edad de Hielo incluyendo huesos de mamut durante la excavación."
+    },
+    {
+      "index": 16,
+      "name": "Malibu",
+      "subtext": "Malibú",
+      "funFact": "Malibú se extiende 43 km a lo largo de la costa del Pacífico y fue originalmente hogar del pueblo Chumash. El nombre proviene de la palabra Chumash \"Humaliwo\" que significa \"el oleaje suena fuerte\"."
+    },
+    {
+      "index": 17,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Downtown LA",
+      "subtext": "Centro de Los Ángeles",
+      "funFact": "El Edificio Bradbury del centro de LA, construido en 1893, fue diseñado basándose en instrucciones de un médium espiritual. Su impresionante atrio de hierro ha aparecido en Blade Runner y 500 Días con Ella."
+    },
+    {
+      "index": 19,
+      "name": "Distrito de las Artes",
+      "subtext": "Distrito de las Artes",
+      "funFact": "El Distrito de las Artes de LA fue designado oficialmente en 1981, convirtiéndolo en una de las primeras áreas del país en permitir legalmente que los artistas vivieran en edificios industriales."
+    },
+    {
+      "index": 20,
+      "name": "GIRA Y GANA",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Pequeño Tokio",
+      "subtext": "Pequeño Tokio",
+      "funFact": "Little Tokyo es uno de solo tres Japantowns oficiales que quedan en Estados Unidos. Fundado en la década de 1880, fue vaciado a la fuerza durante el internamiento de japoneses-estadounidenses en la Segunda Guerra Mundial."
+    },
+    {
+      "index": 22,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Griffith Observatory",
+      "subtext": "Observatorio Griffith",
+      "funFact": "El Observatorio Griffith ha recibido a más de 80 millones de visitantes desde 1935, más que cualquier otro observatorio en el mundo. La entrada al edificio y los telescopios siempre ha sido gratuita."
+    },
+    {
+      "index": 24,
+      "name": "Beverly Hills",
+      "subtext": "Beverly Hills",
+      "funFact": "Beverly Hills era originalmente un rancho de habas de lima antes de ser desarrollado en 1914. La ciudad tiene solo 14,8 km cuadrados pero cuenta con sus propios departamentos de policía y bomberos."
+    },
+    {
+      "index": 25,
+      "name": "Metro Gold Line",
+      "subtext": "Metro Línea Dorada",
+      "funFact": "La Línea Dorada del Metro conecta el centro de LA con Pasadena, siguiendo una ruta que una vez recorría el Pacific Electric Railway cuyos tranvías rojos fueron desmantelados en los años 50 y 60."
+    },
+    {
+      "index": 26,
+      "name": "Rodeo Drive",
+      "subtext": "Rodeo Drive",
+      "funFact": "Rodeo Drive se convirtió en un destino de compras de lujo después de que el Hotel Beverly Wilshire abriera en 1928. Una sola cuadra en Rodeo Drive genera más ingresos por pie cuadrado que cualquier otra calle comercial de EE.UU."
+    },
+    {
+      "index": 27,
+      "name": "Bel Air",
+      "subtext": "Bel Air",
+      "funFact": "Bel Air fue desarrollado en 1923 por Alphonzo Bell Sr., quien hizo su fortuna con el petróleo descubierto en su rancho de Santa Fe Springs. Su Puerta Este en Sunset Boulevard es un hito de Los Ángeles."
+    },
+    {
+      "index": 28,
+      "name": "LADWP Agua",
+      "subtext": null,
+      "funFact": "LADWP opera el Acueducto de Los Ángeles, que transporta agua 375 km desde el Valle de Owens. La construcción del acueducto en 1913 fue uno de los proyectos de ingeniería más controvertidos de la historia de Estados Unidos."
+    },
+    {
+      "index": 29,
+      "name": "Westwood",
+      "subtext": "Westwood",
+      "funFact": "Westwood es hogar de UCLA, fundada en 1919, y del cementerio Westwood Village Memorial Park donde están enterradas Marilyn Monroe, Dean Martin y muchas otras leyendas de Hollywood."
+    },
+    {
+      "index": 30,
+      "name": "VE A LA CÁRCEL",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Century City",
+      "subtext": "Ciudad del Siglo",
+      "funFact": "Century City fue construida sobre los estudios traseros de 20th Century Fox, que vendió 73 hectáreas en 1961 para cubrir los sobrecostos de la película Cleopatra protagonizada por Elizabeth Taylor."
+    },
+    {
+      "index": 32,
+      "name": "Pasadena",
+      "subtext": "Pasadena",
+      "funFact": "Pasadena alberga el Desfile de las Rosas y el Rose Bowl anual desde 1890. También es hogar de Caltech y el Laboratorio de Propulsión a Chorro de la NASA, que ha gestionado cada misión de rover a Marte."
+    },
+    {
+      "index": 33,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Long Beach",
+      "subtext": "Playa Larga",
+      "funFact": "El Puerto de Long Beach es el segundo puerto de contenedores más concurrido de Estados Unidos, manejando más de 200.000 millones de dólares en comercio al año. El RMS Queen Mary ha estado atracado allí permanentemente desde 1967."
+    },
+    {
+      "index": 35,
+      "name": "Metro Expo Line",
+      "subtext": "Metro Línea Expo",
+      "funFact": "La Línea Expo del Metro conecta el centro de LA con Santa Mónica siguiendo la antigua ruta del Pacific Electric Railway, restaurando el servicio ferroviario a la costa tras una ausencia de 63 años."
+    },
+    {
+      "index": 36,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Manhattan Beach",
+      "subtext": "Playa Manhattan",
+      "funFact": "Manhattan Beach fue fundada en 1912 y su muelle fue construido originalmente como parada del Pacific Electric Railway. El paseo costero \"Strand\" del barrio se extiende 35 km a lo largo de la costa."
+    },
+    {
+      "index": 38,
+      "name": "Impuesto de Lujo",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Getty Center",
+      "subtext": "Centro Getty",
+      "funFact": "El Centro Getty costó 1.300 millones de dólares y abrió en 1997. Diseñado por Richard Meier, se sitúa en lo alto de una colina en las montañas de Santa Mónica y la entrada siempre ha sido gratuita."
+    }
+  ]
+}

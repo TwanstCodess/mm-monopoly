@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "DÉPART",
+      "subtext": "SALIDA",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Mercado 28",
+      "subtext": "Mercado 28",
+      "funFact": "Le marché le plus célèbre du centre-ville de Cancún où locaux et touristes marchandent pour des bijoux en argent, des hamacs et de l'artisanat mexicain depuis 1973."
+    },
+    {
+      "index": 2,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Parque de las Palapas",
+      "subtext": "Parque de las Palapas",
+      "funFact": "Le cœur culturel du centre-ville de Cancún où les familles se retrouvent chaque soir pour des concerts gratuits, de la cuisine de rue et des spectacles de danse traditionnelle."
+    },
+    {
+      "index": 4,
+      "name": "Impôt sur le Revenu",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Tren Maya - Estación Cancún",
+      "subtext": "Tren Maya Cancún",
+      "funFact": "La gare du Tren Maya à Cancún relie la ville balnéaire à toute la péninsule du Yucatán sur 1 554 km de voies à travers cinq États mexicains."
+    },
+    {
+      "index": 6,
+      "name": "Zone Hôtelière Nord",
+      "subtext": "Zona Hotelera Norte",
+      "funFact": "La section nord du célèbre banc de sable en forme de L de Cancún offre des eaux calmes côté baie, idéales pour les familles, et plus de 20 grands complexes hôteliers."
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Zone Hôtelière Sud",
+      "subtext": "Zona Hotelera Sur",
+      "funFact": "La partie sud fait face à la mer des Caraïbes ouverte avec une forte houle, et abrite les méga-resorts tout compris les plus exclusifs de Cancún."
+    },
+    {
+      "index": 9,
+      "name": "Playa Delfines",
+      "subtext": "Playa Delfines",
+      "funFact": "L'une des seules plages publiques de Cancún sans façade hôtelière, célèbre pour son panneau géant et coloré « CANCÚN » et ses eaux turquoise spectaculaires."
+    },
+    {
+      "index": 10,
+      "name": "PRISON",
+      "subtext": "CÁRCEL",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Playa Forum",
+      "subtext": "Playa Forum",
+      "funFact": "Située au coude de la zone hôtelière, cette plage jouxte le célèbre quartier festif de Cancún et offre certaines des eaux les plus calmes pour la baignade."
+    },
+    {
+      "index": 12,
+      "name": "CFE Cancún",
+      "subtext": null,
+      "funFact": "La CFE alimente la massive infrastructure touristique de Cancún, fournissant de l'électricité à plus de 30 000 chambres d'hôtel et aux 900 000 habitants de la ville."
+    },
+    {
+      "index": 13,
+      "name": "Punta Cancún",
+      "subtext": "Punta Cancún",
+      "funFact": "La pointe en forme de coude de la zone hôtelière où la mer des Caraïbes rencontre la lagune Nichupté, abritant la plus forte concentration de discothèques et de restaurants."
+    },
+    {
+      "index": 14,
+      "name": "Punta Nizuc",
+      "subtext": "Punta Nizuc",
+      "funFact": "La pointe sud de la zone hôtelière abrite le MUSA, un musée sous-marin avec plus de 500 sculptures grandeur nature immergées dans le récif aux eaux cristallines."
+    },
+    {
+      "index": 15,
+      "name": "Tren Maya - Estación Puerto Morelos",
+      "subtext": "Tren Maya Pto. Morelos",
+      "funFact": "Cette gare dessert le tranquille village de pêcheurs de Puerto Morelos, porte d'entrée de la barrière de corail méso-américaine, la deuxième plus grande au monde."
+    },
+    {
+      "index": 16,
+      "name": "Ruines d'El Rey",
+      "subtext": "Ruinas El Rey",
+      "funFact": "D'anciennes ruines mayas au cœur de la zone hôtelière datant de 300 av. J.-C., où des centaines d'iguanes sauvages se promènent librement parmi 47 structures archéologiques."
+    },
+    {
+      "index": 17,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Isla Mujeres",
+      "subtext": "Isla Mujeres",
+      "funFact": "L'« Île des Femmes » était sacrée pour la déesse maya Ixchel. À seulement 13 km au large, elle abrite Punta Sur, le point le plus oriental du Mexique."
+    },
+    {
+      "index": 19,
+      "name": "Puerto Morelos",
+      "subtext": "Puerto Morelos",
+      "funFact": "Un charmant village de pêcheurs avec un phare penché célèbre, endommagé par l'ouragan Beulah en 1967, aujourd'hui un parc marin national protégeant des récifs immaculés."
+    },
+    {
+      "index": 20,
+      "name": "ROUE DE LA CHANCE",
+      "subtext": "GIRA Y GANA",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Playa del Carmen",
+      "subtext": "Playa del Carmen",
+      "funFact": "Autrefois un minuscule port de ferry vers Cozumel, elle est devenue l'une des villes à la croissance la plus rapide au monde. Sa Quinta Avenida s'étend sur 20 pâtés de boutiques et restaurants."
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Cozumel",
+      "subtext": "Cozumel",
+      "funFact": "Jacques Cousteau a rendu cette île mondialement célèbre en 1961 pour ses récifs aux eaux cristallines. C'est aujourd'hui le port de croisière le plus fréquenté du Mexique avec plus de 1 200 navires par an."
+    },
+    {
+      "index": 24,
+      "name": "Xcaret",
+      "subtext": "Xcaret",
+      "funFact": "Un vaste parc éco-archéologique construit autour de ruines mayas et de rivières souterraines, accueillant un spectacle nocturne avec 300 artistes célébrant la culture mexicaine."
+    },
+    {
+      "index": 25,
+      "name": "Tren Maya - Estación Playa del Carmen",
+      "subtext": "Tren Maya Playa",
+      "funFact": "Cette gare relie Playa del Carmen au réseau du Tren Maya, permettant aux visiteurs de rejoindre Chichén Itzá et Mérida sans conduire."
+    },
+    {
+      "index": 26,
+      "name": "Xel-Há",
+      "subtext": "Xel-Há",
+      "funFact": "Le plus grand aquarium naturel au monde où les cénotes d'eau douce rencontrent la mer des Caraïbes, créant un paradis de plongée avec plus de 90 espèces marines."
+    },
+    {
+      "index": 27,
+      "name": "Ruines de Tulum",
+      "subtext": "Ruinas de Tulum",
+      "funFact": "La seule grande cité maya construite sur une falaise caribéenne, Tulum était un port commercial prospère de 1200 à 1521 et est le troisième site archéologique le plus visité du Mexique."
+    },
+    {
+      "index": 28,
+      "name": "CAPA",
+      "subtext": null,
+      "funFact": "Le CAPA gère l'approvisionnement en eau de Cancún, puisée dans les cénotes souterrains et les aquifères du calcaire poreux de la péninsule du Yucatán."
+    },
+    {
+      "index": 29,
+      "name": "Cenote Ik Kil",
+      "subtext": "Cenote Ik Kil",
+      "funFact": "Un gouffre à couper le souffle de 60 mètres de profondeur près de Chichén Itzá avec des lianes cascadant depuis le bord. Les Mayas considéraient les cénotes comme des portails sacrés vers le monde souterrain."
+    },
+    {
+      "index": 30,
+      "name": "ALLEZ EN PRISON",
+      "subtext": "VE A LA CÁRCEL",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Zona Hotelera",
+      "subtext": "Zona Hotelera",
+      "funFact": "L'emblématique île-barrière en forme de L de 23 km de Cancún a été planifiée de toutes pièces en 1970 par un programme informatique gouvernemental qui l'a sélectionnée comme emplacement idéal pour une station balnéaire."
+    },
+    {
+      "index": 32,
+      "name": "La Isla Shopping Village",
+      "subtext": "La Isla Shopping",
+      "funFact": "Un village commercial en plein air construit sur la lagune Nichupté avec des canaux le traversant, comprenant un aquarium interactif et des restaurants avec vue sur le coucher de soleil."
+    },
+    {
+      "index": 33,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Boulevard Kukulcán",
+      "subtext": "Blvd. Kukulcán",
+      "funFact": "Nommé d'après le dieu serpent à plumes, cette route de 26 km est l'artère principale de la zone hôtelière, reliant tous les grands resorts, centres commerciaux et lieux de vie nocturne."
+    },
+    {
+      "index": 35,
+      "name": "Tren Maya - Estación Tulum",
+      "subtext": "Tren Maya Tulum",
+      "funFact": "La gare de Tulum sert de porte d'entrée vers la côte sud de la Riviera Maya et offre un accès ferroviaire direct aux ruines anciennes de l'intérieur du Yucatán."
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Lagune de Nichupté",
+      "subtext": "Laguna Nichupté",
+      "funFact": "Ce système lagunaire de 3 000 hectares sépare la zone hôtelière du continent, abritant des crocodiles, des lamantins et des forêts de mangroves essentielles à l'écosystème de Cancún."
+    },
+    {
+      "index": 38,
+      "name": "Taxe de Luxe",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Chichén Itzá",
+      "subtext": "Chichén Itzá",
+      "funFact": "L'une des sept nouvelles merveilles du monde, la pyramide de Kukulcán crée un effet d'ombre de serpent lors des équinoxes qui attire plus de 2,6 millions de visiteurs par an."
+    }
+  ]
+}

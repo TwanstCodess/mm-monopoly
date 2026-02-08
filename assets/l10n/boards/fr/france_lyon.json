@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "DÉPART",
+      "subtext": "RECEVEZ 200 €",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Vieux Lyon",
+      "subtext": "Vieux Lyon",
+      "funFact": "Le Vieux Lyon est l'un des plus grands quartiers Renaissance d'Europe, couvrant 424 hectares et classé au patrimoine mondial de l'UNESCO en 1998."
+    },
+    {
+      "index": 2,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Traboules",
+      "subtext": "Les Traboules",
+      "funFact": "Les traboules de Lyon sont des passages secrets traversant bâtiments et cours intérieures, utilisés à l'origine par les canuts puis par la Résistance française pendant la Seconde Guerre mondiale."
+    },
+    {
+      "index": 4,
+      "name": "Impôt sur le Revenu",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Lyon Part-Dieu",
+      "subtext": "Gare Part-Dieu",
+      "funFact": "Lyon Part-Dieu est la plus grande gare ferroviaire de France en dehors de Paris, desservant plus de 30 millions de passagers par an."
+    },
+    {
+      "index": 6,
+      "name": "Guillotière",
+      "subtext": "La Guillotière",
+      "funFact": "La Guillotière est l'un des plus anciens quartiers de Lyon, abritant l'historique pont de la Guillotière datant de 1070."
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Ainay",
+      "subtext": "Quartier d'Ainay",
+      "funFact": "La basilique Saint-Martin d'Ainay dans ce quartier est l'une des plus anciennes églises de Lyon, consacrée par le pape Pascal II en 1107."
+    },
+    {
+      "index": 9,
+      "name": "Croix-Rousse",
+      "subtext": "La Croix-Rousse",
+      "funFact": "Surnommée « la colline qui travaille », la Croix-Rousse était le cœur de l'industrie de la soie lyonnaise, avec des immeubles aux plafonds extra-hauts pour accueillir les métiers Jacquard."
+    },
+    {
+      "index": 10,
+      "name": "PRISON",
+      "subtext": "SIMPLE VISITE",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "St-Jean",
+      "subtext": "Cathédrale St-Jean",
+      "funFact": "La cathédrale Saint-Jean-Baptiste a nécessité plus de 300 ans de construction, de 1180 à 1480, et abrite une horloge astronomique du XIVe siècle encore en fonctionnement."
+    },
+    {
+      "index": 12,
+      "name": "EDF Lyon",
+      "subtext": null,
+      "funFact": "Les opérations EDF de Lyon gèrent la distribution d'électricité dans toute la région Rhône-Alpes, alimentant l'une des zones métropolitaines les plus industrialisées de France."
+    },
+    {
+      "index": 13,
+      "name": "Terreaux",
+      "subtext": "Place des Terreaux",
+      "funFact": "La place des Terreaux abrite la célèbre fontaine Bartholdi, conçue par le même sculpteur qui a créé la Statue de la Liberté à New York."
+    },
+    {
+      "index": 14,
+      "name": "Place des Jacobins",
+      "subtext": "Place des Jacobins",
+      "funFact": "La fontaine de la place des Jacobins, érigée en 1885, honore quatre artistes lyonnais et est entourée d'élégants immeubles haussmanniens du XIXe siècle."
+    },
+    {
+      "index": 15,
+      "name": "Lyon Perrache",
+      "subtext": "Gare de Perrache",
+      "funFact": "Ouverte en 1857, la gare de Perrache a été la gare principale de Lyon pendant plus d'un siècle et se situe à la pointe sud de la presqu'île."
+    },
+    {
+      "index": 16,
+      "name": "Opéra",
+      "subtext": "Opéra de Lyon",
+      "funFact": "L'Opéra de Lyon a été radicalement redessiné par l'architecte Jean Nouvel en 1993, qui a ajouté une spectaculaire voûte en verre en berceau doublant la hauteur du bâtiment."
+    },
+    {
+      "index": 17,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Halles de Lyon",
+      "subtext": "Halles Paul Bocuse",
+      "funFact": "Les Halles de Lyon Paul Bocuse portent le nom du chef légendaire et comptent plus de 50 commerçants gastronomiques, méritant leur réputation de ventre de Lyon."
+    },
+    {
+      "index": 19,
+      "name": "Presqu'île",
+      "subtext": "La Presqu'île",
+      "funFact": "La Presqu'île est une étroite péninsule formée entre le Rhône et la Saône, servant de cœur commercial et culturel de Lyon depuis l'époque romaine."
+    },
+    {
+      "index": 20,
+      "name": "ROUE DE LA CHANCE",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Institut Lumière",
+      "subtext": "Institut Lumière",
+      "funFact": "Les frères Lumière ont filmé le premier film au monde à Lyon en 1895, et le musée de l'Institut Lumière occupe leur villa familiale dans le quartier de Monplaisir."
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Part-Dieu",
+      "subtext": "Quartier Part-Dieu",
+      "funFact": "Le quartier de la Part-Dieu est le centre d'affaires moderne de Lyon, dominé par la Tour Part-Dieu de 165 mètres, surnommée « le crayon » par les Lyonnais pour sa forme distinctive."
+    },
+    {
+      "index": 24,
+      "name": "Bellecour",
+      "subtext": "Place Bellecour",
+      "funFact": "La place Bellecour est la plus grande place piétonne ouverte d'Europe, couvrant 62 000 mètres carrés, avec une célèbre statue équestre de Louis XIV en son centre."
+    },
+    {
+      "index": 25,
+      "name": "Métro A",
+      "subtext": "Métro Ligne A",
+      "funFact": "La ligne A du métro de Lyon a ouvert en 1978 et traverse la ville d'est en ouest, reliant Perrache à Vaulx-en-Velin à travers 14 stations."
+    },
+    {
+      "index": 26,
+      "name": "Grand Hôtel-Dieu",
+      "subtext": "Grand Hôtel-Dieu",
+      "funFact": "Le Grand Hôtel-Dieu a servi d'hôpital pendant plus de 800 ans avant d'être transformé en un complexe de luxe mêlant hôtel, commerces et culture, rouvert en 2018."
+    },
+    {
+      "index": 27,
+      "name": "Confluence",
+      "subtext": "La Confluence",
+      "funFact": "Lyon Confluence est un vaste projet de renouvellement urbain au point de rencontre du Rhône et de la Saône, transformant 150 hectares d'anciennes terres industrielles en éco-quartier."
+    },
+    {
+      "index": 28,
+      "name": "Veolia Lyon",
+      "subtext": null,
+      "funFact": "Veolia gère l'approvisionnement en eau de Lyon, puisée dans la nappe phréatique du Rhône, distribuant plus de 200 000 mètres cubes d'eau potable par jour à la métropole."
+    },
+    {
+      "index": 29,
+      "name": "Musée des Confluences",
+      "subtext": "Musée des Confluences",
+      "funFact": "Le Musée des Confluences est abrité dans un bâtiment futuriste déconstructiviste en verre et acier ressemblant à un nuage de cristal, conçu par le cabinet autrichien Coop Himmelb(l)au."
+    },
+    {
+      "index": 30,
+      "name": "ALLEZ EN PRISON",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Fourvière",
+      "subtext": "Colline de Fourvière",
+      "funFact": "La colline de Fourvière était le site de la colonie romaine originelle de Lugdunum, fondée en 43 av. J.-C. comme capitale des trois Gaules sous l'Empire romain."
+    },
+    {
+      "index": 32,
+      "name": "Perrache",
+      "subtext": "Quartier Perrache",
+      "funFact": "Le quartier Perrache repose sur un terrain créé artificiellement au XVIIIe siècle par l'ingénieur Antoine-Michel Perrache, qui a dévié la confluence des deux fleuves vers le sud."
+    },
+    {
+      "index": 33,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Brotteaux",
+      "subtext": "Les Brotteaux",
+      "funFact": "Les Brotteaux est le quartier le plus huppé de Lyon, abritant la superbe ancienne gare des Brotteaux construite en 1908, aujourd'hui transformée en halle gastronomique."
+    },
+    {
+      "index": 35,
+      "name": "Métro D",
+      "subtext": "Métro Ligne D",
+      "funFact": "La ligne D du métro de Lyon, ouverte en 1991, fut la première ligne de métro entièrement automatique et sans conducteur au monde, pionnière d'une technologie adoptée ensuite par des villes du monde entier."
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Tête d'Or",
+      "subtext": "Parc de la Tête d'Or",
+      "funFact": "Le parc de la Tête d'Or est l'un des plus grands parcs urbains de France avec 117 hectares, comprenant un zoo gratuit, un jardin botanique de plus de 16 000 espèces végétales et un grand lac."
+    },
+    {
+      "index": 38,
+      "name": "Taxe de Luxe",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Basilique de Fourvière",
+      "subtext": "Basilique de Fourvière",
+      "funFact": "La basilique Notre-Dame de Fourvière a été construite entre 1872 et 1884, et ses quatre tours surmontées d'une statue dorée de la Vierge Marie en font le monument le plus emblématique de Lyon."
+    }
+  ]
+}

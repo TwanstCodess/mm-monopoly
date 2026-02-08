@@ -10,7 +10,7 @@
       "index": 1,
       "name": "Montmartre",
       "subtext": "Montmartre",
-      "funFact": "Ce village perché est couronné par la magnifique basilique blanche du Sacré-Cœur !"
+      "funFact": "La basilique du Sacré-Cœur, achevée en 1914 après 39 ans de travaux, trône au point culminant de Paris à 130 mètres d'altitude."
     },
     {
       "index": 2,
@@ -22,7 +22,7 @@
       "index": 3,
       "name": "Pigalle",
       "subtext": "Pigalle",
-      "funFact": "Célèbre pour le cabaret du Moulin Rouge, fondé en 1889 !"
+      "funFact": "Le Moulin Rouge a ouvert ses portes le 6 octobre 1889, popularisant le french cancan dans le monde entier et attirant 300 000 spectateurs dès sa première année."
     },
     {
       "index": 4,
@@ -34,13 +34,13 @@
       "index": 5,
       "name": "Ligne 1",
       "subtext": "Métro Ligne 1",
-      "funFact": "La première ligne de métro de Paris, ouverte en 1900 pour l’Exposition universelle !"
+      "funFact": "Inaugurée le 19 juillet 1900 pour l'Exposition universelle, la ligne 1 transporte aujourd'hui plus de 725 000 voyageurs par jour sur 16,5 km avec 25 stations."
     },
     {
       "index": 6,
       "name": "Bastille",
       "subtext": "Bastille",
-      "funFact": "Site de la célèbre forteresse-prison prise d’assaut lors de la Révolution française en 1789 !"
+      "funFact": "Le 14 juillet 1789, environ 1 000 personnes prirent d'assaut la forteresse de la Bastille, un événement devenu la fête nationale française célébrée chaque année."
     },
     {
       "index": 7,
@@ -52,13 +52,13 @@
       "index": 8,
       "name": "Le Marais",
       "subtext": "Le Marais",
-      "funFact": "L’ancien quartier juif historique, aujourd’hui l’un des quartiers les plus branchés de Paris !"
+      "funFact": "Zone marécageuse depuis le XIIIe siècle, le Marais fut sauvé de la démolition en 1962 grâce à la loi Malraux, première loi française de protection du patrimoine historique."
     },
     {
       "index": 9,
       "name": "Luxembourg",
       "subtext": "Luxembourg",
-      "funFact": "Le jardin du Luxembourg abrite 106 statues et la magnifique fontaine Médicis !"
+      "funFact": "Créé en 1612 pour Marie de Médicis, le jardin du Luxembourg s'étend sur 23 hectares et abrite 106 statues, un théâtre de marionnettes datant de 1933 et une réplique de la statue de la Liberté."
     },
     {
       "index": 10,
@@ -70,37 +70,37 @@
       "index": 11,
       "name": "Saint-Germain-des-Prés",
       "subtext": "St-Germain-des-Prés",
-      "funFact": "Quartier historique des cafés littéraires où Hemingway et Sartre débattaient de philosophie !"
+      "funFact": "Dans les années 1940-1950, le Café de Flore et Les Deux Magots devinrent le cœur intellectuel de Paris, où Sartre et Simone de Beauvoir écrivaient des livres entiers à leurs tables attitrées."
     },
     {
       "index": 12,
       "name": "EDF",
       "subtext": null,
-      "funFact": "Électricité de France est le plus grand producteur d’électricité au monde !"
+      "funFact": "Fondée en 1946 par la nationalisation de 1 700 entreprises privées, EDF exploite aujourd'hui 56 réacteurs nucléaires fournissant environ 70 % de l'électricité française."
     },
     {
       "index": 13,
       "name": "Quartier Latin",
       "subtext": "Quartier Latin",
-      "funFact": "Abrite l’université de la Sorbonne, fondée en 1257 !"
+      "funFact": "Nommé d'après le latin parlé par les étudiants médiévaux, le Quartier latin abrite la Sorbonne, fondée en 1257 par Robert de Sorbon comme collège de théologie pour seulement 16 étudiants."
     },
     {
       "index": 14,
       "name": "Panthéon",
       "subtext": "Panthéon",
-      "funFact": "Dernière demeure des plus grands esprits de France, dont Voltaire et Rousseau !"
+      "funFact": "Construit à l'origine comme église de 1758 à 1790, le Panthéon accueille 83 grandes figures, dont Marie Curie, première femme à y être honorée pour ses propres mérites en 1995."
     },
     {
       "index": 15,
       "name": "Ligne 4",
       "subtext": "Métro Ligne 4",
-      "funFact": "Cette ligne traverse la Seine deux fois et passe sous l’Île de la Cité !"
+      "funFact": "Ouverte en 1908, la ligne 4 fut la première du métro parisien à traverser la Seine, grâce à une méthode révolutionnaire de creusement par air comprimé sous le lit du fleuve."
     },
     {
       "index": 16,
       "name": "Versailles",
       "subtext": "Versailles",
-      "funFact": "Le château de Versailles possède 2 300 pièces et 67 000 mètres carrés de surface !"
+      "funFact": "Louis XIV transforma un pavillon de chasse en château de Versailles entre 1661 et 1715, dépensant l'équivalent de 2 milliards d'euros pour ses 2 300 pièces et 800 hectares de jardins."
     },
     {
       "index": 17,
@@ -112,13 +112,13 @@
       "index": 18,
       "name": "Tuileries",
       "subtext": "Tuileries",
-      "funFact": "Ces jardins royaux relient le Louvre à la place de la Concorde !"
+      "funFact": "Conçu par Catherine de Médicis en 1564, le jardin des Tuileries est le plus ancien jardin public de Paris et s'étend sur 25,5 hectares entre le Louvre et la place de la Concorde."
     },
     {
       "index": 19,
       "name": "Le Louvre",
       "subtext": "Le Louvre",
-      "funFact": "Le plus grand musée d’art au monde, abritant la Joconde et 38 000 œuvres d’art !"
+      "funFact": "Forteresse du XIIe siècle bâtie par Philippe Auguste en 1190, le Louvre a accueilli 8,9 millions de visiteurs en 2023, ce qui en fait le musée le plus visité au monde."
     },
     {
       "index": 20,
@@ -130,7 +130,7 @@
       "index": 21,
       "name": "Opéra Garnier",
       "subtext": "Opéra Garnier",
-      "funFact": "Le Palais Garnier a inspiré « Le Fantôme de l’Opéra » !"
+      "funFact": "Conçu par Charles Garnier en 1861, le Palais Garnier a nécessité 14 ans de construction, possède un lustre en bronze de 7 tonnes et un lac souterrain qui inspira le roman de Gaston Leroux en 1910."
     },
     {
       "index": 22,
@@ -142,43 +142,43 @@
       "index": 23,
       "name": "Champs-Élysées",
       "subtext": "Champs-Élysées",
-      "funFact": "La rue commerçante la plus chère d’Europe à 12 000 € le mètre carré !"
+      "funFact": "S'étirant sur 1,91 km de l'Arc de Triomphe à la place de la Concorde, les Champs-Élysées étaient des terres agricoles jusqu'en 1667, quand André Le Nôtre les transforma en une majestueuse promenade."
     },
     {
       "index": 24,
       "name": "Arc de Triomphe",
       "subtext": "Arc de Triomphe",
-      "funFact": "Construit par Napoléon, il honore ceux qui ont combattu pour la France !"
+      "funFact": "Commandé par Napoléon en 1806 après la bataille d'Austerlitz, l'Arc de Triomphe a nécessité 30 ans de travaux et culmine à 50 mètres, avec les noms de 660 généraux gravés sur ses parois."
     },
     {
       "index": 25,
       "name": "RER A",
       "subtext": "RER Ligne A",
-      "funFact": "La ligne de train la plus fréquentée d’Europe, transportant 1,2 million de passagers par jour !"
+      "funFact": "Ouverte en 1969, la ligne RER A parcourt 109 km à travers l'Île-de-France, transportant plus de 1,2 million de voyageurs par jour et reliant La Défense à Disneyland Paris."
     },
     {
       "index": 26,
       "name": "La Défense",
       "subtext": "La Défense",
-      "funFact": "Le plus grand quartier d’affaires d’Europe avec l’emblématique Grande Arche !"
+      "funFact": "Avec 1 500 sièges sociaux et 180 000 travailleurs quotidiens, la Grande Arche de La Défense fut achevée en 1989 pour le bicentenaire de la Révolution et pourrait contenir Notre-Dame en son sein."
     },
     {
       "index": 27,
       "name": "Place de la Concorde",
       "subtext": "Place de la Concorde",
-      "funFact": "Lieu où Louis XVI et Marie-Antoinette furent exécutés pendant la Révolution !"
+      "funFact": "L'obélisque de Louxor vieux de 3 300 ans en son centre fut offert par l'Égypte en 1833, et pendant la Révolution plus de 1 300 personnes y furent guillotinées entre 1793 et 1795."
     },
     {
       "index": 28,
       "name": "Veolia Eau",
       "subtext": null,
-      "funFact": "L’eau de Paris provient de sources situées à plus de 150 km, garantissant la meilleure qualité !"
+      "funFact": "Paris a remunicipalisé son service d'eau en 2010 avec Eau de Paris, distribuant 483 000 mètres cubes par jour à travers 2 000 km de canalisations pour 3 millions d'habitants."
     },
     {
       "index": 29,
       "name": "Les Invalides",
       "subtext": "Les Invalides",
-      "funFact": "Le tombeau de Napoléon repose sous le dôme doré des Invalides !"
+      "funFact": "Édifié par Louis XIV en 1670 pour héberger les soldats blessés, le dôme doré des Invalides s'élève à 107 mètres et le tombeau de Napoléon repose dans six cercueils emboîtés en dessous."
     },
     {
       "index": 30,
@@ -190,13 +190,13 @@
       "index": 31,
       "name": "Île de la Cité",
       "subtext": "Île de la Cité",
-      "funFact": "Le cœur historique de Paris, où la ville fut fondée en 250 avant J.-C. !"
+      "funFact": "Peuplée par la tribu des Parisii vers 250 av. J.-C., cette île de 9 hectares sur la Seine abrite Notre-Dame et la Sainte-Chapelle, dont les 15 verrières contiennent 1 113 scènes bibliques."
     },
     {
       "index": 32,
       "name": "Notre-Dame",
       "subtext": "Notre-Dame",
-      "funFact": "Ce chef-d’œuvre gothique a nécessité 182 ans de construction (1163-1345) !"
+      "funFact": "Sa construction débuta en 1163 et dura 182 ans. Après l'incendie dévastateur du 15 avril 2019, plus de 840 millions d'euros de dons furent récoltés en quelques jours pour sa restauration."
     },
     {
       "index": 33,
@@ -206,15 +206,15 @@
     },
     {
       "index": 34,
-      "name": "Musée d’Orsay",
-      "subtext": "Musée d’Orsay",
-      "funFact": "Construit dans une ancienne gare ferroviaire, il abrite la plus belle collection impressionniste au monde !"
+      "name": "Musée d'Orsay",
+      "subtext": "Musée d'Orsay",
+      "funFact": "Construit comme gare d'Orsay pour l'Exposition universelle de 1900, il fut reconverti en musée en 1986 et abrite aujourd'hui plus de 3 000 chefs-d'œuvre impressionnistes de Monet, Renoir et Van Gogh."
     },
     {
       "index": 35,
       "name": "Ligne 14",
       "subtext": "Métro Ligne 14",
-      "funFact": "La plus récente ligne de métro entièrement automatique de Paris, ouverte en 1998 !"
+      "funFact": "Ouverte en 1998 comme première ligne de métro entièrement automatique à Paris, la ligne 14 fait circuler des rames toutes les 85 secondes en heure de pointe et a été prolongée jusqu'à l'aéroport d'Orly en 2024."
     },
     {
       "index": 36,
@@ -226,7 +226,7 @@
       "index": 37,
       "name": "Montparnasse",
       "subtext": "Montparnasse",
-      "funFact": "Quartier artistique historique où se retrouvaient Picasso, Hemingway et Fitzgerald !"
+      "funFact": "Dans les années 1920, les cafés La Rotonde et Le Dôme étaient le repaire créatif de Picasso, Modigliani et Man Ray. Aujourd'hui, la tour Montparnasse de 210 mètres offre le plus beau panorama de Paris."
     },
     {
       "index": 38,
@@ -238,7 +238,7 @@
       "index": 39,
       "name": "Tour Eiffel",
       "subtext": "Tour Eiffel",
-      "funFact": "La Dame de Fer pèse 10 100 tonnes et fut la plus haute structure du monde jusqu’en 1930 !"
+      "funFact": "Construite en seulement 2 ans et 2 mois pour l'Exposition universelle de 1889 par 300 ouvriers à l'aide de 2,5 millions de rivets, la tour de 330 mètres devait être provisoire mais fut sauvée grâce à son utilité comme antenne radio."
     }
   ]
 }

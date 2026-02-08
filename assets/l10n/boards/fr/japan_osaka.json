@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "DÉPART",
+      "subtext": "スタート",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Shinsekai",
+      "subtext": "新世界",
+      "funFact": "Construit en 1912 comme un « nouveau monde » inspiré de New York et Paris, Shinsekai est célèbre pour son atmosphère rétro et ses brochettes de kushikatsu ."
+    },
+    {
+      "index": 2,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Tennoji",
+      "subtext": "天王寺",
+      "funFact": "Le parc Tennoji a été créé en 1909 et abrite le Musée municipal des beaux-arts d'Osaka avec plus de 8 000 œuvres d'art japonais et chinois ."
+    },
+    {
+      "index": 4,
+      "name": "Impôt sur le Revenu",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Midosuji Line",
+      "subtext": "御堂筋線",
+      "funFact": "Ouverte en 1933, la ligne Midosuji est la ligne de métro la plus fréquentée d'Osaka, transportant plus de 1,2 million de passagers par jour le long du célèbre boulevard Midosuji ."
+    },
+    {
+      "index": 6,
+      "name": "Namba",
+      "subtext": "難波",
+      "funFact": "Namba est le quartier animé du divertissement à Osaka, abritant le célèbre théâtre Namba Grand Kagetsu où les comédiens yoshimoto se produisent depuis 1912 ."
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Shinsaibashi",
+      "subtext": "心斎橋",
+      "funFact": "La galerie marchande Shinsaibashi-suji s'étend sur 600 mètres et est la rue commerçante principale d'Osaka depuis l'époque Edo au XVIIe siècle ."
+    },
+    {
+      "index": 9,
+      "name": "Amerikamura",
+      "subtext": "アメリカ村",
+      "funFact": "Surnommé « Amemura », ce quartier de culture jeune a émergé dans les années 1970 quand les boutiques ont commencé à importer des vêtements et disques vintage américains ."
+    },
+    {
+      "index": 10,
+      "name": "PRISON",
+      "subtext": "刑務所",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Tsutenkaku",
+      "subtext": "通天閣",
+      "funFact": "L'actuelle tour Tsutenkaku de 108 mètres a été reconstruite en 1956 après que la tour originale de 1912 a été démontée pour récupérer l'acier pendant la Seconde Guerre mondiale ."
+    },
+    {
+      "index": 12,
+      "name": "Kansai Electric Power",
+      "subtext": "Compagnie Électrique du Kansai",
+      "funFact": "Fondée en 1951, Kansai Electric Power fournit de l'électricité à plus de 13 millions de clients dans toute la région du Kansai, dans l'ouest du Japon ."
+    },
+    {
+      "index": 13,
+      "name": "Sumiyoshi Taisha",
+      "subtext": "住吉大社",
+      "funFact": "Fondé en 211 après J.-C., Sumiyoshi Taisha est l'un des plus anciens sanctuaires du Japon et le siège de plus de 2 300 sanctuaires Sumiyoshi à travers le pays ."
+    },
+    {
+      "index": 14,
+      "name": "Château d'Osaka",
+      "subtext": "大阪城",
+      "funFact": "Construit à l'origine par Toyotomi Hideyoshi en 1583, le donjon principal du château mesure 55 mètres de haut et a joué un rôle clé dans l'unification du Japon ."
+    },
+    {
+      "index": 15,
+      "name": "Osaka Loop Line",
+      "subtext": "大阪環状線",
+      "funFact": "La ligne circulaire d'Osaka a complété son circuit en 1961, reliant 19 gares sur 21,7 kilomètres autour du centre d'Osaka ."
+    },
+    {
+      "index": 16,
+      "name": "Dotonbori",
+      "subtext": "道頓堀",
+      "funFact": "Nommé d'après le marchand Yasui Doton qui a financé le canal en 1612, la célèbre enseigne du Glico Running Man de Dotonbori est une icône depuis 1935 ."
+    },
+    {
+      "index": 17,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Marché Kuromon",
+      "subtext": "黒門市場",
+      "funFact": "Surnommé « la cuisine d'Osaka » depuis plus de 190 ans, le marché de Kuromon compte environ 150 boutiques spécialisées dans les fruits de mer frais, les produits et la cuisine de rue ."
+    },
+    {
+      "index": 19,
+      "name": "Umeda",
+      "subtext": "梅田",
+      "funFact": "L'observatoire du Jardin Flottant de l'Umeda Sky Building, à 173 mètres de haut, a été classé parmi les 20 plus belles structures architecturales du monde ."
+    },
+    {
+      "index": 20,
+      "name": "ROUE DE LA CHANCE",
+      "subtext": "ラッキースピン",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Universal Studios",
+      "subtext": "ユニバーサル",
+      "funFact": "Universal Studios Japan a ouvert en 2001 et attire plus de 14 millions de visiteurs par an, ce qui en fait le parc d'attractions le plus visité du Japon ."
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Tempozan",
+      "subtext": "天保山",
+      "funFact": "Avec seulement 4,53 mètres, le mont Tempozan est l'une des montagnes officiellement reconnues les plus basses du Japon, créée à partir de sédiments dragués du port d'Osaka en 1831 ."
+    },
+    {
+      "index": 24,
+      "name": "Kaiyukan",
+      "subtext": "海遊館",
+      "funFact": "L'aquarium Kaiyukan d'Osaka contient 10 941 tonnes d'eau et abrite des requins-baleines, des raies manta et plus de 30 000 créatures marines du Pacifique ."
+    },
+    {
+      "index": 25,
+      "name": "Nankai Line",
+      "subtext": "南海本線",
+      "funFact": "La ligne principale Nankai, créée en 1885, est l'une des plus anciennes lignes ferroviaires du Japon et relie Osaka à l'aéroport international du Kansai et à Wakayama ."
+    },
+    {
+      "index": 26,
+      "name": "Nakanoshima",
+      "subtext": "中之島",
+      "funFact": "Cette île de sable entre les rivières Dojima et Tosabori est le centre culturel d'Osaka depuis 1891, abritant le Musée national d'art ."
+    },
+    {
+      "index": 27,
+      "name": "Kitashinchi",
+      "subtext": "北新地",
+      "funFact": "Kitashinchi est le quartier de restauration et de divertissement le plus exclusif d'Osaka, avec plus de 3 000 bars, clubs et restaurants dans un espace compact ."
+    },
+    {
+      "index": 28,
+      "name": "Bureau des Eaux d'Osaka",
+      "subtext": "大阪市水道局",
+      "funFact": "Le système d'eau d'Osaka puise dans le lac Biwa via un canal de 20 km construit en 1895, fournissant de l'eau potable à plus de 2,7 millions de résidents chaque jour ."
+    },
+    {
+      "index": 29,
+      "name": "Abeno Harukas",
+      "subtext": "あべのハルカス",
+      "funFact": "Avec 300 mètres, Abeno Harukas était le plus haut gratte-ciel du Japon de 2014 à 2023, abritant un musée, un hôtel et un observatoire ."
+    },
+    {
+      "index": 30,
+      "name": "ALLEZ EN PRISON",
+      "subtext": "刑務所へ",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Parc de l'Expo",
+      "subtext": "万博記念公園",
+      "funFact": "Site de l'Expo '70, la première Exposition universelle en Asie avec 64 millions de visiteurs ! L'emblématique Tour du Soleil de Taro Okamoto culmine encore à 70 mètres ."
+    },
+    {
+      "index": 32,
+      "name": "Cascade de Minoh",
+      "subtext": "箕面滝",
+      "funFact": "La cascade de Minoh s'écoule sur 33 mètres et fait partie des 100 plus belles cascades du Japon, célèbre pour ses spectaculaires couleurs d'automne et ses tempuras de feuilles d'érable ."
+    },
+    {
+      "index": 33,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Sakai",
+      "subtext": "堺",
+      "funFact": "Sakai abrite le Daisen Kofun, le plus grand tumulus en forme de trou de serrure au monde, mesurant 486 mètres de long, construit au Ve siècle pour l'empereur Nintoku ."
+    },
+    {
+      "index": 35,
+      "name": "Keihan Line",
+      "subtext": "京阪本線",
+      "funFact": "La ligne Keihan relie Osaka et Kyoto depuis 1910, avec des wagons premium à deux étages sur sa ligne principale de 49,3 kilomètres ."
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Grand Front",
+      "subtext": "グランフロント",
+      "funFact": "Grand Front Osaka a ouvert en 2013 dans le cadre du vaste réaménagement d'Umeda North Yard, avec 266 boutiques, un centre de connaissances et un hôtel Intercontinental ."
+    },
+    {
+      "index": 38,
+      "name": "Taxe de Luxe",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Kita",
+      "subtext": "キタ",
+      "funFact": "Le quartier de Kita est le cœur commercial nord d'Osaka, ancré par Osaka Station City qui accueille plus de 2,5 millions de passagers par jour ."
+    }
+  ]
+}

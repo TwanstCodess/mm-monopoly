@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "收取200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "San Juan de Dios",
+      "subtext": "圣胡安德迪奥斯市场",
+      "funFact": "拉丁美洲最大的室内市场之一，拥有3000多个摊位，售卖皮具到民间工艺品，建于1954年。"
+    },
+    {
+      "index": 2,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Analco",
+      "subtext": "阿纳尔科",
+      "funFact": "瓜达拉哈拉最古老的街区之一，其纳瓦特尔语名意为“河的对岸“，可追溯至16世纪。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Línea 1 (Tren Ligero)",
+      "subtext": "轻轨1号线",
+      "funFact": "瓜达拉哈拉第一条轻轨线路于1989年开通，南北贯穿城市核心，全长15.5公里。"
+    },
+    {
+      "index": 6,
+      "name": "Tlaquepaque",
+      "subtext": "特拉克帕克",
+      "funFact": "以手工吹制玻璃、陶器和纸浆雕塑闻名世界的手工艺村。其步行中心是联合国教科文组织文化瑰宝。"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Tonalá",
+      "subtext": "托纳拉",
+      "funFact": "墨西哥最大的露天工艺市场，每周四和周日举办，吸引超过10000名商贩售卖陶瓷、吹制玻璃和民间工艺品。"
+    },
+    {
+      "index": 9,
+      "name": "Zapopan Centro",
+      "subtext": "萨波潘中心",
+      "funFact": "萨波潘圣母大教堂的所在地，每年10月12日，一尊16世纪的玉米膏圣母像会在城市中巡游。"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "监狱",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "La Minerva",
+      "subtext": "密涅瓦喷泉",
+      "funFact": "标志性的密涅瓦喷泉环岛矗立着象征瓜达拉哈拉力量和智慧的希腊女神雕像，建于1957年。"
+    },
+    {
+      "index": 12,
+      "name": "CFE Guadalajara",
+      "subtext": "瓜达拉哈拉联邦电力",
+      "funFact": "联邦电力委员会为瓜达拉哈拉500多万居民的都市区供电，是墨西哥第二大都市区。"
+    },
+    {
+      "index": 13,
+      "name": "Chapalita",
+      "subtext": "查帕利塔",
+      "funFact": "20世纪40年代围绕中央公园建造的高档住宅区，以林荫大道和欧式建筑闻名。"
+    },
+    {
+      "index": 14,
+      "name": "Providencia",
+      "subtext": "普罗维登西亚",
+      "funFact": "瓜达拉哈拉最独特的高档住宅区，拥有豪华住宅、高端餐厅和以参天白蜡树闻名的普罗维登西亚大道。"
+    },
+    {
+      "index": 15,
+      "name": "Línea 2 (Tren Ligero)",
+      "subtext": "轻轨2号线",
+      "funFact": "2号线东西延伸8.5公里，于1994年开通，在市中心华雷斯站与1号线交汇。"
+    },
+    {
+      "index": 16,
+      "name": "Centro Histórico",
+      "subtext": "历史中心",
+      "funFact": "瓜达拉哈拉历史中心建于1542年，拥有横跨近五个世纪墨西哥历史的壮丽殖民建筑。"
+    },
+    {
+      "index": 17,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Catedral",
+      "subtext": "大教堂",
+      "funFact": "瓜达拉哈拉双塔大教堂建于1561年至1618年间，融合了墨西哥独特的哥特式、巴洛克式和新古典主义风格。"
+    },
+    {
+      "index": 19,
+      "name": "Hospicio Cabañas",
+      "subtext": "卡巴尼亚斯救济院",
+      "funFact": "1997年被列为联合国教科文组织世界遗产，收藏着何塞·克莱门特·奥罗斯科的杰作“火之人“壁画，绘于57幅天花板壁画之上。"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": "幸运转盘",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Teatro Degollado",
+      "subtext": "德戈亚多剧院",
+      "funFact": "这座新古典主义剧院于1866年开业，天花板壁画灵感来自但丁的《神曲》，是瓜达拉哈拉爱乐乐团的驻场地。"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Chapultepec",
+      "subtext": "查普尔特佩克",
+      "funFact": "瓜达拉哈拉最时尚的大道，遍布露天咖啡馆、画廊和夜生活场所。每周末封路举办热闹的文化长廊活动。"
+    },
+    {
+      "index": 24,
+      "name": "Americana",
+      "subtext": "美洲区",
+      "funFact": "一个波希米亚街区，拥有融合法式和装饰艺术风格的20世纪初精美豪宅，现汇聚精品酒店和时尚餐厅。"
+    },
+    {
+      "index": 25,
+      "name": "Línea 3 (Mi Tren)",
+      "subtext": "3号线",
+      "funFact": "瓜达拉哈拉首条高架铁路线于2020年开通，全长21.5公里，使用现代无人驾驶列车连接萨波潘和特拉克帕克。"
+    },
+    {
+      "index": 26,
+      "name": "Plaza del Sol",
+      "subtext": "太阳广场",
+      "funFact": "1969年开业时是拉丁美洲最大的购物中心，彻底改变了墨西哥西部的零售文化。"
+    },
+    {
+      "index": 27,
+      "name": "Colonia Moderna",
+      "subtext": "现代街区",
+      "funFact": "一个充满活力的街区，传统墨西哥文化与现代城市生活在此交融，以色彩缤纷的街头壁画和当地小吃摊闻名。"
+    },
+    {
+      "index": 28,
+      "name": "SIAPA",
+      "subtext": "瓜达拉哈拉水务",
+      "funFact": "SIAPA管理瓜达拉哈拉都市区的饮用水和污水处理，水源来自墨西哥最大的淡水湖——查帕拉湖。"
+    },
+    {
+      "index": 29,
+      "name": "Glorieta de Los Niños Héroes",
+      "subtext": "少年英雄纪念碑",
+      "funFact": "这座纪念碑纪念1847年美墨战争中保卫查普尔特佩克城堡时牺牲的六名少年军校学员。"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": "去监狱",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Parque Metropolitano",
+      "subtext": "都市公园",
+      "funFact": "占地113公顷的城市森林是瓜达拉哈拉的绿肺，设有慢跑步道、湖泊和城市最大的露天剧场。"
+    },
+    {
+      "index": 32,
+      "name": "Barranca de Huentitán",
+      "subtext": "韦恩蒂坦峡谷",
+      "funFact": "位于瓜达拉哈拉北缘的壮观峡谷深达600米，圣地亚哥河从峡底流过，提供令人叹为观止的徒步和滑索体验。"
+    },
+    {
+      "index": 33,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Tequila",
+      "subtext": "龙舌兰镇",
+      "funFact": "距瓜达拉哈拉60公里的联合国教科文组织世界遗产小镇，赋予了世界最著名烈酒其名。2006年周围的蓝色龙舌兰田被列为世界遗产景观。"
+    },
+    {
+      "index": 35,
+      "name": "Macrobús",
+      "subtext": "快速公交",
+      "funFact": "瓜达拉哈拉的快速公交系统于2009年启用，沿独立大道16公里的专用走廊每日运送18万名乘客。"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Lago de Chapala",
+      "subtext": "查帕拉湖",
+      "funFact": "墨西哥最大的淡水湖面积1112平方公里，距瓜达拉哈拉仅45分钟车程，拥有墨西哥最大的美加侨民社区。"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Rotonda de los Jaliscienses Ilustres",
+      "subtext": "哈利斯科名人纪念堂",
+      "funFact": "这座新古典主义圆形建筑纪念98位哈利斯科州杰出公民。建于1952年，安葬着著名艺术家、科学家和革命者的遗骸。"
+    }
+  ]
+}

@@ -2791,6 +2791,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Mexico'**
   String get countryMexico;
+
+  /// No description provided for @chooseCity.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose City'**
+  String get chooseCity;
+
+  /// No description provided for @cityAtlanticCity.
+  ///
+  /// In en, this message translates to:
+  /// **'Atlantic City'**
+  String get cityAtlanticCity;
+
+  /// No description provided for @cityNewYork.
+  ///
+  /// In en, this message translates to:
+  /// **'New York City'**
+  String get cityNewYork;
+
+  /// No description provided for @cityLosAngeles.
+  ///
+  /// In en, this message translates to:
+  /// **'Los Angeles'**
+  String get cityLosAngeles;
+
+  /// No description provided for @cityLondon.
+  ///
+  /// In en, this message translates to:
+  /// **'London'**
+  String get cityLondon;
+
+  /// No description provided for @cityEdinburgh.
+  ///
+  /// In en, this message translates to:
+  /// **'Edinburgh'**
+  String get cityEdinburgh;
+
+  /// No description provided for @cityManchester.
+  ///
+  /// In en, this message translates to:
+  /// **'Manchester'**
+  String get cityManchester;
+
+  /// No description provided for @cityParis.
+  ///
+  /// In en, this message translates to:
+  /// **'Paris'**
+  String get cityParis;
+
+  /// No description provided for @cityLyon.
+  ///
+  /// In en, this message translates to:
+  /// **'Lyon'**
+  String get cityLyon;
+
+  /// No description provided for @cityMarseille.
+  ///
+  /// In en, this message translates to:
+  /// **'Marseille'**
+  String get cityMarseille;
+
+  /// No description provided for @cityTokyo.
+  ///
+  /// In en, this message translates to:
+  /// **'Tokyo'**
+  String get cityTokyo;
+
+  /// No description provided for @cityOsaka.
+  ///
+  /// In en, this message translates to:
+  /// **'Osaka'**
+  String get cityOsaka;
+
+  /// No description provided for @cityKyoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Kyoto'**
+  String get cityKyoto;
+
+  /// No description provided for @cityBeijing.
+  ///
+  /// In en, this message translates to:
+  /// **'Beijing'**
+  String get cityBeijing;
+
+  /// No description provided for @cityShanghai.
+  ///
+  /// In en, this message translates to:
+  /// **'Shanghai'**
+  String get cityShanghai;
+
+  /// No description provided for @cityHongKong.
+  ///
+  /// In en, this message translates to:
+  /// **'Hong Kong'**
+  String get cityHongKong;
+
+  /// No description provided for @cityMexicoCity.
+  ///
+  /// In en, this message translates to:
+  /// **'Mexico City'**
+  String get cityMexicoCity;
+
+  /// No description provided for @cityGuadalajara.
+  ///
+  /// In en, this message translates to:
+  /// **'Guadalajara'**
+  String get cityGuadalajara;
+
+  /// No description provided for @cityCancun.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancún'**
+  String get cityCancun;
 }
 
 class _AppLocalizationsDelegate

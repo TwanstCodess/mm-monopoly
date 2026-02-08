@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "收取200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Vieux Lyon",
+      "subtext": "里昂老城",
+      "funFact": "里昂老城是欧洲最大的文艺复兴时期街区之一，占地424公顷，于1998年被列为联合国教科文组织世界遗产。"
+    },
+    {
+      "index": 2,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Traboules",
+      "subtext": "暗道",
+      "funFact": "里昂的暗道是穿越建筑和庭院的秘密通道，最初供丝绸工人使用，后来在二战期间被法国抵抗运动利用。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Lyon Part-Dieu",
+      "subtext": "里昂帕尔迪厄站",
+      "funFact": "里昂帕尔迪厄站是巴黎以外法国最大的火车站，年服务旅客超过3000万人次。"
+    },
+    {
+      "index": 6,
+      "name": "Guillotière",
+      "subtext": "吉约蒂耶尔",
+      "funFact": "吉约蒂耶尔是里昂最古老的街区之一，拥有可追溯到1070年的历史悠久的吉约蒂耶尔桥。"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Ainay",
+      "subtext": "艾奈区",
+      "funFact": "这个街区的圣马丁·德·艾奈大教堂是里昂最古老的教堂之一，于1107年由教皇帕斯卡尔二世祝圣。"
+    },
+    {
+      "index": 9,
+      "name": "Croix-Rousse",
+      "subtext": "红十字山",
+      "funFact": "被称为“劳动之丘“，红十字山是里昂丝绸编织业的核心，建筑特别高的天花板是为了容纳提花织机。"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "监狱",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "St-Jean",
+      "subtext": "圣让大教堂",
+      "funFact": "圣让-巴蒂斯特大教堂耗时300多年建造，从1180年到1480年，内藏一座至今仍在运行的14世纪天文钟。"
+    },
+    {
+      "index": 12,
+      "name": "EDF Lyon",
+      "subtext": "里昂法国电力",
+      "funFact": "里昂法国电力管理罗纳-阿尔卑斯地区的电力配送，为法国最具工业化的都市区之一供电。"
+    },
+    {
+      "index": 13,
+      "name": "Terreaux",
+      "subtext": "沃土广场",
+      "funFact": "沃土广场拥有著名的巴尔托尔迪喷泉，由设计纽约自由女神像的同一位雕塑家设计。"
+    },
+    {
+      "index": 14,
+      "name": "Place des Jacobins",
+      "subtext": "雅各宾广场",
+      "funFact": "雅各宾广场的喷泉建于1885年，纪念四位里昂艺术家，周围环绕着优雅的19世纪奥斯曼风格建筑。"
+    },
+    {
+      "index": 15,
+      "name": "Lyon Perrache",
+      "subtext": "里昂佩拉什站",
+      "funFact": "佩拉什站于1857年开通，一个多世纪以来一直是里昂的主要车站，位于半岛区南端。"
+    },
+    {
+      "index": 16,
+      "name": "Opéra",
+      "subtext": "里昂歌剧院",
+      "funFact": "里昂歌剧院于1993年由建筑师让·努维尔彻底改造，增加了醒目的玻璃桶形穹顶，使建筑高度翻倍。"
+    },
+    {
+      "index": 17,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Halles de Lyon",
+      "subtext": "里昂美食大厅",
+      "funFact": "保罗·博古斯美食大厅以传奇主厨命名，拥有50多家美食商户，被誉为里昂的美食之胃。"
+    },
+    {
+      "index": 19,
+      "name": "Presqu'île",
+      "subtext": "半岛区",
+      "funFact": "半岛区是罗纳河和索恩河之间形成的狭长半岛，自罗马时代以来一直是里昂的商业和文化中心。"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": "幸运转盘",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Institut Lumière",
+      "subtext": "卢米埃尔研究所",
+      "funFact": "卢米埃尔兄弟于1895年在里昂拍摄了世界上第一部电影，卢米埃尔研究所博物馆就坐落在他们位于蒙普莱齐尔的家族别墅内。"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Part-Dieu",
+      "subtext": "帕尔迪厄区",
+      "funFact": "帕尔迪厄区是里昂的现代商业中心，165米高的帕尔迪厄塔因其独特外形被当地人昵称为“铅笔“。"
+    },
+    {
+      "index": 24,
+      "name": "Bellecour",
+      "subtext": "白莱果广场",
+      "funFact": "白莱果广场是欧洲最大的开放式步行广场，面积达62000平方米，中央矗立着著名的路易十四骑马雕像。"
+    },
+    {
+      "index": 25,
+      "name": "Métro A",
+      "subtext": "地铁A线",
+      "funFact": "里昂地铁A线于1978年开通，东西贯穿城市，从佩拉什连接到沃莱恩韦兰，共14个车站。"
+    },
+    {
+      "index": 26,
+      "name": "Grand Hôtel-Dieu",
+      "subtext": "大宫殿医院",
+      "funFact": "大宫殿医院作为医院服务超过800年，后改造为豪华酒店、购物和文化综合体，于2018年重新开放。"
+    },
+    {
+      "index": 27,
+      "name": "Confluence",
+      "subtext": "汇流区",
+      "funFact": "里昂汇流区是在罗纳河和索恩河交汇处的大型城市更新项目，将150公顷前工业用地改造为生态街区。"
+    },
+    {
+      "index": 28,
+      "name": "Veolia Lyon",
+      "subtext": "里昂威立雅水务",
+      "funFact": "威立雅管理里昂的供水，取自罗纳河含水层，每天向都会区供应超过20万立方米的饮用水。"
+    },
+    {
+      "index": 29,
+      "name": "Musée des Confluences",
+      "subtext": "汇流博物馆",
+      "funFact": "汇流博物馆坐落于一座由奥地利事务所蓝天组设计的未来主义解构主义玻璃钢建筑中，形似水晶云。"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": "去监狱",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Fourvière",
+      "subtext": "富维耶尔山",
+      "funFact": "富维耶尔山是罗马定居点卢格杜努姆的所在地，公元前43年作为三高卢行省首府建立。"
+    },
+    {
+      "index": 32,
+      "name": "Perrache",
+      "subtext": "佩拉什区",
+      "funFact": "佩拉什区建在18世纪工程师安托万-米歇尔·佩拉什人工造成的土地上，他将两河交汇处向南改道。"
+    },
+    {
+      "index": 33,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Brotteaux",
+      "subtext": "布罗托区",
+      "funFact": "布罗托区是里昂最高档的街区，1908年建造的前布罗托火车站如今已改建为美食大厅。"
+    },
+    {
+      "index": 35,
+      "name": "Métro D",
+      "subtext": "地铁D线",
+      "funFact": "里昂地铁D线于1991年开通，是世界上第一条全自动无人驾驶地铁线路，开创性技术后来被全球城市采用。"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Tête d'Or",
+      "subtext": "金头公园",
+      "funFact": "金头公园是法国最大的城市公园之一，占地117公顷，设有免费动物园、拥有16000多种植物的植物园和大型湖泊。"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Basilique de Fourvière",
+      "subtext": "富维耶尔圣母大教堂",
+      "funFact": "富维耶尔圣母大教堂建于1872年至1884年间，四座塔楼和镀金圣母像使其成为里昂天际线上最具标志性的地标。"
+    }
+  ]
+}

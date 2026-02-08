@@ -10,7 +10,7 @@
       "index": 1,
       "name": "Coyoacán",
       "subtext": "Coyoacán",
-      "funFact": "Lieu de naissance de Frida Kahlo ! Son célèbre musée de la Maison Bleue attire des milliers de visiteurs chaque jour !"
+      "funFact": "Frida Kahlo est née ici en 1907, et son musée de la Casa Azul, ouvert en 1958, accueille plus de 800 000 visiteurs par an."
     },
     {
       "index": 2,
@@ -22,7 +22,7 @@
       "index": 3,
       "name": "Xochimilco",
       "subtext": "Xochimilco",
-      "funFact": "Anciens canaux aztèques où des trajineras colorées flottent parmi les jardins flottants !"
+      "funFact": "Inscrit au patrimoine mondial de l'UNESCO depuis 1987, Xochimilco préserve 170 km de canaux anciens et des chinampas datant de l'an 1200 apr. J.-C."
     },
     {
       "index": 4,
@@ -34,13 +34,13 @@
       "index": 5,
       "name": "Línea 1",
       "subtext": "Metro Línea 1",
-      "funFact": "La première ligne de métro de Mexico, ouverte en 1969 ! Elle utilise des symboles pour les passagers illettrés !"
+      "funFact": "Inaugurée le 4 septembre 1969, cette ligne de 18,8 km compte 20 stations, chacune dotée d'un pictogramme unique permettant de s'orienter sans savoir lire."
     },
     {
       "index": 6,
       "name": "Roma Norte",
       "subtext": "Roma Norte",
-      "funFact": "Quartier branché rempli d’architecture Art nouveau et Art déco !"
+      "funFact": "Développé au début du XXe siècle et gravement endommagé par le séisme de 1985, Roma Norte a été revitalisé dans les années 2000 pour devenir l'un des principaux pôles culturels de la ville."
     },
     {
       "index": 7,
@@ -52,13 +52,13 @@
       "index": 8,
       "name": "Condesa",
       "subtext": "Condesa",
-      "funFact": "Quartier Art déco bordé d’arbres, construit autour d’un ancien hippodrome !"
+      "funFact": "Construit dans les années 1920 autour de l'ancien Hipódromo de la Condesa, le Parque México conserve encore la forme ovale de l'ancienne piste."
     },
     {
       "index": 9,
       "name": "Polanco",
       "subtext": "Polanco",
-      "funFact": "Le Beverly Hills de Mexico, abritant ambassades et boutiques de luxe !"
+      "funFact": "Développé dans les années 1930-40 et nommé d'après un moine du XVIIe siècle, Polanco possède l'une des plus fortes densités de musées par km² en Amérique."
     },
     {
       "index": 10,
@@ -70,37 +70,37 @@
       "index": 11,
       "name": "San Ángel",
       "subtext": "San Ángel",
-      "funFact": "Quartier colonial aux rues pavées et un marché d’art animé le samedi !"
+      "funFact": "Le célèbre Bazar Sábado se tient chaque samedi depuis 1960 dans la Casa del Risco du XVIIe siècle, ce qui en fait l'un des plus anciens marchés d'art du Mexique."
     },
     {
       "index": 12,
       "name": "CFE",
       "subtext": null,
-      "funFact": "La Commission Fédérale d’Électricité alimente tout le Mexique !"
+      "funFact": "Fondée le 14 août 1937, la CFE dessert plus de 46 millions de clients et figure parmi les plus grandes compagnies électriques des Amériques."
     },
     {
       "index": 13,
       "name": "Chapultepec",
       "subtext": "Chapultepec",
-      "funFact": "L’un des plus grands parcs urbains de l’hémisphère occidental avec 686 hectares !"
+      "funFact": "Son nom signifie « Colline de la Sauterelle » en nahuatl, et ce parc de 686 hectares est un lieu sacré depuis au moins le XIIIe siècle."
     },
     {
       "index": 14,
       "name": "Bosque de Chapultepec",
       "subtext": "Bosque",
-      "funFact": "Ce parc forestier fait deux fois la taille de Central Park à New York !"
+      "funFact": "Avec 686 hectares (deux fois Central Park), le Bosque abrite 9 musées, un zoo fondé en 1924 et des ahuehuetes (cyprès de Montezuma) de plus de 700 ans."
     },
     {
       "index": 15,
       "name": "Línea 2",
       "subtext": "Metro Línea 2",
-      "funFact": "La Ligne Bleue relie les principaux sites culturels, dont le Palais des Beaux-Arts !"
+      "funFact": "Ouverte le 1er août 1970, cette ligne de 23,4 km passe sous les principaux monuments, et sa construction a mis au jour des vestiges aztèques désormais exposés dans les stations."
     },
     {
       "index": 16,
       "name": "Teotihuacán",
       "subtext": "Teotihuacán",
-      "funFact": "Des pyramides anciennes ! La Pyramide du Soleil est la 3e plus grande pyramide au monde !"
+      "funFact": "Construite entre 100 av. J.-C. et 250 apr. J.-C., la Pyramide du Soleil culmine à 65 m et dominait une cité de plus de 125 000 habitants, la 6e plus grande du monde antique."
     },
     {
       "index": 17,
@@ -112,13 +112,13 @@
       "index": 18,
       "name": "Templo Mayor",
       "subtext": "Templo Mayor",
-      "funFact": "Temple principal des Aztèques, découvert accidentellement en 1978 par des ouvriers électriciens !"
+      "funFact": "Découvert le 21 février 1978 lorsque des ouvriers électriciens ont heurté un immense disque de pierre, les fouilles ont livré plus de 7 000 objets aztèques de ce temple autrefois haut de 60 m."
     },
     {
       "index": 19,
       "name": "Zócalo",
       "subtext": "Zócalo",
-      "funFact": "L’une des plus grandes places publiques du monde, cœur de Mexico depuis l’époque aztèque !"
+      "funFact": "Officiellement Plaza de la Constitución, cette esplanade de 46 800 m² est le centre de la vie publique mexicaine depuis la fondation de Tenochtitlan en 1325."
     },
     {
       "index": 20,
@@ -130,7 +130,7 @@
       "index": 21,
       "name": "Palacio Nacional",
       "subtext": "Palacio Nacional",
-      "funFact": "Abrite les célèbres fresques de Diego Rivera illustrant l’histoire du Mexique !"
+      "funFact": "Construit sur le site du palais de Moctezuma II à partir de 1522, Diego Rivera y peignit ses fresques épiques de 1929 à 1951."
     },
     {
       "index": 22,
@@ -142,43 +142,43 @@
       "index": 23,
       "name": "Bellas Artes",
       "subtext": "Bellas Artes",
-      "funFact": "Magnifique palais Art nouveau avec un rideau de scène composé de près d’un million de pièces de verre !"
+      "funFact": "Sa construction débuta en 1904 et prit 30 ans ; son célèbre rideau de verre Tiffany pèse 24 tonnes et représente les volcans de la vallée de Mexico."
     },
     {
       "index": 24,
       "name": "Reforma",
       "subtext": "Reforma",
-      "funFact": "Grande avenue inspirée des Champs-Élysées, bordée de monuments et de gratte-ciel !"
+      "funFact": "Commandé en 1864 par l'empereur Maximilien sous le nom de « Paseo de la Emperatriz », ce boulevard de 15 km fut rebaptisé après la Guerre de Réforme et est aujourd'hui l'artère principale de la ville."
     },
     {
       "index": 25,
       "name": "Línea 3",
       "subtext": "Metro Línea 3",
-      "funFact": "La Ligne Olive dessert 1,3 million de passagers par jour !"
+      "funFact": "Ouverte le 20 novembre 1970, cette ligne de 23,6 km et 21 stations est l'une des plus fréquentées du réseau, transportant plus d'un million de voyageurs par jour."
     },
     {
       "index": 26,
       "name": "Ángel de la Independencia",
       "subtext": "El Ángel",
-      "funFact": "Le monument le plus emblématique du Mexique, célébrant l’indépendance vis-à-vis de l’Espagne !"
+      "funFact": "Inauguré le 16 septembre 1910 pour le centenaire de l'indépendance, l'ange doré mesure 6,7 m et trône au sommet d'une colonne de 36 m."
     },
     {
       "index": 27,
       "name": "Zona Rosa",
       "subtext": "Zona Rosa",
-      "funFact": "La Zone Rose ! Quartier historique accueillant pour la communauté LGBTQ+ avec une touche coréenne et internationale !"
+      "funFact": "Baptisé dans les années 1960 par l'artiste José Luis Cuevas, ce fut le premier quartier ouvertement LGBTQ+ du Mexique dans les années 80, et il accueille un Koreatown florissant depuis les années 90."
     },
     {
       "index": 28,
       "name": "Service des Eaux du Mexique",
       "subtext": null,
-      "funFact": "Mexico obtient son eau à partir d’aquifères souterrains et de sources montagneuses lointaines !"
+      "funFact": "Mexico puise 40 % de son eau dans le système Cutzamala à 127 km ; la surexploitation des aquifères fait s'enfoncer la ville de 5 à 10 cm par an."
     },
     {
       "index": 29,
       "name": "Santa Fe",
       "subtext": "Santa Fe",
-      "funFact": "Quartier d’affaires ultramoderne construit sur un ancien site de décharge !"
+      "funFact": "Transformé dans les années 1990, passant de la plus grande décharge d'Amérique latine à un quartier d'affaires étincelant comptant plus de 10 000 bureaux d'entreprises."
     },
     {
       "index": 30,
@@ -190,13 +190,13 @@
       "index": 31,
       "name": "Musée Frida Kahlo",
       "subtext": "Casa Azul",
-      "funFact": "La Maison Bleue où Frida a vécu, aimé et créé son art emblématique !"
+      "funFact": "La Casa Azul a ouvert ses portes comme musée en 1958, quatre ans après la mort de Frida en 1954, et accueille désormais plus de 800 000 visiteurs par an."
     },
     {
       "index": 32,
       "name": "Musée Soumaya",
       "subtext": "Soumaya",
-      "funFact": "Bâtiment argenté époustouflant abritant 66 000 œuvres d’art, dont des œuvres de Rodin !"
+      "funFact": "Ouvert en 2011 avec une façade de 16 000 hexagones en aluminium, il abrite 66 000 œuvres d'art dont la plus grande collection de Rodin hors de France."
     },
     {
       "index": 33,
@@ -208,13 +208,13 @@
       "index": 34,
       "name": "Musée d’Anthropologie",
       "subtext": "Antropología",
-      "funFact": "Le plus grand musée d’anthropologie au monde, présentant 3 000 ans de culture mexicaine !"
+      "funFact": "Ouvert le 17 septembre 1964, ce musée abrite la Pierre du Soleil aztèque de 24 tonnes et reçoit plus de 2 millions de visiteurs par an."
     },
     {
       "index": 35,
       "name": "Línea 12",
       "subtext": "Metro Línea 12",
-      "funFact": "La Ligne Dorée, la plus récente ligne de métro de Mexico !"
+      "funFact": "Ouverte le 30 octobre 2012, cette ligne dorée de 24,5 km et 20 stations est le dernier ajout au réseau de métro de Mexico."
     },
     {
       "index": 36,
@@ -226,7 +226,7 @@
       "index": 37,
       "name": "Torre Latinoamericana",
       "subtext": "Torre Latino",
-      "funFact": "Construite en 1956, elle a survécu à de grands tremblements de terre grâce à une fondation flottante innovante !"
+      "funFact": "Achevée en 1956 avec 44 étages (182 m), elle a résisté sans dommage au séisme dévastateur de magnitude 8,0 en 1985 grâce à sa fondation flottante sur pieux profonds."
     },
     {
       "index": 38,
@@ -238,7 +238,7 @@
       "index": 39,
       "name": "Castillo de Chapultepec",
       "subtext": "Castillo",
-      "funFact": "Le seul château royal d’Amérique du Nord, ancienne résidence de l’empereur Maximilien !"
+      "funFact": "Construit entre 1785 et 1864, c'est le seul château royal des Amériques ; l'empereur Maximilien et l'impératrice Charlotte y vécurent de 1864 à 1867."
     }
   ]
 }

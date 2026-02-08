@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "DÉPART",
+      "subtext": "スタート",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Tofukuji",
+      "subtext": "東福寺",
+      "funFact": "Fondé en 1236 par Kujo Michiie, le pont Tsutenkyo du Tofukuji offre l'une des plus belles vues automnales de Kyoto sur une vallée de 2 000 érables ."
+    },
+    {
+      "index": 2,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Fushimi",
+      "subtext": "伏見",
+      "funFact": "Fushimi est le légendaire quartier de brassage de saké de Kyoto, produisant environ 40 % de tout le saké du Japon grâce à son eau de source souterraine d'une pureté exceptionnelle ."
+    },
+    {
+      "index": 4,
+      "name": "Impôt sur le Revenu",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Hankyu Line",
+      "subtext": "阪急線",
+      "funFact": "La ligne Hankyu Kyoto relie Kyoto et Osaka depuis 1928, célèbre pour ses trains distinctifs de couleur marron et son élégant terminus de Kawaramachi ."
+    },
+    {
+      "index": 6,
+      "name": "Nijo Castle",
+      "subtext": "二条城",
+      "funFact": "Construit en 1603 par Tokugawa Ieyasu, le château de Nijo possède des « planchers rossignol » qui chantent quand on marche dessus pour alerter contre les intrus ninja ."
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Gion",
+      "subtext": "祇園",
+      "funFact": "Gion est le quartier de geishas le plus célèbre de Kyoto, où environ 200 geiko et maiko pratiquent encore les arts traditionnels datant du XVIIe siècle ."
+    },
+    {
+      "index": 9,
+      "name": "Pontocho",
+      "subtext": "先斗町",
+      "funFact": "Pontocho est une ruelle étroite d'un seul bloc de large s'étendant sur 500 mètres le long de la rivière Kamo, bordée de restaurants traditionnels et de terrasses d'été appelées kawayuka ."
+    },
+    {
+      "index": 10,
+      "name": "PRISON",
+      "subtext": "刑務所",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Kinkaku-ji",
+      "subtext": "金閣寺",
+      "funFact": "Les deux étages supérieurs du Pavillon d'Or sont recouverts de feuilles d'or pur ! Construit à l'origine en 1397, il a été reconstruit en 1955 après qu'un moine y a mis le feu."
+    },
+    {
+      "index": 12,
+      "name": "Kansai Electric Power",
+      "subtext": "Compagnie Électrique du Kansai",
+      "funFact": "Fondée en 1951, Kansai Electric Power fournit de l'électricité à plus de 13 millions de clients dans toute la région du Kansai, dans l'ouest du Japon ."
+    },
+    {
+      "index": 13,
+      "name": "Ryoan-ji",
+      "subtext": "龍安寺",
+      "funFact": "Le célèbre jardin de pierres du Ryoan-ji contient 15 pierres disposées de telle sorte que, où que l'on se place, seules 14 sont visibles à la fois, symbolisant l'incomplétude de la perspective humaine ."
+    },
+    {
+      "index": 14,
+      "name": "Ninna-ji",
+      "subtext": "仁和寺",
+      "funFact": "Fondé en 888 par l'empereur Uda, Ninna-ji est célèbre pour ses cerisiers Omuro à floraison tardive qui ne poussent qu'à 2-3 mètres de haut, classé au patrimoine mondial de l'UNESCO ."
+    },
+    {
+      "index": 15,
+      "name": "JR Sagano Line",
+      "subtext": "JR嵯峨野線",
+      "funFact": "La ligne JR Sagano traverse l'ouest de Kyoto jusqu'à Arashiyama, et le train romantique Sagano parcourt 7,3 kilomètres le long des gorges de la rivière Hozu ."
+    },
+    {
+      "index": 16,
+      "name": "Arashiyama",
+      "subtext": "嵐山",
+      "funFact": "Arashiyama est un lieu de villégiature prisé depuis la période Heian il y a plus de 1 000 ans, quand les nobles y construisaient des villas pour profiter des paysages montagneux et des couleurs d'automne ."
+    },
+    {
+      "index": 17,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Bambouseraie",
+      "subtext": "竹林",
+      "funFact": "Les tiges imposantes de la bambouseraie d'Arashiyama atteignent plus de 20 mètres de haut, et le son du vent à travers les bambous a été élu l'un des 100 meilleurs paysages sonores du Japon ."
+    },
+    {
+      "index": 19,
+      "name": "Togetsukyo",
+      "subtext": "渡月橋",
+      "funFact": "Le « Pont de la Traversée de la Lune » a été construit pour la première fois pendant la période Heian au IXe siècle. Son nom vient de l'empereur Kameyama qui vit la lune sembler traverser le pont ."
+    },
+    {
+      "index": 20,
+      "name": "ROUE DE LA CHANCE",
+      "subtext": "ラッキースピン",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Kiyomizu-dera",
+      "subtext": "清水寺",
+      "funFact": "Construit en 778, la célèbre scène en bois du Kiyomizu-dera surplombe la colline de 13 mètres, construite sans un seul clou grâce à une technique d'assemblage spéciale ."
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Sannenzaka",
+      "subtext": "三年坂",
+      "funFact": "Cette pente pavée de pierre préservée date de 807. La superstition locale dit que si vous trébuchez sur ces marches, vous aurez trois ans de malchance ."
+    },
+    {
+      "index": 24,
+      "name": "Higashiyama",
+      "subtext": "東山",
+      "funFact": "Le quartier d'Higashiyama est l'un des quartiers historiques les mieux préservés du Japon, avec des machiya traditionnelles en bois et plus de 2 500 temples et sanctuaires ."
+    },
+    {
+      "index": 25,
+      "name": "Keifuku Line",
+      "subtext": "嵐電",
+      "funFact": "Surnommé affectueusement « Randen », le tramway Keifuku fonctionne depuis 1910 et est la dernière ligne de tramway de Kyoto avec 7,2 kilomètres ."
+    },
+    {
+      "index": 26,
+      "name": "Palais Impérial",
+      "subtext": "京都御所",
+      "funFact": "Le Palais impérial de Kyoto a servi de résidence à l'empereur du Japon pendant plus de 1 000 ans jusqu'au transfert de la capitale à Tokyo en 1869 ."
+    },
+    {
+      "index": 27,
+      "name": "Shimogamo",
+      "subtext": "下鴨",
+      "funFact": "Le sanctuaire Shimogamo, officiellement Kamo Mioya Jinja, est l'un des plus anciens sanctuaires de Kyoto, antérieur à la ville elle-même, avec une forêt sacrée appelée Tadasu no Mori vieille de plus de 2 000 ans ."
+    },
+    {
+      "index": 28,
+      "name": "Kyoto Water",
+      "subtext": null,
+      "funFact": "Le système d'approvisionnement en eau de Kyoto, puisant dans le lac Biwa via le canal de 1890, fut l'un des premiers projets hydroélectriques modernes du Japon ."
+    },
+    {
+      "index": 29,
+      "name": "Chemin du Philosophe",
+      "subtext": "哲学の道",
+      "funFact": "Ce sentier de pierre de 2 kilomètres le long d'un canal porte le nom du philosophe Nishida Kitaro qui y méditait chaque jour. Il est bordé de centaines de cerisiers donnés en 1921 ."
+    },
+    {
+      "index": 30,
+      "name": "ALLEZ EN PRISON",
+      "subtext": "刑務所へ",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Fushimi Inari",
+      "subtext": "伏見稲荷",
+      "funFact": "Fushimi Inari Taisha possède plus de 10 000 torii vermillon s'étendant sur 4 kilomètres le long du mont Inari, offerts par des entreprises depuis la période Edo pour la bonne fortune ."
+    },
+    {
+      "index": 32,
+      "name": "Byodo-in",
+      "subtext": "平等院",
+      "funFact": "Construit en 1053, le Pavillon du Phénix de Byodo-in figure sur la pièce japonaise de 10 yens ! C'est le seul exemple subsistant d'architecture bouddhiste de la Terre Pure de la période Heian."
+    },
+    {
+      "index": 33,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Uji",
+      "subtext": "宇治",
+      "funFact": "Uji est la région de culture du thé la plus prestigieuse du Japon depuis plus de 800 ans. Le Dit du Genji, le premier roman du monde, situe ses derniers chapitres à Uji ."
+    },
+    {
+      "index": 35,
+      "name": "Kintetsu Line",
+      "subtext": "近鉄線",
+      "funFact": "Le réseau ferroviaire Kintetsu est le plus grand réseau ferroviaire privé du Japon avec 508 kilomètres, reliant Kyoto à Nara en seulement 35 minutes en train express ."
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Daitoku-ji",
+      "subtext": "大徳寺",
+      "funFact": "Fondé en 1319, Daitoku-ji est un vaste complexe de temples zen avec 24 sous-temples, étroitement lié à l'histoire de la cérémonie du thé japonaise par Sen no Rikyu ."
+    },
+    {
+      "index": 38,
+      "name": "Taxe de Luxe",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Kitano Tenmangu",
+      "subtext": "北野天満宮",
+      "funFact": "Fondé en 947 en l'honneur du lettré Sugawara no Michizane, Kitano Tenmangu possède 2 000 pruniers et est le sanctuaire le plus important du Japon pour la réussite scolaire ."
+    }
+  ]
+}

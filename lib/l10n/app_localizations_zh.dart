@@ -1455,4 +1455,61 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get countryMexico => '墨西哥';
+
+  @override
+  String get chooseCity => '选择城市';
+
+  @override
+  String get cityAtlanticCity => '大西洋城';
+
+  @override
+  String get cityNewYork => '纽约';
+
+  @override
+  String get cityLosAngeles => '洛杉矶';
+
+  @override
+  String get cityLondon => '伦敦';
+
+  @override
+  String get cityEdinburgh => '爱丁堡';
+
+  @override
+  String get cityManchester => '曼彻斯特';
+
+  @override
+  String get cityParis => '巴黎';
+
+  @override
+  String get cityLyon => '里昂';
+
+  @override
+  String get cityMarseille => '马赛';
+
+  @override
+  String get cityTokyo => '东京';
+
+  @override
+  String get cityOsaka => '大阪';
+
+  @override
+  String get cityKyoto => '京都';
+
+  @override
+  String get cityBeijing => '北京';
+
+  @override
+  String get cityShanghai => '上海';
+
+  @override
+  String get cityHongKong => '香港';
+
+  @override
+  String get cityMexicoCity => '墨西哥城';
+
+  @override
+  String get cityGuadalajara => '瓜达拉哈拉';
+
+  @override
+  String get cityCancun => '坎昆';
 }

@@ -10,7 +10,7 @@
       "index": 1,
       "name": "Coyoacán",
       "subtext": "Coyoacán",
-      "funFact": "Frida Kahlo's birthplace! Her famous Blue House museum attracts thousands daily!"
+      "funFact": "Frida Kahlo was born here in 1907, and her Casa Azul museum, opened in 1958, now draws over 800,000 visitors per year."
     },
     {
       "index": 2,
@@ -22,7 +22,7 @@
       "index": 3,
       "name": "Xochimilco",
       "subtext": "Xochimilco",
-      "funFact": "Ancient Aztec canals where colorful trajineras float among floating gardens!"
+      "funFact": "A UNESCO World Heritage Site since 1987, Xochimilco preserves 170 km of ancient canals and chinampas dating back to 1200 AD."
     },
     {
       "index": 4,
@@ -34,13 +34,13 @@
       "index": 5,
       "name": "Línea 1",
       "subtext": "Metro Línea 1",
-      "funFact": "Mexico City's first metro line, opened in 1969! Uses symbols for illiterate riders!"
+      "funFact": "Opened September 4, 1969, this 18.8 km line has 20 stations, each with a unique pictographic icon so riders can navigate without reading."
     },
     {
       "index": 6,
       "name": "Roma Norte",
       "subtext": "Roma Norte",
-      "funFact": "Hip neighborhood filled with Art Nouveau and Art Deco architecture!"
+      "funFact": "Developed in the early 1900s and heavily damaged in the 1985 earthquake, Roma Norte was revitalized in the 2000s into one of the city's top cultural hubs."
     },
     {
       "index": 7,
@@ -52,13 +52,13 @@
       "index": 8,
       "name": "Condesa",
       "subtext": "Condesa",
-      "funFact": "Tree-lined Art Deco district built around a former horse racing track!"
+      "funFact": "Built in the 1920s around the former Hipódromo de la Condesa racetrack, Parque México still traces the original oval track shape."
     },
     {
       "index": 9,
       "name": "Polanco",
       "subtext": "Polanco",
-      "funFact": "Mexico City's Beverly Hills, home to embassies and luxury boutiques!"
+      "funFact": "Developed in the 1930s–40s and named after a 17th-century friar, Polanco hosts more museums per square kilometer than almost any neighborhood in the Americas."
     },
     {
       "index": 10,
@@ -70,37 +70,37 @@
       "index": 11,
       "name": "San Ángel",
       "subtext": "San Ángel",
-      "funFact": "Colonial neighborhood with cobblestone streets and a vibrant Saturday art market!"
+      "funFact": "The famous Bazar Sábado has run every Saturday since 1960 in the 17th-century Casa del Risco, making it one of Mexico's longest-running art markets."
     },
     {
       "index": 12,
       "name": "CFE",
       "subtext": null,
-      "funFact": "Comisión Federal de Electricidad powers all of Mexico!"
+      "funFact": "Founded on August 14, 1937, CFE serves over 46 million customers and is one of the largest electric utilities in the Americas."
     },
     {
       "index": 13,
       "name": "Chapultepec",
       "subtext": "Chapultepec",
-      "funFact": "One of the largest city parks in the Western Hemisphere at 686 hectares!"
+      "funFact": "Its name means 'Grasshopper Hill' in Nahuatl, and this 686-hectare park has been a sacred site since at least the 13th century."
     },
     {
       "index": 14,
       "name": "Bosque de Chapultepec",
       "subtext": "Bosque",
-      "funFact": "This forest park is twice the size of New York's Central Park!"
+      "funFact": "At 686 hectares (twice the size of Central Park), the Bosque contains 9 museums, a zoo founded in 1924, and ahuehuete trees over 700 years old."
     },
     {
       "index": 15,
       "name": "Línea 2",
       "subtext": "Metro Línea 2",
-      "funFact": "The Blue Line connects major cultural sites including Bellas Artes!"
+      "funFact": "Opened August 1, 1970, this 23.4 km line runs beneath key landmarks, and its construction unearthed Aztec artifacts now displayed in the stations."
     },
     {
       "index": 16,
       "name": "Teotihuacán",
       "subtext": "Teotihuacán",
-      "funFact": "Ancient pyramids! The Pyramid of the Sun is the 3rd largest pyramid in the world!"
+      "funFact": "Built between 100 BC and 250 AD, the 65-meter-tall Pyramid of the Sun once anchored a city of over 125,000 residents, making it the 6th largest in the ancient world."
     },
     {
       "index": 17,
@@ -112,13 +112,13 @@
       "index": 18,
       "name": "Templo Mayor",
       "subtext": "Templo Mayor",
-      "funFact": "Main temple of the Aztecs, discovered accidentally in 1978 by electric workers!"
+      "funFact": "Discovered on February 21, 1978 when electrical workers struck a massive stone disc, the excavation has yielded over 7,000 Aztec artifacts from this once 60-meter-tall temple."
     },
     {
       "index": 19,
       "name": "Zócalo",
       "subtext": "Zócalo",
-      "funFact": "One of the world's largest public squares, the heart of Mexico City since Aztec times!"
+      "funFact": "Officially the Plaza de la Constitución, this 46,800 m² square has been the center of Mexican public life since the Aztec capital Tenochtitlan was founded in 1325."
     },
     {
       "index": 20,
@@ -130,7 +130,7 @@
       "index": 21,
       "name": "Palacio Nacional",
       "subtext": "Palacio Nacional",
-      "funFact": "Home to Diego Rivera's famous murals depicting Mexican history!"
+      "funFact": "Built on the site of Moctezuma II's palace starting in 1522, Diego Rivera painted his epic murals across its walls from 1929 to 1951."
     },
     {
       "index": 22,
@@ -142,43 +142,43 @@
       "index": 23,
       "name": "Bellas Artes",
       "subtext": "Bellas Artes",
-      "funFact": "Stunning Art Nouveau palace with a curtain made of nearly 1 million glass pieces!"
+      "funFact": "Construction began in 1904 but took 30 years to complete; its famous Tiffany glass curtain weighs 24 tons and depicts the Valley of Mexico volcanoes."
     },
     {
       "index": 24,
       "name": "Reforma",
       "subtext": "Reforma",
-      "funFact": "Grand avenue inspired by the Champs-Élysées, lined with monuments and skyscrapers!"
+      "funFact": "Commissioned by Emperor Maximilian in 1864 as 'Paseo de la Emperatriz,' this 15 km boulevard was renamed after the Reform War and is now Mexico City's main artery."
     },
     {
       "index": 25,
       "name": "Línea 3",
       "subtext": "Metro Línea 3",
-      "funFact": "The Olive Line serves 1.3 million passengers daily!"
+      "funFact": "Opened November 20, 1970, this 23.6 km line with 21 stations is one of the system's busiest, carrying over 1 million riders daily."
     },
     {
       "index": 26,
       "name": "Ángel de la Independencia",
       "subtext": "El Ángel",
-      "funFact": "Mexico's most iconic monument, celebrating independence from Spain!"
+      "funFact": "Inaugurated on September 16, 1910 for the centennial of independence, the gold-plated angel statue stands 6.7 meters tall atop a 36-meter column."
     },
     {
       "index": 27,
       "name": "Zona Rosa",
       "subtext": "Zona Rosa",
-      "funFact": "Pink Zone! Historic LGBTQ+ friendly neighborhood with Korean and international flair!"
+      "funFact": "Named in the 1960s by artist José Luis Cuevas, it became Mexico's first openly LGBTQ+ neighborhood in the 1980s and home to a thriving Koreatown since the 1990s."
     },
     {
       "index": 28,
       "name": "Agua de México",
       "subtext": null,
-      "funFact": "Mexico City gets water from underground aquifers and distant mountain sources!"
+      "funFact": "Mexico City pumps 40% of its water from the Cutzamala system 127 km away; over-extraction from aquifers causes the city to sink 5–10 cm per year."
     },
     {
       "index": 29,
       "name": "Santa Fe",
       "subtext": "Santa Fe",
-      "funFact": "Ultra-modern business district rising from a former garbage dump!"
+      "funFact": "Transformed in the 1990s from what was once Latin America's largest garbage dump into a gleaming business district with over 10,000 corporate offices."
     },
     {
       "index": 30,
@@ -190,13 +190,13 @@
       "index": 31,
       "name": "Museo Frida Kahlo",
       "subtext": "Casa Azul",
-      "funFact": "The Blue House where Frida lived, loved, and created her iconic art!"
+      "funFact": "La Casa Azul opened as a museum in 1958, four years after Frida's death in 1954, and now receives over 800,000 visitors annually."
     },
     {
       "index": 32,
       "name": "Museo Soumaya",
       "subtext": "Soumaya",
-      "funFact": "Stunning silver building housing 66,000 artworks, including works by Rodin!"
+      "funFact": "Opened in 2011 with a façade of 16,000 aluminum hexagons, it houses 66,000 artworks including the largest Rodin collection outside France."
     },
     {
       "index": 33,
@@ -208,13 +208,13 @@
       "index": 34,
       "name": "Antropología",
       "subtext": "Antropología",
-      "funFact": "World's largest anthropology museum, showcasing 3,000 years of Mexican culture!"
+      "funFact": "Opened September 17, 1964, this museum holds the 24-ton Aztec Sun Stone and receives over 2 million visitors per year."
     },
     {
       "index": 35,
       "name": "Línea 12",
       "subtext": "Metro Línea 12",
-      "funFact": "The Golden Line, Mexico City's newest metro line!"
+      "funFact": "Opened October 30, 2012, this 24.5 km golden-colored line with 20 stations is the newest addition to Mexico City's metro network."
     },
     {
       "index": 36,
@@ -226,7 +226,7 @@
       "index": 37,
       "name": "Torre Latinoamericana",
       "subtext": "Torre Latino",
-      "funFact": "Built in 1956, survived major earthquakes thanks to innovative floating foundation!"
+      "funFact": "Completed in 1956 at 44 stories (182 m), it survived the devastating 8.0-magnitude 1985 earthquake without structural damage thanks to its deep-pile floating foundation."
     },
     {
       "index": 38,
@@ -238,7 +238,7 @@
       "index": 39,
       "name": "Castillo de Chapultepec",
       "subtext": "Castillo",
-      "funFact": "The only royal castle in North America, former home of Emperor Maximilian!"
+      "funFact": "Built between 1785 and 1864, it is the only royal castle in the Americas; Emperor Maximilian and Empress Carlota lived here from 1864 to 1867."
     }
   ]
 }

@@ -1504,4 +1504,61 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get countryMexico => 'México';
+
+  @override
+  String get chooseCity => 'Elige Ciudad';
+
+  @override
+  String get cityAtlanticCity => 'Atlantic City';
+
+  @override
+  String get cityNewYork => 'Nueva York';
+
+  @override
+  String get cityLosAngeles => 'Los Ángeles';
+
+  @override
+  String get cityLondon => 'Londres';
+
+  @override
+  String get cityEdinburgh => 'Edimburgo';
+
+  @override
+  String get cityManchester => 'Mánchester';
+
+  @override
+  String get cityParis => 'París';
+
+  @override
+  String get cityLyon => 'Lyon';
+
+  @override
+  String get cityMarseille => 'Marsella';
+
+  @override
+  String get cityTokyo => 'Tokio';
+
+  @override
+  String get cityOsaka => 'Osaka';
+
+  @override
+  String get cityKyoto => 'Kioto';
+
+  @override
+  String get cityBeijing => 'Pekín';
+
+  @override
+  String get cityShanghai => 'Shanghái';
+
+  @override
+  String get cityHongKong => 'Hong Kong';
+
+  @override
+  String get cityMexicoCity => 'Ciudad de México';
+
+  @override
+  String get cityGuadalajara => 'Guadalajara';
+
+  @override
+  String get cityCancun => 'Cancún';
 }

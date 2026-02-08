@@ -10,7 +10,7 @@
       "index": 1,
       "name": "Nanluoguxiang",
       "subtext": "南锣鼓巷",
-      "funFact": "Cette ruelle de hutong vieille de 800 ans est l’une des rues historiques les mieux préservées de Pékin !"
+      "funFact": "Datant de la dynastie Yuan en 1267, ce hutong de 786 mètres était autrefois le quartier des nobles de la dynastie Qing. Aujourd'hui, il attire plus de 10 000 visiteurs par jour."
     },
     {
       "index": 2,
@@ -22,7 +22,7 @@
       "index": 3,
       "name": "Houhai",
       "subtext": "后海",
-      "funFact": "Quartier lacustre historique où les empereurs faisaient autrefois du patin à glace !"
+      "funFact": "Sous la dynastie Qing (1644-1912), les empereurs organisaient ici de grandes compétitions de patinage chaque hiver. Le lac couvre 34 hectares et est entouré de cours carrées centenaires."
     },
     {
       "index": 4,
@@ -34,13 +34,13 @@
       "index": 5,
       "name": "Ligne 1",
       "subtext": "地铁1号线",
-      "funFact": "La première ligne de métro de Pékin, ouverte en 1971, traversant la place Tiananmen !"
+      "funFact": "Ouverte le 1er octobre 1969 pour usage militaire et au public en 1971, la Ligne 1 s'étend sur 31 km avec 23 stations et fut le premier chemin de fer souterrain de Chine."
     },
     {
       "index": 6,
       "name": "Wangfujing",
       "subtext": "王府井",
-      "funFact": "La principale rue commerçante de Pékin, vieille de plus de 700 ans !"
+      "funFact": "Créée sous la dynastie Yuan vers 1280, cette rue de 810 mètres tire son nom d'un puits d'eau douce découvert dans la résidence d'un prince. Aujourd'hui, elle accueille plus de 600 000 visiteurs par jour."
     },
     {
       "index": 7,
@@ -52,13 +52,13 @@
       "index": 8,
       "name": "Sanlitun",
       "subtext": "三里屯",
-      "funFact": "Le quartier le plus international de Pékin, abritant ambassades et vie nocturne !"
+      "funFact": "Nommé ainsi car situé exactement à trois li (1,5 km) de l'ancienne muraille, Sanlitun abrite plus de 70 ambassades étrangères et est devenu le centre de la vie nocturne de Pékin après le boom des bars des années 1990."
     },
     {
       "index": 9,
       "name": "CBD",
       "subtext": "国贸",
-      "funFact": "Le quartier central des affaires abrite l’emblématique tour CCTV de Rem Koolhaas !"
+      "funFact": "Créé en 2001, le CBD de Pékin s'étend sur 3,99 km² à Chaoyang et abrite plus de 60 % des sièges régionaux des entreprises Fortune 500 de la ville."
     },
     {
       "index": 10,
@@ -70,37 +70,37 @@
       "index": 11,
       "name": "Dongcheng",
       "subtext": "东城区",
-      "funFact": "Le district est préserve d’innombrables hutongs historiques et maisons à cour !"
+      "funFact": "Couvrant 41,84 km², Dongcheng abrite plus de 200 hutongs historiques protégés et fut le lieu des examens impériaux qui façonnèrent la gouvernance chinoise pendant 1 300 ans."
     },
     {
       "index": 12,
       "name": "Réseau Électrique National",
       "subtext": null,
-      "funFact": "La plus grande entreprise de services publics au monde, alimentant plus de 1,1 milliard de personnes !"
+      "funFact": "Fondée en 2002, State Grid est la plus grande entreprise de services publics au monde par chiffre d'affaires (383 milliards de dollars en 2022) et exploite plus d'un million de km de lignes électriques couvrant 88 % de la Chine."
     },
     {
       "index": 13,
       "name": "Parc Beihai",
       "subtext": "北海公园",
-      "funFact": "Jardin impérial datant du Xe siècle, avec le magnifique Dagoba blanc !"
+      "funFact": "Aménagé pour la première fois en 938 apr. J.-C., Beihai est l'un des plus anciens jardins impériaux de Chine. Son emblématique Dagoba blanc de 36 mètres fut érigé en 1651 en l'honneur de la visite du 5e dalaï-lama."
     },
     {
       "index": 14,
       "name": "Jingshan",
       "subtext": "景山",
-      "funFact": "Cette colline artificielle offre la meilleure vue panoramique sur la Cité interdite !"
+      "funFact": "Construite avec la terre excavée des douves de la Cité interdite en 1421, cette colline de 45 mètres est le lieu où le dernier empereur Ming, Chongzhen, mit tragiquement fin à ses jours en 1644."
     },
     {
       "index": 15,
       "name": "Ligne 2",
       "subtext": "地铁2号线",
-      "funFact": "Forme un rectangle autour du centre de Pékin, suivant le tracé de l’ancienne muraille !"
+      "funFact": "Ouverte en 1984, la Ligne 2 suit le tracé de la muraille Ming démolie en une boucle de 23 km avec 18 stations. Ce fut la première ligne de métro en Chine dotée d'un système de billetterie automatisé."
     },
     {
       "index": 16,
       "name": "Temple des Lamas",
       "subtext": "雍和宫",
-      "funFact": "Abrite un Bouddha de 26 mètres sculpté dans un seul tronc de santal !"
+      "funFact": "Construit en 1694 comme résidence impériale, il devint un monastère bouddhiste tibétain en 1744. Son Bouddha Maitreya de 18 mètres fut sculpté dans un seul tronc de santal blanc offert par le 7e dalaï-lama."
     },
     {
       "index": 17,
@@ -112,13 +112,13 @@
       "index": 18,
       "name": "Temple du Ciel",
       "subtext": "天坛",
-      "funFact": "Où les empereurs priaient pour de bonnes récoltes ! Le mur de l’Écho peut transporter un murmure sur 65 mètres !"
+      "funFact": "Construit en 1420 par l'empereur Yongle, ce site du patrimoine mondial de l'UNESCO s'étend sur 273 hectares, soit près de quatre fois la Cité interdite. Sa Salle de la Prière ne contient ni clous ni ciment."
     },
     {
       "index": 19,
       "name": "Palais d’Été",
       "subtext": "颐和园",
-      "funFact": "Site UNESCO de 290 hectares, dont 75 % d’eau ! Le bateau de marbre de l’impératrice Cixi est toujours debout !"
+      "funFact": "L'impératrice Cixi détourna de manière controversée 30 millions de taëls d'argent du budget naval en 1888 pour reconstruire ce jardin. Son Grand Corridor s'étend sur 728 mètres avec plus de 14 000 scènes peintes."
     },
     {
       "index": 20,
@@ -130,7 +130,7 @@
       "index": 21,
       "name": "Tour du Tambour",
       "subtext": "鼓楼",
-      "funFact": "Construite en 1272, des tambourinaires marquaient autrefois l’heure pour toute la ville !"
+      "funFact": "Construite à l'origine par Kubilai Khan en 1272, la tour actuelle date de 1420 et mesure 47 mètres. Ses 25 tambours étaient frappés 13 fois au crépuscule pour signaler la fermeture des portes de la ville."
     },
     {
       "index": 22,
@@ -142,43 +142,43 @@
       "index": 23,
       "name": "Tour de la Cloche",
       "subtext": "钟楼",
-      "funFact": "Abrite une imposante cloche en bronze de 63 tonnes datant de la dynastie Ming !"
+      "funFact": "Reconstruite en 1745, la Tour de la Cloche abrite une cloche en bronze de 63 tonnes fondue sous l'ère Yongle (1420) audible à plus de 20 km. La légende raconte qu'une jeune fille se sacrifia dans le bronze en fusion pour parfaire la fonte."
     },
     {
       "index": 24,
       "name": "Tiananmen",
       "subtext": "天安门",
-      "funFact": "La plus grande place publique du monde, pouvant accueillir jusqu’à 1 million de personnes !"
+      "funFact": "La porte fut construite en 1420 et reconstruite en 1651. La place Tiananmen elle-même fut agrandie à 44 hectares en 1959, devenant la plus grande place publique du monde."
     },
     {
       "index": 25,
       "name": "Ligne 4",
       "subtext": "地铁4号线",
-      "funFact": "Relie le Palais d’Été au sud, transportant 1 million de voyageurs par jour !"
+      "funFact": "Ouverte le 28 septembre 2009, la Ligne 4 parcourt 28,2 km avec 24 stations et fut la première ligne de métro de Pékin en partenariat public-privé, co-exploitée avec MTR Corporation de Hong Kong."
     },
     {
       "index": 26,
       "name": "Chaoyang",
       "subtext": "朝阳区",
-      "funFact": "Le district le plus international de Pékin, accueillant les sites olympiques !"
+      "funFact": "Avec 3,45 millions d'habitants sur 455 km², Chaoyang est le plus grand district urbain de Pékin. Il abrite plus de 130 ambassades étrangères et génère près de 30 % du PIB de la ville."
     },
     {
       "index": 27,
       "name": "Parc Olympique",
       "subtext": "奥林匹克公园",
-      "funFact": "Abrite le stade du Nid d’Oiseau et le Cube d’Eau des Jeux olympiques de 2008 !"
+      "funFact": "Construit pour les Jeux olympiques d'été de 2008 pour 480 millions de dollars, le Nid d'Oiseau a utilisé 42 000 tonnes d'acier et peut accueillir 91 000 spectateurs. Le parc a aussi accueilli les Jeux d'hiver de 2022."
     },
     {
       "index": 28,
       "name": "Service des Eaux de Pékin",
       "subtext": null,
-      "funFact": "Le projet de transfert d’eau Sud-Nord achemine l’eau depuis 1 400 km de distance !"
+      "funFact": "Le projet de transfert d'eau Sud-Nord, conçu par Mao Zedong en 1952 et lancé en 2002, a coûté plus de 80 milliards de dollars et achemine l'eau du fleuve Yangtsé sur 1 432 km jusqu'à Pékin."
     },
     {
       "index": 29,
       "name": "Zhongguancun",
       "subtext": "中关村",
-      "funFact": "La Silicon Valley de la Chine, siège de géants technologiques comme Baidu et Lenovo !"
+      "funFact": "Surnommé la « Silicon Valley de Chine » depuis les années 1980, Zhongguancun héberge plus de 20 000 entreprises tech. C'est ici que Lenovo fut fondée dans une loge de gardien avec seulement 25 000 dollars en 1984."
     },
     {
       "index": 30,
@@ -190,13 +190,13 @@
       "index": 31,
       "name": "Rue de la Soie",
       "subtext": "秀水街",
-      "funFact": "Célèbre marché commercial perpétuant la tradition de la Route de la Soie !"
+      "funFact": "À l'origine un marché en plein air apparu dans les années 1980 pour le personnel des ambassades, la Rue de la Soie a emménagé en 2005 dans un bâtiment de 7 étages et 28 000 m² accueillant 20 000 visiteurs par jour."
     },
     {
       "index": 32,
       "name": "Panjiayuan",
       "subtext": "潘家园",
-      "funFact": "Le plus grand marché d’antiquités d’Asie avec plus de 3 000 vendeurs !"
+      "funFact": "Ouvert depuis 1992, ce marché de 48 500 m² est le plus grand bazar d'antiquités d'Asie avec plus de 3 000 vendeurs proposant de la porcelaine Ming aux souvenirs de la Révolution culturelle."
     },
     {
       "index": 33,
@@ -208,13 +208,13 @@
       "index": 34,
       "name": "Musée National",
       "subtext": "国家博物馆",
-      "funFact": "Le musée le plus visité au monde avec 7,4 millions de visiteurs par an !"
+      "funFact": "Rouvert en 2011 après une rénovation de 400 millions de dollars, le Musée national de Chine couvre 192 000 m² et abrite plus de 1,4 million d'artefacts couvrant 1,7 million d'années de civilisation chinoise."
     },
     {
       "index": 35,
       "name": "Ligne 10",
       "subtext": "地铁10号线",
-      "funFact": "Forme une grande boucle reliant tous les grands districts de Pékin !"
+      "funFact": "Achevée en boucle complète en 2013, la Ligne 10 est la plus longue ligne de métro de Pékin avec 57,1 km et 45 stations, transportant plus de 2 millions de passagers quotidiennement le long du troisième périphérique."
     },
     {
       "index": 36,
@@ -226,7 +226,7 @@
       "index": 37,
       "name": "Tour CCTV",
       "subtext": "央视大楼",
-      "funFact": "Haute de 405 mètres avec un design révolutionnaire en forme de boucle !"
+      "funFact": "Achevée en 2012 pour 800 millions de dollars, cette tour de 234 mètres conçue par OMA utilise 10 000 tonnes d'acier structurel dans sa boucle continue et a été surnommée « le Grand Caleçon » par les Pékinois."
     },
     {
       "index": 38,
@@ -238,7 +238,7 @@
       "index": 39,
       "name": "Cité Interdite",
       "subtext": "故宫",
-      "funFact": "Le plus grand complexe palatial du monde avec 9 999 pièces, résidence de 24 empereurs !"
+      "funFact": "Construite entre 1406 et 1420 par plus d'un million d'ouvriers, la Cité interdite s'étend sur 72 hectares avec 980 bâtiments et 8 728 pièces. Elle fut la résidence de 24 empereurs des dynasties Ming et Qing."
     }
   ]
 }

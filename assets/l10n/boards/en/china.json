@@ -10,7 +10,7 @@
       "index": 1,
       "name": "Nanluoguxiang",
       "subtext": "南锣鼓巷",
-      "funFact": "This 800-year-old hutong alley is one of Beijing's best-preserved historical streets!"
+      "funFact": "Dating back to the Yuan Dynasty in 1267, this 786-meter hutong was once home to Qing Dynasty nobles and now attracts over 10,000 visitors daily."
     },
     {
       "index": 2,
@@ -22,7 +22,7 @@
       "index": 3,
       "name": "Houhai",
       "subtext": "后海",
-      "funFact": "Historic lake area where emperors once went ice skating!"
+      "funFact": "Since the Qing Dynasty (1644-1912), emperors held grand ice skating competitions here each winter. The lake covers 34 hectares and is surrounded by centuries-old courtyard homes."
     },
     {
       "index": 4,
@@ -34,13 +34,13 @@
       "index": 5,
       "name": "Line 1",
       "subtext": "地铁1号线",
-      "funFact": "Beijing's first subway line, opened in 1971, running through Tiananmen Square!"
+      "funFact": "Opened on October 1, 1969 for military use and to the public in 1971, Line 1 stretches 31 km with 23 stations and was China's first underground railway."
     },
     {
       "index": 6,
       "name": "Wangfujing",
       "subtext": "王府井",
-      "funFact": "Beijing's premier shopping street, over 700 years old!"
+      "funFact": "Established during the Yuan Dynasty around 1280, this 810-meter street was named after a sweet-water well discovered in a prince's mansion. Today it draws over 600,000 shoppers daily."
     },
     {
       "index": 7,
@@ -52,13 +52,13 @@
       "index": 8,
       "name": "Sanlitun",
       "subtext": "三里屯",
-      "funFact": "Beijing's most international neighborhood, home to embassies and nightlife!"
+      "funFact": "Named for being exactly three li (1.5 km) from the old city wall, Sanlitun hosts over 70 foreign embassies and became Beijing's nightlife hub after the 1990s bar street boom."
     },
     {
       "index": 9,
       "name": "CBD",
       "subtext": "国贸",
-      "funFact": "The Central Business District features the iconic CCTV Tower by Rem Koolhaas!"
+      "funFact": "Established in 2001, Beijing's CBD spans 3.99 sq km in Chaoyang and houses over 60% of Fortune 500 regional headquarters in the city."
     },
     {
       "index": 10,
@@ -70,37 +70,37 @@
       "index": 11,
       "name": "Dongcheng",
       "subtext": "东城区",
-      "funFact": "The eastern district preserves countless historical hutongs and courtyard homes!"
+      "funFact": "Covering 41.84 sq km, Dongcheng contains over 200 protected historical hutongs and was the site of the imperial examinations that shaped Chinese governance for 1,300 years."
     },
     {
       "index": 12,
       "name": "State Grid",
       "subtext": null,
-      "funFact": "The world's largest utility company, powering over 1.1 billion people!"
+      "funFact": "Founded in 2002, State Grid is the world's largest utility company by revenue ($383 billion in 2022) and operates over 1 million km of power lines across 88% of China."
     },
     {
       "index": 13,
       "name": "Beihai Park",
       "subtext": "北海公园",
-      "funFact": "Imperial garden dating back to the 10th century, featuring the stunning White Dagoba!"
+      "funFact": "First built in 938 AD, Beihai is one of the oldest imperial gardens in China. Its iconic 36-meter White Dagoba was erected in 1651 to honor the 5th Dalai Lama's visit."
     },
     {
       "index": 14,
       "name": "Jingshan",
       "subtext": "景山",
-      "funFact": "This artificial hill offers the best panoramic view of the Forbidden City!"
+      "funFact": "Built from earth excavated while constructing the Forbidden City moat in 1421, this 45-meter hill is where the last Ming Emperor Chongzhen tragically ended his life in 1644."
     },
     {
       "index": 15,
       "name": "Line 2",
       "subtext": "地铁2号线",
-      "funFact": "Forms a rectangle around central Beijing, following the old city wall route!"
+      "funFact": "Opened in 1984, Line 2 traces the demolished Ming Dynasty city wall in a 23 km loop with 18 stations. It was the first metro line in China to use automated fare collection."
     },
     {
       "index": 16,
       "name": "Lama Temple",
       "subtext": "雍和宫",
-      "funFact": "Home to a 26-meter tall Buddha carved from a single sandalwood tree!"
+      "funFact": "Originally built as an imperial residence in 1694, it became a Tibetan Buddhist monastery in 1744. Its 18-meter Maitreya Buddha was carved from a single white sandalwood tree gifted by the 7th Dalai Lama."
     },
     {
       "index": 17,
@@ -112,13 +112,13 @@
       "index": 18,
       "name": "Temple of Heaven",
       "subtext": "天坛",
-      "funFact": "Where emperors prayed for good harvests! The Echo Wall can carry whispers 65 meters!"
+      "funFact": "Built in 1420 by the Yongle Emperor, this UNESCO World Heritage Site spans 273 hectares, nearly four times the size of the Forbidden City. Its Hall of Prayer has no nails or cement."
     },
     {
       "index": 19,
       "name": "Summer Palace",
       "subtext": "颐和园",
-      "funFact": "UNESCO site covering 290 hectares, 75% water! Empress Cixi's marble boat still stands!"
+      "funFact": "Empress Cixi controversially diverted 30 million taels of silver from the navy budget in 1888 to rebuild this garden. Its Long Corridor stretches 728 meters with over 14,000 painted scenes."
     },
     {
       "index": 20,
@@ -130,7 +130,7 @@
       "index": 21,
       "name": "Drum Tower",
       "subtext": "鼓楼",
-      "funFact": "Built in 1272, drummers once marked time for the entire city!"
+      "funFact": "Originally built by Kublai Khan in 1272, the current tower dates from 1420 and stands 47 meters tall. Its 25 drums were beaten 13 times at dusk to signal the city gates' closing."
     },
     {
       "index": 22,
@@ -142,43 +142,43 @@
       "index": 23,
       "name": "Bell Tower",
       "subtext": "钟楼",
-      "funFact": "Houses a massive 63-ton bronze bell from the Ming Dynasty!"
+      "funFact": "Rebuilt in 1745, the Bell Tower houses a 63-ton bronze bell cast during the Yongle era (1420) that could be heard over 20 km away. Legend says a girl sacrificed herself in the molten bronze to perfect the casting."
     },
     {
       "index": 24,
       "name": "Tiananmen",
       "subtext": "天安门",
-      "funFact": "The largest public square in the world, holding up to 1 million people!"
+      "funFact": "The gate was built in 1420 and reconstructed in 1651. Tiananmen Square itself was enlarged to 44 hectares in 1959, making it the world's largest public square."
     },
     {
       "index": 25,
       "name": "Line 4",
       "subtext": "地铁4号线",
-      "funFact": "Connects the Summer Palace to the south, carrying 1 million riders daily!"
+      "funFact": "Opened on September 28, 2009, Line 4 runs 28.2 km with 24 stations and was Beijing's first public-private partnership metro line, co-operated with Hong Kong's MTR Corporation."
     },
     {
       "index": 26,
       "name": "Chaoyang",
       "subtext": "朝阳区",
-      "funFact": "Beijing's most international district, hosting the Olympic venues!"
+      "funFact": "With 3.45 million residents across 455 sq km, Chaoyang is Beijing's largest urban district. It houses over 130 foreign embassies and generates nearly 30% of Beijing's GDP."
     },
     {
       "index": 27,
       "name": "Olympic Park",
       "subtext": "奥林匹克公园",
-      "funFact": "Home to the Bird's Nest stadium and Water Cube from the 2008 Olympics!"
+      "funFact": "Built for the 2008 Summer Olympics at a cost of $480 million, the Bird's Nest used 42,000 tons of steel and seats 91,000. The park also hosted events for the 2022 Winter Olympics."
     },
     {
       "index": 28,
       "name": "Beijing Water",
       "subtext": null,
-      "funFact": "The South-North Water Transfer Project brings water from 1,400km away!"
+      "funFact": "The South-to-North Water Diversion Project, conceived by Mao Zedong in 1952 and begun in 2002, cost over $80 billion and channels water 1,432 km from the Yangtze River to parched Beijing."
     },
     {
       "index": 29,
       "name": "Zhongguancun",
       "subtext": "中关村",
-      "funFact": "China's Silicon Valley, home to tech giants like Baidu and Lenovo!"
+      "funFact": "Dubbed \"China's Silicon Valley\" since the 1980s, Zhongguancun hosts over 20,000 tech firms and was where Lenovo was founded in a guardhouse with just $25,000 in 1984."
     },
     {
       "index": 30,
@@ -190,13 +190,13 @@
       "index": 31,
       "name": "Silk Street",
       "subtext": "秀水街",
-      "funFact": "Famous shopping market following the ancient Silk Road trading tradition!"
+      "funFact": "Originally an open-air market that sprang up in the 1980s to serve foreign embassy staff, Silk Street moved into a 7-story, 28,000 sq meter building in 2005 and receives 20,000 visitors daily."
     },
     {
       "index": 32,
       "name": "Panjiayuan",
       "subtext": "潘家园",
-      "funFact": "Asia's largest antique market with over 3,000 vendors!"
+      "funFact": "Open since 1992, this 48,500 sq meter market is Asia's largest antique bazaar with over 3,000 vendors selling everything from Ming Dynasty porcelain to Cultural Revolution memorabilia."
     },
     {
       "index": 33,
@@ -208,13 +208,13 @@
       "index": 34,
       "name": "National Museum",
       "subtext": "国家博物馆",
-      "funFact": "The world's most visited museum with 7.4 million visitors annually!"
+      "funFact": "Reopened in 2011 after a $400 million renovation, the National Museum of China spans 192,000 sq meters and holds over 1.4 million artifacts spanning 1.7 million years of Chinese civilization."
     },
     {
       "index": 35,
       "name": "Line 10",
       "subtext": "地铁10号线",
-      "funFact": "Forms a giant loop connecting all major districts of Beijing!"
+      "funFact": "Completed as a full loop in 2013, Line 10 is Beijing's longest single metro line at 57.1 km with 45 stations, carrying over 2 million passengers daily around the city's Third Ring Road."
     },
     {
       "index": 36,
@@ -226,7 +226,7 @@
       "index": 37,
       "name": "CCTV Tower",
       "subtext": "央视大楼",
-      "funFact": "Standing 405 meters tall with a revolutionary \"loop\" design!"
+      "funFact": "Completed in 2012 at a cost of $800 million, this 234-meter OMA-designed tower uses 10,000 tons of structural steel in its continuous loop and was nicknamed \"Big Underpants\" by locals."
     },
     {
       "index": 38,
@@ -238,7 +238,7 @@
       "index": 39,
       "name": "Forbidden City",
       "subtext": "故宫",
-      "funFact": "The world's largest palace complex with 9,999 rooms, home to 24 emperors!"
+      "funFact": "Built between 1406-1420 by over 1 million workers, the Forbidden City spans 72 hectares with 980 buildings and 8,728 rooms. It served as home to 24 emperors across the Ming and Qing dynasties."
     }
   ]
 }

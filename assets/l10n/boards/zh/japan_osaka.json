@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "收取200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Shinsekai",
+      "subtext": "新世界",
+      "funFact": "新世界建于1912年，以纽约和巴黎为原型打造的“新世界“，以复古氛围和炸串闻名。"
+    },
+    {
+      "index": 2,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Tennoji",
+      "subtext": "天王寺",
+      "funFact": "天王寺公园建于1909年，园内大阪市立美术馆收藏了8000多件日本和中国艺术品。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Midosuji Line",
+      "subtext": "御堂筋线",
+      "funFact": "御堂筋线于1933年开通，是大阪最繁忙的地铁线路，每日沿标志性御堂筋大道运送超过120万名乘客。"
+    },
+    {
+      "index": 6,
+      "name": "Namba",
+      "subtext": "难波",
+      "funFact": "难波是大阪充满活力的娱乐中心，著名的难波花月大剧场自1912年以来一直上演吉本喜剧。"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Shinsaibashi",
+      "subtext": "心斋桥",
+      "funFact": "心斋桥筋商店街绵延600米，自17世纪江户时代以来一直是大阪首屈一指的购物街。"
+    },
+    {
+      "index": 9,
+      "name": "Amerikamura",
+      "subtext": "美国村",
+      "funFact": "被称为“阿美村“，这个青年文化街区在20世纪70年代兴起，当时商店开始进口美国复古服装和唱片。"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "监狱",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Tsutenkaku",
+      "subtext": "通天阁",
+      "funFact": "现在108米高的通天阁于1956年重建，原塔建于1912年，在二战期间被拆解用作钢材。"
+    },
+    {
+      "index": 12,
+      "name": "Kansai Electric Power",
+      "subtext": "关西电力",
+      "funFact": "关西电力成立于1951年，为日本西部整个关西地区超过1300万客户供电。"
+    },
+    {
+      "index": 13,
+      "name": "Sumiyoshi Taisha",
+      "subtext": "住吉大社",
+      "funFact": "住吉大社建于公元211年，是日本最古老的神社之一，也是全国2300多座住吉神社的总本社。"
+    },
+    {
+      "index": 14,
+      "name": "Osaka Castle",
+      "subtext": "大阪城",
+      "funFact": "大阪城最初由丰臣秀吉于1583年建造，主天守阁高55米，在日本统一中发挥了关键作用。"
+    },
+    {
+      "index": 15,
+      "name": "Osaka Loop Line",
+      "subtext": "大阪环状线",
+      "funFact": "大阪环状线于1961年完成环线运营，19个车站连接21.7公里的大阪中心城区。"
+    },
+    {
+      "index": 16,
+      "name": "Dotonbori",
+      "subtext": "道顿堀",
+      "funFact": "以1612年出资修建运河的商人安井道顿命名，道顿堀标志性的格力高跑步人招牌自1935年起成为地标。"
+    },
+    {
+      "index": 17,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Kuromon Market",
+      "subtext": "黑门市场",
+      "funFact": "被誉为“大阪的厨房“超过190年，黑门市场拥有约150家专营新鲜海鲜、农产品和街头美食的店铺。"
+    },
+    {
+      "index": 19,
+      "name": "Umeda",
+      "subtext": "梅田",
+      "funFact": "梅田空中庭院展望台高173米，曾被旅游指南评为世界建筑二十佳。"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": "幸运转盘",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Universal Studios",
+      "subtext": "环球影城",
+      "funFact": "日本环球影城于2001年开业，年接待游客超过1400万人次，是日本参观人数最多的游乐园。"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Tempozan",
+      "subtext": "天保山",
+      "funFact": "天保山海拔仅4.53米，是日本官方认定的最低山之一，由1831年大阪港疏浚泥土堆成。"
+    },
+    {
+      "index": 24,
+      "name": "Kaiyukan",
+      "subtext": "海游馆",
+      "funFact": "大阪海游馆蓄水量达10941吨，饲养着鲸鲨、蝠鲼等来自环太平洋地区的3万多种海洋生物。"
+    },
+    {
+      "index": 25,
+      "name": "Nankai Line",
+      "subtext": "南海本线",
+      "funFact": "南海本线始建于1885年，是日本最古老的铁路线之一，连接大阪至关西国际机场和和歌山。"
+    },
+    {
+      "index": 26,
+      "name": "Nakanoshima",
+      "subtext": "中之岛",
+      "funFact": "这座位于堂岛川和土佐堀川之间的沙洲岛自1891年以来一直是大阪的文化中心，设有国立美术馆。"
+    },
+    {
+      "index": 27,
+      "name": "Kitashinchi",
+      "subtext": "北新地",
+      "funFact": "北新地是大阪最高档的餐饮娱乐区，在紧凑的区域内拥有超过3000家酒吧、俱乐部和餐厅。"
+    },
+    {
+      "index": 28,
+      "name": "Osaka Water Bureau",
+      "subtext": "大阪市水道局",
+      "funFact": "大阪的供水系统通过1895年建造的20公里水渠从琵琶湖取水，每天为超过270万居民提供清洁饮用水。"
+    },
+    {
+      "index": 29,
+      "name": "Abeno Harukas",
+      "subtext": "阿倍野海阔天空大厦",
+      "funFact": "阿倍野海阔天空大厦高300米，2014年建成至2023年一直是日本最高的摩天大楼，设有美术馆、酒店和观景台。"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": "去监狱",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Expo Park",
+      "subtext": "万博纪念公园",
+      "funFact": "1970年亚洲首届世博会举办地，吸引了6400万游客！冈本太郎设计的标志性太阳之塔高70米，至今仍矗立。"
+    },
+    {
+      "index": 32,
+      "name": "Minoh Falls",
+      "subtext": "箕面瀑布",
+      "funFact": "箕面瀑布落差33米，是日本百大瀑布之一，以壮观的秋叶和枫叶天妇罗闻名。"
+    },
+    {
+      "index": 33,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Sakai",
+      "subtext": "堺",
+      "funFact": "堺市拥有世界上最大的前方后圆坟大仙古坟，全长486米，建于5世纪，为仁德天皇所建。"
+    },
+    {
+      "index": 35,
+      "name": "Keihan Line",
+      "subtext": "京阪本线",
+      "funFact": "京阪线自1910年以来连接大阪和京都，在49.3公里的主线上运行高端双层列车。"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Grand Front",
+      "subtext": "大阪格兰前",
+      "funFact": "大阪格兰前于2013年作为梅田北庭大规模再开发项目的一部分开业，拥有266家商铺、知识中心和洲际酒店。"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Kita",
+      "subtext": "北区",
+      "funFact": "北区是大阪北部的商业中心，大阪站城每日服务超过250万名乘客。"
+    }
+  ]
+}

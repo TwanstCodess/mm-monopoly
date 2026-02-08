@@ -1,43 +1,84 @@
 import 'package:flutter/material.dart';
 import '../models/tile.dart';
 import '../models/country.dart';
+import '../models/city_board.dart';
 import '../models/board_theme.dart';
 import '../services/game_content_loader.dart';
+import 'city_board_registry.dart';
 import 'board_configs/classic_board.dart';
 import 'board_configs/uk_board.dart';
 import 'board_configs/japan_board.dart';
 import 'board_configs/france_board.dart';
 import 'board_configs/china_board.dart';
 import 'board_configs/mexico_board.dart';
+import 'board_configs/new_york_board.dart';
+import 'board_configs/los_angeles_board.dart';
+import 'board_configs/edinburgh_board.dart';
+import 'board_configs/manchester_board.dart';
+import 'board_configs/lyon_board.dart';
+import 'board_configs/marseille_board.dart';
+import 'board_configs/osaka_board.dart';
+import 'board_configs/kyoto_board.dart';
+import 'board_configs/shanghai_board.dart';
+import 'board_configs/hong_kong_board.dart';
+import 'board_configs/guadalajara_board.dart';
+import 'board_configs/cancun_board.dart';
 
-/// Factory class to generate board tiles and themes based on selected country
+/// Factory class to generate board tiles and themes based on selected city board
 class BoardFactory {
-  /// Generate tiles for the specified country (sync, uses default English text)
-  static List<TileData> generateTiles(Country country) {
-    switch (country) {
-      case Country.usa:
+  /// Generate tiles for the specified city board (sync, uses default English text)
+  static List<TileData> generateTiles(CityBoard cityBoard) {
+    switch (cityBoard.boardId) {
+      // Existing defaults
+      case 'usa':
         return ClassicBoard.generateTiles();
-      case Country.uk:
+      case 'uk':
         return UKBoard.generateTiles();
-      case Country.japan:
+      case 'japan':
         return JapanBoard.generateTiles();
-      case Country.france:
+      case 'france':
         return FranceBoard.generateTiles();
-      case Country.china:
+      case 'china':
         return ChinaBoard.generateTiles();
-      case Country.mexico:
+      case 'mexico':
         return MexicoBoard.generateTiles();
+      // New city boards
+      case 'usa_new_york':
+        return NewYorkBoard.generateTiles();
+      case 'usa_los_angeles':
+        return LosAngelesBoard.generateTiles();
+      case 'uk_edinburgh':
+        return EdinburghBoard.generateTiles();
+      case 'uk_manchester':
+        return ManchesterBoard.generateTiles();
+      case 'france_lyon':
+        return LyonBoard.generateTiles();
+      case 'france_marseille':
+        return MarseilleBoard.generateTiles();
+      case 'japan_osaka':
+        return OsakaBoard.generateTiles();
+      case 'japan_kyoto':
+        return KyotoBoard.generateTiles();
+      case 'china_shanghai':
+        return ShanghaiBoard.generateTiles();
+      case 'china_hong_kong':
+        return HongKongBoard.generateTiles();
+      case 'mexico_guadalajara':
+        return GuadalajaraBoard.generateTiles();
+      case 'mexico_cancun':
+        return CancunBoard.generateTiles();
+      default:
+        return ClassicBoard.generateTiles();
     }
   }
 
   /// Generate tiles with localized text overlays from JSON
-  static Future<List<TileData>> generateLocalizedTiles(Country country, Locale locale) async {
+  static Future<List<TileData>> generateLocalizedTiles(CityBoard cityBoard, Locale locale) async {
     // Get the base tiles (structural data: prices, rents, colors)
-    final tiles = generateTiles(country);
+    final tiles = generateTiles(cityBoard);
 
-    // Load localized text overlays
-    final boardId = country.name; // usa, uk, japan, france, china, mexico
-    final overlays = await GameContentLoader.instance.loadBoardTiles(boardId, locale);
+    // Load localized text overlays using the boardId
+    final overlays = await GameContentLoader.instance.loadBoardTiles(cityBoard.boardId, locale);
 
     if (overlays.isEmpty) return tiles;
 
@@ -114,44 +155,101 @@ class BoardFactory {
     return tile;
   }
 
-  /// Get property groups for the specified country
-  static Map<String, List<int>> getPropertyGroups(Country country) {
-    switch (country) {
-      case Country.usa:
+  /// Get property groups for the specified city board
+  static Map<String, List<int>> getPropertyGroups(CityBoard cityBoard) {
+    switch (cityBoard.boardId) {
+      case 'usa':
         return ClassicBoard.propertyGroups;
-      case Country.uk:
+      case 'uk':
         return UKBoard.propertyGroups;
-      case Country.japan:
+      case 'japan':
         return JapanBoard.propertyGroups;
-      case Country.france:
+      case 'france':
         return FranceBoard.propertyGroups;
-      case Country.china:
+      case 'china':
         return ChinaBoard.propertyGroups;
-      case Country.mexico:
+      case 'mexico':
         return MexicoBoard.propertyGroups;
+      case 'usa_new_york':
+        return NewYorkBoard.propertyGroups;
+      case 'usa_los_angeles':
+        return LosAngelesBoard.propertyGroups;
+      case 'uk_edinburgh':
+        return EdinburghBoard.propertyGroups;
+      case 'uk_manchester':
+        return ManchesterBoard.propertyGroups;
+      case 'france_lyon':
+        return LyonBoard.propertyGroups;
+      case 'france_marseille':
+        return MarseilleBoard.propertyGroups;
+      case 'japan_osaka':
+        return OsakaBoard.propertyGroups;
+      case 'japan_kyoto':
+        return KyotoBoard.propertyGroups;
+      case 'china_shanghai':
+        return ShanghaiBoard.propertyGroups;
+      case 'china_hong_kong':
+        return HongKongBoard.propertyGroups;
+      case 'mexico_guadalajara':
+        return GuadalajaraBoard.propertyGroups;
+      case 'mexico_cancun':
+        return CancunBoard.propertyGroups;
+      default:
+        return ClassicBoard.propertyGroups;
     }
   }
 
-  /// Get railroad positions for the specified country
-  static List<int> getRailroadPositions(Country country) {
-    switch (country) {
-      case Country.usa:
+  /// Get railroad positions for the specified city board
+  static List<int> getRailroadPositions(CityBoard cityBoard) {
+    switch (cityBoard.boardId) {
+      case 'usa':
         return ClassicBoard.railroadPositions;
-      case Country.uk:
+      case 'uk':
         return UKBoard.railroadPositions;
-      case Country.japan:
+      case 'japan':
         return JapanBoard.railroadPositions;
-      case Country.france:
+      case 'france':
         return FranceBoard.railroadPositions;
-      case Country.china:
+      case 'china':
         return ChinaBoard.railroadPositions;
-      case Country.mexico:
+      case 'mexico':
         return MexicoBoard.railroadPositions;
+      case 'usa_new_york':
+        return NewYorkBoard.railroadPositions;
+      case 'usa_los_angeles':
+        return LosAngelesBoard.railroadPositions;
+      case 'uk_edinburgh':
+        return EdinburghBoard.railroadPositions;
+      case 'uk_manchester':
+        return ManchesterBoard.railroadPositions;
+      case 'france_lyon':
+        return LyonBoard.railroadPositions;
+      case 'france_marseille':
+        return MarseilleBoard.railroadPositions;
+      case 'japan_osaka':
+        return OsakaBoard.railroadPositions;
+      case 'japan_kyoto':
+        return KyotoBoard.railroadPositions;
+      case 'china_shanghai':
+        return ShanghaiBoard.railroadPositions;
+      case 'china_hong_kong':
+        return HongKongBoard.railroadPositions;
+      case 'mexico_guadalajara':
+        return GuadalajaraBoard.railroadPositions;
+      case 'mexico_cancun':
+        return CancunBoard.railroadPositions;
+      default:
+        return ClassicBoard.railroadPositions;
     }
+  }
+
+  /// Get board theme for the specified city board (cities share country theme)
+  static BoardTheme getThemeForCityBoard(CityBoard cityBoard) {
+    return _getCountryTheme(cityBoard.country);
   }
 
   /// Get board theme for the specified country
-  static BoardTheme getTheme(Country country) {
+  static BoardTheme _getCountryTheme(Country country) {
     switch (country) {
       case Country.usa:
         return BoardThemes.usa;

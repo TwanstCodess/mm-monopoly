@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "收取200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Grassmarket",
+      "subtext": "草市场",
+      "funFact": "曾是爱丁堡的主要市场和公开处刑场所，草市场自15世纪以来就是繁忙的贸易中心。"
+    },
+    {
+      "index": 2,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Portobello",
+      "subtext": "波多贝洛",
+      "funFact": "爱丁堡的海滨郊区以一间名为波多贝洛的水手小屋命名，灵感来自1739年英国攻占巴拿马波托韦洛的战役。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Edinburgh Waverley",
+      "subtext": "爱丁堡韦弗利站",
+      "funFact": "爱丁堡韦弗利站是英国站台数第二多的火车站，也是唯一以小说命名的主要车站，源自沃尔特·司各特的《韦弗利》。"
+    },
+    {
+      "index": 6,
+      "name": "Leith",
+      "subtext": "利斯",
+      "funFact": "爱丁堡的历史港区在1920年前一直是独立自治市，现在是女王前水上宫殿“不列颠尼亚号“皇家游艇的所在地。"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Stockbridge",
+      "subtext": "斯托克布里奇",
+      "funFact": "这个位于爱丁堡城中的迷人村庄名称源自曾横跨利斯河的木制栈桥，每周日举办热门农贸市场。"
+    },
+    {
+      "index": 9,
+      "name": "Bruntsfield",
+      "subtext": "布朗茨菲尔德",
+      "funFact": "布朗茨菲尔德林克斯是世界上最古老的高尔夫球场之一，早在1456年就有高尔夫运动的记载。"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "监狱",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "New Town",
+      "subtext": "新城",
+      "funFact": "爱丁堡新城是乔治时代城市规划的杰作，由詹姆斯·克雷格于1767年设计，现为联合国教科文组织世界遗产。"
+    },
+    {
+      "index": 12,
+      "name": "Scottish Power",
+      "subtext": "苏格兰电力",
+      "funFact": "苏格兰产生的风能足以为每户苏格兰家庭供电两次，使其成为欧洲可再生能源的领导者。"
+    },
+    {
+      "index": 13,
+      "name": "Marchmont",
+      "subtext": "马奇蒙特",
+      "funFact": "建于19世纪70年代，为爱丁堡不断壮大的中产阶级提供公寓住宅，以红色砂岩维多利亚式公寓和大学生群体闻名。"
+    },
+    {
+      "index": 14,
+      "name": "Morningside",
+      "subtext": "晨边区",
+      "funFact": "以优雅口音和高雅格调著称，晨边区曾是一个独立村庄，据说是《辛普森一家》中虚构郊区斯普林菲尔德的灵感来源。"
+    },
+    {
+      "index": 15,
+      "name": "Haymarket Station",
+      "subtext": "干草市场站",
+      "funFact": "干草市场站于1842年开通，位于爱丁堡最后一次公开处刑地点附近，同时毗邻著名的干草市场大钟。"
+    },
+    {
+      "index": 16,
+      "name": "Dean Village",
+      "subtext": "院长村",
+      "funFact": "这个沿利斯河而建的风景如画的中世纪村庄曾拥有70多座谷物磨坊，如今是爱丁堡最受摄影师青睐的地点之一。"
+    },
+    {
+      "index": 17,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Haymarket",
+      "subtext": "干草市场",
+      "funFact": "干草市场区域有著名的“米德洛锡安之心“人行道马赛克，自维多利亚时代铁路时期以来一直是重要交通枢纽。"
+    },
+    {
+      "index": 19,
+      "name": "Murrayfield",
+      "subtext": "默里菲尔德",
+      "funFact": "自1925年以来一直是苏格兰国家橄榄球体育场所在地，默里菲尔德可容纳67144名观众，是英国首座安装地下加热系统的体育场。"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": "幸运转盘",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Calton Hill",
+      "subtext": "卡尔顿山",
+      "funFact": "卡尔顿山上未完工的国家纪念碑始建于1826年以纪念拿破仑战争阵亡将士，为爱丁堡赢得了“北方雅典“的美誉。"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Holyrood",
+      "subtext": "荷里路德",
+      "funFact": "荷里路德宫自16世纪以来一直是英国王室在苏格兰的官方居所，也是苏格兰女王玛丽的故居。"
+    },
+    {
+      "index": 24,
+      "name": "Arthur's Seat",
+      "subtext": "亚瑟王座",
+      "funFact": "这座古老火山海拔251米，约有3.4亿年历史，被认为可能是传说中卡梅洛特的灵感来源之一。"
+    },
+    {
+      "index": 25,
+      "name": "South Gyle",
+      "subtext": "南盖尔站",
+      "funFact": "南盖尔站服务于爱丁堡西部商业区和盖尔购物中心，连接城市通往法夫和福斯桥。"
+    },
+    {
+      "index": 26,
+      "name": "Princes Street",
+      "subtext": "王子街",
+      "funFact": "爱丁堡的主要购物大道只有一侧有建筑，可以无遮挡地眺望老城、爱丁堡城堡和司各特纪念碑。"
+    },
+    {
+      "index": 27,
+      "name": "George Street",
+      "subtext": "乔治街",
+      "funFact": "以乔治三世国王命名，这条优雅的新城街道最初设计为主要住宅街道，如今汇聚高端酒吧和餐厅。"
+    },
+    {
+      "index": 28,
+      "name": "Scottish Water",
+      "subtext": "苏格兰水务",
+      "funFact": "苏格兰水务每天向540万客户供应14.6亿升饮用水，水源来自欧洲最纯净的水库。"
+    },
+    {
+      "index": 29,
+      "name": "Heriot Row",
+      "subtext": "赫里奥特街",
+      "funFact": "这个著名的新城地址曾是罗伯特·路易斯·史蒂文森的故居，他在赫里奥特街17号写下了《金银岛》。"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": "去监狱",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Scott Monument",
+      "subtext": "司各特纪念碑",
+      "funFact": "司各特纪念碑高61米，是世界上最大的作家纪念碑，287级台阶可登顶俯瞰爱丁堡全景。"
+    },
+    {
+      "index": 32,
+      "name": "St Giles Cathedral",
+      "subtext": "圣吉尔斯大教堂",
+      "funFact": "爱丁堡高等教堂可追溯至12世纪，其独特的皇冠尖塔建于1495年，已成为城市的标志性象征。"
+    },
+    {
+      "index": 33,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Cramond",
+      "subtext": "克拉蒙德",
+      "funFact": "克拉蒙德曾是公元142年的罗马堡垒定居点，1997年在阿尔蒙德河中发现了一尊珍贵的罗马母狮吞噬囚犯雕塑。"
+    },
+    {
+      "index": 35,
+      "name": "Edinburgh Park",
+      "subtext": "爱丁堡公园站",
+      "funFact": "爱丁堡公园站服务于苏格兰最大的商业园区，被设计为爱丁堡门户与有轨电车服务的关键换乘站。"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Royal Mile",
+      "subtext": "皇家英里",
+      "funFact": "皇家英里从爱丁堡城堡延伸到荷里路德宫，恰好一苏格兰英里长，包含80多条狭窄的巷道和小巷。"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Edinburgh Castle",
+      "subtext": "爱丁堡城堡",
+      "funFact": "爱丁堡城堡矗立在一座死火山岩顶上，自12世纪以来一直是皇家居所，收藏着苏格兰皇冠珠宝——英国最古老的王权标志。"
+    }
+  ]
+}

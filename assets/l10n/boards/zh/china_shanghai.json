@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "收取200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Tianzifang",
+      "subtext": "田子坊",
+      "funFact": "田子坊是一片由20世纪30年代石库门住宅区狭窄弄堂组成的迷宫，现有200多家小型艺术工作室、精品店和咖啡馆。"
+    },
+    {
+      "index": 2,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Old City",
+      "subtext": "老城厢",
+      "funFact": "老城厢曾被1553年为抵御日本海盗而建的环形城墙包围，其轮廓至今仍可从街道布局中追溯。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Metro Line 1",
+      "subtext": "地铁1号线",
+      "funFact": "上海地铁1号线于1995年开通，是上海第一条地铁线路，全长36.9公里，从富锦路到莘庄。"
+    },
+    {
+      "index": 6,
+      "name": "People's Square",
+      "subtext": "人民广场",
+      "funFact": "人民广场前身是1862年英国人建造的上海跑马场，1949年后改建为公共公园。"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Jing'an Temple",
+      "subtext": "静安寺",
+      "funFact": "静安寺始建于公元247年三国时期，是上海最古老的寺庙之一，已有1700多年历史。"
+    },
+    {
+      "index": 9,
+      "name": "Xintiandi",
+      "subtext": "新天地",
+      "funFact": "新天地是传统石库门建筑的精湛修复，改造为高端餐饮娱乐区，同时也是中国共产党第一次全国代表大会会址所在地。"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "监狱",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Yu Garden",
+      "subtext": "豫园",
+      "funFact": "豫园建于1559年，由一位明朝官员为年迈的父亲所建；“豫“意为“愉悦“，园林占地2公顷多，拥有精美的假山和亭台。"
+    },
+    {
+      "index": 12,
+      "name": "State Grid Shanghai",
+      "subtext": "国家电网上海",
+      "funFact": "国家电网上海公司为超过2400万居民供电，夏季用电高峰负荷超过3400万千瓦。"
+    },
+    {
+      "index": 13,
+      "name": "Nanjing Road",
+      "subtext": "南京路",
+      "funFact": "南京路绵延5.5公里，是世界上最繁忙的购物街之一，高峰日吸引超过100万游客。"
+    },
+    {
+      "index": 14,
+      "name": "The Bund",
+      "subtext": "外滩",
+      "funFact": "外滩拥有52栋融合哥特式、巴洛克式、罗马式和装饰艺术风格的建筑，被誉为“万国建筑博览群“。"
+    },
+    {
+      "index": 15,
+      "name": "Metro Line 2",
+      "subtext": "地铁2号线",
+      "funFact": "地铁2号线连接浦东国际机场和虹桥机场，全长64公里横贯城市东西。"
+    },
+    {
+      "index": 16,
+      "name": "French Concession",
+      "subtext": "法租界",
+      "funFact": "法租界建于1849年，以从法国引进的百年梧桐树林荫大道闻名。"
+    },
+    {
+      "index": 17,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Huangpu River",
+      "subtext": "黄浦江",
+      "funFact": "黄浦江全长113公里，将上海分为浦西和浦东；其名意为“黄色河岸之河“，在吴淞口汇入长江。"
+    },
+    {
+      "index": 19,
+      "name": "Oriental Pearl",
+      "subtext": "东方明珠",
+      "funFact": "东方明珠塔高468米，1994年建成时是中国最高建筑；259米处的玻璃地板观景台可直视脚下，令人惊叹。"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": "幸运转盘",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Shanghai Tower",
+      "subtext": "上海中心",
+      "funFact": "上海中心大厦是中国最高建筑，世界第三高，高632米，共127层，拥有561米处的世界最高观景台。"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Lujiazui",
+      "subtext": "陆家嘴",
+      "funFact": "陆家嘴是唯一以人命名的国家级金融区；“陆家嘴“指曾住在黄浦江这个弯道处的陆氏家族。"
+    },
+    {
+      "index": 24,
+      "name": "Pudong",
+      "subtext": "浦东",
+      "funFact": "1990年前浦东大部分还是农田；当时有句俗话“宁要浦西一张床，不要浦东一间房“，如今这里矗立着中国最高的摩天大楼和最繁忙的金融区。"
+    },
+    {
+      "index": 25,
+      "name": "Maglev Train",
+      "subtext": "磁悬浮列车",
+      "funFact": "上海磁悬浮列车最高时速431公里，30公里的浦东机场到龙阳路仅需7分20秒。"
+    },
+    {
+      "index": 26,
+      "name": "Zhujiajiao",
+      "subtext": "朱家角",
+      "funFact": "朱家角是一座1700年历史的水乡，有36座古石桥；其放生桥建于1571年，是上海地区最长最高的石桥。"
+    },
+    {
+      "index": 27,
+      "name": "Longhua Temple",
+      "subtext": "龙华寺",
+      "funFact": "龙华寺是上海最古老、最大的寺庙建筑群，始建于公元242年；其七层宝塔略有倾斜，从未对公众开放。"
+    },
+    {
+      "index": 28,
+      "name": "Shanghai Water",
+      "subtext": "上海水务",
+      "funFact": "上海水务每天供应超过730万立方米自来水，主要水源来自长江口长兴岛上的青草沙水库。"
+    },
+    {
+      "index": 29,
+      "name": "Jade Buddha",
+      "subtext": "玉佛寺",
+      "funFact": "玉佛禅寺供奉着1882年从缅甸请来的两尊玉佛像；坐佛高1.95米，镶嵌着宝石。"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": "去监狱",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Hongqiao",
+      "subtext": "虹桥",
+      "funFact": "虹桥综合交通枢纽是亚洲最大的交通枢纽之一，将机场、高铁站、地铁和公交融于一体，每日服务超过30万名旅客。"
+    },
+    {
+      "index": 32,
+      "name": "Hengshan Road",
+      "subtext": "衡山路",
+      "funFact": "衡山路两旁是百年梧桐树和20世纪20年代的欧式优雅别墅，曾是外国外交官和上海富裕家庭的居所。"
+    },
+    {
+      "index": 33,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "World Financial Center",
+      "subtext": "环球金融中心",
+      "funFact": "上海环球金融中心高492米，顶部独特的梯形开口使其被当地人昵称为“开瓶器“。"
+    },
+    {
+      "index": 35,
+      "name": "Metro Line 10",
+      "subtext": "地铁10号线",
+      "funFact": "地铁10号线于2010年开通时是上海首条无人驾驶地铁线路，在41个车站运行全自动列车。"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Jin Mao Tower",
+      "subtext": "金茂大厦",
+      "funFact": "金茂大厦高420.5米共88层，其设计基于吉祥数字8：建筑以八分之一的比例逐级递缩，呈现宝塔般的轮廓。"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Disneyland",
+      "subtext": "迪士尼",
+      "funFact": "上海迪士尼乐园于2016年开园，拥有迪士尼有史以来最大的城堡——奇幻童话城堡，高60米，内设互动式步行体验。"
+    }
+  ]
+}

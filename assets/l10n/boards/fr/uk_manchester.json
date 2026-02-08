@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "DÉPART",
+      "subtext": "RECEVEZ 200 £",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Northern Quarter",
+      "subtext": null,
+      "funFact": "Le quartier créatif de Manchester était autrefois le district de la confection. Ses entrepôts en briques rouges abritent désormais des boutiques indépendantes, du street art et plus de 30 disquaires."
+    },
+    {
+      "index": 2,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Ancoats",
+      "subtext": null,
+      "funFact": "Surnommé « Little Italy » au début des années 1900 en raison de sa communauté d'immigrants italiens, Ancoats est considéré comme la première banlieue industrielle au monde, construite dans les années 1790."
+    },
+    {
+      "index": 4,
+      "name": "Impôt sur le Revenu",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Piccadilly Station",
+      "subtext": null,
+      "funFact": "Manchester Piccadilly est la gare la plus fréquentée du Royaume-Uni hors de Londres, accueillant plus de 32 millions de passagers par an sur ses 14 quais."
+    },
+    {
+      "index": 6,
+      "name": "Castlefield",
+      "subtext": null,
+      "funFact": "Site du fort romain Mamucium fondé en 79 après J.-C., d'où Manchester tire son nom. Il contient également le terminus du premier canal industriel au monde."
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Salford Quays",
+      "subtext": null,
+      "funFact": "Autrefois le port intérieur le plus actif de Grande-Bretagne, Salford Quays a été transformé de docks délabrés en un front de mer culturel abritant le théâtre The Lowry et l'Imperial War Museum North."
+    },
+    {
+      "index": 9,
+      "name": "MediaCityUK",
+      "subtext": null,
+      "funFact": "Ce développement de 80 hectares à Salford Quays est devenu le nouveau siège nord de la BBC en 2011 et abrite aussi les Studios ITV, en faisant le plus grand pôle médiatique du Royaume-Uni hors de Londres."
+    },
+    {
+      "index": 10,
+      "name": "PRISON",
+      "subtext": "EN VISITE",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Deansgate",
+      "subtext": null,
+      "funFact": "L'une des rues les plus longues et anciennes de Manchester, Deansgate suit le tracé d'une voie romaine et s'étend sur plus d'un mile de la cathédrale à Knott Mill."
+    },
+    {
+      "index": 12,
+      "name": "Electricity North West",
+      "subtext": null,
+      "funFact": "Electricity North West exploite 13 000 kilomètres de lignes aériennes et de câbles souterrains, fournissant de l'électricité à 2,4 millions de foyers et d'entreprises dans le Nord-Ouest."
+    },
+    {
+      "index": 13,
+      "name": "Didsbury",
+      "subtext": null,
+      "funFact": "Cette banlieue verdoyante du sud de Manchester a été le lieu d'enfance des Bee Gees. Son atmosphère villageoise comprend des parcs victoriens et l'un des plus anciens pubs de Manchester."
+    },
+    {
+      "index": 14,
+      "name": "Chorlton",
+      "subtext": null,
+      "funFact": "Chorlton-cum-Hardy est célèbre pour sa culture bohème et sa scène gastronomique indépendante. Le Chorlton Water Park voisin a été créé à partir de gravières inondées dans les années 1970."
+    },
+    {
+      "index": 15,
+      "name": "Victoria Station",
+      "subtext": null,
+      "funFact": "Manchester Victoria a ouvert en 1844 et possède le plus long quai de gare du Royaume-Uni avec 693 mètres. Elle a été gravement endommagée par l'attentat de l'IRA en 1996 et entièrement restaurée en 2015."
+    },
+    {
+      "index": 16,
+      "name": "Old Trafford",
+      "subtext": null,
+      "funFact": "Siège du « Théâtre des Rêves » de Manchester United depuis 1910, le stade d'Old Trafford accueille 74 310 spectateurs et est le plus grand stade de football de club au Royaume-Uni."
+    },
+    {
+      "index": 17,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Etihad Campus",
+      "subtext": null,
+      "funFact": "L'Etihad Campus s'étend sur 32 hectares dans l'est de Manchester, centré sur le stade construit pour les Jeux du Commonwealth de 2002 et désormais domicile de Manchester City Football Club."
+    },
+    {
+      "index": 19,
+      "name": "Piccadilly Gardens",
+      "subtext": null,
+      "funFact": "Autrefois site du Manchester Royal Infirmary, Piccadilly Gardens est la principale place publique de la ville depuis 1853 et l'arrêt de tramway Metrolink le plus fréquenté du réseau."
+    },
+    {
+      "index": 20,
+      "name": "ROUE DE LA CHANCE",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Spinningfields",
+      "subtext": null,
+      "funFact": "Le premier quartier d'affaires de Manchester tire son nom d'une communauté médiévale de filage et de tissage. Il abrite désormais le Civil Justice Centre, l'un des bâtiments judiciaires les plus remarquables d'Europe."
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "King Street",
+      "subtext": null,
+      "funFact": "La rue la plus élégante de Manchester présente une architecture remarquable de toutes les époques, dont l'ancien Reform Club où le mouvement des suffragettes a tenu ses premières réunions."
+    },
+    {
+      "index": 24,
+      "name": "Exchange Square",
+      "subtext": null,
+      "funFact": "Entièrement reconstruite après le dévastateur attentat de l'IRA en 1996, Exchange Square est devenue la pièce maîtresse du renouveau urbain de Manchester et accueille les marchés de Noël annuels."
+    },
+    {
+      "index": 25,
+      "name": "Oxford Road Station",
+      "subtext": null,
+      "funFact": "Manchester Oxford Road est l'une des gares les plus fréquentées du Royaume-Uni avec un train toutes les 20 secondes aux heures de pointe, desservant le corridor universitaire de 100 000 étudiants."
+    },
+    {
+      "index": 26,
+      "name": "Albert Square",
+      "subtext": null,
+      "funFact": "Dominée par le magnifique hôtel de ville néo-gothique conçu par Alfred Waterhouse en 1877, Albert Square abrite l'Albert Memorial, antérieur à la version londonienne plus célèbre."
+    },
+    {
+      "index": 27,
+      "name": "St Ann's Square",
+      "subtext": null,
+      "funFact": "Nommée d'après l'église Sainte-Anne du XVIIIe siècle, cette élégante place est devenue un puissant lieu de mémoire après l'attentat de Manchester Arena en 2017, avec des fleurs recouvrant tout l'espace."
+    },
+    {
+      "index": 28,
+      "name": "United Utilities",
+      "subtext": null,
+      "funFact": "United Utilities gère l'approvisionnement en eau de sept millions de personnes dans le Nord-Ouest, exploitant l'aqueduc de Thirlmere qui achemine l'eau du Lake District sur 154 kilomètres jusqu'à Manchester."
+    },
+    {
+      "index": 29,
+      "name": "Musée des Sciences",
+      "subtext": null,
+      "funFact": "Installé dans la plus ancienne gare de voyageurs au monde encore existante, le Musée des sciences et de l'industrie célèbre le rôle de Manchester comme berceau de la Révolution industrielle."
+    },
+    {
+      "index": 30,
+      "name": "ALLEZ EN PRISON",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Whitworth",
+      "subtext": null,
+      "funFact": "La galerie Whitworth abrite plus de 60 000 œuvres d'art dont des pièces de Turner et Hockney. Son extension primée de 2015 présente des murs en briques récupérées."
+    },
+    {
+      "index": 32,
+      "name": "John Rylands",
+      "subtext": null,
+      "funFact": "La bibliothèque John Rylands sur Deansgate est un magnifique chef-d'œuvre néo-gothique ouvert en 1900. Elle conserve le plus ancien fragment connu du Nouveau Testament, un papyrus datant de 125 après J.-C."
+    },
+    {
+      "index": 33,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Victoria Baths",
+      "subtext": null,
+      "funFact": "Ouvertes en 1906 et surnommées « un palais d'eau dont Manchester peut être fière », les Victoria Baths ont remporté la première édition de l'émission Restoration de la BBC en 2003."
+    },
+    {
+      "index": 35,
+      "name": "Deansgate Station",
+      "subtext": null,
+      "funFact": "La gare de Deansgate se trouve sous le Great Northern Warehouse, un ancien dépôt de marchandises ferroviaires construit en 1899, aujourd'hui transformé en complexe de loisirs et de divertissement."
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Beetham Tower",
+      "subtext": null,
+      "funFact": "Avec 168 mètres de haut, la Beetham Tower était le plus haut bâtiment du Royaume-Uni hors de Londres lors de son achèvement en 2006. Sa lame de verre distinctive au sommet bourdonne par vents forts."
+    },
+    {
+      "index": 38,
+      "name": "Taxe de Luxe",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Midland Hotel",
+      "subtext": null,
+      "funFact": "Ce grand hôtel baroque édouardien a ouvert en 1903 et c'est là que Charles Rolls a rencontré Henry Royce en 1904, menant à la fondation de Rolls-Royce, l'une des marques les plus emblématiques au monde."
+    }
+  ]
+}

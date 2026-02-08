@@ -508,5 +508,25 @@
   "countryFrance": "法国",
   "countryJapan": "日本",
   "countryChina": "中国",
-  "countryMexico": "墨西哥"
+  "countryMexico": "墨西哥",
+
+  "chooseCity": "选择城市",
+  "cityAtlanticCity": "大西洋城",
+  "cityNewYork": "纽约",
+  "cityLosAngeles": "洛杉矶",
+  "cityLondon": "伦敦",
+  "cityEdinburgh": "爱丁堡",
+  "cityManchester": "曼彻斯特",
+  "cityParis": "巴黎",
+  "cityLyon": "里昂",
+  "cityMarseille": "马赛",
+  "cityTokyo": "东京",
+  "cityOsaka": "大阪",
+  "cityKyoto": "京都",
+  "cityBeijing": "北京",
+  "cityShanghai": "上海",
+  "cityHongKong": "香港",
+  "cityMexicoCity": "墨西哥城",
+  "cityGuadalajara": "瓜达拉哈拉",
+  "cityCancun": "坎昆"
 }

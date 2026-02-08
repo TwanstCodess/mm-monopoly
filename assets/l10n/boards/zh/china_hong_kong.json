@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "收取200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Sham Shui Po",
+      "subtext": "深水埗",
+      "funFact": "深水埗是香港最古老的街区之一，以鸭寮街电子市场和基隆街布料店闻名，可追溯到20世纪40年代。"
+    },
+    {
+      "index": 2,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Mong Kok",
+      "subtext": "旺角",
+      "funFact": "旺角保持着吉尼斯世界纪录中有记录以来最高的人口密度，高峰时期每平方公里超过13万人。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "MTR Island Line",
+      "subtext": "港铁港岛线",
+      "funFact": "港铁港岛线于1985年开通，完全在香港岛运行，从坚尼地城连接至柴湾共17个车站。"
+    },
+    {
+      "index": 6,
+      "name": "Tsim Sha Tsui",
+      "subtext": "尖沙咀",
+      "funFact": "尖沙咀海滨长廊可欣赏维多利亚港的标志性景色，1915年建造的钟楼是九广铁路旧总站唯一留存的建筑。"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Yau Ma Tei",
+      "subtext": "油麻地",
+      "funFact": "油麻地在粤语中意为“种芝麻的地方“，建于1870年左右的天后庙群是九龙最古老的庙宇群之一。"
+    },
+    {
+      "index": 9,
+      "name": "Jordan",
+      "subtext": "佐敦",
+      "funFact": "佐敦以英国外交官约翰·佐敦爵士命名，以宁波街的深夜街头小吃摊闻名，已服务当地人超过50年。"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "监狱",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Temple Street",
+      "subtext": "庙街",
+      "funFact": "庙街夜市在晚上6点后活跃起来，300多个摊位出售从电子产品到翡翠的各类商品，算命先生和粤曲歌手在星空下表演。"
+    },
+    {
+      "index": 12,
+      "name": "CLP Power",
+      "subtext": "中华电力",
+      "funFact": "中华电力自1901年以来为九龙和新界供电，服务全港超过270万个客户账户。"
+    },
+    {
+      "index": 13,
+      "name": "Nathan Road",
+      "subtext": "弥敦道",
+      "funFact": "弥敦道贯穿九龙3.6公里，因密集的商铺、酒店和发光的霓虹招牌被称为“金一里“。"
+    },
+    {
+      "index": 14,
+      "name": "Victoria Peak",
+      "subtext": "太平山",
+      "funFact": "太平山海拔552米，在殖民时代只有总督和特选富人才被允许居住在山顶。"
+    },
+    {
+      "index": 15,
+      "name": "MTR Tsuen Wan Line",
+      "subtext": "港铁荃湾线",
+      "funFact": "荃湾线是1979年开通的第一条跨海铁路线，通过维多利亚港海底的沉管隧道连接港岛和九龙。"
+    },
+    {
+      "index": 16,
+      "name": "Central",
+      "subtext": "中环",
+      "funFact": "中环是香港的金融心脏，写字楼租金经常位居全球最高，超越曼哈顿和伦敦金融城。"
+    },
+    {
+      "index": 17,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Star Ferry",
+      "subtext": "天星小轮",
+      "funFact": "天星小轮自1888年以来横渡维多利亚港，被《国家地理》评为全球50个一生必到之地之一。单程票价不到5港币。"
+    },
+    {
+      "index": 19,
+      "name": "Wan Chai",
+      "subtext": "湾仔",
+      "funFact": "湾仔是香港会议展览中心的所在地，其独特的翼形屋顶延伸至海港上方，是1997年回归仪式的举办地。"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": "幸运转盘",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Happy Valley",
+      "subtext": "跑马地",
+      "funFact": "跑马地马场自1846年以来举办赛马，周围环绕高层公寓；周三晚上的灯光赛马可吸引多达55000名观众。"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Causeway Bay",
+      "subtext": "铜锣湾",
+      "funFact": "铜锣湾多次被评为全球最昂贵的零售区，年租金超过每平方英尺2600美元。"
+    },
+    {
+      "index": 24,
+      "name": "Aberdeen",
+      "subtext": "香港仔",
+      "funFact": "香港仔港口曾是数千名蜑家人一生居住在舢板上的家园；珍宝海鲜舫在关闭前接待了超过3000万名食客。"
+    },
+    {
+      "index": 25,
+      "name": "Peak Tram",
+      "subtext": "山顶缆车",
+      "funFact": "山顶缆车自1888年以来以27度的陡坡载客登上太平山，是世界上最古老、最陡峭的缆车之一。"
+    },
+    {
+      "index": 26,
+      "name": "Repulse Bay",
+      "subtext": "浅水湾",
+      "funFact": "浅水湾因1841年英国军舰“击退号“在此击退海盗而得名；其月牙形沙滩是香港最受欢迎的海滩之一。"
+    },
+    {
+      "index": 27,
+      "name": "Stanley",
+      "subtext": "赤柱",
+      "funFact": "赤柱是1941年日本入侵时英军最后防线的所在地，170年历史的殖民建筑美利楼从中环一砖一瓦地搬迁至此。"
+    },
+    {
+      "index": 28,
+      "name": "Water Supplies Dept",
+      "subtext": "水务署",
+      "funFact": "香港水务署管理17个蓄水水库，约70-80%的淡水通过专用管道系统从广东省东江引进。"
+    },
+    {
+      "index": 29,
+      "name": "Lan Kwai Fong",
+      "subtext": "兰桂坊",
+      "funFact": "兰桂坊是一条L形街道，短短几个街区内密集着90多家餐厅和酒吧，20世纪80年代由企业家盛智文从花市区改造而来。"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": "去监狱",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "IFC Mall",
+      "subtext": "国际金融中心",
+      "funFact": "国际金融中心综合体包括国际金融中心二期，高415米，2010年前一直是香港最高建筑；IFC商场的苹果零售店是香港首家。"
+    },
+    {
+      "index": 32,
+      "name": "Ocean Park",
+      "subtext": "海洋公园",
+      "funFact": "海洋公园于1977年开放，占地91.5公顷横跨山的两侧，1.5公里的缆车可俯瞰南中国海壮阔景色。"
+    },
+    {
+      "index": 33,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Hong Kong Park",
+      "subtext": "香港公园",
+      "funFact": "香港公园是闹市中心8公顷的绿洲，尤德观鸟园内有80种600多只鸟类栖息在巨型热带雨林步行网笼中。"
+    },
+    {
+      "index": 35,
+      "name": "Star Ferry Pier",
+      "subtext": "天星小轮码头",
+      "funFact": "中环天星码头自1957年以来一直是地标建筑，是这一标志性跨海渡轮服务的主要码头。"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "ICC Tower",
+      "subtext": "环球贸易广场",
+      "funFact": "环球贸易广场高484米共118层，100楼的天际100观景台是香港最高的室内观景点。"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "The Peak Tower",
+      "subtext": "凌霄阁",
+      "funFact": "凌霄阁由英国建筑师特里·法雷尔设计的锅形外观坐落于海拔396米处，天气晴朗时观景台可远眺60公里。"
+    }
+  ]
+}

@@ -10,7 +10,7 @@
       "index": 1,
       "name": "Asakusa",
       "subtext": "浅草",
-      "funFact": "Home to Senso-ji, Tokyo's oldest Buddhist temple built in 645 AD!"
+      "funFact": "Senso-ji, founded in 645 AD, is Tokyo's oldest temple and draws over 30 million visitors annually, making it Japan's most visited spiritual site."
     },
     {
       "index": 2,
@@ -22,7 +22,7 @@
       "index": 3,
       "name": "Ueno",
       "subtext": "上野",
-      "funFact": "Ueno Park has over 1,000 cherry blossom trees and is Tokyo's most popular hanami spot!"
+      "funFact": "Ueno Park, established in 1873 as one of Japan's first public parks, hosts over 1,000 cherry trees and contains four major national museums within its 53-hectare grounds."
     },
     {
       "index": 4,
@@ -34,13 +34,13 @@
       "index": 5,
       "name": "Yamanote Line",
       "subtext": "山手線",
-      "funFact": "The Yamanote Line completes a full loop around central Tokyo every 59-65 minutes, carrying 3.5 million passengers daily!"
+      "funFact": "Opened in 1885, the Yamanote Line's 30 stations form a 34.5 km loop carrying 3.5 million passengers daily, and its trains arrive with an average delay of just 18 seconds."
     },
     {
       "index": 6,
       "name": "Akihabara",
       "subtext": "秋葉原",
-      "funFact": "Known as \"Electric Town,\" Akihabara is the global center of anime, manga, and electronics culture!"
+      "funFact": "Akihabara's transformation from a postwar black market for radio parts in the 1940s to the global capital of otaku culture makes it home to over 250 electronics shops and maid cafes."
     },
     {
       "index": 7,
@@ -52,13 +52,13 @@
       "index": 8,
       "name": "Ikebukuro",
       "subtext": "池袋",
-      "funFact": "Ikebukuro Station is the world's second-busiest train station, serving over 2.7 million passengers daily!"
+      "funFact": "Ikebukuro Station, opened in 1903, serves 2.7 million passengers daily across 8 railway lines and features Sunshine City, built in 1978 on the former site of Sugamo Prison."
     },
     {
       "index": 9,
       "name": "Shinjuku",
       "subtext": "新宿",
-      "funFact": "Shinjuku Station is the busiest train station in the world with over 3.6 million daily passengers!"
+      "funFact": "Shinjuku Station holds the Guinness World Record as the busiest transport hub on Earth, with 3.6 million daily passengers navigating over 200 exits across 12 railway lines."
     },
     {
       "index": 10,
@@ -70,37 +70,37 @@
       "index": 11,
       "name": "Harajuku",
       "subtext": "原宿",
-      "funFact": "The epicenter of Tokyo's youth fashion culture! Takeshita Street attracts millions of trendsetting visitors."
+      "funFact": "Harajuku's 350-meter Takeshita Street, a fashion mecca since the 1970s, draws over 10,000 visitors on peak weekends and was where Japan's cosplay culture first took root in the 1990s."
     },
     {
       "index": 12,
       "name": "Tokyo Electric Power",
       "subtext": null,
-      "funFact": "TEPCO powers over 45 million people in the greater Tokyo area, one of the world's largest power grids!"
+      "funFact": "Founded in 1951, TEPCO supplies electricity to 45 million people across a 39,000 km² service area, generating roughly 290 billion kWh annually through one of the world's largest power grids."
     },
     {
       "index": 13,
       "name": "Omotesando",
       "subtext": "表参道",
-      "funFact": "Known as Tokyo's Champs-Élysées, lined with zelkova trees and flagship stores by world-renowned architects!"
+      "funFact": "Originally built in 1920 as the grand approach to Meiji Shrine, Omotesando's 1 km boulevard is now lined with architectural masterpieces by Tadao Ando, Toyo Ito, and SANAA."
     },
     {
       "index": 14,
       "name": "Odaiba",
       "subtext": "お台場",
-      "funFact": "Built on reclaimed land in Tokyo Bay, home to teamLab Borderless and a giant Gundam statue!"
+      "funFact": "Odaiba was originally built as cannon battery islands in 1853 to defend against Commodore Perry's fleet; today its 400+ hectares of reclaimed land feature a 19.7-meter life-size Gundam statue."
     },
     {
       "index": 15,
       "name": "Tokaido Shinkansen",
       "subtext": "東海道新幹線",
-      "funFact": "Japan's first bullet train line, connecting Tokyo to Osaka at speeds up to 285 km/h since 1964!"
+      "funFact": "Launched on October 1, 1964, just 9 days before the Tokyo Olympics, the Tokaido Shinkansen has carried over 10 billion passengers with zero fatalities in its 60+ year history."
     },
     {
       "index": 16,
       "name": "Roppongi",
       "subtext": "六本木",
-      "funFact": "Home to Roppongi Hills and Tokyo Midtown, featuring world-class art museums and nightlife!"
+      "funFact": "Roppongi means \"six trees\" in Japanese, named after six ancient zelkova trees that once stood here; today the area houses over 80 foreign embassies and a vibrant 24-hour entertainment district."
     },
     {
       "index": 17,
@@ -112,13 +112,13 @@
       "index": 18,
       "name": "Ebisu",
       "subtext": "恵比寿",
-      "funFact": "Named after Yebisu Beer, this upscale neighborhood is known for great restaurants and the Tokyo Photographic Art Museum!"
+      "funFact": "Ebisu is named after the Yebisu Beer brewery built here in 1890 by Japan Beer Brewery Co.; the station, streets, and even the district all took their name from this single beer brand."
     },
     {
       "index": 19,
       "name": "Shibuya",
       "subtext": "渋谷",
-      "funFact": "Shibuya Crossing is the world's busiest pedestrian intersection, with up to 3,000 people crossing at once!"
+      "funFact": "Shibuya Crossing sees up to 3,000 people crossing simultaneously during peak hours, and the nearby Hachiko statue commemorates the loyal Akita dog who waited for his owner at the station every day from 1925 to 1935."
     },
     {
       "index": 20,
@@ -130,7 +130,7 @@
       "index": 21,
       "name": "Tsukiji",
       "subtext": "築地",
-      "funFact": "The former site of the world's largest fish market, where a bluefin tuna once sold for $3.1 million!"
+      "funFact": "Tsukiji Market operated for 83 years (1935-2018) handling over 480 different types of seafood daily; in January 2019, a 278 kg bluefin tuna sold at the new Toyosu Market for a record $3.1 million."
     },
     {
       "index": 22,
@@ -142,43 +142,43 @@
       "index": 23,
       "name": "Ginza",
       "subtext": "銀座",
-      "funFact": "Tokyo's most luxurious shopping district! Land prices can reach $100,000 per square meter."
+      "funFact": "Ginza's name means \"silver mint,\" dating from 1612 when the Tokugawa shogunate established a silver coin mint here. Today its Chuo-dori becomes a pedestrian paradise every weekend since 1970."
     },
     {
       "index": 24,
       "name": "Tokyo Station",
       "subtext": "東京駅",
-      "funFact": "The beautifully restored 1914 red-brick station serves as the terminus for all Shinkansen lines!"
+      "funFact": "Designed by Tatsuno Kingo and opened on December 20, 1914, Tokyo Station's red-brick Marunouchi building survived WWII bombings and was fully restored to its original 3-story grandeur in 2012."
     },
     {
       "index": 25,
       "name": "Chuo Line",
       "subtext": "中央線",
-      "funFact": "The Chuo Rapid Line is one of Tokyo's most important commuter lines, recognizable by its orange trains!"
+      "funFact": "The Chuo Line, opened in 1889, runs 53.1 km from Tokyo to Takao and its distinctive orange trains were introduced in 1957 to help commuters quickly identify the rapid service."
     },
     {
       "index": 26,
       "name": "Marunouchi",
       "subtext": "丸の内",
-      "funFact": "Tokyo's premier business district, home to major corporations and facing the Imperial Palace!"
+      "funFact": "Marunouchi, meaning \"inside the circle\" of the Imperial Palace moat, was purchased entirely by Mitsubishi in 1890 for 1.5 million yen and transformed from a desolate field into Japan's Wall Street."
     },
     {
       "index": 27,
       "name": "Nihombashi",
       "subtext": "日本橋",
-      "funFact": "The historic commercial center of Tokyo, where the famous Nihombashi Bridge marks \"kilometer zero\" for Japan!"
+      "funFact": "The original wooden Nihombashi Bridge was built in 1603 and designated the official starting point of Japan's five major highways; the current stone bridge from 1911 still bears the bronze \"kilometer zero\" marker."
     },
     {
       "index": 28,
       "name": "Tokyo Gas",
       "subtext": null,
-      "funFact": "Founded in 1885, Tokyo Gas was one of Japan's first modern utility companies!"
+      "funFact": "Tokyo Gas, established on October 1, 1885, lit Tokyo's first gas streetlamps in Ginza and today serves over 12 million customers through a 66,000 km underground pipeline network."
     },
     {
       "index": 29,
       "name": "Roppongi Hills",
       "subtext": "六本木ヒルズ",
-      "funFact": "This massive urban complex includes the Mori Art Museum, luxury residences, and a 238-meter observation deck!"
+      "funFact": "Roppongi Hills took 17 years to develop and opened in 2003 as an 11.6-hectare \"city within a city,\" requiring the relocation of over 400 residents and the cooperation of 77 landowners."
     },
     {
       "index": 30,
@@ -190,13 +190,13 @@
       "index": 31,
       "name": "Aoyama",
       "subtext": "青山",
-      "funFact": "One of Tokyo's most fashionable neighborhoods, known for high-end boutiques and trendy cafes!"
+      "funFact": "Aoyama is named after a feudal lord whose estate was here during the Edo period (1603-1868); today its tree-lined avenues house the Nezu Museum, showcasing over 7,400 pre-modern art works."
     },
     {
       "index": 32,
       "name": "Azabu",
       "subtext": "麻布",
-      "funFact": "An exclusive residential area home to many embassies and international schools!"
+      "funFact": "Azabu has been an elite residential area since the Edo period and today hosts over 50 foreign embassies, earning it the nickname \"Embassy Row\" with some of Tokyo's highest per-capita income levels."
     },
     {
       "index": 33,
@@ -208,13 +208,13 @@
       "index": 34,
       "name": "Tokyo Tower",
       "subtext": "東京タワー",
-      "funFact": "Inspired by the Eiffel Tower, this 333-meter landmark has been Tokyo's symbol since 1958!"
+      "funFact": "Completed on December 23, 1958, Tokyo Tower stands exactly 333 meters tall (13 meters taller than the Eiffel Tower) and was built using steel partly recycled from American tanks from the Korean War."
     },
     {
       "index": 35,
       "name": "Sobu Line",
       "subtext": "総武線",
-      "funFact": "The Sobu Line connects Tokyo's eastern suburbs and carries over 1 million passengers daily!"
+      "funFact": "The Sobu Line, operational since 1894, stretches 120.5 km between Chiba and Mitaka, and its yellow-striped local trains are one of Tokyo's most recognizable commuter services."
     },
     {
       "index": 36,
@@ -226,7 +226,7 @@
       "index": 37,
       "name": "Akasaka",
       "subtext": "赤坂",
-      "funFact": "Home to the State Guest House and many high-end restaurants, including Michelin-starred establishments!"
+      "funFact": "Akasaka's State Guest House, built in 1909 as the Crown Prince's Palace, is Japan's only Neo-Baroque palace and hosted state dinners for leaders including U.S. presidents and European royalty."
     },
     {
       "index": 38,
@@ -238,7 +238,7 @@
       "index": 39,
       "name": "Tokyo Skytree",
       "subtext": "東京スカイツリー",
-      "funFact": "The world's tallest tower at 634 meters! The height represents \"Musashi,\" the historic name for Tokyo."
+      "funFact": "Opened on May 22, 2012, Tokyo Skytree stands 634 meters tall (a number that reads as \"mu-sa-shi,\" the old name for Tokyo) and can withstand earthquakes up to magnitude 7, swaying up to 6 meters at its tip."
     }
   ]
 }

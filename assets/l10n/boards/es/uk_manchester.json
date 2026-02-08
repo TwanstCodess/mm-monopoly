@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "SALIDA",
+      "subtext": "COBRA $200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Northern Quarter",
+      "subtext": "Barrio Norte",
+      "funFact": "El centro creativo de Mánchester fue una vez el distrito textil de la ciudad. Sus almacenes de ladrillo rojo ahora albergan tiendas independientes, arte callejero y más de 30 tiendas de discos."
+    },
+    {
+      "index": 2,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Ancoats",
+      "subtext": "Ancoats",
+      "funFact": "Conocido como la \"Pequeña Italia\" a principios del siglo XX por su comunidad de inmigrantes italianos, Ancoats es considerado el primer suburbio industrial del mundo, construido en la década de 1790."
+    },
+    {
+      "index": 4,
+      "name": "Impuesto sobre la Renta",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Piccadilly Station",
+      "subtext": "Estación Piccadilly",
+      "funFact": "Manchester Piccadilly es la estación de tren más concurrida del Reino Unido fuera de Londres, atendiendo a más de 32 millones de pasajeros al año en sus 14 andenes."
+    },
+    {
+      "index": 6,
+      "name": "Castlefield",
+      "subtext": "Castlefield",
+      "funFact": "Sitio del fuerte romano Mamucium fundado en el año 79 d.C., del cual Mánchester obtiene su nombre. También contiene la terminal del primer canal industrial del mundo."
+    },
+    {
+      "index": 7,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Salford Quays",
+      "subtext": "Muelles de Salford",
+      "funFact": "Una vez el puerto interior más concurrido de Gran Bretaña, Salford Quays se transformó de muelles abandonados en un paseo marítimo cultural, hogar del teatro The Lowry y el Museo Imperial de Guerra Norte."
+    },
+    {
+      "index": 9,
+      "name": "MediaCityUK",
+      "subtext": "MediaCityUK",
+      "funFact": "Este desarrollo de 80 hectáreas en Salford Quays se convirtió en la nueva sede norte de la BBC en 2011 y también alberga los Estudios ITV, siendo el mayor centro de medios del Reino Unido fuera de Londres."
+    },
+    {
+      "index": 10,
+      "name": "CÁRCEL",
+      "subtext": "DE VISITA",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Deansgate",
+      "subtext": "Calle Deansgate",
+      "funFact": "Una de las calles más largas y antiguas de Mánchester, Deansgate sigue el trazado de una calzada romana y se extiende más de una milla desde la catedral hasta Knott Mill."
+    },
+    {
+      "index": 12,
+      "name": "Electricity North West",
+      "subtext": null,
+      "funFact": "Electricity North West opera 13.000 kilómetros de líneas aéreas y cables subterráneos, suministrando energía a 2,4 millones de hogares y empresas en el noroeste de Inglaterra."
+    },
+    {
+      "index": 13,
+      "name": "Didsbury",
+      "subtext": "Didsbury",
+      "funFact": "Este frondoso suburbio del sur de Mánchester fue hogar de los Bee Gees en su infancia. Su ambiente de pueblo cuenta con parques victorianos y uno de los pubs más antiguos de Mánchester."
+    },
+    {
+      "index": 14,
+      "name": "Chorlton",
+      "subtext": "Chorlton",
+      "funFact": "Chorlton-cum-Hardy es famoso por su cultura bohemia y escena gastronómica independiente. El cercano Chorlton Water Park fue creado a partir de pozos de grava inundados en la década de 1970."
+    },
+    {
+      "index": 15,
+      "name": "Victoria Station",
+      "subtext": "Estación Victoria",
+      "funFact": "Manchester Victoria abrió en 1844 y cuenta con el andén de estación más largo del Reino Unido con 693 metros. Fue gravemente dañada por el atentado del IRA en 1996 y completamente restaurada en 2015."
+    },
+    {
+      "index": 16,
+      "name": "Old Trafford",
+      "subtext": "Old Trafford",
+      "funFact": "Hogar del \"Teatro de los Sueños\" del Manchester United desde 1910, el estadio Old Trafford tiene capacidad para 74.310 espectadores y es el estadio de fútbol de clubes más grande del Reino Unido."
+    },
+    {
+      "index": 17,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Etihad Campus",
+      "subtext": "Campus Etihad",
+      "funFact": "El Campus Etihad abarca 32 hectáreas en el este de Mánchester, centrado en el estadio construido para los Juegos de la Commonwealth 2002 y ahora hogar del Manchester City Football Club."
+    },
+    {
+      "index": 19,
+      "name": "Piccadilly Gardens",
+      "subtext": "Jardines Piccadilly",
+      "funFact": "Una vez el sitio del Manchester Royal Infirmary, Piccadilly Gardens ha sido la principal plaza pública de la ciudad desde 1853 y es la parada de Metrolink más concurrida de la red."
+    },
+    {
+      "index": 20,
+      "name": "GIRA Y GANA",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Spinningfields",
+      "subtext": "Spinningfields",
+      "funFact": "El principal distrito empresarial de Mánchester fue nombrado en honor a una comunidad medieval de hilado y tejido. Ahora alberga el Centro de Justicia Civil, uno de los edificios judiciales más llamativos de Europa."
+    },
+    {
+      "index": 22,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "King Street",
+      "subtext": "Calle del Rey",
+      "funFact": "La calle comercial más elegante de Mánchester presenta arquitectura impresionante de todas las épocas, incluyendo el antiguo Reform Club donde el movimiento sufragista celebró sus primeras reuniones."
+    },
+    {
+      "index": 24,
+      "name": "Exchange Square",
+      "subtext": "Plaza del Intercambio",
+      "funFact": "Completamente reconstruida tras el devastador atentado del IRA en 1996, Exchange Square se convirtió en la pieza central de la renovación urbana de Mánchester y alberga los mercados navideños anuales."
+    },
+    {
+      "index": 25,
+      "name": "Oxford Road Station",
+      "subtext": "Estación Oxford Road",
+      "funFact": "Manchester Oxford Road es una de las estaciones más concurridas del Reino Unido con un tren cada 20 segundos en hora punta, sirviendo al corredor universitario de la ciudad con 100.000 estudiantes."
+    },
+    {
+      "index": 26,
+      "name": "Albert Square",
+      "subtext": "Plaza Albert",
+      "funFact": "Dominada por el magnífico Ayuntamiento neogótico diseñado por Alfred Waterhouse en 1877, Albert Square contiene el Memorial Albert, anterior a la versión más famosa de Londres."
+    },
+    {
+      "index": 27,
+      "name": "St Ann's Square",
+      "subtext": "Plaza Santa Ana",
+      "funFact": "Nombrada en honor a la iglesia del siglo XVIII de Santa Ana, esta elegante plaza se convirtió en un poderoso sitio conmemorativo tras el ataque del Manchester Arena en 2017, con flores cubriendo todo el espacio."
+    },
+    {
+      "index": 28,
+      "name": "United Utilities",
+      "subtext": null,
+      "funFact": "United Utilities gestiona el suministro de agua para siete millones de personas en el noroeste de Inglaterra, operando el Acueducto Thirlmere que transporta agua del Distrito de los Lagos 154 km hasta Mánchester."
+    },
+    {
+      "index": 29,
+      "name": "Museo de Ciencia",
+      "subtext": "Museo de Ciencia e Industria",
+      "funFact": "Ubicado en la estación de pasajeros de ferrocarril más antigua del mundo que se conserva, el Museo de Ciencia e Industria celebra el papel de Mánchester como cuna de la Revolución Industrial."
+    },
+    {
+      "index": 30,
+      "name": "VE A LA CÁRCEL",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Whitworth",
+      "subtext": "Galería Whitworth",
+      "funFact": "La galería Whitworth alberga más de 60.000 obras de arte incluyendo piezas de Turner y Hockney. Su galardonada ampliación de 2015 presenta muros hechos de ladrillos reciclados."
+    },
+    {
+      "index": 32,
+      "name": "John Rylands",
+      "subtext": "Biblioteca John Rylands",
+      "funFact": "La Biblioteca John Rylands en Deansgate es una impresionante obra maestra neogótica inaugurada en 1900. Contiene el fragmento más antiguo conocido del Nuevo Testamento, un papiro del año 125 d.C."
+    },
+    {
+      "index": 33,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Victoria Baths",
+      "subtext": "Baños Victoria",
+      "funFact": "Inaugurados en 1906 y apodados \"un palacio acuático del que Mánchester puede estar orgulloso\", Victoria Baths ganó la primera edición del programa Restoration de la BBC en 2003."
+    },
+    {
+      "index": 35,
+      "name": "Deansgate Station",
+      "subtext": "Estación Deansgate",
+      "funFact": "La estación Deansgate se encuentra bajo el Great Northern Warehouse, un antiguo depósito de mercancías ferroviarias construido en 1899 que ahora es un complejo de ocio y entretenimiento."
+    },
+    {
+      "index": 36,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Beetham Tower",
+      "subtext": "Torre Beetham",
+      "funFact": "Con 168 metros de altura, la Torre Beetham fue el edificio más alto del Reino Unido fuera de Londres cuando se completó en 2006. Su distintiva hoja de vidrio en la cima zumba famosamente con vientos fuertes."
+    },
+    {
+      "index": 38,
+      "name": "Impuesto de Lujo",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Midland Hotel",
+      "subtext": "Hotel Midland",
+      "funFact": "Este gran hotel barroco eduardiano abrió en 1903 y es donde Charles Rolls conoció a Henry Royce en 1904, lo que llevó a la fundación de Rolls-Royce, una de las marcas más icónicas del mundo."
+    }
+  ]
+}

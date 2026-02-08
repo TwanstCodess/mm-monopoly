@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "DÉPART",
+      "subtext": "RECEVEZ 200 €",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Le Panier",
+      "subtext": "Le Panier",
+      "funFact": "Le Panier est le plus ancien quartier de Marseille et l'un des plus anciens de France, fondé par les Grecs lorsqu'ils créèrent Massalia vers 600 av. J.-C."
+    },
+    {
+      "index": 2,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Noailles",
+      "subtext": "Quartier Noailles",
+      "funFact": "Noailles est surnommé le « ventre de Marseille » pour son marché en plein air animé de la rue du Marché des Capucins, où les vendeurs proposent épices, produits et marchandises de toute la Méditerranée."
+    },
+    {
+      "index": 4,
+      "name": "Impôt sur le Revenu",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Gare Saint-Charles",
+      "subtext": "Gare St-Charles",
+      "funFact": "La gare Saint-Charles est accessible par un escalier monumental de 104 marches construit en 1927, offrant des vues panoramiques sur la ville et la mer Méditerranée."
+    },
+    {
+      "index": 6,
+      "name": "Cours Julien",
+      "subtext": "Cours Julien",
+      "funFact": "Le Cours Julien est le quartier bohème de Marseille, célèbre pour ses fresques de street art, ses librairies indépendantes et son marché bio hebdomadaire chaque mercredi."
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Joliette",
+      "subtext": "La Joliette",
+      "funFact": "La Joliette était autrefois le principal quartier portuaire commercial de Marseille et a été transformée en centre Euroméd avec la spectaculaire tour CMA CGM conçue par Zaha Hadid."
+    },
+    {
+      "index": 9,
+      "name": "La Canebière",
+      "subtext": "La Canebière",
+      "funFact": "La Canebière est le boulevard le plus célèbre de Marseille, allant du Vieux-Port vers l'intérieur. Son nom vient de « canèbe », le mot provençal pour chanvre, autrefois vendu dans le quartier."
+    },
+    {
+      "index": 10,
+      "name": "PRISON",
+      "subtext": "SIMPLE VISITE",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Vallon des Auffes",
+      "subtext": "Vallon des Auffes",
+      "funFact": "Le Vallon des Auffes est un minuscule port de pêche caché sous la Corniche, nommé d'après les auffiers qui fabriquaient autrefois des cordes en sparte dans cette crique abritée."
+    },
+    {
+      "index": 12,
+      "name": "EDF Marseille",
+      "subtext": null,
+      "funFact": "EDF Marseille alimente la deuxième plus grande ville de France, dont le climat méditerranéen ensoleillé en fait un lieu privilégié pour l'énergie solaire, avec plus de 2 800 heures d'ensoleillement par an."
+    },
+    {
+      "index": 13,
+      "name": "Longchamp",
+      "subtext": "Palais Longchamp",
+      "funFact": "Le palais Longchamp a été construit en 1869 pour célébrer l'arrivée de l'eau de la Durance via un canal de 160 kilomètres, mettant fin à des siècles de pénuries d'eau chroniques."
+    },
+    {
+      "index": 14,
+      "name": "Pharo",
+      "subtext": "Palais du Pharo",
+      "funFact": "Le palais du Pharo a été construit par Napoléon III comme résidence pour l'impératrice Eugénie, mais elle n'y a jamais habité. Aujourd'hui, ses jardins offrent des vues splendides sur le Vieux-Port."
+    },
+    {
+      "index": 15,
+      "name": "Métro 1",
+      "subtext": "Métro Ligne 1",
+      "funFact": "La ligne 1 du métro de Marseille a ouvert en 1977 et relie La Rose à Castellane, traversant le centre historique de la ville à travers 18 stations."
+    },
+    {
+      "index": 16,
+      "name": "Fort Saint-Jean",
+      "subtext": "Fort Saint-Jean",
+      "funFact": "Le Fort Saint-Jean a été construit par Louis XIV en 1660 non pas pour défendre la ville, mais pour contrôler ses citoyens rebelles. Il est désormais relié au MuCEM par une spectaculaire passerelle."
+    },
+    {
+      "index": 17,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Castellane",
+      "subtext": "Place Castellane",
+      "funFact": "La place Castellane est un important nœud de transport centré autour d'une fontaine monumentale surmontée d'une colonne de marbre, érigée en 1911 pour célébrer l'arrivée de l'eau du canal à Marseille."
+    },
+    {
+      "index": 19,
+      "name": "Vieux-Port",
+      "subtext": "Le Vieux-Port",
+      "funFact": "Le Vieux-Port est le cœur de Marseille depuis plus de 2 600 ans, depuis l'ancrage des premiers Grecs. Il abrite aujourd'hui plus de 3 500 bateaux de plaisance et accueille un marché aux poissons quotidien."
+    },
+    {
+      "index": 20,
+      "name": "ROUE DE LA CHANCE",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "MuCEM",
+      "subtext": "MuCEM",
+      "funFact": "Le Musée des civilisations de l'Europe et de la Méditerranée, conçu par Rudy Ricciotti, est enveloppé d'une résille de béton inspirée d'un moucharabieh, inauguré en 2013 lorsque Marseille était Capitale européenne de la culture."
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Corniche",
+      "subtext": "La Corniche",
+      "funFact": "La Corniche Kennedy s'étend sur près de 5 kilomètres le long de la côte méditerranéenne et abrite le plus long banc du monde avec plus de 3 kilomètres."
+    },
+    {
+      "index": 24,
+      "name": "Stade Vélodrome",
+      "subtext": "Stade Vélodrome",
+      "funFact": "Le Stade Vélodrome peut accueillir 67 394 spectateurs et est le domicile de l'Olympique de Marseille. Il a été rénové pour l'Euro 2016 avec un nouveau toit spectaculaire en forme de vague."
+    },
+    {
+      "index": 25,
+      "name": "Métro 2",
+      "subtext": "Métro Ligne 2",
+      "funFact": "La ligne 2 du métro de Marseille relie Bougainville à Sainte-Marguerite-Dromel, passant sous l'emblématique boulevard de la Canebière et desservant la gare principale."
+    },
+    {
+      "index": 26,
+      "name": "La Cité Radieuse",
+      "subtext": "Cité Radieuse",
+      "funFact": "La Cité Radieuse a été conçue par Le Corbusier et achevée en 1952 comme un « village vertical » avec 337 appartements, une terrasse sur le toit et une rue commerçante intérieure au troisième étage."
+    },
+    {
+      "index": 27,
+      "name": "Prado",
+      "subtext": "Plages du Prado",
+      "funFact": "Les plages du Prado ont été entièrement créées artificiellement dans les années 1970 à partir des gravats de la construction du métro de Marseille, formant 3,5 hectares de côte sablonneuse."
+    },
+    {
+      "index": 28,
+      "name": "Société des Eaux de Marseille",
+      "subtext": null,
+      "funFact": "La Société des Eaux de Marseille gère l'eau de la ville depuis 1943, distribuant plus de 80 millions de mètres cubes par an provenant principalement du Canal de Marseille."
+    },
+    {
+      "index": 29,
+      "name": "Îles du Frioul",
+      "subtext": "Îles du Frioul",
+      "funFact": "L'archipel du Frioul se trouve à seulement 2,7 kilomètres au large et comprend quatre îles qui ont servi de station de quarantaine pendant les grandes épidémies de peste aux XVIIe et XVIIIe siècles."
+    },
+    {
+      "index": 30,
+      "name": "ALLEZ EN PRISON",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Château d'If",
+      "subtext": "Château d'If",
+      "funFact": "Le Château d'If a été construit par le roi François Ier en 1524 sur un minuscule îlot calcaire et est devenu mondialement célèbre comme la prison du roman « Le Comte de Monte-Cristo » d'Alexandre Dumas."
+    },
+    {
+      "index": 32,
+      "name": "Unité d'Habitation",
+      "subtext": "Unité d'Habitation",
+      "funFact": "L'Unité d'Habitation de Le Corbusier est considérée comme l'un des bâtiments les plus influents du XXe siècle. Son toit-terrasse comprend une piscine, un gymnase et une piste de course avec vue panoramique sur la mer."
+    },
+    {
+      "index": 33,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Les Goudes",
+      "subtext": "Les Goudes",
+      "funFact": "Les Goudes est un village de pêcheurs isolé au bout de la route au sud de Marseille, perché sur des falaises de calcaire blanc spectaculaires et servant de porte d'entrée vers les Calanques."
+    },
+    {
+      "index": 35,
+      "name": "Tramway T2",
+      "subtext": "Tramway Ligne T2",
+      "funFact": "La ligne de tramway T2 de Marseille, inaugurée en 2007, traverse le cœur de la ville d'Arenc-Le Silo à Blancarde et a contribué à revitaliser le quartier de la Joliette."
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Calanques",
+      "subtext": "Parc des Calanques",
+      "funFact": "Le Parc national des Calanques, créé en 2012, protège 20 kilomètres de spectaculaires fjords de calcaire blanc plongeant dans des eaux turquoise, l'un des deux seuls parcs nationaux d'Europe bordant une grande ville."
+    },
+    {
+      "index": 38,
+      "name": "Taxe de Luxe",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Notre-Dame de la Garde",
+      "subtext": "Notre-Dame de la Garde",
+      "funFact": "Affectueusement surnommée « La Bonne Mère », Notre-Dame de la Garde trône au sommet d'un pic calcaire de 154 mètres et est couronnée d'une statue dorée de la Vierge Marie de 9,7 mètres visible de presque partout dans la ville."
+    }
+  ]
+}

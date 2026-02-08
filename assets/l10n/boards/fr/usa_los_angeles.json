@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "DÉPART",
+      "subtext": "RECEVEZ 200 $",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Boyle Heights",
+      "subtext": null,
+      "funFact": "Boyle Heights était l'un des quartiers les plus diversifiés d'Amérique dans les années 1940, abritant des communautés juives, japonaises, mexicaines et afro-américaines vivant côte à côte."
+    },
+    {
+      "index": 2,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Echo Park",
+      "subtext": null,
+      "funFact": "Le lac d'Echo Park a été créé dans les années 1860 comme réservoir d'eau potable. Ses emblématiques massifs de lotus fleurissent chaque juillet et ont été plantés à l'origine dans les années 1920."
+    },
+    {
+      "index": 4,
+      "name": "Impôt sur le Revenu",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Union Station",
+      "subtext": null,
+      "funFact": "Union Station de Los Angeles a ouvert en 1939 comme la dernière grande gare ferroviaire construite en Amérique, mêlant les styles colonial espagnol, Mission Revival et Art déco."
+    },
+    {
+      "index": 6,
+      "name": "Silver Lake",
+      "subtext": null,
+      "funFact": "Silver Lake tire son nom de Herman Silver, un commissaire aux eaux de la ville, et non de la couleur de son réservoir. Le quartier est devenu l'épicentre hipster de LA au début des années 2000."
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Los Feliz",
+      "subtext": null,
+      "funFact": "Los Feliz tire son nom du caporal Jose Vicente Feliz, qui a reçu la concession de terre Rancho Los Feliz de l'Espagne en 1796. Walt Disney y a construit son premier studio en 1923."
+    },
+    {
+      "index": 9,
+      "name": "Hollywood Blvd",
+      "subtext": null,
+      "funFact": "Le Walk of Fame d'Hollywood s'étend sur 2,1 km le long de Hollywood Boulevard et contient plus de 2 700 étoiles en laiton incrustées dans le trottoir, les premières ayant été installées en 1958."
+    },
+    {
+      "index": 10,
+      "name": "PRISON",
+      "subtext": "EN VISITE",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Sunset Strip",
+      "subtext": null,
+      "funFact": "Le Sunset Strip est un tronçon de 2,4 km du Sunset Boulevard situé dans une zone non incorporée du comté de LA, ce qui signifiait historiquement des lois plus souples attirant boîtes de nuit et salles de rock."
+    },
+    {
+      "index": 12,
+      "name": "LADWP Electric",
+      "subtext": null,
+      "funFact": "Le Los Angeles Department of Water and Power est le plus grand service municipal des États-Unis, desservant plus de 4 millions d'habitants et produisant 7 880 mégawatts d'électricité."
+    },
+    {
+      "index": 13,
+      "name": "Venice Beach",
+      "subtext": null,
+      "funFact": "Venice Beach a été fondée en 1905 par Abbot Kinney sous le nom de « Venice of America », avec des canaux à l'italienne. La célèbre salle de musculation en plein air Muscle Beach fonctionne depuis les années 1930."
+    },
+    {
+      "index": 14,
+      "name": "Santa Monica",
+      "subtext": null,
+      "funFact": "La jetée de Santa Monica, construite en 1909, marque le terminus ouest de la Route 66. Son parc d'attractions Pacific Park comprend la seule grande roue au monde alimentée à l'énergie solaire."
+    },
+    {
+      "index": 15,
+      "name": "Metro Purple Line",
+      "subtext": null,
+      "funFact": "La ligne Purple du métro passe sous Wilshire Boulevard à travers la zone des La Brea Tar Pits, où les ouvriers ont découvert des fossiles de l'ère glaciaire, dont des os de mammouth, pendant le creusement des tunnels."
+    },
+    {
+      "index": 16,
+      "name": "Malibu",
+      "subtext": null,
+      "funFact": "Malibu s'étend sur 43 km le long de la côte Pacifique et était à l'origine habité par le peuple Chumash. Le nom vient du mot chumash « Humaliwo » signifiant « le ressac résonne fort »."
+    },
+    {
+      "index": 17,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Downtown LA",
+      "subtext": null,
+      "funFact": "Le Bradbury Building du centre-ville de LA, construit en 1893, a été conçu d'après les instructions d'un médium spirituel. Son superbe atrium en fer est apparu dans Blade Runner et 500 Jours ensemble."
+    },
+    {
+      "index": 19,
+      "name": "Arts District",
+      "subtext": null,
+      "funFact": "Le Arts District de LA a été officiellement désigné en 1981, en faisant l'un des premiers quartiers du pays à autoriser légalement les artistes à vivre dans des bâtiments industriels."
+    },
+    {
+      "index": 20,
+      "name": "ROUE DE LA CHANCE",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Little Tokyo",
+      "subtext": null,
+      "funFact": "Little Tokyo est l'un des trois seuls Japantowns officiels restants aux États-Unis. Fondé dans les années 1880, il a été vidé de force pendant l'internement des Américains d'origine japonaise durant la Seconde Guerre mondiale."
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Griffith Observatory",
+      "subtext": null,
+      "funFact": "L'Observatoire Griffith a accueilli plus de 80 millions de visiteurs depuis 1935, plus que tout autre observatoire au monde. L'entrée au bâtiment et aux télescopes a toujours été gratuite."
+    },
+    {
+      "index": 24,
+      "name": "Beverly Hills",
+      "subtext": null,
+      "funFact": "Beverly Hills était à l'origine un ranch de haricots de Lima avant d'être développé en 1914. La ville ne fait que 14,8 km carrés mais possède ses propres services de police et de pompiers."
+    },
+    {
+      "index": 25,
+      "name": "Metro Gold Line",
+      "subtext": null,
+      "funFact": "La ligne Gold du métro relie le centre-ville de LA à Pasadena, suivant un itinéraire autrefois emprunté par les Red Cars du Pacific Electric Railway, démantelés dans les années 1950 et 60."
+    },
+    {
+      "index": 26,
+      "name": "Rodeo Drive",
+      "subtext": null,
+      "funFact": "Rodeo Drive est devenu une destination de shopping de luxe après l'ouverture du Beverly Wilshire Hotel en 1928. Un seul pâté de Rodeo Drive génère plus de revenus au mètre carré que toute autre rue commerçante aux États-Unis."
+    },
+    {
+      "index": 27,
+      "name": "Bel Air",
+      "subtext": null,
+      "funFact": "Bel Air a été développé en 1923 par Alphonzo Bell Sr., qui a fait fortune grâce au pétrole découvert sur son ranch de Santa Fe Springs. Son portail est sur Sunset Boulevard est un monument de Los Angeles."
+    },
+    {
+      "index": 28,
+      "name": "LADWP Water",
+      "subtext": null,
+      "funFact": "Le LADWP exploite l'aqueduc de Los Angeles, qui achemine l'eau sur 375 km depuis la vallée d'Owens. La construction de l'aqueduc en 1913 fut l'un des projets d'ingénierie les plus controversés de l'histoire américaine."
+    },
+    {
+      "index": 29,
+      "name": "Westwood",
+      "subtext": null,
+      "funFact": "Westwood abrite l'UCLA, fondée en 1919, et le cimetière Westwood Village Memorial Park où Marilyn Monroe, Dean Martin et de nombreuses autres légendes d'Hollywood sont enterrées."
+    },
+    {
+      "index": 30,
+      "name": "ALLEZ EN PRISON",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Century City",
+      "subtext": null,
+      "funFact": "Century City a été construit sur les anciens studios de la 20th Century Fox, qui ont vendu 73 hectares en 1961 pour couvrir les dépassements de coûts du film Cléopâtre avec Elizabeth Taylor."
+    },
+    {
+      "index": 32,
+      "name": "Pasadena",
+      "subtext": null,
+      "funFact": "Pasadena accueille le défilé annuel des Roses et le match du Rose Bowl depuis 1890. Elle abrite également Caltech et le Jet Propulsion Laboratory de la NASA, qui a dirigé chaque mission de rover sur Mars."
+    },
+    {
+      "index": 33,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Long Beach",
+      "subtext": null,
+      "funFact": "Le port de Long Beach est le deuxième port à conteneurs le plus actif des États-Unis, gérant plus de 200 milliards de dollars de commerce par an. Le RMS Queen Mary y est amarré en permanence depuis 1967."
+    },
+    {
+      "index": 35,
+      "name": "Metro Expo Line",
+      "subtext": null,
+      "funFact": "La ligne Expo du métro relie le centre-ville de LA à Santa Monica le long de l'ancienne emprise du Pacific Electric Exposition Line, rétablissant le service ferroviaire vers la côte après 63 ans d'absence."
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Manhattan Beach",
+      "subtext": null,
+      "funFact": "Manhattan Beach a été fondée en 1912 et sa jetée était à l'origine construite pour un arrêt du Pacific Electric Railway. Le sentier côtier « Strand » du quartier s'étend sur 35 km le long de la côte."
+    },
+    {
+      "index": 38,
+      "name": "Taxe de Luxe",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Getty Center",
+      "subtext": null,
+      "funFact": "Le Getty Center a coûté 1,3 milliard de dollars à construire et a ouvert en 1997. Conçu par Richard Meier, il trône au sommet d'une colline dans les montagnes de Santa Monica et l'entrée a toujours été gratuite."
+    }
+  ]
+}

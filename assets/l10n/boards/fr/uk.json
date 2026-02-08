@@ -10,7 +10,7 @@
       "index": 1,
       "name": "Old Kent Road",
       "subtext": null,
-      "funFact": "L’une des plus anciennes routes de Londres, datant de l’époque romaine quand elle reliait Londres à Canterbury !"
+      "funFact": "Datant du 1er siècle apr. J.-C., Old Kent Road faisait partie de la voie romaine Watling Street et reste l'une des plus longues routes de Londres avec 4 km, reliant la ville à Douvres et Canterbury."
     },
     {
       "index": 2,
@@ -22,7 +22,7 @@
       "index": 3,
       "name": "Whitechapel Road",
       "subtext": null,
-      "funFact": "Rue historique de l’East End, célèbre pour la fonderie de cloches de Whitechapel qui a coulé la Cloche de la Liberté !"
+      "funFact": "La fonderie de cloches de Whitechapel, installée dans cette rue de 1570 à 2017, a fondu la Cloche de la Liberté en 1752 et Big Ben en 1858, ce qui en fait la plus ancienne entreprise manufacturière de Grande-Bretagne."
     },
     {
       "index": 4,
@@ -32,15 +32,15 @@
     },
     {
       "index": 5,
-      "name": "King’s Cross Station",
+      "name": "King's Cross Station",
       "subtext": null,
-      "funFact": "Le quai 9¾ de King’s Cross est là où Harry Potter prend le Poudlard Express !"
+      "funFact": "Ouverte en 1852, King's Cross accueille plus de 34 millions de passagers par an. Sa grande restauration achevée en 2012 a ajouté une impressionnante toiture en acier de 1 700 tonnes, et un véritable chariot du quai 9 3/4 attire les fans de Harry Potter du monde entier."
     },
     {
       "index": 6,
       "name": "The Angel Islington",
       "subtext": null,
-      "funFact": "Nommé d’après une auberge historique, The Angel est un monument londonien depuis 1614 !"
+      "funFact": "Nommé d'après une auberge de relais fondée vers 1614, The Angel était une étape clé sur la Great North Road. Le célèbre bâtiment d'angle, reconstruit en 1903, abrite aujourd'hui une banque Co-op et reste l'un des monuments les plus reconnaissables de Londres."
     },
     {
       "index": 7,
@@ -52,13 +52,13 @@
       "index": 8,
       "name": "Euston Road",
       "subtext": null,
-      "funFact": "Abrite la British Library, qui conserve plus de 170 millions de documents dont la Magna Carta !"
+      "funFact": "Euston Road abrite la British Library, installée ici en 1997, qui conserve plus de 170 millions de documents, dont une Magna Carta de 1215, une Bible de Gutenberg des années 1450 et des paroles originales des Beatles griffonnées sur des serviettes."
     },
     {
       "index": 9,
       "name": "Pentonville Road",
       "subtext": null,
-      "funFact": "Nommée d’après Henry Penton qui développa le quartier dans les années 1770, près de la prison historique de Pentonville."
+      "funFact": "Nommée d'après Henry Penton qui urbanisa le quartier en 1773, cette rue mène à la tristement célèbre prison de Pentonville, ouverte en 1842, qui servit de modèle à 54 autres prisons dans tout l'Empire britannique."
     },
     {
       "index": 10,
@@ -70,37 +70,37 @@
       "index": 11,
       "name": "Pall Mall",
       "subtext": null,
-      "funFact": "Abrite des clubs exclusifs pour gentlemen depuis les années 1800, et le célèbre Royal Automobile Club !"
+      "funFact": "Pall Mall tire son nom du paille-maille, un jeu semblable au croquet auquel Charles II jouait ici dans les années 1660. Aujourd'hui, elle abrite plus d'une douzaine de clubs exclusifs pour gentlemen, dont l'Athenaeum (fondé en 1824) et le Reform Club (1836)."
     },
     {
       "index": 12,
-      "name": "Compagnie d’Électricité",
+      "name": "Compagnie d'Électricité",
       "subtext": null,
-      "funFact": "La première centrale électrique de Londres a ouvert en 1882, apportant l’éclairage public à la ville !"
+      "funFact": "La station électrique Edison au 57 Holborn Viaduct a ouvert le 12 janvier 1882, faisant de Londres l'une des premières villes au monde à disposer d'un éclairage public électrique, alimentant initialement seulement 968 lampes."
     },
     {
       "index": 13,
       "name": "Whitehall",
       "subtext": null,
-      "funFact": "Le centre du gouvernement britannique ! Abrite le 10 Downing Street et de nombreux bâtiments ministériels."
+      "funFact": "Whitehall est le centre du gouvernement britannique depuis 1530, quand Henri VIII confisqua York Place au cardinal Wolsey. Le nom de la rue vient du vaste palais de Whitehall, qui fut le plus grand palais d'Europe avant d'être détruit par un incendie en 1698."
     },
     {
       "index": 14,
       "name": "Northumberland Ave",
       "subtext": null,
-      "funFact": "Construite dans les années 1870, cette grande avenue relie Trafalgar Square aux berges de la Tamise !"
+      "funFact": "Construite en 1876 sur le site de la Northumberland House démolie, cette avenue fut l'une des premières rues de Londres à être équipée d'éclairage électrique en 1878, quatre ans avant le reste de la ville."
     },
     {
       "index": 15,
       "name": "Marylebone Station",
       "subtext": null,
-      "funFact": "La plus récente grande gare de Londres, ouverte en 1899, et présente dans de nombreuses histoires de Sherlock Holmes !"
+      "funFact": "Dernière et plus petite gare terminus de Londres, Marylebone ouvrit le 15 mars 1899. Elle était si peu fréquentée dans les années 1960 que British Rail faillit la fermer, et son hall de billetterie servit au tournage de scènes du film des Beatles de 1964, A Hard Day's Night."
     },
     {
       "index": 16,
       "name": "Bow Street",
       "subtext": null,
-      "funFact": "Abrite le Royal Opera House et la première force de police professionnelle, les Bow Street Runners !"
+      "funFact": "En 1749, le magistrat Henry Fielding (auteur de Tom Jones) fonda ici les Bow Street Runners, la première force de police professionnelle de Londres. Le Royal Opera House, reconstruit en 1858 avec 2 256 places, est présent dans cette rue depuis 1732."
     },
     {
       "index": 17,
@@ -112,13 +112,13 @@
       "index": 18,
       "name": "Marlborough Street",
       "subtext": null,
-      "funFact": "Située à Mayfair, cette rue élégante est le domicile de l’aristocratie britannique depuis des siècles !"
+      "funFact": "Le tribunal de Great Marlborough Street, construit en 1792, a vu comparaître des accusés célèbres comme le marquis de Queensberry en 1895 et Christine Keeler lors de l'affaire Profumo en 1963. Oscar Wilde y a également témoigné."
     },
     {
       "index": 19,
       "name": "Vine Street",
       "subtext": null,
-      "funFact": "Adresse prestigieuse de Mayfair, Vine Street a abrité des résidents célèbres et des établissements de luxe !"
+      "funFact": "Vine Street a abrité le commissariat de Vine Street de 1830 à 1997, l'un des plus actifs du West End londonien. La rue ne mesure qu'environ 100 mètres de long, mais se situe au cœur du quartier le plus exclusif de Mayfair."
     },
     {
       "index": 20,
@@ -130,7 +130,7 @@
       "index": 21,
       "name": "Strand",
       "subtext": null,
-      "funFact": "L’une des artères les plus fréquentées de Londres, le Strand relie Westminster à la City !"
+      "funFact": "Le nom Strand vient du vieil anglais signifiant « rivage », car cette rue longeait autrefois la Tamise avant que le Victoria Embankment de 1865 ne repousse la berge. Le théâtre Savoy, construit ici en 1881, fut le premier bâtiment public au monde éclairé entièrement à l'électricité."
     },
     {
       "index": 22,
@@ -142,43 +142,43 @@
       "index": 23,
       "name": "Fleet Street",
       "subtext": null,
-      "funFact": "Le cœur historique du journalisme britannique ! Nommée d’après la rivière Fleet qui coule en dessous."
+      "funFact": "Fleet Street fut le centre de la presse britannique de 1702 (lancement du Daily Courant) jusqu'en 2005, quand Reuters fut la dernière grande agence à partir. La rivière Fleet, souterraine, coule encore sous la rue jusqu'à la Tamise au pont de Blackfriars."
     },
     {
       "index": 24,
       "name": "Trafalgar Square",
       "subtext": null,
-      "funFact": "Nommée d’après la bataille de Trafalgar, elle abrite la colonne de Nelson et accueille 15 millions de visiteurs par an !"
+      "funFact": "Inaugurée en 1844 pour commémorer la victoire de Nelson à Trafalgar en 1805, la colonne de la place mesure 51,6 mètres avec une statue de Nelson de 5,5 mètres au sommet. Les quatre lions de bronze, sculptés par Sir Edwin Landseer, ne furent ajoutés qu'en 1867."
     },
     {
       "index": 25,
       "name": "Fenchurch St Station",
       "subtext": null,
-      "funFact": "La plus petite des grandes gares londoniennes, construite en 1841, desservant la City historique !"
+      "funFact": "Ouverte le 2 août 1841, Fenchurch Street fut la première gare terminus construite dans la City de Londres. C'est la seule gare terminus londonienne sans correspondance avec le métro, et sa taille compacte lui confère seulement 4 quais desservant les banlieusards de l'Essex."
     },
     {
       "index": 26,
       "name": "Leicester Square",
       "subtext": null,
-      "funFact": "Le cœur du quartier des divertissements de Londres, accueillant des avant-premières et entouré de théâtres !"
+      "funFact": "Leicester Square fut aménagée en 1670 sur des terrains du 2e comte de Leicester. Son jardin abrite une statue de Shakespeare érigée en 1874, et depuis les années 1930, les cinémas Odeon et Empire accueillent pratiquement toutes les grandes avant-premières londoniennes."
     },
     {
       "index": 27,
       "name": "Coventry Street",
       "subtext": null,
-      "funFact": "Relie Piccadilly Circus à Leicester Square, bordée de restaurants et de lieux de divertissement !"
+      "funFact": "Cette courte rue reliant Piccadilly Circus à Leicester Square porte le nom d'Henry Coventry, secrétaire d'État de Charles II dans les années 1670. Le complexe de divertissement Trocadero a dominé la rue de 1896 jusqu'à sa reconversion en hôtel en 2014."
     },
     {
       "index": 28,
       "name": "Service des Eaux",
       "subtext": null,
-      "funFact": "L’eau de Londres provient de la Tamise et de la Lea, traitant plus de 2,6 milliards de litres par jour !"
+      "funFact": "Le New River, un aqueduc de 62 kilomètres achevé en 1613, fut le premier grand réseau d'eau potable de Londres. Aujourd'hui, Thames Water dessert 9 millions de clients et traite plus de 2,6 milliards de litres d'eau par jour dans 234 stations de traitement."
     },
     {
       "index": 29,
       "name": "Piccadilly",
       "subtext": null,
-      "funFact": "Abrite Piccadilly Circus et le shopping de luxe ! Nommée d’après les piccadills, des cols à la mode au XVIIe siècle."
+      "funFact": "Piccadilly tire son nom du tailleur Robert Baker, qui fit fortune au XVIIe siècle en vendant des « piccadills » (cols rigides en dentelle). La célèbre statue d'Éros à Piccadilly Circus, dévoilée en 1893, représente en réalité Antéros, l'Ange de la Charité chrétienne."
     },
     {
       "index": 30,
@@ -190,13 +190,13 @@
       "index": 31,
       "name": "Regent Street",
       "subtext": null,
-      "funFact": "Conçue par John Nash en 1811, Regent Street serpente élégamment à travers le West End avec ses boutiques phares !"
+      "funFact": "Conçue par l'architecte John Nash en 1811 pour le prince régent (futur George IV), Regent Street fut entièrement reconstruite entre 1895 et 1927 dans le style Beaux-Arts plus grandiose. Sa célèbre tradition d'illuminations de Noël débuta en 1954."
     },
     {
       "index": 32,
       "name": "Oxford Street",
       "subtext": null,
-      "funFact": "La rue commerçante la plus fréquentée d’Europe avec plus de 300 boutiques et 200 millions de visiteurs par an !"
+      "funFact": "La rue commerçante la plus fréquentée d'Europe s'étend sur 1,9 kilomètre avec plus de 300 boutiques et 200 millions de visiteurs annuels. Selfridges, ouvert ici en 1909 par l'Américain Harry Gordon Selfridge, révolutionna le commerce en laissant les clients flâner librement."
     },
     {
       "index": 33,
@@ -208,13 +208,13 @@
       "index": 34,
       "name": "Bond Street",
       "subtext": null,
-      "funFact": "L’incarnation du luxe depuis les années 1700, abritant joailliers, maisons de couture et galeries d’art de renommée mondiale !"
+      "funFact": "Bond Street est la première destination de luxe de Londres depuis les années 1720. Sotheby's, la plus ancienne maison de ventes aux enchères au monde, opère aux numéros 34-35 depuis 1744, et l'amiral Nelson a vécu au 147 New Bond Street."
     },
     {
       "index": 35,
       "name": "Liverpool St Station",
       "subtext": null,
-      "funFact": "L’une des gares les plus fréquentées de Londres, desservant plus de 67 millions de passagers par an !"
+      "funFact": "Ouverte en 1874, la gare de Liverpool Street est la troisième plus fréquentée du Royaume-Uni avec plus de 67 millions de passagers par an. Un mémorial du Kindertransport, qui sauva près de 10 000 enfants juifs par cette gare en 1938-1939, se dresse dans son hall."
     },
     {
       "index": 36,
@@ -226,7 +226,7 @@
       "index": 37,
       "name": "Park Lane",
       "subtext": null,
-      "funFact": "Surplombant Hyde Park, elle abrite certains des biens immobiliers les plus chers et des hôtels de luxe de Londres !"
+      "funFact": "Longeant la lisière est de Hyde Park, Park Lane passa d'un paisible chemin de campagne dans les années 1820 à l'adresse la plus prestigieuse de Londres. Les hôtels Dorchester (1931) et Grosvenor House (1929) ancrent encore la réputation de luxe de la rue."
     },
     {
       "index": 38,
@@ -238,7 +238,7 @@
       "index": 39,
       "name": "Mayfair",
       "subtext": null,
-      "funFact": "Le quartier le plus exclusif de Londres ! Nommé d’après la foire de mai qui s’y tenait de 1686 à 1764."
+      "funFact": "Mayfair tire son nom de la foire de mai de 15 jours tenue chaque année de 1686 jusqu'à sa suppression en 1764 pour cause de troubles. Aujourd'hui, le quartier possède les propriétés les plus chères de Grande-Bretagne, avec des prix moyens plus de 20 fois supérieurs à la moyenne nationale."
     }
   ]
 }

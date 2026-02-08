@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "SALIDA",
+      "subtext": "COBRA $200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Le Panier",
+      "subtext": "El Panier",
+      "funFact": "Le Panier es el barrio más antiguo de Marsella y uno de los más antiguos de Francia, originalmente colonizado por los griegos cuando fundaron Massalia alrededor del 600 a.C."
+    },
+    {
+      "index": 2,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Noailles",
+      "subtext": "Barrio Noailles",
+      "funFact": "Noailles es conocido como el \"vientre de Marsella\" por su vibrante mercado al aire libre en la Rue du Marché des Capucins, donde vendedores ofrecen especias, productos y mercancías de todo el Mediterráneo."
+    },
+    {
+      "index": 4,
+      "name": "Impuesto sobre la Renta",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Gare Saint-Charles",
+      "subtext": "Estación Saint-Charles",
+      "funFact": "La Gare Saint-Charles se alcanza por una escalinata monumental de 104 peldaños construida en 1927, que ofrece vistas panorámicas de la ciudad y el mar Mediterráneo."
+    },
+    {
+      "index": 6,
+      "name": "Cours Julien",
+      "subtext": "Cours Julien",
+      "funFact": "Cours Julien es el barrio bohemio de Marsella, famoso por sus murales de arte callejero, librerías independientes y mercado de agricultores orgánicos los miércoles."
+    },
+    {
+      "index": 7,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Joliette",
+      "subtext": "La Joliette",
+      "funFact": "La Joliette fue una vez el principal distrito portuario comercial de Marsella y se ha transformado en el centro Euromed con la llamativa Torre CMA CGM diseñada por Zaha Hadid."
+    },
+    {
+      "index": 9,
+      "name": "La Canebière",
+      "subtext": "La Canebière",
+      "funFact": "La Canebière es el bulevar más famoso de Marsella, desde el Vieux-Port hacia el interior. Su nombre deriva de \"canèbe\", la palabra provenzal para cáñamo, que una vez se vendía en la zona."
+    },
+    {
+      "index": 10,
+      "name": "CÁRCEL",
+      "subtext": "DE VISITA",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Vallon des Auffes",
+      "subtext": "Cala de los Auffes",
+      "funFact": "El Vallon des Auffes es un diminuto puerto pesquero oculto bajo la carretera Corniche, nombrado así por los auffiers que una vez hacían cuerda de esparto en su cala protegida."
+    },
+    {
+      "index": 12,
+      "name": "EDF Marseille",
+      "subtext": null,
+      "funFact": "EDF Marsella alimenta la segunda ciudad más grande de Francia, cuyo soleado clima mediterráneo la convierte en una ubicación privilegiada para la energía solar, con más de 2.800 horas de sol al año."
+    },
+    {
+      "index": 13,
+      "name": "Longchamp",
+      "subtext": "Palacio Longchamp",
+      "funFact": "El Palais Longchamp fue construido en 1869 para celebrar la llegada del agua del río Durance a través de un canal de 160 kilómetros, poniendo fin a siglos de escasez crónica de agua."
+    },
+    {
+      "index": 14,
+      "name": "Pharo",
+      "subtext": "Palacio del Pharo",
+      "funFact": "El Palais du Pharo fue construido por Napoleón III como residencia para la Emperatriz Eugenia, pero ella nunca vivió allí. Hoy sus jardines ofrecen impresionantes vistas del Vieux-Port."
+    },
+    {
+      "index": 15,
+      "name": "Métro 1",
+      "subtext": "Metro Línea 1",
+      "funFact": "La Línea 1 del Metro de Marsella abrió en 1977 y va de La Rose a Castellane, pasando por el centro histórico de la ciudad a lo largo de 18 estaciones."
+    },
+    {
+      "index": 16,
+      "name": "Fort Saint-Jean",
+      "subtext": "Fuerte San Juan",
+      "funFact": "El Fort Saint-Jean fue construido por Luis XIV en 1660 no para defender la ciudad, sino para controlar a sus rebeldes ciudadanos. Ahora está conectado al MuCEM por una espectacular pasarela."
+    },
+    {
+      "index": 17,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Castellane",
+      "subtext": "Plaza Castellane",
+      "funFact": "La Place Castellane es un importante nodo de transporte centrado alrededor de una fuente monumental coronada por una columna de mármol, erigida en 1911 para celebrar la llegada del agua de canal a Marsella."
+    },
+    {
+      "index": 19,
+      "name": "Vieux-Port",
+      "subtext": "Puerto Viejo",
+      "funFact": "El Vieux-Port ha sido el corazón de Marsella durante más de 2.600 años desde que los griegos anclaron aquí por primera vez. Hoy alberga más de 3.500 embarcaciones de recreo y un mercado de pescado diario."
+    },
+    {
+      "index": 20,
+      "name": "GIRA Y GANA",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "MuCEM",
+      "subtext": "Museo MuCEM",
+      "funFact": "El Museo de las Civilizaciones de Europa y del Mediterráneo, diseñado por Rudy Ricciotti, está envuelto en una celosía de hormigón inspirada en una mashrabiya y abrió en 2013 cuando Marsella fue Capital Europea de la Cultura."
+    },
+    {
+      "index": 22,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Corniche",
+      "subtext": "La Corniche",
+      "funFact": "La Corniche Kennedy se extiende casi 5 kilómetros a lo largo de la costa mediterránea y cuenta con el banco más largo del mundo, con más de 3 kilómetros de longitud."
+    },
+    {
+      "index": 24,
+      "name": "Stade Vélodrome",
+      "subtext": "Estadio Velódromo",
+      "funFact": "El Stade Vélodrome tiene capacidad para 67.394 espectadores y es la casa del Olympique de Marsella. Fue renovado para la Euro 2016 con un nuevo y espectacular techo en forma de ola."
+    },
+    {
+      "index": 25,
+      "name": "Métro 2",
+      "subtext": "Metro Línea 2",
+      "funFact": "La Línea 2 del Metro de Marsella va de Bougainville a Sainte-Marguerite-Dromel, pasando bajo el icónico bulevar Canebière y sirviendo a la estación principal de trenes."
+    },
+    {
+      "index": 26,
+      "name": "La Cité Radieuse",
+      "subtext": "Ciudad Radiante",
+      "funFact": "La Cité Radieuse fue diseñada por Le Corbusier y completada en 1952 como una \"aldea vertical\" con 337 apartamentos, una terraza en la azotea y una calle comercial interior en el tercer piso."
+    },
+    {
+      "index": 27,
+      "name": "Prado",
+      "subtext": "Playas del Prado",
+      "funFact": "Las playas del Prado fueron completamente artificiales, creadas en la década de 1970 con escombros de la construcción del Metro de Marsella, formando 3,5 hectáreas de costa arenosa."
+    },
+    {
+      "index": 28,
+      "name": "Société des Eaux de Marseille",
+      "subtext": null,
+      "funFact": "La Société des Eaux de Marseille ha gestionado el agua de la ciudad desde 1943, distribuyendo más de 80 millones de metros cúbicos anuales provenientes principalmente del Canal de Marsella."
+    },
+    {
+      "index": 29,
+      "name": "Islas Frioul",
+      "subtext": "Islas Frioul",
+      "funFact": "El archipiélago de Frioul se encuentra a solo 2,7 kilómetros de la costa e incluye cuatro islas que sirvieron como estación de cuarentena durante las grandes epidemias de peste de los siglos XVII y XVIII."
+    },
+    {
+      "index": 30,
+      "name": "VE A LA CÁRCEL",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Château d'If",
+      "subtext": "Castillo de If",
+      "funFact": "El Château d'If fue construido por el Rey Francisco I en 1524 en una diminuta isla de piedra caliza y se hizo mundialmente famoso como la prisión de la novela de Alejandro Dumas \"El Conde de Montecristo\"."
+    },
+    {
+      "index": 32,
+      "name": "Unité d'Habitation",
+      "subtext": "Unidad Habitacional",
+      "funFact": "La Unité d'Habitation de Le Corbusier es considerada uno de los edificios más influyentes del siglo XX. Su azotea cuenta con piscina, gimnasio y pista de atletismo con vistas panorámicas al mar."
+    },
+    {
+      "index": 33,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Les Goudes",
+      "subtext": "Los Goudes",
+      "funFact": "Les Goudes es un remoto pueblo pesquero al final de la carretera al sur de Marsella, encaramado en dramáticos acantilados de piedra caliza blanca y que sirve como puerta de entrada a las Calanques."
+    },
+    {
+      "index": 35,
+      "name": "Tramway T2",
+      "subtext": "Tranvía Línea T2",
+      "funFact": "La Línea T2 del Tranvía de Marsella, inaugurada en 2007, recorre el corazón de la ciudad de Arenc-Le Silo a Blancarde y ayudó a revitalizar el distrito de la Joliette."
+    },
+    {
+      "index": 36,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Calanques",
+      "subtext": "Parque de las Calanques",
+      "funFact": "El Parque Nacional de las Calanques, establecido en 2012, protege 20 kilómetros de espectaculares fiordos de piedra caliza blanca que se sumergen en aguas turquesas, siendo uno de solo dos parques nacionales en Europa que limitan con una gran ciudad."
+    },
+    {
+      "index": 38,
+      "name": "Impuesto de Lujo",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Notre-Dame de la Garde",
+      "subtext": "Nuestra Señora de la Guardia",
+      "funFact": "Conocida cariñosamente como \"La Bonne Mère\", Notre-Dame de la Garde se sitúa en lo alto de un pico de piedra caliza de 154 metros y está coronada por una estatua dorada de la Virgen María de 9,7 metros visible desde casi cualquier lugar de la ciudad."
+    }
+  ]
+}

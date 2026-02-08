@@ -474,5 +474,25 @@
   "countryFrance": "フランス",
   "countryJapan": "日本",
   "countryChina": "中国",
-  "countryMexico": "メキシコ"
+  "countryMexico": "メキシコ",
+
+  "chooseCity": "都市を選ぶ",
+  "cityAtlanticCity": "アトランティックシティ",
+  "cityNewYork": "ニューヨーク",
+  "cityLosAngeles": "ロサンゼルス",
+  "cityLondon": "ロンドン",
+  "cityEdinburgh": "エディンバラ",
+  "cityManchester": "マンチェスター",
+  "cityParis": "パリ",
+  "cityLyon": "リヨン",
+  "cityMarseille": "マルセイユ",
+  "cityTokyo": "東京",
+  "cityOsaka": "大阪",
+  "cityKyoto": "京都",
+  "cityBeijing": "北京",
+  "cityShanghai": "上海",
+  "cityHongKong": "香港",
+  "cityMexicoCity": "メキシコシティ",
+  "cityGuadalajara": "グアダラハラ",
+  "cityCancun": "カンクン"
 }

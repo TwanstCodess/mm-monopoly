@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "收取200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Tofukuji",
+      "subtext": "东福寺",
+      "funFact": "东福寺由九条道家于1236年创建，通天桥可俯瞰2000棵枫树的山谷，是京都最壮观的秋景之一。"
+    },
+    {
+      "index": 2,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Fushimi",
+      "subtext": "伏见",
+      "funFact": "伏见是京都传奇的清酒酿造区，凭借纯净的地下泉水，产出日本约40%的清酒。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Hankyu Line",
+      "subtext": "阪急线",
+      "funFact": "阪急京都线自1928年起连接京都和大阪，以其独特的栗色列车和优雅的河原町终点站闻名。"
+    },
+    {
+      "index": 6,
+      "name": "Nijo Castle",
+      "subtext": "二条城",
+      "funFact": "二条城由德川家康于1603年建造，设有走上去会发出鸟鸣声的“莺声地板“，用于防范忍者入侵。"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Gion",
+      "subtext": "祇园",
+      "funFact": "祇园是京都最著名的艺伎区，约200名艺伎和舞伎仍在传承17世纪以来的传统艺术。"
+    },
+    {
+      "index": 9,
+      "name": "Pontocho",
+      "subtext": "先斗町",
+      "funFact": "先斗町是一条仅一个街区宽、沿鸭川延伸500米的狭窄小巷，两旁遍布传统餐厅和夏季纳凉床。"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "监狱",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Kinkaku-ji",
+      "subtext": "金阁寺",
+      "funFact": "金阁寺顶部两层覆盖着纯金箔！始建于1397年，1955年因一名僧人纵火后重建。"
+    },
+    {
+      "index": 12,
+      "name": "Kansai Electric Power",
+      "subtext": "关西电力",
+      "funFact": "关西电力成立于1951年，为日本西部整个关西地区超过1300万客户供电。"
+    },
+    {
+      "index": 13,
+      "name": "Ryoan-ji",
+      "subtext": "龙安寺",
+      "funFact": "龙安寺著名的枯山水庭园有15块石头，无论从哪个角度看都只能看到14块，象征人类视角的不完整。"
+    },
+    {
+      "index": 14,
+      "name": "Ninna-ji",
+      "subtext": "仁和寺",
+      "funFact": "仁和寺由宇多天皇于公元888年创建，以仅2-3米高的晚开御室樱花闻名，是联合国教科文组织世界遗产。"
+    },
+    {
+      "index": 15,
+      "name": "JR Sagano Line",
+      "subtext": "JR嵯峨野线",
+      "funFact": "JR嵯峨野线穿越京都西部通往岚山，嵯峨野浪漫号观光列车沿保津峡行驶7.3公里。"
+    },
+    {
+      "index": 16,
+      "name": "Arashiyama",
+      "subtext": "岚山",
+      "funFact": "岚山自1000多年前的平安时代起就是热门休憩地，贵族在此建别墅欣赏山景和秋色。"
+    },
+    {
+      "index": 17,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Bamboo Grove",
+      "subtext": "竹林",
+      "funFact": "岚山竹林的竹竿高达20多米，风吹竹林的声音被评为日本百大音景之一。"
+    },
+    {
+      "index": 19,
+      "name": "Togetsukyo",
+      "subtext": "渡月桥",
+      "funFact": "\"渡月桥\"最初建于9世纪平安时代。其名称源于龟山天皇看到月亮仿佛穿过桥面的景象。"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": "幸运转盘",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Kiyomizu-dera",
+      "subtext": "清水寺",
+      "funFact": "清水寺建于公元778年，著名的木造舞台凸出山坡13米，使用特殊的榫卯技术建造，无一根钉子。"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Sannenzaka",
+      "subtext": "三年坂",
+      "funFact": "这条保存完好的石板坡道可追溯到公元807年。当地迷信说如果在这些台阶上绊倒，会有三年的厄运。"
+    },
+    {
+      "index": 24,
+      "name": "Higashiyama",
+      "subtext": "东山",
+      "funFact": "东山区是日本保存最完好的历史街区之一，拥有传统木造町屋和2500多座寺庙和神社。"
+    },
+    {
+      "index": 25,
+      "name": "Keifuku Line",
+      "subtext": "岚电",
+      "funFact": "被亲切地称为“岚电“，京福电铁自1910年运营至今，是京都唯一留存的路面电车线路，全长7.2公里。"
+    },
+    {
+      "index": 26,
+      "name": "Imperial Palace",
+      "subtext": "京都御所",
+      "funFact": "京都御所作为日本天皇的居所长达1000多年，直到1869年首都迁至东京。"
+    },
+    {
+      "index": 27,
+      "name": "Shimogamo",
+      "subtext": "下鸭",
+      "funFact": "下鸭神社是京都最古老的神社之一，历史比城市本身还悠久，神社内的纠之森已有2000多年历史。"
+    },
+    {
+      "index": 28,
+      "name": "Kyoto Water",
+      "subtext": "京都水务",
+      "funFact": "京都的供水系统通过1890年建成的琵琶湖疏水从琵琶湖引水，是日本最早的现代水力发电项目之一。"
+    },
+    {
+      "index": 29,
+      "name": "Philosopher Path",
+      "subtext": "哲学之道",
+      "funFact": "这条沿运河延伸2公里的石路以哲学家西田几多郎命名，他每天在此冥想。1921年种植的数百棵樱花树至今仍在。"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": "去监狱",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Fushimi Inari",
+      "subtext": "伏见稻荷",
+      "funFact": "伏见稻荷大社有超过10000座朱红色鸟居蜿蜒4公里上稻荷山，自江户时代以来由企业捐赠以祈求好运。"
+    },
+    {
+      "index": 32,
+      "name": "Byodo-in",
+      "subtext": "平等院",
+      "funFact": "建于1053年的平等院凤凰堂被刻在日本10日元硬币上！是平安时代净土佛教建筑唯一现存的实例。"
+    },
+    {
+      "index": 33,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Uji",
+      "subtext": "宇治",
+      "funFact": "宇治800多年来一直是日本最负盛名的茶叶产区。世界上第一部长篇小说《源氏物语》的最后几章就以宇治为背景。"
+    },
+    {
+      "index": 35,
+      "name": "Kintetsu Line",
+      "subtext": "近铁线",
+      "funFact": "近铁是日本最大的私营铁路网，全长508公里，乘坐特急列车仅需35分钟即可从京都到达奈良。"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Daitoku-ji",
+      "subtext": "大德寺",
+      "funFact": "大德寺创建于1319年，是拥有24座塔头寺院的庞大禅宗寺院群，通过千利休与日本茶道历史紧密相连。"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Kitano Tenmangu",
+      "subtext": "北野天满宫",
+      "funFact": "北野天满宫建于公元947年，供奉学者菅原道真，拥有2000棵梅花树，是日本最重要的学业成就神社。"
+    }
+  ]
+}

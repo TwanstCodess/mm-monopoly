@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "SALIDA",
+      "subtext": "COBRA $200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "San Juan de Dios",
+      "subtext": "San Juan de Dios",
+      "funFact": "Uno de los mercados techados más grandes de América Latina con más de 3.000 puestos que venden de todo, desde artículos de cuero hasta artesanías, construido en 1954."
+    },
+    {
+      "index": 2,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Analco",
+      "subtext": "Analco",
+      "funFact": "Uno de los barrios más antiguos de Guadalajara, su nombre en náhuatl significa \"al otro lado del río\" y data del siglo XVI."
+    },
+    {
+      "index": 4,
+      "name": "Impuesto sobre la Renta",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Línea 1 (Tren Ligero)",
+      "subtext": "Línea 1",
+      "funFact": "La primera línea de tren ligero de Guadalajara abrió en 1989, recorriendo 15,5 km de norte a sur a través del corazón de la ciudad."
+    },
+    {
+      "index": 6,
+      "name": "Tlaquepaque",
+      "subtext": "Tlaquepaque",
+      "funFact": "Famosa villa artesanal conocida mundialmente por su vidrio soplado, cerámica y figuras de papel maché. Su centro peatonal es un tesoro cultural de la UNESCO."
+    },
+    {
+      "index": 7,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Tonalá",
+      "subtext": "Tonalá",
+      "funFact": "El mercado artesanal al aire libre más grande de México que se celebra cada jueves y domingo, atrayendo a más de 10.000 vendedores que ofrecen cerámica, vidrio soplado y artesanías."
+    },
+    {
+      "index": 9,
+      "name": "Zapopan Centro",
+      "subtext": "Zapopan Centro",
+      "funFact": "Hogar de la Basílica de Nuestra Señora de Zapopan, donde una pequeña estatua de pasta de caña del siglo XVI es llevada en procesión por la ciudad cada 12 de octubre."
+    },
+    {
+      "index": 10,
+      "name": "CÁRCEL",
+      "subtext": "DE VISITA",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "La Minerva",
+      "subtext": "La Minerva",
+      "funFact": "La icónica glorieta de la fuente Minerva presenta una estatua de la diosa griega que simboliza la fuerza y sabiduría de Guadalajara, erigida en 1957."
+    },
+    {
+      "index": 12,
+      "name": "CFE Guadalajara",
+      "subtext": null,
+      "funFact": "La CFE provee electricidad al área metropolitana de Guadalajara con más de 5 millones de habitantes, la segunda área metropolitana más grande de México."
+    },
+    {
+      "index": 13,
+      "name": "Chapalita",
+      "subtext": "Chapalita",
+      "funFact": "Un exclusivo barrio residencial construido en los años 40 alrededor de un parque central, conocido por sus calles arboladas y arquitectura de estilo europeo."
+    },
+    {
+      "index": 14,
+      "name": "Providencia",
+      "subtext": "Providencia",
+      "funFact": "La zona residencial más exclusiva de Guadalajara cuenta con casas de lujo, restaurantes de alta gama y la famosa Avenida Providencia bordeada de imponentes fresnos."
+    },
+    {
+      "index": 15,
+      "name": "Línea 2 (Tren Ligero)",
+      "subtext": "Línea 2",
+      "funFact": "Con un recorrido de 8,5 km de este a oeste, la Línea 2 abrió en 1994 y se cruza con la Línea 1 en la estación Juárez en el centro."
+    },
+    {
+      "index": 16,
+      "name": "Centro Histórico",
+      "subtext": "Centro Histórico",
+      "funFact": "El centro histórico de Guadalajara fue fundado en 1542 y presenta impresionante arquitectura colonial que abarca casi cinco siglos de historia mexicana."
+    },
+    {
+      "index": 17,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Catedral",
+      "subtext": "Catedral",
+      "funFact": "La catedral de dos torres de Guadalajara, construida entre 1561 y 1618, presenta una mezcla de estilos gótico, barroco y neoclásico única en México."
+    },
+    {
+      "index": 19,
+      "name": "Hospicio Cabañas",
+      "subtext": "Hospicio Cabañas",
+      "funFact": "Patrimonio Mundial de la UNESCO desde 1997, alberga la obra maestra mural de José Clemente Orozco \"El Hombre de Fuego\" pintada en 57 frescos en el techo."
+    },
+    {
+      "index": 20,
+      "name": "GIRA Y GANA",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Teatro Degollado",
+      "subtext": "Teatro Degollado",
+      "funFact": "Inaugurado en 1866, este teatro neoclásico presenta un fresco en el techo inspirado en la Divina Comedia de Dante y alberga la Filarmónica de Guadalajara."
+    },
+    {
+      "index": 22,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Chapultepec",
+      "subtext": "Chapultepec",
+      "funFact": "La avenida más trendy de Guadalajara está repleta de cafés al aire libre, galerías de arte y vida nocturna. Cada fin de semana la calle se cierra al tráfico para un vibrante corredor cultural."
+    },
+    {
+      "index": 24,
+      "name": "Americana",
+      "subtext": "Americana",
+      "funFact": "Un barrio bohemio con impresionantes mansiones de principios del siglo XX que mezclan estilos francés y Art Déco, ahora hogar de hoteles boutique y restaurantes de moda."
+    },
+    {
+      "index": 25,
+      "name": "Línea 3 (Mi Tren)",
+      "subtext": "Línea 3",
+      "funFact": "La primera línea de tren elevado de Guadalajara abrió en 2020, abarcando 21,5 km y conectando Zapopan con Tlaquepaque con modernos trenes sin conductor."
+    },
+    {
+      "index": 26,
+      "name": "Plaza del Sol",
+      "subtext": "Plaza del Sol",
+      "funFact": "Cuando abrió en 1969, Plaza del Sol era el centro comercial más grande de América Latina, revolucionando la cultura del comercio en el occidente de México."
+    },
+    {
+      "index": 27,
+      "name": "Colonia Moderna",
+      "subtext": "Colonia Moderna",
+      "funFact": "Un vibrante barrio donde la cultura mexicana tradicional se encuentra con la vida urbana moderna, conocido por sus coloridos murales callejeros y puestos de tacos locales."
+    },
+    {
+      "index": 28,
+      "name": "SIAPA",
+      "subtext": null,
+      "funFact": "SIAPA administra el agua potable y alcantarillado del área metropolitana de Guadalajara, obteniendo agua del Lago de Chapala, el lago de agua dulce más grande de México."
+    },
+    {
+      "index": 29,
+      "name": "Glorieta de Los Niños Héroes",
+      "subtext": "Niños Héroes",
+      "funFact": "Este monumento honra a los seis cadetes militares adolescentes que murieron defendiendo el Castillo de Chapultepec durante la Guerra México-Estadounidense en 1847."
+    },
+    {
+      "index": 30,
+      "name": "VE A LA CÁRCEL",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Parque Metropolitano",
+      "subtext": "Parque Metropolitano",
+      "funFact": "Con 113 hectáreas, este bosque urbano es el pulmón verde de Guadalajara, con senderos para correr, un lago y el anfiteatro al aire libre más grande de la ciudad."
+    },
+    {
+      "index": 32,
+      "name": "Barranca de Huentitán",
+      "subtext": "Barranca",
+      "funFact": "Un espectacular cañón de 600 metros de profundidad en el extremo norte de Guadalajara con el Río Santiago fluyendo abajo, que ofrece impresionantes senderos para caminatas y tirolesas."
+    },
+    {
+      "index": 33,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Tequila",
+      "subtext": "Tequila",
+      "funFact": "El pueblo declarado por la UNESCO a 60 km de Guadalajara le dio su nombre al destilado más famoso del mundo. Los campos de agave azul que lo rodean fueron declarados Patrimonio Mundial en 2006."
+    },
+    {
+      "index": 35,
+      "name": "Macrobús",
+      "subtext": "Macrobús",
+      "funFact": "El sistema de autobús de tránsito rápido de Guadalajara fue lanzado en 2009, moviendo 180.000 pasajeros diarios a lo largo de un corredor dedicado de 16 km en la Calzada Independencia."
+    },
+    {
+      "index": 36,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Lago de Chapala",
+      "subtext": "Lago de Chapala",
+      "funFact": "El lago de agua dulce más grande de México con 1.112 kilómetros cuadrados, a solo 45 minutos de Guadalajara, hogar de la mayor comunidad de expatriados estadounidenses y canadienses en México."
+    },
+    {
+      "index": 38,
+      "name": "Impuesto de Lujo",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Rotonda de los Jaliscienses Ilustres",
+      "subtext": "Rotonda",
+      "funFact": "Esta rotonda neoclásica honra a 98 ciudadanos ilustres de Jalisco. Construida en 1952, contiene los restos de famosos artistas, científicos y revolucionarios."
+    }
+  ]
+}

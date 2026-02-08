@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "SALIDA",
+      "subtext": "COBRA $200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Grassmarket",
+      "subtext": "Mercado de la Hierba",
+      "funFact": "Antiguo mercado principal de Edimburgo y lugar de ejecuciones públicas, Grassmarket ha sido un bullicioso centro comercial desde el siglo XV."
+    },
+    {
+      "index": 2,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Portobello",
+      "subtext": "Portobello",
+      "funFact": "El suburbio costero de Edimburgo fue nombrado así por la cabaña de un marinero llamada Porto Bello, inspirada en la captura británica de Portobelo en Panamá en 1739."
+    },
+    {
+      "index": 4,
+      "name": "Impuesto sobre la Renta",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Edinburgh Waverley",
+      "subtext": "Estación Waverley",
+      "funFact": "Edinburgh Waverley es la segunda estación de tren más grande del Reino Unido por número de andenes y la única estación importante nombrada en honor a una novela, Waverley de Sir Walter Scott."
+    },
+    {
+      "index": 6,
+      "name": "Leith",
+      "subtext": "Puerto de Leith",
+      "funFact": "El histórico distrito portuario de Edimburgo fue un municipio independiente hasta 1920 y ahora alberga el Royal Yacht Britannia, el antiguo palacio flotante de la Reina."
+    },
+    {
+      "index": 7,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Stockbridge",
+      "subtext": "Stockbridge",
+      "funFact": "Este encantador pueblo dentro de Edimburgo toma su nombre de un puente de madera que una vez cruzaba el Water of Leith y alberga un popular mercado de agricultores los domingos."
+    },
+    {
+      "index": 9,
+      "name": "Bruntsfield",
+      "subtext": "Bruntsfield",
+      "funFact": "Bruntsfield Links es uno de los campos de golf más antiguos del mundo, con registros de golf jugado allí desde 1456."
+    },
+    {
+      "index": 10,
+      "name": "CÁRCEL",
+      "subtext": "DE VISITA",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "New Town",
+      "subtext": "Ciudad Nueva",
+      "funFact": "La Ciudad Nueva de Edimburgo es una obra maestra de la planificación urbana georgiana, diseñada por James Craig en 1767 y ahora Patrimonio Mundial de la UNESCO."
+    },
+    {
+      "index": 12,
+      "name": "Scottish Power",
+      "subtext": null,
+      "funFact": "Escocia genera suficiente energía eólica para alimentar el equivalente de cada hogar escocés dos veces, convirtiéndola en líder europeo en energía renovable."
+    },
+    {
+      "index": 13,
+      "name": "Marchmont",
+      "subtext": "Marchmont",
+      "funFact": "Construido en la década de 1870 como viviendas para la creciente clase media de Edimburgo, Marchmont es famoso por sus pisos victorianos de arenisca roja y su población estudiantil."
+    },
+    {
+      "index": 14,
+      "name": "Morningside",
+      "subtext": "Morningside",
+      "funFact": "Conocido por su acento refinado y carácter elegante, Morningside fue una vez un pueblo separado y se dice que inspiró el ficticio suburbio de Springfield en Los Simpson."
+    },
+    {
+      "index": 15,
+      "name": "Haymarket Station",
+      "subtext": "Estación Haymarket",
+      "funFact": "La Estación Haymarket abrió en 1842 y se encuentra cerca del lugar donde tuvo lugar la última ejecución pública de Edimburgo, así como el famoso reloj de Haymarket."
+    },
+    {
+      "index": 16,
+      "name": "Dean Village",
+      "subtext": "Aldea de Dean",
+      "funFact": "Este pintoresco pueblo medieval junto al Water of Leith albergó más de 70 molinos de grano y es ahora uno de los lugares más fotografiados de Edimburgo."
+    },
+    {
+      "index": 17,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Haymarket",
+      "subtext": "Barrio Haymarket",
+      "funFact": "El área de Haymarket presenta el famoso mosaico Heart of Midlothian en el pavimento y ha sido un importante centro de transporte desde la era ferroviaria victoriana."
+    },
+    {
+      "index": 19,
+      "name": "Murrayfield",
+      "subtext": "Estadio Murrayfield",
+      "funFact": "Hogar del estadio nacional de rugby de Escocia desde 1925, Murrayfield tiene capacidad para 67.144 espectadores y fue el primer estadio del Reino Unido en instalar calefacción subterránea."
+    },
+    {
+      "index": 20,
+      "name": "GIRA Y GANA",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Calton Hill",
+      "subtext": "Colina Calton",
+      "funFact": "El inacabado Monumento Nacional de Calton Hill, iniciado en 1826 para honrar a los caídos en las Guerras Napoleónicas, le valió a Edimburgo el apodo de \"La Atenas del Norte\"."
+    },
+    {
+      "index": 22,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Holyrood",
+      "subtext": "Palacio de Holyrood",
+      "funFact": "El Palacio de Holyroodhouse ha sido la residencia oficial escocesa de la monarquía desde el siglo XVI y fue hogar de María, Reina de Escocia."
+    },
+    {
+      "index": 24,
+      "name": "Arthur's Seat",
+      "subtext": "Trono de Arturo",
+      "funFact": "Este antiguo volcán que se eleva 251 metros sobre Edimburgo tiene aproximadamente 340 millones de años y se cree que es una de las posibles inspiraciones para Camelot."
+    },
+    {
+      "index": 25,
+      "name": "South Gyle",
+      "subtext": "Estación South Gyle",
+      "funFact": "La estación South Gyle sirve al distrito empresarial occidental de Edimburgo y el Centro Comercial Gyle, conectando la ciudad con Fife y el Puente Forth."
+    },
+    {
+      "index": 26,
+      "name": "Princes Street",
+      "subtext": "Calle de los Príncipes",
+      "funFact": "La principal calle comercial de Edimburgo tiene edificios solo en un lado, ofreciendo vistas ininterrumpidas de la Ciudad Vieja, el Castillo de Edimburgo y el Monumento a Scott."
+    },
+    {
+      "index": 27,
+      "name": "George Street",
+      "subtext": "Calle George",
+      "funFact": "Nombrada en honor al Rey Jorge III, esta elegante calle de la Ciudad Nueva fue diseñada originalmente como la principal calle residencial y ahora alberga bares y restaurantes exclusivos."
+    },
+    {
+      "index": 28,
+      "name": "Scottish Water",
+      "subtext": null,
+      "funFact": "Scottish Water suministra 1.460 millones de litros de agua potable diariamente a 5,4 millones de clientes, obtenida de algunos de los embalses más puros de Europa."
+    },
+    {
+      "index": 29,
+      "name": "Heriot Row",
+      "subtext": "Heriot Row",
+      "funFact": "Esta prestigiosa dirección de la Ciudad Nueva fue una vez hogar de Robert Louis Stevenson, quien escribió La Isla del Tesoro mientras vivía en el número 17 de Heriot Row."
+    },
+    {
+      "index": 30,
+      "name": "VE A LA CÁRCEL",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Monumento Scott",
+      "subtext": "Monumento a Scott",
+      "funFact": "Con 61 metros de altura, el Monumento a Scott es el monumento a un escritor más grande del mundo, con 287 escalones que llevan a vistas panorámicas de Edimburgo."
+    },
+    {
+      "index": 32,
+      "name": "Catedral St Giles",
+      "subtext": "Catedral de San Gil",
+      "funFact": "La Catedral de Edimburgo data del siglo XII y su distintiva aguja en forma de corona, añadida en 1495, se ha convertido en un símbolo icónico de la ciudad."
+    },
+    {
+      "index": 33,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Cramond",
+      "subtext": "Cramond",
+      "funFact": "Cramond fue un asentamiento de fuerte romano que data del año 142 d.C., y en 1997 se encontró una invaluable escultura romana de una leona devorando un prisionero en el río Almond."
+    },
+    {
+      "index": 35,
+      "name": "Edinburgh Park",
+      "subtext": "Estación Edinburgh Park",
+      "funFact": "La estación Edinburgh Park sirve al parque empresarial más grande de Escocia y fue diseñada como una parada clave en el intercambio Edinburgh Gateway con servicios de tranvía."
+    },
+    {
+      "index": 36,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Royal Mile",
+      "subtext": "Milla Real",
+      "funFact": "La Milla Real se extiende exactamente una milla escocesa desde el Castillo de Edimburgo hasta el Palacio de Holyroodhouse y contiene más de 80 estrechos callejones y pasajes."
+    },
+    {
+      "index": 38,
+      "name": "Impuesto de Lujo",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Castillo de Edimburgo",
+      "subtext": "Castillo de Edimburgo",
+      "funFact": "Situado sobre una roca volcánica extinta, el Castillo de Edimburgo ha sido residencia real desde el siglo XII y alberga las Joyas de la Corona Escocesa, la regalia más antigua de Gran Bretaña."
+    }
+  ]
+}

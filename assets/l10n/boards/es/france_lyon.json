@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "SALIDA",
+      "subtext": "COBRA $200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Vieux Lyon",
+      "subtext": "Lyon Viejo",
+      "funFact": "Vieux Lyon es uno de los distritos renacentistas más grandes de Europa, abarcando 424 hectáreas y designado Patrimonio Mundial de la UNESCO en 1998."
+    },
+    {
+      "index": 2,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Traboules",
+      "subtext": "Los Traboules",
+      "funFact": "Los traboules de Lyon son pasajes secretos que atraviesan edificios y patios, utilizados originalmente por los trabajadores de la seda y más tarde por la Resistencia Francesa durante la Segunda Guerra Mundial."
+    },
+    {
+      "index": 4,
+      "name": "Impuesto sobre la Renta",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Lyon Part-Dieu",
+      "subtext": "Estación Part-Dieu",
+      "funFact": "Lyon Part-Dieu es la estación de tren más grande de Francia fuera de París, atendiendo a más de 30 millones de pasajeros al año."
+    },
+    {
+      "index": 6,
+      "name": "Guillotière",
+      "subtext": "La Guillotière",
+      "funFact": "La Guillotière es uno de los barrios más antiguos de Lyon, hogar del histórico Pont de la Guillotière que data de 1070."
+    },
+    {
+      "index": 7,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Ainay",
+      "subtext": "Barrio de Ainay",
+      "funFact": "La Basílica de Saint-Martin d'Ainay en este barrio es una de las iglesias más antiguas de Lyon, consagrada por el Papa Pascual II en 1107."
+    },
+    {
+      "index": 9,
+      "name": "Croix-Rousse",
+      "subtext": "La Croix-Rousse",
+      "funFact": "Conocida como \"la colina que trabaja\", Croix-Rousse fue el corazón de la industria de la seda de Lyon, con edificios con techos extra altos para acomodar los telares Jacquard."
+    },
+    {
+      "index": 10,
+      "name": "CÁRCEL",
+      "subtext": "DE VISITA",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "St-Jean",
+      "subtext": "Catedral de San Juan",
+      "funFact": "La Catedral de Saint-Jean-Baptiste tardó más de 300 años en construirse, de 1180 a 1480, y alberga un reloj astronómico del siglo XIV que aún funciona hoy."
+    },
+    {
+      "index": 12,
+      "name": "EDF Lyon",
+      "subtext": null,
+      "funFact": "Las operaciones de EDF en Lyon gestionan la distribución de electricidad en la región de Ródano-Alpes, alimentando una de las áreas metropolitanas más industrializadas de Francia."
+    },
+    {
+      "index": 13,
+      "name": "Terreaux",
+      "subtext": "Plaza de los Terreaux",
+      "funFact": "La Place des Terreaux cuenta con la famosa Fuente Bartholdi, diseñada por el mismo escultor que creó la Estatua de la Libertad en Nueva York."
+    },
+    {
+      "index": 14,
+      "name": "Place des Jacobins",
+      "subtext": "Plaza de los Jacobinos",
+      "funFact": "La fuente de la Place des Jacobins, erigida en 1885, honra a cuatro artistas lioneses y está rodeada de elegantes edificios de estilo Haussmann del siglo XIX."
+    },
+    {
+      "index": 15,
+      "name": "Lyon Perrache",
+      "subtext": "Estación Perrache",
+      "funFact": "Inaugurada en 1857, la Gare de Perrache fue la estación principal de Lyon durante más de un siglo y se encuentra en la punta sur de la península Presqu'île."
+    },
+    {
+      "index": 16,
+      "name": "Opéra",
+      "subtext": "Ópera de Lyon",
+      "funFact": "La Ópera de Lyon fue radicalmente rediseñada por el arquitecto Jean Nouvel en 1993, quien añadió una llamativa bóveda de cañón de vidrio que duplicó la altura del edificio."
+    },
+    {
+      "index": 17,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Halles de Lyon",
+      "subtext": "Halles Paul Bocuse",
+      "funFact": "Les Halles de Lyon Paul Bocuse llevan el nombre del legendario chef y cuentan con más de 50 vendedores gourmet, ganándose la reputación de ser el estómago de Lyon."
+    },
+    {
+      "index": 19,
+      "name": "Presqu'île",
+      "subtext": "La Presqu'île",
+      "funFact": "La Presqu'île es una estrecha península formada entre los ríos Ródano y Saona, sirviendo como el corazón comercial y cultural de Lyon desde la época romana."
+    },
+    {
+      "index": 20,
+      "name": "GIRA Y GANA",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Institut Lumière",
+      "subtext": "Instituto Lumière",
+      "funFact": "Los hermanos Lumière filmaron la primera película del mundo en Lyon en 1895, y el museo del Instituto Lumière ocupa su villa familiar en el barrio de Monplaisir."
+    },
+    {
+      "index": 22,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Part-Dieu",
+      "subtext": "Barrio Part-Dieu",
+      "funFact": "El distrito Part-Dieu es el centro empresarial moderno de Lyon, dominado por la Torre Part-Dieu de 165 metros, apodada \"el lápiz\" por los locales por su forma distintiva."
+    },
+    {
+      "index": 24,
+      "name": "Bellecour",
+      "subtext": "Plaza Bellecour",
+      "funFact": "La Place Bellecour es la plaza peatonal abierta más grande de Europa, con 62.000 metros cuadrados, con una famosa estatua ecuestre de Luis XIV en su centro."
+    },
+    {
+      "index": 25,
+      "name": "Métro A",
+      "subtext": "Metro Línea A",
+      "funFact": "La Línea A del Metro de Lyon abrió en 1978 y recorre de este a oeste a través de la ciudad, conectando Perrache con Vaulx-en-Velin a lo largo de 14 estaciones."
+    },
+    {
+      "index": 26,
+      "name": "Grand Hôtel-Dieu",
+      "subtext": "Gran Hospital-Dios",
+      "funFact": "El Grand Hôtel-Dieu sirvió como hospital durante más de 800 años antes de transformarse en un complejo de hotel de lujo, compras y cultura que reabrió en 2018."
+    },
+    {
+      "index": 27,
+      "name": "Confluence",
+      "subtext": "La Confluencia",
+      "funFact": "Lyon Confluence es un enorme proyecto de renovación urbana en el punto de encuentro de los ríos Ródano y Saona, transformando 150 hectáreas de antiguo terreno industrial en un eco-distrito."
+    },
+    {
+      "index": 28,
+      "name": "Veolia Lyon",
+      "subtext": null,
+      "funFact": "Veolia gestiona el suministro de agua de Lyon extraída del acuífero del Ródano, distribuyendo más de 200.000 metros cúbicos de agua potable diariamente al área metropolitana."
+    },
+    {
+      "index": 29,
+      "name": "Musée des Confluences",
+      "subtext": "Museo de las Confluencias",
+      "funFact": "El Musée des Confluences se aloja en un edificio deconstructivista futurista de vidrio y acero que se asemeja a una nube de cristal, diseñado por la firma austriaca Coop Himmelb(l)au."
+    },
+    {
+      "index": 30,
+      "name": "VE A LA CÁRCEL",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Fourvière",
+      "subtext": "Colina de Fourvière",
+      "funFact": "La colina de Fourvière fue el sitio del asentamiento romano original de Lugdunum, fundado en el 43 a.C. como capital de las tres Galias bajo el Imperio Romano."
+    },
+    {
+      "index": 32,
+      "name": "Perrache",
+      "subtext": "Barrio Perrache",
+      "funFact": "El barrio de Perrache se asienta sobre terreno creado artificialmente en el siglo XVIII por el ingeniero Antoine-Michel Perrache, quien redirigió la confluencia de los dos ríos hacia el sur."
+    },
+    {
+      "index": 33,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Brotteaux",
+      "subtext": "Los Brotteaux",
+      "funFact": "Les Brotteaux es el barrio más exclusivo de Lyon, hogar de la impresionante antigua estación de tren Brotteaux construida en 1908, ahora convertida en un mercado gastronómico."
+    },
+    {
+      "index": 35,
+      "name": "Métro D",
+      "subtext": "Metro Línea D",
+      "funFact": "La Línea D del Metro de Lyon, inaugurada en 1991, fue la primera línea de metro completamente automatizada sin conductor del mundo, siendo pionera en tecnología luego adoptada por ciudades de todo el planeta."
+    },
+    {
+      "index": 36,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Tête d'Or",
+      "subtext": "Parque de la Tête d'Or",
+      "funFact": "El Parc de la Tête d'Or es uno de los parques urbanos más grandes de Francia con 117 hectáreas, con un zoológico gratuito, jardín botánico con más de 16.000 especies de plantas y un gran lago."
+    },
+    {
+      "index": 38,
+      "name": "Impuesto de Lujo",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Basilique de Fourvière",
+      "subtext": "Basílica de Fourvière",
+      "funFact": "La Basílica de Notre-Dame de Fourvière fue construida entre 1872 y 1884, y sus cuatro torres y estatua dorada de la Virgen María la convierten en el monumento más icónico del horizonte de Lyon."
+    }
+  ]
+}

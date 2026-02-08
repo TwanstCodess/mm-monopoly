@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "收取200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Le Panier",
+      "subtext": "篮子区",
+      "funFact": "篮子区是马赛最古老的街区，也是法国最古老的街区之一，公元前600年希腊人建立马萨利亚时最早定居于此。"
+    },
+    {
+      "index": 2,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Noailles",
+      "subtext": "诺阿耶区",
+      "funFact": "诺阿耶区被称为“马赛之腹“，卡普桑路上充满活力的露天市场汇集来自地中海各地的香料、农产品和商品。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Gare Saint-Charles",
+      "subtext": "圣夏尔火车站",
+      "funFact": "圣夏尔火车站以1927年建造的104级宏伟台阶闻名，可以俯瞰城市和地中海的全景。"
+    },
+    {
+      "index": 6,
+      "name": "Cours Julien",
+      "subtext": "朱利安大道",
+      "funFact": "朱利安大道是马赛的波希米亚街区，以街头艺术壁画、独立书店和每周三的有机农贸市场闻名。"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Joliette",
+      "subtext": "若利耶特",
+      "funFact": "若利耶特曾是马赛的主要商业港口区，现已改造为欧洲地中海中心，拥有扎哈·哈迪德设计的达飞海运大厦。"
+    },
+    {
+      "index": 9,
+      "name": "La Canebière",
+      "subtext": "卡纳比耶尔大道",
+      "funFact": "卡纳比耶尔大道是马赛最著名的林荫大道，从旧港延伸向内陆。其名称源自普罗旺斯语中“大麻“一词。"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "监狱",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Vallon des Auffes",
+      "subtext": "奥夫斯峡谷",
+      "funFact": "奥夫斯峡谷是隐藏在滨海大道下的小渔港，以曾在这里用拐枣草编绳的奥菲叶工匠命名。"
+    },
+    {
+      "index": 12,
+      "name": "EDF Marseille",
+      "subtext": "马赛法国电力",
+      "funFact": "马赛法国电力为法国第二大城市供电，地中海阳光充沛的气候使其成为太阳能的理想地点，年日照超过2800小时。"
+    },
+    {
+      "index": 13,
+      "name": "Longchamp",
+      "subtext": "隆尚宫",
+      "funFact": "隆尚宫建于1869年，庆祝通过160公里运河从迪朗斯河引水至城市，结束了数百年的慢性水荒。"
+    },
+    {
+      "index": 14,
+      "name": "Pharo",
+      "subtext": "法罗宫",
+      "funFact": "法罗宫由拿破仑三世为欧仁妮皇后建造，但她从未居住于此。如今花园可以俯瞰旧港的壮丽景色。"
+    },
+    {
+      "index": 15,
+      "name": "Métro 1",
+      "subtext": "地铁1号线",
+      "funFact": "马赛地铁1号线于1977年开通，从拉罗斯运行至卡斯特拉纳，穿越历史城区共18个车站。"
+    },
+    {
+      "index": 16,
+      "name": "Fort Saint-Jean",
+      "subtext": "圣让堡",
+      "funFact": "圣让堡由路易十四于1660年建造，目的不是保卫城市，而是控制叛逆的市民。现在通过一座壮观的天桥连接到欧洲地中海文明博物馆。"
+    },
+    {
+      "index": 17,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Castellane",
+      "subtext": "卡斯特拉纳广场",
+      "funFact": "卡斯特拉纳广场是重要交通枢纽，中央矗立着1911年为纪念运河水到达马赛而建的大理石柱喷泉。"
+    },
+    {
+      "index": 19,
+      "name": "Vieux-Port",
+      "subtext": "旧港",
+      "funFact": "旧港是马赛2600多年来的核心，自希腊人首次在此停靠以来。如今停泊着3500多艘游艇，并设有每日鱼市。"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": "幸运转盘",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "MuCEM",
+      "subtext": "欧洲地中海文明博物馆",
+      "funFact": "欧洲地中海文明博物馆由鲁迪·里乔蒂设计，外覆灵感源自阿拉伯窗花的混凝土格栅，于2013年马赛成为欧洲文化之都时开放。"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Corniche",
+      "subtext": "滨海大道",
+      "funFact": "肯尼迪滨海大道沿地中海海岸延伸近5公里，拥有世界上最长的长椅，超过3公里。"
+    },
+    {
+      "index": 24,
+      "name": "Stade Vélodrome",
+      "subtext": "韦洛德罗姆球场",
+      "funFact": "韦洛德罗姆球场可容纳67394名观众，是马赛奥林匹克足球俱乐部的主场。2016年欧洲杯翻新时增建了波浪形屋顶。"
+    },
+    {
+      "index": 25,
+      "name": "Métro 2",
+      "subtext": "地铁2号线",
+      "funFact": "马赛地铁2号线从布干维利亚运行至圣马格丽特-德罗梅，穿越标志性的卡纳比耶尔大道下方并服务主火车站。"
+    },
+    {
+      "index": 26,
+      "name": "La Cité Radieuse",
+      "subtext": "光辉城市",
+      "funFact": "光辉城市由勒·柯布西耶设计，1952年竣工，作为“垂直村庄“拥有337套公寓、屋顶平台和三楼的内部购物街。"
+    },
+    {
+      "index": 27,
+      "name": "Prado",
+      "subtext": "普拉多海滩",
+      "funFact": "普拉多海滩完全是20世纪70年代利用马赛地铁建设的碎石人工填建的，创造了3.5公顷的沙滩海岸线。"
+    },
+    {
+      "index": 28,
+      "name": "Société des Eaux de Marseille",
+      "subtext": "马赛水务公司",
+      "funFact": "马赛水务公司自1943年以来管理城市供水，每年分配超过8000万立方米的水，主要来自马赛运河。"
+    },
+    {
+      "index": 29,
+      "name": "Frioul Islands",
+      "subtext": "弗里乌尔群岛",
+      "funFact": "弗里乌尔群岛距离海岸仅2.7公里，包括四座岛屿，在17至18世纪的大瘟疫期间曾用作隔离检疫站。"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": "去监狱",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Château d'If",
+      "subtext": "伊夫城堡",
+      "funFact": "伊夫城堡由弗朗索瓦一世于1524年建于一座小石灰岩岛上，因亚历山大·仲马的小说《基督山伯爵》而闻名世界。"
+    },
+    {
+      "index": 32,
+      "name": "Unité d'Habitation",
+      "subtext": "马赛公寓",
+      "funFact": "勒·柯布西耶的马赛公寓被认为是20世纪最具影响力的建筑之一。屋顶设有游泳池、健身房和跑道，可俯瞰大海。"
+    },
+    {
+      "index": 33,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Les Goudes",
+      "subtext": "古德村",
+      "funFact": "古德村是马赛南端道路尽头的偏远渔村，坐落在壮观的白色石灰岩悬崖上，是通往峡湾的门户。"
+    },
+    {
+      "index": 35,
+      "name": "Tramway T2",
+      "subtext": "有轨电车T2线",
+      "funFact": "马赛有轨电车T2线于2007年开通，穿越城市中心从阿伦克运行至布朗卡尔德，帮助振兴了若利耶特区。"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Calanques",
+      "subtext": "峡湾国家公园",
+      "funFact": "峡湾国家公园成立于2012年，保护着20公里壮观的白色石灰岩峡湾深入碧绿海水，是欧洲仅有的两个毗邻大城市的国家公园之一。"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Notre-Dame de la Garde",
+      "subtext": "守护圣母大教堂",
+      "funFact": "被亲切地称为“好母亲“，守护圣母大教堂矗立于154米高的石灰岩山峰上，顶部9.7米的镀金圣母像几乎在城市的每个角落都能看到。"
+    }
+  ]
+}

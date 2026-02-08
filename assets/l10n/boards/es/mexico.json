@@ -10,7 +10,7 @@
       "index": 1,
       "name": "Coyoacán",
       "subtext": "Coyoacán",
-      "funFact": "¡Lugar de nacimiento de Frida Kahlo! Su famoso museo de la Casa Azul atrae a miles de visitantes diariamente."
+      "funFact": "Frida Kahlo nació aquí en 1907 y su Casa Azul, convertida en museo en 1958, recibe más de 800,000 visitantes al año."
     },
     {
       "index": 2,
@@ -22,7 +22,7 @@
       "index": 3,
       "name": "Xochimilco",
       "subtext": "Xochimilco",
-      "funFact": "¡Antiguos canales aztecas donde coloridas trajineras flotan entre jardines flotantes!"
+      "funFact": "Patrimonio de la Humanidad por la UNESCO desde 1987, Xochimilco conserva 170 km de canales prehispánicos y chinampas que datan del año 1200 d.C."
     },
     {
       "index": 4,
@@ -34,13 +34,13 @@
       "index": 5,
       "name": "Línea 1",
       "subtext": "Metro Línea 1",
-      "funFact": "¡La primera línea del metro de la Ciudad de México, inaugurada en 1969! Usa símbolos para los pasajeros que no saben leer."
+      "funFact": "Inaugurada el 4 de septiembre de 1969, esta línea de 18.8 km tiene 20 estaciones, cada una con un icono pictográfico único para que los usuarios se orienten sin necesidad de leer."
     },
     {
       "index": 6,
       "name": "Roma Norte",
       "subtext": "Roma Norte",
-      "funFact": "¡Barrio de moda lleno de arquitectura Art Nouveau y Art Déco!"
+      "funFact": "Desarrollada a principios del siglo XX y gravemente dañada por el sismo de 1985, la Roma Norte renació en los 2000 como uno de los principales centros culturales de la ciudad."
     },
     {
       "index": 7,
@@ -52,13 +52,13 @@
       "index": 8,
       "name": "Condesa",
       "subtext": "Condesa",
-      "funFact": "¡Distrito Art Déco arbolado construido alrededor de un antiguo hipódromo!"
+      "funFact": "Construida en los años 20 alrededor del antiguo Hipódromo de la Condesa, el Parque México aún conserva la forma ovalada de la pista original."
     },
     {
       "index": 9,
       "name": "Polanco",
       "subtext": "Polanco",
-      "funFact": "¡El Beverly Hills de la Ciudad de México, hogar de embajadas y boutiques de lujo!"
+      "funFact": "Desarrollado en las décadas de 1930 y 1940 y nombrado en honor a un fraile del siglo XVII, Polanco tiene más museos por kilómetro cuadrado que casi cualquier barrio en América."
     },
     {
       "index": 10,
@@ -70,37 +70,37 @@
       "index": 11,
       "name": "San Ángel",
       "subtext": "San Ángel",
-      "funFact": "¡Barrio colonial con calles empedradas y un vibrante mercado de arte los sábados!"
+      "funFact": "El famoso Bazar Sábado se celebra cada sábado desde 1960 en la Casa del Risco del siglo XVII, siendo uno de los mercados de arte más antiguos de México."
     },
     {
       "index": 12,
       "name": "CFE",
       "subtext": null,
-      "funFact": "¡La Comisión Federal de Electricidad suministra energía a todo México!"
+      "funFact": "Fundada el 14 de agosto de 1937, la CFE atiende a más de 46 millones de clientes y es una de las empresas eléctricas más grandes de América."
     },
     {
       "index": 13,
       "name": "Chapultepec",
       "subtext": "Chapultepec",
-      "funFact": "¡Uno de los parques urbanos más grandes del hemisferio occidental con 686 hectáreas!"
+      "funFact": "Su nombre significa \"Cerro del Chapulín\" en náhuatl, y este parque de 686 hectáreas ha sido un sitio sagrado desde al menos el siglo XIII."
     },
     {
       "index": 14,
       "name": "Bosque de Chapultepec",
       "subtext": "Bosque",
-      "funFact": "¡Este parque forestal es el doble del tamaño del Central Park de Nueva York!"
+      "funFact": "Con 686 hectáreas (el doble que Central Park), el Bosque alberga 9 museos, un zoológico fundado en 1924 y ahuehuetes de más de 700 años de antigüedad."
     },
     {
       "index": 15,
       "name": "Línea 2",
       "subtext": "Metro Línea 2",
-      "funFact": "¡La Línea Azul conecta los principales sitios culturales, incluyendo Bellas Artes!"
+      "funFact": "Inaugurada el 1 de agosto de 1970, esta línea de 23.4 km pasa bajo los principales monumentos, y durante su construcción se descubrieron vestigios aztecas que hoy se exhiben en las estaciones."
     },
     {
       "index": 16,
       "name": "Teotihuacán",
       "subtext": "Teotihuacán",
-      "funFact": "¡Pirámides ancestrales! ¡La Pirámide del Sol es la tercera pirámide más grande del mundo!"
+      "funFact": "Construida entre el 100 a.C. y el 250 d.C., la Pirámide del Sol mide 65 metros de altura y la ciudad llegó a tener más de 125,000 habitantes, siendo la sexta más grande del mundo antiguo."
     },
     {
       "index": 17,
@@ -112,13 +112,13 @@
       "index": 18,
       "name": "Templo Mayor",
       "subtext": "Templo Mayor",
-      "funFact": "¡El templo principal de los aztecas, descubierto accidentalmente en 1978 por trabajadores eléctricos!"
+      "funFact": "Descubierto el 21 de febrero de 1978 cuando trabajadores de la luz hallaron un enorme disco de piedra, las excavaciones han arrojado más de 7,000 piezas aztecas de este templo que llegó a medir 60 metros."
     },
     {
       "index": 19,
       "name": "Zócalo",
       "subtext": "Zócalo",
-      "funFact": "¡Una de las plazas públicas más grandes del mundo, el corazón de la Ciudad de México desde tiempos aztecas!"
+      "funFact": "Oficialmente Plaza de la Constitución, esta explanada de 46,800 m² ha sido el centro de la vida pública mexicana desde la fundación de Tenochtitlan en 1325."
     },
     {
       "index": 20,
@@ -130,7 +130,7 @@
       "index": 21,
       "name": "Palacio Nacional",
       "subtext": "Palacio Nacional",
-      "funFact": "¡Hogar de los famosos murales de Diego Rivera que representan la historia de México!"
+      "funFact": "Construido sobre el palacio de Moctezuma II a partir de 1522, Diego Rivera pintó sus épicos murales en sus muros entre 1929 y 1951."
     },
     {
       "index": 22,
@@ -142,43 +142,43 @@
       "index": 23,
       "name": "Bellas Artes",
       "subtext": "Bellas Artes",
-      "funFact": "¡Impresionante palacio Art Nouveau con un telón hecho de casi 1 millón de piezas de vidrio!"
+      "funFact": "Su construcción comenzó en 1904 y tardó 30 años en completarse; su famoso telón de cristal Tiffany pesa 24 toneladas y representa los volcanes del Valle de México."
     },
     {
       "index": 24,
       "name": "Paseo de la Reforma",
       "subtext": "Reforma",
-      "funFact": "¡Gran avenida inspirada en los Campos Elíseos, bordeada de monumentos y rascacielos!"
+      "funFact": "Mandada construir por el emperador Maximiliano en 1864 como \"Paseo de la Emperatriz,\" este bulevar de 15 km fue renombrado tras la Guerra de Reforma y es hoy la arteria principal de la ciudad."
     },
     {
       "index": 25,
       "name": "Línea 3",
       "subtext": "Metro Línea 3",
-      "funFact": "¡La Línea Olivo transporta 1,3 millones de pasajeros diarios!"
+      "funFact": "Inaugurada el 20 de noviembre de 1970, esta línea de 23.6 km con 21 estaciones es una de las más concurridas del sistema, transportando más de 1 millón de usuarios al día."
     },
     {
       "index": 26,
       "name": "Ángel de la Independencia",
       "subtext": "El Ángel",
-      "funFact": "¡El monumento más emblemático de México, celebrando la independencia de España!"
+      "funFact": "Inaugurado el 16 de septiembre de 1910 para el centenario de la Independencia, el ángel dorado mide 6.7 metros y se eleva sobre una columna de 36 metros."
     },
     {
       "index": 27,
       "name": "Zona Rosa",
       "subtext": "Zona Rosa",
-      "funFact": "¡La Zona Rosa! Barrio histórico amigable con la comunidad LGBTQ+ con influencia coreana e internacional."
+      "funFact": "Bautizada en los años 60 por el artista José Luis Cuevas, fue el primer barrio abiertamente LGBTQ+ de México en los 80 y alberga una vibrante comunidad coreana desde los 90."
     },
     {
       "index": 28,
       "name": "Agua de México",
       "subtext": null,
-      "funFact": "¡La Ciudad de México obtiene agua de acuíferos subterráneos y fuentes distantes en las montañas!"
+      "funFact": "La CDMX obtiene el 40% de su agua del Sistema Cutzamala a 127 km de distancia; la sobreexplotación de acuíferos provoca que la ciudad se hunda de 5 a 10 cm por año."
     },
     {
       "index": 29,
       "name": "Santa Fe",
       "subtext": "Santa Fe",
-      "funFact": "¡Distrito empresarial ultramoderno que surgió de un antiguo basurero!"
+      "funFact": "Transformado en los años 90 de lo que fue el basurero más grande de Latinoamérica en un reluciente distrito de negocios con más de 10,000 oficinas corporativas."
     },
     {
       "index": 30,
@@ -190,13 +190,13 @@
       "index": 31,
       "name": "Museo Frida Kahlo",
       "subtext": "Casa Azul",
-      "funFact": "¡La Casa Azul donde Frida vivió, amó y creó su arte icónico!"
+      "funFact": "La Casa Azul abrió como museo en 1958, cuatro años después de la muerte de Frida en 1954, y hoy recibe más de 800,000 visitantes al año."
     },
     {
       "index": 32,
       "name": "Museo Soumaya",
       "subtext": "Soumaya",
-      "funFact": "¡Impresionante edificio plateado que alberga 66.000 obras de arte, incluyendo obras de Rodin!"
+      "funFact": "Inaugurado en 2011 con una fachada de 16,000 hexágonos de aluminio, alberga 66,000 obras de arte, incluyendo la mayor colección de Rodin fuera de Francia."
     },
     {
       "index": 33,
@@ -208,13 +208,13 @@
       "index": 34,
       "name": "Museo de Antropología",
       "subtext": "Antropología",
-      "funFact": "¡El museo de antropología más grande del mundo, mostrando 3.000 años de cultura mexicana!"
+      "funFact": "Inaugurado el 17 de septiembre de 1964, este museo resguarda la Piedra del Sol azteca de 24 toneladas y recibe más de 2 millones de visitantes al año."
     },
     {
       "index": 35,
       "name": "Línea 12",
       "subtext": "Metro Línea 12",
-      "funFact": "¡La Línea Dorada, la línea de metro más nueva de la Ciudad de México!"
+      "funFact": "Inaugurada el 30 de octubre de 2012, esta línea dorada de 24.5 km con 20 estaciones es la más reciente del metro capitalino."
     },
     {
       "index": 36,
@@ -226,7 +226,7 @@
       "index": 37,
       "name": "Torre Latinoamericana",
       "subtext": "Torre Latino",
-      "funFact": "¡Construida en 1956, sobrevivió grandes terremotos gracias a su innovadora cimentación flotante!"
+      "funFact": "Terminada en 1956 con 44 pisos (182 m), resistió sin daños el devastador terremoto de 8.0 grados de 1985 gracias a su cimentación flotante de pilotes profundos."
     },
     {
       "index": 38,
@@ -238,7 +238,7 @@
       "index": 39,
       "name": "Castillo de Chapultepec",
       "subtext": "Castillo",
-      "funFact": "¡El único castillo real en Norteamérica, antiguo hogar del Emperador Maximiliano!"
+      "funFact": "Construido entre 1785 y 1864, es el único castillo real en América; el emperador Maximiliano y la emperatriz Carlota vivieron aquí de 1864 a 1867."
     }
   ]
 }

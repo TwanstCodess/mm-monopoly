@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "收取200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Chinatown",
+      "subtext": "唐人街",
+      "funFact": "曼哈顿唐人街是西半球最大的华埠，居住着9万多名居民和200多家餐厅。"
+    },
+    {
+      "index": 2,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Lower East Side",
+      "subtext": "下东区",
+      "funFact": "20世纪初，下东区是世界上人口最密集的街区，容纳了一波又一波来自欧洲的移民。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Grand Central",
+      "subtext": "中央车站",
+      "funFact": "中央车站拥有44个站台和67条轨道，是世界上站台数量最多的火车站。"
+    },
+    {
+      "index": 6,
+      "name": "SoHo",
+      "subtext": "苏豪区",
+      "funFact": "SoHo是“休斯顿街以南“的缩写，拥有世界上最大的铸铁建筑群。"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Greenwich Village",
+      "subtext": "格林威治村",
+      "funFact": "格林威治村是美国波希米亚运动的发源地，也是1969年引发现代LGBTQ权利运动的石墙事件发生地。"
+    },
+    {
+      "index": 9,
+      "name": "Chelsea",
+      "subtext": "切尔西",
+      "funFact": "高线公园是一座建在废弃货运铁路上的1.45英里高架公园，穿越切尔西，每年吸引800多万游客。"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "监狱",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "East Village",
+      "subtext": "东村",
+      "funFact": "东村是20世纪60年代反文化运动和朋克摇滚的中心，传奇场所CBGB曾在此演出雷蒙斯和金发美女乐队。"
+    },
+    {
+      "index": 12,
+      "name": "Con Edison",
+      "subtext": "联合爱迪生电力",
+      "funFact": "联合爱迪生的历史可追溯到托马斯·爱迪生1882年在珍珠街建造的第一座商业发电站，点亮了下曼哈顿。"
+    },
+    {
+      "index": 13,
+      "name": "Times Square",
+      "subtext": "时代广场",
+      "funFact": "时代广场的标志性广告牌每年耗电量足以为161户家庭供电一年，每年有近5000万人到访。"
+    },
+    {
+      "index": 14,
+      "name": "Midtown",
+      "subtext": "中城",
+      "funFact": "中城曼哈顿拥有世界上最密集的摩天大楼群，包括帝国大厦、克莱斯勒大厦和范德比尔特一号。"
+    },
+    {
+      "index": 15,
+      "name": "Penn Station",
+      "subtext": "宾夕法尼亚站",
+      "funFact": "宾夕法尼亚站是西半球最繁忙的交通枢纽，每天服务超过60万名乘客，覆盖美铁、长岛铁路和新泽西捷运。"
+    },
+    {
+      "index": 16,
+      "name": "Hell's Kitchen",
+      "subtext": "地狱厨房",
+      "funFact": "地狱厨房在19世纪80年代得名，一名警察说“这地方就是地狱本身“，该街区因其彪悍名声而闻名。"
+    },
+    {
+      "index": 17,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Wall Street",
+      "subtext": "华尔街",
+      "funFact": "华尔街因1653年荷兰殖民者为防御英国入侵而建的一面实墙而得名。纽约证券交易所年交易额超过20万亿美元。"
+    },
+    {
+      "index": 19,
+      "name": "Brooklyn Bridge",
+      "subtext": "布鲁克林大桥",
+      "funFact": "布鲁克林大桥1883年通车时是世界上最长的悬索桥，全长1595英尺，六天后因恐慌踩踏事件造成12人死亡。"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": "幸运转盘",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Central Park",
+      "subtext": "中央公园",
+      "funFact": "中央公园占地843英亩，由弗雷德里克·劳·奥姆斯特德和卡尔弗特·沃克斯于1858年设计。拥有18000多棵树，年接待4200万游客。"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Harlem",
+      "subtext": "哈莱姆",
+      "funFact": "20世纪20年代的哈莱姆文艺复兴孕育了兰斯顿·休斯、杜克·艾灵顿和佐拉·尼尔·赫斯顿等传奇艺术家，永远改变了美国文化。"
+    },
+    {
+      "index": 24,
+      "name": "Upper West Side",
+      "subtext": "上西区",
+      "funFact": "上西区是林肯中心的所在地，这是世界领先的表演艺术综合体，拥有包括大都会歌剧院在内的11个常驻机构。"
+    },
+    {
+      "index": 25,
+      "name": "PATH Train",
+      "subtext": "PATH列车",
+      "funFact": "PATH列车通过哈德逊河底的隧道连接曼哈顿和新泽西，自1908年运营以来每年运送超过8000万名乘客。"
+    },
+    {
+      "index": 26,
+      "name": "Upper East Side",
+      "subtext": "上东区",
+      "funFact": "上东区第五大道上的博物馆大道在一英里内汇聚九座世界级博物馆，包括大都会艺术博物馆。"
+    },
+    {
+      "index": 27,
+      "name": "Williamsburg",
+      "subtext": "威廉斯堡",
+      "funFact": "威廉斯堡原是一座独立城市，1855年并入布鲁克林。20世纪90年代艺术家们寻找廉价工作室空间，由此开启了创意中心的转型。"
+    },
+    {
+      "index": 28,
+      "name": "NYC Water",
+      "subtext": "纽约水务",
+      "funFact": "纽约市供水系统每天从125英里外的水库输送超过10亿加仑的水，水质之纯使其成为美国仅有的五个无需过滤的大城市之一。"
+    },
+    {
+      "index": 29,
+      "name": "DUMBO",
+      "subtext": "丹波区",
+      "funFact": "DUMBO是“曼哈顿大桥立交下方“的缩写。20世纪70年代艺术家们发明了这个不太美观的名字，希望阻止开发商对该地区进行高档化改造。"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": "去监狱",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Tribeca",
+      "subtext": "翠贝卡",
+      "funFact": "翠贝卡是“运河街以南三角区“的缩写，是曼哈顿最昂贵的街区之一，由罗伯特·德尼罗创办的翠贝卡电影节享誉国际。"
+    },
+    {
+      "index": 32,
+      "name": "Flatiron",
+      "subtext": "熨斗大厦",
+      "funFact": "熨斗大厦建于1902年，是纽约最早的摩天大楼之一，高22层。其独特的三角形状在街面造成强烈的风力效应。"
+    },
+    {
+      "index": 33,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Hudson Yards",
+      "subtext": "哈德逊广场",
+      "funFact": "哈德逊广场是美国历史上最大的私人房地产开发项目，投资250亿美元。其核心建筑“容器“包含154段相互连接的阶梯。"
+    },
+    {
+      "index": 35,
+      "name": "Brooklyn Terminal",
+      "subtext": "布鲁克林终点站",
+      "funFact": "布鲁克林大西洋终点站是长岛铁路1836年开通服务的地点，是美国最古老的铁路终点站之一。"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Empire State",
+      "subtext": "帝国大厦",
+      "funFact": "帝国大厦在大萧条时期仅用410天建成，每天雇用3400名工人。它有自己的邮政编码：10118。"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Statue of Liberty",
+      "subtext": "自由女神像",
+      "funFact": "自由女神像是1886年法国赠送的礼物，高305英尺。她的火炬最初被设计为灯塔，24英里外海上即可看到。"
+    }
+  ]
+}

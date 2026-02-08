@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "DÉPART",
+      "subtext": "RECEVEZ 200 $",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Chinatown",
+      "subtext": null,
+      "funFact": "Le Chinatown de Manhattan est le plus grand de l'hémisphère occidental, abritant plus de 90 000 résidents et plus de 200 restaurants."
+    },
+    {
+      "index": 2,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Lower East Side",
+      "subtext": null,
+      "funFact": "Au début des années 1900, le Lower East Side était le quartier le plus densément peuplé au monde, accueillant des vagues d'immigrants venus d'Europe."
+    },
+    {
+      "index": 4,
+      "name": "Impôt sur le Revenu",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Grand Central",
+      "subtext": null,
+      "funFact": "Grand Central Terminal possède 44 quais et 67 voies, ce qui en fait la plus grande gare ferroviaire du monde par nombre de quais."
+    },
+    {
+      "index": 6,
+      "name": "SoHo",
+      "subtext": null,
+      "funFact": "SoHo signifie « South of Houston Street » et abrite la plus grande collection d'architecture en fonte au monde."
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Greenwich Village",
+      "subtext": null,
+      "funFact": "Greenwich Village fut le berceau du mouvement bohème américain et du soulèvement de Stonewall en 1969 qui a lancé le mouvement moderne pour les droits LGBTQ."
+    },
+    {
+      "index": 9,
+      "name": "Chelsea",
+      "subtext": null,
+      "funFact": "La High Line, un parc surélevé de 2,3 km construit sur une ancienne voie ferrée de marchandises, traverse Chelsea et attire plus de 8 millions de visiteurs par an."
+    },
+    {
+      "index": 10,
+      "name": "PRISON",
+      "subtext": "EN VISITE",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "East Village",
+      "subtext": null,
+      "funFact": "L'East Village était l'épicentre du mouvement contre-culturel des années 1960 et de la scène punk rock, avec le légendaire club CBGB ayant accueilli les Ramones et Blondie."
+    },
+    {
+      "index": 12,
+      "name": "Con Edison",
+      "subtext": null,
+      "funFact": "Consolidated Edison remonte à la première centrale électrique commerciale de Thomas Edison sur Pearl Street en 1882, qui a éclairé le sud de Manhattan."
+    },
+    {
+      "index": 13,
+      "name": "Times Square",
+      "subtext": null,
+      "funFact": "Les panneaux publicitaires emblématiques de Times Square consomment assez d'électricité pour alimenter 161 foyers pendant un an, et près de 50 millions de personnes visitent le quartier chaque année."
+    },
+    {
+      "index": 14,
+      "name": "Midtown",
+      "subtext": null,
+      "funFact": "Midtown Manhattan possède la plus forte concentration de gratte-ciel au monde, dont l'Empire State Building, le Chrysler Building et One Vanderbilt."
+    },
+    {
+      "index": 15,
+      "name": "Penn Station",
+      "subtext": null,
+      "funFact": "Penn Station est le nœud de transport le plus fréquenté de l'hémisphère occidental, desservant plus de 600 000 passagers quotidiennement via Amtrak, LIRR et NJ Transit."
+    },
+    {
+      "index": 16,
+      "name": "Hell's Kitchen",
+      "subtext": null,
+      "funFact": "Hell's Kitchen a reçu son nom dans les années 1880 quand un policier a dit « cet endroit est l'enfer même », et le quartier est devenu célèbre pour sa dure réputation."
+    },
+    {
+      "index": 17,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Wall Street",
+      "subtext": null,
+      "funFact": "Wall Street tire son nom d'un véritable mur construit par les colons néerlandais en 1653 pour protéger la Nouvelle-Amsterdam de l'invasion britannique. Le NYSE échange plus de 20 000 milliards de dollars par an."
+    },
+    {
+      "index": 19,
+      "name": "Brooklyn Bridge",
+      "subtext": null,
+      "funFact": "Lorsque le pont de Brooklyn a ouvert en 1883, c'était le plus long pont suspendu au monde avec 486 mètres, et six jours plus tard 12 personnes sont mortes dans une bousculade causée par la panique."
+    },
+    {
+      "index": 20,
+      "name": "ROUE DE LA CHANCE",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Central Park",
+      "subtext": null,
+      "funFact": "Central Park couvre 341 hectares et a été conçu par Frederick Law Olmsted et Calvert Vaux en 1858. Il contient plus de 18 000 arbres et reçoit 42 millions de visites par an."
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Harlem",
+      "subtext": null,
+      "funFact": "La Renaissance de Harlem des années 1920 a produit des artistes légendaires comme Langston Hughes, Duke Ellington et Zora Neale Hurston, transformant à jamais la culture américaine."
+    },
+    {
+      "index": 24,
+      "name": "Upper West Side",
+      "subtext": null,
+      "funFact": "L'Upper West Side abrite le Lincoln Center, le plus grand complexe d'arts du spectacle au monde avec 11 organisations résidentes dont le Metropolitan Opera."
+    },
+    {
+      "index": 25,
+      "name": "PATH Train",
+      "subtext": null,
+      "funFact": "Le train PATH relie Manhattan au New Jersey par des tunnels sous le fleuve Hudson, transportant plus de 80 millions de passagers par an depuis son ouverture en 1908."
+    },
+    {
+      "index": 26,
+      "name": "Upper East Side",
+      "subtext": null,
+      "funFact": "Le Museum Mile de l'Upper East Side le long de la Cinquième Avenue contient neuf musées de classe mondiale sur un mile, dont le Metropolitan Museum of Art."
+    },
+    {
+      "index": 27,
+      "name": "Williamsburg",
+      "subtext": null,
+      "funFact": "Williamsburg était à l'origine une ville indépendante et a été rattachée à Brooklyn en 1855. Sa transformation en pôle créatif a commencé dans les années 1990 avec des artistes cherchant des ateliers abordables."
+    },
+    {
+      "index": 28,
+      "name": "NYC Water",
+      "subtext": null,
+      "funFact": "Le système d'approvisionnement en eau de New York fournit plus de 4 milliards de litres par jour depuis des réservoirs situés à plus de 200 km, et est si pur que c'est l'une des cinq seules grandes villes américaines n'ayant pas besoin de le filtrer."
+    },
+    {
+      "index": 29,
+      "name": "DUMBO",
+      "subtext": null,
+      "funFact": "DUMBO signifie « Down Under the Manhattan Bridge Overpass ». Des artistes des années 1970 ont inventé ce nom peu attrayant en espérant décourager les promoteurs de gentrifier le quartier."
+    },
+    {
+      "index": 30,
+      "name": "ALLEZ EN PRISON",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Tribeca",
+      "subtext": null,
+      "funFact": "Tribeca, abréviation de « Triangle Below Canal Street », est l'un des quartiers les plus chers de Manhattan et accueille le prestigieux Festival du film de Tribeca fondé par Robert De Niro."
+    },
+    {
+      "index": 32,
+      "name": "Flatiron",
+      "subtext": null,
+      "funFact": "Le Flatiron Building, achevé en 1902, était l'un des premiers gratte-ciel de New York avec 22 étages. Sa forme triangulaire distinctive crée de fortes rafales de vent au niveau de la rue."
+    },
+    {
+      "index": 33,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Hudson Yards",
+      "subtext": null,
+      "funFact": "Hudson Yards est le plus grand projet immobilier privé de l'histoire des États-Unis à 25 milliards de dollars. Sa pièce maîtresse, le Vessel, contient 154 volées d'escaliers interconnectées."
+    },
+    {
+      "index": 35,
+      "name": "Brooklyn Terminal",
+      "subtext": null,
+      "funFact": "L'Atlantic Terminal de Brooklyn se trouve là où le Long Island Rail Road a commencé son service en 1836, ce qui en fait l'un des plus anciens terminaux ferroviaires des États-Unis."
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Empire State",
+      "subtext": null,
+      "funFact": "L'Empire State Building a été construit en seulement 410 jours pendant la Grande Dépression, employant 3 400 ouvriers quotidiennement. Il possède son propre code postal : 10118."
+    },
+    {
+      "index": 38,
+      "name": "Taxe de Luxe",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Statue of Liberty",
+      "subtext": null,
+      "funFact": "La Statue de la Liberté fut un cadeau de la France en 1886, mesurant 93 mètres de haut. Son flambeau a été conçu à l'origine comme un phare visible à 39 km en mer."
+    }
+  ]
+}

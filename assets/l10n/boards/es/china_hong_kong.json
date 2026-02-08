@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "SALIDA",
+      "subtext": "COBRA $200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Sham Shui Po",
+      "subtext": "Sham Shui Po",
+      "funFact": "Sham Shui Po es uno de los barrios más antiguos de Hong Kong, famoso por sus mercados de electrónica en Apliu Street y las tiendas de telas en Ki Lung Street que datan de los años 40."
+    },
+    {
+      "index": 2,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Mong Kok",
+      "subtext": "Mong Kok",
+      "funFact": "Mong Kok ostenta el Récord Guinness por la mayor densidad de población jamás registrada, con más de 130.000 personas por kilómetro cuadrado en sus años de mayor concentración."
+    },
+    {
+      "index": 4,
+      "name": "Impuesto sobre la Renta",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "MTR Island Line",
+      "subtext": "MTR Línea de la Isla",
+      "funFact": "La Línea de la Isla del MTR abrió en 1985 y recorre enteramente la Isla de Hong Kong, conectando Kennedy Town con Chai Wan a lo largo de 17 estaciones."
+    },
+    {
+      "index": 6,
+      "name": "Tsim Sha Tsui",
+      "subtext": "Tsim Sha Tsui",
+      "funFact": "El paseo marítimo de Tsim Sha Tsui ofrece la icónica vista del Puerto Victoria, y su Torre del Reloj, construida en 1915, es la única estructura que queda de la terminal original del Ferrocarril Kowloon-Canton."
+    },
+    {
+      "index": 7,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Yau Ma Tei",
+      "subtext": "Yau Ma Tei",
+      "funFact": "El nombre de Yau Ma Tei significa \"lugar de plantas de sésamo\" en cantonés, y su complejo del Templo Tin Hau, construido alrededor de 1870, es uno de los grupos de templos más antiguos de Kowloon."
+    },
+    {
+      "index": 9,
+      "name": "Jordan",
+      "subtext": "Jordan",
+      "funFact": "Jordan lleva el nombre de Sir John Jordan, un diplomático británico, y es famoso por sus puestos de comida callejera nocturna en Ning Po Street que han servido a los locales durante más de 50 años."
+    },
+    {
+      "index": 10,
+      "name": "CÁRCEL",
+      "subtext": "DE VISITA",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Calle del Templo",
+      "subtext": "Calle del Templo",
+      "funFact": "El Mercado Nocturno de Temple Street cobra vida después de las 6 PM con más de 300 puestos que venden de todo, desde electrónica hasta jade, y adivinadores y cantantes de ópera cantonesa actúan bajo las estrellas."
+    },
+    {
+      "index": 12,
+      "name": "CLP Power",
+      "subtext": null,
+      "funFact": "CLP Power ha suministrado electricidad a Kowloon y los Nuevos Territorios desde 1901, atendiendo a más de 2,7 millones de cuentas de clientes en Hong Kong."
+    },
+    {
+      "index": 13,
+      "name": "Nathan Road",
+      "subtext": "Calle Nathan",
+      "funFact": "La Calle Nathan se extiende 3,6 km a través de Kowloon y es conocida como la \"Milla Dorada\" por su densa concentración de tiendas, hoteles y brillantes letreros de neón."
+    },
+    {
+      "index": 14,
+      "name": "Pico Victoria",
+      "subtext": "Pico Victoria",
+      "funFact": "El Pico Victoria se eleva 552 metros sobre el nivel del mar y durante la era colonial, solo el Gobernador y residentes ricos selectos tenían permiso para vivir en la cima."
+    },
+    {
+      "index": 15,
+      "name": "MTR Tsuen Wan Line",
+      "subtext": "MTR Línea Tsuen Wan",
+      "funFact": "La Línea Tsuen Wan fue la primera línea ferroviaria que cruzó el puerto cuando abrió en 1979, conectando la Isla de Hong Kong con Kowloon a través del túnel sumergido bajo el Puerto Victoria."
+    },
+    {
+      "index": 16,
+      "name": "Central",
+      "subtext": "Distrito Central",
+      "funFact": "Central es el corazón financiero de Hong Kong, donde los alquileres de oficinas regularmente se clasifican entre los más altos del mundo, superando incluso a Manhattan y la City de Londres."
+    },
+    {
+      "index": 17,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Star Ferry",
+      "subtext": "Ferry de la Estrella",
+      "funFact": "El Star Ferry ha cruzado el Puerto Victoria desde 1888, y National Geographic lo nombró uno de los 50 Lugares de una Vida. Un viaje sencillo cuesta menos de 5 HK$."
+    },
+    {
+      "index": 19,
+      "name": "Wan Chai",
+      "subtext": "Wan Chai",
+      "funFact": "Wan Chai alberga el Centro de Convenciones y Exposiciones de Hong Kong, cuyo distintivo techo en forma de ala se extiende sobre el puerto y fue la sede de la Ceremonia de Traspaso de 1997."
+    },
+    {
+      "index": 20,
+      "name": "GIRA Y GANA",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Happy Valley",
+      "subtext": "Valle Feliz",
+      "funFact": "El Hipódromo de Happy Valley ha albergado carreras de caballos desde 1846 y está rodeado de rascacielos; las carreras nocturnas de los miércoles bajo reflectores atraen hasta 55.000 espectadores."
+    },
+    {
+      "index": 22,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Causeway Bay",
+      "subtext": "Bahía Causeway",
+      "funFact": "Causeway Bay ha encabezado repetidamente los rankings globales como el distrito comercial más caro del mundo, con alquileres que alcanzan más de 2.600 dólares por pie cuadrado al año."
+    },
+    {
+      "index": 24,
+      "name": "Aberdeen",
+      "subtext": "Aberdeen",
+      "funFact": "El Puerto de Aberdeen fue una vez hogar de miles de habitantes de botes Tanka que vivían toda su vida en sampanes; el restaurante flotante Jumbo Kingdom sirvió a más de 30 millones de comensales antes de cerrar."
+    },
+    {
+      "index": 25,
+      "name": "Peak Tram",
+      "subtext": "Tranvía del Pico",
+      "funFact": "El Peak Tram ha transportado pasajeros al Pico Victoria desde 1888 con una pendiente de 27 grados, convirtiéndolo en uno de los funiculares más antiguos y empinados del mundo."
+    },
+    {
+      "index": 26,
+      "name": "Repulse Bay",
+      "subtext": "Bahía Repulse",
+      "funFact": "Repulse Bay obtiene su nombre del buque de guerra británico HMS Repulse que ayudó a repeler piratas en la zona en 1841; su playa en forma de media luna es una de las más populares de Hong Kong."
+    },
+    {
+      "index": 27,
+      "name": "Stanley",
+      "subtext": "Stanley",
+      "funFact": "Stanley fue el sitio de la última resistencia británica durante la invasión japonesa de 1941, y Murray House, un edificio colonial de 170 años, fue reubicado aquí ladrillo por ladrillo desde Central."
+    },
+    {
+      "index": 28,
+      "name": "Depto. de Suministro de Agua",
+      "subtext": null,
+      "funFact": "El Departamento de Suministro de Agua de Hong Kong gestiona 17 embalses e importa aproximadamente el 70-80% de su agua dulce desde Dongjiang en la provincia de Guangdong a través de un sistema de tuberías dedicado."
+    },
+    {
+      "index": 29,
+      "name": "Lan Kwai Fong",
+      "subtext": "Lan Kwai Fong",
+      "funFact": "Lan Kwai Fong es una calle en forma de L con más de 90 restaurantes y bares en unas pocas cuadras, transformada de un área de mercado de flores en los años 80 por el empresario Allan Zeman."
+    },
+    {
+      "index": 30,
+      "name": "VE A LA CÁRCEL",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "IFC Mall",
+      "subtext": "Centro Financiero Internacional",
+      "funFact": "El complejo del Centro Financiero Internacional incluye Two IFC, que mide 415 metros de altura y fue el edificio más alto de Hong Kong hasta 2010; la Apple Store en IFC Mall fue la primera en Hong Kong."
+    },
+    {
+      "index": 32,
+      "name": "Ocean Park",
+      "subtext": "Parque Oceánico",
+      "funFact": "Ocean Park abrió en 1977 y abarca 91,5 hectáreas en dos lados de una montaña conectados por un teleférico de 1,5 km que ofrece amplias vistas del Mar de China Meridional."
+    },
+    {
+      "index": 33,
+      "name": "Arca Comunal",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Hong Kong Park",
+      "subtext": "Parque de Hong Kong",
+      "funFact": "Hong Kong Park es un oasis de 8 hectáreas en el corazón de la ciudad que cuenta con el Aviario Edward Youde, que alberga más de 600 aves de 80 especies en un enorme recinto de selva tropical."
+    },
+    {
+      "index": 35,
+      "name": "Muelle Star Ferry",
+      "subtext": "Muelle del Ferry de la Estrella",
+      "funFact": "El Muelle Star Ferry en Central ha sido un punto de referencia desde 1957 y sirve como la terminal principal del icónico servicio de cruce del puerto."
+    },
+    {
+      "index": 36,
+      "name": "Suerte",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "ICC Tower",
+      "subtext": "Torre ICC",
+      "funFact": "El Centro de Comercio Internacional mide 484 metros de altura con 118 pisos, y su mirador Sky100 en el piso 100 es el punto de observación interior más alto de Hong Kong."
+    },
+    {
+      "index": 38,
+      "name": "Impuesto de Lujo",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "The Peak Tower",
+      "subtext": "Torre del Pico",
+      "funFact": "El diseño en forma de wok de la Peak Tower del arquitecto británico Terry Farrell se sitúa a 396 metros sobre el nivel del mar, y en días despejados su terraza ofrece visibilidad de hasta 60 kilómetros."
+    }
+  ]
+}

@@ -1456,4 +1456,61 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get countryMexico => 'メキシコ';
+
+  @override
+  String get chooseCity => '都市を選ぶ';
+
+  @override
+  String get cityAtlanticCity => 'アトランティックシティ';
+
+  @override
+  String get cityNewYork => 'ニューヨーク';
+
+  @override
+  String get cityLosAngeles => 'ロサンゼルス';
+
+  @override
+  String get cityLondon => 'ロンドン';
+
+  @override
+  String get cityEdinburgh => 'エディンバラ';
+
+  @override
+  String get cityManchester => 'マンチェスター';
+
+  @override
+  String get cityParis => 'パリ';
+
+  @override
+  String get cityLyon => 'リヨン';
+
+  @override
+  String get cityMarseille => 'マルセイユ';
+
+  @override
+  String get cityTokyo => '東京';
+
+  @override
+  String get cityOsaka => '大阪';
+
+  @override
+  String get cityKyoto => '京都';
+
+  @override
+  String get cityBeijing => '北京';
+
+  @override
+  String get cityShanghai => '上海';
+
+  @override
+  String get cityHongKong => '香港';
+
+  @override
+  String get cityMexicoCity => 'メキシコシティ';
+
+  @override
+  String get cityGuadalajara => 'グアダラハラ';
+
+  @override
+  String get cityCancun => 'カンクン';
 }

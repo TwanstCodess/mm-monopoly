@@ -4,6 +4,8 @@ import '../l10n/app_localizations.dart';
 import '../models/player.dart';
 import '../models/avatar.dart';
 import '../models/country.dart';
+import '../models/city_board.dart';
+import '../config/city_board_registry.dart';
 import '../config/constants.dart' hide Offset;
 import '../widgets/avatar/avatar_selector.dart';
 import '../widgets/avatar/avatar_widget.dart';
@@ -11,7 +13,7 @@ import '../widgets/avatar/avatar_widget.dart';
 /// Game setup screen for configuring players before starting
 class GameSetupScreen extends StatefulWidget {
   final VoidCallback onBack;
-  final Function(List<PlayerConfig>, {int diceCount, Country country}) onStartGame;
+  final Function(List<PlayerConfig>, {int diceCount, CityBoard cityBoard}) onStartGame;
 
   const GameSetupScreen({super.key, required this.onBack, required this.onStartGame});
 
@@ -23,6 +25,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
   int _playerCount = 2;
   int _diceCount = 2;
   Country _selectedCountry = Country.usa;
+  CityBoard _selectedCityBoard = CityBoardRegistry.defaultForCountry(Country.usa);
   final List<PlayerConfig> _playerConfigs = [];
   final List<TextEditingController> _nameControllers = [];
   int _currentStep = 0;
@@ -88,7 +91,7 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
       setState(() => _currentStep = 1);
     } else {
       if (_validateConfigs()) {
-        widget.onStartGame(_playerConfigs, diceCount: _diceCount, country: _selectedCountry);
+        widget.onStartGame(_playerConfigs, diceCount: _diceCount, cityBoard: _selectedCityBoard);
       }
     }
   }
@@ -283,242 +286,65 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
   Widget _buildPlayerCountStep() {
     return LayoutBuilder(
       builder: (context, constraints) {
-        // Calculate available height and distribute proportionally
         final availableHeight = constraints.maxHeight;
+        final availableWidth = constraints.maxWidth;
+        final isLandscape = availableWidth > availableHeight;
         final isCompact = availableHeight < 500;
 
-        // Proportional heights based on available space
-        final countryHeight = isCompact ? 140.0 : (availableHeight * 0.32).clamp(140.0, 190.0);
-        final playersHeight = isCompact ? 160.0 : (availableHeight * 0.38).clamp(160.0, 220.0);
-        final diceHeight = isCompact ? 100.0 : (availableHeight * 0.22).clamp(100.0, 140.0);
+        // In landscape, use a two-column layout
+        if (isLandscape) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8, bottom: 8),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Left column: Board + City
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          _buildCountrySection(isCompact: true),
+                          const SizedBox(height: 8),
+                          _buildCitySection(isCompact: true),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    // Right column: Players + Dice
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          _buildPlayersSection(isCompact: true),
+                          const SizedBox(height: 8),
+                          _buildDiceSection(isCompact: true),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }
 
+        // Portrait layout - single column, scrollable
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
             child: Column(
               children: [
                 SizedBox(height: isCompact ? 8 : 16),
-
-                // Country selection section
-                Container(
-                  height: countryHeight,
-                  width: double.infinity,
-                  padding: EdgeInsets.all(isCompact ? 12 : 20),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.05)],
-                    ),
-                    borderRadius: BorderRadius.circular(24),
-                    border: Border.all(color: Colors.white.withOpacity(0.2)),
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('🌍', style: TextStyle(fontSize: isCompact ? 20 : 24)),
-                          const SizedBox(width: 10),
-                          Text(
-                            AppLocalizations.of(context)!.chooseBoard,
-                            style: TextStyle(color: Colors.white, fontSize: isCompact ? 16 : 20, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: isCompact ? 8 : 16),
-                      Expanded(
-                        child: Row(
-                          children: Country.values.map((country) {
-                            final isSelected = _selectedCountry == country;
-                            final colors = [const Color(0xFFFF6B6B), const Color(0xFF4ECDC4), const Color(0xFFFFE66D)];
-                            final color = colors[country.index % colors.length];
-                            return Expanded(
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                  left: country.index == 0 ? 0 : 4,
-                                  right: country.index == Country.values.length - 1 ? 0 : 4,
-                                ),
-                                child: GestureDetector(
-                                  onTap: () => setState(() => _selectedCountry = country),
-                                  child: AnimatedContainer(
-                                    duration: const Duration(milliseconds: 200),
-                                    decoration: BoxDecoration(
-                                      gradient: isSelected ? LinearGradient(colors: [color, color.withOpacity(0.7)]) : null,
-                                      color: isSelected ? null : Colors.white.withOpacity(0.1),
-                                      borderRadius: BorderRadius.circular(16),
-                                      border: Border.all(color: isSelected ? color : Colors.white24, width: isSelected ? 3 : 2),
-                                      boxShadow: isSelected ? [BoxShadow(color: color.withOpacity(0.5), blurRadius: 12, offset: const Offset(0, 4))] : null,
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          country.flag,
-                                          style: TextStyle(fontSize: isCompact ? 24 : 32),
-                                        ),
-                                        SizedBox(height: isCompact ? 2 : 6),
-                                        Text(
-                                          country.localizedDisplayName(AppLocalizations.of(context)!),
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: isCompact ? 10 : 12,
-                                            fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            );
-                          }).toList(),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
+                _buildCountrySection(isCompact: isCompact),
+                SizedBox(height: isCompact ? 6 : 10),
+                _buildCitySection(isCompact: isCompact),
+                SizedBox(height: isCompact ? 6 : 10),
+                _buildPlayersSection(isCompact: isCompact),
                 SizedBox(height: isCompact ? 8 : 16),
-
-                // Players section - takes most space
-                Container(
-                  height: playersHeight,
-                  width: double.infinity,
-                  padding: EdgeInsets.all(isCompact ? 12 : 20),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.05)],
-                    ),
-                    borderRadius: BorderRadius.circular(24),
-                    border: Border.all(color: Colors.white.withOpacity(0.2)),
-                  ),
-                  child: Column(
-                    children: [
-                      // Section title
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.people_alt_rounded, color: Colors.white70, size: isCompact ? 20 : 24),
-                          const SizedBox(width: 10),
-                          Text(
-                            AppLocalizations.of(context)!.numberOfPlayers,
-                            style: TextStyle(color: Colors.white, fontSize: isCompact ? 16 : 20, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-
-                      SizedBox(height: isCompact ? 12 : 24),
-
-                      // Player count buttons - fill available width
-                      Expanded(
-                        child: Row(
-                          children: List.generate(GameConstants.maxPlayers - 1, (index) {
-                            final count = index + 2;
-                            final isSelected = _playerCount == count;
-                            final colors = [const Color(0xFFFF6B6B), const Color(0xFF4ECDC4), const Color(0xFFFFE66D)];
-                            final color = colors[index % colors.length];
-                            return Expanded(
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                  left: index == 0 ? 0 : 6,
-                                  right: index == 2 ? 0 : 6,
-                                ),
-                                child: GestureDetector(
-                                  onTap: () => _updatePlayerCount(count),
-                                  child: AnimatedContainer(
-                                    duration: const Duration(milliseconds: 200),
-                                    decoration: BoxDecoration(
-                                      gradient: isSelected ? LinearGradient(colors: [color, color.withOpacity(0.7)]) : null,
-                                      color: isSelected ? null : Colors.white.withOpacity(0.1),
-                                      borderRadius: BorderRadius.circular(20),
-                                      border: Border.all(color: isSelected ? color : Colors.white24, width: isSelected ? 3 : 2),
-                                      boxShadow: isSelected ? [BoxShadow(color: color.withOpacity(0.5), blurRadius: 16, offset: const Offset(0, 6))] : null,
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '$count',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: isCompact ? 36 : 48,
-                                            fontWeight: FontWeight.bold,
-                                            shadows: isSelected ? [const Shadow(color: Colors.black26, blurRadius: 4, offset: Offset(1, 1))] : null,
-                                          ),
-                                        ),
-                                        SizedBox(height: isCompact ? 2 : 4),
-                                        Text(
-                                          AppLocalizations.of(context)!.players,
-                                          style: TextStyle(
-                                            color: Colors.white.withOpacity(0.7),
-                                            fontSize: isCompact ? 12 : 14,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            );
-                          }),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: isCompact ? 8 : 16),
-
-                // Dice section - bottom card
-                Container(
-                  height: diceHeight,
-                  width: double.infinity,
-                  padding: EdgeInsets.all(isCompact ? 10 : 16),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.05)],
-                    ),
-                    borderRadius: BorderRadius.circular(24),
-                    border: Border.all(color: Colors.white.withOpacity(0.2)),
-                  ),
-                  child: Column(
-                    children: [
-                      // Section title
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('🎲', style: TextStyle(fontSize: isCompact ? 16 : 20)),
-                          const SizedBox(width: 8),
-                          Text(
-                            AppLocalizations.of(context)!.numberOfDice,
-                            style: TextStyle(color: Colors.white, fontSize: isCompact ? 14 : 18, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-
-                      SizedBox(height: isCompact ? 8 : 12),
-
-                      // Dice options - side by side, filling width
-                      Expanded(
-                        child: Row(
-                          children: [
-                            Expanded(child: _buildDiceCard(1, '🎲', AppLocalizations.of(context)!.oneDie, AppLocalizations.of(context)!.classicStyle, const Color(0xFF95E1D3))),
-                            const SizedBox(width: 12),
-                            Expanded(child: _buildDiceCard(2, '🎲🎲', AppLocalizations.of(context)!.twoDice, AppLocalizations.of(context)!.standardRules, const Color(0xFFFFB347))),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
+                _buildDiceSection(isCompact: isCompact),
                 SizedBox(height: isCompact ? 8 : 16),
               ],
             ),
@@ -528,12 +354,300 @@ class _GameSetupScreenState extends State<GameSetupScreen> with SingleTickerProv
     );
   }
 
+  Widget _buildSectionContainer({required Widget child, required bool isCompact, double borderRadius = 24}) {
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(isCompact ? 12 : 20),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.05)],
+        ),
+        borderRadius: BorderRadius.circular(borderRadius),
+        border: Border.all(color: Colors.white.withOpacity(0.2)),
+      ),
+      child: child,
+    );
+  }
+
+  Widget _buildCountrySection({required bool isCompact}) {
+    return _buildSectionContainer(
+      isCompact: isCompact,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('🌍', style: TextStyle(fontSize: isCompact ? 18 : 24)),
+              const SizedBox(width: 10),
+              Text(
+                AppLocalizations.of(context)!.chooseBoard,
+                style: TextStyle(color: Colors.white, fontSize: isCompact ? 15 : 20, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(height: isCompact ? 8 : 16),
+          ..._buildCountryRows(isCompact),
+        ],
+      ),
+    );
+  }
+
+  List<Widget> _buildCountryRows(bool isCompact) {
+    final countries = Country.values;
+    final List<Widget> rows = [];
+    for (int rowStart = 0; rowStart < countries.length; rowStart += 3) {
+      final rowEnd = (rowStart + 3).clamp(0, countries.length);
+      final rowCountries = countries.sublist(rowStart, rowEnd);
+      if (rowStart > 0) rows.add(SizedBox(height: isCompact ? 6 : 8));
+      rows.add(
+        Row(
+          children: [
+            for (int i = 0; i < rowCountries.length; i++) ...[
+              if (i > 0) SizedBox(width: isCompact ? 6 : 8),
+              Expanded(child: _buildCountryCard(rowCountries[i], isCompact)),
+            ],
+            // Fill remaining space if row has < 3 items
+            for (int i = rowCountries.length; i < 3; i++) ...[
+              SizedBox(width: isCompact ? 6 : 8),
+              const Expanded(child: SizedBox()),
+            ],
+          ],
+        ),
+      );
+    }
+    return rows;
+  }
+
+  Widget _buildCountryCard(Country country, bool isCompact) {
+    final isSelected = _selectedCountry == country;
+    final colors = [const Color(0xFFFF6B6B), const Color(0xFF4ECDC4), const Color(0xFFFFE66D)];
+    final color = colors[country.index % colors.length];
+    return GestureDetector(
+      onTap: () => setState(() {
+        _selectedCountry = country;
+        _selectedCityBoard = CityBoardRegistry.defaultForCountry(country);
+      }),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        padding: EdgeInsets.symmetric(vertical: isCompact ? 8 : 10, horizontal: 4),
+        decoration: BoxDecoration(
+          gradient: isSelected ? LinearGradient(colors: [color, color.withOpacity(0.7)]) : null,
+          color: isSelected ? null : Colors.white.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(isCompact ? 12 : 16),
+          border: Border.all(color: isSelected ? color : Colors.white24, width: isSelected ? 3 : 2),
+          boxShadow: isSelected ? [BoxShadow(color: color.withOpacity(0.5), blurRadius: 12, offset: const Offset(0, 4))] : null,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              country.flag,
+              style: TextStyle(fontSize: isCompact ? 22 : 28),
+            ),
+            SizedBox(width: isCompact ? 6 : 8),
+            Flexible(
+              child: Text(
+                country.localizedDisplayName(AppLocalizations.of(context)!),
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: isCompact ? 12 : 14,
+                  fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCitySection({required bool isCompact}) {
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.symmetric(horizontal: isCompact ? 10 : 16, vertical: isCompact ? 8 : 12),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Colors.white.withOpacity(0.12), Colors.white.withOpacity(0.04)],
+        ),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.white.withOpacity(0.15)),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('🏙️', style: TextStyle(fontSize: isCompact ? 14 : 16)),
+              const SizedBox(width: 8),
+              Text(
+                AppLocalizations.of(context)!.chooseCity,
+                style: TextStyle(color: Colors.white, fontSize: isCompact ? 13 : 15, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(height: isCompact ? 6 : 8),
+          Row(
+            children: CityBoardRegistry.forCountry(_selectedCountry).map((city) {
+              final isSelected = _selectedCityBoard == city;
+              final color = const Color(0xFFFFBE0B);
+              return Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  child: GestureDetector(
+                    onTap: () => setState(() => _selectedCityBoard = city),
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      padding: EdgeInsets.symmetric(vertical: isCompact ? 8 : 10),
+                      decoration: BoxDecoration(
+                        gradient: isSelected ? LinearGradient(colors: [color, color.withOpacity(0.7)]) : null,
+                        color: isSelected ? null : Colors.white.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: isSelected ? color : Colors.white24, width: isSelected ? 2.5 : 1.5),
+                        boxShadow: isSelected ? [BoxShadow(color: color.withOpacity(0.4), blurRadius: 8, offset: const Offset(0, 2))] : null,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(city.emoji, style: TextStyle(fontSize: isCompact ? 14 : 16)),
+                          const SizedBox(width: 4),
+                          Flexible(
+                            child: Text(
+                              city.displayName,
+                              textAlign: TextAlign.center,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: isCompact ? 11 : 13,
+                                fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPlayersSection({required bool isCompact}) {
+    return _buildSectionContainer(
+      isCompact: isCompact,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.people_alt_rounded, color: Colors.white70, size: isCompact ? 20 : 24),
+              const SizedBox(width: 10),
+              Text(
+                AppLocalizations.of(context)!.numberOfPlayers,
+                style: TextStyle(color: Colors.white, fontSize: isCompact ? 15 : 20, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(height: isCompact ? 10 : 20),
+          IntrinsicHeight(
+            child: Row(
+              children: List.generate(GameConstants.maxPlayers - 1, (index) {
+                final count = index + 2;
+                final isSelected = _playerCount == count;
+                final colors = [const Color(0xFFFF6B6B), const Color(0xFF4ECDC4), const Color(0xFFFFE66D)];
+                final color = colors[index % colors.length];
+                return Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: index == 0 ? 0 : 6,
+                      right: index == 2 ? 0 : 6,
+                    ),
+                    child: GestureDetector(
+                      onTap: () => _updatePlayerCount(count),
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 200),
+                        padding: EdgeInsets.symmetric(vertical: isCompact ? 10 : 16),
+                        decoration: BoxDecoration(
+                          gradient: isSelected ? LinearGradient(colors: [color, color.withOpacity(0.7)]) : null,
+                          color: isSelected ? null : Colors.white.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: isSelected ? color : Colors.white24, width: isSelected ? 3 : 2),
+                          boxShadow: isSelected ? [BoxShadow(color: color.withOpacity(0.5), blurRadius: 16, offset: const Offset(0, 6))] : null,
+                        ),
+                        child: Center(
+                          child: Text(
+                            '$count',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: isCompact ? 32 : 48,
+                              fontWeight: FontWeight.bold,
+                              shadows: isSelected ? [const Shadow(color: Colors.black26, blurRadius: 4, offset: Offset(1, 1))] : null,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              }),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDiceSection({required bool isCompact}) {
+    return _buildSectionContainer(
+      isCompact: isCompact,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('🎲', style: TextStyle(fontSize: isCompact ? 16 : 20)),
+              const SizedBox(width: 8),
+              Text(
+                AppLocalizations.of(context)!.numberOfDice,
+                style: TextStyle(color: Colors.white, fontSize: isCompact ? 14 : 18, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(height: isCompact ? 8 : 12),
+          IntrinsicHeight(
+            child: Row(
+              children: [
+                Expanded(child: _buildDiceCard(1, '🎲', AppLocalizations.of(context)!.oneDie, AppLocalizations.of(context)!.classicStyle, const Color(0xFF95E1D3))),
+                const SizedBox(width: 12),
+                Expanded(child: _buildDiceCard(2, '🎲🎲', AppLocalizations.of(context)!.twoDice, AppLocalizations.of(context)!.standardRules, const Color(0xFFFFB347))),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildDiceCard(int count, String emoji, String label, String subtitle, Color color) {
     final isSelected = _diceCount == count;
     return GestureDetector(
       onTap: () => setState(() => _diceCount = count),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
+        padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
           gradient: isSelected ? LinearGradient(colors: [color, color.withOpacity(0.7)]) : null,
           color: isSelected ? null : Colors.white.withOpacity(0.1),

@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "GO",
+      "subtext": "收取200",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "Northern Quarter",
+      "subtext": "北区",
+      "funFact": "曼彻斯特的创意中心曾是城市的服装区。红砖仓库现在汇聚独立商店、街头艺术和30多家唱片店。"
+    },
+    {
+      "index": 2,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Ancoats",
+      "subtext": "安科茨",
+      "funFact": "20世纪初因意大利移民社区被称为“小意大利“，安科茨被认为是世界上第一个工业郊区，建于18世纪90年代。"
+    },
+    {
+      "index": 4,
+      "name": "所得税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Piccadilly Station",
+      "subtext": "皮卡迪利站",
+      "funFact": "曼彻斯特皮卡迪利站是伦敦以外英国最繁忙的火车站，14个站台每年接待超过3200万名乘客。"
+    },
+    {
+      "index": 6,
+      "name": "Castlefield",
+      "subtext": "城堡场",
+      "funFact": "公元79年罗马堡垒曼库尼乌姆的所在地，曼彻斯特的名字即源于此。这里还有世界上第一条工业运河的终点站。"
+    },
+    {
+      "index": 7,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Salford Quays",
+      "subtext": "索尔福德码头",
+      "funFact": "曾是英国最繁忙的内陆港口，索尔福德码头从废弃船坞转型为文化水滨区，拥有洛利剧院和帝国战争博物馆北馆。"
+    },
+    {
+      "index": 9,
+      "name": "MediaCityUK",
+      "subtext": "媒体城",
+      "funFact": "索尔福德码头占地200英亩的开发区于2011年成为BBC的北方新总部，同时容纳ITV工作室，是伦敦以外英国最大的媒体中心。"
+    },
+    {
+      "index": 10,
+      "name": "JAIL",
+      "subtext": "监狱",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "Deansgate",
+      "subtext": "迪恩斯盖特",
+      "funFact": "曼彻斯特最长、最古老的街道之一，迪恩斯盖特沿罗马道路延伸超过一英里，从大教堂到诺特磨坊。"
+    },
+    {
+      "index": 12,
+      "name": "Electricity North West",
+      "subtext": "西北电力",
+      "funFact": "西北电力运营着13000公里的架空线路和地下电缆，为西北地区240万户家庭和企业供电。"
+    },
+    {
+      "index": 13,
+      "name": "Didsbury",
+      "subtext": "迪兹伯里",
+      "funFact": "南曼彻斯特这片绿荫郊区是比吉斯乐队的童年故居。其村庄般的氛围汇聚维多利亚公园和曼彻斯特最古老的酒吧之一。"
+    },
+    {
+      "index": 14,
+      "name": "Chorlton",
+      "subtext": "乔尔顿",
+      "funFact": "乔尔顿以波希米亚文化和独立美食闻名。附近的乔尔顿水上公园是20世纪70年代由被淹没的砾石坑建成。"
+    },
+    {
+      "index": 15,
+      "name": "Victoria Station",
+      "subtext": "维多利亚站",
+      "funFact": "曼彻斯特维多利亚站于1844年开通，拥有英国最长的站台，达693米。曾在1996年爱尔兰共和军爆炸案中严重受损，2015年全面修复。"
+    },
+    {
+      "index": 16,
+      "name": "Old Trafford",
+      "subtext": "老特拉福德",
+      "funFact": "自1910年以来一直是曼联“梦剧场“的所在地，老特拉福德球场可容纳74310名观众，是英国最大的俱乐部足球场。"
+    },
+    {
+      "index": 17,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Etihad Campus",
+      "subtext": "阿提哈德园区",
+      "funFact": "阿提哈德园区占地80英亩，位于东曼彻斯特，以2002年英联邦运动会体育场为中心，现为曼城足球俱乐部主场。"
+    },
+    {
+      "index": 19,
+      "name": "Piccadilly Gardens",
+      "subtext": "皮卡迪利花园",
+      "funFact": "曾是曼彻斯特皇家医院的所在地，皮卡迪利花园自1853年以来一直是城市的主要公共广场，也是有轨电车网络中最繁忙的站点。"
+    },
+    {
+      "index": 20,
+      "name": "LUCKY SPIN",
+      "subtext": "幸运转盘",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Spinningfields",
+      "subtext": "纺织场",
+      "funFact": "曼彻斯特首要商务区以中世纪纺织社区命名。现在设有民事司法中心，是欧洲最引人注目的法院建筑之一。"
+    },
+    {
+      "index": 22,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "King Street",
+      "subtext": "国王街",
+      "funFact": "曼彻斯特最优雅的商业街汇集各时代的精美建筑，包括妇女参政运动早期会议举办地——前改革俱乐部。"
+    },
+    {
+      "index": 24,
+      "name": "Exchange Square",
+      "subtext": "交易广场",
+      "funFact": "在1996年毁灭性的爱尔兰共和军爆炸案后完全重建，交易广场成为曼彻斯特城市更新的核心，每年举办圣诞集市。"
+    },
+    {
+      "index": 25,
+      "name": "Oxford Road Station",
+      "subtext": "牛津路站",
+      "funFact": "曼彻斯特牛津路站是英国最繁忙的车站之一，高峰期每20秒一班列车，服务于拥有10万学生的大学走廊。"
+    },
+    {
+      "index": 26,
+      "name": "Albert Square",
+      "subtext": "阿尔伯特广场",
+      "funFact": "以1877年阿尔弗雷德·沃特豪斯设计的壮丽新哥特式市政厅为主体，阿尔伯特广场的阿尔伯特纪念碑比伦敦更著名的版本更早建成。"
+    },
+    {
+      "index": 27,
+      "name": "St Ann's Square",
+      "subtext": "圣安妮广场",
+      "funFact": "以18世纪圣安妮教堂命名，2017年曼彻斯特竞技场恐袭后，鲜花覆盖整个广场，成为有力的纪念场所。"
+    },
+    {
+      "index": 28,
+      "name": "United Utilities",
+      "subtext": "联合公用事业",
+      "funFact": "联合公用事业为西北地区700万人管理供水，运营瑟尔米尔引水渠，将湖区的水输送96英里至曼彻斯特。"
+    },
+    {
+      "index": 29,
+      "name": "科学博物馆",
+      "subtext": "Museum of Science",
+      "funFact": "坐落于世界上现存最古老的客运火车站，科学与工业博物馆纪念曼彻斯特作为工业革命发源地的角色。"
+    },
+    {
+      "index": 30,
+      "name": "GO TO JAIL",
+      "subtext": "去监狱",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Whitworth",
+      "subtext": "惠特沃斯美术馆",
+      "funFact": "惠特沃斯美术馆收藏了6万多件艺术品，包括特纳和霍克尼的作品。其2015年获奖扩建部分使用回收砖块建造。"
+    },
+    {
+      "index": 32,
+      "name": "John Rylands",
+      "subtext": "约翰·赖兰兹图书馆",
+      "funFact": "迪恩斯盖特的约翰·赖兰兹图书馆是1900年开放的新哥特式杰作。馆藏包括最古老的新约抄本，一份公元125年的莎草纸残片。"
+    },
+    {
+      "index": 33,
+      "name": "宝箱",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Victoria Baths",
+      "subtext": "维多利亚浴场",
+      "funFact": "1906年开放，被誉为“曼彻斯特引以为豪的水上宫殿“，维多利亚浴场在2003年赢得了BBC《修复》节目首季冠军。"
+    },
+    {
+      "index": 35,
+      "name": "Deansgate Station",
+      "subtext": "迪恩斯盖特站",
+      "funFact": "迪恩斯盖特站位于大北方仓库下方，这座1899年建造的铁路货物仓库现已改建为休闲娱乐综合体。"
+    },
+    {
+      "index": 36,
+      "name": "机会",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Beetham Tower",
+      "subtext": "比瑟姆塔",
+      "funFact": "比瑟姆塔高168米，2006年建成时是伦敦以外英国最高建筑。其顶部独特的玻璃刀片在强风中会发出嗡鸣声。"
+    },
+    {
+      "index": 38,
+      "name": "奢侈税",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Midland Hotel",
+      "subtext": "米德兰酒店",
+      "funFact": "这座宏伟的爱德华巴洛克式酒店于1903年开业，查尔斯·劳斯与亨利·莱斯于1904年在此相遇，促成了世界上最具标志性的品牌之一劳斯莱斯的创立。"
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "tiles": [
+    {
+      "index": 0,
+      "name": "DÉPART",
+      "subtext": "SALIDA",
+      "funFact": null
+    },
+    {
+      "index": 1,
+      "name": "San Juan de Dios",
+      "subtext": "San Juan de Dios",
+      "funFact": "L'un des plus grands marchés couverts d'Amérique latine avec plus de 3 000 stands vendant de tout, du cuir à l'artisanat populaire, construit en 1954."
+    },
+    {
+      "index": 2,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 3,
+      "name": "Analco",
+      "subtext": "Analco",
+      "funFact": "L'un des plus anciens quartiers de Guadalajara, son nom en nahuatl signifie « de l'autre côté de la rivière » et remonte au XVIe siècle."
+    },
+    {
+      "index": 4,
+      "name": "Impôt sur le Revenu",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 5,
+      "name": "Línea 1 (Tren Ligero)",
+      "subtext": "Línea 1",
+      "funFact": "La première ligne de train léger de Guadalajara a ouvert en 1989, parcourant 15,5 km du nord au sud à travers le cœur de la ville."
+    },
+    {
+      "index": 6,
+      "name": "Tlaquepaque",
+      "subtext": "Tlaquepaque",
+      "funFact": "Célèbre village artisanal reconnu mondialement pour son verre soufflé, sa poterie et ses figurines en papier mâché. Son centre piétonnier est un trésor culturel de l'UNESCO."
+    },
+    {
+      "index": 7,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 8,
+      "name": "Tonalá",
+      "subtext": "Tonalá",
+      "funFact": "Le plus grand marché artisanal en plein air du Mexique se tient chaque jeudi et dimanche, attirant plus de 10 000 vendeurs de céramiques, verre soufflé et art populaire."
+    },
+    {
+      "index": 9,
+      "name": "Zapopan Centro",
+      "subtext": "Zapopan Centro",
+      "funFact": "Abrite la basilique Notre-Dame de Zapopan, où une petite statue en pâte de maïs du XVIe siècle est portée en procession à travers la ville chaque 12 octobre."
+    },
+    {
+      "index": 10,
+      "name": "PRISON",
+      "subtext": "CÁRCEL",
+      "funFact": null
+    },
+    {
+      "index": 11,
+      "name": "La Minerva",
+      "subtext": "La Minerva",
+      "funFact": "L'emblématique rond-point de la fontaine Minerva présente une statue de déesse grecque symbolisant la force et la sagesse de Guadalajara, érigée en 1957."
+    },
+    {
+      "index": 12,
+      "name": "CFE Guadalajara",
+      "subtext": null,
+      "funFact": "La CFE fournit de l'électricité à la zone métropolitaine de Guadalajara avec plus de 5 millions d'habitants, la deuxième plus grande métropole du Mexique."
+    },
+    {
+      "index": 13,
+      "name": "Chapalita",
+      "subtext": "Chapalita",
+      "funFact": "Un quartier résidentiel huppé construit dans les années 1940 autour d'un parc central, connu pour ses rues bordées d'arbres et son architecture de style européen."
+    },
+    {
+      "index": 14,
+      "name": "Providencia",
+      "subtext": "Providencia",
+      "funFact": "Le quartier résidentiel le plus exclusif de Guadalajara comprend des demeures de luxe, des restaurants haut de gamme et la célèbre Avenida Providencia bordée de grands frênes."
+    },
+    {
+      "index": 15,
+      "name": "Línea 2 (Tren Ligero)",
+      "subtext": "Línea 2",
+      "funFact": "Parcourant 8,5 km d'est en ouest, la Línea 2 a ouvert en 1994 et croise la Línea 1 à la station Juárez au centre-ville."
+    },
+    {
+      "index": 16,
+      "name": "Centro Histórico",
+      "subtext": "Centro Histórico",
+      "funFact": "Le centre historique de Guadalajara a été fondé en 1542 et présente une architecture coloniale remarquable couvrant près de cinq siècles d'histoire mexicaine."
+    },
+    {
+      "index": 17,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 18,
+      "name": "Catedral",
+      "subtext": "Catedral",
+      "funFact": "La cathédrale aux deux tours de Guadalajara, construite entre 1561 et 1618, présente un mélange de styles gothique, baroque et néoclassique unique au Mexique."
+    },
+    {
+      "index": 19,
+      "name": "Hospicio Cabañas",
+      "subtext": "Hospicio Cabañas",
+      "funFact": "Site du patrimoine mondial de l'UNESCO depuis 1997, abritant le chef-d'œuvre de José Clemente Orozco « L'Homme de feu » peint sur 57 fresques au plafond."
+    },
+    {
+      "index": 20,
+      "name": "ROUE DE LA CHANCE",
+      "subtext": "GIRA Y GANA",
+      "funFact": null
+    },
+    {
+      "index": 21,
+      "name": "Teatro Degollado",
+      "subtext": "Teatro Degollado",
+      "funFact": "Ouvert en 1866, ce théâtre néoclassique possède un plafond peint inspiré de la Divine Comédie de Dante et accueille l'Orchestre philharmonique de Guadalajara."
+    },
+    {
+      "index": 22,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 23,
+      "name": "Chapultepec",
+      "subtext": "Chapultepec",
+      "funFact": "L'avenue la plus tendance de Guadalajara regorge de terrasses de cafés, galeries d'art et vie nocturne. Chaque week-end, la rue est fermée à la circulation pour un vibrant corridor culturel."
+    },
+    {
+      "index": 24,
+      "name": "Americana",
+      "subtext": "Americana",
+      "funFact": "Un quartier bohème avec de superbes demeures du début des années 1900 mêlant styles français et Art déco, aujourd'hui parsemé d'hôtels-boutiques et de restaurants branchés."
+    },
+    {
+      "index": 25,
+      "name": "Línea 3 (Mi Tren)",
+      "subtext": "Línea 3",
+      "funFact": "La première ligne de train aérien de Guadalajara a ouvert en 2020, s'étendant sur 21,5 km et reliant Zapopan à Tlaquepaque avec des trains modernes sans conducteur."
+    },
+    {
+      "index": 26,
+      "name": "Plaza del Sol",
+      "subtext": "Plaza del Sol",
+      "funFact": "Lors de son ouverture en 1969, la Plaza del Sol était le plus grand centre commercial d'Amérique latine, révolutionnant la culture du commerce de détail dans l'ouest du Mexique."
+    },
+    {
+      "index": 27,
+      "name": "Colonia Moderna",
+      "subtext": "Colonia Moderna",
+      "funFact": "Un quartier vibrant où la culture mexicaine traditionnelle rencontre la vie urbaine moderne, connu pour ses fresques murales colorées et ses stands de tacos locaux."
+    },
+    {
+      "index": 28,
+      "name": "SIAPA",
+      "subtext": null,
+      "funFact": "Le SIAPA gère l'eau potable et les eaux usées de la métropole de Guadalajara, s'approvisionnant au lac de Chapala, le plus grand lac d'eau douce du Mexique."
+    },
+    {
+      "index": 29,
+      "name": "Glorieta de Los Niños Héroes",
+      "subtext": "Niños Héroes",
+      "funFact": "Ce monument rend hommage aux six cadets militaires adolescents qui sont morts en défendant le château de Chapultepec pendant la guerre américano-mexicaine de 1847."
+    },
+    {
+      "index": 30,
+      "name": "ALLEZ EN PRISON",
+      "subtext": "VE A LA CÁRCEL",
+      "funFact": null
+    },
+    {
+      "index": 31,
+      "name": "Parque Metropolitano",
+      "subtext": "Parque Metropolitano",
+      "funFact": "Avec 113 hectares, cette forêt urbaine est le poumon vert de Guadalajara, comprenant des sentiers de jogging, un lac et le plus grand amphithéâtre en plein air de la ville."
+    },
+    {
+      "index": 32,
+      "name": "Barranca de Huentitán",
+      "subtext": "Barranca",
+      "funFact": "Un canyon spectaculaire de 600 mètres de profondeur en bordure nord de Guadalajara avec la rivière Santiago en contrebas, offrant des sentiers de randonnée à couper le souffle et des tyroliennes."
+    },
+    {
+      "index": 33,
+      "name": "Caisse de Communauté",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 34,
+      "name": "Tequila",
+      "subtext": "Tequila",
+      "funFact": "La ville classée à l'UNESCO, à 60 km de Guadalajara, a donné son nom au spiritueux le plus célèbre du monde. Les champs d'agave bleue qui l'entourent ont été déclarés paysage du patrimoine mondial en 2006."
+    },
+    {
+      "index": 35,
+      "name": "Macrobús",
+      "subtext": "Macrobús",
+      "funFact": "Le système de bus à haut niveau de service de Guadalajara a été lancé en 2009, transportant 180 000 passagers par jour sur un corridor dédié de 16 km sur la Calzada Independencia."
+    },
+    {
+      "index": 36,
+      "name": "Chance",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 37,
+      "name": "Lago de Chapala",
+      "subtext": "Lago de Chapala",
+      "funFact": "Le plus grand lac d'eau douce du Mexique avec 1 112 kilomètres carrés, à seulement 45 minutes de Guadalajara, abritant la plus grande communauté d'expatriés américains et canadiens au Mexique."
+    },
+    {
+      "index": 38,
+      "name": "Taxe de Luxe",
+      "subtext": null,
+      "funFact": null
+    },
+    {
+      "index": 39,
+      "name": "Rotonda de los Jaliscienses Ilustres",
+      "subtext": "Rotonda",
+      "funFact": "Cette rotonde néoclassique honore 98 citoyens illustres du Jalisco. Construite en 1952, elle contient les restes d'artistes, scientifiques et révolutionnaires célèbres."
+    }
+  ]
+}
