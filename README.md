@@ -6,11 +6,17 @@ A fun, family-friendly board game for tablets inspired by classic property tradi
 
 - **2-4 Players** - Play with family and friends on a single device
 - **AI Opponents** - Practice against computer players
+- **6 Countries, 18 Cities** - Play on real-world city boards:
+  - 🇺🇸 USA — Atlantic City, New York, Los Angeles
+  - 🇬🇧 UK — London, Edinburgh, Manchester
+  - 🇫🇷 France — Paris, Lyon, Marseille
+  - 🇯🇵 Japan — Tokyo, Osaka, Kyoto
+  - 🇨🇳 China — Beijing, Shanghai, Hong Kong
+  - 🇲🇽 Mexico — Mexico City, Guadalajara, Cancún
 - **Power-Up Cards** - Special abilities to shake up the game
 - **Mini Games** - Quick challenges to earn extra cash
 - **17 Languages** - Full localization support
 - **Custom Avatars** - Take photos or choose from presets
-- **Themes** - Multiple board themes to choose from
 
 ## Screenshots
 
@@ -27,7 +33,7 @@ Coming soon...
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/mm-monopoly.git
+git clone https://github.com/hao6yu/mm-monopoly.git
 
 # Navigate to project directory
 cd mm-monopoly
