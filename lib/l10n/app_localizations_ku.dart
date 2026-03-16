@@ -4,7 +4,7 @@ import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for Kurdish (Central) (`ku`).
+/// The translations for Kurdish (`ku`).
 class AppLocalizationsKu extends AppLocalizations {
   AppLocalizationsKu([String locale = 'ku']) : super(locale);
 
@@ -224,7 +224,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String buyForAmount(String amount) {
-    return 'بکڕە بە $amount';
+    return 'بکڕە بە \$$amount';
   }
 
   @override
@@ -246,7 +246,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String diceRentCalc(int diceRoll, int multiplier, int amount) {
-    return 'زار: $diceRoll × $multiplier = $amount';
+    return 'زار: $diceRoll × $multiplier = \$$amount';
   }
 
   @override
@@ -269,7 +269,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String payAmount(int amount) {
-    return '$amount بدە';
+    return '\$$amount بدە';
   }
 
   @override
@@ -333,7 +333,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String payBail(int amount) {
-    return '$amount بارمتە بدە';
+    return '\$$amount بارمتە بدە';
   }
 
   @override
@@ -356,7 +356,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String buildForAmount(int amount) {
-    return '$amount بنیاد بنێ';
+    return '\$$amount بنیاد بنێ';
   }
 
   @override
@@ -381,7 +381,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String propertyValue(int amount) {
-    return 'نرخ: $amount';
+    return 'نرخ: \$$amount';
   }
 
   @override
@@ -409,7 +409,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String bidAmount(int amount) {
-    return 'نرخ بدە $amount';
+    return 'نرخ بدە \$$amount';
   }
 
   @override
@@ -425,7 +425,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String finalBid(int amount) {
-    return 'کۆتا نرخ: $amount';
+    return 'کۆتا نرخ: \$$amount';
   }
 
   @override
@@ -513,12 +513,12 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String receiveAmount(int amount) {
-    return 'وەرگرتن: $amount';
+    return 'وەرگرتن: \$$amount';
   }
 
   @override
   String costAmount(int amount) {
-    return 'تێچوون: $amount';
+    return 'تێچوون: \$$amount';
   }
 
   @override
@@ -567,7 +567,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String hotelsMaxRentTip(int amount) {
-    return 'هۆتێلەکان بەرزترین کڕێ دروست دەکەن - هەتا $amount!';
+    return 'هۆتێلەکان بەرزترین کڕێ دروست دەکەن - هەتا \$$amount!';
   }
 
   @override
@@ -634,7 +634,7 @@ class AppLocalizationsKu extends AppLocalizations {
   String get returnCardBottom => 'کارتەکە بگەڕێنەوە بۆ بنی کەوانەکە';
 
   @override
-  String get justVisitingSafe => 'ئەگەر تۆ "تەنها سەردانکەر"یت - سەلامەتی!';
+  String get justVisitingSafe => 'ئەگەر تۆ \"تەنها سەردانکەر\"یت - سەلامەتی!';
 
   @override
   String get inJailYouCan => 'ئەگەر لە بەندیخانەدایت، دەتوانیت:';
@@ -646,7 +646,7 @@ class AppLocalizationsKu extends AppLocalizations {
   String get rollDoublesThreeTries => '  • هەوڵی هەڵدانی جووت بدەیت (٣ هەوڵ)';
 
   @override
-  String get useGetOutCard => '  • کارتی "دەرچوون لە بەندیخانە" بەکاربهێنیت';
+  String get useGetOutCard => '  • کارتی \"دەرچوون لە بەندیخانە\" بەکاربهێنیت';
 
   @override
   String get goDirectlyToJail => 'ڕاستەوخۆ بڕۆ بەندیخانە!';
@@ -866,7 +866,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String netWorth(int amount) {
-    return 'نرخی تۆ: $amount';
+    return 'نرخی تۆ: \$$amount';
   }
 
   @override
@@ -881,7 +881,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String rentAmount(int amount) {
-    return 'کڕێ: $amount';
+    return 'کڕێ: \$$amount';
   }
 
   @override
@@ -984,17 +984,17 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String boughtProperty(String name, int price) {
-    return '$name بە $price کڕدرا!';
+    return '$name بە \$$price کڕدرا!';
   }
 
   @override
   String paidRentTo(int amount, String name) {
-    return '$amount کڕێ درا بە $name';
+    return '\$$amount کڕێ درا بە $name';
   }
 
   @override
   String paidTax(int amount, String taxName) {
-    return '$amount $taxName درا';
+    return '\$$amount $taxName درا';
   }
 
   @override
@@ -1126,7 +1126,7 @@ class AppLocalizationsKu extends AppLocalizations {
 
   @override
   String get eventPropertySaleDesc =>
-      'هەموو مۆڵگە نەکڕاوەکان بۆ ٢ خول ٢٥٪ هەرزانترن!';
+      'هەموو مۆڵگە نەکڕاوەکان بۆ ٢ خول ٢٪ هەرزانترن!';
 
   @override
   String get eventLuckyDay => 'ڕۆژی بەختەوەری';
